@@ -82,9 +82,7 @@ h6 {
 <link rel="stylesheet" href="libs/local/nav.css" type="text/css" />
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css" />
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -109,22 +107,92 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
 
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
 <script>
 $(document).ready(function () {
   window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
 });
 </script>
 
 <!-- code folding -->
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -135,10 +203,12 @@ $(document).ready(function () {
     </a>
     <ul>
       <li class="home"><a href="index.html">Home</a></li>
+      <li class="notes"><a href="stat545ubc.netlify.html">Notes</a></li>
+      <li class="evaluation"><a href="evaluation.html">Assessments</a></li>
+      <li class="discussion"><a href="https://github.com/STAT545-UBC/Discussion">Discussion</a></li>
+      <li class="announcements"><a href="https://github.com/STAT545-UBC-hw-2019-20/Announcements">Announcements</a></li>
       <li class="faq"><a href="faq.html">FAQ</a></li>
-      <li class="syllabus"><a href="syllabus.html">Syllabus</a></li>
       <li class="topics"><a href="topics.html">Topics</a></li>
-      <li class="people"><a href="people.html">People</a></li>
     </ul>
   </div>
 </header>
@@ -151,22 +221,468 @@ $(document).ready(function () {
 </div>
 
 
-<div id="data-wrangling-exploration-and-analysis-with-r" class="section level1">
-<h1>Data wrangling, exploration, and analysis with R</h1>
-<div id="ubc-stat-545a-and-547m" class="section level3">
-<h3>UBC STAT 545A and 547M</h3>
-<p>Learn how to</p>
+<div id="stat-545a547m-exploratory-data-analysis" class="section level1">
+<h1>STAT 545A/547M: Exploratory Data Analysis</h1>
+<p>This is the course website for the 2019-2020 edition of STAT 545A and STAT 547M, colloquially known as just “STAT 545”, delivered at The University of British Columbia in Vancouver, BC.</p>
+<p>These courses are designed to help you:</p>
 <ul>
 <li>explore, groom, visualize, and analyze data</li>
 <li>make all of that reproducible, reusable, and shareable</li>
 <li>using R</li>
 </ul>
+<div id="course-learning-outcomes" class="section level3">
+<h3>Course Learning Outcomes</h3>
+<p>STAT 545A:</p>
+<ul>
+<li>Introduction to <a href="http://www.r-project.org">R</a> and the <a href="http://www.rstudio.com/products/rstudio/">RStudio IDE</a>: scripts, the workspace, RStudio Projects, daily workflow</li>
+<li>Generate reports from R scripts and <a href="http://rmarkdown.rstudio.com">R Markdown</a></li>
+<li>Coding style, file and project organization</li>
+<li>Data frames or “tibbles” are the core data structure for data analysis: care for them with the tidyverse</li>
+<li>Data visualization with <a href="http://ggplot2.org"><code>ggplot2</code></a></li>
+<li>How to write functions and work with R in a functional style</li>
+<li>Version control with Git; collaboration via <a href="https://github.com">GitHub</a></li>
+</ul>
+<p>STAT 547M:</p>
+<ul>
+<li>Be the boss of non-numeric data, esp. character and factor</li>
+<li>Interactive pages, apps, and graphics with <a href="http://shiny.rstudio.com">Shiny</a></li>
+<li>Get data off the web and expose data, code, results on the web</li>
+<li>Distribute data and code via an R package</li>
+<li>Automate an analytical pipeline, e.g. via <code>Make</code></li>
+</ul>
 </div>
-<div id="more-info" class="section level3">
-<h3>More info?</h3>
-<p>Use the navigation bar above!</p>
+<div id="class-meetings" class="section level3">
+<h3>Class Meetings</h3>
+<p>STAT 545A:</p>
+<ul>
+<li>Runs from September 3 until October 17, 2019.</li>
+<li>Held in ESB 2012</li>
+<li>Timing: 0930-1100</li>
+</ul>
+<p>STAT 547M:</p>
+<ul>
+<li>Runs from February 25 until April 8, 2020.</li>
+<li>Held in Woodward (Instructional Resources Centre-IRC) Room 5</li>
+<li>Timing: 1100-1230</li>
+</ul>
+<p>We will end class 10-15 minutes before the end time.</p>
+</div>
+<div id="prerequisites" class="section level3">
+<h3>Prerequisites</h3>
+<p>There are no official pre-requisites for STAT 545, but most students will have had at least one prior statistics course or comparable experience.</p>
+<p>STAT 547M requires STAT 545A.</p>
+</div>
+<div id="teaching-team" class="section level3">
+<h3>Teaching Team</h3>
+<p>Here is your dedicated teaching team!</p>
+<table style="width:54%;">
+<colgroup>
+<col width="25%" />
+<col width="15%" />
+<col width="13%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Teaching Member</th>
+<th>Position</th>
+<th>Contact</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Vincenzo Coia</td>
+<td>Instructor</td>
+<td>Email: <a href="mailto:vincenzo.coia@stat.ubc.ca">vincenzo.coia@stat.ubc.ca</a> GitHub: <a href="https://github.com/vincenzocoia"><code>@vincenzocoia</code></a> Twitter: <a href="https://twitter.com/vincenzocoia">@VincenzoCoia</a> LinkedIn: <a href="https://www.linkedin.com/in/vincenzocoia/">vincenzocoia</a></td>
+</tr>
+<tr class="even">
+<td>Hossameldin Mohammed</td>
+<td>Teaching Assistant</td>
+<td>GitHub: <a href="https://github.com/hsmohammed"><code>@hsmohammed</code></a>; <a href="http://linkedin.com/in/hossameldin-mohammed-4a091160">LinkedIn</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="office-hours" class="section level3">
+<h3>Office Hours</h3>
+<p>Want to talk about the course outside of lecture? Let’s talk during these dedicated times. You’re always welcome to schedule one-off meetings with us, too.</p>
+<p>STAT 545A:</p>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Person = col_character(),
+##   Date = col_character(),
+##   Time = col_character(),
+##   Place = col_character()
+## )</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Person</th>
+<th align="left">Date</th>
+<th align="left">Time</th>
+<th align="left">Place</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Vincenzo</td>
+<td align="left">Thursday, September 5, 2019</td>
+<td align="left">1200-1300</td>
+<td align="left">ESB 3172</td>
+</tr>
+<tr class="even">
+<td align="left">Vincenzo</td>
+<td align="left">Thursday, September 12, 2019</td>
+<td align="left">1200-1300</td>
+<td align="left">ESB 3172</td>
+</tr>
+<tr class="odd">
+<td align="left">Vincenzo</td>
+<td align="left">Thursday, September 19, 2019</td>
+<td align="left">1200-1300</td>
+<td align="left">ESB 3172</td>
+</tr>
+<tr class="even">
+<td align="left">Vincenzo</td>
+<td align="left">Thursday, September 26, 2019</td>
+<td align="left">1200-1300</td>
+<td align="left">ESB 3172</td>
+</tr>
+<tr class="odd">
+<td align="left">Vincenzo</td>
+<td align="left">Thursday, October 3, 2019</td>
+<td align="left">1200-1300</td>
+<td align="left">ESB 3172</td>
+</tr>
+</tbody>
+</table>
+<p>STAT 547M:</p>
+<pre><code>## Parsed with column specification:
+## cols(
+##   Person = col_character(),
+##   Date = col_character(),
+##   Time = col_character(),
+##   Place = col_character()
+## )</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Person</th>
+<th align="left">Date</th>
+<th align="left">Time</th>
+<th align="left">Place</th>
+</tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+<div id="assessments" class="section level3">
+<h3>Assessments</h3>
+<p>Here’s how we come up with the final grade you’ll receive for each course. For specifics on each assessment, check out the “Assessment” tab in the navigation bar.</p>
+<p><strong>STAT 545A</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Assessment</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>5 Assignments</td>
+<td>75% (15% per assignment)</td>
+</tr>
+<tr class="even">
+<td>10 Peer Reviews</td>
+<td>15% (3% per assignment)</td>
+</tr>
+<tr class="odd">
+<td>Participation</td>
+<td>10%</td>
+</tr>
+</tbody>
+</table>
+<p>There is no final exam for either course.</p>
+<p>Auditing students must still complete and submit all assessments, to be graded on a pass/fail basis.</p>
+<p><strong>STAT 547M</strong></p>
+<p>The 2019/2020 academic year is to be determined, but in the 2018/19 academic year, the layout was the same as STAT 545A, except we took the best 4 of 5 assignments.</p>
+</div>
+<div id="class-meeting-details" class="section level3">
+<h3>Class Meeting Details</h3>
+<p>Here are the topics for each class meeting. You can find the notes on the navigation bar above.</p>
+<p><strong>NOTE:</strong> Be sure to Bring a laptop to every class!</p>
+<p>There will always be two TA’s in class to help students with the live coding exercises.</p>
+<p><strong>STAT 545A</strong>:</p>
+<table style="width:62%;">
+<colgroup>
+<col width="30%" />
+<col width="20%" />
+<col width="11%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Meeting No.</th>
+<th>Date</th>
+<th>Topic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>01</td>
+<td>sep-03 tues</td>
+<td>Intro to course and software</td>
+</tr>
+<tr class="even">
+<td>02</td>
+<td>sep-05 thurs</td>
+<td>Markdown and GitHub</td>
+</tr>
+<tr class="odd">
+<td>03</td>
+<td>sep-10 tues</td>
+<td>Getting familiar with R &amp; RMarkdown</td>
+</tr>
+<tr class="even">
+<td>04</td>
+<td>sep-12 thurs</td>
+<td>The git workflow; collab with GitHub</td>
+</tr>
+<tr class="odd">
+<td>05</td>
+<td>sep-17 tues</td>
+<td>working with data in R; <code>dplyr</code> and the <code>tidyverse</code></td>
+</tr>
+<tr class="even">
+<td>06</td>
+<td>sep-19 thurs</td>
+<td>ggplot2, Part I</td>
+</tr>
+<tr class="odd">
+<td>07</td>
+<td>sep-24 tues</td>
+<td>ggplot2, Part II</td>
+</tr>
+<tr class="even">
+<td>08</td>
+<td>sep-26 thurs</td>
+<td>Grouping of tibbles</td>
+</tr>
+<tr class="odd">
+<td>09</td>
+<td>oct-01 tues</td>
+<td>Tidy data, reshaping</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>oct-03 thurs</td>
+<td>Guest Lecture: Rashedul, on table joins</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>oct-08 tues</td>
+<td>Advanced R programming; file I/O</td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>oct-10 thurs</td>
+<td>The joy of Factors</td>
+</tr>
+<tr class="odd">
+<td>13</td>
+<td>oct-15 tues</td>
+<td>Revisit ggplot; plotly; practicalities of daily figure-making</td>
+</tr>
+<tr class="even">
+<td>14</td>
+<td>oct-17 thurs</td>
+<td>The model-fitting paradigm in R; <code>broom</code>; deep thoughts about data analytic work</td>
+</tr>
+</tbody>
+</table>
+<p><strong>STAT 547M</strong>:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Meeting No.</th>
+<th>Date</th>
+<th>Topic</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>01</td>
+<td>feb-25 tues</td>
+<td>Writing your own R functions</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>02</td>
+<td>feb-27 thurs</td>
+<td>Regular expressions and character data</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>03</td>
+<td>mar-03 tues</td>
+<td>purrr, list-columns, nested data frames: Part I</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>04</td>
+<td>mar-05 thurs</td>
+<td>purrr, list-columns, nested data frames: Part II</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>05</td>
+<td>mar-10 tues</td>
+<td>Build your first R package: Part I</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>06</td>
+<td>mar-12 thurs</td>
+<td>Build your first R package: Part II</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>07</td>
+<td>mar-17 tues</td>
+<td>shiny apps, and related tools: Part I</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>08</td>
+<td>mar-19 thurs</td>
+<td>shiny apps, and related tools: Part II</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>09</td>
+<td>mar-24 tues</td>
+<td>Automate tasks and pipelines: Part I</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>mar-26 thurs</td>
+<td>Automate tasks and pipelines: Part II</td>
+<td></td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>mar-31 tues</td>
+<td>Get data from the web: Part I</td>
+<td></td>
+</tr>
+<tr class="even">
+<td>12</td>
+<td>apr-02 thurs</td>
+<td>Get data from the web: Part II</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="course-mantras" class="section level2">
+<h2>Course Mantras</h2>
+<p>Here are some philosophies that will get you far in data analytic work. We will be revisiting these over and over again.</p>
+<ul>
+<li>Embrace plain text.</li>
+<li>Source is real. Think in terms of source and output.</li>
+<li>Your analysis should be reproducible. Document, test, and leave a breadcrumb trail (version control), even when you are the only collaborator.</li>
+</ul>
+</div>
+<div id="conversation-and-getting-help" class="section level2">
+<h2>Conversation, and Getting Help</h2>
+<p>Are you stuck? First, try to get unstuck by yourself by following the advice of <a href="http://stat545.com/help-general.html">stat545.com: help-general</a>.</p>
+<p>While you are getting started, we recommend you seek help within the STAT545 community first, before, e.g. posting to external forums. We are more cuddly.</p>
+<p>The instructor and TAs stand ready to assist you, but your peers will also be a great source of good questions and answers. For that reason, we encourage you to seek help in ways that are visible to others.</p>
+<p>The options are sort of listed in order of preference. But we realize every situation is different and your comfort level with these approaches will change as you learn more.</p>
+<ol style="list-style-type: decimal">
+<li>Want to talk about content/coding issues? Post an Issue in the <a href="https://github.com/STAT545-UBC/Discussion">Discussion</a> (public) repository.</li>
+<li>Want to talk about the course? Post an Issue in the <a href="https://github.com/STAT545-UBC/Discussion-Internal">Discussion-Internal</a> (private) repository.</li>
+<li>Want to talk in person? Come visit us during office hours!</li>
+<li>Want to privately contact Vincenzo? Feel free to send me an email.
+<ul>
+<li>I look forward to receiving your email, though I do encourage you to post in one of the <code>Discussion</code> repositories unless it’s really not appropriate for either platform.</li>
+</ul></li>
+</ol>
+<div id="basic-issue-workflow" class="section level3">
+<h3>Basic Issue workflow</h3>
+<p>Some advice on opening an Issue on GitHub:</p>
+<ul>
+<li>Give it a specific title.</li>
+<li>BAD: “aaaaaarrrrrrgh!”, “things not working”, “i need help”</li>
+<li>GOOD: ‘error when indexing a matrix: “incorrect number of dimensions”’</li>
+<li>Stay specific and be complete-but-concise in the body of the description. Don’t expect your helper to play 20 questions with you.</li>
+<li>(Optional) Tag someone:
+<ul>
+<li>To get the attention of the teaching team, add the <code>@2018_teaching_team</code> tag to notify all five of us.</li>
+</ul></li>
+<li>Don’t just create Issues – also respond to them! Think about this in terms of adding to the conversation, not in terms of “correctness”.</li>
+<li>Don’t forget to click “Submit new issue”!</li>
+</ul>
+<p>Typically, this will trigger an email to the person/team you tagged. The title of your issue will be in the subject line, so I repeat, <em>make it specific</em>. Your description will become the body of the email. At the bottom will be a link to the issue on GitHub.</p>
+<p>If all goes well, your helper will respond. I almost always do this directly via GitHub, though simply replying to the email basically works. In any case, this back-and-forth will show up as a series of comments on your original issue. It’s like an email dialogue but better:</p>
+<ul>
+<li>It’s embedded in a relevant Organization/project/repo, so it will be easier to find later vs. digging out of your giant vat of unfiled email.</li>
+<li>It’s potentially visible to others (depending on the repo), which could save us from asking/answering the same questions repeatedly.</li>
+<li>The whole discussion will be mirrored via email, so that still serves as a great way to prompt participants to tune in.</li>
+<li>Later you can get fancy and refer to commits and other issues within the repo in slick ways.</li>
+</ul>
+<p>Once the problem is resolved, the issue can be closed. Note that closed issues remain accessible, in case anyone needs to consult them in the future.</p>
+</div>
+</div>
+<div id="annotated-resources" class="section level2">
+<h2>Annotated Resources</h2>
+<p>Here are the resources we will be referring to throughout the course, along with a brief description of the resource.</p>
+<p>Overarching resources:</p>
+<ol style="list-style-type: decimal">
+<li><a href="http://stat545.com" class="uri">http://stat545.com</a>
+<ul>
+<li>As mentioned earlier, this website can be thought of as a textbook for STAT 545/547.</li>
+</ul></li>
+<li><a href="http://r4ds.had.co.nz/">R for Data Science</a> (aka “r4ds”), by Garrett Grolemund and Hadley Wickham.
+<ul>
+<li>STAT 545/547 closely mirrors the topics of this book, making this book more of a true “textbook” for the course.</li>
+</ul></li>
+</ol>
+<p><a href="https://whattheyforgot.org/" class="uri">https://whattheyforgot.org/</a></p>
+<p>Resources for more specific topics:</p>
+<ol style="list-style-type: decimal">
+<li><a href="http://happygitwithr.com/">Happy git with R</a>, by Jenny Bryan and the STAT 545 TA’s
+<ul>
+<li>Great for marrying git, GitHub, R, and RStudio in your workflow.</li>
+</ul></li>
+<li><a href="http://adv-r.had.co.nz/">Advanced R</a>, by Hadley Wickham
+<ul>
+<li>If you want to learn more about R as a programming language, this is a very readable and concise way of doing so.</li>
+</ul></li>
+<li><a href="http://webcat2.library.ubc.ca/vwebv/holdingsInfo?bibId=8489511">ggplot2 book</a>, by Hadley Wickham
+<ul>
+<li>Useful for digging deeper into <code>ggplot2</code>.</li>
+</ul></li>
+<li><a href="https://bookdown.org/yihui/rmarkdown/">RMarkdown book</a>, by Yihui Xie et al.
+<ul>
+<li>Brand new! Looks like a comprehensive resource for everything R Markdown related.</li>
+</ul></li>
+<li><a href="http://r-pkgs.had.co.nz/">R packages</a> by Hadley Wickham
+<ul>
+<li>Readable, approachable help for making R packages.</li>
+</ul></li>
+<li><a href="http://adv-r.had.co.nz/">Advanced R</a>, by Hadley Wickham
+<ul>
+<li>If you want to learn more about R as a programming language, this is a very readable and concise way of doing so.</li>
+</ul></li>
+</ol>
 <p>Repo that creates this website: <a href="https://github.com/STAT545-UBC/STAT545-UBC.github.io" class="uri">https://github.com/STAT545-UBC/STAT545-UBC.github.io</a></p>
 <p>The course organization on GitHub: <a href="https://github.com/STAT545-UBC" class="uri">https://github.com/STAT545-UBC</a></p>
+</div>
+<div id="attribution" class="section level2">
+<h2>Attribution</h2>
+<p>Jenny Bryan deserves a huge amount of credit for founding and developing both STAT 545A and 547M over many years, along with her TA’s. Some of their content is even being used in this very syllabus. Thank you!</p>
 </div>
 </div>
 

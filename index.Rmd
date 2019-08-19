@@ -5,7 +5,11 @@ output:
       after_body: include/nothing.html
 ---
 
-
+```{r, echo = FALSE, warning = FALSE}
+suppressPackageStartupMessages(library(readr))
+suppressPackageStartupMessages(library(knitr))
+suppressPackageStartupMessages(library(here))
+```
 
 
 # STAT 545A/547M: Exploratory Data Analysis
@@ -75,44 +79,17 @@ Want to talk about the course outside of lecture? Let's talk during these dedica
 
 STAT 545A:
 
-
+```{r, echo = FALSE, results='asis'}
+oo545 <- read_csv(here("officehours-545a.csv"))
+kable(oo545)
 ```
-## Parsed with column specification:
-## cols(
-##   Person = col_character(),
-##   Date = col_character(),
-##   Time = col_character(),
-##   Place = col_character()
-## )
-```
-
-
-
-Person     Date                           Time        Place    
----------  -----------------------------  ----------  ---------
-Vincenzo   Thursday, September 5, 2019    1200-1300   ESB 3172 
-Vincenzo   Thursday, September 12, 2019   1200-1300   ESB 3172 
-Vincenzo   Thursday, September 19, 2019   1200-1300   ESB 3172 
-Vincenzo   Thursday, September 26, 2019   1200-1300   ESB 3172 
-Vincenzo   Thursday, October 3, 2019      1200-1300   ESB 3172 
 
 STAT 547M:
 
-
+```{r, echo = FALSE, results='asis'}
+oo547 <- read_csv(here("officehours-547m.csv"))
+kable(oo547)
 ```
-## Parsed with column specification:
-## cols(
-##   Person = col_character(),
-##   Date = col_character(),
-##   Time = col_character(),
-##   Place = col_character()
-## )
-```
-
-
-
-|Person |Date |Time |Place |
-|:------|:----|:----|:-----|
 
 ### Assessments
 
