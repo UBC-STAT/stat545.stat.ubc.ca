@@ -16,11 +16,14 @@ September - December of each academic year.
 Typical format: STAT 545A 1.5 credits in September through mid October, followed by STAT 547M 1.5 credits from mid October through early December.  
 Same time slot, same room.  
 
+**Note**: In 2019/2020, STAT 547M is/was held later on in Term 2. We don't anticipate this happening much.
+
 ### What's up with the two half courses?
 
-For several years, Jenny taught STAT 545A as a 1.5 credit course. She -- and many students -- felt there was alot of great, relevant content that could go into an additional 1.5 credits.
+For several years, Jenny taught STAT 545A as a 1.5 credit course. She -- and many students -- felt there was a lot of great, relevant content that could go into an additional 1.5 credits.
 
 A full semester of data exploration, visualization, and all-around data wrangling was piloted in 2014/2015. And so far, it has stuck. It was structured as two half courses primarily so that several year's worth of STAT 545A alums could register for STAT 547M and get the "missing half" of the course. And now it's hard to break the cycle.
+
 
 ### Am I allowed to register in ...?
 
