@@ -57,6 +57,10 @@ However, __if you have never programmed or worked at the command line before, pr
 
 YES. You absolutely must have access to a computer on which you can install software, download data, etc. In fact, *class meetings* will be a mix of lecture, discussion, and live coding. Students will get the most out of this if they can bring their own laptop to class every day. If this is not possible, we will try to help you work something out.
 
+### How do I audit the course?
+
+You'll need to get the instructor to sign the [Change of Registration](https://www.grad.ubc.ca/sites/default/files/forms/change_of_registration.pdf) form if there's still room.
+
 
 ### Twitter
 
