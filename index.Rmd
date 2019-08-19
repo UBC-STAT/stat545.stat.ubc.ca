@@ -12,7 +12,7 @@ suppressPackageStartupMessages(library(here))
 ```
 
 
-# STAT 545A/547M: Exploratory Data Analysis
+# STAT 545 @ UBC: Exploratory Data Analysis
 
 This is the course website for the 2019-2020 edition of STAT 545A and STAT 547M, colloquially known as just "STAT 545", delivered at The University of British Columbia in Vancouver, BC.
 
