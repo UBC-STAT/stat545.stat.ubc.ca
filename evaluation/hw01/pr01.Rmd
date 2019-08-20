@@ -1,0 +1,12 @@
+---
+title: "Peer Review 01"
+output: html_document
+---
+
+Find your GitHub username below. If you don't see it, please send Vincenzo an email.
+
+For instructions on giving a peer review, see the [assignments](http://stat545.com/Classroom/assignments/) page. 
+
+```{r, echo=FALSE}
+suppressMessages(knitr::kable(readr::read_csv("pr01.csv")))
+```
