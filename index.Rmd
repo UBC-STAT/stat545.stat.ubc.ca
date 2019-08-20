@@ -80,14 +80,14 @@ Want to talk about the course outside of lecture? Let's talk during these dedica
 STAT 545A:
 
 ```{r, echo = FALSE, results='asis'}
-oo545 <- read_csv(here("officehours-545a.csv"))
+oo545 <- suppressMessages(read_csv(here("officehours-545a.csv")))
 kable(oo545)
 ```
 
 STAT 547M:
 
 ```{r, echo = FALSE, results='asis'}
-oo547 <- read_csv(here("officehours-547m.csv"))
+oo547 <- suppressMessages(read_csv(here("officehours-547m.csv")))
 kable(oo547)
 ```
 

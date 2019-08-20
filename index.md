@@ -76,18 +76,6 @@ Want to talk about the course outside of lecture? Let's talk during these dedica
 STAT 545A:
 
 
-```
-## Parsed with column specification:
-## cols(
-##   Person = col_character(),
-##   Date = col_character(),
-##   Time = col_character(),
-##   Place = col_character()
-## )
-```
-
-
-
 Person     Date                           Time        Place    
 ---------  -----------------------------  ----------  ---------
 Vincenzo   Thursday, September 5, 2019    1200-1300   ESB 3172 
@@ -97,18 +85,6 @@ Vincenzo   Thursday, September 26, 2019   1200-1300   ESB 3172
 Vincenzo   Thursday, October 3, 2019      1200-1300   ESB 3172 
 
 STAT 547M:
-
-
-```
-## Parsed with column specification:
-## cols(
-##   Person = col_character(),
-##   Date = col_character(),
-##   Time = col_character(),
-##   Place = col_character()
-## )
-```
-
 
 
 |Person |Date |Time |Place |
