@@ -3,21 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/courses/example/example1/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/courses/example/</loc>
-    <lastmod>2018-09-09T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/courses/example/example2/</loc>
-    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/</loc>
     <lastmod>2030-06-01T13:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -34,16 +19,6 @@
   </url>
   
   <url>
-    <loc>/post/</loc>
-    <lastmod>2019-07-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/writing-technical-content/</loc>
-    <lastmod>2019-07-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/publication_types/3/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -56,7 +31,7 @@
   
   <url>
     <loc>/authors/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -79,19 +54,14 @@
   
   <url>
     <loc>/tags/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/authors/admin/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
     <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/jupyter/</loc>
-    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -111,7 +81,12 @@
   </url>
   
   <url>
-    <loc>/terms/</loc>
+    <loc>/termscopy/</loc>
+    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/termsoriginal/</loc>
     <lastmod>2018-06-28T00:00:00+01:00</lastmod>
   </url>
   
@@ -144,29 +119,6 @@
   </url>
   
   <url>
-    <loc>/tags/academic/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/getting-started/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/demo/</loc>
-    <lastmod>2019-04-17T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/publication_types/2/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -180,35 +132,6 @@
   <url>
     <loc>/authors/robert-ford/</loc>
     <lastmod>2015-09-01T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/post/2015-07-23-r-rmarkdown/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/r/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/r-markdown/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/plot/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/regression/</loc>
-    <lastmod>2015-07-23T21:13:14-05:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -373,7 +296,8 @@
   </url>
   
   <url>
-    <loc>/courses/</loc>
+    <loc>/categories/</loc>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -422,11 +346,15 @@
   </url>
   
   <url>
-    <loc>/post/oo-stat545a/</loc>
+    <loc>/office_hours/</loc>
   </url>
   
   <url>
-    <loc>/post/oo-stat547m/</loc>
+    <loc>/office_hours/oo-stat545a/</loc>
+  </url>
+  
+  <url>
+    <loc>/office_hours/oo-stat547m/</loc>
   </url>
   
 </urlset>

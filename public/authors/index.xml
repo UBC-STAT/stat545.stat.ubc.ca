@@ -7,7 +7,7 @@
     <description>Authors</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 07 Apr 2019 00:00:00 +0000</lastBuildDate>
     <image>
-      <url>/img/icon-192.png</url>
+      <url>/img/stat545-logo-s.png</url>
       <title>Authors</title>
       <link>/authors/</link>
     </image>
@@ -49,9 +49,7 @@
       <link>/authors/stat545/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/authors/stat545/</guid>
-      <description>
-
-&lt;p&gt;This is the course website for the 2019-2020 edition of STAT 545A and STAT 547M, colloquially known as just &amp;ldquo;STAT 545&amp;rdquo;, delivered at The University of British Columbia in Vancouver, BC.&lt;/p&gt;
+      <description>&lt;p&gt;This is the course website for the 2019-2020 edition of STAT 545A and STAT 547M, colloquially known as just &amp;ldquo;STAT 545&amp;rdquo;, delivered at The University of British Columbia in Vancouver, BC.&lt;/p&gt;
 
 &lt;p&gt;These courses are designed to help you:&lt;/p&gt;
 
@@ -59,30 +57,6 @@
 &lt;li&gt;explore, groom, visualize, and analyze data&lt;/li&gt;
 &lt;li&gt;make all of that reproducible, reusable, and shareable&lt;/li&gt;
 &lt;li&gt;using R&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&#34;course-learning-outcomes&#34;&gt;Course Learning Outcomes&lt;/h3&gt;
-
-&lt;p&gt;STAT 545A:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Introduction to &lt;a href=&#34;http://www.r-project.org&#34; target=&#34;_blank&#34;&gt;R&lt;/a&gt; and the &lt;a href=&#34;http://www.rstudio.com/products/rstudio/&#34; target=&#34;_blank&#34;&gt;RStudio IDE&lt;/a&gt;: scripts, the workspace, RStudio Projects, daily workflow&lt;/li&gt;
-&lt;li&gt;Generate reports from R scripts and &lt;a href=&#34;http://rmarkdown.rstudio.com&#34; target=&#34;_blank&#34;&gt;R Markdown&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Coding style, file and project organization&lt;/li&gt;
-&lt;li&gt;Data frames or &amp;ldquo;tibbles&amp;rdquo; are the core data structure for data analysis: care for them with the tidyverse&lt;/li&gt;
-&lt;li&gt;Data visualization with &lt;a href=&#34;http://ggplot2.org&#34; target=&#34;_blank&#34;&gt;&lt;code&gt;ggplot2&lt;/code&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;How to write functions and work with R in a functional style&lt;/li&gt;
-&lt;li&gt;Version control with Git; collaboration via &lt;a href=&#34;https://github.com&#34; target=&#34;_blank&#34;&gt;GitHub&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;STAT 547M:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Be the boss of non-numeric data, esp. character and factor&lt;/li&gt;
-&lt;li&gt;Interactive pages, apps, and graphics with &lt;a href=&#34;http://shiny.rstudio.com&#34; target=&#34;_blank&#34;&gt;Shiny&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Get data off the web and expose data, code, results on the web&lt;/li&gt;
-&lt;li&gt;Distribute data and code via an R package&lt;/li&gt;
-&lt;li&gt;Automate an analytical pipeline, e.g. via &lt;code&gt;Make&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
