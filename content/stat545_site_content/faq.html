@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>FAQ</title>
+
+<script src="libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="libs/navigation-1.1/tabsets.js"></script>
+<link href="libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="libs/highlightjs-9.12.0/highlight.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-68219208-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="libs/local/main.css" type="text/css" />
+<link rel="stylesheet" href="libs/local/nav.css" type="text/css" />
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+<header>
+  <div class="nav">
+    <a class="nav-logo" href="index.html">
+      <img src="static/img/stat545-logo-s.png" width="70px" height="70px"/>
+    </a>
+    <ul>
+      <li class="home"><a href="index.html">Home</a></li>
+      <li class="cm"><a href="stat545ubc.netlify.html">Class Meetings</a></li>
+      <li class="evaluation"><a href="evaluation.html">Evaluation</a></li>
+      <li class="discussion"><a href="https://github.com/STAT545-UBC/Discussion">Discussion</a></li>
+      <li class="announcements"><a href="https://github.com/STAT545-UBC-hw-2019-20/Announcements">Announcements</a></li>
+      <li class="faq"><a href="faq.html">FAQ</a></li>
+      <li class="topics"><a href="topics.html">Topics</a></li>
+    </ul>
+  </div>
+</header>
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">FAQ</h1>
+
+</div>
+
+<div id="TOC">
+<ul>
+<li><a href="#when-is-the-course-offered">When is the course offered?</a></li>
+<li><a href="#whats-up-with-the-two-half-courses">What’s up with the two half courses?</a></li>
+<li><a href="#am-i-allowed-to-register-in">Am I allowed to register in …?</a></li>
+<li><a href="#should-i-register-in">Should I register in …?</a></li>
+<li><a href="#do-i-need-a-computer">Do I need a computer?</a></li>
+<li><a href="#how-do-i-audit-the-course">How do I audit the course?</a></li>
+<li><a href="#twitter">Twitter</a></li>
+</ul>
+</div>
+
+<p>Interested in taking STAT 545A and/or STAT 547M, and have questions? Read on!</p>
+<div id="when-is-the-course-offered" class="section level3">
+<h3>When is the course offered?</h3>
+<p>September - December of each academic year.<br />
+Typical format: STAT 545A 1.5 credits in September through mid October, followed by STAT 547M 1.5 credits from mid October through early December.<br />
+Same time slot, same room.</p>
+<p><strong>Note</strong>: In 2019/2020, STAT 547M is/was held later on in Term 2. We don’t anticipate this happening much.</p>
+</div>
+<div id="whats-up-with-the-two-half-courses" class="section level3">
+<h3>What’s up with the two half courses?</h3>
+<p>For several years, Jenny taught STAT 545A as a 1.5 credit course. She – and many students – felt there was a lot of great, relevant content that could go into an additional 1.5 credits.</p>
+<p>A full semester of data exploration, visualization, and all-around data wrangling was piloted in 2014/2015. And so far, it has stuck. It was structured as two half courses primarily so that several year’s worth of STAT 545A alums could register for STAT 547M and get the “missing half” of the course. And now it’s hard to break the cycle.</p>
+</div>
+<div id="am-i-allowed-to-register-in" class="section level3">
+<h3>Am I allowed to register in …?</h3>
+<ul>
+<li>“I have taken STAT 545A for 1.5 credits in the past. Can I take STAT 547M?”
+<ul>
+<li>YES. But STAT 545 has changed to keep current with the R world. It is your responsibility to level up. Examples: the use of Git for version control, GitHub for collaboration, <code>knitr</code> and R Markdown for dynamic documents, <code>ggplot2</code> for graphics, <code>dplyr</code> for data aggregation.</li>
+</ul></li>
+<li>“Can I just take the second half, i.e. STAT 547M?”
+<ul>
+<li>NO, not unless you have taken STAT 545A previously.</li>
+</ul></li>
+<li>“Can I take just the first half, i.e. STAT 545A?”
+<ul>
+<li>YES. But development is proceeding with the ultimate goal of creating a full 3 credit course. I will try to make each half stand alone reasonably well, but that is not my top priority.</li>
+</ul></li>
+<li>“What do you advise I do?”
+<ul>
+<li>Take STAT 545A and STAT 547M!</li>
+</ul></li>
+<li>“I am an undergraduate. Can I take this course?”
+<ul>
+<li>PROBABLY. Contact me.</li>
+<li><a href="https://www.grad.ubc.ca/forms/enrolment-undergraduate-students-graduate-course">There is a form for this.</a></li>
+</ul></li>
+<li>“I am a registered UBC student. Can I audit?”
+<ul>
+<li>PROBABLY. Contact me.</li>
+<li>If you are a registered UBC student and course participation doesn’t cost you additional money, I will almost certainly require that you audit officially.</li>
+<li>There is a form for this: <a href="http://students.ubc.ca/enrolment/courses/academic-planning/audit">UBC undergrads</a> and <a href="http://www.grad.ubc.ca/current-students/managing-your-program/audit">graduate students</a></li>
+</ul></li>
+<li>“I am an unclassified student, SFU student, post-doctoral fellow, etc. Can I sit in the course?”
+<ul>
+<li>PROBABLY. Contact me.</li>
+</ul></li>
+<li>“What if I’ve never had a stats class?”
+<ul>
+<li>There are no official pre-requisites for STAT 545A but most students will have had at least one prior statistics course or comparable experience.</li>
+</ul></li>
+</ul>
+</div>
+<div id="should-i-register-in" class="section level3">
+<h3>Should I register in …?</h3>
+<p>This course is open to any graduate student at UBC. Students from other departments vastly outnumber those from Statistics. In fact, the most successful students are often grad students from other fields who need to analyze and visualize data for a thesis. They are highly motivated and excel.</p>
+<p>However, <strong>if you have never programmed or worked at the command line before, prepare for a shock.</strong> This will be a powerful, positive experience, but it’s a big adjustment. Come suffer through the worst part of the learning curve in good company!</p>
+</div>
+<div id="do-i-need-a-computer" class="section level3">
+<h3>Do I need a computer?</h3>
+<p>YES. You absolutely must have access to a computer on which you can install software, download data, etc. In fact, <em>class meetings</em> will be a mix of lecture, discussion, and live coding. Students will get the most out of this if they can bring their own laptop to class every day. If this is not possible, we will try to help you work something out.</p>
+</div>
+<div id="how-do-i-audit-the-course" class="section level3">
+<h3>How do I audit the course?</h3>
+<p>You’ll need to get the instructor to sign the <a href="https://www.grad.ubc.ca/sites/default/files/forms/change_of_registration.pdf">Change of Registration</a> form if there’s still room.</p>
+</div>
+<div id="twitter" class="section level3">
+<h3>Twitter</h3>
+<p>The <a href="https://twitter.com/STAT545">STAT 545 Twitter account</a> is no longer used for this course.</p>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

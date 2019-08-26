@@ -1,0 +1,18 @@
+---
+title: "STAT 547M Office Hours"
+date: "Updated `r Sys.time()`"
+---
+
+```{r, echo = FALSE, warning = FALSE}
+suppressPackageStartupMessages(library(readr))
+suppressPackageStartupMessages(library(knitr))
+suppressPackageStartupMessages(library(here))
+```
+
+Want to talk about the course outside of lecture? Let's talk during these dedicated times. You're always welcome to schedule one-off meetings with us, too.
+
+
+```{r, echo = FALSE, results='asis'}
+oo <- suppressMessages(read_csv(here("content", "office_hours", "officehours-547m.csv")))
+kable(oo)
+```

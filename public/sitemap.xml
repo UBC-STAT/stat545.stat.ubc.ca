@@ -76,21 +76,6 @@
   </url>
   
   <url>
-    <loc>/privacy/</loc>
-    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/termscopy/</loc>
-    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/termsoriginal/</loc>
-    <lastmod>2018-06-28T00:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tags/deep-learning/</loc>
     <lastmod>2016-04-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -147,6 +132,10 @@
   </url>
   
   <url>
+    <loc>/authors/alejandra/</loc>
+  </url>
+  
+  <url>
     <loc>/authors/firas/</loc>
   </url>
   
@@ -159,7 +148,15 @@
   </url>
   
   <url>
+    <loc>/authors/victor/</loc>
+  </url>
+  
+  <url>
     <loc>/authors/vincenzo/</loc>
+  </url>
+  
+  <url>
+    <loc>/authors/yulia/</loc>
   </url>
   
   <url>
