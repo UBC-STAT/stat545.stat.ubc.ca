@@ -13,9 +13,15 @@ organizations:
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
 #   form "mailto:your-email@example.com" or "#contact" for contact widget.
 social:
+- icon: home
+  icon_pack: fas
+  link: https://vincenzocoia.com
 - icon: twitter
   icon_pack: fab
   link: https://twitter.com/vincenzocoia
+- icon: linkedin
+  icon_pack: fab
+  link: https://www.linkedin.com/in/vincenzocoia/
 - icon: github
   icon_pack: fab
   link: https://github.com/vincenzocoia
