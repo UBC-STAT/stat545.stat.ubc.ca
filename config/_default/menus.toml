@@ -9,6 +9,11 @@
   weight = 10
 
 [[main]]
+  name = "Guide"
+  url = "#guide"
+  weight = 15
+
+[[main]]
   name = "Teaching Team"
   url = "#team"
   weight = 20
@@ -19,8 +24,8 @@
   weight = 30
 
 [[main]]
-  name = "Schedule"
-  url = "#schedule"
+  name = "Structure"
+  url = "#structure"
   weight = 40
 
 [[main]]

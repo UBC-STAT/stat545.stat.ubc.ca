@@ -19,10 +19,10 @@ title = "Contact"
   description = "Discussion related to course content."  
   
 [[feature]]
-  icon = "envelope"
-  icon_pack = "fas"
-  name = "Email"
-  description = "For private concerns; see the [teaching team](#teaching_team) section."
+  icon = "github"
+  icon_pack = "fab"
+  name = "[Your Homework Repository on GitHub](https://github.com/STAT545-UBC-hw-2019-20)"
+  description = "Discussion related to your submissions."
 +++
 
-There are three ways you can get in touch with the teaching team. [Find out who you should be contacting](/whotocontact).
+Contact the teaching team through GitHub Issues in one of these three venues; use email if your message really ought to be private. [Find out who you should be contacting for what](/whotocontact).

@@ -179,7 +179,7 @@
   </url>
   
   <url>
-    <loc>/cm_schedule/</loc>
+    <loc>/structure/</loc>
   </url>
   
   <url>
@@ -229,6 +229,10 @@
   
   <url>
     <loc>/evaluation/hw10/pr10/</loc>
+  </url>
+  
+  <url>
+    <loc>/policies/</loc>
   </url>
   
   <url>
