@@ -2,6 +2,8 @@
 
 As part of this course you will be reviewing, commenting on, and marking other students' assignments. This is a mandatory part of the course and you will be marked on your peer reviews (15% of overall course mark).
 
+[Here's](/evaluation/peer-review-template) a template for giving a peer review.
+
 ## Schedule
 
 Peer Reviews will be posted here as they are made available.

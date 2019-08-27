@@ -5,36 +5,12 @@
     <link>/publication_types/</link>
       <atom:link href="/publication_types/index.xml" rel="self" type="application/rss+xml" />
     <description>Publication_types</description>
-    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Sun, 07 Apr 2019 00:00:00 +0000</lastBuildDate>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language>
     <image>
       <url>/img/stat545-logo-s.png</url>
       <title>Publication_types</title>
       <link>/publication_types/</link>
     </image>
-    
-    <item>
-      <title>3</title>
-      <link>/publication_types/3/</link>
-      <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>/publication_types/3/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>2</title>
-      <link>/publication_types/2/</link>
-      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>/publication_types/2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>1</title>
-      <link>/publication_types/1/</link>
-      <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
-      <guid>/publication_types/1/</guid>
-      <description></description>
-    </item>
     
   </channel>
 </rss>

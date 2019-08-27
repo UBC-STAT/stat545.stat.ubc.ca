@@ -9,26 +9,27 @@
   weight = 10
 
 [[main]]
-  name = "Learning Outcomes"
-  url = "#lo"
-  weight = 15
+  name = "Teaching Team"
+  url = "#team"
+  weight = 20
 
 [[main]]
   name = "Evaluation"
   url = "#evaluation"
-  weight = 20
-
-[[main]]
-  name = "Office Hours"
-  url = "#office_hours"
   weight = 30
 
 [[main]]
-  name = "Teaching Team"
-  url = "#team"
-  weight = 50
+  name = "Schedule"
+  url = "#schedule"
+  weight = 40
+
+[[main]]
+  name = "Material"
+  url = "#material"
+  weight = 60
+
 
 [[main]]
   name = "Contact"
   url = "#contact"
-  weight = 60
+  weight = 70
