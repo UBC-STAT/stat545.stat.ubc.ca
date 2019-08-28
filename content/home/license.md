@@ -50,7 +50,7 @@ align = "center"
 
 ## Attribution
 
-Jenny Bryan deserves a huge amount of credit for founding and developing both STAT 545A and 547M over many years, along with her TA's. Thank you!
+[Jenny Bryan](https://jennybryan.org/) deserves a huge amount of credit for founding and developing both STAT 545A and 547M over many years, along with her TA's. Thank you!
 
 <p style="text-align:center">
   <br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>

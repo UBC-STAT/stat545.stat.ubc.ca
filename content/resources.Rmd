@@ -4,6 +4,11 @@ title: "Resources"
 
 Here are some great resources to learn about the topics covered in STAT 545A and STAT 547M.
 
+### [R for Data Science](http://r4ds.had.co.nz/) (aka "r4ds")
+__Garrett Grolemund, Hadley Wickham__
+
+Closely mirrors the topics of this course, especially STAT 545A, making this book a good alternative to the main textbook for the course.
+
 ### [Happy git with R and RStudio](https://happygitwithr.com)
 __Jenny Bryan, the STAT 545 TAs, Jim Hester__
 

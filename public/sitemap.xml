@@ -31,16 +31,6 @@
   </url>
   
   <url>
-    <loc>/evaluation/assignments/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/evaluation/assignments/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>/evaluation/hw01/hw01/</loc>
     <priority>0</priority>
   </url>
@@ -131,31 +121,12 @@
   </url>
   
   <url>
-    <loc>/evaluation/participation/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/evaluation/participation/</loc>
-  </url>
-  
-  <url>
     <loc>/evaluation/peer-review-template/</loc>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/evaluation/peer-review-template/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/evaluation/peer-review/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/evaluation/peer-review/</loc>
     <priority>0</priority>
   </url>
   
@@ -169,6 +140,10 @@
   </url>
   
   <url>
+    <loc>/evaluation/assignments/</loc>
+  </url>
+  
+  <url>
     <loc>/authors/</loc>
     <priority>0</priority>
   </url>
@@ -179,7 +154,7 @@
   </url>
   
   <url>
-    <loc>/structure/</loc>
+    <loc>/cm_schedule/</loc>
   </url>
   
   <url>
@@ -188,7 +163,15 @@
   </url>
   
   <url>
+    <loc>/faq/</loc>
+  </url>
+  
+  <url>
     <loc>/officehours/</loc>
+  </url>
+  
+  <url>
+    <loc>/evaluation/participation/</loc>
   </url>
   
   <url>
@@ -229,6 +212,10 @@
   
   <url>
     <loc>/evaluation/hw10/pr10/</loc>
+  </url>
+  
+  <url>
+    <loc>/evaluation/peer-review/</loc>
   </url>
   
   <url>

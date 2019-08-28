@@ -2,7 +2,7 @@
 widget = "featurette"  
 headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
-weight = 15  # Order that this section will appear.
+weight = 20  # Order that this section will appear.
 
 title = "Course Guide"
 
@@ -13,9 +13,9 @@ title = "Course Guide"
   description = ""
   
 [[feature]]
-  icon = "book"
+  icon = "book-open"
   icon_pack = "fas"
-  name = "[Guidebook](/guide)"
+  name = "[Guidebook](https://stat545guidebook.netlify.com/)"
   description = ""  
   
 [[feature]]

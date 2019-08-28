@@ -10,12 +10,7 @@
 
 [[main]]
   name = "Guide"
-  url = "#guide"
-  weight = 15
-
-[[main]]
-  name = "Teaching Team"
-  url = "#team"
+  url = "https://stat545guidebook.netlify.com"
   weight = 20
 
 [[main]]
@@ -29,12 +24,18 @@
   weight = 40
 
 [[main]]
-  name = "Material"
-  url = "#material"
-  weight = 60
-
+  name = "Teaching Team"
+  url = "#team"
+  weight = 50
 
 [[main]]
   name = "Contact"
   url = "#contact"
+  weight = 60
+
+[[main]]
+  name = "Resources"
+  url = "#resources"
   weight = 70
+
+

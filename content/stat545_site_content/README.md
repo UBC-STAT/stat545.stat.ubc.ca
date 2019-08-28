@@ -1,6 +1,3 @@
-STAT545-UBC.github.io
-=====================
+Leftover stuff from the old website. Not sure what to do with this yet.
 
-Main repository for STAT 545 @ University of British Columbia, a course in data wrangling, exploration, and analysis with R.
-
-The `master` branch of this repository underpins this webpage: <http://stat545-ubc.github.io>.
+The "help" stuff might be going into Jenny's new STAT 545 book, so might just reference that there. 
