@@ -9,13 +9,13 @@ title = "Contact"
 [[feature]]
   icon = "bullhorn"
   icon_pack = "fas"
-  name = "[Announcements](https://github.com/STAT545-UBC-hw-2019-20/Announcements/)"
+  name = "[Announcements](https://github.com/STAT545-UBC-hw-2019-20/Announcements/issues)"
   description = "Discussion related to course happenings."
   
 [[feature]]
   icon = "comments"
   icon_pack = "fas"
-  name = "[Discussion](https://github.com/STAT545-UBC/Discussion)"
+  name = "[Discussion](https://github.com/STAT545-UBC/Discussion/issues)"
   description = "Discussion related to course content."  
   
 [[feature]]
