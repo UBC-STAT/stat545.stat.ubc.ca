@@ -1,8 +1,10 @@
+[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) [![Netlify Status](https://api.netlify.com/api/v1/badges/686ec137-6a38-4f0b-8717-4ae964b3848c/deploy-status)](https://app.netlify.com/sites/stat545/deploys)
+
 # STAT545-home
 
 Repository that produces the new STAT 545 @ UBC website. Uses Hugo with the Academic theme, wrapped by blogdown, and hosted by netlify. 
 
-Some noteworthy files and folders:
+Here are some noteworthy files and folders:
 
 ### `/content`
 
