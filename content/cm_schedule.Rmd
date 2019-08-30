@@ -7,6 +7,7 @@ date: "Updated `r Sys.Date()`"
 suppressPackageStartupMessages(library(readr))
 suppressPackageStartupMessages(library(knitr))
 suppressPackageStartupMessages(library(here))
+suppressPackageStartupMessages(library(dplyr))
 ```
 
 Here are the topics for each class meeting. You can find the notes in the [guidebook](https://stat545guidebook.netlify.com).
