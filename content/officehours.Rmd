@@ -6,10 +6,9 @@ date: "Updated `r Sys.Date()`"
 ```{r, echo = FALSE, warning = FALSE}
 suppressPackageStartupMessages(library(readr))
 suppressPackageStartupMessages(library(DT))
+suppressPackageStartupMessages(library(lubridate))
 suppressPackageStartupMessages(library(here))
 suppressPackageStartupMessages(library(tidyverse))
-suppressPackageStartupMessages(library(lubridate))
-
 ```
 
 Want to talk about the course outside of lecture? Let's talk during these dedicated times. You're always welcome to schedule one-off meetings with us, too.
@@ -17,7 +16,7 @@ Want to talk about the course outside of lecture? Let's talk during these dedica
 ## STAT 545A
 
 ```{r, echo = FALSE, results='asis'}
-oo545 <- suppressMessages(read_csv(here("content", "officehours-545a.csv")))
+oo545 <- suppressMessages(read_csv(here::here("content", "officehours-545a.csv")))
 oo545 %>% 
 	mutate(Date = mdy(Date),
 		   Day  = wday(Date, label = TRUE)) %>% 
@@ -31,5 +30,5 @@ oo545 %>%
 
 ```{r, echo = FALSE, results='asis'}
 oo547 <- suppressMessages(read_csv(here("content", "officehours-547m.csv")))
-kable(oo547)
+DT::datatable(oo547)
 ```
