@@ -5,10 +5,11 @@ date: "Updated `r Sys.Date()`"
 
 ```{r, echo = FALSE, warning = FALSE}
 suppressPackageStartupMessages(library(readr))
-suppressPackageStartupMessages(library(knitr))
+suppressPackageStartupMessages(library(DT))
 suppressPackageStartupMessages(library(here))
 suppressPackageStartupMessages(library(tidyverse))
 suppressPackageStartupMessages(library(lubridate))
+
 ```
 
 Want to talk about the course outside of lecture? Let's talk during these dedicated times. You're always welcome to schedule one-off meetings with us, too.
@@ -22,7 +23,8 @@ oo545 %>%
 		   Day  = wday(Date, label = TRUE)) %>% 
 	select(Person, Day, Date, Time, Place) %>% 
 	arrange(Date, Time) %>% 
-	kable()
+	DT::datatable()
+	# kable()
 ```
 
 ## STAT 547M
