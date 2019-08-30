@@ -7,4 +7,5 @@ Imports:
     tidyverse,
     rmarkdown,
     knitr,
-    here
+    here,
+    DT
