@@ -1,6 +1,10 @@
 language: r
 dist: xenial
-sudo: false
+
+branches:
+  only:
+    - master
+
 cache:
   packages: yes
   directories:
@@ -14,11 +18,11 @@ script:
   - Rscript -e 'blogdown::build_site()'
 
 after_success:
-- netlify deploy --prod --dir docs
+- netlify deploy --prod --dir public
 
 deploy:
   provider: script
-  script: netlify deploy --dir docs --prod --message "$DEPLOY_MSG"
+  script: netlify deploy --dir public --prod --message "$DEPLOY_MSG"
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   on:
