@@ -6,7 +6,7 @@ before_install:
 - npm install netlify-cli -g
 
 script:
-- Rscript -e 'blogdown::render_site()'
+- Rscript -e 'rmarkdown::render_site()'
 
 after_success:
 - netlify deploy --prod --dir docs
