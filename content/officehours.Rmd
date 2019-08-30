@@ -9,6 +9,7 @@ suppressPackageStartupMessages(library(DT))
 suppressPackageStartupMessages(library(lubridate))
 suppressPackageStartupMessages(library(here))
 suppressPackageStartupMessages(library(tidyverse))
+suppressPackageStartupMessages(library(knitr))
 ```
 
 Want to talk about the course outside of lecture? Let's talk during these dedicated times. You're always welcome to schedule one-off meetings with us, too.
