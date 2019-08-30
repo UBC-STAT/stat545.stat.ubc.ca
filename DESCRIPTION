@@ -9,3 +9,4 @@ Imports:
     knitr,
     here,
     DT
+Remotes: rstudio/blogdown
