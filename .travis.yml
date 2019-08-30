@@ -4,6 +4,7 @@ cache: packages
 
 before_install:
 - npm install netlify-cli -g
+- brew install hugo
 
 script:
 - Rscript -e 'rmarkdown::render_site()'
