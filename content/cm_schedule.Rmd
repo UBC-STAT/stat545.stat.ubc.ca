@@ -3,6 +3,12 @@ title: "Class Meeting Schedule"
 date: "Updated `r Sys.Date()`"
 ---
 
+```{r, echo = FALSE, warning = FALSE}
+suppressPackageStartupMessages(library(readr))
+suppressPackageStartupMessages(library(knitr))
+suppressPackageStartupMessages(library(here))
+```
+
 Here are the topics for each class meeting. You can find the notes in the [guidebook](https://stat545guidebook.netlify.com).
 
 Be sure to Bring a laptop to every class!
@@ -11,22 +17,11 @@ There will always be two TA's in class to help students with the live coding exe
 
 ## STAT 545A
 
-| Meeting No.         | Date         | Topic | 
-|---------------------|--------------|-------|
-| 01 | sep-03 tues    | Intro to course and software |
-| 02 | sep-05 thurs   | Markdown and GitHub |
-| 03 | sep-10 tues    | Getting familiar with R & RMarkdown |
-| 04 | sep-12 thurs   | The git workflow; collab with GitHub |
-| 05 | sep-17 tues    | working with data in R; <br> `dplyr` and the `tidyverse` |
-| 06 | sep-19 thurs   | ggplot2, Part I |
-| 07 | sep-24 tues    | ggplot2, Part II |
-| 08 | sep-26 thurs   | Grouping of tibbles |
-| 09 | oct-01 tues    | Tidy data, reshaping |
-| 10 | oct-03 thurs   | Guest Lecture: Rashedul, on table joins |
-| 11 | oct-08 tues    | Advanced R programming; file I/O |
-| 12 | oct-10 thurs   | The joy of Factors |
-| 13 | oct-15 tues    | Revisit ggplot; plotly; <br> practicalities of daily figure-making |
-| 14 | oct-17 thurs   | The model-fitting paradigm in R; `broom`; <br> deep thoughts about data analytic work |
+```{r, echo = FALSE, results='asis'}
+cm545 <- suppressMessages(read_csv(here("content", "cm_schedule-545a.csv")))
+kable(cm545)
+```
+
 
 ## STAT 547M
 
