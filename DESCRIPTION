@@ -1,0 +1,10 @@
+Package: placeholder
+Type: Website
+Title: Does not matter.
+Version: 0.0.1
+Imports:
+    blogdown,
+    tidyverse,
+    rmarkdown,
+    knitr,
+    here
