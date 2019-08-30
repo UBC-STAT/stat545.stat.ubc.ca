@@ -1,13 +1,18 @@
 language: r
+dist: xenial
 sudo: false
-cache: packages
+cache:
+  packages: yes
+  directories:
+    - $HOME/bin
 
 before_install:
 - npm install netlify-cli -g
 - brew install hugo
 
 script:
-- Rscript -e 'rmarkdown::render_site()'
+  - Rscript -e 'blogdown::install_hugo()'
+  - Rscript -e 'blogdown::build_site()'
 
 after_success:
 - netlify deploy --prod --dir docs
@@ -20,4 +25,4 @@ deploy:
   on:
     branch: master
 
-# Thanks, https://github.com/rstudio-education/stat545-reboot/issues/1
+# This is a combination between https://github.com/rstudio-education/stat545-reboot/issues/1 and https://bookdown.org/yihui/blogdown/travis-github.html
