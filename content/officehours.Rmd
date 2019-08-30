@@ -22,8 +22,8 @@ oo545 %>%
 		   Day  = wday(Date, label = TRUE)) %>% 
 	select(Person, Day, Date, Time, Place) %>% 
 	arrange(Date, Time) %>% 
-	DT::datatable()
-	# kable()
+	# DT::datatable()
+	kable()
 ```
 
 ## STAT 547M
