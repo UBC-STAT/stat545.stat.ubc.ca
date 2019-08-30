@@ -17,7 +17,9 @@ A late submission is defined as any work, including quizzes, submitted after the
 
 UBC no longer requires a doctor's note (or supporting documentation) for [academic concession](http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,48,0,0). A self-declaration will suffice -- [here](/concession_template.pdf) is a template you can use. Please submit this to the instructor. 
 
-For STAT 545A and 547M, a "conflicting responsibility" does include needing to travel for a conference or field work. 
+For STAT 545A and 547M, a "conflicting responsibility" does include needing to travel for a conference or field work.
+
+If you arrange to have an assignment submitted late, you may not be able to receive feedback from your peers.
 
 ## Plagiarism
 
