@@ -4,4 +4,4 @@
 *.Rproj
 .Rprofile
 public/
-Content/*.html
+content/**/*.html
