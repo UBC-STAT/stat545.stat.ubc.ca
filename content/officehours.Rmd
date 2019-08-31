@@ -31,5 +31,5 @@ oo545 %>%
 
 ```{r, echo = FALSE, results='asis'}
 oo547 <- suppressMessages(read_csv(here("content", "officehours-547m.csv")))
-DT::datatable(oo547)
+kable(oo547)
 ```

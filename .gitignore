@@ -3,4 +3,5 @@
 .RData
 *.Rproj
 .Rprofile
-public/*
+public/
+Content/*.html

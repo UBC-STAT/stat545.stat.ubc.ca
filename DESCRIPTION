@@ -8,5 +8,6 @@ Imports:
     rmarkdown,
     knitr,
     here,
-    DT
+    DT,
+    devtools
 Remotes: rstudio/blogdown
