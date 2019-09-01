@@ -3,68 +3,54 @@ title: "Participation Assessment"
 date: "Updated `r Sys.Date()`"
 ---
 
+__Due__: Monday, October 21, at 23:59.
 
-**MAY CHANGE FOR 2019/2020**
+The intent of the participation assessment is to encourage following along with class activities, which are usually coding sessions. You'll be putting all your in-class work in your own participation repository hosted on your GitHub user account, which we will evaluate at the end of the course.
 
-The intent of the participation assessment is to give students practice addressing many questions that each have narrow scope. This is as opposed to the homework, where you work on fewer questions with larger scope. 
+## Setup
 
-There are two goals:
+Here are the instructions to set up your participation repository.
 
-1. Help students grasp smaller concepts as they are encountered in lecture.
-2. Give students a foundation for approaching the assignments.
+1. On your user account, make a new repository:
+    - Click the "+" in the top-right corner -> "New repository"
+    - Call it `STAT545-participation`
+    - We highly recommend making this a _public_ repo. But if you so desire, make it private. You can change this later.
+    - Say YES to initializing with a README. 
+2. Add the teaching team as collaborators:
+	- Click on "Settings" -> "Collaborators".
+	- Add the instructors: `vincenzocoia` and `firasm`
+	- Add the TA who is grading your repo:
+		- Alejandra: `aleurcelay`
+		- Hossam:    `hsmohammed`
+		- Victor:    `wvictor14`
+		- Yulia:     `yuliaUU`
+3. Submit your participation repo to canvas right away, by submitting a URL to the repo.
+    - Don't worry, we won't grade it until it's finished. 
 
-## Evaluation
+## Submitting your participation repository
 
-Your participation component will be evaluated by:
+If you've completed Step 3 in the above "Setup" section, you don't have to do anything. We will grade your repository as it was on the last commit before the deadline.
 
-- ~~Participation in class discussions~~
-- Submitting work on in-class activities to your ~~STAT 545 home~~ participation GitHub repository (see below for setup).
-    - Be sure to submit activities in class, not at some other time!
-- Activity in the Issues of the two `Discussion` repositories -- with preference given to [`Discussion`](https://github.com/STAT545-UBC/Discussion)  (public) over [`Discussion-Internal`](https://github.com/STAT545-UBC/Discussion-Internal) (private).
+## Expectations
 
-For participation, we __never__ evaluate _correctness_! Only whether or not the _attempt_ was there. 
+In short, we're evaluating _completeness_, not _correctness_. Specifically:
 
-Will you be missing any classes for some legitimate reason (such as academic, health, or other)? It's okay! Just let me know ahead of time. We won't be looking for a commit timestamp for that day, but we do expect you to show at least some engagement with the material (for example, trying exercises in the worksheet -- as much as you feel is appropriate).
+Your participation component will be evaluated by the completeness of your repository. You'll be prompted in class when you should be contributing to your participation repository. 
 
+### Completeness (70%)
 
-## Your participation repository
+Your repository should be _complete_ with all in-class exercises. Your work should resemble an honest _attempt_ at the activities, but __does not__ need to be anywhere near "correct" -- even completely failing at an activity will earn you full marks here!
 
-Now that STAT 545 uses GitHub Classroom, STAT 545 will no longer be using one repository to hold all the work of a student. To evaluate your participation through work on in-class activities, I think it's most appropriate that we use a repository _that you create under your own account_. 
+Each of the 14 classes wil receive equal weight here (5% per class).
 
-### Making the participation repository
+### Documentation (30%)
 
-__If you've already created a repository in Class Meeting 02__ (probably called `STAT545_md_explorer`), rename and use that one:
+Your repository should be _well-documented_. 
 
-1. Navigate to that repository's home page.
-2. Click "settings".
-3. At the top of the page, rename the repository `STAT545_participation`.
-4. Make sure it's public!
+- 10%: Does your main README orient a stranger to your repository?
+- 10%: Will a stranger be able to figure out what the main files of your repository are for, and where they are located?
+- 10%: Are the contents of your files human readable? Although we aren't expecting publication-quality prose, there should be a moderate level of readability of your scripts to earn you full points here.
 
-__If you did not make said repository__:
+### Missing Class
 
-1. Go to github.com.
-2. Make a new repository. 
-    - Call it `STAT545_participation`. 
-    - Make sure it's public.
-    - Yes, initiate the repository with a README.
-
-### Expectations for the participation repository
-
-- You'll need to make your repository _navigable_. 
-    - Make sure that whoever is grading your STAT 545 participation is able to find your attempts at the in-class exercises. This involves keeping a clean folder structure, and making the README informative (what's in the repo? how can a visitor find things?)
-    - It probably makes most sense to make a folder for each class meeting, perhaps named `cm002`, `cm003`, etc... more on folders in GitHub in cm004.
-- Push/upload all work done in-class to this repository
-
-### Submitting your participation repository
-
-_**You do not have to wait until the end of the course to do this**_! You are encouraged to do this as soon as you can. 
-
-To gain participation marks, you'll need to submit a link to your `STAT545_participation` repository on canvas. 
-
-1. Go to [UBC Canvas](https://canvas.ubc.ca).
-2. Find the "Participation" assignment.
-3. Submit a link to your participation repository.
-
-## STAT 547M
-
-You can use your STAT 545 participation repo for STAT 547M.
+If you miss class, you can still do the activities another time. 
