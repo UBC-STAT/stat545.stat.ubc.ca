@@ -47,6 +47,10 @@ A full semester of data exploration, visualization, and all-around data wranglin
   * "What if I've never had a stats class?"
     - There are no official pre-requisites for STAT 545A but most students will have had at least one prior statistics course or comparable experience.
 
+### Can I sit in on the course without registering?
+
+Unfortunately not, because the room is already at capacity, at least for STAT 545A. 
+
 ### Should I register in ...?
 
 This course is open to any graduate student at UBC. Students from other departments vastly outnumber those from Statistics. In fact, the most successful students are often grad students from other fields who need to analyze and visualize data for a thesis. They are highly motivated and excel.
