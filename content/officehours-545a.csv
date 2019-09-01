@@ -1,25 +1,25 @@
 Person,Date,Time,Place
-Vincenzo,"September 5, 2019","1300-1400","ESB 3172"
-Vincenzo,"September 12, 2019","1300-1400","ESB 3172"
-Vincenzo,"September 19, 2019","1300-1400","ESB 3172"
-Vincenzo,"September 26, 2019","1300-1400","ESB 3172"
-Vincenzo,"October 3, 2019","1300-1400","ESB 3172"
-Hossam?,"September 3, 2019","1100-1200","ESB 3174"
-Yulia,"September 5, 2019","1100-1200","ESB 3174"
-Victor?,"September 10, 2019","1100-1200","ESB 3174"
-Yulia?,"September 12, 2019","1100-1200","ESB 3174"
-Yulia?,"September 17, 2019","1100-1200","ESB 3174"
-Alejandra?,"September 19, 2019","1100-1200","ESB 3174"
-Hossam?,"September 24, 2019","1100-1200","ESB 3174"
-Victor?,"September 26, 2019","1100-1200","ESB 3174"
-Victor?,"October 1, 2019","1100-1200","ESB 3174"
-Alejandra?,"October 3, 2019","1100-1200","ESB 3174"
-Yulia?,"October 8, 2019","1100-1200","ESB 3174"
-Hossam?,"October 10, 2019","1100-1200","ESB 3174"
-Hossam?,"October 15, 2019","1100-1200","ESB 3174"
-Alejandra?,"October 17, 2019","1100-1200","ESB 3174"
-Hossam?,"September 9, 2019","1100-1200","ESB 3174"
-Victor?,"September 16, 2019","1100-1200","ESB 3174"
-Alejandra?,"September 23, 2019","1100-1200","ESB 3174"
-Alejandra?,"September 30, 2019","1100-1200","ESB 3174"
-Victor?,"October 7, 2019","1100-1200","ESB 3174"
+Vincenzo,05-Sep-19,1300-1400,ESB 3172
+Vincenzo,12-Sep-19,1300-1400,ESB 3172
+Vincenzo,19-Sep-19,1300-1400,ESB 3172
+Vincenzo,26-Sep-19,1300-1400,ESB 3172
+Vincenzo,03-Oct-19,1300-1400,ESB 3172
+Victor?,03-Sep-19,1100-1200,ESB 3174
+Hossam?,05-Sep-19,1100-1200,ESB 3174
+Yulia?,10-Sep-19,1100-1200,ESB 3174
+Alejandra?,12-Sep-19,1100-1200,ESB 3174
+Hossam?,17-Sep-19,1100-1200,ESB 3174
+Yulia?,19-Sep-19,1100-1200,ESB 3174
+Victor?,24-Sep-19,1100-1200,ESB 3174
+Alejandra?,26-Sep-19,1100-1200,ESB 3174
+Victor?,01-Oct-19,1100-1200,ESB 3174
+Alejandra?,03-Oct-19,1100-1200,ESB 3174
+Yulia?,08-Oct-19,1100-1200,ESB 3174
+Hossam?,10-Oct-19,1100-1200,ESB 3174
+Hossam?,15-Oct-19,1100-1200,ESB 3174
+Alejandra?,17-Oct-19,1100-1200,ESB 3174
+Hossam?,09-Sep-19,1100-1200,ESB 3174
+Victor?,16-Sep-19,1100-1200,ESB 3174
+Alejandra?,23-Sep-19,1100-1200,ESB 3174
+Yulia?,30-Sep-19,1100-1200,ESB 3174
+Victor?,07-Oct-19,1100-1200,ESB 3174
