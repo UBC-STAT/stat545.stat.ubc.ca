@@ -4,7 +4,13 @@
 
 Repository that produces the new STAT 545 @ UBC website. Uses Hugo with the Academic theme, wrapped by blogdown, and hosted by netlify. 
 
-Here are some noteworthy files and folders:
+## Workflow
+
+This repository is hooked up to Travis CI and Netlify. All you need to do is push a change to the `master` branch, and the site will automatically render and deploy.
+
+Wondering where the `.html` files are? They've been `.gitignore`d, and produced by Travis/Netlify.
+
+## Noteworthy Directory Structure
 
 ### `/content`
 
@@ -12,7 +18,7 @@ This is where the content of the website lives. Hugo/blogdown renders this to th
 
 ### `config.toml` and `/config`
 
-Website parameters used by Hugo are set in these `toml` files. 
+Website parameters used by Hugo are set in these `toml` files. Check out 
 
 ### `/static`
 
