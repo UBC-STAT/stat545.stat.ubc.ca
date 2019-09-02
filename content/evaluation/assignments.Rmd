@@ -1,13 +1,18 @@
 ---
 title: "Assignments"
 date: "Updated `r Sys.Date()`"
+output:
+  blogdown::html_page:
+    toc: true
 ---
 
 Your hub for information related to assignments. 
 
 ## Schedule
 
-Here are the deadlines for assignments, with links (to appear after assignments are released). 
+Here are the deadlines for assignments, with links (to appear after assignments are released).
+
+A GitHub Issue will be posted in the [Announcements](https://github.com/STAT545-UBC-hw-2019-20/Announcements) repo whenever a new assignment is released. The students will be tagged too, so you should get an email notification with it as well.
 
 All submissions are due by 23:59. I highly recommend aiming to finish before the last lecture so that we can help you if need be!
 
@@ -32,21 +37,7 @@ All submissions are due by 23:59. I highly recommend aiming to finish before the
 | Assignment 10 | |
 
 
-## Setup
-
-All assignments will be submitted to a single repository created by GitHub Classroom. To create the repository, just follow [this link](https://classroom.github.com/a/PAa_IIPO), and follow the instructions. Your homework repository will be created for you in the [STAT545-UBC-hw-2019-20](https://github.com/STAT545-UBC-hw-2019-20) Organization under the name `STAT545-hw-<your username>`.
-
-FYI: This repository is public.
-
-## The assignment life cycle
-
-Here is the general flow that will happen for the assignments.
-
-1. When an assignment is released, a GitHub Issue will be posted in the [Announcements](https://github.com/STAT545-UBC-hw-2019-20/Announcements) repo, tagging the teaching team and students (you should get an email notification, too, unless you are not `Watch`ing the `Announcements` repo or are not on the class roster, or you disabled notifications).
-2. Develop your homework responses on your homework repository.
-3. Upon completion of your assignment, it would be useful for you to submit a link to your URL in the UBC [Canvas](https://canvas.ubc.ca) page. We will be putting your grades there.
-
-## How the assignments are graded
+## Grading
 
 The assignments make use of [UBC MDS's rubrics](https://github.com/UBC-MDS/public/tree/master/rubric). Within each assignment, we let you know which rubrics are being used and where, along with their weighting. Each rubric typically has six "levels" defined by letter grades, which map to the following percentages as [defined by UBC](http://www.calendar.ubc.ca/Vancouver/index.cfm?tree=3,42,96,0):
 
@@ -59,12 +50,16 @@ The assignments make use of [UBC MDS's rubrics](https://github.com/UBC-MDS/publi
 | Good (B- to B+)         | 68% - 79% |
 | Excellent (A- to A+)    | 80% - 100% |
 
-## Submission Instructions
 
-1. Tag a release.
-2. Submit link to GitHub
+## Setting up your homework repository
 
-### Advice
+Your assignments will be developed and submitted to a single repository created by GitHub Classroom (note that this is different from your participation repository). To create the repository, just follow [this link](https://classroom.github.com/a/PAa_IIPO), and follow the instructions. Your homework repository will be created for you in the [STAT545-UBC-hw-2019-20](https://github.com/STAT545-UBC-hw-2019-20) Organization under the name `STAT545-hw-<your username>`. You only have to do this once.
+
+FYI: This repository is public.
+
+## Working on your homework
+
+As you work on your assignment, you should commit and push your progress to GitHub. As a word of advice:
 
 **Commit your work often!**
 
@@ -74,43 +69,26 @@ The assignments make use of [UBC MDS's rubrics](https://github.com/UBC-MDS/publi
 
 Too many times, I see students wait until they finish their assignments to commit and push to GitHub. This is a very bad idea for at least two reasons:
 
-1. If you submit your work late, we can grade your work as it was on the last commit before the deadline, which is probably better than taking a 50% (or even 0) penalty. 
+1. If you submit your work late, we are forced to give you the late penalty. But if you've been committing your work, we can at least look at your repo as it was after the latest commit before the deadline.
 2. Your workflow will not be as effective as it could be by using version control.
-
-### Reflection
-
-Once you're done the above, go back to [UBC canvas](https://canvas.ubc.ca/), and find the "Homework 01" page. Here, you should submit a reflection (and, although not required, adding a link to your homework respository would be helpful for the markers). 
-
-Please don't skip this reflection! We really care about this.
-
-Some things you can include:
-
-- A description of how you got the changes into `README.md` on GitHub.
-    - Did you edit in the browser at github.com?
-    - Did you pull, edit locally, save, commit, push to github.com?
-- How did it all work for the R Markdown document?
-- You're encouraged to reflect on what was hard/easy, problems you solved, helpful tutorials you read, etc.
-
-
-### Special Submission Cases
-
-**Are you worried about submitting early, and then wanting to make changes that are included in your submission?**
-
-Don't be. We'll always grade your GitHub repository as it was at the last commit prior to the deadline. Therefore, we encourage you to submit early and often, especially regarding your GitHub repository!
-
-**Want to submit early, and continue making contributions to your repository that you _don't_ want to be graded?**
-
-Just [create a release](https://help.github.com/articles/creating-releases/) of your homework repo, and include the link to this release in your submission, being sure to indicate that this is a special early release that you want graded. Or, even better, just fork the repo.
 
 ## Tidy Submission
 
-Each assignment will have some marks set aside for a "tidy" submission, as indicated on each assignment. A tidy submission is defined here. 
+Each assignment will have some marks set aside for a "tidy" submission, which is defined here. If there's any further uncertainty in determining a grade for the tidy submission portion, the [UBC MDS mechanics rubric](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_mech.md) will be referred to.
+
+Before submitting your work, make sure it's tidy:
 
 - Each assignment should be self-contained in a folder within your STAT 545A homework repository, found in [the hw Org](https://github.com/STAT545-UBC-hw-2019-20).
 	- Special case for Assignment 01, which also evaluates your repo's `README.md` file.
 - Your work must be reproducible from beginning to end. That is, a member of the teaching team should be able to run all code error-free and reproduce the output files. 
 - Your scripts do not contain code that installs packages (this is not good practice anyway) – note that this is different from loading packages with the `library()` function, which is good!
 - All R Markdown files are `knit`ted to an output readable on GitHub (probably `github_document` or `pdf_document`).
-- You followed the assignment submission instructions.
 
-If there's any further uncertainty in determining a grade for the tidy submission portion, the [UBC MDS mechanics rubric](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_mech.md) will be referred to.
+Here is how you submit your homework:
+
+1. If you're working locally (i.e., on your hard drive), push your work to your GitHub homework repository.
+2. On your GitHub homework repository, [tag a release](https://help.github.com/articles/creating-releases/).
+	- As a "tag version", we recommend putting `hw1.0` for assignment 1, `hw2.0` for assignment 2, etc.
+	- If you want to make changes to your release before the deadline, just tag a new release like `hw1.1`.
+3. Go to the course page on [UBC canvas](https://canvas.ubc.ca), and find the corresponding assignment submission. Submit a URL to the latest release of your assignment. 
+	- You can find this by clicking on the "release" button on your GitHub homework repository, on (for example) the `hw1.0` text. 
