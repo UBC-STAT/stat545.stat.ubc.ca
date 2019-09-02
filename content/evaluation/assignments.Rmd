@@ -1,9 +1,6 @@
 ---
 title: "Assignments"
 date: "Updated `r Sys.Date()`"
-output:
-  blogdown::html_page:
-    toc: true
 ---
 
 Your hub for information related to assignments. 
