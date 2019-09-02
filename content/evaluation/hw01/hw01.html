@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -69,9 +70,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type="text/css">
 .main-container {
@@ -85,7 +84,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -96,22 +94,80 @@ img {
 button.code-folding-btn:focus {
   outline: none;
 }
+summary {
+  display: list-item;
+}
 </style>
 
 
 
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
 
 <!-- code folding -->
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -124,11 +180,11 @@ $(document).ready(function () {
 </div>
 
 
-<div id="stat-545a-homework-01-edit-readme.md-and-use-r-markdown" class="section level1">
-<h1>STAT 545A Homework 01: Edit README.md and Use R Markdown</h1>
-<div id="overview" class="section level2">
-<h2>Overview</h2>
-<p>This assignment was designed to give you practice with:</p>
+<div id="stat-545a-assignment-01-tools-for-data-analytic-work" class="section level1">
+<h1>STAT 545A Assignment 01: Tools for data analytic work</h1>
+<div id="objective" class="section level2">
+<h2>Objective</h2>
+<p>This assignment was designed to give you practice with the tools discussed in the first two weeks:</p>
 <ul>
 <li>Developing of a simple repository with GitHub; perhaps git too</li>
 <li>Authoring in GitHub-flavoured markdown and R markdown</li>
@@ -136,7 +192,6 @@ $(document).ready(function () {
 <li>Generating output from (<code>.Rmd</code>) source</li>
 </ul>
 <p>using RStudio.</p>
-<p>Due by 23:59 Tuesday 2018-09-18, but I <strong>highly recommend</strong> you aim to submit before class. This assignment should go smoothly, but if the computer gods do not smile upon you, we should be able to straighten things out in class or office hours.</p>
 <p>As you work on the assignment, you are welcome to work from the browser (i.e., directly on GitHub), but we encourage you to pilot a more powerful workflow:</p>
 <ul>
 <li>Pull from GitHub (just an empty precaution now, but will matter when you collaborate with others).</li>
@@ -145,67 +200,52 @@ $(document).ready(function () {
 <li>Commit your changes to your repo.</li>
 <li>Push the commit to GitHub.</li>
 </ul>
-<div id="evaluation" class="section level3">
-<h3>Evaluation</h3>
-<p>The rubrics used for this assignment are:</p>
+</div>
+<div id="tidy-submission-10" class="section level2">
+<h2>Tidy Submission (10%)</h2>
+<div id="mechanics-5" class="section level4">
+<h4>Mechanics (5%)</h4>
 <ul>
-<li>Coding style</li>
-<li>Coding strategy</li>
-<li>Achievement, mastery, cleverness, creativity</li>
-<li>Ease of access for instructor, compliance with course conventions for submitted work</li>
+<li>Your submission should be self-contained in a folder within your STAT 545A homework repository (found in <a href="https://github.com/STAT545-UBC-hw-2019-20">the hw Org</a>).</li>
+<li>Your work must be reproducible from beginning to end. That is, a member of the teaching team should be able to run all code error-free and reproduce the output files.</li>
+<li>Your scripts do not contain code that installs packages (this is not good practice anyway) – note that this is different from loading packages with the <code>library()</code> function, which is good!</li>
+<li>Your submission for this assignment should be in its own folder in your homework repository. (Special case for Assignment 01: your repo’s <code>README.md</code> file should not be in this folder).</li>
+<li>You followed the assignment submission instructions.</li>
 </ul>
-<p>For more details on rubrics, see the <a href="http://stat545.com/Classroom/assignments/">assignments</a> page.</p>
-<p>You’ll be creating two types of content, as we elaborate on below (the README and the R Markdown). They are equally weighed.</p>
+<p>If there’s any further uncertainty in determining a grade for this “mechanics” portion, the <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_mech.md">UBC MDS mechanics rubric</a> will be referred to.</p>
 </div>
-</div>
-<div id="create-your-hw01-repo" class="section level2">
-<h2>Create your hw01 repo</h2>
-<p>This is the first time STAT 545 is using <a href="https://classroom.github.com/">GitHub Classroom</a>! GitHub Classroom will make a repository for you, called <code>hw01-your_github_username</code>, for you to work on your assignment. <strong>FYI, it is public</strong>. Follow these instructions to get the repo:</p>
-<ol style="list-style-type: decimal">
-<li>Sign in to <a href="https://canvas.ubc.ca">UBC canvas</a>.</li>
-<li>Go to the <code>hw01</code> page.</li>
-<li>You will find a url leading to a page on GitHub Classroom – go ahead and visit the page and follow the instructions. But note:
+<div id="writing-5" class="section level4">
+<h4>Writing (5%)</h4>
 <ul>
-<li>You’ll be asked to find/pair your github username. If it’s not on the list, please (1) click “Skip” to skip this step, and (2) fill out the <a href="https://goo.gl/forms/UPvRA6a9WRod8JPb2">course survey</a> so that you can be added to the roster.</li>
+<li>You must use proper English, spelling, and grammar.</li>
+<li>You should write concisely.</li>
+<li>If there’s any further uncertainty in determining a grade here, the <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md">UBC MDS writing rubric</a> will be used.</li>
+</ul>
+</div>
+</div>
+<div id="edit-readme.md-35" class="section level2">
+<h2>Edit <code>README.md</code> (35%)</h2>
+<hr />
+<p>Rubrics:</p>
+<ul>
+<li><a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md">accuracy</a>: (15%)
+<ul>
+<li>Does your markdown render properly, or are there mistakes (like this)[www.example.com] or _this__?</li>
 </ul></li>
-</ol>
-<p>When you obtain your repository, it should contain this very <code>.md</code> file, and a blank <code>README.md</code> file.</p>
-</div>
-<div id="github-flavoured-markdown-edit-readme.md" class="section level2">
-<h2>GitHub-Flavoured Markdown: edit <code>README.md</code></h2>
-<p>Your task here is to edit the <code>README.md</code> file in your repository to contain a sampler of GitHub-flavoured markdown features.</p>
+<li>[]</li>
+</ul>
+<hr />
+<p>Your task here is to edit the main <code>README.md</code> file in your repository to contain a sampler of GitHub-flavoured markdown features.</p>
 <p>The beginning of the README should contain a very brief description as to what the repository is, so that an unknowing visitor landing on the repository can orient themselves. You should also help the visitor navigate your repository (in whatever way you think is most appropriate).</p>
-<p>The next piece of information that your README should contain is an introduction to yourself. Here’s where you should elaborate and test out various GitHub-flavoured markdown features.</p>
-<p><strong>At the very least</strong>, change <code>README.md</code> to something like “This is the repository of Jane Hacker”, just to prove you have been there. Practice making a link, for example, to the <a href="http://stat545.com">main STAT545 webpage</a>.</p>
+<p>The next piece of information that your README should contain is an introduction to yourself.</p>
+<p><strong>At the very least</strong>, change <code>README.md</code> to something like “This is the repository of Jane Hacker”, just to prove you have been there. Practice making a link, for example, to the <a href="http://stat545.stat.ubc.ca">main STAT545 webpage</a>.</p>
 <p>Much better is to introduce yourself, showcasing a suite of GitHub-flavoured markdown functionality (you might find GitHub’s <a href="https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf">cheatsheet</a> useful for this).</p>
-<p>Here’s a <a href="https://github.com/STAT545-UBC/Classroom/blob/master/assignments/hw01/sample_readme.md">sample readme file</a>. The <em>Help</em> menu in RStudio will bring up a Markdown Quick Reference at any time.</p>
+<p>Here’s a <a href="https://github.com/STAT545-UBC/STAT545-home/blob/master/content/evaluation/hw01/sample_readme.md">sample readme file</a>. The <em>Help</em> menu in RStudio will bring up a Markdown Quick Reference at any time.</p>
 </div>
-<div id="r-markdown-for-gapminder-exploration" class="section level2">
-<h2>R Markdown for Gapminder exploration</h2>
+<div id="r-markdown-for-gapminder-exploration-55" class="section level2">
+<h2>R Markdown for Gapminder exploration (55%)</h2>
 <p>Make an R Markdown document that explores a dataset, such as gapminder seen in class. You don’t need an extensive exploration in order to get a good grade here; a basic one will do, not unlike the one done in class, which would be considered sufficient (but less so the more verbatim your submission is). Render your R Markdown to the <code>github_document</code> output format. Commit both the <code>.Rmd</code> and <code>.md</code> files and push them to GitHub.</p>
 <p>Give this a decent name, such as <code>hw01_gapminder.Rmd</code> (which will produce a companion file, <code>hw01_gapminder.md</code>).</p>
-</div>
-<div id="reflection" class="section level2">
-<h2>Reflection</h2>
-<p>Once you’re done the above, go back to <a href="https://canvas.ubc.ca/">UBC canvas</a>, and find the “Homework 01” page. Here, you should submit a reflection (and, although not required, adding a link to your homework respository would be helpful for the markers).</p>
-<p>Please don’t skip this reflection! We really care about this.</p>
-<p>Some things you can include:</p>
-<ul>
-<li>A description of how you got the changes into <code>README.md</code> on GitHub.
-<ul>
-<li>Did you edit in the browser at github.com?</li>
-<li>Did you pull, edit locally, save, commit, push to github.com?</li>
-</ul></li>
-<li>How did it all work for the R Markdown document?</li>
-<li>You’re encouraged to reflect on what was hard/easy, problems you solved, helpful tutorials you read, etc.</li>
-</ul>
-</div>
-<div id="special-submission-cases" class="section level2">
-<h2>Special Submission Cases</h2>
-<p><strong>Are you worried about submitting early, and then wanting to make changes that are included in your submission?</strong></p>
-<p>Don’t be. We’ll always grade your GitHub repository as it was at the last commit prior to the deadline. Therefore, we encourage you to submit early and often, especially regarding your GitHub repository!</p>
-<p><strong>Want to submit early, and continue making contributions to your repository that you <em>don’t</em> want to be graded?</strong></p>
-<p>Just <a href="https://help.github.com/articles/creating-releases/">create a release</a> of your homework repo, and include the link to this release in your submission, being sure to indicate that this is a special early release that you want graded. Or, even better, just fork the repo.</p>
 </div>
 </div>
 
@@ -226,6 +266,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

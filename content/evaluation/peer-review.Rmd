@@ -14,7 +14,7 @@ Peer Reviews will be posted here as they are made available.
 
 Here are the deadlines for peer reviews, with links (to appear after assignments are released). All submissions are due by 23:59.
 
-#### STAT 545A
+### STAT 545A
 
 | Peer Review    | Peer Review Due Date  |
 |----------------|-----------------------|
@@ -24,7 +24,7 @@ Here are the deadlines for peer reviews, with links (to appear after assignments
 | Peer Review 04 | October 14, 2018 |
 | Peer Review 05 | October 23, 2018 |
 
-#### STAT 547M
+### STAT 547M
 
 | Peer Review    | Peer Review Due Date  |
 |----------------|-----------------------|

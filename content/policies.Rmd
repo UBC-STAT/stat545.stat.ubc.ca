@@ -11,7 +11,7 @@ Auditing students are expected to complete all assessments (assignments, peer re
 
 ## Late Policy
 
-A late submission is defined as any work, including quizzes, submitted after the deadline. For a late submission, the student will receive a 50% scaling of their grade for the first occurrence, and will receive a grade of 0 for subsequent occurrences.
+A late submission is defined as any work, including quizzes, submitted after the deadline. For a late submission, the student will receive a 50% scaling of their grade for the first occurrence, and will receive a grade of 0 for subsequent occurrences. In all cases, late submissions past 24 hours will receive a zero.
 
 ## Academic Concession
 
