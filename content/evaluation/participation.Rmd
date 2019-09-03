@@ -44,13 +44,15 @@ Here are the instructions to set up your participation repository.
 2. Add the teaching team as collaborators:
 	- Click on "Settings" -> "Collaborators".
 	- Add the instructors: `vincenzocoia` and `firasm`
-	- Add the TA who is grading your repo:
+	- Add the TA's (see note below)
 		- Alejandra: `aleurcelay`
 		- Hossam:    `hsmohammed`
 		- Victor:    `wvictor14`
 		- Yulia:     `yuliaUU`
 3. Submit your participation repo to canvas right away, by submitting a URL to the repo.
     - Don't worry, we won't grade it until it's finished. 
+
+__Note__: If your participation repo is private, and you have a free GitHub account without the student developer pack, you will be limited to adding three collaborators. Add the instructors (`vincenzocoia` and `firasm`), along with the TA who will be grading your participation repo. Will be listed later. 
 
 ## Submitting your participation repository
 
