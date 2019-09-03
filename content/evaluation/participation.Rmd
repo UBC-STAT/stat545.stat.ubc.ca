@@ -7,6 +7,31 @@ __Due__: Monday, October 21, at 23:59.
 
 The intent of the participation assessment is to encourage following along with class activities, which are usually coding sessions. You'll be putting all your in-class work in your own participation repository hosted on your GitHub user account, which we will evaluate at the end of the course.
 
+## Expectations
+
+In short, we're evaluating _completeness_, not _correctness_. Specifically:
+
+Your participation component will be evaluated by the completeness of your repository. You'll be prompted in class when you should be contributing to your participation repository. 
+
+### Completeness (70%)
+
+Your repository should be _complete_ with all in-class exercises. Your work should resemble an honest _attempt_ at the activities, but __does not__ need to be anywhere near "correct" -- even completely failing at an activity will earn you full marks here!
+
+Each of the 14 classes wil receive equal weight here (5% per class).
+
+### Documentation (30%)
+
+Your repository should be _well-documented_. 
+
+- 10%: Does your main README orient a stranger to your repository?
+- 10%: Will a stranger be able to figure out what the main files of your repository are for, and where they are located?
+- 10%: Are the contents of your files human readable? Although we aren't expecting publication-quality prose, there should be a moderate level of readability of your scripts to earn you full points here.
+
+### Missing Class
+
+If you miss class, you can still do the activities another time. 
+
+
 ## Setup
 
 Here are the instructions to set up your participation repository.
@@ -31,26 +56,3 @@ Here are the instructions to set up your participation repository.
 
 If you've completed Step 3 in the above "Setup" section, you don't have to do anything. We will grade your repository as it was on the last commit before the deadline.
 
-## Expectations
-
-In short, we're evaluating _completeness_, not _correctness_. Specifically:
-
-Your participation component will be evaluated by the completeness of your repository. You'll be prompted in class when you should be contributing to your participation repository. 
-
-### Completeness (70%)
-
-Your repository should be _complete_ with all in-class exercises. Your work should resemble an honest _attempt_ at the activities, but __does not__ need to be anywhere near "correct" -- even completely failing at an activity will earn you full marks here!
-
-Each of the 14 classes wil receive equal weight here (5% per class).
-
-### Documentation (30%)
-
-Your repository should be _well-documented_. 
-
-- 10%: Does your main README orient a stranger to your repository?
-- 10%: Will a stranger be able to figure out what the main files of your repository are for, and where they are located?
-- 10%: Are the contents of your files human readable? Although we aren't expecting publication-quality prose, there should be a moderate level of readability of your scripts to earn you full points here.
-
-### Missing Class
-
-If you miss class, you can still do the activities another time. 
