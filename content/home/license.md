@@ -53,7 +53,7 @@ align = "center"
 [Jenny Bryan](https://jennybryan.org/) deserves a huge amount of credit for founding and developing both STAT 545A and 547M over many years, along with her TA's. Thank you!
 
 <p style="text-align:center">
-  <br />Edit this site on [github](https://github.com/STAT545-UBC/STAT545-home)</a>
+  <br />Edit this site on <a href = "https://github.com/STAT545-UBC/STAT545-home">github</a>
 </p>
 
 <p style="text-align:center">
