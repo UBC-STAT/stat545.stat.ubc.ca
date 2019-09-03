@@ -1,0 +1,101 @@
+---
+title: "STAT 545A Assignment 01: Tools for data analytic work"
+---
+
+
+
+<p><strong>Due September 17, 2019 at 23:59</strong></p>
+<div id="objective" class="section level2">
+<h2>Objective</h2>
+<p>This assignment was designed to give you practice with the tools discussed in the first two weeks: GitHub, R, (R) Markdown, and git. You’ll be:</p>
+<ul>
+<li>Developing of a simple repository with GitHub; perhaps git too</li>
+<li>Authoring in GitHub-flavoured markdown and R markdown</li>
+<li>Coding in R through data exploration</li>
+<li>Generating output from (<code>.Rmd</code>) source</li>
+</ul>
+<p>using RStudio.</p>
+<p>As you work on the assignment, you are welcome to work from the browser (i.e., directly on GitHub), but we encourage you to pilot a more powerful workflow:</p>
+<ul>
+<li>Pull from GitHub (just an empty precaution now, but will matter when you collaborate with others).</li>
+<li>Make changes locally to local files – RStudio is a great Markdown editor! Click Preview to see how it’s going to look!</li>
+<li>Save your changes.</li>
+<li>Commit your changes to your repo.</li>
+<li>Push the commit to GitHub.</li>
+</ul>
+</div>
+<div id="tidy-submission-20" class="section level2">
+<h2>Tidy Submission (20%)</h2>
+<p>Follow the instructions for making a tidy submission, found on the [assignments home page].</p>
+<p>Note: Usually, a tidy submission does not have this much weight, but we recognize that this part is not trivial for your first time. A tidy submission involves using the tools taught in Weeks 1 and 2, and this is what this assignment is all about.</p>
+</div>
+<div id="writing-5" class="section level2">
+<h2>Writing (5%)</h2>
+<ul>
+<li>You must use proper English, spelling, and grammar.</li>
+<li>Your writing is concise.</li>
+</ul>
+<p>If there’s any further uncertainty in determining a grade here, the <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md">UBC MDS writing rubric</a> will be used.</p>
+</div>
+<div id="edit-readme.md-30" class="section level2">
+<h2>Edit <code>README.md</code> (30%)</h2>
+<hr />
+<p>Rubrics:</p>
+<ul>
+<li><a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md">accuracy</a>: (10%)
+<ul>
+<li>Does your markdown render properly, or are there mistakes like _this__ or (this)[www.example.com]?</li>
+</ul></li>
+<li>completeness: (20%)
+<ul>
+<li>Did you include at least five markdown features in your README? (= 4% each)</li>
+</ul></li>
+</ul>
+<hr />
+<p>Your task here is to edit the main <code>README.md</code> file in your repository to contain a sampler of GitHub-flavoured markdown features.</p>
+<p>The beginning of the README should contain a very brief description as to what the repository is, so that an unknowing visitor landing on the repository can orient themselves. You should also help the visitor navigate your repository (in whatever way you think is most appropriate).</p>
+<p>The next piece of information that your README should contain is an introduction to yourself.</p>
+<p><strong>At the very least</strong>, change <code>README.md</code> to something like “This is the repository of Jane Hacker”, just to prove you have been there. Practice making a link, for example, to the <a href="http://stat545.stat.ubc.ca">main STAT545 webpage</a>.</p>
+<p>Much better is to introduce yourself, showcasing a suite of GitHub-flavoured markdown functionality (you might find GitHub’s <a href="https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf">cheatsheet</a> useful for this).</p>
+<p>Here’s a <a href="https://github.com/STAT545-UBC/STAT545-home/blob/master/content/evaluation/hw01/sample_readme.md">sample readme file</a>. The <em>Help</em> menu in RStudio will bring up a Markdown Quick Reference at any time.</p>
+</div>
+<div id="r-markdown-for-gapminder-exploration-30" class="section level2">
+<h2>R Markdown for Gapminder exploration (30%)</h2>
+<hr />
+<p>Rubrics:</p>
+<ul>
+<li><a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md">accuracy</a>: (20%)
+<ul>
+<li>Does your code run?</li>
+</ul></li>
+<li><a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_reasoning.md">reasoning</a>: (10%)
+<ul>
+<li>How sensible is your exploration?</li>
+</ul></li>
+</ul>
+<hr />
+<p>Make an R Markdown document that explores a dataset, such as gapminder seen in class. You don’t need an extensive exploration in order to get a good grade here; a basic one will do, comparable to the one done in class.</p>
+<p>Don’t forget! Render your R Markdown file to the <code>github_document</code> output format. Commit both the <code>.Rmd</code> and <code>.md</code> files and push them to GitHub. Give this a decent name, such as <code>hw01_gapminder.Rmd</code> (which will produce a companion file, <code>hw01_gapminder.md</code>).</p>
+</div>
+<div id="r-markdown-presentation-slides-15" class="section level2">
+<h2>R Markdown presentation slides (15%)</h2>
+<hr />
+<p>Rubrics:</p>
+<ul>
+<li><a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md">accuracy</a>: (5%)
+<ul>
+<li>Did you manage to produce slides at all?</li>
+</ul></li>
+<li><a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_reasoning.md">reasoning</a>: (10%)
+<ul>
+<li>Is your slide deck formatted so that it actually looks like it could be a presentation? We <em>are not referring to</em> whether your slides would make an <em>effective</em> presentation (by, for example, minimizing your text and keeping your slides simple). By “formatted”, we mean things like:
+<ul>
+<li>Slides do not have text overflowing its boundaries</li>
+<li>Sentences are not cut in half by a new slide.</li>
+<li>At least some slides have titles.</li>
+</ul></li>
+</ul></li>
+</ul>
+<hr />
+<p>Produce slides out of your Gapminder exploration using R Markdown – for example, using the <code>ioslides</code> or <code>xaringan</code> output. Don’t worry, you won’t be presenting these – the objective of this exercise is to see that you can make slides. Feel free to make a new <code>.Rmd</code> file for this.</p>
+</div>

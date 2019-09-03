@@ -1,0 +1,114 @@
+
+
+
+<div id="homework-02-explore-gapminder-and-use-dplyr" class="section level1">
+<h1>Homework 02: Explore Gapminder and use dplyr</h1>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>The goal is to explore a dataset. In particular, to begin to establish a workflow for data frames or “tibbles”. You will use <code>dplyr</code> and <code>ggplot2</code> to do some description and visualization.</p>
+<p>Due by 23:59 Tuesday 2018-09-25, but I <strong>highly recommend</strong> you aim to submit before class. This assignment should go smoothly, but if the computer gods do not smile upon you, we should be able to straighten things out in class or office hours.</p>
+<p>Your homework should serve as your own personal cheatsheet in the future for things to do with a new dataset. Give yourself the cheatsheet you deserve!</p>
+</div>
+<div id="tidy-submission-10" class="section level2">
+<h2>Tidy Submission (10%)</h2>
+<div id="mechanics-5" class="section level4">
+<h4>Mechanics (5%)</h4>
+<ul>
+<li>Your submission should be self-contained in a folder within your STAT 545A homework repository (found in <a href="https://github.com/STAT545-UBC-hw-2019-20">the hw Org</a>).</li>
+<li>Your work must be reproducible from beginning to end. That is, a member of the teaching team should be able to run all code error-free and reproduce the output files.</li>
+<li>Your scripts do not contain code that installs packages (this is not good practice anyway) – note that this is different from loading packages with the <code>library()</code> function, which is good!</li>
+<li>Your submission for this assignment should be in its own folder in your homework repository. (Special case for Assignment 01: your repo’s <code>README.md</code> file should not be in this folder).</li>
+<li>You followed the assignment submission instructions.</li>
+</ul>
+<p>If there’s any further uncertainty in determining a grade for this “mechanics” portion, the <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_mech.md">UBC MDS mechanics rubric</a> will be referred to.</p>
+</div>
+<div id="writing-5" class="section level4">
+<h4>Writing (5%)</h4>
+<ul>
+<li>You must use proper English, spelling, and grammar.</li>
+<li>You should write concisely.</li>
+<li>If there’s any further uncertainty in determining a grade here, the <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md">UBC MDS writing rubric</a> will be used.</li>
+</ul>
+</div>
+<div id="evaluation" class="section level3">
+<h3>Evaluation</h3>
+<p>All rubrics listed on the <a href="http://stat545.com/Classroom/assignments/">assignments</a> page are relevant for this assignment.</p>
+<p>Here’s an “overall” view of the scores:</p>
+<p>0: Didn’t attempt.</p>
+<p>1: There are some mistakes or omissions, such as the number of rows or variables in the data frame. Or maybe no confirmation of its class or that of the variables inside. There are no plots or there’s just one type of plot (and its probably a scatterplot). There’s no use of <code>filter()</code> or <code>select()</code>. It’s hard to figure out which file I’m supposed to be looking at. Maybe the student forgot to commit and push the figures to GitHub.</p>
+<p>2: Hits all the elements. No obvious mistakes. Pleasant to read. No heroic detective work required. Solid.</p>
+<p>3: Some “above and beyond”, creativity, etc. You learned something new from reviewing their work and you’re eager to incorporate it into your work now. Use of dplyr goes beyond <code>filter()</code> and <code>select()</code>. The ggplot2 figures are quite diverse. The repo is very organized and it’s a breeze to find the file for this homework specifically.</p>
+</div>
+</div>
+<div id="bring-rectangular-data-in" class="section level2">
+<h2>Bring rectangular data in</h2>
+<p>Work with the <code>gapminder</code> data we explored in class. <em>If you really want to, you can explore a different dataset. Self-assess the suitability of your dataset by reading <a href="https://github.com/STAT545-UBC/Discussion/issues/115">this issue</a>, and if you still aren’t sure if it’s suitable, send Vincenzo an email.</em></p>
+<p>The Gapminder data is distributed as an R package from <a href="https://cran.r-project.org/web/packages/gapminder/index.html">CRAN</a>.</p>
+<p>Install it if you have not done so already and remember to load it.</p>
+<pre><code>install.packages(&quot;gapminder&quot;)
+library(gapminder)</code></pre>
+<p>Install and load dplyr. Probably via the tidyverse meta-package.</p>
+<pre><code>install.packages(&quot;tidyverse&quot;)
+library(tidyverse)</code></pre>
+</div>
+<div id="smell-test-the-data" class="section level2">
+<h2>Smell test the data</h2>
+<p>Explore the <code>gapminder</code> object:</p>
+<ul>
+<li>Is it a data.frame, a matrix, a vector, a list?</li>
+<li>What is its class?</li>
+<li>How many variables/columns?</li>
+<li>How many rows/observations?</li>
+<li>Can you get these facts about “extent” or “size” in more than one way? Can you imagine different functions being useful in different contexts?</li>
+<li>What data type is each variable?</li>
+</ul>
+<p>Be sure to justify your answers by calling the appropriate R functions.</p>
+</div>
+<div id="explore-individual-variables" class="section level2">
+<h2>Explore individual variables</h2>
+<p>Pick <strong>at least</strong> one categorical variable and at least one quantitative variable to explore.</p>
+<ul>
+<li>What are possible values (or range, whichever is appropriate) of each variable?</li>
+<li>What values are typical? What’s the spread? What’s the distribution? Etc., tailored to the variable at hand.</li>
+<li>Feel free to use summary stats, tables, figures. We’re NOT expecting high production value (yet).</li>
+</ul>
+</div>
+<div id="explore-various-plot-types" class="section level2">
+<h2>Explore various plot types</h2>
+<p>Make a few plots, probably of the same variable you chose to characterize numerically. You can use the plot types we went over in class (cm006) to get an idea of what you’d like to make. Try to explore more than one plot type. <strong>Just as an example</strong> of what I mean:</p>
+<ul>
+<li>A scatterplot of two quantitative variables.</li>
+<li>A plot of one quantitative variable. Maybe a histogram or densityplot or frequency polygon.</li>
+<li>A plot of one quantitative variable and one categorical. Maybe boxplots for several continents or countries.</li>
+</ul>
+<p>You don’t have to use all the data in every plot! It’s fine to filter down to one country or small handful of countries.</p>
+</div>
+<div id="use-filter-select-and" class="section level2">
+<h2>Use <code>filter()</code>, <code>select()</code> and <code>%&gt;%</code></h2>
+<p>Use <code>filter()</code> to create data subsets that you want to plot.</p>
+<p>Practice piping together <code>filter()</code> and <code>select()</code>. Possibly even piping into <code>ggplot()</code>.</p>
+</div>
+<div id="but-i-want-to-do-more" class="section level2">
+<h2>But I want to do more!</h2>
+<p><em>For people who want to take things further.</em></p>
+<p>Evaluate this code and describe the result. Presumably the analyst’s intent was to get the data for Rwanda and Afghanistan. Did they succeed? Why or why not? If not, what is the correct way to do this?</p>
+<pre><code>filter(gapminder, country == c(&quot;Rwanda&quot;, &quot;Afghanistan&quot;))</code></pre>
+<p>Read <a href="http://simplystatistics.org/2014/06/13/what-i-do-when-i-get-a-new-data-set-as-told-through-tweets/">What I do when I get a new data set as told through tweets</a> from <a href="http://simplystatistics.org">SimplyStatistics</a> to get some ideas!</p>
+<p>Present numerical tables in a more attractive form, such as using <code>knitr::kable()</code>.</p>
+<p>Use more of the dplyr functions for operating on a single table.</p>
+<p>Adapt exercises from the chapters in the “Explore” section of <a href="http://r4ds.had.co.nz">R for Data Science</a> to the Gapminder dataset.</p>
+</div>
+<div id="reflection" class="section level2">
+<h2>Reflection</h2>
+<p>Once you’re done the above, go back to <a href="https://canvas.ubc.ca/">UBC canvas</a>, and find the “Homework 02” page. Here, you should submit a reflection (and, although not required, adding a link to your homework respository would be helpful for the markers).</p>
+<p>Please don’t skip this reflection! We really care about this.</p>
+<p>Reflect on what was hard/easy, problems you solved, helpful tutorials you read, etc. What things were hard, even though you saw them in class? What was easy(-ish) even though we haven’t done it in class?</p>
+</div>
+<div id="special-submission-cases" class="section level2">
+<h2>Special Submission Cases</h2>
+<p><strong>Are you worried about submitting early, and then wanting to make changes that are included in your submission?</strong></p>
+<p>Don’t be. We’ll always grade your GitHub repository as it was at the last commit prior to the deadline. Therefore, we encourage you to submit early and often, especially regarding your GitHub repository!</p>
+<p><strong>Want to submit early, and continue making contributions to your repository that you <em>don’t</em> want to be graded?</strong></p>
+<p>Just <a href="https://help.github.com/articles/creating-releases/">create a release</a> of your homework repo, and include the link to this release in your submission, being sure to indicate that this is a special early release that you want graded. Or, even better, just fork the repo.</p>
+</div>
+</div>
