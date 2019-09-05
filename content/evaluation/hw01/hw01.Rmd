@@ -25,7 +25,7 @@ As you work on the assignment, you are welcome to work from the browser (i.e., d
 
 ## Tidy Submission (20%)
 
-Follow the instructions for making a tidy submission, found on the [assignments home page].
+Follow the instructions for making a tidy submission, found on the [assignments home page](https://stat545.stat.ubc.ca/evaluation/assignments).
 
 Note: Usually, a tidy submission does not have this much weight, but we recognize that this part is not trivial for your first time. A tidy submission involves using the tools taught in Weeks 1 and 2, and this is what this assignment is all about.
 
@@ -36,7 +36,7 @@ Note: Usually, a tidy submission does not have this much weight, but we recogniz
 
 If there's any further uncertainty in determining a grade here, the [UBC MDS writing rubric](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md) will be used.
 
-## Edit `README.md` (30%)
+## Exercise 1: Edit `README.md` (30%)
 
 ---
 
@@ -58,7 +58,7 @@ When writing your README, be sure to showcase at least five functionalities of G
 
 Here's a [sample readme file](https://github.com/STAT545-UBC/STAT545-home/blob/master/content/evaluation/hw01/sample_readme.md) that goes way above and beyond what we're looking for (aside from describing the repo).
 
-## R Markdown for Gapminder exploration (30%)
+## Exercise 2: R Markdown for Gapminder exploration (30%)
 
 ---
 
@@ -76,7 +76,7 @@ Make an R Markdown document that explores a dataset, such as gapminder seen in c
 
 Don't forget! Your "tidy submission" marks relies on you rendering your R Markdown file to the `github_document` output format. Commit both the `.Rmd` and `.md` files and push them to GitHub. Give this a decent name, such as `hw01_gapminder.Rmd` (which will produce a companion file, `hw01_gapminder.md`). These files should also be in a folder called something like `hw01`.
 
-## R Markdown presentation slides (15%)
+## Exercise 3: R Markdown presentation slides (15%)
 
 ---
 
