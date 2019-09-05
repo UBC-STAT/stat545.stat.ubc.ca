@@ -13,3 +13,5 @@ subtitle = ""
 user_groups = ["Instructors",
                "Teaching Assistants"]
 +++
+
+Office hours can be found [here](/officehours).
