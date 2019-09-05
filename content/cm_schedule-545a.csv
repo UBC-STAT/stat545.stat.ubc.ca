@@ -1,15 +1,15 @@
-﻿Meeting No.,Date,Topic,Helper1,Helper2
+Meeting No.,Date,Topic,Helper1,Helper2
 1,sep-03 tues,Intro to course and software,Yulia,Victor
-2,sep-05 thurs,Markdown and GitHub,Alejandra,Hossam
-3,sep-10 tues,Getting familiar with R & RMarkdown,Hossam,Yulia
-4,sep-12 thurs,The git workflow; collab with GitHub,Alejandra,Victor
-5,sep-17 tues,Intro to course and software; Markdown and GitHub,Victor,Hossam
-6,sep-19 thurs,Getting familiar with R & RMarkdown,Alejandra,Yulia
-7,sep-24 tues,The git workflow; collab with GitHub,Yulia,Victor
-8,sep-26 thurs,Grouping of tibbles,Alejandra,Hossam
-9,oct-01 tues,"Tidy data, reshaping",Hossam,Yulia
-10,oct-03 thurs,"Guest Lecture: Rashedul, on table joins",Alejandra,Victor
-11,oct-08 tues,Advanced R programming; file I/O,Victor,Hossam
+2,sep-05 thurs,Getting familiar with R,Alejandra,Hossam
+3,sep-10 tues,Markdown and GitHub,Hossam,Yulia
+4,sep-12 thurs,The git workflow,Alejandra,Victor
+5,sep-17 tues,ggplot2 part 1,Victor,Hossam
+6,sep-19 thurs,dplyr: tibbles. piping and filtering. lubridate and tsibbles,Alejandra,Yulia
+7,sep-24 tues,dplyr: group_by summarize; index_by; nested data frames,Yulia,Victor
+8,sep-26 thurs,ggplot2 part 2,Alejandra,Hossam
+9,oct-01 tues,"tidyr, tidy data, and pivoting",Hossam,Yulia
+10,oct-03 thurs,two tables: join and lookup,Alejandra,Victor
+11,oct-08 tues,file I/O,Victor,Hossam
 12,oct-10 thurs,The joy of Factors,Alejandra,Yulia
 13,oct-15 tues,Revisit ggplot; plotly; practicalities of daily figure-making,Yulia,Victor
 14,oct-17 thurs,The model-fitting paradigm in R; `broom`; deep thoughts about data analytic work,Alejandra,Hossam
