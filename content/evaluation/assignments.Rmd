@@ -17,7 +17,7 @@ All submissions are due by 23:59. I highly recommend aiming to finish before the
 
 | Assignment  | Assignment Due Date |
 |-------------|---------------------|
-| Assignment 01 | September 17, 2019  |
+| [Assignment 01](https://stat545.stat.ubc.ca/evaluation/hw01/hw01) | September 17, 2019  |
 | Assignment 02 | September 24, 2019  |
 | Assignment 03 | October 01, 2019    |
 | Assignment 04 | October 08, 2019    |
