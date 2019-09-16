@@ -16,6 +16,9 @@ social:
 # - icon: twitter
 #   icon_pack: fab
 #   link: https://twitter.com/vincenzocoia
+- icon: envelope
+  icon_pack: fas
+  link: mailto:vyuan@bcchr.ca
 - icon: github
   icon_pack: fab
   link: https://github.com/wvictor14
