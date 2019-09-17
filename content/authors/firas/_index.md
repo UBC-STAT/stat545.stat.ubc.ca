@@ -37,7 +37,3 @@ email: "firas.moosvi@gmail.com"
 user_groups:
 - Instructors
 ---
-
-user_groups:
-- Instructors
----
