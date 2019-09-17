@@ -18,7 +18,7 @@ social:
   link: mailto:firas.moosvi@ubc.ca
 - icon: home
   icon_pack: fas
-  link: https://firas.moosvi.com
+  link: http://firas.moosvi.com
 - icon: twitter
   icon_pack: fab
   link: https://twitter.com/firasm
