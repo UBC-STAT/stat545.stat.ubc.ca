@@ -58,7 +58,7 @@ Rubrics:
 	
 ---
 
-Use the pipe operator `%>%` to select "country" and "gdpPercap" from your filtered dataset in 3.1.
+Use the pipe operator `%>%` to select "country" and "gdpPercap" from your filtered dataset in 1.1.
 
 ### 1.3 (9%)
 
@@ -71,7 +71,7 @@ Rubrics:
 	
 ---
 
-Filter gapminder to all entries that have just experienced a drop in life expectancy. Be sure to include a new variable that's the increase in life expectancy. Hint: you might find the `lag()` or `diff()` functions useful. 
+Filter gapminder to all entries that have experienced a drop in life expectancy. Be sure to include a new variable that's the increase in life expectancy in your tibble. Hint: you might find the `lag()` or `diff()` functions useful. 
 
 ### 1.4 (9%)
 
@@ -117,7 +117,7 @@ Pick one categorical variable and one quantitative variable to explore. Answer t
 
 * What are possible values (or range, whichever is appropriate) of each variable?
 * What values are typical? What's the spread? What's the distribution? Etc., tailored to the variable at hand.
-* Feel free to use summary stats, tables, figures. We're NOT expecting high production value (yet).
+* Feel free to use summary stats, tables, figures.
 
 ## Exercise 3: Explore various plot types (30%)
 
@@ -133,14 +133,12 @@ Rubrics:
 
 ---
 
-Make two plots that have some value to them. That is, a plot that someone might actually consider making for an analysis.
+Make two plots that have some value to them. That is, plots that someone might actually consider making for an analysis. Just don't make the same plots we made in class -- feel free to use a data set from the `datasets` R package if you wish.
 
-* A scatterplot of two quantitative variables (not the same ones we made in class -- feel free to use a data set from the `datasets` R package).
-* One other plot besides a scatterplot.
+1. A scatterplot of two quantitative variables.
+2. One other plot besides a scatterplot.
 
 You don't have to use all the data in every plot! It's fine to filter down to one country or a small handful of countries.
-
-
 
 
 ## Recycling (Optional) (extra 2%)
