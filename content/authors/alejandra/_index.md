@@ -16,6 +16,15 @@ social:
 # - icon: twitter
 #   icon_pack: fab
 #   link: https://twitter.com/vincenzocoia
+- icon: envelope
+  icon_pack: fas
+  link: mailto:alejandra.urcelay@ubc.ca
+- icon: twitter
+  icon_pack: fab
+  link: https://twitter.com/ale_urcelay
+- icon: linkedin
+  icon_pack: fab
+  link: https://www.linkedin.com/in/alejandra-virgen-urcelay/
 - icon: github
   icon_pack: fab
   link: https://github.com/aleurcelay

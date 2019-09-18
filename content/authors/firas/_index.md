@@ -12,13 +12,17 @@ organizations:
 # For available icons, see: https://sourcethemes.com/academic/docs/widgets/#icons
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
 #   form "mailto:your-email@example.com" or "#contact" for contact widget.
-# social:
-# - icon: twitter
-#   icon_pack: fab
-#   link: https://twitter.com/vincenzocoia
-# - icon: github
-#   icon_pack: fab
-#   link: https://github.com/vincenzocoia
+social:
+- icon: envelope
+  icon_pack: fas
+  link: mailto:firas.moosvi@ubc.ca
+- icon: home
+  icon_pack: fas
+  link: http://firas.moosvi.com
+- icon: twitter
+  icon_pack: fab
+  link: https://twitter.com/firasm
+  
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.  
 # - icon: cv
@@ -26,7 +30,7 @@ organizations:
 #   link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-# email: ""
+email: "firas.moosvi@gmail.com"
   
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.  
