@@ -6,7 +6,15 @@ __Due September 24, 2019 at 23:59__
 
 ## Objective
 
-The goal is to explore a dataset. In particular, to begin to establish a workflow for data frames or "tibbles". You will use `dplyr` and `ggplot2` to do some description and visualization.
+The goal is to get your feet wet with ggplot2 and dplyr to explore a dataset.
+
+## Setup
+
+Work with the `gapminder` data we explored in class, or more than one data set if you want.
+
+The Gapminder data is distributed as an R package from [CRAN](https://cran.r-project.org/web/packages/gapminder/index.html). Install it if you have not done so already, by executing the code `install.packages("gapminder")`, and remember to load it with `library(gapminder)`.
+
+Install and load `dplyr`, probably via the `tidyverse` meta-package.
 
 ## Tidy Submission (10%)
 
@@ -22,49 +30,129 @@ If there's any further uncertainty in determining a grade for this "mechanics" p
 - You should write concisely. 
 - If there's any further uncertainty in determining a grade here, the [UBC MDS writing rubric](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md) will be used.
 
-## Bring rectangular data in
+## Exercise 1: Basic `dplyr`
 
-Work with the `gapminder` data we explored in class. *If you really want to, you can explore a different dataset. Self-assess the suitability of your dataset by reading [this issue](https://github.com/STAT545-UBC/Discussion/issues/115), and if you still aren't sure if it's suitable, send Vincenzo an email.*
+Use `dplyr` functions to achieve the following.
 
-The Gapminder data is distributed as an R package from [CRAN](https://cran.r-project.org/web/packages/gapminder/index.html). Install it if you have not done so already, by executing the code `install.packages("gapminder")`, and remember to load it with `library(gapminder)`.
+### 1.1 (9%)
 
-Install and load `dplyr`. Probably via the `tidyverse` meta-package.
+---
 
-## Explore individual variables
+Rubrics:
 
-Pick __at least__ one categorical variable and at least one quantitative variable to explore.
+- [accuracy](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md)
+	- How successful were you at producing the required tibble?
+	
+---
+
+Use `filter()` to subset the `gapminder` data to three countries of your choice in the 1970's.
+
+### 1.2 (9%)
+
+---
+
+Rubrics:
+
+- [accuracy](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md)
+	- How successful were you at producing the required tibble?
+	
+---
+
+Use the pipe operator `%>%` to select "country" and "gdpPercap" from your filtered dataset in 3.1.
+
+### 1.3 (9%)
+
+---
+
+Rubrics:
+
+- [accuracy](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md)
+	- How successful were you at producing the required tibble?
+	
+---
+
+Filter gapminder to all entries that have just experienced a drop in life expectancy. Be sure to include a new variable that's the increase in life expectancy. Hint: you might find the `lag()` or `diff()` functions useful. 
+
+### 1.4 (9%)
+
+---
+
+Rubrics:
+
+- [accuracy](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md)
+	- How successful were you at producing the required tibble?
+	
+---
+
+Filter gapminder so that it shows the max GDP per capita experienced by each country.
+
+### 1.5 (9%)
+
+---
+
+Rubrics:
+
+- [accuracy](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md)
+	- How successful were you at producing the required plot?
+
+---
+
+Produce a scatterplot of Canada's life expectancy vs. GDP per capita using `ggplot2`, without defining a new variable. That is, after filtering the `gapminder` data set, pipe it directly into the `ggplot()` function. Ensure GDP per capita is on a log scale. 
+
+
+## Exercise 2: Explore individual variables with `dplyr` (15%)
+
+---
+
+Rubrics: 
+
+- [reasoning](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_reasoning.md): (10%)
+	- Does your exploration make sense?
+- [accuracy](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md): (10%)
+	- Does your code work?
+
+---
+
+Pick one categorical variable and one quantitative variable to explore. Answer the following questions in whichever way you think is appropriate, using `dplyr`:
 
 * What are possible values (or range, whichever is appropriate) of each variable?
 * What values are typical? What's the spread? What's the distribution? Etc., tailored to the variable at hand.
 * Feel free to use summary stats, tables, figures. We're NOT expecting high production value (yet).
 
-## Explore various plot types
+## Exercise 3: Explore various plot types (30%)
 
-Make a few plots, probably of the same variable you chose to characterize numerically. You can use the plot types we went over in class (cm005) to get an idea of what you'd like to make. Try to explore more than one plot type. **Just as an example** of what I mean:
+---
 
-* A scatterplot of two quantitative variables.
-* A plot of one quantitative variable. Maybe a histogram or densityplot or frequency polygon.
-* A plot of one quantitative variable and one categorical. Maybe boxplots for several continents or countries.
+Rubrics: 
 
-You don't have to use all the data in every plot! It's fine to filter down to one country or small handful of countries.
+- [reasoning](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_reasoning.md): (10%)
+	- Were you able to produce plots that make sense?
+	- We're not looking for publication quality graphics here yet.
+- [accuracy](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md): (10%)
+	- Does your code work?
 
-## Use `filter()`, `select()` and `%>%`
+---
 
-Use `filter()` to create data subsets that you want to plot.
+Make two plots that have some value to them. That is, a plot that someone might actually consider making for an analysis.
 
-Practice piping together `filter()` and `select()`. Possibly even piping into `ggplot()`.
+* A scatterplot of two quantitative variables (not the same ones we made in class -- feel free to use a data set from the `datasets` R package).
+* One other plot besides a scatterplot.
 
-filter gapminder to a country of your choice (not Rwanda, as done in class).
+You don't have to use all the data in every plot! It's fine to filter down to one country or a small handful of countries.
 
-filter gapminder to three countries of your choice, and subset to the "country", "year", and "life expectancy" columns. Be sure to use at least one pipe, and `dplyr` functions in each step.
 
-filter gapminder to all drops in life expectancy. Be sure to include a new variable that's the increase in life expectancy. 
 
-filter gapminder to return the max GDP per capita experienced by each country.
 
-sort the tibble so that it shows the highest life expectancy as the first row, and decreases from there.
+## Recycling (Optional) (extra 2%)
 
-## Recycling (Optional)
+---
+
+Rubrics: 
+
+- [reasoning](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_reasoning.md)
+	- How well did you reason through the scenario?
+
+---
 
 *For people who want to take things further.*
 
@@ -76,8 +164,16 @@ filter(gapminder, country == c("Rwanda", "Afghanistan"))
 
 Read [What I do when I get a new data set as told through tweets](http://simplystatistics.org/2014/06/13/what-i-do-when-i-get-a-new-data-set-as-told-through-tweets/) from [SimplyStatistics](http://simplystatistics.org) to get some ideas!
 
-## Tibble display (Optional)
+## Tibble display (Optional) (extra 1%)
 
-Present numerical tables in a more attractive form using `knitr::kable()` for small tibbles (say, up to 10 rows), and `DT::datatable()` for larger tibbles..
+---
 
-Adapt exercises from the chapters in the "Explore" section of [R for Data Science](http://r4ds.had.co.nz) to the Gapminder dataset.
+Rubrics: 
+
+- [accuracy](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_reasoning.md)
+	- Do your tibbles in this assignment adopt the required convention?
+
+---
+
+Present numerical tables in a more attractive form using `knitr::kable()` for small tibbles (say, up to 10 rows), and `DT::datatable()` for larger tibbles.
+
