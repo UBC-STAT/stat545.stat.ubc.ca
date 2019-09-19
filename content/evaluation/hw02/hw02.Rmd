@@ -84,7 +84,14 @@ Rubrics:
 	
 ---
 
-Filter gapminder so that it shows the max GDP per capita experienced by each country.
+Choose **one** of the following: 
+
+- Filter gapminder so that it shows the max GDP per capita experienced by each country. __Hint__: you might find the `max()` function useful here. 
+
+OR
+
+- Filter gapminder to contain six rows: the rows with the three largest GDP per capita, and the rows with the three smallest GDP per capita. Be sure to not create any intermediate objects when doing this (with, for example, the assignment operator). __Hint__: you might find the `sort()` function useful, or perhaps even the `dplyr::slice()` function.
+
 
 ### 1.5 (9%)
 
