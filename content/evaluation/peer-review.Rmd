@@ -18,7 +18,7 @@ Here are the deadlines for peer reviews, with links (to appear after assignments
 
 | Peer Review    | Peer Review Due Date  |
 |----------------|-----------------------|
-| [Peer Review 01](content/evaluation/hw01/HTML-peer-review.html) | September 24, 2019 |
+|<a href="https://github.com/STAT545-UBC/STAT545-home/blob/master/content/evaluation/hw01/HTML-peer-review.html"> Peer Review 01 </a> | September 24, 2019 |
 | Peer Review 02 | TBA|
 | Peer Review 03 | TBA |
 | Peer Review 04 | TBA |
