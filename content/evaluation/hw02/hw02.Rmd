@@ -30,7 +30,7 @@ If there's any further uncertainty in determining a grade for this "mechanics" p
 - You should write concisely. 
 - If there's any further uncertainty in determining a grade here, the [UBC MDS writing rubric](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md) will be used.
 
-## Exercise 1: Basic `dplyr`
+## Exercise 1: Basic `dplyr` (45%)
 
 Use `dplyr` functions to achieve the following.
 
@@ -113,9 +113,9 @@ Produce a scatterplot of Canada's life expectancy vs. GDP per capita using `ggpl
 
 Rubrics: 
 
-- [reasoning](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_reasoning.md): (10%)
+- [reasoning](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_reasoning.md): (8%)
 	- Does your exploration make sense?
-- [accuracy](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md): (10%)
+- [accuracy](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md): (7%)
 	- Does your code work?
 
 ---
@@ -132,10 +132,10 @@ Pick one categorical variable and one quantitative variable to explore. Answer t
 
 Rubrics: 
 
-- [reasoning](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_reasoning.md): (10%)
+- [reasoning](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_reasoning.md): (15%)
 	- Were you able to produce plots that make sense?
 	- We're not looking for publication quality graphics here yet.
-- [accuracy](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md): (10%)
+- [accuracy](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md): (15%)
 	- Does your code work?
 
 ---
