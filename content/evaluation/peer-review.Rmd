@@ -18,8 +18,8 @@ Here are the deadlines for peer reviews, with links (to appear after assignments
 
 | Peer Review    | Peer Review Due Date  |
 |----------------|-----------------------|
-|[Peer Review 01](https://stat545.stat.ubc.ca/evaluation/hw01/pr01) | September 24, 2019 |
-| Peer Review 02 | TBA|
+| [Peer Review 01](https://stat545.stat.ubc.ca/evaluation/hw01/pr01) | September 24, 2019 |
+| [Peer Review 02](https://stat545.stat.ubc.ca/evaluation/hw02/pr02) | October 1, 2019 |
 | Peer Review 03 | TBA |
 | Peer Review 04 | TBA |
 | Peer Review 05 |TBA |
