@@ -41,7 +41,7 @@ For this homework assignment, you are expected to produce at least one html page
 
 ## The Assignment (84%)
 
------
+---
 Rubric for each task:
 
 - [code quality](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_quality.md): (10%)
@@ -51,7 +51,7 @@ Rubric for each task:
 - [tibble accuracy](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md): (9%)
 	- does your tibble reflect the task?
 
------
+---
 
 Pick three of the six tasks below, and produce: 
 
