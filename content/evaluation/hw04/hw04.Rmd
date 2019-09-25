@@ -1,8 +1,29 @@
-# Homework 04: Tidy data and joins
+---
+title: "STAT 545A Assignment 04: Tidy data and joins"
+---
+
+__Due October xxxxx, 2019 at 23:59__
+
+
+## Tidy Submission (10%)
+
+#### Mechanics (5%)
+
+Follow the instructions for making a tidy submission, found on the [assignments home page](https://stat545.stat.ubc.ca/evaluation/assignments).
+
+**NEW**: Like in Assignment 03, you are also expected to link to any html files that you produce, as a webpage. But, this time, this is only __if__ you produce an HTML file in your homework.
+
+If there's any further uncertainty in determining a grade for this "mechanics" portion, the [UBC MDS mechanics rubric](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_mech.md) will be referred to.
+
+#### Writing (5%)
+
+- You must use proper English, spelling, and grammar.
+- You should write concisely. 
+- If there's any further uncertainty in determining a grade here, the [UBC MDS writing rubric](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md) will be used.
+
 
 ## Overview
 
-Due Tuesday 2018-10-09 at 23:59.
 
 You have learned alot about data wrangling! You know how to use the tidyverse to:
 

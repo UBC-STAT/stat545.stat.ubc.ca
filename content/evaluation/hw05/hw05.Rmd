@@ -1,4 +1,9 @@
-# Homework 05: Factor and figure management
+---
+title: "STAT 545A Assignment 05: Factor and figure management"
+---
+
+
+__Due October xxxxx, 2019 at 23:59__
 
 ## Overview
 
