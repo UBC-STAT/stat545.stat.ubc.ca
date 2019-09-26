@@ -7,8 +7,8 @@ Meeting No.,Date,Topic,Helper1,Helper2
 6,sep-19 thurs,dplyr: tibbles. piping and filtering. lubridate and tsibbles,Alejandra,Yulia
 7,sep-24 tues,dplyr: group_by summarize; index_by; nested data frames,Yulia,Victor
 8,sep-26 thurs,ggplot2 part 2,Alejandra,Hossam
-9,oct-01 tues,"tidyr, tidy data, and pivoting",Hossam,Yulia
-10,oct-03 thurs,two tables: join and lookup,Alejandra,Victor
+9,oct-01 tues,"tidyr, tidy data, and pivoting",Hossam,Victor
+10,oct-03 thurs,two tables: join and lookup,Alejandra,Yulia
 11,oct-08 tues,file I/O,Victor,Hossam
 12,oct-10 thurs,The joy of Factors,Alejandra,Yulia
 13,oct-15 tues,Revisit ggplot; plotly; practicalities of daily figure-making,Yulia,Victor
