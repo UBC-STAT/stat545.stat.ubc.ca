@@ -79,7 +79,7 @@ Before submitting your work, make sure it's tidy:
 	- Special case for Assignment 01, which also evaluates your repo's `README.md` file.
 - Your work must be reproducible from beginning to end. That is, a member of the teaching team should be able to run all code error-free and reproduce the output files. 
 - Your scripts do not contain code that installs packages (this is not good practice anyway) – note that this is different from loading packages with the `library()` function, which is good!
-- All R Markdown files are `knit`ted to ~~an output readable on GitHub (probably `github_document` or `pdf_document`).~~ a readable output. This means linking to HTML files if you make them (see section on "Viewing and linking to HTML files").
+- All R Markdown files are `knit`ted to ~~an output readable on GitHub (probably `github_document` or `pdf_document`).~~ a readable output. This means linking to HTML files if you make them (see section on "Viewing and linking to HTML files"). You can also knit to `output: github_document` if you want a markdown file that renders nicely for GitHub.
 
 Here is how you submit your homework:
 
