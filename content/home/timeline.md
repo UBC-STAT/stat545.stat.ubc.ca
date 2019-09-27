@@ -30,7 +30,7 @@ date_format = "January 2, 2006"
   company = "Woodward IRC Room 5"
   company_url = ""
   location = "Tuesdays, Thursdays 1100-1230"
-  date_start = "2020-02-05"
+  date_start = "2020-02-25"
   date_end = "2020-04-08"
   description = ""
 +++
