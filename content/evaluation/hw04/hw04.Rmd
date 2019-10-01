@@ -117,7 +117,7 @@ For each guest in the guestlist (`guest` tibble), add a column for email address
 
 ### 3.2 (10%)
 
-__Rubric__: Each exercise is worth 10%, and is decomposed as follows:
+__Rubric__: 
 
 - 10%: Code [quality](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_quality.md)
 
