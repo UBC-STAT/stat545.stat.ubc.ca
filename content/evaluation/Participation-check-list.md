@@ -9,7 +9,7 @@
     - [x] Share your username by filling out this [survey](https://ubc.ca1.qualtrics.com/jfe/form/SV_8jKz3FaT7w5EHfT)
     - [x] Create and populate ```navigating_github.md``` with several links
 2. **Class Meeting 2 Introduction to R**   
-    - [x] Provide the R scrit ```cm002_R_ exploration.R``` file. Instructor version can be found [here](https://github.com/vincenzocoia/STAT545-participation/blob/master/weeks_1_and_2/cm002-r_exploration.R)
+    - [x] Provide the R scrit ```cm002_R_exploration.R``` file. Instructor version can be found [here](https://github.com/vincenzocoia/STAT545-participation/blob/master/weeks_1_and_2/cm002-r_exploration.R)
 3. **Class Meeting 3 Authoring**  
    - [x] Populate ```navigating_github.md``` document with some markdown features
    - [x] Convert the ```.md``` file into both ```pdf``` and ```html``` and add them to your repo
