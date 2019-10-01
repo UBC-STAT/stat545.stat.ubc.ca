@@ -12,9 +12,9 @@
     - [x] Provide the R scrit ```cm002_R_ exploration.R``` file. Instructor version can be found [here](https://github.com/vincenzocoia/STAT545-participation/blob/master/weeks_1_and_2/cm002-r_exploration.R)
 3. **Class Meeting 3 Authoring**  
    - [x] Populate ```navigating_github.md``` document with some markdown features
-   - [x] Convert the ```.md``` file into both pdf and html and add them to your repo
-   - [x] Upload ```rmd_exploration.Rmd``` and its output formats ( md, pdf and html)
-   - [x] Upload ```rmd_exploration-slides.Rmd``` both as Rmd and html(or pdf) formats
+   - [x] Convert the ```.md``` file into both ```pdf``` and ```html``` and add them to your repo
+   - [x] Upload ```rmd_exploration.Rmd``` and its output formats (```md```, ```pdf``` and ```html```)
+   - [x] Upload ```rmd_exploration-slides.Rmd``` both as ```Rmd``` and ```html```(or ```pdf```) formats
 4. **Class Meeting 4 The version control workflow**   
    - nothing is required for submisison 
 5. **Class Meeting 5 Intro to plotting with ggplot2, Part I**  
