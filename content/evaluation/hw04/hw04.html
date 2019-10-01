@@ -261,13 +261,13 @@ summary {
 <ol style="list-style-type: decimal">
 <li>Putting data in wider format;
 <ul>
-<li>8%: Did you produce the <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md">correct result</a>?</li>
-<li>7%: Code <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_quality.md">quality</a></li>
+<li>5%: Did you produce the <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md">correct result</a>?</li>
+<li>10%: Code <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_quality.md">quality</a></li>
 </ul></li>
 <li>Re-lengthening the data.
 <ul>
-<li>8%: Did you produce the <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md">correct result</a>?</li>
-<li>7%: Code <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_quality.md">quality</a></li>
+<li>5%: Did you produce the <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md">correct result</a>?</li>
+<li>10%: Code <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_quality.md">quality</a></li>
 </ul></li>
 </ol>
 <p>Don’t worry about producing a plot here. You are expected to use <code>pivot_wider()</code> and <code>pivot_longer()</code> for reshaping.</p>
@@ -293,21 +293,30 @@ summary {
 <pre><code>guest &lt;- read_csv(&quot;https://raw.githubusercontent.com/STAT545-UBC/Classroom/master/data/wedding/attend.csv&quot;)
 email &lt;- read_csv(&quot;https://raw.githubusercontent.com/STAT545-UBC/Classroom/master/data/wedding/emails.csv&quot;)</code></pre>
 <p>Then, complete the following tasks using the tidyverse (<code>tidyr</code>, <code>dplyr</code>, …). No need to do any pivoting – feel free to leave <code>guest</code> in its current format.</p>
-<p><strong>Rubric</strong>: Each exercise is worth 10%, and is decomposed as follows:</p>
+<div id="section" class="section level3">
+<h3>3.1 (10%)</h3>
+<p><strong>Rubric</strong>:</p>
 <ul>
 <li>5%: Did you produce the <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md">correct result</a>?</li>
 <li>5%: Code <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_quality.md">quality</a></li>
 </ul>
-<div id="section" class="section level3">
-<h3>3.1 (10%)</h3>
 <p>For each guest in the guestlist (<code>guest</code> tibble), add a column for email address, which can be found in the <code>email</code> tibble.</p>
 </div>
 <div id="section-1" class="section level3">
 <h3>3.2 (10%)</h3>
+<p><strong>Rubric</strong>: Each exercise is worth 10%, and is decomposed as follows:</p>
+<ul>
+<li>10%: Code <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_quality.md">quality</a></li>
+</ul>
 <p>Who do we have emails for, yet are not on the guestlist?</p>
 </div>
 <div id="section-2" class="section level3">
 <h3>3.3 (10%)</h3>
+<p><strong>Rubric</strong>:</p>
+<ul>
+<li>5%: Did you produce the <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md">correct result</a>?</li>
+<li>5%: Code <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_quality.md">quality</a></li>
+</ul>
 <p>Make a guestlist that includes everyone we have emails for (in addition to those on the original guestlist).</p>
 </div>
 </div>

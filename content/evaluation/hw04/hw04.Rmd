@@ -73,11 +73,11 @@ Regarding the plot:
 Choose __\*EITHER\*__ "Multivariate Option 1" or "Multivariate Option 2". All of these problems have two components:
 
 1. Putting data in wider format;
-	- 8%: Did you produce the [correct result](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md)?
-	- 7%: Code [quality](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_quality.md)
+	- 5%: Did you produce the [correct result](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md)?
+	- 10%: Code [quality](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_quality.md)
 2. Re-lengthening the data.
-	- 8%: Did you produce the [correct result](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md)?
-	- 7%: Code [quality](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_quality.md)
+	- 5%: Did you produce the [correct result](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md)?
+	- 10%: Code [quality](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_quality.md)
 
 Don't worry about producing a plot here. You are expected to use `pivot_wider()` and `pivot_longer()` for reshaping.
 
@@ -105,20 +105,31 @@ email <- read_csv("https://raw.githubusercontent.com/STAT545-UBC/Classroom/maste
 
 Then, complete the following tasks using the tidyverse (`tidyr`, `dplyr`, ...). No need to do any pivoting -- feel free to leave `guest` in its current format.
 
-__Rubric__: Each exercise is worth 10%, and is decomposed as follows:
+### 3.1 (10%)
+
+__Rubric__:
 
 - 5%: Did you produce the [correct result](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md)?
 - 5%: Code [quality](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_quality.md)
 
 
-### 3.1 (10%)
-
 For each guest in the guestlist (`guest` tibble), add a column for email address, which can be found in the `email` tibble.
 
 ### 3.2 (10%)
 
+__Rubric__: Each exercise is worth 10%, and is decomposed as follows:
+
+- 10%: Code [quality](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_quality.md)
+
+
 Who do we have emails for, yet are not on the guestlist?
 
 ### 3.3 (10%)
+
+__Rubric__:
+
+- 5%: Did you produce the [correct result](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md)?
+- 5%: Code [quality](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_quality.md)
+
 
 Make a guestlist that includes everyone we have emails for (in addition to those on the original guestlist).
