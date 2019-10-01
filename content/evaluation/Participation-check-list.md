@@ -22,11 +22,11 @@
    - [x] Submit Rmd file along knited version of your choice (pdf, md or html format)
 6. **Class Meeting 6 Intro to data wrangling, Part I** 
    - [x] Complete [cm006-dplyr_exercise.Rmd](https://raw.githubusercontent.com/STAT545-UBC/Classroom/master/tutorials/cm006-exercise.Rmd) worksheet.Instructor version can be found [here](https://github.com/wvictor14/STAT545-participation/blob/master/cm006-exercise.Rmd)
-   - [x] Submit Rmd file along knited version of your choice (pdf, md or html format)
+   - [x] Submit ```.Rmd``` file along knited version of your choice (```pdf```, ```md``` or ```html``` format)
 7. **Class Meeting 7 Intro to data wrangling, Part II**
    - [x] Complete [cm007-exercise.Rmd](https://raw.githubusercontent.com/STAT545-UBC/Classroom/master/tutorials/cm007-exercise.Rmd) worksheet. Instructor version can be found [here](https://github.com/vincenzocoia/STAT545-participation/blob/master/weeks_3-5/cm007-exercise.rmd)
-   - [x] Submit Rmd file along knited version of your choice (pdf, md or html format)
+   - [x] Submit ```.Rmd``` file along knited version of your choice (```pdf```, ```md``` or ```html``` format)
 8. **Class Meeting 8 Intro to plotting with ggplot2, Part II**  
    - [x] Complete [cm008-exercise.Rmd](https://raw.githubusercontent.com/STAT545-UBC/Classroom/master/tutorials/cm008-exercise.Rmd) worksheet. Instructor version can be found [here](https://github.com/vincenzocoia/STAT545-participation/blob/master/plotting/cm008-exercise.Rmd)
-   - [x] Submit Rmd file along knited version of your choice (pdf, md or html format)
+   - [x] Submit ```.Rmd``` file along knited version of your choice (```pdf```, ```md``` or ```html``` format)
 9. **Class Meeting 9 Tidy Data and Pivoting** 
