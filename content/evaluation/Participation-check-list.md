@@ -2,7 +2,7 @@
  
 Below is a checklist with all the materials needed to get full participation marks. Instructor version of the scripts run in class are provided for your reference.
  
- > Note that instructor copy is just for your reference. You cannot just copy-paste the code written by the instructors and submit it as your participation. It is the responsibility of every student to be aware and adhere to the policies on plaigiarism: [Code Plagiarism](https://stat545.stat.ubc.ca/policies/). 
+Note that instructor copy is just for your reference. You cannot just copy-paste the code written by the instructors and submit it as your participation. It is the responsibility of every student to be aware and adhere to the policies on plaigiarism: [Code Plagiarism](https://stat545.stat.ubc.ca/policies/). 
 
 1. **Class Meeting 1 Introduction to STAT 545 and GitHub**   
     - [ ] Register a GitHub account
