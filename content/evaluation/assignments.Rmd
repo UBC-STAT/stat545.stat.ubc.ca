@@ -21,7 +21,7 @@ All submissions are due by 23:59. I highly recommend aiming to finish before the
 | [Assignment 02](https://stat545.stat.ubc.ca/evaluation/hw02/hw02) | September 24, 2019  |
 | [Assignment 03](https://stat545.stat.ubc.ca/evaluation/hw03/hw03) | October 01, 2019    |
 | [Assignment 04](https://stat545.stat.ubc.ca/evaluation/hw04/hw04) | October 08, 2019    |
-| Assignment 05 | October 18, 2019    |
+| Assignment 05 | October 15, 2019    |
 
 ### STAT 547M
 
