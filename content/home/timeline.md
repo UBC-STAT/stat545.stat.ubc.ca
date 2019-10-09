@@ -27,7 +27,7 @@ date_format = "January 2, 2006"
 
 [[experience]]
   title = "STAT 547M"
-  company = "Woodward IRC Room 5"
+  company = "ESB 4192"
   company_url = ""
   location = "Tuesdays, Thursdays 1100-1230"
   date_start = "2020-02-25"
