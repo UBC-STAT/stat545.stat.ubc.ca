@@ -53,7 +53,7 @@ Task: **In your own words**, summarize the value of the here::here package in 25
 
 __Rubric__:
 
-- 10%: [Accuracy](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md)?
+- 10%: [Accuracy](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md)
 - 10%: [Code quality](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_quality.md)
 
 Task: Choose **one** dataset (of your choice) and a variable to explore. After ensuring the variable(s) you're exploring are indeed factors, you should:
@@ -88,7 +88,7 @@ If necessary, transform some of the variables in the `singer_locations` datafram
 
 __Rubric__:
 
-- 10%: [Accuracy](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md)?
+- 10%: [Accuracy](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md)
 - 10%: [Code quality](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_quality.md)
 
 Task: Experiment with at least one of:
@@ -115,7 +115,7 @@ Task: Create a side-by-side plot and juxtapose your first attempt (show the orig
 
 ## Exercise 5: Writing figures to file (10%)
 
-- 5%: [Accuracy](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md)?
+- 5%: [Accuracy](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md)
 - 5%: [Code quality](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_quality.md)
 
 Task: Use `ggsave()` to explicitly save a plot to file. Include the exported plot as part of your repository and assignment.
@@ -132,7 +132,7 @@ This is your last STAT 545 assignment, but I encourage you not to stop working w
 
 Best of luck with your R journey, and hope to see you in STAT 547 in the spring!
 
-- Firas & Vincenzo
+*Firas & Vincenzo*
 
 ## (Optional, ungraded) Exercise 6: But I want to do more!
 
