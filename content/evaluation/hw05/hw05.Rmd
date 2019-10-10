@@ -14,7 +14,6 @@ Goals:
 * Improve a figure (or make one from scratch), using new knowledge, e.g., control the color scheme, use factor levels, smoother mechanics.
 * Reorder a factor in a principled way based on the data and demonstrate the effect in arranged data and in figures.
 * Implement visualization design principles.
-* Make a plotly visual.
 
 The goal of this homework is to get you thinking about data portability, collaboration, and dissemination of your work more widely. You will learn to import and export your datasets and also practice effective plotting principles.
 
@@ -26,7 +25,7 @@ Remember your homework should serve as your own personal cheatsheet in the futur
 
 Follow the instructions for making a tidy submission, found on the [assignments home page](https://stat545.stat.ubc.ca/evaluation/assignments).
 
-**NEW**: Like in Assignment 03, you are also expected to link to any html files that you produce, as a webpage. But, this time, this is only __if__ you produce an HTML file in your homework.
+**NEW**: Like in Assignment 03 and 04, you are also expected to link to any html files that you produce, as a webpage. But, this time, this is only __if__ you produce an HTML file in your homework.
 
 If there's any further uncertainty in determining a grade for this "mechanics" portion, the [UBC MDS mechanics rubric](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_mech.md) will be referred to.
 
@@ -58,7 +57,7 @@ __Rubric__:
 - 10%: [Accuracy](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md)?
 - 10%: [Code quality](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_quality.md)
 
-Task: With the data set of your choice, after ensuring the variable(s) you're exploring are indeed factors, you are expected to:
+Task: Choose **one** dataset (of your choice) and a variable to explore. After ensuring the variable(s) you're exploring are indeed factors, you should:
 
 1. Drop factor / levels;
 2. Reorder levels based on knowledge from data.
@@ -67,7 +66,7 @@ We've elaborated on these steps for the gapminder and singer data sets below.
 
 Be sure to also characterize the (derived) data before and after your factor re-leveling:
 
-* Explore the effects of `arrange()`. Does merely arranging the data have any effect on, say, a figure?
+* Explore the effects of `arrange()`. If you `arrange()` the data before plotting, does it have any effect on a figure?
 * Explore the effects of reordering a factor and factor reordering coupled with `arrange()`. Especially, what effect does this have on a figure?
 
 These explorations should involve the data, the factor levels, and some figures.
@@ -80,7 +79,7 @@ These explorations should involve the data, the factor levels, and some figures.
 
 #### Elaboration for the Singer data set
 
-If necessary, transform some of the variables in the `singer_locations` dataframe into factors: pay attention at what levels you introduce and their order. Try and consider the difference between the base R `as.factor` and the `forcats`-provided functions.
+If necessary, transform some of the variables in the `singer_locations` dataframe into factors: pay attention at what levels you introduce and their order. Hint use the `forcats` package for this.
 
 **Drop 0.** Filter the `singer_locations` data to remove observations associated with the uncorrectly inputed `year` 0.  Additionally, remove unused factor levels. Provide concrete information on the data before and after removing these rows and levels; address the number of rows and the levels of the affected factors.
 
@@ -101,7 +100,7 @@ Task: Experiment with at least one of:
 
 You are expected to create something new, probably by filtering or grouped-summarization of your dataset (for e.g., Singer, Gapminder, or another dataset), export it to disk and then reload it back in using one of the packages above. 
 
-Fiddle with factor levels and make your data non-alphabetical. For the I/O method(s) you chose, comment on whether or not your newly created file survived the round trip of writing to file then reading back in.
+Play around with factor levels and make your data non-alphabetical. For the I/O method(s) you chose, comment on whether or not your newly created file survived the round trip of writing to file then reading back in.
 
 ## Exercise 4: Visualization design (20%)
 
@@ -113,14 +112,16 @@ __Rubric__:
 
 Go back through your previous assignments and class participation activities and find figures you created prior to the last week of the course. Recreate at least one figure in light of something you learned in the recent class meetings about visualization design and color. 
 
-Task: Create a side-by-side plot and juxtapose your first attempt (show the original figure as-is) with a revised attempt after some time spent working on it and implementing principles of effective plotting principles. Comment and reflect on the differences. 
+Task: Create a side-by-side plot and juxtapose your first attempt (show the original figure as-is) with a revised attempt after some time spent working on it and implementing principles of effective plotting principles. Comment and reflect on the differences.
 
 ## Exercise 5: Writing figures to file (10%)
 
 - 5%: [Accuracy](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md)?
 - 5%: [Code quality](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_quality.md)
 
-Use `ggsave()` to explicitly save a plot to file. Then use `![Alt text](/path/to/img.png)` to load and embed it in your report. You can play around with various options, such as:
+Task: Use `ggsave()` to explicitly save a plot to file. Include the exported plot as part of your repository and assignment.
+
+Then, use `![Alt text](/path/to/img.png)` to load and embed that file into your report. You can play around with various options, such as:
 
 * Arguments of `ggsave()`, such as width, height, resolution or text scaling.
 * Various graphics devices, e.g. a vector vs. raster format.
@@ -128,7 +129,7 @@ Use `ggsave()` to explicitly save a plot to file. Then use `![Alt text](/path/to
 
 ## Finishing up and Reflection
 
-This is your last STAT 545 assignment, but I encourage you not to stop working with R here! Continue exploring datasets - whether they are your datasets, or the thousands of sample datasets on the internet (https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html). If you get stucks, there is a tremendous amount of resources out there including open online textbooks R for Data Science, Advanced R for Data Science, the learnr package, and of course, StackOverflow and google.
+This is your last STAT 545 assignment, but I encourage you not to stop working with R here! Continue exploring datasets - whether they are your datasets, or the thousands of sample datasets on the internet (https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html). If you get stuck, there is a tremendous amount of resources out there including open online textbooks R for Data Science, Advanced R for Data Science, the learnr package, and of course, StackOverflow and google.
 
 Best of luck with your R journey, and hope to see you in STAT 547 in the spring!
 
