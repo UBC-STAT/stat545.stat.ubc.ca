@@ -129,7 +129,7 @@ Then, use `![Alt text](/path/to/img.png)` to load and embed that file into your 
 
 ## Finishing up and Reflection
 
-This is your last STAT 545 assignment, but I encourage you not to stop working with R here! Continue exploring datasets - whether they are your datasets, or the thousands of sample datasets on the internet (https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html). If you get stuck, there is a tremendous amount of resources out there including open online textbooks R for Data Science, Advanced R for Data Science, the learnr package, and of course, StackOverflow and google.
+This is your last STAT 545 assignment, but I encourage you not to stop working with R here! Continue exploring datasets - whether they are your datasets, or the thousands of [sample datasets](https://stat.ethz.ch/R-manual/R-devel/library/datasets/html/00Index.html) on the internet. If you get stuck, there is a tremendous amount of resources out there including open online textbooks [R for Data Science](https://r4ds.had.co.nz), [Advanced R for Data Science](https://adv-r.hadley.nz), the [learnr](https://rstudio.github.io/learnr/index.html) package, and of course, StackOverflow and Google.
 
 Best of luck with your R journey, and hope to see you in STAT 547 in the spring!
 
