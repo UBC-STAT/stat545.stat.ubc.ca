@@ -2,7 +2,6 @@
 title: "STAT 545A Assignment 05: Factor and figure management"
 ---
 
-
 __Due ~~Tuesday October 15~~ (Extended to) Thursday October 17th, 2019 at 23:59__
 
 ## Overview
@@ -64,28 +63,22 @@ Task: Choose **one** dataset (of your choice) and a variable to explore. After e
 
 We've elaborated on these steps for the gapminder and singer data sets below.
 
-Be sure to also characterize the (derived) data before and after your factor re-leveling:
+Explore the effects of re-leveling a factor in a tibble by:
 
-* Explore the effects of `arrange()`. If you `arrange()` the data before plotting, does it have any effect on a figure?
-* Explore the effects of reordering a factor and factor reordering coupled with `arrange()`. Especially, what effect does this have on a figure? 
+1) comparing the results of `arrange` on the original and re-leveled factor.
+2) Plotting a figure of before/after re-leveling the factor (make sure to assign the factor to an *aesthetic* of your choosing). 
 
-<!-- I think the first sentence of the above point is confusing. Suggest change to: "Explore the effects of re-leveling a factor in a tibble by: 1) comparing the results of `arrange` on the original and re-leveled factor. 2) Plotting a figure of before/after re-leveling the factor (make sure to assign the factor to an *aesthetic* of your choosing). --> 
-
-These explorations should involve the data, the factor levels, and some figures.
+These explorations should involve the data, the factor levels, and at least two figures (before and after.
 
 #### Elaboration for the gapminder data set
 
 **Drop Oceania.** Filter the Gapminder data to remove observations associated with the `continent` of Oceania.  Additionally, remove unused factor levels. Provide concrete information on the data before and after removing these rows and Oceania; address the number of rows and the levels of the affected factors.
 
-**Reorder the levels of `country` or `continent`.** Use the forcats package to change the order of the factor levels, based on a principled summary of one of the quantitative variables. Consider experimenting with a summary statistic beyond the most basic choice of the median.
-
-<!-- Consider changing "a principled summary" to "summarized information" or "summary statistic". Maybe also exclude the mean, since that's a pretty basic statistic too?--> 
+**Reorder the levels of `country` or `continent`.** Use the forcats package to change the order of the factor levels, based on summarized information of one of the quantitative variables. Consider experimenting with a summary statistic beyond the most basic choice of the mean/median. Use the `forcats` package in the tidyverse for this, rather than the baseR function `as.factor`.
 
 #### Elaboration for the Singer data set
 
-If necessary, transform some of the variables in the `singer_locations` dataframe into factors: pay attention at what levels you introduce and their order. Hint use the `forcats` package for this.
-
-<!-- Are we not encouraging use of forcats package for both of these options? It seems that this hint could go to the beginning of this exercise. Maybe it shouldn't be a hint even, and instead explicitly state to not use `as.factor` or `factor` functions since the point here is to learn forcats. -->
+If necessary, transform some of the variables in the `singer_locations` dataframe into factors: pay attention at what levels you introduce and their order.
 
 **Drop 0.** Filter the `singer_locations` data to remove observations associated with the uncorrectly inputed `year` 0.  Additionally, remove unused factor levels. Provide concrete information on the data before and after removing these rows and levels; address the number of rows and the levels of the affected factors.
 
@@ -104,13 +97,9 @@ Task: Experiment with at least one of:
 - `saveRDS()/readRDS()`, 
 - `dput()/dget()`. 
 
-You are expected to create something new, probably by filtering or grouped-summarization of your dataset (for e.g., Singer, Gapminder, or another dataset), export it to disk and then reload it back in using one of the packages above. 
+You are expected to create something new, probably by filtering or grouped-summarization of your dataset (for e.g., Singer, Gapminder, or another dataset), export it to disk and then reload it back in using one of the packages above. You should use here::here() for reading in and writing out.
 
-<!-- What about requiring use of the `here` package here?-->
-
-Play around with factor levels and make your data non-alphabetical. For the I/O method(s) you chose, comment on whether or not your newly created file survived the round trip of writing to file then reading back in.
-
-<!-- Is this second task supposed to use the reloaded data of the first task, or is it standalone? I'm not sure what is mean't by "make your data non-alphabetical"-->
+With the imported data, play around with factor levels and use factors to order your data with one of your factors (i.e. non-alphabetically). For the I/O method(s) you chose, comment on whether or not your newly created file survived the round trip of writing to file then reading back in.
 
 ## Exercise 4: Visualization design (20%)
 
