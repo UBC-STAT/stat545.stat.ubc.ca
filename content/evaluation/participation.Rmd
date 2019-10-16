@@ -98,7 +98,7 @@ Note that instructor copy is just for your reference. You cannot just copy-paste
     - [ ] Complete [cm012-exercise.Rmd](https://raw.githubusercontent.com/STAT545-UBC/Classroom/master/tutorials/cm012-exercise.Rmd) worksheet. Instructor version can be found in quide [lesson 12](https://stat545guidebook.netlify.com/working-with-factors-in-r.html)
     - [ ] Submit ```.Rmd``` file along with knitted version of your choice (```pdf```, ```md``` or ```html``` format)
 13. **Class Meeting 13 Effective Visualizations**
-	- [ ] Complete [cm013-exercise.Rmd](https://raw.githubusercontent.com/STAT545-UBC/Classroom/master/cm013.Rmd) worksheet. Instructor version can be found [here]()
+	- [ ] Complete [cm013-exercise.Rmd](https://raw.githubusercontent.com/STAT545-UBC/Classroom/master/cm013.Rmd) worksheet. 
 	- [ ] Submit ```.Rmd``` file along with knitted version of your choice (```pdf```, ```md``` or ```html``` format)
 ## Submitting your participation repository
 
