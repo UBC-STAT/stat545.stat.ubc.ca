@@ -38,12 +38,12 @@ If there's any further uncertainty in determining a grade for this "mechanics" p
 
 You can work with the gapminder data, or adapt the tasks to suit some other data set, such as [Joey's singer dataset](https://github.com/JoeyBernhardt/singer).
 
-## Exercise 1: Explain the value of the here::here package (10%)
+## Exercise 1: Explain the value of the here::here package (20%)
 
 __Rubric__:
 
-- 5%: [Writing](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md) will be used.
-- 5%: [Accuracy](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md)
+- 10%: [Writing](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md) will be used.
+- 10%: [Accuracy](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md)
 
 Read through the [blog post by Malcolm Barrett](https://malco.io/2018/11/05/why-should-i-use-the-here-package-when-i-m-already-using-projects/) where he outlines why one should use the here::here package in RStudio projects.
 
