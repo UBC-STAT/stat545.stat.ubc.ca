@@ -22,7 +22,7 @@ Here are the deadlines for peer reviews, with links (to appear after assignments
 | [Peer Review 02](https://stat545.stat.ubc.ca/evaluation/hw02/pr02) | October 1, 2019 |
 | [Peer Review 03](https://stat545.stat.ubc.ca/evaluation/hw03/pr03) | October 8, 2019 |
 | [Peer Review 04](https://stat545.stat.ubc.ca/evaluation/hw04/pr04) | October 15, 2019 |
-| Peer Review 05 | October 22, 2019 |
+| [Peer Review 05](https://stat545.stat.ubc.ca/evaluation/hw05/pr05) | October 22, 2019 |
 
 ### STAT 547M
 
