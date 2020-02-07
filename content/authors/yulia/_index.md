@@ -2,11 +2,11 @@
 authors:
 - yulia
 name: Yulia Egorova
-role: Teaching assistant for STAT 547A
+role: Teaching assistant for STAT 547M
 # Organizations/Affiliations
 organizations:
 - name: UBC
-  url: ""
+  email: yegorova@eoas.ubc.ca
 
 # Social/Academic Networking
 # For available icons, see: https://sourcethemes.com/academic/docs/widgets/#icons
