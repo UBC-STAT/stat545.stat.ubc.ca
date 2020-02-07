@@ -9,22 +9,28 @@ title = "Evaluation"
 [[feature]]
   icon = "pencil-ruler"
   icon_pack = "fas"
-  name = "<a href='/evaluation/assignments'>Assignments</a>"
-  description = "75%"
+  name = "<a href='/evaluation/assignments'>Assignments/Labs</a>"
+  description = "20%"
   
 [[feature]]
   icon = "user-friends"
   icon_pack = "fas"
   name = "<a href='/evaluation/peer-review'>Peer Review</a>"
-  description = "15%"  
+  description = "10%"  
+ 
+[[feature]]
+  icon = "user-friends"
+  icon_pack = "fas"
+  name = "Team Project(s)"
+  description = "50%" 
   
 [[feature]]
   icon = "thumbs-up"
   icon_pack = "fas"
-  name = "<a href='/evaluation/participation'>Participation</a>"
-  description = "10%"
+  name = "Interviews/Teamwork"
+  description = "20%"
 +++
 
-Click on the following assessments to learn more about how your STAT 545A and STAT 547M grades are determined. Weights for each are indicated below.
+Click on the following assessments to learn more about how your STAT 545A and STAT 547M grades are determined. Weights for each are indicated above.
 
 __Auditing students__: you must still complete and submit all assessments, to be graded on a pass/fail basis. 
