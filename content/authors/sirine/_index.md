@@ -2,7 +2,7 @@
 authors:
 - sirine
 name: Sirine Chahma
-role: Teaching assistant for STAT 545A
+role: Teaching assistant for STAT 547A
 # Organizations/Affiliations
 organizations:
 - name: UBC
