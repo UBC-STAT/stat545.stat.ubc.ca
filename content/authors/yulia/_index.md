@@ -2,7 +2,7 @@
 authors:
 - yulia
 name: Yulia Egorova
-role: Teaching assistant for STAT 547A
+role: Teaching assistant for STAT 547M
 # Organizations/Affiliations
 organizations:
 - name: UBC
