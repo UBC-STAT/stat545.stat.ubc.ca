@@ -1,8 +1,8 @@
 ---
 authors:
-- alejandra
-name: Alejandra Virgen-Urcelay
-role: Teaching assistant for STAT 545A
+- matthew
+name: Matthew Connell
+role: Teaching assistant for STAT 547A
 # Organizations/Affiliations
 organizations:
 - name: UBC
@@ -18,16 +18,16 @@ social:
 #   link: https://twitter.com/vincenzocoia
 - icon: envelope
   icon_pack: fas
-  link: mailto:alejandra.urcelay@ubc.ca
+  link: mailto:matthew.at.connell@gmail.com
 - icon: twitter
   icon_pack: fab
-  link: https://twitter.com/ale_urcelay
+  link: 
 - icon: linkedin
   icon_pack: fab
-  link: https://www.linkedin.com/in/alejandra-virgen-urcelay/
+  link:
 - icon: github
   icon_pack: fab
-  link: https://github.com/aleurcelay
+  link:
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.  
 # - icon: cv
