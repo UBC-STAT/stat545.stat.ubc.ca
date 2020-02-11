@@ -2,7 +2,7 @@
 authors:
 - matthew
 name: Matthew Connell
-role: Teaching assistant for STAT 547A
+role: Teaching assistant for STAT 547M
 # Organizations/Affiliations
 organizations:
 - name: UBC
