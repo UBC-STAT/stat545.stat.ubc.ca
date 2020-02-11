@@ -1,6 +1,6 @@
 ---
 authors:
-- victor
+- sirine
 name: Sirine Chahma
 role: Teaching assistant for STAT 545A
 # Organizations/Affiliations
