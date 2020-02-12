@@ -1,8 +1,8 @@
 ---
 authors:
-- hossam
-name: Hossameldin (Hossam) Mohammed
-role: Teaching assistant for STAT 545A
+- andrea
+name: Andrea Lee
+role: Teaching assistant for STAT 547M
 # Organizations/Affiliations
 organizations:
 - name: UBC
@@ -15,10 +15,13 @@ organizations:
 social:
 # - icon: twitter
 #   icon_pack: fab
-#   link: https://twitter.com/vincenzocoia
+#   link: https://twitter.com/vincenzocoia C
+- icon: envelope
+  icon_pack: fas
+  link: mailto:andrea.lee.011@gmail.com)
 - icon: github
   icon_pack: fab
-  link: https://github.com/hsmohammed
+  link: https://github.com/andrealee011/
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.  
 # - icon: cv

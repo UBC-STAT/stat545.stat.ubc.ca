@@ -2,7 +2,7 @@
 authors:
 - yulia
 name: Yulia Egorova
-role: Teaching assistant for STAT 545A
+role: Teaching assistant for STAT 547M
 # Organizations/Affiliations
 organizations:
 - name: UBC
@@ -16,6 +16,9 @@ social:
 # - icon: twitter
 #   icon_pack: fab
 #   link: https://twitter.com/vincenzocoia
+- icon: envelope
+  icon_pack: fas
+  link: mailto:yegorova@eoas.ubc.ca
 - icon: github
   icon_pack: fab
   link: https://github.com/yuliaUU
