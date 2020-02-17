@@ -55,4 +55,4 @@ subtitle = ""
 * Introduce test-driven development
 * Setup an analytical pipeline via `Make`
 * Creating interactive apps with a new dashboarding tool, [Dash](https://dashr.plot.ly)
-* Distribute data and code via an R package
+* Distribute code via an R package
