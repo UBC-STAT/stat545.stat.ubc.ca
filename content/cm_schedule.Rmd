@@ -33,9 +33,9 @@ Subject to minor changes!
 | 01 | feb-25 tues    | Review of STAT 545 |
 | 02 | feb-27 thurs   | Functional programming in R: Part I |
 | 03 | mar-03 tues    | Functional programming in R: Part II |
-| 04 | mar-05 thurs   | Functional programming in R: Part III |
-| 05 | mar-10 tues    | Automate tasks and pipelines: Part I |
-| 06 | mar-12 thurs   | Automate tasks and pipelines: Part II |
+| 04 | mar-05 thurs   | Analysis pipelines: Part I |
+| 05 | mar-10 tues    | Analysis pipelines: Part II |
+| 06 | mar-12 thurs   | Parameterized reports and GitHub Actions |
 | 07 | mar-17 tues    | DashR: Part I |
 | 08 | mar-19 thurs   | DashR: Part II |
 | 09 | mar-24 tues    | DashR: styling dashboards |
