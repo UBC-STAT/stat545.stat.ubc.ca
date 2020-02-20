@@ -11,6 +11,12 @@ title = "Contact"
   icon_pack = "fas"
   name = "[Discussions & Announcements](https://github.com/STAT547-UBC-2019-20/Discussions/issues)"
   description = "Discussion related to course content."  
+
+[[feature]]
+  icon = "building"
+  icon_pack = "fas"
+  name = "[Office Hours](/officehours)"
+  description = ""  
   
 +++
 
