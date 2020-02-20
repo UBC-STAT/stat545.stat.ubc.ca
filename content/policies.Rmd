@@ -25,11 +25,9 @@ After the 48 hour grace period, solutions will be released and no submissions wi
 
 ## Academic Concession
 
-UBC no longer requires a doctor's note (or supporting documentation) for [academic concession](http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,48,0,0). A self-declaration will suffice -- [here](/concession_template.pdf) is a template you can use. Please submit this to the instructor. 
+UBC no longer requires a doctor's note (or supporting documentation) for [academic concession](http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,48,0,0). A self-declaration will suffice -- [here](/concession_template.pdf) is a template you can use. Please submit this to the instructor directly via email. 
 
 For STAT 545A and 547M, a "conflicting responsibility" includes needing to travel for a conference or field work.
-
-If you arrange to have an assignment submitted late, you may not be able to receive feedback from your peers.
 
 ## Plagiarism
 
