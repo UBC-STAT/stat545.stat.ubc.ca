@@ -12,9 +12,9 @@ suppressPackageStartupMessages(library(dplyr))
 
 Here are the topics for each class meeting. You can find the notes in the [guidebook](https://stat545guidebook.netlify.com).
 
-Be sure to Bring a laptop to every class!
+Be sure to bring a laptop to every class!
 
-There will always be two TA's in class to help students with the live coding exercises. 
+There will be a TA in class to help students with the live coding exercises. 
 
 ## STAT 545A
 
@@ -26,19 +26,19 @@ kable(cm545)
 
 ## STAT 547M
 
-Subject to change!
+Subject to minor changes!
 
 | Meeting No.         | Date         | Topic | 
 |---------------------|--------------|-------|
-| 01 | feb-25 tues    | Writing your own R functions |
-| 02 | feb-27 thurs   | Regular expressions and character data |
-| 03 | mar-03 tues    | purrr, list-columns, nested data frames: Part I |
-| 04 | mar-05 thurs   | purrr, list-columns, nested data frames: Part II |
-| 05 | mar-10 tues    | Build your first R package: Part I |
-| 06 | mar-12 thurs   | Build your first R package: Part II |
-| 07 | mar-17 tues    | shiny apps, and related tools: Part I |
-| 08 | mar-19 thurs   | shiny apps, and related tools: Part II |
-| 09 | mar-24 tues    | Automate tasks and pipelines: Part I |
-| 10 | mar-26 thurs   | Automate tasks and pipelines: Part II |
-| 11 | mar-31 tues    | Get data from the web: Part I |
-| 12 | apr-02 thurs   | Get data from the web: Part II |
+| 01 | feb-25 tues    | Review of STAT 545 |
+| 02 | feb-27 thurs   | Functional programming in R: Part I |
+| 03 | mar-03 tues    | Functional programming in R: Part II |
+| 04 | mar-05 thurs   | Analysis pipelines: Part I |
+| 05 | mar-10 tues    | Analysis pipelines: Part II |
+| 06 | mar-12 thurs   | Parameterized reports and GitHub Actions |
+| 07 | mar-17 tues    | DashR: Part I |
+| 08 | mar-19 thurs   | DashR: Part II |
+| 09 | mar-24 tues    | DashR: styling dashboards |
+| 10 | mar-26 thurs   | DashR: Deployment|
+| 11 | mar-31 tues    | Creating Packages in R |
+| 12 | apr-02 thurs   | TBD |
