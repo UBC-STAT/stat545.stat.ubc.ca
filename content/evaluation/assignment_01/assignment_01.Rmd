@@ -11,6 +11,8 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Assignment 01
 
+Still under construction!
+
 ### Task 1: Convert 3 for-loops into functions
 
 ```{r prob1}
@@ -45,7 +47,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ```
 
-## Task 2: Convert 3 functions into for-loops
+### Task 2: Convert 3 functions into for-loops
 
 ```{r prob4}
 # add for func 1 here

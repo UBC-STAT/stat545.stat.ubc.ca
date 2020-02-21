@@ -47,7 +47,6 @@ The assignments make use of [UBC MDS's rubrics](https://github.com/UBC-MDS/publi
 | Good (B- to B+)         | 68% - 79% |
 | Excellent (A- to A+)    | 80% - 100% |
 
-
 ## Managing repositories
 
 You will have to manage several repositories in STAT 547:

@@ -21,7 +21,7 @@ title = "Evaluation"
 [[feature]]
   icon = "r-project"
   icon_pack = "fab"
-  name = "[Team Projects](/evaluation/participation)"
+  name = "[Team Projects](/evaluation/projects)"
   description = "60%" 
   
 [[feature]]

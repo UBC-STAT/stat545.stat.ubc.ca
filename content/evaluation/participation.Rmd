@@ -3,9 +3,10 @@ title: "Participation Assessment"
 date: "Updated `r Sys.Date()`"
 ---
 
-__Due__: Monday, October 21, at 23:59.
+__Due__: Saturday, April 10, at 18:00.
 
-The intent of the participation assessment is to encourage following along with class activities, which are usually coding sessions. You'll be putting all your in-class work in your own participation repository hosted on your GitHub user account, which we will evaluate at the end of the course.
+The intent of the participation assessment is to encourage following along with class activities, which are usually coding sessions. 
+You'll be putting all your in-class work in your own participation repository hosted on your GitHub user account, which we will evaluate at the end of the course.
 
 ## Expectations
 
@@ -17,7 +18,7 @@ Your participation component will be evaluated by the completeness of your repos
 
 Your repository should be _complete_ with all in-class exercises. Your work should resemble an honest _attempt_ at the activities, but __does not__ need to be anywhere near "correct" -- even completely failing at an activity will earn you full marks here!
 
-Each of the 14 classes wil receive equal weight here (5% per class).
+Of 12 classes, we will mark your 10 best so each class is worth 1% of your STAT 547 course grade.
 
 ### Documentation (30%)
 
@@ -27,34 +28,10 @@ Your repository should be _well-documented_.
 - 10%: Will a stranger be able to figure out what the main files of your repository are for, and where they are located?
 - 10%: Are the contents of your files human readable? Although we aren't expecting publication-quality prose, there should be a moderate level of readability of your scripts to earn you full points here.
 
-### Missing Class
-
-If you miss class, you can still do the activities another time. 
+## STAT 547 Participation checklist
 
 
-## Setup
-
-Here are the instructions to set up your participation repository.
-
-1. On your user account, make a new repository:
-    - Click the "+" in the top-right corner -> "New repository"
-    - Call it `STAT545-participation`
-    - We highly recommend making this a _public_ repo. But if you so desire, make it private. You can change this later.
-    - Say YES to initializing with a README. 
-2. Add the teaching team as collaborators:
-	- Click on "Settings" -> "Collaborators".
-	- Add the instructors: `vincenzocoia` and `firasm`
-	- Add the TA's (see note below)
-		- Alejandra: `aleurcelay`
-		- Hossam:    `hsmohammed`
-		- Victor:    `wvictor14`
-		- Yulia:     `yuliaUU`
-3. Submit your participation repo to canvas right away, by submitting a URL to the repo.
-    - Don't worry, we won't grade it until it's finished. 
-
-__Note__: If your participation repo is private, and you have a free GitHub account without the student developer pack, you will be limited to adding three collaborators. Add the instructors (`vincenzocoia` and `firasm`), along with the TA who will be grading your participation repo. Will be listed later. 
-
-# Participation Check List
+## STAT 545 Participation Check List
  
 Below is a checklist with all the materials needed to get full participation marks. Instructor version of the scripts run in class are provided for your reference.
  
