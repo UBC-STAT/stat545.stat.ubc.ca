@@ -1,0 +1,80 @@
+---
+title: "assignment_01"
+author: "Firas Moosvi"
+date: "Updated `r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Assignment 01
+
+### Task 1: Convert 3 for-loops into functions
+
+```{r prob1}
+# add for loop 1 here
+
+```
+
+```{r soln1}
+# add solution for loop 1 here
+
+```
+
+
+```{r prob2}
+# add for loop 2 here
+
+```
+
+```{r soln2}
+# add solution for loop 2 here
+
+```
+
+
+```{r prob3}
+# add for loop 3 here
+
+```
+
+```{r soln3}
+# add solution for loop 3 here
+
+```
+
+## Task 2: Convert 3 functions into for-loops
+
+```{r prob4}
+# add for func 1 here
+
+```
+
+```{r soln4}
+# add solution for func 1 here
+
+```
+
+
+```{r prob5}
+# add for func 2 here
+
+```
+
+```{r soln5}
+# add solution for func 2 here
+
+```
+
+
+```{r prob6}
+# add for func 3 here
+
+```
+
+```{r soln6}
+# add solution for func 3 here
+
+```

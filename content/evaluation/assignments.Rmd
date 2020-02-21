@@ -17,12 +17,12 @@ All submissions are due by Saturday at 18:00 with the regular [grace period](htt
 
 | Assignment  | Due Date | Accept assignment  |
 |-------------|----------| ---------------------------|
-| [Assignment 01](/evaluation/assignment_01) | Saturday at 18:00 | [Not Available]() |
-| [Assignment 02](/evaluation/assignment_02) | Saturday at 18:00 | [Not Available]() |
-| [Assignment 03](/evaluation/assignment_03) | Saturday at 18:00 | [Not Available]() |
-| [Assignment 04](/evaluation/assignment_04) | Saturday at 18:00 | [Not Available]() |
-| [Assignment 05](/evaluation/assignment_05) | Saturday at 18:00 | [Not Available]() |
-| [Assignment 06](/evaluation/assignment_06) | Saturday at 18:00 | [Not Available]() |
+| [Assignment 1](/evaluation/assignment_01/assignment_01) | Saturday at 18:00 | Coming soon <!-- [Not Available]() -->|
+| Assignment 2 <!--](/evaluation/assignment_02)--> | Saturday at 18:00 | Coming soon <!-- [Not Available]() -->|
+| Assignment 3 <!--](/evaluation/assignment_03)--> | Saturday at 18:00 | Coming soon <!-- [Not Available]() -->|
+| Assignment 4 <!--](/evaluation/assignment_04)--> | Saturday at 18:00 | Coming soon <!-- [Not Available]() -->|
+| Assignment 5 <!--](/evaluation/assignment_05)--> | Saturday at 18:00 | Coming soon <!-- [Not Available]() -->|
+| Assignment 6 <!--](/evaluation/assignment_06)--> | Saturday at 18:00 | Coming soon <!-- [Not Available]() -->|
 
 ### STAT 545A
 
