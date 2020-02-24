@@ -50,6 +50,7 @@ The assignments make use of [UBC MDS's rubrics](https://github.com/UBC-MDS/publi
 ## Managing repositories
 
 You will have to manage several repositories in STAT 547:
+
 - One repository **per assignment**
 - One repository for all your class participation files
 - One repository for each of the two teamwork assignments
