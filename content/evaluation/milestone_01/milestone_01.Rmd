@@ -22,7 +22,7 @@ The most important task for this milestone is to select an appropriate dataset a
 - You should use proper grammar and full sentences in your README. Point form may occur, but should be less than 10% of your written documents.
 - You **must** include the URL of your public project's repo in the `README.md` file of your `milestone1` repo,  so we know where to find it.
 - Create a release on your project repo named milestone1 and submit that URL on Canvas for us to grade.
-  - Here is an example of the URL we are expecting for milestone1: 
+  - Here is an example of the URL we are expecting for milestone1: [https://github.com/STAT547-UBC-2019-20/demo_project/tree/initial](https://github.com/STAT547-UBC-2019-20/demo_project/tree/initial)
 
 ### How to catch up to a forked repo if there are changes upstream
 
@@ -147,7 +147,7 @@ corrplot(mtcars_correlations,
          diag = FALSE)
 ```
 
-Another useful technique is to [faceted plots](https://www.r-graph-gallery.com/223-faceting-with-ggplot2.html):
+Another useful technique is to use [faceted plots](https://www.r-graph-gallery.com/223-faceting-with-ggplot2.html):
 
 ```{r faceted_plots}
 library(tidyverse)
@@ -170,4 +170,4 @@ ggplot( mtcars , aes(x=mpg, y=wt )) +
 ## Example of final product
 
 One of your TAs (Matthew) has prepared an example of what we are expecting for this milestone.
-Still under construction, coming soon!
+You can find it [here](https://github.com/STAT547-UBC-2019-20/demo_project).
