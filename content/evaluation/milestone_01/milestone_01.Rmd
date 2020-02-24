@@ -70,15 +70,7 @@ There are literally hundreds of thousands of datasets available, I will point yo
 
 ## 2. **Project Proposal and EDA**
 
-### Task 2.1: Identify your data set, research question, & plan of action for analysis to answer that question
-
-1. With your data set, identify **research question** that you will attempt to answer with analyses and visualizations (more on this below). 
-Clearly state the research question and any natural sub-questions you need to address, and their type. 
-The main research question should be either *descriptive* or *exploratory*.
-
-1. Propose a plan of how you will analyze the data (what will you plot, which variables will you do a linear regression on?) 
-
-### **Task 2.2: Describe your dataset. Consider the following questions to guide you in your exploration**
+### **Task 2.1: Introduce and describe your dataset. Consider the following questions to guide you in your exploration**
 
 - Who: Which company/agency/organization provided this data?
 - What: What is in your data?
@@ -88,7 +80,7 @@ The main research question should be either *descriptive* or *exploratory*.
 
 *Additional Guidance: You probably will not need more than 150 words to describe your dataset. All the questions above do not need to be answered, it's more to guide your exploration and think a little bit about the context of your data. It is also possible you will not know the answers to some of the questions above, that is FINE - data scientists are often faced with the challenge of analyzing data from unknown sources. Do your best, acknowledge the limitations of your data as well as your understanding of it. Also, make it clear what you're speculating about. For example, "I speculate that the {...column_name...} column must be related to {....} because {....}."*
 
-### **Task 2.3: Load your dataset (from a file or URL).**
+### **Task 2.2: Load your dataset (from a file or URL).**
 
 - Perform some exploratory data analysis (EDA) to understand your dataset better. 
 - Make plots of the relationships between cretain variables of interest. 
@@ -96,13 +88,12 @@ The main research question should be either *descriptive* or *exploratory*.
 Remember that others will be running your analysis notebook so it's important that the data is accessible to them. 
 If your dataset isn't accessible as a URL, make sure to commit it directly into your repo.
 
-### **Task 2.4: Explore your dataset
+### **Task 2.3: Explore your dataset**
 
-
+A correllogram may be useful:
 ```{r correllogram, warning = FALSE, message = FALSE}
 library(tidyverse)
-library(corrplot)
-
+if (!requireNamespace("corrplot")) install.packages("corrplot")
 # The `cor` function takes the correlation of every column against every other column
 mtcars_correlations <- cor(mtcars) 
 
@@ -110,5 +101,14 @@ mtcars_correlations <- cor(mtcars)
 mtcars_correlations <- round(mtcars_correlations,2)
 corrplot(mtcars_correlations)
 ```
+
+
+### **Task 2.4: What is your research question & plan of action for analysis to answer the question?
+
+1. With your data set, identify **research question** that you will attempt to answer with analyses and visualizations. 
+Clearly state the research question and any natural sub-questions you need to address, and their type. 
+The main research question should be either *descriptive* or *exploratory*.
+1. Propose a plan of how you will analyze the data (what will you plot, which variables will you do a linear regression on?) 
+
 
 Still under construction!
