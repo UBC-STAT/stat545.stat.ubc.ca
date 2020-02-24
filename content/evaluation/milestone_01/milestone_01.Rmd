@@ -127,7 +127,7 @@ Consider the following questions to guide you in your exploration:
 
 ![Principles of Effective Visualizations](Principles_of_Effective Visualizations.png){#id .class width=70%}
 
-A correllogram may be useful:
+A [correllogram](http://www.sthda.com/english/wiki/visualize-correlation-matrix-using-correlogram) may be useful:
 ```{r correllogram, warning = FALSE, message = FALSE}
 library(tidyverse)
 # Installs the `corrplot` library if not already installed
@@ -147,7 +147,7 @@ corrplot(mtcars_correlations,
          diag = FALSE)
 ```
 
-Another useful technique is to faceted plots:
+Another useful technique is to [faceted plots](https://www.r-graph-gallery.com/223-faceting-with-ggplot2.html):
 
 ```{r faceted_plots}
 library(tidyverse)
@@ -161,7 +161,6 @@ ggplot( mtcars , aes(x=mpg, y=wt )) +
 
 ```
 
-
 ### **Task 2.4: Research question & plan of action**
 
 1. With your data set and your EDA, identify at least one **research question** that you will attempt to answer with analyses and visualizations. Clearly state the research question and any natural sub-questions you need to address, and their type. The main research question should be either *descriptive* or *exploratory*.
@@ -171,4 +170,4 @@ ggplot( mtcars , aes(x=mpg, y=wt )) +
 ## Example of final product
 
 One of your TAs (Matthew) has prepared an example of what we are expecting for this milestone.
-Still under construction, coming!
+Still under construction, coming soon!
