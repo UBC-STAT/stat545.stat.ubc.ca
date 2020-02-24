@@ -32,6 +32,7 @@ The most important task for this milestone is to select an appropriate dataset a
 > Then to catch up this time (and any other time) you type:
 >
 > `git fetch upstream`
+>
 > `git merge upstream/master`
 >
 > These two commands together are like a git pull from the repo you forked.
