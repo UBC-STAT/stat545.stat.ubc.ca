@@ -94,12 +94,13 @@ A correllogram may be useful:
 ```{r correllogram, warning = FALSE, message = FALSE}
 library(tidyverse)
 if (!requireNamespace("corrplot")) install.packages("corrplot")
+library(corrplot)
 # The `cor` function takes the correlation of every column against every other column
 mtcars_correlations <- cor(mtcars) 
 
 # Let's round the values to 2 decimal places
 mtcars_correlations <- round(mtcars_correlations,2)
-corrplot(mtcars_correlations)
+corrplot(mtcars_correlations, type="upper", method="color", tl.srt=45)
 ```
 
 
