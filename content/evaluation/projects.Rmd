@@ -9,36 +9,6 @@ This project is broken down into 6 milestones and there will be two major themes
 
 In this milestone you will be expected to choose a dataset appropriate for the STAT 547 team project.
 
-**Note: Though it may sound easy, it is not trivial to choose an interesting and relevant dataset. There are many, many thousands out there and the [tyranny of choice](https://www.economist.com/christmas-specials/2010/12/16/you-choose) is pretty overwhelming. I suggest you choose an "industry/sector" (health, technology, finance, sports, etc...), then set a 60 minute timer, start searching, and then choose one before the timer expires. You are welcome to post an issue in the course repo if you want advice or approval of a dataset.**
-
-Here are the requirements for choosing a dataset:
-
-**1. Permission to use and distribute**
-
- - Look for a creative commons license (CC4 for e.g.) or Public Domain and check to make sure you can make it publicly available
-- Do not use datasets that require authentication, or APIs
-  
-**2. Data quality**
-
-  - Try to choose datasets that have no more than 5-10% missing values
-  - Since we'll be doing linear regression, you should look for datasets that have quantitative measures
-  - Ensure there are over 5000 rows/observations in the dataset
-  - Ensure there are at least 5 variables of potential interest in the dataset
-  
-**3. Interesting (to you)**
-
-  - Make sure you have some basic interest in the subject matter!
-  - There's nothing worse than doing a 6 week project on the `iris` or `mtcars` dataset (please don't pick those)
-
-There are literally hundreds of thousands of datasets available, I will point you to some high quality sources (keep in mind that I have not personally checked every single dataset):
-
-- [fivethirtyeight](https://data.fivethirtyeight.com)
-- [pudding.cool](https://github.com/the-pudding/data)
-- [Buzzfeed](https://github.com/BuzzFeedNews/everything)
-- [Data.gov](https://www.data.gov/)
-- [data.world](https://data.world/) (requires free account)
-- [kaggle](https://www.kaggle.com/datasets?license=cc)
-
 ## Milestone 2: Write scripts to load, clean, and wrangle your data then automate your EDA plots
 
 ## Milestone 3: Add a script to do a linear regression, add tests to functions and finalize report
