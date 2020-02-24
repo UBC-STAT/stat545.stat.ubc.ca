@@ -125,7 +125,7 @@ Consider the following questions to guide you in your exploration:
   - Remember [principles of effective plots](https://stat545guidebook.netlify.com/effective-visualizations.html)!
   - A handy table is reproduced below:
 
-![Principles of Effective Visualizations](Principles_of_Effective Visualizations.png){#id .class width=70%}
+![Principles of Effective Visualizations](https://github.com/firasm/bits/raw/master/Principles_of_Effective%20Visualizations.png){#id .class width=70%}
 
 A [correllogram](http://www.sthda.com/english/wiki/visualize-correlation-matrix-using-correlogram) may be useful:
 ```{r correllogram, warning = FALSE, message = FALSE}
