@@ -12,6 +12,13 @@ knitr::opts_chunk$set(echo = TRUE)
 In this milestone you will be expected to choose a dataset appropriate for the STAT 547 team project.
 The most important task for this milestone is to select an appropriate dataset and do some basic EDA to prepare for milestone 2.
 
+## Project Setup
+
+- In the [STAT 547 GitHub organization](https://github.com/STAT547-UBC-2019-20) on github.com, one team member should create a public repository following this naming convention: `group_##_SOME_RELATED_NAME` (the ## is your group number from Canvas).
+- Add your partner as a collaborator to the repository
+- In your GitHub repository create an appropriate file and directory structure (we suggest a folder for `scripts`, another for `tests`, one for `docs` for now)
+- We are using github.com for public repos because we will eventually be deploying your report and dashboard publicly. Additionally, this will help you build a portfolio of your work you can share with others.
+
 ## Expectations
 - You should be committing to git every time you work on this project.
 - git commit messages should be meaningful. These will be marked. It's OK if one or two are less meaningful, but most should be.

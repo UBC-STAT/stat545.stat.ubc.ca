@@ -8,7 +8,7 @@ This project is broken down into 6 milestones and there will be two major themes
 ## Group Assignments
 
 Your teams of 2 have been randomly assigned, with no human intervention.
-*The list will be posted soon, once the class roster has stabilized a bit.*
+*The list will be posted on Canvas soon, once the class roster has stabilized a bit.*
 
 ## [Milestone 1: Dataset, EDA, and research question.](https://stat545.stat.ubc.ca/evaluation/milestone_01/milestone_01/)
 

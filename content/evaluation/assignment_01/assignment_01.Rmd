@@ -11,24 +11,39 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Assignment 01
 
-Still under construction!
+```{r}
+library(tidyverse)
+```
+### Task 1: Convert for-loop code to vectorized functions using purr:map()
 
-### Task 1: Convert 3 for-loops into functions
+1.1 - Below is sample code that computes the mean of every column in the `mtcars` dataset. Use the appropriate purr::map() function to vectorize this task.
 
 ```{r prob1}
-# add for loop 1 here
-
+output <- vector("double", ncol(mtcars))
+for (c in seq_along(mtcars)){
+  output[[c]] <- mean(mtcars[[c]])
+}
+output
 ```
+
+Your solution to vectorize the code above (using `purr::map()`):
 
 ```{r soln1}
 # add solution for loop 1 here
-
+# BEGIN SOLUTION
+output <- map(mtcars,mean)
+# END SOLUTION
+output
 ```
 
+1.2 - Below is sample code that divides the values in each column of the `mtcars` dataset by the maximum in that column.
 
 ```{r prob2}
 # add for loop 2 here
-
+for (c in seq_along(mtcars)){
+  mtcars[[c]] <- mtcars[[c]] / max(mtcars[[c]], na.rm = TRUE)
+}
+mtcars
 ```
 
 ```{r soln2}
@@ -36,7 +51,7 @@ Still under construction!
 
 ```
 
-
+iterate over two lists/dfs
 ```{r prob3}
 # add for loop 3 here
 
