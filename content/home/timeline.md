@@ -27,7 +27,7 @@ date_format = "January 2, 2006"
 
 [[experience]]
   title = "STAT 547M"
-  company = "ESB 4192"
+  company = "Note: Room change!! [SWNG 407](https://learningspaces.ubc.ca/classrooms/swng-407)"
   company_url = ""
   location = "Tuesdays, Thursdays 1100-1230"
   date_start = "2020-02-25"
