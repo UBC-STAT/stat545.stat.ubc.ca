@@ -17,6 +17,7 @@ All submissions are due by Saturday at 18:00 with the regular [grace period](htt
 
 | Assignment  | Due Date | Accept assignment  |
 |-------------|----------| ---------------------------|
+| [Participation](participation/) | Saturday Apr 11 at 18:00 | [Accept assignment](https://classroom.github.com/a/uYT4-Doe) |
 | [Assignment 1](/evaluation/assignment_01/assignment_01) | Saturday at 18:00 | Coming soon <!-- [Not Available]() -->|
 | Assignment 2 <!--](/evaluation/assignment_02)--> | Saturday at 18:00 | Coming soon <!-- [Not Available]() -->|
 | Assignment 3 <!--](/evaluation/assignment_03)--> | Saturday at 18:00 | Coming soon <!-- [Not Available]() -->|
