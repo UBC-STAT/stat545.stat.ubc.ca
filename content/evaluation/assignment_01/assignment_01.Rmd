@@ -18,9 +18,9 @@ This assignment was designed to be completed in about 60 minutes and is delibera
 library(tidyverse)
 mtcars_original <- mtcars
 ```
-### Task 1: Convert for-loop code to vectorized functions using purr::map()
+### Task 1: Convert for-loop code to vectorized functions using purrr::map()
 
-#### 1.1 - Below is sample code that computes the mean of every column in the `mtcars` dataset. Use the appropriate `purr::map()` function to vectorize this task.
+#### 1.1 - Below is sample code that computes the mean of every column in the `mtcars` dataset. Use the appropriate `purrr::map()` function to vectorize this task.
 
 ```{r prob1}
 output <- vector("double", ncol(mtcars))
@@ -30,14 +30,14 @@ for (c in seq_along(mtcars)){
 output
 ```
 
-Your solution to vectorize the code above (using `purr::map()`):
+Your solution to vectorize the code above (using `purrr::map()`):
 
 ```{r soln1}
 # add solution here
 output
 ```
 
-#### 1.2 - Below is sample code that divides the values in each column of the `mtcars` dataset by the maximum in that column. Use the appropriate `purr::map()` function to vectorize this task.
+#### 1.2 - Below is sample code that divides the values in each column of the `mtcars` dataset by the maximum in that column. Use the appropriate `purrr::map()` function to vectorize this task.
 
 ```{r prob2}
 for (c in seq_along(mtcars)){
@@ -46,12 +46,12 @@ for (c in seq_along(mtcars)){
 head(mtcars)
 ```
 
-Your solution to vectorize the code above (using `purr::map()`):
+Your solution to vectorize the code above (using `purrr::map()`):
 
 ```{r soln2}
 # add solution here
 ```
-#### 1.3 - Below is sample code creates a ggplot with fuel efficiency on the x-axis and horsepower on the y-axis for three cylinder levels (4, 6, 8). Use the appropriate `purr::map()` function to vectorize this task.
+#### 1.3 - Below is sample code creates a ggplot with fuel efficiency on the x-axis and horsepower on the y-axis for three cylinder levels (4, 6, 8). Use the appropriate `purrr::map()` function to vectorize this task.
 
 ```{r prob3}
 cylinders <- sort(unique(mtcars_original[['cyl']]))
@@ -70,7 +70,7 @@ for (d in 1:length(cylinders)){
 plots
 ```
 
-Your solution to vectorize the code above (using `purr::map()`):
+Your solution to vectorize the code above (using `purrr::map()`):
 
 ```{r soln3}
 # add solution here
@@ -90,7 +90,7 @@ Your solution to "un-vectorize" the code above for loops:
 # add solution here
 ```
 
-#### 2.2 - Below is sample code that takes input from various columns in the `diamonds` dataset and outputs a string containing information from the input. Use the appropriate `purr::map()` function to vectorize this task.
+#### 2.2 - Below is sample code that takes input from various columns in the `diamonds` dataset and outputs a string containing information from the input. Use the appropriate `purrr::map()` function to vectorize this task.
 
 *Hint:* Note the use of `map2` to iterate over two columns (price and carat).
 
