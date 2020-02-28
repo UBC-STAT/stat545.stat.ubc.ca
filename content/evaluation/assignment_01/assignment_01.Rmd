@@ -123,7 +123,7 @@ output
 ```{r prob6}
 iris %>%
   nest(data = -Species) %>%
-  pmap(~write_csv(.y, path = glue::glue(.x, ".csv")))
+  pmap(~write_csv(.y, path = here::here(glue::glue(.x, ".csv"))))
 ```
 
 Your solution to "un-vectorize" the code above using for-loops:
