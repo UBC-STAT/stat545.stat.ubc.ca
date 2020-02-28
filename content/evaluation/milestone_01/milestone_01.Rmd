@@ -173,7 +173,12 @@ ggplot( mtcars , aes(x=mpg, y=wt )) +
 
 1. With your data set and your EDA, identify at least one **research question** that you will attempt to answer with analyses and visualizations. Clearly state the research question and any natural sub-questions you need to address, and their type. The main research question should be either *descriptive* or *exploratory*.
   - Below are some descriptions of descriptive or exploratory research questions, adapted by [Dr. Timbers](https://www.stat.ubc.ca/users/tiffany-timbers) from the [Art of Data Science](https://leanpub.com/artofdatascience) by Roger Pengand Elizabeth Matsui.
-1. Propose a plan of how you will analyze the data (what will you plot, which variables will you do a linear regression on?) 
+
+![Descriptive Research Questions](https://raw.githubusercontent.com/firasm/bits/master/descriptive_questions.png){#id .class width=70% height=70%}
+
+![Exploratory Research Questions](https://raw.githubusercontent.com/firasm/bits/master/exploratory_questions.png){#id .class width=70%}
+  
+2. Propose a plan of how you will analyze the data (what will you plot, which variables will you do a linear regression on?) 
 
 ## Example of final product
 
