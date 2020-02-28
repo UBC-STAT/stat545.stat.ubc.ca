@@ -52,7 +52,7 @@ Your solution to vectorize the code above (using a `purrr` function):
 # add solution here
 ```
 
-#### 1.3 - Below is sample code creates a ggplot with fuel efficiency on the x-axis and horsepower on the y-axis for three cylinder levels (4, 6, 8). Use the appropriate `purrr` function to vectorize this task.
+#### 1.3 - Below is sample code that creates a ggplot with fuel efficiency on the x-axis and horsepower on the y-axis for three cylinder levels (4, 6, 8). Use the appropriate `purrr` function to vectorize this task.
 
 ```{r prob3}
 cylinders <- sort(unique(mtcars_original[['cyl']]))
@@ -77,7 +77,7 @@ Your solution to vectorize the code above (using a `purrr` function):
 # add solution here
 ```
 
-### Task 2: Convert vectorized expressions into one that use for-loops
+### Task 2: Convert vectorized expressions into one that uses for-loops
 
 #### 2.1  - Below is sample code that computes the number of unique values in each column of `mtcars` in a vectorized way. Turn this vectorized expression into one that uses for-loop(s) that reproduces the output (numbers should be the same, the format can be different).
 ```{r prob4}
