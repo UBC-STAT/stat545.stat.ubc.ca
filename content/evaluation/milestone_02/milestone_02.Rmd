@@ -1,0 +1,146 @@
+---
+title: "milestone_02"
+author: "Firas Moosvi"
+date: "Updated `r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+In this milestone, you will address feedback from TAs about milestone1, continue and refine your analysis to clean and wrangle your data. 
+You will then convert all your interactive code into stand-alone scripts that take in  arguments using `docopt`.
+
+## Expectations
+- You should be committing to git every time you work on this project.
+- git commit messages should be meaningful. These will be marked. It's OK if one or two are less meaningful, but most should be.
+- After the repository is set-up, each group member should fork the repository to their personal GitHub.com account and work there, and send pull-requests of their work to the upstream repo (the one they forked). The other team mate should review, critique (if necessary) and finally accept their team mates pull request.
+  - See below for "how to catch up to a forked repo if there are changes upstream".
+- Use GitHub issues to communicate to their team mate (as opposed to email or Slack)
+- Your question, analysis and visualization should make sense. It doesn't have to be complicated.
+- You should use proper grammar and full sentences in your README. Point form may occur, but should be less than 10% of your written documents.
+- You **must** include the URL of your report in the `README.md` file of your project repo so we can easily view it.
+- Create a release on your project repo named milestone1 and submit that URL on Canvas for us to grade.
+  - Here is an example of the URL we are expecting for milestone1: [https://github.com/STAT547-UBC-2019-20/demo_project/tree/milestone1](https://github.com/STAT547-UBC-2019-20/demo_project/tree/milestone1)
+
+## Mechanics (15%)
+
+Follow the instructions for making a tidy submission, found on the [assignments home page](https://stat545.stat.ubc.ca/evaluation/assignments).
+
+If there's any further uncertainty in determining a grade for this "mechanics" portion, the [UBC MDS mechanics rubric](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_mech.md) will be referred to.
+
+## Writing (10%)
+
+- You must use proper English, spelling, and grammar.
+- You should write concisely. 
+- If there's any further uncertainty in determining a grade here, the [UBC MDS writing rubric](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md) will be used.
+
+## Task 1. Organize your repository (5%)
+
+To prepare your repository for automation next week, you should spend some time cleaning up and organizing your repository. 
+
+Here is a suggested directory structure (you may choose alternates if it makes more sense for your project and analysis):
+
+- `docs`: Move your Rmd files here, include your final report.
+- `data`: Your raw data will be downloaded here. Also, if you re-save your data after cleaning/wrangling, it shold be saved as a new file here.
+- `scripts` (or `src`): move all your scripts here. This directory should only contain scripts
+- `images`: your scripts should export images to this directory, also include any images needed for your report
+- `tests`: You will add some tests to your functions next week, this directory can be empty for this week
+
+## **Task 2. Convert your interactive notebook to (at least) 4 scripts** (60%)
+
+This task is the bulk of the work for milestone2.
+
+### **Task 2.1: Write a script to load in your data.**
+
+Your script should:
+
+- Live in the `scripts` directory
+- Have at least ONE command-line argument (at minimum, you may have more as well)
+- Take in the raw data URL as a command-line argument
+- Run without any intervention from the user after running the script:
+  - `Rscript src/script_name.r --data_url=<url_to_raw_data_file>`
+- Download and save the data in the `data` directory
+- Print a helpful message to the terminal informing the user that the script completed successfully
+
+### **Task 2.2: Write a script to wrangle/clean/process your data.**
+
+Your script should:
+
+- Live in the `scripts` directory
+- Have at least TWO command-line arguments (at minimum, you may have more as well)
+- Take in a path to the raw data path as a command-line argument
+- Take in the filename to where the wrangled data should be saved as a command-line argument
+- Wrangle/clean/process your raw data and save a new version of data for later analysis
+- Run without any intervention from the user after running the script
+- Print a helpful message to the terminal informing the user that the script completed successfully
+
+### **Task 2.3: Write an EDA script for your data**
+
+Your script should:
+
+- Live in the `scripts` directory
+- Perform the analysis you did in week 1 and save the plots as separate png files 
+- Take in a path where exported images should be saved (likely `images`) as a command-line argument
+- Run without any intervention from the user after running the script
+- Print a helpful message to the terminal informing the user that the script completed successfully
+
+### **Task 2.4: Write a script to knit your DRAFT of your final report (an Rmarkdown file) to an HTML and PDF file **
+
+Your draft final report should:
+
+- Be done in Rmarkdown and should not have any "hard-coded" numbers and values
+- Have an introduction/motivation and description of research question
+- Have a section describing your dataset (EDA); make sure you import pngs from the `images` directory rather than creating them again!
+- Have a section for your methods (placeholder for a linear regression to be done next week)
+- Have a section for your results (placeholder for a linear regression to be done next week)
+- Have a section for your discussion/conclusion (placeholder for a linear regression to be done next week)
+- Be a new, different document than the EDA document you submitted for `milestone1` (though you can liberally borrow from your report, particularly the introduction)
+
+Your script should:
+
+- Live in the `scripts` directory
+- Knit your Rmarkdown file to an HTML *and* a PDF file exported to the root of the repository (not in a folder)
+- 
+- Run without any intervention from the user after running the script
+- Print a helpful message to the terminal informing the user that the script completed successfully
+
+## **Task 3: Script Usage ** (10%)
+
+Your final task for this milestone is to add a **USAGE** section in your project README.
+This section should have instructions on how someone should completely reproduce your analysis from start to finish.
+You should list all packages and dependencies required for your project.
+What level of reproducibility should you expect?
+Well, imagine if someone clones your repository, deletes all the files in every directory except your README, the `scripts` and `docs` directory - could they follow your instructions in the USAGE section to reproduce your final report?
+
+```
+
+1. Clone this repo.
+
+2. Ensure the following packages are installed:
+
+  - ggplot2
+  - dplyr
+  - cowplot
+  - etc...
+
+3. Run the following scripts (in order) with the appropriate arguments specified
+
+  # Download data
+  Rscript src/script_name.r --data_url=<url_to_raw_data_file>
+  
+  # Wrangle/clean/process your data 
+  Rscript src/script_name.r --argument_name=<argument> ... (etc)
+  
+  # EDA script to export images
+  Rscript src/script_name.r --argument_name=<argument> ... (etc)
+  
+  # Knit your draft final report
+  Rscript -e "rmarkdown::render('... (etc)
+```
+
+## Example of final product
+
+One of your TAs (Matthew) has prepared an example of what we are expecting for this milestone.
+We will release this to you after Thursday's lecture and you will be able to find it [here](https://github.com/STAT547-UBC-2019-20/demo_project/tree/milestone2).

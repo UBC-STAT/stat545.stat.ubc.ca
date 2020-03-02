@@ -14,10 +14,10 @@ Your teams of 2 have been randomly assigned, with no human intervention.
 
 In this milestone you will setup your group repository, choose a dataset appropriate for the STAT 547 team project, do some preliminary EDA, and come up with a research question.
 
-## Milestone 2: Write scripts.
+## [Milestone 2: Write scripts].(https://stat545.stat.ubc.ca/evaluation/milestone_02/milestone_02/)
 
 In this milestone, you will address feedback from TAs about milestone1, continue and refine your analysis to clean and wrangle your data.
-You will then convert all your interactive code into stand-alone scripts that take argument.
+You will then convert all your interactive code into stand-alone scripts that take arguments.
 
 ## Milestone 3: Tests, linear regression, and automation
 
