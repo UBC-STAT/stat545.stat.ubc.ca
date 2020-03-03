@@ -21,8 +21,9 @@ You will then convert all your interactive code into stand-alone scripts that ta
 - Your question, analysis and visualization should make sense. It doesn't have to be complicated.
 - You should use proper grammar and full sentences in your README. Point form may occur, but should be less than 10% of your written documents.
 - You **must** include the URL of your report in the `README.md` file of your project repo so we can easily view it.
-- Create a release on your project repo named milestone1 and submit that URL on Canvas for us to grade.
-  - Here is an example of the URL we are expecting for milestone1: [https://github.com/STAT547-UBC-2019-20/demo_project/tree/milestone1](https://github.com/STAT547-UBC-2019-20/demo_project/tree/milestone1)
+- Create a release on your project repo named `milestoneX` and submit that URL on Canvas for us to grade.
+- Your report should be knitted and rendered as an HTML or PDF file as described [here](https://stat545.stat.ubc.ca/evaluation/assignments/).
+  - Here is an example of the URL we are expecting for each milestone: https://github.com/STAT547-UBC-2019-20/demo_project/tree/milestoneX
 
 ## Mechanics (15%)
 
@@ -43,7 +44,7 @@ To prepare your repository for automation next week, you should spend some time 
 Here is a suggested directory structure (you may choose alternates if it makes more sense for your project and analysis):
 
 - `docs`: Move your Rmd files here, include your final report.
-- `data`: Your raw data will be downloaded here. Also, if you re-save your data after cleaning/wrangling, it shold be saved as a new file here.
+- `data`: All your data should be saved to this directory. Also, if you re-save your data after cleaning/wrangling, it should be saved as a new file here.
 - `scripts` (or `src`): move all your scripts here. This directory should only contain scripts
 - `images`: your scripts should export images to this directory, also include any images needed for your report
 - `tests`: You will add some tests to your functions next week, this directory can be empty for this week
@@ -51,6 +52,7 @@ Here is a suggested directory structure (you may choose alternates if it makes m
 ## **Task 2. Convert your interactive notebook to (at least) 4 scripts** (60%)
 
 This task is the bulk of the work for milestone2.
+Each of your scripts should be sensibly and descriptively named (e.g. `load_data.R`, `process_data.R`, etc...).
 
 ### **Task 2.1: Write a script to load in your data.**
 
@@ -58,8 +60,9 @@ Your script should:
 
 - Live in the `scripts` directory
 - Have at least ONE command-line argument (at minimum, you may have more as well)
-- Take in the raw data URL as a command-line argument
-- Run without any intervention from the user after running the script:
+- Take in the raw data URL as a command-line argument.
+  - If you cannot get a URL to your dataset, you can store your dataset in [this public repository](https://github.com/STAT547-UBC-2019-20/data_sets) and then get the URL for this script
+- Run without any intervention from the user after running the script from a terminal/command prompt:
   - `Rscript src/script_name.r --data_url=<url_to_raw_data_file>`
 - Download and save the data in the `data` directory
 - Print a helpful message to the terminal informing the user that the script completed successfully
@@ -70,10 +73,10 @@ Your script should:
 
 - Live in the `scripts` directory
 - Have at least TWO command-line arguments (at minimum, you may have more as well)
-- Take in a path to the raw data path as a command-line argument
+- Take in the path to the raw data (in the `data` folder) as a command-line argument
 - Take in the filename to where the wrangled data should be saved as a command-line argument
 - Wrangle/clean/process your raw data and save a new version of data for later analysis
-- Run without any intervention from the user after running the script
+- Run without any intervention from the user after running the script from a terminal/command prompt
 - Print a helpful message to the terminal informing the user that the script completed successfully
 
 ### **Task 2.3: Write an EDA script for your data**
@@ -81,16 +84,16 @@ Your script should:
 Your script should:
 
 - Live in the `scripts` directory
-- Perform the analysis you did in week 1 and save the plots as separate png files 
+- Perform the EDA you did in week 1 and save the plots as separate png files (these will be imported in by your final report)
 - Take in a path where exported images should be saved (likely `images`) as a command-line argument
-- Run without any intervention from the user after running the script
+- Run without any intervention from the user after running the script from a terminal/command prompt
 - Print a helpful message to the terminal informing the user that the script completed successfully
 
 ### **Task 2.4: Write a script to knit your DRAFT of your final report (an Rmarkdown file) to an HTML and PDF file **
 
 Your draft final report should:
 
-- Be done in Rmarkdown and should not have any "hard-coded" numbers and values
+- Be done in Rmarkdown and should not have any "hard-coded" (use r code chunks and inline r code) numbers and values
 - Have an introduction/motivation and description of research question
 - Have a section describing your dataset (EDA); make sure you import pngs from the `images` directory rather than creating them again!
 - Have a section for your methods (placeholder for a linear regression to be done next week)
@@ -98,12 +101,13 @@ Your draft final report should:
 - Have a section for your discussion/conclusion (placeholder for a linear regression to be done next week)
 - Be a new, different document than the EDA document you submitted for `milestone1` (though you can liberally borrow from your report, particularly the introduction)
 
+Note: if you have troubles knitting to PDF, try installing the latest version of `knitr`: `remotes::install_github('yihui/knitr')` and update `pandoc` and `pandoc-citeproc` as there are some bugs in older versions.
+
 Your script should:
 
 - Live in the `scripts` directory
 - Knit your Rmarkdown file to an HTML *and* a PDF file exported to the root of the repository (not in a folder)
-- 
-- Run without any intervention from the user after running the script
+- Run without any intervention from the user after running the script from a terminal/command prompt
 - Print a helpful message to the terminal informing the user that the script completed successfully
 
 ## **Task 3: Script Usage ** (10%)
