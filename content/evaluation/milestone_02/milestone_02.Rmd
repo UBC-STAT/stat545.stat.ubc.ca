@@ -141,7 +141,7 @@ Well, imagine if someone clones your repository, deletes all the files in every 
   Rscript src/script_name.r --argument_name=<argument> ... (etc)
   
   # Knit your draft final report
-  Rscript -e "rmarkdown::render('... (etc)
+  ## You will learn this next week in cm106!
 ```
 
 ## Example of final product
