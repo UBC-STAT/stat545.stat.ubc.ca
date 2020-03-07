@@ -89,7 +89,7 @@ Your script should:
 - Run without any intervention from the user after running the script from a terminal/command prompt
 - Print a helpful message to the terminal informing the user that the script completed successfully
 
-### **Task 2.4: Write a script to knit your DRAFT of your final report (an Rmarkdown file) to an HTML and PDF file **
+### [OPTIONAL - moved to milestone3] **Task 2.4: Write a script to knit your DRAFT of your final report (an Rmarkdown file) to an HTML and PDF file **
 
 Your draft final report should:
 
