@@ -23,7 +23,7 @@ You should aim to complete this assignment in about 45 minutes.
 
 ## Logistics
 
-- The group you are reviewing can be found [here]()
+- The group you are reviewing can be found [here](https://github.com/STAT547-UBC-2019-20/Discussions/issues/27)
 - Assignment03 should be done individually - each person will be assigned to a different group to review
 - Since you are reviewing a group project, you must create an issue in the main team project repo on GitHub.com
 - In your README for assignment03, please include a link to the issue you created.
@@ -52,7 +52,7 @@ Guidance on what to provide feedback on:
   - Are the scripts and functions appropriately documented?
   - Does it take a long time for the analysis to run? Are there tasks that could be vectorized to make things faster?
 
-Provide a link to this issue in the readme and submit a link to the issue on Canvas.**  
+Provide a link to this issue in the readme and submit a link to the issue on Canvas.
   
 **Optionally**, you may also provide feedback on introduction/motivation, wrangling, research questions, and visualizations.
 Some questions to guide you:
