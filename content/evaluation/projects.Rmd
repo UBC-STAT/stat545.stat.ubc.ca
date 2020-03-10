@@ -19,7 +19,7 @@ In this milestone you will setup your group repository, choose a dataset appropr
 In this milestone, you will address feedback from TAs about milestone1, continue and refine your analysis to clean and wrangle your data.
 You will then convert all your interactive code into stand-alone scripts that take arguments.
 
-## Milestone 3: Tests, linear regression, and automation
+## [Milestone 3: Tests, linear regression, and automation](https://stat545.stat.ubc.ca/evaluation/milestone_03/milestone_03/)
 
 In this milestone, you will address feedback from TAs about milestone2, add a linear regression, implement tests in your functions, and automate the creation of the report.
 This week you will clean up your report and submit a final report.
