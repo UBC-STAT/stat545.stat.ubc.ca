@@ -15,15 +15,15 @@ All submissions are due by Saturday at 18:00 with the regular [grace period](htt
 
 ### STAT 547M
 
-| Assignment  | Due Date | Accept assignment  |
-|-------------|----------| ---------------------------|
-| [Participation](participation/) | Saturday Apr 11 at 18:00 | [Accept assignment](https://classroom.github.com/a/uYT4-Doe) |
-| [Assignment 1](/evaluation/assignment_01/assignment_01) | Saturday Mar 7 at 18:00 | [Accept assignment](https://classroom.github.com/a/b3vITuTN)|
-| [Assignment 2](/evaluation/assignment_02/assignment_02) | Saturday Mar 7 at 18:00 | [Accept assignment](https://classroom.github.com/a/hTfSIzg6)|
-| [Assignment 3](/evaluation/assignment_03/assignment_03) | Saturday Mar 14 at 18:00 | [Accept assignment](https://classroom.github.com/a/5OgwN-FJ)|
-| Assignment 4 <!--](/evaluation/assignment_04)--> | Saturday at 18:00 | Coming soon <!-- [Not Available]() -->|
-| Assignment 5 <!--](/evaluation/assignment_05)--> | Saturday at 18:00 | Coming soon <!-- [Not Available]() -->|
-| Assignment 6 <!--](/evaluation/assignment_06)--> | Saturday at 18:00 | Coming soon <!-- [Not Available]() -->|
+| Assignment  | Due Date | Accept assignment  | Solutions|
+|-------------|----------| ---------------------------|----------|
+| [Participation](participation/) | Saturday Apr 11 at 18:00 | [Accept assignment](https://classroom.github.com/a/uYT4-Doe) | |
+| [Assignment 1](/evaluation/assignment_01/assignment_01) | Saturday Mar 7 at 18:00 | [Accept assignment](https://classroom.github.com/a/b3vITuTN)| [solution](https://raw.githubusercontent.com/STAT545-UBC/STAT545-home/master/content/evaluation/assignment_01/solutions_assignment_01.Rmd)
+| [Assignment 2](/evaluation/assignment_02/assignment_02) | Saturday Mar 7 at 18:00 | [Accept assignment](https://classroom.github.com/a/hTfSIzg6)|[solution](https://raw.githubusercontent.com/STAT545-UBC/STAT545-home/master/content/evaluation/assignment_02/solutions_Assignment%202.Rmd)
+| [Assignment 3](/evaluation/assignment_03/assignment_03) | Saturday Mar 14 at 18:00 | [Accept assignment](https://classroom.github.com/a/5OgwN-FJ)| |
+| Assignment 4 <!--](/evaluation/assignment_04)--> | Saturday at 18:00 | Coming soon <!-- [Not Available]() -->| |
+| Assignment 5 <!--](/evaluation/assignment_05)--> | Saturday at 18:00 | Coming soon <!-- [Not Available]() -->| |
+| Assignment 6 <!--](/evaluation/assignment_06)--> | Saturday at 18:00 | Coming soon <!-- [Not Available]() -->| |
 
 ### STAT 545A
 
