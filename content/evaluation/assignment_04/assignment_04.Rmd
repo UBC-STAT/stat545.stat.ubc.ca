@@ -93,9 +93,9 @@ If your component is present, functional, and the code is correct, you will get 
 After you have included all the components, run the app again and make sure it runs!
 If it does not, you will lose marks not just in this task, but also in Task 1!
 
-### Task 3: Complete project reflection document
+### Task 3: Complete project reflection document (10%)
 
-Complete the teamwork reflection document for project 1.
+Complete the [teamwork reflection document](https://stat545.stat.ubc.ca/evaluation/teamwork/) for your project project so far.
 You will find the RMd file that you need to fill out in your assignment repo.
 DO NOT FORGET to also rate yourself for each question.
 
