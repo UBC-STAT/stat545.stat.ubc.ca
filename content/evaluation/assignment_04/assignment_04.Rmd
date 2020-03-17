@@ -11,8 +11,6 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Assignment 04
 
-**THIS ASSIGNMENT IS STILL IN DRAFT FORMAT; will be finalized by Monday evening**
-
 In this assignment, there are three tasks:
 
 1) Run Dash app from the command line
