@@ -44,19 +44,19 @@ start: 127.0.0.1:8050
 
 ### Task 2: Add components (50%)
 
-In this section, you will create 5 componens to your DashR app.
-To be clear, it does not really matter the details (as long as it's appropriate) of what you put in here as we're just assessing the mechanics of including these components in a Dash app.
+In this section, you will create 5 componens to your DashR app using the `diamonds` dataset.
+To be clear, it does not really matter the details (as long as it's appropriate) of what you put in here because we are just assessing the mechanics of including these components in a Dash app.
 
 #### Grading for Task 2
 
 Each component is worth a certain number of points (total /30).
 If your component is present, functional, and the code is correct, you will get full marks.
 
-- Task 2.1 - 2 point
-- Task 2.2 - 3 points
-- Task 2.3 - 7.5 points
-- Task 2.4 - 7.5 points
-- Task 2.5 - 10 points
+- Task 2.1 - 5 points
+- Task 2.2 - 5 points
+- Task 2.3 - 10 points
+- Task 2.4 - 10 points
+- Task 2.5 - 20 points
 
 #### Task 2.1 - Add a heading and a subheading component
 
@@ -69,24 +69,27 @@ If your component is present, functional, and the code is correct, you will get 
   - Add a link.
   - Add some **bolded** text.
   - Add some _italic_ text.
-  - Add a static image (make sure you have permission to use the image).
+  - Add a static image referencing an image in your repo or a URL (make sure you have permission to use the image).
 
 #### Task 2.3 - Add a dropdown component
 
-- Add a dropdown component that corresponds to the `clarity` column of the `diamonds` dataframe
+- Add a dropdown component that corresponds to the `clarity` column of the `diamonds` dataframe.
 - There should be no repeats in the dropdown options.
+- It is not required to link your dropdown to the graph component in Task 2.5 (you will do this in assignment 5 next week).
 
 #### Task 2.4 - Add a slider component with labels at each point 
 
 - Add a slider component that corresponds to the `cut` column of the `diamonds` dataframe.
 - The labels on the slider should correspond to the quality of the cut (Fair, Good, Very Good, Premium, Ideal).
 - There should be no repeats in the slider options.
+- It is not required to link your slider to the graph component in Task 2.5 (you will do this in assignment 5 next week).
 
-#### Task 2.5 - Add a graph component using ggplot and ggplotly
+#### Task 2.5 - Add two graph components using ggplot and ggplotly
 
 - Using `ggplot`, create a histogram of the diamond price on the x-axis and number of diamonds on the y-axis.
+- Using `ggplot`, create a second plot (of your choice)
 - Create a `ggplotly` object by passing the `ggplot` object into the `ggplotly` function (from the `plotly` library).
-- Add a graph component using the ggplotly object you created.
+- Add two graph components using the ggplotly objects you created.
 
 ### General
 
