@@ -19,7 +19,7 @@ In this milestone, you will:
 - **NEW** You should do the dashboard project in the SAME group project repository and keep your forks as-is.
 - You should be committing to git every time you work on this project.
 - git commit messages should be meaningful. These will be marked. It's OK if one or two are less meaningful, but most should be.
-- After the repository is set-up, each group member should fork the repository to their personal GitHub.com account and work there, and send pull-requests of their work to the upstream repo (the one they forked). The other team mate should review, critique (if necessary) and finally accept their team mates pull request.
+- After the repository is set-up, each group member should fork the repository to their personal GitHub.com account and work there, and send pull-requests of their work to the upstream repo (the one they forked). The other team mate should review, critique (if necessary) and finally accept their team mate's pull request.
   - See below for "how to catch up to a forked repo if there are changes upstream".
 - Use GitHub issues to communicate to their team mate (as opposed to email or Slack)
 - Your question, analysis and visualization should make sense. It doesn't have to be complicated.
