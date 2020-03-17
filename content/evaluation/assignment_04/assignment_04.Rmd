@@ -49,7 +49,7 @@ To be clear, it does not really matter the details (as long as it's appropriate)
 
 #### Grading for Task 2
 
-Each component is worth a certain number of points (total /30).
+Each component is worth a certain number of points (total of 50).
 If your component is present, functional, and the code is correct, you will get full marks.
 
 - Task 2.1 - 5 points
