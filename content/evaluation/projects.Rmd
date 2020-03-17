@@ -24,9 +24,9 @@ You will then convert all your interactive code into stand-alone scripts that ta
 In this milestone, you will address feedback from TAs about milestone2, add a linear regression, implement tests in your functions, and automate the creation of the report.
 This week you will clean up your report and submit a final report.
 
-## Milestone 4: Sketch of your dashboard.
+## [Milestone 4: Sketch of your dashboard.](https://stat545.stat.ubc.ca/evaluation/milestone_04/milestone_04/)
 
-In this milestone, you will address feedback from TAs about milestone3, create a proposal of what your interactive dashboard will do, and how it will be used.
+In this milestone, you will address feedback from TAs about milestone3, create a proposal of what your interactive dashboard will do, how it will be used, and create a skeleton app for next week.
 
 ## Milestone 5: First draft of dashboard
 
@@ -34,4 +34,4 @@ In this milestone, you will address feedback from TAs about milestone4, create a
 
 ## Milestone 6: Final version of deployed dashboard
 
-In this milestone, you will address feedback from TAs about milestone4, refine your dashboard (by adding callbacks), and deploy the dashboard online.
+In this milestone, you will address feedback from TAs about milestone4, refine your dashboard, and deploy the dashboard online.
