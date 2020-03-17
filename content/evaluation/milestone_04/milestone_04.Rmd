@@ -81,7 +81,7 @@ In the issue where the feedback was posted, you should :
 The next part of your project requires you to create a dashboard for your dataset.
 You need to make a proposal for a dashboard and it should have two components:
 
-1. Dashboard description and usage scenarios (~ 200 words)
+1. Dashboard description and usage scenarios (~ 300 words)
 2. Dashboard sketch
 
 If necessary, you should consider revising your research question(s) based on the feedback of your peers, and so it is appropriate for a dashboard. 
