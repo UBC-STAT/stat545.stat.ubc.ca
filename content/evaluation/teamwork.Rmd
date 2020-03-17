@@ -3,7 +3,7 @@ title: "Teamwork Document"
 date: "Updated `r Sys.Date()`"
 ---
 
-__Due__: April 4 2020.
+__Due__: March 21 (for parameterized report project) and April 4 2020 (for dashboard project).
 
 # Team project reflection (10%)
 
@@ -63,6 +63,3 @@ Below,	briefly	describe	the	specific	contribution(s)	each	team	member (**includi
     - what was your role in the group? That is, what sort of things did you do to contribute to the evolution of the project?
     - what were the roles of others in your group?
 - what went well and poorly throughout the team project experience?
-
-**(Optional) Feedback for teammates.** Is there anything you would like us to share with your teammates?
-
