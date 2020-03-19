@@ -121,7 +121,7 @@ Note that in the above example, "physical disability" being an important variabl
 
 The example sketch shows the visual design of the app and one interactive feature (a tooltip).
 
-![](AppSketch.png)
+![App Sketch](https://raw.githubusercontent.com/firasm/bits/master/AppSketch.png){#id .class width=70%}
 
 *A further note on the app sketches:* 
 
