@@ -88,7 +88,7 @@ If necessary, you should consider revising your research question(s) based on th
 Then, consider how the dashboard can be used to answer your research question(s) by a fictional person - these are usage scenarios.
 Building from your research questions, give a high-level description of the interface for the app you will build.
 Remember to be realistic about your expectations and plans since you will actually be implementing this app next week and the week after.
-All of this content should be approximately 200 words and live in the main project `README.md` file of your GitHub.com repository.
+All of this content should be approximately 300 words and live in the main project `README.md` file of your GitHub.com repository.
 
 ### Description
 
@@ -121,7 +121,7 @@ Note that in the above example, "physical disability" being an important variabl
 
 The example sketch shows the visual design of the app and one interactive feature (a tooltip).
 
-![](AppSketch.png "App Sketch")
+![](AppSketch.png)
 
 *A further note on the app sketches:* 
 
