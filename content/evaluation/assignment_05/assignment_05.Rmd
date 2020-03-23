@@ -1,0 +1,46 @@
+---
+title: "Assignment 05"
+author: "Your Name"
+date: "3/22/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Assignment 05
+
+In this assignment, you will be improving the dashboard you created in assignment 4 by adding callbacks to core features and specifying the dashboard layout.
+There are three tasks:
+ 
+- Task 1: Create a plot with two callbacks
+- Task 2: Update two plots based on the same input
+- Task 3: Create a layout for your dashboard
+
+## Task 1: Create a plot with two callbacks
+
+### Task 1.1: Link dropdown menu to a plot (20%)
+
+- link a dropdown menu from assignment 4 (Task 2.3) to the histogram graph (Task 2.5)
+- make sure to add a line with annottaion to a slider explaining what the options mean (you can use `htmlP()` to add this)
+- make sure that the histogram also has a title that updates based on what is being plotted
+
+### Task 1.2: Linking radial button to a plot(30%)
+
+- create a radial button that changes y-axis of the histogram from linear/log (*Hint:* `scale_*_continuous()` is a very usefull function for making transformations on the axes)
+- link your radial button to the histogram graph in Task 2.5
+- both links for task 1.1 and 1.2 should be placed in the same callback
+- make sure to add a sentence of instruction on the dashboard to explain what the options mean
+
+## Task 2: Update two Graphs based on the same input (20%)
+
+- use the second plot (of your choice) from assignmnet 4 (task 2.5) 
+- now create a scatter or line plot (you can choose what is plotted here)
+- using the slider you created in assignment 4, link these two plots, so that both plots change based on the single slider you created
+- make sure that both titles have information about what is being displayed on the graph
+
+## Task 3: Create a layout for your dashboard (30%)
+
+You should choose one of the layouts from [this repo](https://github.com/matthewconnell/dashr_sample_layouts) created by Matthew as a starting point.
+Apply the layout to your assignment.
