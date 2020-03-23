@@ -28,7 +28,7 @@ This week you will clean up your report and submit a final report.
 
 In this milestone, you will address feedback from TAs about milestone3, create a proposal of what your interactive dashboard will do, how it will be used, and create a skeleton app for next week.
 
-## [Milestone 5: First draft of dashboard(https://stat545.stat.ubc.ca/evaluation/milestone_05/milestone_05/)
+## [Milestone 5: First draft of dashboard](https://stat545.stat.ubc.ca/evaluation/milestone_05/milestone_05/)
 
 In this milestone, you will address feedback from TAs about milestone4, create a draft of your dashboard and ensure its core components are functional.
 
