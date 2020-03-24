@@ -1,0 +1,85 @@
+---
+title: "milestone_05"
+author: "Firas Moosvi"
+date: "Updated `r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+In this milestone, you will:
+
+1) Update your dashboard proposal based on TA feedback (if applicable)
+2) Create the dashboard you proposed to do for your dataset
+
+## Expectations
+- You should do the dashboard project in the SAME group project repository and keep your forks as-is.
+- You should be committing to git every time you work on this project.
+- git commit messages should be meaningful. These will be marked. It's OK if one or two are less meaningful, but most should be.
+- After the repository is set-up, each group member should fork the repository to their personal GitHub.com account and work there, and send pull-requests of their work to the upstream repo (the one they forked). The other team mate should review, critique (if necessary) and finally accept their team mate's pull request.
+  - See below for "how to catch up to a forked repo if there are changes upstream".
+- Use GitHub issues to communicate to their team mate (as opposed to email or Slack)
+- Your question, analysis and visualization should make sense. It doesn't have to be complicated.
+- You should use proper grammar and full sentences in your README. Point form may occur, but should be less than 10% of your written documents.
+- You **must** include the URL of your report in the `README.md` file of your project repo so we can easily view it.
+- Create a release on your project repo named `milestoneX` and submit that URL on Canvas for us to grade.
+- Your report should be knitted and rendered as an HTML or PDF file as described [here](https://stat545.stat.ubc.ca/evaluation/assignments/).
+  - Here is an example of the URL we are expecting for each milestone: https://github.com/STAT547-UBC-2019-20/demo_project/tree/milestoneX
+  
+### Folder structre
+
+- You will be building a dashboard in the same repository as your report.
+    - You should leave your current images, files, scripts, data as they are (clean up if needed based on TA/peer feedback) so your scripts still run
+    - Do not create a new folder/directory for your app. All of the new files you need for the dashboard (this week just app.R) will be created in the root of your project. 
+- `docs`: Move your Rmd files here, include your final report.
+- `data`: All your data should be saved to this directory. Also, if you re-save your data after cleaning/wrangling, it should be saved as a new file here.
+- `scripts` (or `src`): move all your scripts here. This directory should only contain scripts
+- `images`: your scripts should export images to this directory, also include any images needed for your report
+- `tests`: You may (optionally) add some tests to your functions and scripts in separate test files. See [this section](https://stat545guidebook.netlify.com/functional-programming-in-r-part-ii.html#how-should-i-organize-my-tests) from class notes that describes how to add tests to your scripts. 
+
+## Mechanics (10%)
+
+Follow the instructions for making a tidy submission, found on the [assignments home page](https://stat545.stat.ubc.ca/evaluation/assignments).
+
+If there's any further uncertainty in determining a grade for this "mechanics" portion, the [UBC MDS mechanics rubric](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_mech.md) will be referred to.
+
+## Writing (10%)
+
+- You must use proper English, spelling, and grammar.
+- You should write concisely. 
+- If there's any further uncertainty in determining a grade here, the [UBC MDS writing rubric](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md) will be used.
+
+## **Task 1: Build your dashboard** (80%)
+
+It is difficult to give guidelines on what a dashboard should include as each group will have a different dataset, and different things will make sense. 
+
+However, I also want to make sure you try out some of the more complex aspects of Dash including multiple call-backs, cross-filtering, and layouts - if it makes sense for your dashboard.
+
+At minimum your dashboard must have:
+
+- clear headings, labels, instructions for use (using html and/or markdown components)
+- some type of motivation for what the dashboard is supposed to do, or what questions it can help you answer
+- at least two plots (using dccGraph and ggplot2 with ggplotly)
+- a minimum of two [core components](https://dashr.plot.ly/dash-core-components)
+- a minimum of two callbacks
+- an aesthetically pleasing layout (you can [use the examples](https://github.com/matthewconnell/dashr_sample_layouts) or make your own)
+
+You are encouraged (but not required) to try:
+
+- Adding hover and tooltip features
+- Cross-filtering
+- Tabs
+- Geospatial maps (if it makes sense for your project)
+
+Good luck and have fun with this! 
+As always, please create issues if you'd like help with something in particular.
+
+## Examples of Dashboards in R
+
+To give you some ideas of how your final dashboard looks like, here are a few examples of Dashboards in R by former students:
+
+- [Boston Crime Dashboard](https://group-dash-milestone-4.herokuapp.com)
+- [Interactive Movie Dashboard](https://movies214-milestone4.herokuapp.com)
+- [Job Analyzer](https://dsci532-milestone4-r-107.herokuapp.com)
