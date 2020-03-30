@@ -1,0 +1,73 @@
+---
+title: "milestone_06"
+author: "Firas Moosvi"
+date: "Updated `r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+In this milestone, you will:
+
+1) Apply TA feedback on your dashboard, fix any bugs and implement new features.
+  - Clean up your repository (including issues) and make it ready for public release
+2) Finalize your dashboard.
+3) Deploy your app on Heroku.
+
+## Expectations
+
+- You should do the dashboard project in the SAME group project repository and keep your forks as-is (in other words, continue working in the fork-branch-PR method that you have been doing so far).
+- You should be committing to git every time you work on this project.
+- git commit messages should be meaningful. These will be marked. It's OK if one or two are less meaningful, but most should be.
+- After the repository is set-up, each group member should fork the repository to their personal GitHub.com account and work there, and send pull-requests of their work to the upstream repo (the one they forked). The other team mate should review, critique (if necessary) and finally accept their team mate's pull request.
+- Use GitHub issues to communicate to their team mate (as opposed to email or Slack)
+- Your question, analysis and visualization should make sense. It doesn't have to be complicated.
+- You should use proper grammar and full sentences in your README. Point form may occur, but should be less than 10% of your written documents.
+- You **must** include the URL of your report in the `README.md` file of your project repo so we can easily view it.
+- Create a release on your project repo named `milestoneX` and submit that URL on Canvas for us to grade.
+- Your report should be knitted and rendered as an HTML or PDF file as described [here](https://stat545.stat.ubc.ca/evaluation/assignments/).
+  
+## Mechanics (10%)
+
+Follow the instructions for making a tidy submission, found on the [assignments home page](https://stat545.stat.ubc.ca/evaluation/assignments).
+
+If there's any further uncertainty in determining a grade for this "mechanics" portion, the [UBC MDS mechanics rubric](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_mech.md) will be referred to.
+
+## **Task 1: Apply TA feedback** (30%)
+
+Your TA will be giving you feedback on your Dash app by Thursday at 6 PM.
+That should be plenty of time to fix any bugs that exist, implement new features, and improve the layout of your app.
+You should take this opportunity to clean up your repository and make it ready for public release. 
+Here are some suggestions on things you can do to "clean up your repository":
+- Remove `.Rproj` from your repo (if you accidentally committed it on github) and add it to your `.gitignore` file
+- Close stale issues
+- If your folder structure is messy or confusing, clean it up and re-organize it
+- Create a v1.0 tagged release !
+- You can split up your app into multiple files ; just a warning, this can get complex so only do this if you want to challenge yourself and everything else is complete! [Here](https://dashr.plotly.com/urls) are some instructions on how to do this.
+
+## **Task 2: Finalize your dashboard** (10%)
+
+Make sure your app is complete, functions correctly, and does what you want it to.
+One (optional) way to make sure of this, is to get others to run your app and give you feedback.
+
+## **Task 3: Deploy your dashboard** (50%)
+
+As shown in cm111, you should deploy your app on heroku so that it is publicly accessible. 
+In your README, please include the Heroku app link and clearly mark it so that we can find it!
+
+As part of this task, in addition to a correctly deployed app, we will also check the following files:
+- `Procfile`
+- `app.json`
+- `heroku.yml`
+- `init.R`
+- `Dockerfile`
+
+Note: depending on how many dependencies your app has, this can take quite a while to get right, don't leave it to the last minute!
+
+That's it! You have now created an analysis pipeline and deployed a dashboard app from scratch! You should all be super proud of the work you've done over the past 6 weeks!
+
+Congratulations on finishing STAT 547M! 
+
+<div style="width:100%;height:0;padding-bottom:60%;position:relative;"><iframe src="https://giphy.com/embed/sBLcw5Ic4QUTK" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/well-done-sBLcw5Ic4QUTK">via GIPHY</a></p>
