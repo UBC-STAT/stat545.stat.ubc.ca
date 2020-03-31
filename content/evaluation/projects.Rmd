@@ -32,6 +32,6 @@ In this milestone, you will address feedback from TAs about milestone3, create a
 
 In this milestone, you will address feedback from TAs about milestone4, create a draft of your dashboard and ensure its core components are functional.
 
-## Milestone 6: Final version of deployed dashboard
+## [Milestone 6: Final version of deployed dashboard](https://stat545.stat.ubc.ca/evaluation/milestone_06/milestone_06/)
 
 In this milestone, you will address feedback from TAs about milestone4, refine your dashboard, and deploy the dashboard online.
