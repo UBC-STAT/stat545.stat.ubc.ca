@@ -23,10 +23,11 @@ Complete the [teamwork reflection document](https://stat545.stat.ubc.ca/evaluati
 You will find the Rmd file that you need to fill out in your assignment repo.
 DO NOT FORGET to also rate yourself for each question.
 
-#### Grading for Task 3
+#### Grading for Task 1
 
 - This teamwork reflection document is for completion marks only.
 - At the end of the course, both teamwork reflection files will be looked at and a final teamwork score will be awarded (worth 10% of the course)
+- Please add a link to a viewable teamwork reflection document to your README
 
 ### Task 2: Debug a DashR app locally (50%)
 
