@@ -1,0 +1,75 @@
+---
+title: "assignment_06"
+author: "YOUR_NAME"
+date: "Updated `r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Assignment 06
+
+In this assignment, there are three tasks:
+
+1) Complete the final teamwork document.
+2) Debug a Dash app locally.
+3) Deploy the Dash app to Heroku.
+
+## Task 1: Complete project reflection document (10%)
+
+Complete the [teamwork reflection document](https://stat545.stat.ubc.ca/evaluation/teamwork/) for your project.
+You will find the Rmd file that you need to fill out in your assignment repo.
+DO NOT FORGET to also rate yourself for each question.
+
+#### Grading for Task 3
+
+- This teamwork reflection document is for completion marks only.
+- At the end of the course, both teamwork reflection files will be looked at and a final teamwork score will be awarded (worth 10% of the course)
+
+### Task 2: Debug a DashR app locally (50%)
+
+For Tasks 2, 3, and 4 you will start with a Dash app that is unknown to you that was written by some former students (Alexander Hinton, Andrea Lee, Dora Qian, and Mike Chen). 
+I have received their permission to use and adapt their app for this assignment. 
+We took their working app, and introduced 5 bugs that will cause the app not to run.
+
+Your task is find these bugs, debug them, and write 1-2 sentences describing the bug and how you fixed it.
+To help you out, I have added some code:
+
+```
+### THERE IS A BUG HERE
+### START    
+% code where the bug exists.
+### END
+```
+
+The purpose of this task is to help you debug apps in a completely different context than what you have been working with so far.
+You will undoubtedly encounter situations like these before and you will need to learn how to read and interpret error messages.
+We have given you their deployed app so you know what it should look like when it is fully working.
+
+[Link to working and deployed Dash app](https://group-dash-milestone-4.herokuapp.com).
+
+#### Grading for Task 2
+
+- 10 points for each bug found and fixed correctly
+- Partial marks for incorrect or incomplete fixes
+
+### Task 3: Deploy the Dash app (40%)
+
+Once you have the app working locally, you should deploy it on Heroku as described in cm111.
+Please provide a link to the deployed dashboard here:
+
+```
+## YOUR LINK HERE
+```
+
+#### Grading for Task 3
+
+We will look to make sure:
+
+- all 5 additional files that need to be added in order for deployment to work.
+- there is no syntax errors in the files
+- all the packages are present
+- that you connected and deployed the app correctly
+
