@@ -30,6 +30,66 @@ Your repository should be _well-documented_.
 
 ## STAT 547 Participation checklist
 
+Note:
+- all .Rmd files should be knitted to a viewable format and a link to the viwable form should be provided in the README
+- README file should be comprehesive and efficiently introduce any visitor to the content of the repo
+
+**cm101**
+
+ - cm101: complete the worksheet for [cm101](https://github.com/STAT547-UBC-2019-20/Discussions/blob/master/participation/cm101/cm101_participation.Rmd)
+ 
+ **cm102**
+ 
+- Link for your fork of the project repo: ## YOUR LINK HERE
+- Link to the Pull request (PR) you sent in the main repo: ## YOUR LINK HERE
+- Link to the commit after fixing the merge conflict in the main repo : ## YOUR LINK HERE
+- Link to the commit after you pulled changes from the upstream branch
+
+**cm103**
+
+- submit cm103 [participation worksheet](https://github.com/STAT547-UBC-2019-20/Discussions/blob/master/participation/cm103/cm103_participation.Rmd)
+
+**cm104**
+
+- upload `first_script.R`
+- upload `test_example.R`
+
+**cm105**
+
+- subit cloned `demo_project`
+- add functional `makefile` to the project
+
+**cm106**
+
+- no submission
+
+**cm107**
+
+- functioning `app.R`
+
+**cm108**
+
+-  upadeted functioning `app.R` from cm107 class with callbacks
+
+**cm109**
+
+-  upadeted functioning `app.R` from cm108 class with multilevel callbacks
+
+**cm110**
+
+- submit the following scripts:
+  + `app.R` (with new layout), 
+  + `dash_functions.R` 
+  + `dash_components.R` 
+
+**cm111**
+
+- link to your functioning and deployed Dash app (from heroku account)
+- Peer review issue link is OPTIONAL
+
+**cm112**
+
+- submit a zipfile of your foofactors package 
 
 ## STAT 545 Participation Check List
  
