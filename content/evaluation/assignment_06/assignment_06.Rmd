@@ -27,6 +27,7 @@ DO NOT FORGET to also rate yourself for each question.
 
 - This teamwork reflection document is for completion marks only.
 - At the end of the course, both teamwork reflection files will be looked at and a final teamwork score will be awarded (worth 10% of the course)
+- Please add a link to a viewable teamwork reflection document to your README
 
 ### Task 2: Debug a DashR app locally (50%)
 
