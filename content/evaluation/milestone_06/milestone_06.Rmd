@@ -58,7 +58,7 @@ As shown in cm111, you should deploy your app on heroku so that it is publicly a
 In your README, please include the Heroku app link and clearly mark it so that we can find it!
 
 As part of this task, in addition to a correctly deployed app, we will also check the following files:
-- `Procfile`
+- `apt-packages`
 - `app.json`
 - `heroku.yml`
 - `init.R`
