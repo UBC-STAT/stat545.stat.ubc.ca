@@ -139,7 +139,7 @@ A [correllogram](http://www.sthda.com/english/wiki/visualize-correlation-matrix-
 ```{r correllogram, warning = FALSE, message = FALSE}
 library(tidyverse)
 # Installs the `corrplot` library if not already installed
-#if (!requireNamespace("corrplot")) install.packages("corrplot")
+if (!requireNamespace("corrplot")) install.packages("corrplot")
 library(corrplot)
 
 # The `cor` function takes the correlation of every column against every other column
