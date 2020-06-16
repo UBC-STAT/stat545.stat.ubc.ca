@@ -132,10 +132,10 @@ Note that instructor copy is just for your reference. You cannot just copy-paste
 	- Complete the steps described in [lesson 11](https://stat545guidebook.netlify.com/file-inputoutput-io.html).
 	- Submit ```.R``` script with your work
 12. **Class Meeting 12 Working with factors in R**
-    - Complete [cm012-exercise.Rmd](https://raw.githubusercontent.com/STAT545-UBC/Classroom/master/tutorials/cm012-exercise.Rmd) worksheet. Instructor version can be found in the guide [lesson 12](https://stat545guidebook.netlify.com/working-with-factors-in-r.html)
+    - Complete [cm012-exercise.Rmd](https://raw.githubusercontent.com/STAT545-UBC/Classroom/master/tutorials/cm012-exercise.Rmd) worksheet. Instructor version can be found in the quide [lesson 12](https://stat545guidebook.netlify.com/working-with-factors-in-r.html)
     - Submit ```.Rmd``` file along with knitted version of your choice (```pdf```, ```md``` or ```html``` format)
 13. **Class Meeting 13 Effective Visualizations**
-	- Complete [cm013-exercise.Rmd](https://raw.githubusercontent.com/STAT545-UBC/Classroom/master/cm013.Rmd) worksheet. Instructor version can be found in the guide [lesson 13](	https://stat545guidebook.netlify.com/effective-visualizations.html#plotly-demo-10-mins)
+	- Complete [cm013-exercise.Rmd](https://raw.githubusercontent.com/STAT545-UBC/Classroom/master/cm013.Rmd) worksheet. Instructor version can be found in the quide [lesson 13](	https://stat545guidebook.netlify.com/effective-visualizations.html#plotly-demo-10-mins)
 	- Submit ```.Rmd``` file along with knitted version of your choice (```pdf```, ```md``` or ```html``` format)
 14. **Class Meeting 14 The Model-Fitting Paradigm in R**
 	- Complete [cm014-exercise.Rmd](https://github.com/STAT545-UBC/Classroom/blob/master/tutorials/cm014-exercise.Rmd) worksheet. This worksheet is closely alligned with [this tutorial](https://cfss.uchicago.edu/notes/linear-models/)
