@@ -9,31 +9,30 @@ Your hub for information related to assignments.
 
 Here are the deadlines for assignments, with links (to appear after assignments are released).
 
-A GitHub Issue will be posted in the [Course repo](https://github.com/STAT547-UBC-2019-20/Discussions) repo whenever a new assignment is released. The @students tag will be used so you should get an email notification with it as well.
+A GitHub Issue will be posted in the [Announcements](https://github.com/STAT545-UBC-hw-2019-20/Announcements) repo whenever a new assignment is released. The students will be tagged too, so you should get an email notification with it as well.
 
-All submissions are due by Saturday at 18:00 with the regular [grace period](https://stat545.stat.ubc.ca/policies/).
-
-### STAT 547M
-
-| Assignment  | Due Date | Accept assignment  | Solutions|
-|-------------|----------| ---------------------------|----------|
-| [Participation](participation/) | Saturday Apr 11 at 18:00 | [Accept assignment](https://classroom.github.com/a/uYT4-Doe) | |
-| [Assignment 1](/evaluation/assignment_01/assignment_01) | Saturday Mar 7 at 18:00 | [Accept assignment](https://classroom.github.com/a/b3vITuTN)| [solution](/evaluation/assignment_01/solutions_assignment_01)|
-| [Assignment 2](/evaluation/assignment_02/assignment_02) | Saturday Mar 7 at 18:00 | [Accept assignment](https://classroom.github.com/a/hTfSIzg6)|[solution](/evaluation/assignment_02/solutions_Assignment_02)|
-| [Assignment 3](/evaluation/assignment_03/assignment_03) | Saturday Mar 14 at 18:00 | [Accept assignment](https://classroom.github.com/a/5OgwN-FJ)| |
-| [Assignment 4](/evaluation/assignment_04/assignment_04) | Saturday at 18:00 | [Accept assignment](https://classroom.github.com/a/dEw9SDMF)| [solution](https://raw.githubusercontent.com/STAT545-UBC/STAT545-home/master/content/evaluation/assignment_04/assignment_04solutions.R) |
-| [Assignment 5](/evaluation/assignment_05/assignment_05) | Saturday at 18:00 | [Accept assignment](https://classroom.github.com/a/dislHsTK) | [app.R](https://raw.githubusercontent.com/STAT545-UBC/STAT545-home/master/content/evaluation/assignment_05/app.R); [components](https://raw.githubusercontent.com/STAT545-UBC/STAT545-home/master/content/evaluation/assignment_05/A05_components.R); [functions](https://raw.githubusercontent.com/STAT545-UBC/STAT545-home/master/content/evaluation/assignment_05/A05_functions.R)|
-| [Assignment 6](/evaluation/assignment_06/assignment_06) | Sunday at 18:00 (extended because it was a late release) | [Accept assignment](https://classroom.github.com/a/W5eJpOnI)| |
+All submissions are due by 23:59. I highly recommend aiming to finish before the last lecture so that we can help you if need be!
 
 ### STAT 545A
 
 | Assignment  | Assignment Due Date |
 |-------------|---------------------|
-| [Assignment 01](/evaluation/hw01/hw01) | September 17, 2019  |
-| [Assignment 02](/evaluation/hw02/hw02) | September 24, 2019  |
-| [Assignment 03](/evaluation/hw03/hw03) | October 01, 2019    |
-| [Assignment 04](/evaluation/hw04/hw04) | October 08, 2019    |
-| [Assignment 05](/evaluation/hw05/hw05) | October 17, 2019    |
+| [Assignment 01](https://stat545.stat.ubc.ca/evaluation/hw01/hw01) | September 17, 2019  |
+| [Assignment 02](https://stat545.stat.ubc.ca/evaluation/hw02/hw02) | September 24, 2019  |
+| [Assignment 03](https://stat545.stat.ubc.ca/evaluation/hw03/hw03) | October 01, 2019    |
+| [Assignment 04](https://stat545.stat.ubc.ca/evaluation/hw04/hw04) | October 08, 2019    |
+| [Assignment 05](https://stat545.stat.ubc.ca/evaluation/hw05/hw05) | October 17, 2019    |
+
+### STAT 547M
+
+| Assignment  | Assignment Due Date |
+|-------------|---------------------|
+| Assignment 06 | |
+| Assignment 07 | |
+| Assignment 08 | |
+| Assignment 09 | |
+| Assignment 10 | |
+
 
 ## Grading
 
@@ -48,19 +47,14 @@ The assignments make use of [UBC MDS's rubrics](https://github.com/UBC-MDS/publi
 | Good (B- to B+)         | 68% - 79% |
 | Excellent (A- to A+)    | 80% - 100% |
 
-## Managing repositories
 
-You will have to manage several repositories in STAT 547:
+## Setting up your homework repository
 
-- One repository **per assignment**
-- One repository for all your class participation files
-- One repository for each of the two teamwork assignments
-- One repository for your team project
+Your assignments will be developed and submitted to a single repository created by GitHub Classroom (note that this is different from your participation repository). To create the repository, just follow [this link](https://classroom.github.com/a/PAa_IIPO), and follow the instructions. Your homework repository will be created for you in the [STAT545-UBC-hw-2019-20](https://github.com/STAT545-UBC-hw-2019-20) Organization under the name `STAT545-hw-<your username>`. You only have to do this once.
 
-It's important that you keep things organized locally!
-I suggest a STAT547 folder and each repository cloned as a subfolder.
+FYI: This repository is public.
 
-## Working on your Assignment
+## Working on your homework
 
 As you work on your assignment, you should commit and push your progress to GitHub. As a word of advice:
 
@@ -81,18 +75,20 @@ Each assignment will have some marks set aside for a "tidy" submission, which is
 
 Before submitting your work, make sure it's tidy:
 
+- Each assignment should be self-contained in a folder within your STAT 545A homework repository, found in [the hw Org](https://github.com/STAT545-UBC-hw-2019-20).
+	- Special case for Assignment 01, which also evaluates your repo's `README.md` file.
 - Your work must be reproducible from beginning to end. That is, a member of the teaching team should be able to run all code error-free and reproduce the output files. 
 - Your scripts do not contain code that installs packages (this is not good practice anyway) – note that this is different from loading packages with the `library()` function, which is good!
 - All R Markdown files are `knit`ted to ~~an output readable on GitHub (probably `github_document` or `pdf_document`).~~ a readable output. This means linking to HTML files if you make them (see section on "Viewing and linking to HTML files"). You can also knit to `output: github_document` if you want a markdown file that renders nicely for GitHub.
 
 Here is how you submit your homework:
 
-1. If you're working locally (i.e., on your hard drive), push your work to your GitHub assignment repository.
+1. If you're working locally (i.e., on your hard drive), push your work to your GitHub homework repository.
 2. On your GitHub homework repository, [tag a release](https://help.github.com/articles/creating-releases/).
-	- As a "tag version", we recommend putting 'v1.0' for each assignment
-	- If you want to make changes to your release before the deadline, just tag a new release like `v1.1`.
+	- As a "tag version", we recommend putting `hw1.0` for assignment 1, `hw2.0` for assignment 2, etc.
+	- If you want to make changes to your release before the deadline, just tag a new release like `hw1.1`.
 3. Go to the course page on [UBC canvas](https://canvas.ubc.ca), and find the corresponding assignment submission. Submit a URL to the latest release of your assignment. 
-	- You can find this by clicking on the "release" button on your GitHub homework repository, on (for example) the `v1.0` text. 
+	- You can find this by clicking on the "release" button on your GitHub homework repository, on (for example) the `hw1.0` text. 
 
 ## Viewing and linking to HTML files
 

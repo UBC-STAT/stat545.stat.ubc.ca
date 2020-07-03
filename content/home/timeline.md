@@ -2,7 +2,7 @@
 widget = "experience"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
-weight = 15  # Order that this section will appear.
+weight = 40  # Order that this section will appear.
 
 title = "Timeline"
 subtitle = ""
@@ -27,7 +27,7 @@ date_format = "January 2, 2006"
 
 [[experience]]
   title = "STAT 547M"
-  company = "Note: Room change!! [SWNG 407](https://learningspaces.ubc.ca/classrooms/swng-407)"
+  company = "ESB 4192"
   company_url = ""
   location = "Tuesdays, Thursdays 1100-1230"
   date_start = "2020-02-25"

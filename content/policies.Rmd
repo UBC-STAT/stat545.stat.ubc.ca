@@ -7,27 +7,19 @@ In addition to [UBC's Campus-wide Policies and Regulations](http://www.calendar.
 
 ## Auditing Students
 
-Auditing students will be:
-
-1. Graded on a Pass/Fail basis for each assignment/course activity
-2. Exempted from the peer review portion of the course
-3. Doing the team project as an individual project (with no other change in scope or requirements)
-
-If you would like to audit the course, you must submit the request by 11:59 PM on Thursday March 5th, 2020. After this - without exceptions - students will not be permitted to switch to (or from) audit status.
-
-Auditing students are expected to complete all assessments. The difference between enrolling for credit is that auditing students are graded on each assignment on a pass/fail basis. To switch to audit status (or from audit to regular enrolment), please contact gradinfo@stat.ubc.ca. 
+Auditing students are expected to complete all assessments (assignments, peer reviews, and participation). The difference between enrolling for credit is that auditing students are graded on each assignment on a pass/fail basis.
 
 ## Late Policy
 
-In STAT 547, I have added a 48-hour grace period for all submissions - this means that should "life happen" and you're unable to submit by the deadline, you will still be able to submit your assignments for full credit up to 48 hours after the due date has passed. 
-You do not need to inform the teaching team if you need to use the grace period. 
-After the 48 hour grace period, solutions will be released and no submissions will be accepted - no exceptions.
+A late submission is defined as any work, including quizzes, submitted after the deadline. For a late submission, the student will receive a 50% scaling of their grade for the first occurrence, and will receive a grade of 0 for subsequent occurrences. In all cases, late submissions past 24 hours will receive a zero.
 
 ## Academic Concession
 
-UBC no longer requires a doctor's note (or supporting documentation) for [academic concession](http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,48,0,0). A self-declaration will suffice -- [here](/concession_template.pdf) is a template you can use. Please submit this to the instructor directly via email. 
+UBC no longer requires a doctor's note (or supporting documentation) for [academic concession](http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,48,0,0). A self-declaration will suffice -- [here](/concession_template.pdf) is a template you can use. Please submit this to the instructor. 
 
 For STAT 545A and 547M, a "conflicting responsibility" includes needing to travel for a conference or field work.
+
+If you arrange to have an assignment submitted late, you may not be able to receive feedback from your peers.
 
 ## Plagiarism
 

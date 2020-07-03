@@ -42,6 +42,7 @@ subtitle = ""
 ### STAT 545A
 
 * Introduction to [R](http://www.r-project.org) and the [RStudio IDE](http://www.rstudio.com/products/rstudio/): scripts, the workspace, RStudio Projects, daily workflow
+* Generate reports from R scripts and [R Markdown](http://rmarkdown.rstudio.com)
 * Coding style, file and project organization
 * Data frames or "tibbles" are the core data structure for data analysis: care for them with the tidyverse
 * Data visualization with [`ggplot2`](http://ggplot2.org)
@@ -50,9 +51,8 @@ subtitle = ""
 
 ### STAT 547M
 
-* Writing and working with functions in R
-* Generate reports from R scripts and [R Markdown](http://rmarkdown.rstudio.com)
-* Introduce test-driven development
-* Setup an analytical pipeline via `Make`
-* Creating interactive apps with a new dashboarding tool, [Dash](https://dashr.plot.ly)
-* Distribute code via an R package
+* Be the boss of non-numeric data, esp. character and factor
+* Interactive pages, apps, and graphics with [Shiny](http://shiny.rstudio.com)
+* Get data off the web and expose data, code, results on the web
+* Distribute data and code via an R package
+* Automate an analytical pipeline, e.g. via `Make`
