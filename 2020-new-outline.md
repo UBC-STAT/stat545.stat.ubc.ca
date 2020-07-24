@@ -24,6 +24,66 @@ These are technically the only things that are mandatory in the course. You tech
 
 \*\* Although there are only 3 checkpoints for the project, there will be new prompts weekly based on the new material learned.
 
+### Participation 
+#### % Grade: 15
+
++ **Overarching goal**: To assess students' engagement with the course and simultaneously create connection with students (draw their interest in the course).
+
+| Learning Objective                                                                 | Deliverable             | Submission frequency | % Grade |
+|------------------------------------------------------------------------------------|-------------------------|----------------------|---------|
+| Demonstrate understanding of lecture material through direct application in RStudio| Lecture worksheets      | weekly               | 10      |
+| Review previous class material                                                     | In-class quiz           | in-class             | 5       |
+
++ Use nbgrader for autograding of lecture worksheets locally to avoid issues with the server. 
++ In-class quizzes increase students' attention and could be used as a way to revise past content - some platforms that are easily accessible are Kahoot or Mentimeter, and Zoom also has poll + quiz features. I would set this either at the beginning of the class or during a 5 minute break, just a couple easy questions, and points won't be given for right answers but simply for participating. 
+
+### Group Project / Troubleshooting Challenge
+#### % Grade: 35
+
++ **Overarching goal**: To assess students' ability to collaborate on GitHub + to identify common coding errors & apply their knowledge to solve them. This assessment would double as a group project, and substitute the old peer review portion of the evaluation in STAT545.
+
++ **Learning objectives**:
+
+  1. Implement a collaborative workflow for working on GitHub.
+  2. Identify and troubleshoot coding errors.
+
+| Deliverable | % Grade  | Group / Individual | Description                                                                   | Aligns with LO... |
+|-------------|----------|--------------------|-------------------------------------------------------------------------------|-------------------|
+| Repo        | 5        | Group              | Organization, commit history, READMEs                                         | 1                 |
+| TB1         | 10       | Group + Individual | Troubleshooting exercise 1 - A script centered on dplyr usage with errors     | 2                 |
+| TB2         | 10       | Group + Individual | Troubleshooting exercise 2 - A script centered on ggplot usage with errors    | 2                 |
+| TB3        | 10       | Group + Individual | Troubleshooting exercise 3 - A script that revises all (or almost all) class material | 3          |
+
++ **Deliverables in detail**:
+
+  + Repo:
+    + Create a repository.
+    + Create a README outlining the purpose of the repo.
+    + Create a teamwork document where you establish a code of conduct and expectations.
+    + *Additional notes*: This repo could be created in-class during the version control workflow lecture (lecture 4).
+    
+  + Troubleshooting exercises:
+    + Each troubleshooting script would be focused on a "topic" from the lectures (TB1 could be focused on dplyr usage, TB2 could be ggplot usage)
+    + In this way, the submission frequency would be weekly for the first 2 (lectures for dplyr --> TB1 / lectures for ggplot --> TB2), and then leave a few weeks in between for the last one so that more material is revised. Alternatively, it could also be made biweekly if it seems like it would be too much work with the assignments.
+    + The "group" component would be the commit history & the "individual" component would be the actual troubleshooting - for each of the TBs, they would have to specify who has done what tasks (expected to be divided evenly), and they would be graded based on that.
+    + I don't think I would leave in-class time for these because the point of collaborating on GitHub is being able to do it asynchronously, and the way in which students decide to do this (for example, setting personal deadlines so that they can each review each other's work prior to the official deadline) should be outlined in their teamwork document.
+    
++ **Grading components within each troubleshooting exercise**:
+
+   + Teamwork: Did students complete the work in a balanced way?
+   + Organization: Does the commit history make sense? Were pull requests used effectively?
+   + Correctness: Did students successfully troubleshoot the code?
+   
+   
+### Assignments
+#### % Grade: 50
+
+*A few general notes / ideas*
+
++ Frequency would remain weekly.
++ If there will be 5 assignments in total (each 10%) and the course is 7 weeks, attempt to alternate at least with 2 of the TB1 + TB2 from the group project / troubleshooting challenge if possible so that students don't have to work on that + an assignment. It may have to overlap at least for 1 week, but something to keep in mind.
++ It would be nice if the assignments themselves could link into a mini-project, perhaps not all of them, but for example having the last 3 be continuous and be a sort of mini data-wrangling + visualization project. 
+    
 ### Project
 
 Students develop an analysis, collaborating on GitHub.
@@ -33,7 +93,7 @@ Ideas for project checkpoints:
 1. Repo creation
     - README, teamwork document, code of conduct, licence?
 2. EDA 1
-3. EDA 2
+3. EDA 2 
 
 Project breakdown:
 
