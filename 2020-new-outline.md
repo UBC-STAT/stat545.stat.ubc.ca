@@ -34,10 +34,11 @@ These are technically the only things that are mandatory in the course. You tech
 | Demonstrate understanding of lecture material through direct application in RStudio| Lecture worksheets      | weekly               | 10      |
 | Review previous class material                                                     | In-class quiz           | in-class             | 5       |
 
-+ Use nbgrader for autograding of lecture worksheets locally to avoid issues with the server. 
-+ In-class quizzes increase students' attention and could be used as a way to revise past content - some platforms that are easily accessible are Kahoot or Mentimeter, and Zoom also has poll + quiz features. I would set this either at the beginning of the class or during a 5 minute break, just a couple easy questions, and points won't be given for right answers but simply for participating. 
++ Use nbgrader for autograding of lecture worksheets locally to avoid issues with the server. *Figure out the details of how this will work*
++ Lecture worksheets will be graded for **completion** rather than **correctness**. As a proxy to evaluation completion, having 30-40% (tbd) of all autograded marks as correct in a given worksheet will equal full marks for said worksheet.
++ In-class quizzes - possibly in the form of a think-broadcast-share with the Zoom polling function, with downloadable results that show which students answered to keep track for participation marks. I would set this either at the beginning of the class or during a 5 minute break, just a couple easy questions, and points won't be given for right answers but simply for participating. Ideally, questions are geared towards more "creative" aspects (example discussed in our meeting was students choosing which visualization seems more effective), the goal is to have them engaged with the class content and create a sense of connection rather than evaluate their knowledge.
 
-### Group Project / Troubleshooting Challenge
+### Collaborative Troubleshooting
 #### % Grade: 35
 
 + **Overarching goal**: To assess students' ability to collaborate on GitHub + to identify common coding errors & apply their knowledge to solve them. This assessment would double as a group project, and substitute the old peer review portion of the evaluation in STAT545.
@@ -75,37 +76,12 @@ These are technically the only things that are mandatory in the course. You tech
    + Correctness: Did students successfully troubleshoot the code?
    
    
-### Assignments
+### Mini-project
 #### % Grade: 50
 
-*A few general notes / ideas*
-
-+ Frequency would remain weekly.
-+ If there will be 5 assignments in total (each 10%) and the course is 7 weeks, attempt to alternate at least with 2 of the TB1 + TB2 from the group project / troubleshooting challenge if possible so that students don't have to work on that + an assignment. It may have to overlap at least for 1 week, but something to keep in mind.
-+ It would be nice if the assignments themselves could link into a mini-project, perhaps not all of them, but for example having the last 3 be continuous and be a sort of mini data-wrangling + visualization project. 
-    
-### Project
-
-Students develop an analysis, collaborating on GitHub.
-
-Ideas for project checkpoints:
-
-1. Repo creation
-    - README, teamwork document, code of conduct, licence?
-2. EDA 1
-3. EDA 2 
-
-Project breakdown:
-
-| Deliverable | Percent Grade | Group or Individual grade? | Description |
-|-------------|---------------|------|-------------|
-| Peer Review | 5             | Individual | Everyone reviews at least one pull request. |
-| Teamwork    | 5             | Individual | Were you an active participant in the group? |
-| Vis         | 10            | Group      | How effective are your visualizations? |
-| Code Quality | 10           | Group      | Is your code readable and clean? Organized? |
-| Code Accuracy | 10          | Group      | Does your code work? |
-| Analysis Writing (Rmd) | 5  | Group      | Do you guide a reader through your analysis, with good English? |
-| Repo        | 5       | Group      | Is your repo organized? With commit history? Are there helpful README's, one main, and one for each top-level folder? |
++ An individual data analysis mini-project.
++ 3/4 "deliverables" or submissions keeping the flavour of an assignment, but rather than individual, with continuity and more flexibility - yet with concrete outcomes to avoid open-ended interpretations. 
++ More details on this project can be found in the mini-project document (*under construction*) within the STAT545 repo. 
 
 ### Changes to course delivery
 
@@ -145,6 +121,7 @@ Synchronous learning:
         - At the same time, perhaps a TA can hold their office hour, so that students who have questions that they don't want to ask in a breakout group can go to that TA.
 - Office hours:
     - Two teaching members staff an office hour soon before the assignment deadline. Need to think more about specifics (one member holds group conversations, while another takes individual? Maybe even host bonus material?)
+    - Allocated hours to send emails prior to the assignment deadline / cut-off (i.e. clarifying that emails that are sent the night before the deadline may go unanswered). This was suggested as a strategy to streamline TAs work in the ISW, the idea being that (of course having certain flexibility and being mindful of timezones) if students have the responsibility of sending their questions in 36 hours before the assignment deadline, that (a) helps with their time management, encouraging not to leave it until last minute, while (b) giving TAs sufficient time to compile a FAQ document to send all students (whether they asked questions or not), and to reply to individual questions that are not FAQs. Of course, if a student is ill, or any other exceptional situations, their email won't go unanswered if they don't meet this deadline. 
     - Should act as an outlet for those from reverse time zones, in case they decide the graveyard shift isn't worth the synchronous sessions.
     - Also used for tech support. 
 
@@ -175,6 +152,18 @@ Easy:
     - Put instructor repo on /UBC-STAT.
     - Rename stat545.stat.ubc.ca repo to just that.
     - Put guidebook as stat545.stat.ubc.ca/guidebook???
+    
+- Website
+    - Add a syllabus document to the "course structure" section 
+    - Replace "textbook" link within the "resources" section (I believe it's broken) with the "guidebook" link (if the final decision is to deprecate it but still keep it accessible)
+    - Add an "online resources" document link to the "resources" section, which compiles all the resources that are currently linked within each class meeting page in the guidebook
+    - Update the "contact" section (when the site for discussions is determined, probably Slack)
+    - Replace "guide" section for "materials" (or something along those lines), which would be a page with a table that contains the topic, learning objectives, worksheet, links to pre-readings and videos, and specific resources for each class. 
+    - Depending on whether students are in really different timezones, adding timezones to the class schedule wouldn't be very cumbersome and would probably make it easier for them. 
+    
+- Prior to the course start
+    - Maybe uploading a video / tutorial document on Canvas / YouTube to show students how to navigate Zoom and to use their different functionalities, where it is also clarified that Zoom is on US servers and students are welcome to create a new email to set up Zoom if that makes them feel most comfortable in regards to their privacy. This could also include a document that clarifies that students are not expected to turn their camera on, general privacy concerns, and it could be linked to a Canvas discussion so that students can bring up any concerns and they can be discussed. Ideally, this would take place a full week before the start of the course to give time to troubleshoot anything as need be. I (@sciclic) can create this materials / put a draft together in the next couple weeks.
+    - This could be kept within a "Welcome" module on Canvas, and it could also be a way to reach out to students prior to the start of the course to find out about their timezones to be mindful about this in whatever way possible. Any other relevant materials that students may want to access prior to the course could be kept here. 
 
 Team Sonja:
 
