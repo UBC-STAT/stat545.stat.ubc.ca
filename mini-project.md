@@ -81,3 +81,9 @@ These are some points that I found interesting to think ahead and then be able t
 ## 3. Scheduling
 
 ## 4. Grading criteria
+
+# STAT 545B
+
+If we're migrating content from the Assignments to a mini project, here's a note from 2018's Homework 6:
+
+> many people copied and pasted from the web, changing only a few things. The key here is the commentary being the same too.
