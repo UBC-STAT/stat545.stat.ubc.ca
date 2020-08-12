@@ -1,12 +1,12 @@
 ## Introduction 
 
-The purpose of this document is to **revise the [STAT545 guidebook](https://stat545guidebook.netlify.app/index.html)**, with the goal of having an outline to **adapt the current material into lecture worksheets, videos, and in-class demos.**
+The purpose of this document is to **revise the [STAT545 guidebook](https://stat545guidebook.netlify.app/index.html)**, adapting the current material into lecture worksheets, pre-readings & videos, and in-class demos, in the form of a table that will be up in the STAT545 website and that will be the main point of access to materials for students.
 
-+ Each "class meeting" will be reviewed, with each subsection being marked as:
++ Each "class meeting" will be reviewed, considering how the material will be repurposed into one of the following:
 
   i. Worksheet material - the section should be adapted to the worksheet format.
   
-  ii. Video material / Pre-readings - the section should be adapted into a video or document for pre-reading material.
+  ii. Video material / Pre-class work - the section should be adapted into a video or document for pre-reading material.
   
   iii. In-class demos - sections that are fit to be presented as a class demo.
   
@@ -14,47 +14,97 @@ The purpose of this document is to **revise the [STAT545 guidebook](https://stat
 
 + Old worksheets linked to class meetings may also be reviewed *at a very high level* whenever relevant, making a few notes as to whether their activities could fit into the new lecture worksheets, just to ensure that this is kept in mind when the new worksheets are created.
 
-This document only contains revisions to the guidebook and notes about the old worksheets, *not* the actual lecture worksheets that will be provided to students in the Fall.
-
 ### A few things to keep in mind when revising the guidebook
 
-+ Lecture worksheets are designed to be completed **in-class**, with about 30 minutes per worksheet allocated in a class. This should be taken into account when deciding the amount of guidebook material that can be transformed into a worksheet.
++ Lecture worksheets are designed to be completed **in-class**, with about 1 hour per worksheet allocated in a class. This should be taken into account when deciding the amount of guidebook material that can be transformed into a worksheet.
 
-+ Each class meeting usually has a "resources" subsection towards the beginning of the lesson, which I have excluded completely from my revisions - I am working on migrating all the content of these subsections to a resources document separately. 
-
-+ The guidebook is now **deprecated** but remains available, with each "worksheet" from previous years linked in each class - activities from these worksheets could also be migrated to the new worksheets (with the *new* lecture worksheets ultimately being a mix of adapted guidebook material & old worksheet activities). 
++ The guidebook is now **deprecated** but remains available, with each "worksheet" from previous years linked in each class - activities from these worksheets could also be reused in the new worksheets (with the *new* lecture worksheets ultimately being a mix of adapted guidebook material & old worksheet activities). 
 
 ## Class Meetings Revised
 
 ### General notes
 
-+ Would this be a good document to also include a revision to the learning objectives of each class meeting?
-
 + If the guidebook is deprecated, I do think that the outline + learning objectives of each class meeting should be included within the lecture worksheet, but *also* presented at the beginning of each lecture.
 
 ### Class Meeting 1: Introduction to STAT545 and GitHub
-#### Revisions
 
-| Section                 | Adapt to...                   | Notes                                                                            |
-|-------------------------|-------------------------------|----------------------------------------------------------------------------------|
-| Topic 1: Syllabus       | In-class + Online documents | Display where to find things in the website, discuss flow of a regular class, learning objectives + course structure... And of course each of these would also be available as permanent documents somewhere in the website for students. |
-| Topic 2: GitHub         | In-class demo          | I would keep this as is with in-class demos, and instead of breakout rooms just having students use the "yes" button on Zoom to indicate when they're done with each small task (setting up an account, creating a repo...). |
-| Topic 3: Asking effective questions online | In-class demo + To-do before next class | I really like the activity within this section, but I would maybe make it asynchronous (so switch to the "to do before next class"), and instead leave more time for students to install R, RStudio and Git while in-class (which is currently within the to-do for next class). |
-| To do before next class | In-class + Online documents      | I think that besides going over them in class, the to-dos for next class should be migrated to the same table that we discussed where students would have all the pertinent materials (lecture worksheets, resources, etc) to each class, just so that everything can be found in the same place - with the idea that this would apply to all the lectures. |
+|                                        | Learning objectives                                              | Key resources                          | Pre-class work           | Lecture worksheet                 | 
+|:-------------------------------------- |:---------------------------                                      |:--------------------------------       |:-------------------------|:----------------------------------|
+| **1: Introduction to STAT545 & R**     | 1. Become familiar with the STAT545 website and [syllabus](add link, should be located under "course structure" in website). <br /> 2. Explore the basic R syntax. <br /> 3. Write an R script to perform simple calculations. | • Install [R](https://cloud.r-project.org) & [RStudio](https://www.rstudio.com/products/rstudio/download/preview/). [More instructions](https://stat545.com/install.html). <br /> • [Why R?](https://cfss.uchicago.edu/setup/what-is-r/) <br /> • [A (very) short intro to R](https://github.com/ClaudiaBrauer/A-very-short-introduction-to-R/blob/master/documents/A%20(very)%20short%20introduction%20to%20R.pdf). |  [Link to Canvas materials](link here) | [Lecture Worksheet 1](link here)
+
+#### Proposed outline
+
+I assume that there wouldn't be pre-class work for this class (only the optional "how to navigate Zoom" for those that are not familiar), with that said, this is how I picture the workflow (which is essentially adapting the outline that is currently in the guidebook):
+
++ Intro to STAT545A & what to expect from the class - enter syllabus (~20 min)
++ Install R & R Studio (~15 min) - *maybe breakout rooms for this so that students can help each other*
+  + R here: https://cloud.r-project.org
+  + RStudio here: https://www.rstudio.com/products/rstudio/download/preview/
+  + Commentary on installing this stuff can be found at [stat545: rstudio install](https://stat545.com/install.html)
++ 5 minute break + additional time in case there are troubleshooting issues with R & RStudio that need to be solved individually.
++ Why R? + Lecture worksheet / In-class demo (~50 minutes)
+  + Rather than using breakout rooms in the first class (since it may be the first time using R and RStudio for many), I think alternating between an in-class demo where everything in [2.5 Orientation to R](https://stat545guidebook.netlify.app/introduction-to-r.html) & "don't save your workspace" is demonstrated while alternating with students completing the worksheet may be good. 
+  + Example of the workflow (1) Vincenzo demonstrates Functions I and Functions II, could simply be an improvised demo in R (2) Students complete the relevant section of the worksheet, and click "yes" on Zoom when they are done (3) When all or almost all students have clicked "yes" (if there is a couple that have not, TAs reach out directly to ask), go on to the next task.
+
+#### Action items
+
+*When all are done, the table will be updated accordingly with the links*
+
++ Create lecture worksheet (should be located in a public repo to ensure open-access, and be available in raw format so that students can copy and paste)
++ Create a "Class 1" section on Canvas with Zoom materials for optional pre-work
++ Add syllabus page to website under "course structure"
 
 #### Additional notes
 Since this is the intro class, it wouldn't have a lecture worksheet per se, most of the content can be discussed in class, and the creation / guidebook adaptation of some documents for students. I think I would add the STAT545 (and STAT547) syllabus to the "course structure" part of the website (where office hours / class meeting schedules / policies are listed).
 
-### Class Meeting 2: Introduction to R
-#### Revisions
+### Class Meeting 2: Git, GitHub & Version Control
 
-| Section                 | Adapt to...                   | Notes                                                                            |
-|-------------------------|-------------------------------|----------------------------------------------------------------------------------|
-| Why R?                  | Video                         | A video to watch as "pre-reading" that introduces students to the R language & the very cool things that you can do with it! Not necessarily a stand-alone, but could be the intro to a video that shows how to navigate the RStudio interface. |
-| Orientation to R        | In-class demo + Video + Lecture worksheet | A **video** showing the different functionalities of the RStudio interface, from opening a script, showing how to write simple calculations / add comments on a script, and finally closing the app to demonstrate the "do not save your workspace" bit that is currently within the "Finishing up" section. Vectors & all other subsections could be done as **in-class demos** and as part of the **lecture worksheet**. Either **remove** 2.5.10, or include in the video. | 
-| Finishing up            | In-class demo | Leave as is & announce the to-dos / pre-readings for next class (although they will still be linked in the main table that we were discussing having in the website). |
+|                                        | Learning objectives                                   | Key resources                   | Pre-class work                  | Lecture worksheet                 | 
+|:---------------------------------------|:------------------------------                        |:--------------------------------|:--------------------------------|:----------------------------------|
+| **2: Git, GitHub & Version Control**   | *tbd* depending on what is decided for class content  | *tbd* depending on what is decided for class content |[Register for GitHub and create a repository](link here) | No worksheet today |
 
-#### Proposed outline / additional notes
-+ **Pre-reading**: A single video to make students excited about learning R & show the main functionalities of R studio, >= 15 minutes. If easier, this could also be done in the form of a document with screenshots (although I think a video is probably more intuitive).
-+ **In-class**: Demo of vectors, functions, subsetting, dataframes, and packages. Then, breakout rooms for students to complete the lecture worksheet, and reconvene in the main room for the last 5 minutes for the finishing up section - alternatively, leave 15 minutes to the end and also explain the R packages section after students have completed the lecture worksheet.
-+ **Lecture worksheet**: I think we could build a worksheet inspired on [this swirl tutorial](https://github.com/ClaudiaBrauer/A-very-short-introduction-to-R).
+#### Proposed outline
+
++ No lecture worksheet *per se* today, there will be a worksheet to include instructions to activities, but the only deliverable would be a link to their personal GitHub repo & to their group repo.
++ The idea with the prework is that it covers, in 30 minutes max, setting a GitHub account and using GitHub as cloud storage - then the class time can be used for setting up Git and the use of GitHub for collaboration, which I think are more complex to follow / have the potential to cause more issues. I have several ideas for this:
+  + Adapting the material in [Topic 2: GitHub](https://stat545guidebook.netlify.app/introduction-to-stat-545-and-github.html#topic-2-github-35-min) into a document that students can follow through, but only until (and including) "1.5.3 GitHub as cloud storage - Activity". I think that the rest is easier to just do in class (setting up Git, etc) than having them look through the STAT545 repo, which I find can be a bit confusing.
+  + Simply having them follow the [Hello World](https://guides.github.com/activities/hello-world/) tutorial, although I'm not sure if it gets a bit complicated with branching.
++ In addition, the Canvas site could show a table with the groups of students for the collaborative troubleshooting assignment, and we could encourage them to reach out to each other through Canvas if they want! (but the actual "project" can be explained in detail in class)
++ In class, I was thinking of an outline similar to this:
+  + Install and configure Git (~10 min)
+  + Demo [the typical workflow](https://stat545guidebook.netlify.app/the-version-control-workflow.html#the-typical-workflow-8-min) (~8 min)
+  + Students follow [the typical workflow activity](https://stat545guidebook.netlify.app/the-version-control-workflow.html#the-typical-workflow-activity-5-min) in the repo that they created as pre-work (~5 min)
+  + **2 minute break**
+  + GitHub for collaboration & intro to the collaborative troubleshooting assignment (~65 min)
+ + From here on I am not sure of what you were thinking for the group project; should repos be created in advanced for each "group" of students, should they have the chance to create their own repo and add their partner as an admin, will they be using the [fork & clone](https://happygitwithr.com/fork-and-clone.html) workflow or should that be left for STAT545B...? Here are some general ideas that I think should be covered in class:
+  + Giving group partners the chance to interact in a breakout room, introduce themselves & create a teamwork document 
+  + Branching
+  + Opening issues
+  + Open and merge a pull request
+
+#### Action items
+
++ Create a "Class 2" section in Canvas with instructions to (1) register for a GitHub account and (2) create a repository (*what this document should be is tbd*)
++ Create lecture worksheet with instructions for in-class activities, but the only actual "deliverable" would be a link to their personal GitHub repo & to their main GitHub repo.
++ Decide on workflow for the collaborative troubleshooting project, which should be related to what they will do in class.
+
+### Class Meeting 3: R Markdown & Reproducibility 
+
+|                                        | Learning objectives                                   | Key resources                   | Pre-class work                  | Lecture worksheet                 | 
+|:---------------------------------------|:------------------------------                        |:--------------------------------|:--------------------------------|:----------------------------------|
+| **3: R Markdown & Reproducibility**    | 1. Write documents in markdown on GitHub and RStudio <br /> 2. Style an Rmd document by editing the YAML header and customizing the code chunk options. <br /> 3. Render your finalized document to HTML & PDF. | • [R Markdown](https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) <br /> • [GitHub Markdown Cheatsheet](https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) <br /> • [YAML Headers](https://bookdown.org/yihui/rmarkdown/html-document.html) <br /> • [Code chunk options](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.177968037.1059384083.1597196687-1784159993.1567907747) on page 2. |[Asking effective questions online](https://stat545guidebook.netlify.app/introduction-to-stat-545-and-github.html#topic-3-asking-effective-questions-online-10-min) <br /> [10 minute markdown tutorial](https://commonmark.org/help/tutorial/) | [Lecture Worksheet 2](link here) |
+
+#### Proposed outline 
+
++ I would remove the current section on presentations with Rmd from the guidebook altogether, I don't think that many people use them and if they are not going to be used as a deliverable in any point of the course, I'm not sure that it's very relevant - maybe mention it, but not actually go through a demonstration or anything.
++ Worksheet would review the concepts learned in lecture 1 about R, while asking them to use different code chunk options, headers, etc... the "deliverable" would actually be the lecture worksheet in (a) HTML and (b) PDF.
++ **Proposed outline**:
+  + Output formats, markdown basics, and cheatsheets (~30 min) - *a mix of explanations / in-class demo*
+  + Lecture worksheet (~30 min) - *in breakout rooms of 5/6 people*
+  + Finish & style R markdown for the teamwork document + push it to the group repo (~30 min) - *in breakout rooms with group partners*
+
+#### Action items
+
++ Create a "Class 3" section in Canvas with instructions for the adapted "asking effective questions online" activity (right now the link is to the old guidebook)
++ Create lecture worksheet
++ Decide if there is anything else that should be done as pre-work for this lecture?
