@@ -7,3 +7,4 @@
 - Weekly meeting agendas go as an Issue in this repo, and can be added to by anyone on this team.
     - Meeting times are best not used going over pull request comments, but rather discussing action items. 
 - Asana will be used for task management. 
+- Let's aim for at least 1 worksheet per week: migration from the guidebook, and add other ideas before feedback.
