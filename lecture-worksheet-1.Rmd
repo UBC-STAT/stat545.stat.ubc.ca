@@ -1,0 +1,503 @@
+---
+title: 'Lecture Worksheet 1: Intro to R, R Markdown, and Reproducibility'
+author: "Icíar Fernández Boyano"
+date: "14/08/2020"
+output: html_document
+---
+
+# Welcome to STAT545A!
+
+I hope that you are excited to become an R pro during the next few weeks! This is the first of 6 in-class worksheets that have been designed to help you navigate this R journey. We'll start easy, with some examples of R commands, and evolve to the more complex - and arguably cooler - syntax and structures of the R language.
+
+## 1. A first look at the R world
+
+This section of the worksheet is to be completed during Class 1: Intro to STAT545 and R.
+
+### 1.1 Calculator
+
+In its simplest form, R can be used as a interactive calculator. 
+
+```{r example-1-1}
+10 + 4 # you can add 
+10 - 4 # subtract
+4 / 2 # divide
+2 * 5 # multiply
+3 ^ 4 # and exponentiate
+```
+
+As you can see, R can handle any simple arithmetic expressions using the above operators. Your turn! Type 3 + 6 and press Enter.
+
+```{r activity-1-1}
+# result should be 9
+```
+
+Now, subtract 2 from the result above.
+
+```{r activity-1-2}
+# result should be 7
+```
+
+Pretty easy, right? All that you have to do is type in your arithmetic expression, and press Enter. Now, what if you need to compute a longer expression? Let's say that I want to find out the percentage of students in the STAT department that are taking STAT545A (note: these numbers are fictional!). I could compute this in several steps, or use a more complex expression. 
+**If I use multiple steps...**
+
++ To calculate the number of students in the STAT department, I add 375 new students that have enrolled this year, to the 2000 that were already enrolled.
+
+```{r example-1-2-1}
+2000 + 375
+```
+
++ There are 82 students taking STAT545A this year. Last year, there was the same number of students, but 3 dropped the course after the first two weeks. Let's hypothesise that only 1 will drop the course this year - although I hope the real number is 0 :)
+
+```{r example 1-2-2}
+82 - 1
+```
+
++ With the number of students taking STAT545 this year (hypothetically), and the number of students currently in the STAT department, I can now calculate what percentage of students in the STAT department are taking this class.
+
+```{r example 1-2-3}
+81 / 2375
+```
+
+```{r example 1-2-4}
+0.03410526 * 100
+```
+
+It seems that around 3% of students in the STAT department are taking STAT545A... but that took *a lot* of steps to calculate. **What if we use a single expression?**
+
+```{r example-1-3}
+((82-1)/(2000+375))*100 
+```
+
+As you can see, *taking care of precedence rules* (i.e. using brackets appropriately), we can save some time by writing a single expression.
+
+Your turn! Can you calculate the percentage of your life that you have spent in university? Compute the difference between 2020 and the year that you started university (undergraduate or graduate school, it doesn't matter!) and divide this by the difference between 2020 and the year that you were born. Multiply this with 100 to get the percentage of your life that you have spent in university. Your **challenge** is to use a single expression.
+
+```{r activity-1-3}
+
+```
+
+```{r result-1-3}
+# not sure if NB grader can do this, but could it just check for arithmetic operators rather than a number as a result, since everyone's answer will be different? 
+```
+
+### 1.2 Variables
+ 
+Alright, R as a calculator works just fine... but you don't learn a programming language *only* to compute arithmetic expressions. What if you want to use your result from above in a second calculation? Instead of retyping your expression every time that you need it, or copying and pasting the result, you can simply create a new variable that stores it. 
+
+Earlier, I figured out that I had spent 18% of my life at university. I want to assign this value to a variable called "life_university", which will help me remember what my value means. The way you assign a value to a variable in R is by using the assignment operator, which is just a "less than" symbol, followed by a minus sign. It looks like this:
+
+```{r example-1-4-1}
+life_university <- 18
+```
+
+Now, the variable "life_university", stores the value 18, which is the percentage of time that I had spent at university. But prior to saving this into a variable, I had to calculate the value separately. What if I directly saved the arithmetic expression that I used to compute my value into the variable?
+
+```{r example 1-4-2}
+life_university <- ((2020-2016)/(2020-1998))*100
+```
+
+Notice that R did not print the result of my expression this time. When you use the assignment operator, R assumes that you don't want to see the result immediately, but rather that you intend to use it for something else later on. To view the contents of the variable, you simply have to type the name of your variable - in this case, "life_university" (without the "") and press Enter.
+
+Try it now!
+
+```{r activity-1-4}
+
+```
+
+Now, it's your turn to store the percentage of time that **you** have spent at university into a variable - try typing the arithmetic expression that you used to compute that value, rather than the value itself! Name this variable "my_life_university".
+
+```{r activity-1-5}
+
+```
+
+### 1.3 Data structures
+
+Any object that contains data is called a data structure.
+
+### 1.3.1 Vectors
+
+#### Numeric vectors
+
+So far, you've learned how to use R as a calculator, and how to use variables to store numeric values. But in reality, a "variable" in R is just a way to name your data so that R can recall it later. Think of it as a label that you put on a box, so that you remember the contents that are inside it. 
+
+The variable that you created above, "my_life_university", stores the most basic data structure in R programming language: a vector. Even a single number is considered a vector of length one, which is the case with the vector that was assigned to "my_life_university". Let's have a look again:
+
+```{r example 1-5}
+my_life_university
+```
+
+In this way, you can think of the vector as the data structure, and the variable as a label. But what if you want a vector that's greater than length one, or in other words, that stores more than a single numeric value? The easiest way to create a vector is using c(), which stands for "concatenate", or "combine". 
+
+Let's give it a try. To create a vector containing the numbers 3.14, 2.71, and 6.28, type c(3.14, 2.71, 6.28). Store the result in a variable called "x". 
+
+```{r activity 1-6-1}
+
+```
+
+```{r result 1-6-1}
+x <- c(3.14, 2.71, 6.28)
+```
+
+Now, type x and press Enter to view its contents. Notice that there are no commas separating the values in the output!
+
+```{r activity 1-6-2}
+
+```
+
+```{r result 1-6-2}
+x
+```
+
+You can combine several vectors to make a new vector. And here is where things get fun! For the sake of seeing the result immediately, we won't store this combined vector in a new variable for now.
+
+```{r example-1-6}
+c(10, 50)
+```
+
+And what's more: you can combine any numeric vectors together, regardless of whether they have already been assigned to a variable or not!
+
+```{r example-1-7}
+c(x, 50)
+```
+
+Your turn to give it a try. Create a new vector that contains life_university, my_life_university, and 25. Don't assign this vector to a new variable, so that we can just see the result right away.
+
+```{r activity-1-7}
+
+```
+
+```{r result-1-7}
+c(life_university, my_life_university, 25) 
+```
+
+One more cool thing before we go on: numeric vectors can be used in arithmetic expressions. Remembering the vector that we created earlier and assigned to the variable x? Let's have a look at it again.
+
+```{r example-1-8}
+x
+```
+
+Here's a fun fact: those three numbers are actually pi, euler's number, and tau. But that's a story for another class! Type the following to see what happens: x * 2 + 100... Actually, **wait!** What do **you** think will be the result of doing that?
+
+1: a vector of length three
+2: a single number (a vector of length 1)
+3: a vector of length 0 (i.e an empty vector)
+
+```{r quiz-1-1}
+
+```
+
+```{r quizresult-1-1}
+1
+```
+
+Let's see what actually happens. Type x * 2 + 100 and press Enter.
+
+```{r activity-1-8}
+
+```
+
+```{r result-1-8}
+x * 2 + 100
+# first, R multiplied each of the three elements in x by 2. Then, it added 100 to each element to get the result that you see above
+```
+
+#### Logical vectors
+
+So far we have only dealt with **numeric** vectors. But there are other types of vectors in the R universe. Let's have a look.
+
+Enough of university, let's talk about vacation! A group of friends are discussing the places that they visited in 2019, and trying to figure out how much total vacation time each of them took. Pablo says he took 54 days off to travel locally, Dana was on vacation for only 14 days, and Marianne went to the Caribbean for 30 days.
+
+Create a vector that contains the values of Pablo, Dana, and Marianne's vacation days. Assign it to a variable named "vacation_time".
+
+```{r activity-1-9}
+
+```
+
+```{r results-1-9}
+vacation_time <- c(54, 14, 30)
+```
+
+Which person was on vacation for more than 21600 minutes? First, create a numeric vector that multiplies the "vacation_time" vector by 1440 (the number of minutes in a day), to find out what each person's vacation time is *in minutes*. Assign this to a variable named "vacation_time_minutes".
+
+```{r activity-1-10}
+
+```
+
+```{r results-1-10}
+vacation_time_minutes <- vacation_time * 1440
+```
+
+Now, create a variable called "under_21600" that gets the result of vacation_time_minutes > 21600, which is read as 'vacation_time_minutes is more than 21600'.
+
+```{r activity-1-11}
+
+```
+
+```{r results-1-11}
+under_21600 <- vacation_time_minutes > 21600
+```
+
+Have a look at the output of "under_21600" by typing the name and pressing Enter.
+
+```{r activity-1-12}
+
+```
+
+```{r results-1-2}
+under_21600 
+```
+
+Congratulations! You've created your first **logical vector**. Logical vectors can contain the values TRUE, FALSE, and NA (for 'not available' - this happens when you have missing data!). These values are generated as the result of logical 'conditions'. We have seen the logical operator "greater than" in this activity, but there are [many more](https://www.statmethods.net/management/operators.html), such as "less than", "exactly equal to", or "not equal to". Don't worry, there will be plenty of time to use those in the future!
+
+#### ...and more
+
+There are other types of vectors out there in the R universe, such as character vectors. We won't get into the nitty gritty of these - logical and numeric are the most basic R vectors, the ones that you absolutely need to know & that we will use most often. However, we didn't want to leave you in the dark about these other types of vectors! If you really, really want to know more, you can read [more about vectors](https://r4ds.had.co.nz/vectors.html) here.
+
+Anyway, here is a handy tip! If you ever come across a vector and you're not sure what it is, you can inspect its two key properties: type, and length. Here is an example of how you would do it. *"Double" is just a type of numeric vector.*
+
+```{r example-1-9}
+typeof(x)
+length(x)
+```
+
+### 1.3.2 Dataframes
+
+Living in a vector-only world would be nice if all data analyses involved one variable. When we have more than one variable, data frames come to the rescue. Basically, a data frame holds data in tabular format. R has some data frames “built in”. For example, motor car data is attached to the variable name mtcars.
+
+Print mtcars to screen. If I haven't mentioned before, "print" means to type the name of the object, and press Enter. Notice the tabular format.
+
+```{r activity-1-13}
+
+```
+
+```{r result-1-13}
+mtcars
+```
+
+We will talk more about dataframes in just a bit, but for now, just keep in mind that they are one of the most used data structures in R - albeit more complex than vectors.
+
+### 1.4 Subsetting
+
+Often, when you're working with a large dataset (such as mtcars), you will only be interested in a small portion of it. Even when working with a simpler data structure, such as vectors, you may want to extract a particular value that you are interested in. R has several ways of doing this, in a process that it calls "subsetting". Subsetting dataframes is definitely a more complex task - we will start little, with vectors.
+
+A student from a previous STAT545 cohort tracked his commute times for two weeks (10 days), and saved them in a vector that he stored in the variable "times". Here is the "times" variable. 
+
+```{r times}
+times <- c(18, 22, 43, 26, 75, 31, 32, 17, 16, 51)
+```
+
+We use [] to subset the vector of times. Although we had a look at this in class, here are a couple examples to refresh your memory. To extract the first entry of a vector:
+
+```{r example-1-10}
+x[1]
+```
+
+And if I want to extract everything *but* the first entry:
+
+```{r example-1-11}
+x[-1]
+```
+
+You're doing a great job! Now, it's your turn to use [] to subset the vector of times. Keep it up!
+
+1. Extract the third entry.
+
+```{r activity-1-14-1}
+
+```
+
+```{r results-1-14-1}
+times[3]
+```
+
+2. Extract everything except the third entry.
+
+```{r activity-1-14-2}
+
+```
+
+```{r results-1-14-2}
+times[-3]
+```
+
+3. Extract the second and fourth entry. The fourth and second entry. *Hint: remember c()?*
+
+```{r activity-1-14-3}
+
+```
+
+```{r results-1-14-3}
+times[c(2,4)]
+times[c(4,2)]
+```
+
+4. Extract the second through fifth entry – make use of : to construct sequential vectors.
+
+```{r activity-1-14-4}
+
+```
+
+```{r results-1-14-4}
+times[2:5]
+```
+
+5. Extract all entries that are less than 30 minutes. Why does this work? Logical subsetting!
+
+```{r activity-1-14-5}
+
+```
+
+```{r results-1-14-5}
+times < 30
+```
+
+After all of that, do you think that the "times" object changed at all?
+
+1: yes
+2: no
+3: not sure
+
+```{r quiz-1-2}
+
+```
+
+```{r quizresult-1-2}
+2
+```
+
+This is a bit of challenge, but I bet you can do it. Try using [] in conjunction with <- to change the times objects by replacing any 2 entries with 2 new travel times of your choosing.
+
+```{r activity-1-15}
+
+```
+
+```{r results-1-15}
+times[c(2,3)] <- c(10, 12) # as an example
+```
+
+### 1.6 Functions
+
+Functions are one of the fundamental building blocks of the R language. They are small pieces of reusable code that can be treated like any other R object. Functions are easily recognizable because they are usually characterized by their name followed by parenthesis. For example, if there was a function that could make bread, it would look like this: bread().
+
+You have actually already used 3 functions in this worksheet before being formally introduced to what a function is. Can you find them? Try going back and type them below.
+
+```{r activity-1-16}
+
+```
+
+```{r results-1-16}
+c()
+typeof()
+length()
+```
+
+There are tens of thousands of functions that one can use in R, which seems a bit large for this worksheet. Let's explore a few basic functions just for fun. Type Sys.Date() below to see what happens!
+
+```{r activity-1-17}
+
+```
+
+```{r results-1-17}
+Sys.Date()
+```
+
+Remember that there are different types of vectors, besides numeric and logical? Well, the output of Sys.Date() is actually an example of that, known in R language as a "string". A "string" is just a character (any value written within a pair of single or double quotes in R) variable that contains one or more characters! 
+
+The value that Sys.Date() computes is based on your computer's environment, but functions in R can also manipulate input data in order to compute a return value. At the start of this worksheet, you were introduced to the simplest form of R - as a calculator. Actually, R functions allow us to compute certain things that could be done manually as a calculator, but much faster.
+
+Recall the "times" vector earlier. What's the average travel time? Instead of computing this manually, we can use a function called "mean". 
+
+```{r example-1-12}
+mean(times)
+```
+
+Notice the syntax of using a function: starting by the left with the *function name*, and the *input* goes inside brackets. We *input* times, and we got an *output*. Did this function change the *input*? Check:
+
+```{r activity-1-17}
+
+```
+
+```{r results-1-17}
+times
+```
+
+Aside from bizarre functions, this is always the case. But functions don't always return a single value. Try the range() function, and the sqrt() function (separately), with "times" as a vector. What's the output?
+
+```{r activity-1-18}
+
+```
+
+```{r results-1-18}
+range(times)
+sqrt(times)
+```
+
+Functions can also take more than one argument as input, separated by commas. You can find out what these arguments are by accessing the function’s documentation, which you can do by executing ?"function name". Try accessing the documentation of the mean() function by executing ?mean.
+
+```{r activity-1-19}
+
+```
+
+```{r results-1-19}
+?mean
+```
+
+There are four arguments. All the arguments have names, except for the ... argument (more on ... later). This is always the case.
+
+Under “Usage”, some of the arguments are of the form name = value. These are default values, in case you don’t specify these arguments. This is a sure sign that these arguments are optional.
+
+x is “on its own”. This typically means that it has no default, and often (but not always) means that the argument is required. We can specify an argument in one of two ways:
+
++ specifying argument name = value in the function parentheses; or
++ matching the ordering of the input with the ordering of the arguments.
+
+For readability, this is not recommended beyond the first or sometimes second argument! Try executing mean() again with times as the input, but this time, set the argument na.rm to TRUE.
+
+```{r activity-1-20}
+
+```
+
+```{r results-1-20}
+mean(times, na.rm = TRUE)
+```
+
+The mean is the same, because there are no NA values in the vector "times". Put your subsetting knowledge into practice by replacing the third entry of the "times" vector by a missing value.
+
+```{r activity-1-21}
+
+```
+
+```{r results-1-21}
+times[3] <- NA
+```
+
+Now, try executing mean() specifying na.rm as TRUE again (with times as an input).
+
+```{r activity-1-22}
+
+```
+
+```{r results-1-22}
+mean(times, na.rm = TRUE)
+```
+
+Notice how the output changes. What if you try setting na.rm as FALSE instead?
+
+```{r activity-1-23}
+
+```
+
+```{r results-1-23}
+mean(times, na.rm = FALSE)
+```
+
+The function cannot calculate the mean of the numeric vector if there are missing values. 
+
+**Tip:** Always *look* at the data that you are using. When functions fail and you don't know what went wrong, the error is usually traceable to the input. But we will talk more about errors later on!
+
+## 2. R Markdown & Reproducibility 
+
+This section of the worksheet is to be completed during Class 3: RMarkdown and Reproducibility. 
+
+
+
