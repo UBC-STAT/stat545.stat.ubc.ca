@@ -34,32 +34,38 @@ This is a compilation of general resources for getting started with R and R stud
 
 ### 1. R Markdown & Reproducibility 
 
-+ https://style.tidyverse.org/ r style guide
-+ https://bookdown.org/yihui/rmarkdown/
-+ https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf
-+ https://stat545.com/r-markdown.html - on markdown
-+ http://www.antipope.org/charlie/blog-static/2013/10/why-microsoft-word-must-die.html - reasons to use markdown for your analysis
-+ https://commonmark.org/help/tutorial/ for learning markdown
-+ https://rmarkdown.rstudio.com/lesson-1.html also for learning markdown 
-+ https://gkhajduk.github.io/latex-markdown-resources/ latex & markdown resources
-+ Asking questions with R https://stackoverflow.com/help/minimal-reproducible-example
-+ Reproducibility resources https://gkhajduk.github.io/reproducible-resources/
+|                    | resource                                                                                                           | description |
+| ---                | ---                                                                                                                | ---          |
+| **`cheatsheets & quick resources`**  | [R Markdown Cheatsheet](https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) | R Markdown cheatsheet - two pages of all you need to know |
+|                    | [R Markdown @ RStudio](https://rmarkdown.rstudio.com/lesson-1.html)                                                | Consider it the comprehensive R Markdown guidebook - all documentation lives here |
+|                    | [The Tidyverse Style Guide](https://style.tidyverse.org/)                                                          | Good coding style is a must for reproducibility, and this guide has all you need to know! | 
+|                    | [Asking effective questions with R](https://stackoverflow.com/help/minimal-reproducible-example)                   | An example of a reproducible question on Stack Overflow, and how to achieve this |
+|                    | [Reproducibility resources](https://gkhajduk.github.io/reproducible-resources/)                                    | Looking to learn more into reproducibility? This is the place to go |
+| **`tutorials`**    | [R Markdown Tutorial](https://commonmark.org/help/tutorial/)                                                       | 10 minute tutorial where each lesson introduces a single Markdown concept with an example |
+| **`books`**        | [Bookdown](https://bookdown.org/yihui/rmarkdown/)                                                                  | The definitive reference book to R Markdown. [Choose](https://bookdown.org/yihui/rmarkdown/how-to-read-this-book.html) what is most relevant |
+| **`other fun things`** | [Why Microsoft Word must die](http://www.antipope.org/charlie/blog-static/2013/10/why-microsoft-word-must-die.html) | Or in other words, brilliant reasons to use markdown |
+|                        | [R Markdown Gallery](https://rmarkdown.rstudio.com/gallery.html)                                               | Check out the range of outputs and formats you can create using R Markdown (everything from interactive documents to presentations, books, or websites!) |
+|                        | [Bootswatch themes](https://bootswatch.com/)                                                                   | The html_document engine uses the Bootswatch theme library to support different styles of the document |
+|                        | [Creating Pretty Documents with R Markdown](https://cran.r-project.org/web/packages/prettydoc/vignettes/tactile.html) | Learn more about how to use lightweight yet nice themes |
 
 ### 2. Data manipulation
 
-+ https://www.tidyverse.org/ the tidyverse
-+ https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf data wrangling w dplyr cheatsheet
-+ https://stat545.com/dplyr-intro.html intro to dplyr
-+ https://r4ds.had.co.nz/transform.html data transformation, related to dplyr
-+ https://r4ds.had.co.nz/pipes.html pipes (tidyverse) from the magrittr package
-+ https://vita.had.co.nz/papers/tidy-data.html tidy data paper by hadley
-+ https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html an informal summary of the tidy data paper
-+ https://github.com/jennybc/lotr-tidy/blob/master/01-intro.md jenny bryan's intro to tidy data
-+ https://www.tidyverse.org/blog/2020/05/tidyr-1.1.0/ tidyr 1.1.0 updates, but check the tidyverse blog for the latest updates to the tidyverse!
-+ https://stat545.com/join-cheatsheet.html jenny's dplyr join cheatsheet
-+ https://cran.r-project.org/web/packages/dplyr/vignettes/two-table.html dplyr two table verbs
-+ https://r4ds.had.co.nz/relational-data.html relational data chapter, all about different types of joins
-+ https://stat545.com/multiple-tibbles.html multiple tibbles
+|                    | resource                                                                                                           | description |
+| ---                | ---                                                                                                                | ---          |
+| **`cheatsheets & quick resources`**  | [Tidyverse](https://www.tidyverse.org/)                                                          | The tidyverse website, contains relevant documentation for all tidyverse packages! |
+|                    | [Data wrangling in the tidyverse cheatsheet](https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf) | Data wrangling with dplyr & tidyr cheatsheet |
+|                    | [Jenny Bryan's introduction to dplyr](https://stat545.com/dplyr-intro.html)                                        | Learn the basics | 
+|                    | [dplyr cheatsheet](http://gauss.inf.um.es/tabular/www/data-transformation.pdf)                                     | Data transformation with dplyr worksheet |
+|                    | [dplyr join cheatsheet](https://stat545.com/join-cheatsheet.html)                                                  | Jenny Bryan's go-to guide for dplyr table joins |
+|                    | [More on dplyr two-table verbs](https://cran.r-project.org/web/packages/dplyr/vignettes/two-table.html)            | A vignette on dplyr's verbs to work with two tables at a time |
+|                    | [Handling multiple tibbles](https://stat545.com/multiple-tibbles.html)                                             | For when one tibble is not enough |
+|                    | [Pipes](https://r4ds.had.co.nz/pipes.html)                                                                         | Explores the pipe (magrittr package) in more detail - the tidyverse packages load it automatically |
+| **`tutorials`**    | [Jenny Bryan's LOTR Tidy Data Lesson](https://github.com/jennybc/lotr-tidy)                                        | Not *exactly* a tutorial, but a lesson on tidying data with several resources + exercises, using the Lord of the Rings trilogy data |
+|                    | [Dataquest Load & Clean Data w/ Tidyverse Tutorial](https://www.dataquest.io/blog/load-clean-data-r-tidyverse/)    | Learn to load and clean data using the tidyverse packages! |
+| **`books`**        | [R for Data Science](https://r4ds.had.co.nz/)                                                                      | Chapters [5](https://r4ds.had.co.nz/transform.html) on Data Transformation, and Chapters [9-16](https://r4ds.had.co.nz/wrangle-intro.html) focus on Data Wrangling |
+| **`other fun things`** | ["Tidy Data" by Hadley Wickham](https://vita.had.co.nz/papers/tidy-data.html)                                  | The original publication describing the notion of tidy data |
+|                        | [Bite-sized tidy data](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html)                 | An informal and code-heavy version of the full tidy data paper |
+
 
 ### 3. Data visualization
 
@@ -88,14 +94,19 @@ This is a compilation of general resources for getting started with R and R stud
 
 ### 4. Model-fitting
 
-+ https://rstats.wtf/
-+ https://cfss.uchicago.edu/notes/linear-models/
-+ https://cran.r-project.org/web/packages/broom/vignettes/broom.html
+Want to dive deeper into model-fitting? Here are a few more stats heavy resources, if you're interested.
 
++ [Statistical Learning chapter](https://cfss.uchicago.edu/notes/statistical-learning/) from the Computing for the Social Sciences course at Penn State University. It provides an easy introduction to statistical models and other concepts.
++ You may want to learn more about [the broom package](https://cran.r-project.org/web/packages/broom/vignettes/broom.html) to keep your model output tidy.
++ [Easy intro to model fitting using R](https://uomresearchit.github.io/r-tidyverse-intro/06-model-fitting/) by The Carpentries.
 
+### One last thing
 
+The R universe is permanently expanding, and with so many awesome people contributing to create new packages & resources, it's hard to keep up with everything that is going on. To find out what's happening in R, here are a few things that you can do:
 
++ Follow the "#rstats" feed on Twitter! You'll find fantastic accounts to follow, and with an ever flowing source of information, it's almost guaranteed that you'll learn something new pretty often.
 
++ Not on social media? Not to worry. Maelle Salmon collected several different [ways to keep up with R news](https://masalmon.eu/2019/01/25/uptodate/), some through social media, but also through podcasts [The R podcast](https://r-podcast.org/) and newsletters such as [R Weekly](https://rweekly.org/).
 
 
 
