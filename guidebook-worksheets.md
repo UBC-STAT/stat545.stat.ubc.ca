@@ -50,12 +50,8 @@ I assume that there wouldn't be pre-class work for this class (only the optional
 
 *When all are done, the table will be updated accordingly with the links*
 
-+ Create lecture worksheet (should be located in a public repo to ensure open-access, and be available in raw format so that students can copy and paste)
 + Create a "Class 1" section on Canvas with Zoom materials for optional pre-work
 + Add syllabus page to website under "course structure"
-
-#### Additional notes
-Since this is the intro class, it wouldn't have a lecture worksheet per se, most of the content can be discussed in class, and the creation / guidebook adaptation of some documents for students. I think I would add the STAT545 (and STAT547) syllabus to the "course structure" part of the website (where office hours / class meeting schedules / policies are listed).
 
 ### Class Meeting 2: Git, GitHub & Version Control
 
@@ -65,7 +61,7 @@ Since this is the intro class, it wouldn't have a lecture worksheet per se, most
 
 #### Proposed outline
 
-+ No lecture worksheet *per se* today, there will be a worksheet to include instructions to activities, but the only deliverable would be a link to their personal GitHub repo & to their group repo.
++ No lecture worksheet *per se* today, there will be a document to include instructions to activities, but the only deliverable would be a link to their personal GitHub repo & to their group repo.
 + The idea with the prework is that it covers, in 30 minutes max, setting a GitHub account and using GitHub as cloud storage - then the class time can be used for setting up Git and the use of GitHub for collaboration, which I think are more complex to follow / have the potential to cause more issues. I have several ideas for this:
   + Adapting the material in [Topic 2: GitHub](https://stat545guidebook.netlify.app/introduction-to-stat-545-and-github.html#topic-2-github-35-min) into a document that students can follow through, but only until (and including) "1.5.3 GitHub as cloud storage - Activity". I think that the rest is easier to just do in class (setting up Git, etc) than having them look through the STAT545 repo, which I find can be a bit confusing.
   + Simply having them follow the [Hello World](https://guides.github.com/activities/hello-world/) tutorial, although I'm not sure if it gets a bit complicated with branching.
@@ -85,20 +81,19 @@ Since this is the intro class, it wouldn't have a lecture worksheet per se, most
 #### Action items
 
 + Create a "Class 2" section in Canvas with instructions to (1) register for a GitHub account and (2) create a repository (*what this document should be is tbd*)
-+ Create lecture worksheet with instructions for in-class activities, but the only actual "deliverable" would be a link to their personal GitHub repo & to their main GitHub repo.
++ Create document with instructions for in-class activities, but the only actual "deliverable" would be a link to their personal GitHub repo & to their main GitHub repo.
 + Decide on workflow for the collaborative troubleshooting project, which should be related to what they will do in class.
 
 ### Class Meeting 3: R Markdown & Reproducibility 
 
 |                                        | Learning objectives                                   | Key resources                   | Pre-class work                  | Lecture worksheet                 | 
 |:---------------------------------------|:------------------------------                        |:--------------------------------|:--------------------------------|:----------------------------------|
-| **3: R Markdown & Reproducibility**    | 1. Write documents in markdown on GitHub and RStudio <br /> 2. Style an Rmd document by editing the YAML header and customizing the code chunk options. <br /> 3. Render your finalized document to HTML & PDF. | • [R Markdown](https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) <br /> • [GitHub Markdown Cheatsheet](https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) <br /> • [YAML Headers](https://bookdown.org/yihui/rmarkdown/html-document.html) <br /> • [Code chunk options](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.177968037.1059384083.1597196687-1784159993.1567907747) on page 2. |[Asking effective questions online](https://stat545guidebook.netlify.app/introduction-to-stat-545-and-github.html#topic-3-asking-effective-questions-online-10-min) <br /> [10 minute markdown tutorial](https://commonmark.org/help/tutorial/) | [Lecture Worksheet 2](link here) |
+| **3: R Markdown & Reproducibility**    | 1. Write documents in markdown on GitHub and RStudio <br /> 2. Style an Rmd document by editing the YAML header and customizing the code chunk options. <br /> 3. Render your finalized document to HTML & PDF. | • [R Markdown](https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) <br /> • [GitHub Markdown Cheatsheet](https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) <br /> • [YAML Headers](https://bookdown.org/yihui/rmarkdown/html-document.html) <br /> • [Code chunk options](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.177968037.1059384083.1597196687-1784159993.1567907747) on page 2. |• [Asking effective questions online](https://stat545guidebook.netlify.app/introduction-to-stat-545-and-github.html#topic-3-asking-effective-questions-online-10-min) <br /> • [10 minute markdown tutorial](https://commonmark.org/help/tutorial/) | [Lecture Worksheet 2](link here) |
 
 #### Proposed outline 
 
-+ I would remove the current section on presentations with Rmd from the guidebook altogether, I don't think that many people use them and if they are not going to be used as a deliverable in any point of the course, I'm not sure that it's very relevant - maybe mention it, but not actually go through a demonstration or anything.
-+ Worksheet would review the concepts learned in lecture 1 about R, while asking them to use different code chunk options, headers, etc... the "deliverable" would actually be the lecture worksheet in (a) HTML and (b) PDF.
-+ **Proposed outline**:
++ Remove the current section on presentations with Rmd, I don't think that many people use them and if they are not going to be used as a deliverable in any point of the course, I'm not sure that it's very relevant - maybe mention it, but not actually go through a demonstration or anything.
+
   + Output formats, markdown basics, and cheatsheets (~30 min) - *a mix of explanations / in-class demo*
   + Lecture worksheet (~30 min) - *in breakout rooms of 5/6 people*
   + Finish & style R markdown for the teamwork document + push it to the group repo (~30 min) - *in breakout rooms with group partners*
@@ -106,5 +101,66 @@ Since this is the intro class, it wouldn't have a lecture worksheet per se, most
 #### Action items
 
 + Create a "Class 3" section in Canvas with instructions for the adapted "asking effective questions online" activity (right now the link is to the old guidebook)
-+ Create lecture worksheet
-+ Decide if there is anything else that should be done as pre-work for this lecture?
++ Decide if there is anything else that should be done as pre-work for this lecture? I did include the R Markdown tutorial, and I would encourage students to do that as pre-work too! (It's 10 minutes)
+
+### Class Meeting 4: Data Wrangling I
+
+|                                        | Learning objectives                                   | Key resources                   | Pre-class work                  | Lecture worksheet                 | 
+|:---------------------------------------|:------------------------------                        |:--------------------------------|:--------------------------------|:----------------------------------|
+| **4: Data Wrangling I**                | 1. Recognize the advantages of the tidyverse compared to the "base R" way with respect to good coding practice <br /> 2. Subset and rearrange data with dplyr <br /> 3. Use piping when implementing function chains <br /> 4. Explore data in tibbles| • [R4DS Data Transformation](https://r4ds.had.co.nz/transform.html) <br /> • [R4DS Pipes](https://r4ds.had.co.nz/pipes.html) <br /> • [Intro to dplyr vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html) | *tbd* | [Lecture Worksheet 2](link here) |
+
+#### Proposed outline 
+
++ Topics to be covered (~20 minutes of in-class demo); I think this is easier learnt through practice so probably not much more time needed)
+  + tidyverse
+  + dplyr
+  + piping
+  + tibbles (*as part of the new course outline, it was discussed on #25*)
+
++ Lecture worksheet (~40 minutes)
+
++ Break (~5 minutes)
+
++ Introduce (and maybe start?) Mini-Data Analysis Project (~25 minutes)
+
+#### Action items
+
++ Create lecture worksheet 2
++ Create a "Class 4" section in Canvas with pre-work: (1) History of tidyverse & dplyr. 
++ Anything else as prework? Maybe opening up a "discussion" section on Canvas where students are required to submit an entry / comment about something? Not sure what this would look like / the discussion topic, but this was often done during my Instructional Skills Workshop and it really helped build connection amongst students. Maybe can be as easy as "why are you taking this course / why are you interested in data science?", particularly seeing as this is the first class that everyone that is dropping the course will have done it already.
+
+### Class Meeting 5: ggplot I
+
+|                                        | Learning objectives                                   | Key resources                   | Pre-class work                  | Lecture worksheet                 | 
+|:---------------------------------------|:------------------------------                        |:--------------------------------|:--------------------------------|:----------------------------------|
+| **5: ggplot I**                        | 1. Identify the seven components of the grammar of graphics underlying ggplot2 <br /> 2. Recognize the advantages of ggplot2 over plotting with base R and lattice <br /> 3. Use different geometric objects and aesthetics to explore various plot types | • [ggplot2 cheatsheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf) <br /> • [R4DS Data Visualization Chapter](https://r4ds.had.co.nz/data-visualisation.html) <br /> • [Intro to dplyr vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html) <br /> • [R Cookbook Graphs](http://www.cookbook-r.com/Graphs/) <br /> • [ggplot elegant graphics for data analysis](http://webcat2.library.ubc.ca/vwebv/holdingsInfo?bibId=8489511) | *tbd* | [Lecture Worksheet 2](link here) |
+
+#### Proposed outline 
+
+*These refer to adapted sections of the 2019 STAT545 guidebook*:
++ Why data visualization? Just plot it + The grammar of graphics (~20 minutes)
++ In-class demo of creating a scatterplot (~10 minutes)
++ Break (~5 minutes)
++ Lecture worksheet (~45 minutes) - in breakout rooms
++ Share your work! (~10 minutes) *Suggestion: Students would go back to the main room and maybe share their graphs with the class? Voluntarily; they could send screenshots / images through the chat and instructor could showcase a few*
+
+#### Action items
+
++ Create lecture worksheet 2
++ Create a "Class 5" section in Canvas with pre-work: (1) Intro to plotting in R: baseR > lattice > ggplot2 > plotly; (2) Maybe an activity that compares examples of bad vs. good plots, and students have to intuitively identify why some are better than others + maybe submit a comment on that? This would be a good intuitive intro prior to the grammar of graphics being introduced in class!; (3) "Choose your own adventure" poll for the 13th class topic!
+
+### Class Meeting 6: Data wrangling II
+
+|                                        | Learning objectives                                   | Key resources                   | Pre-class work                  | Lecture worksheet                 | 
+|:---------------------------------------|:------------------------------                        |:--------------------------------|:--------------------------------|:----------------------------------|
+| **6: Data Wrangling II**               | 1. Use scoped variants of summarise() and mutate(), with across() <br /> 2. Apply your dplyr knowledge to exploratory data analysis of a dataset | | *tbd* | [Lecture Worksheet 3](link here) |
+
+#### Proposed outline 
+
+*tbd*
+
+#### Action items
+
++ Create lecture worksheet 3
++ Decide on pre-work
++ Create a "Class 6" section in Canvas with pre-work
