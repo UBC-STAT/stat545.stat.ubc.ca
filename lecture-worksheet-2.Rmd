@@ -781,7 +781,7 @@ ggplot(penguins, aes(x = body_mass_g, fill = species)) +
 
 **QUESTION 2.10**
 
-Stacked histograms still look a little awkward. When we want to visualize distributions of the data by variable in a single graph, density plots look better in terms of variables not obscuring one another. Try it yourself! Hint: Use "cplor" instead of "fill" for aesthetic mapping. 
+Stacked histograms still look a little awkward. When we want to visualize distributions of the data by variable in a single graph, density plots look better in terms of variables not obscuring one another. Try it yourself! Hint: Use `color` or `colour` instead of `fill` for aesthetic mapping. 
 
 ```{r question-2-10}
 answer2.10 <- ggplot(COMPLETE_THE_CODE) + geom_density()
