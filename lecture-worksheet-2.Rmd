@@ -307,7 +307,7 @@ answer1.11 <- arrange(penguins, year, body_mass_g)
 
 ### Piping, `%>%` 
 
-So far, we'#ve been using dplyr verbs by inputting the dataset that we want to work on as the first argument of the function (e.g. select(**penguins**, year)). This is fine when you're using a single verb, i.e. you only want to filter observations, or select variables. However, more often than not you will want to do several tasks at once; such as filtering penguins with a certain body mass, and simultaneously ordering those penguins by year. Here is where piping (%>%) comes in.
+So far, we've been using dplyr verbs by inputting the dataset that we want to work on as the first argument of the function (e.g. select(**penguins**, year)). This is fine when you're using a single verb, i.e. you only want to filter observations, or select variables. However, more often than not you will want to do several tasks at once; such as filtering penguins with a certain body mass, and simultaneously ordering those penguins by year. Here is where piping (%>%) comes in.
 
 Think of `%>%` as the word "then"!
 
@@ -335,7 +335,7 @@ The general syntax is: mutate(tibble, NEW_COLUMN_NAME = CALCULATION).
 
 **QUESTION 1.12**
 
-Make a new column with body mass in kg, named `body_mass_kg`, *and* rearrange the tibble so that `body_mass_kg` goes after `body_mass_g` and before `sex`. Hint: within select(), use R's : operator to select all variables from `species` to `body_mass_g`.
+Make a new column with body mass in kg, named `body_mass_kg`, *and* rearrange the tibble so that `body_mass_kg` goes after `body_mass_g` and before `sex`. Hint: within select(), use R's `:` operator to select all variables from `species` to `body_mass_g`.
 
 ```{r question-1-12}
 answer1.12 <- 
