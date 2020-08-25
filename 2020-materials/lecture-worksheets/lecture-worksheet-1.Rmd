@@ -21,6 +21,14 @@ I hope that you are excited to become an R pro during the next few weeks! This i
 
 + Autograded questions are easily identifiable throughout the worksheet, labelled as **QUESTION**. Any other instructions that prompt the student to write code are activities, which are not graded and thus do not contribute to marks - but do contribute to the workflow of the worksheet!
 
++ Run this code chunk to load the packages required for the autograder:
+
+```{r autograder-req, warning = FALSE, message = FALSE}
+library(testthat)
+library(digest)
+```
+
+
 ## Attributions
 
 The following resources were used as inspiration in the creation of this worksheet:
@@ -90,7 +98,7 @@ Pretty easy, right? All that you have to do is type in your arithmetic expressio
 It seems that around 3% of students in the STAT department are taking STAT545A... but that took *a lot* of steps to calculate. We could also write it like this to save some time:
 
 ```{r example-1-2}
-((82-1)/(2000+375))*100 
+(82 - 1) / (2000 + 375) * 100 
 ```
 
 As you can see, *taking care of precedence rules* (i.e. using brackets appropriately), we can save some time by writing a single expression.
@@ -107,30 +115,42 @@ Compute the difference between 2020 and the year that you started university, an
  
 Alright, R as a calculator works just fine... but you don't learn a programming language *only* to compute arithmetic expressions. What if you want to use your result from above in a second calculation? Instead of retyping your expression every time that you need it, or copying and pasting the result, you can simply create a new variable that stores it. 
 
-Earlier, I figured out that I had spent 18% of my life at university. I want to assign this value to a variable called "life_university", which will help me remember what my value means. The way you assign a value to a variable in R is by using the assignment operator, which is just a "less than" symbol, followed by a minus sign. It looks like this:
+Earlier, I figured out that I had spent 18% of my life at university. I want to assign this value to a variable called `life_university`, which will help me remember what my value means. The way you assign a value to a variable in R is by using the assignment operator, which is just a "less than" symbol, followed by a minus sign. It looks like this:
 
 ```{r example-1-3a}
 life_university <- 18
 ```
 
-Now, the variable "life_university", stores the value 18, which is the percentage of time that I had spent at university. But prior to saving this into a variable, I had to calculate the value separately. What if I directly assigned the arithmetic expression that I used to compute my value to the variable?
+Now, the variable `life_university`, stores the value 18, which is the percentage of time that I had spent at university. But prior to saving this into a variable, I had to calculate the value separately. What if I directly assigned the arithmetic expression that I used to compute my value to the variable?
 
 ```{r example-1-3b}
-life_university <- ((2020-2016)/(2020-1998))*100
+life_university <- (2020 - 2016) / (2020 - 1998) * 100
 ```
 
 Notice that R did not print the result of my expression this time. When you use the assignment operator, R assumes that you don't want to see the result immediately, but rather that you intend to use it for something else later on. 
 
-To view the contents of the variable, you simply have to type the name of the variable - in this case, "life_university" (without the "") and press Enter. Try it below!
+To view the contents of the variable, you simply have to type the name of the variable - in this case, `life_university` and press Enter. Try it below!
 
 ```{r activity-1-2}
 
 ```
 
-Now, it's your turn to store the percentage of time that **you** have spent at university into a variable - try typing the arithmetic expression that you used to compute that value, rather than the value itself! Name this variable "my_life_university".
+**QUESTION 1.0**
 
-```{r activity-1-3}
+Now, it's your turn to store the percentage of time that **you** have spent at university into a variable - try typing the arithmetic expression that you used to compute that value, rather than the value itself! Name this variable `my_life_university`. It should be between 0 and 100.
 
+```{r question-1-0}
+# Your answer here
+### BEGIN SOLUTION
+my_life_university <- 12 / 33  # Any number between 0 and 100.
+### END SOLUTION
+```
+
+```{r test-1-0}
+test_that("Question 1.0", {
+  expect_gte(my_life_university, 0)
+  expect_lte(my_life_university, 100)
+})
 ```
 
 ### 1.3 Data structures
@@ -143,29 +163,33 @@ Any object that contains data is called a data structure.
 
 So far, you've learned how to use R as a calculator, and how to use variables to store numeric values. But in reality, a "variable" in R is just a way to name your data so that R can recall it later. Think of it as a label that you put on a box, so that you remember the contents that are inside it. 
 
-The variable that you created above, "my_life_university", stores the most basic data structure in R programming language: a vector. Even a single number is considered a vector of length one, which is the case with the vector that was assigned to "my_life_university". Let's have a look again:
+The variable that you created above, `my_life_university`, stores the most basic data structure in R programming language: a vector. Even a single number is considered a vector of length one, which is the case with the vector that was assigned to `my_life_university`. Let's have a look again:
 
 ```{r example-1-3}
 my_life_university
 ```
 
-In this way, you can think of the vector as the data structure, and the variable as a label. But what if you want a vector that's greater than length one, or in other words, that stores more than a single numeric value? The easiest way to create a vector is using c(), which stands for "concatenate", or "combine". 
+In this way, you can think of the vector as the data structure, and the variable as a label. But what if you want a vector that's greater than length one, or in other words, that stores more than a single numeric value? The easiest way to create a vector is using `c()`, which stands for "concatenate", or "combine". 
 
-**QUESTION 1.0**
+**QUESTION 1.1**
 
-Let's give it a try. To create a vector containing the numbers 3.14, 2.71, and 6.28, type c(3.14, 2.71, 6.28). Store the result in a variable called "x". 
+Let's give it a try. To create a vector containing the numbers 3.14, 2.71, and 6.28, type `c(3.14, 2.71, 6.28)`. Store the result in a variable called `x`. 
 
-```{r question-1-0}
-
-```
-
-```{r answer-1-0}
+```{r answer-1-1}
+#x <- ...
 ### BEGIN SOLUTION
 x <- c(3.14, 2.71, 6.28)
 ### END SOLUTION
 ```
 
-Now, type x and press Enter to view its contents. Notice that there are no commas separating the values in the output!
+```{r test-1-1}
+test_that("Question 1.1", {
+  expect_equal(digest(x), "d696b13d28ab63409f1f528a2d37bb0e")
+})
+```
+
+
+Now, type `x` and press Enter to view its contents. Notice that there are no commas separating the values in the output!
 
 ```{r activity-1-4}
 
@@ -185,19 +209,22 @@ c(x, 50)
 
 **QUESTION 1.1**
 
-Your turn to give it a try. Create a new vector that contains life_university, my_life_university, and 25.
+Your turn to give it a try. Create a new vector that contains `life_university`, `my_life_university`, and `25`. Store your result in a variable named `answer1.1`
 
-```{r question-1-1}
-answer1.1 <- #youranswer
-```
 
 ```{r answer-1-1}
+#answer1.1 <- ...
 ### BEGIN SOLUTION
 answer1.1 <- c(life_university, my_life_university, 25) 
 ### END SOLUTION
 ```
 
-One more cool thing before we go on: numeric vectors can be used in arithmetic expressions. Remembering the vector that we created earlier and assigned to the variable x? Let's have a look at it again.
+```{r test-1-1}
+# Test that the digested version matches.
+```
+
+
+One more cool thing before we go on: numeric vectors can be used in arithmetic expressions. Remembering the vector that we created earlier and assigned to the variable `x`? Let's have a look at it again.
 
 ```{r example-1-8}
 x
@@ -205,29 +232,33 @@ x
 
 **QUESTION 1.2**
 
-Here's a fun fact: those three numbers are actually pi, euler's number, and tau. But that's a story for another course! Type the following to see what happens: x * 2 + 100... Actually, **wait!** What do **you** think will be the result of doing that?
+Here's a fun fact: those three numbers are actually pi, euler's number, and tau. But that's a story for another course! Type the following to see what happens: `x * 2 + 100`... Actually, **wait!** What do **you** think will be the result of doing that?
 
 1: a vector of length three
 2: a single number (a vector of length 1)
 3: a vector of length 0 (i.e an empty vector)
 
+Assign your answer (`1`, `2`, or `3`) to a variable named `answer1.2`.
+
 ```{r question-1-2}
 answer1.2 <- #youranswer
-```
-
-```{r answer-1-2}
 ### BEGIN SOLUTION
 answer1.2 <- 1
 ### END SOLUTION
 ```
 
-Let's see what actually happens. Type x * 2 + 100 and press Enter.
+```{r answer-1-2}
+# Check that digest(as.numeric(answer1.2)) matches the digested answer.
+```
+
+
+Let's see what actually happens. Type `x * 2 + 100` and press Enter.
 
 ```{r activity-1-5}
 
 ```
 
-First, R multiplied each of the three elements in x by 2. Then, it added 100 to each element to get the result that you see.
+First, R multiplied each of the three elements in `x` by 2. Then, it added 100 to each element to get the result that you see.
 
 #### Logical vectors
 
@@ -237,51 +268,58 @@ Enough of university, let's talk about vacation! A group of friends are discussi
 
 **QUESTION 1.3**
 
-Create a vector that contains the values of Pablo, Dana, and Marianne's vacation days. Assign it to a variable named "vacation_time".
+Create a vector that contains the values of Pablo, Dana, and Marianne's vacation days, respectively. Assign it to a variable named `vacation_time`.
 
 ```{r question-1-3}
-
-```
-
-```{r answer-1-3}
+# vacation_time <- ...
 ### BEGIN SOLUTION
 vacation_time <- c(54, 14, 30)
 ### END SOLUTION
 ```
 
-**QUESTION 1.4**
-
-Part A: Which person was on vacation for more than 21600 minutes? First, create a numeric vector that multiplies the "vacation_time" vector by 1440 (the number of minutes in a day), to find out what each person's vacation time is *in minutes*. Assign this to a variable named "vacation_time_minutes".
-
-```{r question-1-4a}
-
+```{r test 1-3}
+# Test that the digested form matches.
 ```
 
-```{r answer-1-4a}
+
+**QUESTION 1.4**
+
+Which person was on vacation for more than 21600 minutes? First, create a numeric vector that multiplies the `vacation_time` vector by 1440 (the number of minutes in a day), to find out what each person's vacation time is *in minutes*. Assign this to a variable named `vacation_time_minutes`.
+
+```{r question-1-4}
+# vacation_time_minutes <- ...
 ### BEGIN SOLUTION
 vacation_time_minutes <- vacation_time * 1440
 ### END SOLUTION
 ```
 
-Part B: Now, create a variable called "under_21600" that gets the result of vacation_time_minutes > 21600, which is read as 'vacation_time_minutes is more than 21600'.
-
-```{r question-1-4b}
-
+```{r test-1-4}
+# Test that digested version matches.
 ```
 
-```{r answer-1-4b}
+**QUESTION 1.5**
+
+Now, create a variable called `under_21600` that gets the result of `vacation_time_minutes > 21600`, which is read as 'vacation_time_minutes is more than 21600'.
+
+```{r question-1-5}
+# under_21600 <- ...
 ### BEGIN SOLUTION
 under_21600 <- vacation_time_minutes > 21600
 ### END SOLUTION
 ```
 
-Have a look at the output of "under_21600" by typing the name and pressing Enter.
+```{r test-1-5}
+# Test their digested answer.
+```
+
+
+Have a look at the output of `under_21600` by typing the name and pressing Enter.
 
 ```{r activity-1-6}
 
 ```
 
-Congratulations! You've created your first **logical vector**. Logical vectors can contain the values TRUE, FALSE, and NA (for 'not available' - this happens when you have missing data!). These values are generated as the result of logical 'conditions'. We have seen the logical operator "greater than" in this activity, but there are [many more](https://www.statmethods.net/management/operators.html), such as "less than", "exactly equal to", or "not equal to". Don't worry, there will be plenty of time to use those in the future!
+Congratulations! You've created your first **logical vector**. Logical vectors can contain the values `TRUE`, `FALSE`, and `NA` (for 'not available' - this happens when you have missing data!). These values are generated as the result of logical 'conditions'. We have seen the logical operator "greater than" in this activity, but there are [many more](https://www.statmethods.net/management/operators.html), such as "less than", "exactly equal to", or "not equal to". Don't worry, there will be plenty of time to use those in the future!
 
 #### ...and more
 
@@ -296,27 +334,28 @@ length(x)
 
 ### 1.3.2 Dataframes
 
-Living in a vector-only world would be nice if all data analyses involved one variable. When we have more than one variable, data frames come to the rescue. Basically, a data frame holds data in tabular format. R has some data frames “built in”. For example, motor car data is attached to the variable name mtcars.
+Living in a vector-only world would be nice if all data analyses involved one variable. When we have more than one variable, data frames come to the rescue. Basically, a data frame holds data in tabular format. R has some data frames "built in". For example, motor car data is attached to the variable name mtcars.
 
-Print mtcars to screen. If I haven't mentioned before, "print" means to type the name of the object, and press Enter. Notice the tabular format.
+Print `mtcars` to screen. If I haven't mentioned before, "print" means to type the name of the object, and press Enter -- which is the same as surrounding the object with the `print()` function. Notice the tabular format.
 
 ```{r activity-1-7}
-
+mtcars
+print(mtcars)
 ```
 
 We will talk more about dataframes in just a bit, but for now, just keep in mind that they are one of the most used data structures in R - albeit more complex than vectors.
 
 ### 1.4 Subsetting
 
-Often, when you're working with a large dataset (such as mtcars), you will only be interested in a small portion of it. Even when working with a simpler data structure, such as vectors, you may want to extract a particular value that you are interested in. R has several ways of doing this, in a process that it calls "subsetting". Subsetting dataframes is definitely a more complex task - we will start little, with vectors.
+Often, when you're working with a large dataset (such as `mtcars`), you will only be interested in a small portion of it. Even when working with a simpler data structure, such as vectors, you may want to extract a particular value that you are interested in. R has several ways of doing this, in a process that it calls "subsetting". Subsetting dataframes is definitely a more complex task - we will start little, with vectors.
 
-A student from a previous STAT545 cohort tracked his commute times for two weeks (10 days), and saved them in a vector that he stored in the variable "times". Here is the "times" variable. 
+A student from a previous STAT545 cohort tracked his commute times for two weeks (10 days), and saved them in a vector that he stored in the variable `times`. Here is the `times` variable. 
 
 ```{r times}
 times <- c(18, 22, 43, 26, 75, 31, 32, 17, 16, 51)
 ```
 
-We use [] to subset the vector of times. Although we had a look at this in class, here are a couple examples to refresh your memory. To extract the first entry of a vector:
+We use `[]` to subset the vector of times. Although we had a look at this in class, here are a couple examples to refresh your memory. To extract the first entry of a vector:
 
 ```{r example-1-10}
 x[1]
@@ -328,107 +367,124 @@ And if I want to extract everything *but* the first entry:
 x[-1]
 ```
 
-You're doing a great job! Now, it's your turn to use [] to subset the vector of times. Keep it up!
+You're doing a great job! Now, it's your turn to use `[]` to subset the vector of times. Keep it up!
 
 **QUESTION 1.5**
 
-Extract the third entry.
+Extract the third entry of the `times` vector, and store the result in a variable named `answer1.5`.
 
 ```{r question-1-5}
-answer1.5 <- #youranswer
-```
-
-```{r answer-1-5}
+# answer1.5 <- ...
 ### BEGIN SOLUTION
 answer1.5 <- times[3]
 ### END SOLUTION
 ```
 
-**QUESTION 1.6**
-
-Extract everything except the third entry.
-
-```{r question-1-6}
-answer1.6 <- #youranswer
+```{r test-1-5}
+# Test digested version
 ```
 
-```{r answer-1-6}
+
+**QUESTION 1.6**
+
+Extract everything in `times` except the third entry. Store the result in a variable named `answer1.6`.
+
+```{r question-1-6}
+# answer1.6 <- ...
 ### BEGIN SOLUTION
 answer1.6 <- times[-3]
 ### END SOLUTION
 ```
 
-**QUESTION 1.7**
-
-Extract the second and fourth entry. The fourth and second entry. *Hint: remember c()?*
-
-```{r question-1-7}
-answer1.7a <- #youranswer
-answer1.7b <- #youranswer
+```{r test-1-6}
+# Test that digested version matches.
 ```
 
-```{r answer-1-7}
+
+**QUESTION 1.7**
+
+Extract the second and fourth entry of `times`, and store it in a variable called `answer1.7a`. Extract the fourth and second entry of `times`, and store it in a variable called `answer1.7b`. *Hint: remember c()?*
+
+```{r question-1-7}
+# answer1.7a <- ...
+# answer1.7b <- ...
 ### BEGIN SOLUTION
-answer1.7a <- times[c(2,4)]
-answer1.7b <- times[c(4,2)]
+answer1.7a <- times[c(2, 4)]
+answer1.7b <- times[c(4, 2)]
 ### END SOLUTION
 ```
 
-**QUESTION 1.8**
-
-Extract the second through fifth entry – make use of : to construct sequential vectors.
-
-```{r question-1-8}
-answer1.8 <- #youranswer
+```{r test-1-7}
+# Test against digested version of both
 ```
 
-```{r answer-1-8}
+
+
+**QUESTION 1.8**
+
+Extract the second through fifth entry of `times` – make use of `:` to construct sequential vectors. Store the result in a variable named `answer1.8`.
+
+```{r question-1-8}
+# answer1.8 <- ...
 ### BEGIN SOLUTION
 answer1.8 <- times[2:5]
 ### END SOLUTION
 ```
 
-**QUESTION 1.9**
-
-Extract all entries that are less than 30 minutes. Why does this work? Logical subsetting!
-
-```{r question-1-9}
-answer1.9 <- #youranswer
+```{r test-1-8}
+# Test digested version.
 ```
 
-```{r answer-1-9}
+
+**QUESTION 1.9**
+
+Extract all entries of `times` that are less than 30 minutes. Why does this work? Logical subsetting!
+
+```{r question-1-9}
+# answer1.9 <- ...
 ### BEGIN SOLUTION
 answer1.9 <- times < 30
 ### END SOLUTION
 ```
 
+```{r test-1-9}
+# Test digested version
+```
+
+
 **QUESTION 1.10**
 
-After all of that, do you think that the "times" object changed at all?
+After all of that, did the `times` object change at all?
 
 1: yes
 2: no
 3: not sure
 
-```{r question-1-10}
-answer1.10 <- #youranswer
-```
+Store your answer in an object called `answer1.10`.
 
-```{r answer-1-10}
+```{r question-1-10}
+#answer1.10 <- ...
 ### BEGIN SOLUTION
 answer1.10 <- 2
 ### END SOLUTION
 ```
 
-This is a bit of challenge, but I bet you can do it. Try using [] in conjunction with <- to change the times objects by replacing any 2 entries with 2 new travel times of your choosing.
+**QUESTION 1.11**
 
-```{r activity-1-8}
+This is a bit of challenge, but I bet you can do it. Try using `[]` in conjunction with `<-` to change the `times` objects by replacing the 2nd and 3rd entries with 2 new travel times of your choosing.
 
-```
-
-```{r results-1-8}
+```{r question-1-11}
+# your answer here
+### BEGIN SOLUTION
 times[c(2,3)] <- c(10, 12) # as an example, your answer could be different!
+### END SOLUTION
 ```
+
+```{r test-1-11}
+# Test that `times` still has length 10, and that the entries are the
+# same except for the 2nd and 3rd.
+```
+
 
 ### 1.6 Functions
 
