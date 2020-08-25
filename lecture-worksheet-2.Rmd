@@ -1,5 +1,5 @@
 ---
-title: "Lecture Worksheet 2: Data Wrangling I and ggplot I"
+title: "Lecture Worksheet 2: Data Wrangling I and ggplot2 I"
 author: "Icíar Fernández Boyano"
 date: "22/08/2020"
 output: html_document
@@ -31,13 +31,15 @@ What's the first thing that you should do when you're starting a project with a 
 
 In part A of this worksheet, you will learn how to answer these questions and more using dplyr.
 
-Load the `palmerpenguins` and `tidyverse` packages. Hint: `suppressPackageStartupMessages()`!
+Load the `palmerpenguins`, `tidyverse`, `testthat`, and `digest` packages. Hint: `suppressPackageStartupMessages()`!
     - This loads `dplyr`, too.
 
 ```{r load packages, warning = FALSE, message = FALSE}
 # load your packages here:
 library(FILL_THIS_IN)
 library(FILL_THIS_IN)
+library(FILL_THIS_IN)
+library(FILL_THIS_in)
 ```
 
 [Palmer penguins](https://github.com/hadley/palmerpenguins) is an R data package created by Allison Horst. Data were collected and made available by Dr. Kristen Gorman and the Palmer Station, Antarctica LTER, a member of the Long Term Ecological Research Network. The dataset that we will be using is stored in a variable called "penguins". It is a subset of the "penguins_raw" dataset, also included in this R package. Let's have a look at it.
@@ -77,13 +79,17 @@ In the dim() function, what is the first number that you see?
 2: columns
 
 ```{r question-1-0}
-answer1.0 <- #youranswer
-```
+# answer1.0 <- youranswer
 
-```{r answer-1-0}
 ### BEGIN SOLUTION
 answer1.0 <- 1
 ### END SOLUTION
+```
+
+```{r test-1-0}
+test_that("Question 1.0", {
+    expect_equal(digest(as.numeric(answer1.0)), "6717f2823d3202449301145073ab8719")
+})
 ```
 
 ## Exploring further: Five cornerstones of dplyr
@@ -109,30 +115,41 @@ A quick tip that you can put into practice: use *Pascal case* - creating names b
 In the next few questions, you will practice using the dplyr verb select() to pick and modify variables by their names. Make a data frame containing the columns `species`, `island`, `sex` from the penguins data, in that order.
 
 ```{r question-1-1}
-answer1.1 <- select(penguins, FILL_THIS_IN)
-```
+# answer1.1 <- select(penguins, FILL_THIS_IN)
 
-```{r answer-1-1}
 ### BEGIN SOLUTION
-answer1.1 <- select(penguins, c("species", "island", "sex"))
+answer1.1 <- select(penguins, c(species, island, sex))
 ### END SOLUTION
 ```
+
+```{r test-1-1}
+test_that("Question 1.1", {
+    expect_equal(digest(as_tibble(answer1.1)), "0df5cac5070ec518519a6f2781f4e01f")
+})
+
+# not sure if this is correct, a bit confused as to how to write tests for tibbles... i did digest::digest(answer1.1) manually and copied the code
+```
+
 
 Out of the following options, what would be the best name for the object that you just created above (currently stored in "answer1.1")?
 
-1: MyPenguinsDataframe
+1: _penguin_subset
 2: penguins
-3: pngnsubset
+3: 2penguin
 4: PngnSub
 
 ```{r question-1-1a}
-answer1.1a <- #youranswer
-```
+# answer1.1a <- youranswer
 
-```{r answer-1-1a}
 ### BEGIN SOLUTION
 answer1.1a <- 4
 ### END SOLUTION
+```
+
+```{r test-1-1a}
+test_that("Question 1.1a", {
+    expect_equal(digest(as.numeric(answer1.1a)), "dbc09cba9fe2583fb01d63c70e1555a8")
+})
 ```
 
 **QUESTION 1.2**
@@ -144,31 +161,59 @@ Select all variables, from `bill_length_mm` to `body_mass_g`. Of course, you cou
 select(penguins, bill_length_mm, bill_depth_mm, flipper_length_mm, body_mass_g)
 ```
 
-But there is a better way to do it!
+But there is a better way to do it! Which do you think would work?
+
+1: select(penguins, body_mass_g:bill_length_mm)
+2: select(penguins, c(body_mass_g::bill_length_mm))
+3: select(penguins, bill_length_mm:body_mass_g)
+4: select(penguins, bill_length_mm::body_mass_g)
 
 ```{r question-1-2}
-# Better way:
-answer1.2 <- select(penguins, FILL_THIS_IN)
+# answer1.2 <- youranswer
+
+### BEGIN SOLUTION
+answer1.2 <- 3
+### END SOLUTION
 ```
 
-```{r answer-1-2}
-### BEGIN SOLUTION
-answer1.2 <- select(penguins, bill_length_mm:body_mass_g)
-### END SOLUTION
+```{r test-1-2}
+test_that("Question 1.2", {
+    expect_equal(digest(as.numeric(answer1.2)), "e5b57f323c7b3719bbaaf9f96b260d39")
+})
+```
+
+Now run the code yourself to see the output!
+
+```{r}
+# your code here
 ```
 
 **QUESTION 1.3**
 
-You're doing a great job. Keep it up! Now, select all variables, except `island`.
+You're doing a great job. Keep it up! Now, select all variables, except `island`. How would you write this code?
+
+1: select(penguins, -c("island"))
+2: select(penguins, -island)
+3: select(penguins, -("island"))
 
 ```{r question-1-3}
-answer1.3 <- select(penguins, FILL_THIS_IN)
+# answer1.3 <- youranswer
+
+### BEGIN SOLUTION
+answer1.3 <- 2
+### END SOLUTION
 ```
 
-```{r answer-1-3}
-### BEGIN SOLUTION
-answer1.3 <- select(penguins, -island)
-### END SOLUTION
+```{r test-1-3}
+test_that("Question 1.3", {
+    expect_equal(digest(as.numeric(answer1.3)), "db8e490a925a60e62212cefc7674ca02")
+})
+```
+
+Your turn to write the code and see the output.
+
+```{r}
+# your code here
 ```
 
 **QUESTION 1.4**
@@ -176,13 +221,15 @@ answer1.3 <- select(penguins, -island)
 Put `year` first. Hint: use the `everything()` function.
 
 ```{r question-1-4}
-answer1.4 <- select(penguins, FILL_THIS_IN, FILL_THIS_IN)
-```
+# answer1.4 <- select(penguins, FILL_THIS_IN, FILL_THIS_IN)
 
-```{r answer-1-4}
 ### BEGIN SOLUTION
 answer1.4 <- select(penguins, year, everything())
 ### END SOLUTION
+```
+
+```{r test-1-4}
+# test that there are 344 rows and 8 columns, which are in the following order: year, species, island, bill_length_mm, bill_depth_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex
 ```
 
 **QUESTION 1.5**
@@ -190,13 +237,15 @@ answer1.4 <- select(penguins, year, everything())
 Rename `flipper_length_mm` to `length_flipper_mm`.
 
 ```{r question-1-5}
-answer1.5 <- rename(FILL_THIS_IN, FILL_THIS_IN)
-```
+# answer1.5 <- rename(FILL_THIS_IN, FILL_THIS_IN)
 
-```{r answer-1-5}
 ### BEGIN SOLUTION
 answer1.5 <- rename(penguins, c(length_flipper_mm = "flipper_length_mm"))
 ### END SOLUTION
+```
+
+```{r test-1-5}
+# check that there are 344 rows and 8 columns: year, species, island, bill_length_mm, bill_depth_mm, bill_depth_mm, length_flipper_mm, body_mass_g, sex
 ```
 
 ### `filter()` 
@@ -208,13 +257,15 @@ So far, we've practiced picking variables by their name with select(). But how a
 Pick penguins with body mass greater than 3600 g.
 
 ```{r question-1-6}
-answer1.6 <- filter(FILL_THIS_IN, FILL_THIS_IN)
-```
+# answer1.6 <- filter(FILL_THIS_IN, FILL_THIS_IN)
 
-```{r answer-1-6}
 ### BEGIN SOLUTION
 answer1.6 <- filter(penguins, body_mass_g > 3600)
 ### END SOLUTION
+```
+
+```{r test-1-6}
+# test for an object that is 245 rows by 8 columns and that there are no entries in the body_mass_g column that is >3600
 ```
 
 In question 1.6 above, you've created a subset of the `penguins` dataset by filtering for those penguins that have a body mass greater than 3600 g. Let's do a quick check to see how many penguins meet that threshold by comparing the dimensions of the `penguins` dataset and your subset, `answer1.6`. Do you remember how to check the dimensions of a dataframe? Hint: there are two different ways to do this. 
@@ -236,27 +287,31 @@ penguins3600 <- answer1.6
 From your "new" dataset, take only data from penguins located in the Biscoe island.
 
 ```{r question-1-7}
-answer1.7 <- filter(FILL_THIS_IN, FILL_THIS_IN)
-```
+# answer1.7 <- filter(FILL_THIS_IN, FILL_THIS_IN)
 
-```{r answer-1-7}
 ### BEGIN SOLUTION 
 answer1.7 <- filter(penguins3600, island == "Biscoe")
 ### END SOLUTION
 ```
 
-**QUESTION 1.8**
-
-Repeat the task from question 1.7, but take data from islands Torgersen and Dream. Now that you've practiced with dplyr verbs quite a bit, you don't need as many prompts to answer! Hint: use c().
-
-```{r question-1-8}
-answer1.8 <- #youranswer
+```{r test-1-7}
+# test for an object that is 148 rows by 8 columns and that all entries in the island column are "Biscoe"
 ```
 
-```{r answer-1-8}
+**QUESTION 1.8**
+
+Repeat the task from question 1.7, but take data from islands Torgersen and Dream. Now that you've practiced with dplyr verbs quite a bit, you don't need as many prompts to answer! Hint: When you want to select more than one island, you use %in% instead of =.
+
+```{r question-1-8}
+# answer1.8 <- youranswer
+
 ### BEGIN SOLUTION
-answer1.8 <- filter(penguins3600, island == c("Torgersen", "Dream"))
+answer1.8 <- filter(penguins3600, island %in% c("Torgersen", "Dream"))
 ### END SOLUTION
+```
+
+```{r test-1-8}
+# test for an object that is 97 rows by 8 columns and that 28 entries in the island column are "Torgersen", and 69 of them are "Dream"
 ```
 
 ### `arrange()` 
@@ -265,16 +320,18 @@ Arrange() allows you to rearrange rows. Let's give it a try!
 
 **QUESTION 1.9**
 
-Order `penguins` by year.
+Order `penguins` by year, in ascending order.
 
 ```{r question-1-9}
-answer1.9 <- arrange(FILL_THIS_IN, FILL_THIS_IN)
-```
+# answer1.9 <- arrange(FILL_THIS_IN, FILL_THIS_IN)
 
-```{r answer-1-9}
 ### BEGIN SOLUTION
 answer1.9 <- arrange(penguins, year)
 ### END SOLUTION
+```
+
+```{r test-1-9}
+# test that year column is in ascending order, not sure if this is possible?
 ```
 
 **QUESTION 1.10**
@@ -282,27 +339,31 @@ answer1.9 <- arrange(penguins, year)
 Great work! Order `penguins` by year, in descending order. Hint: there is a function that allows you to order a variable in descending order...
 
 ```{r question-1-10}
-answer1.10 <- arrange(FILL_THIS_IN, FILL_THIS_IN)
-```
+# answer1.10 <- arrange(FILL_THIS_IN, FILL_THIS_IN)
 
-```{r answer-1-10}
 ### BEGIN SOLUTION
 answer1.10 <- arrange(penguins, desc(year))
 ### END SOLUTION
 ```
 
-**QUESTION 1.11**
-
-Order `penguins` by year, then by body_mass_g.
-
-```{r question-1-11}
-answer1.11 <- arrange(FILL_THIS_IN, FILL_THIS_IN, FILL_THIS_IN)
+```{r test-1-10}
+# test that year column is in descending order, not sure if this is possible?
 ```
 
-```{r answer-1-11}
+**QUESTION 1.11**
+
+Order `penguins` by year, then by body_mass_g. Use ascending order in both cases.
+
+```{r question-1-11}
+# answer1.11 <- arrange(FILL_THIS_IN, FILL_THIS_IN, FILL_THIS_IN)
+
 ### BEGIN SOLUTION
 answer1.11 <- arrange(penguins, year, body_mass_g)
 ### END SOLUTION
+```
+
+```{r test-1-11}
+# again, not sure if it's possible to test the order of the columns... what else could we test for?
 ```
 
 ### Piping, `%>%` 
@@ -338,32 +399,37 @@ The general syntax is: mutate(tibble, NEW_COLUMN_NAME = CALCULATION).
 Make a new column with body mass in kg, named `body_mass_kg`, *and* rearrange the tibble so that `body_mass_kg` goes after `body_mass_g` and before `sex`. Hint: within select(), use R's `:` operator to select all variables from `species` to `body_mass_g`.
 
 ```{r question-1-12}
-answer1.12 <- 
-penguins %>%
-  mutate(FILL_THIS_IN = FILL_THIS_IN) %>%
-  select(FILL_THIS_IN, FILL_THIS_IN, FILL_THIS_IN, FILL_THIS_IN)
-```
+# answer1.12 <- 
+# penguins %>%
+# mutate(FILL_THIS_IN = FILL_THIS_IN) %>%
+# select(FILL_THIS_IN, FILL_THIS_IN, FILL_THIS_IN, FILL_THIS_IN)
 
-```{r answer-1-12}
 ### BEGIN SOLUTION
 answer1.12 <- 
 penguins %>%
-  mutate(body_mass_kg = body_mass_g/1000) %>%
+  mutate(body_mass_kg = body_mass_g / 1000) %>%
   select(species:body_mass_g, body_mass_kg, sex, year)
 ### END SOLUTION
 ```
 
-Have a look at answer1.12 to see what the changes you made look like.
+```{r test-1-12}
+# test for an object that is 344 by 9, and where the column order is:
+# [1] "species"           "island"            "bill_length_mm"   
+# [4] "bill_depth_mm"     "flipper_length_mm" "body_mass_g"      
+# [7] "body_mass_kg"      "sex"               "year" 
+```
+
+Have a look at `answer1.12` to see what the changes you made look like.
 
 ```{r}
-answer1.12
+# your code here
 ```
 
 Notice the backwards compatibility! No need for loops! Now, try the same thing, but with `transmute` (drops all other variables). 
 
 ```{r}
-penguins %>%
-  transmute(FILL_THIS_IN = FILL_THIS_IN)
+# penguins %>%
+#  transmute(FILL_THIS_IN = FILL_THIS_IN)
 ```
 
 ### `summarise()`
@@ -374,7 +440,11 @@ The last key verb is summarise(). It collapses a data frame to a single row:
 summarise(penguins, body_mass_mean = mean(body_mass_g, na.rm = TRUE))
 ```
 
-*From R4DS Data Transformation:* "summarise() is not terribly useful unless we pair it with group_by(). This changes the unit of analysis from the complete dataset to individual groups. Then, when you use the dplyr verbs on a grouped data frame they’ll be automatically applied “by group”." For example, if we applied exactly the same code to a data frame grouped by island, we get the average body mass per island:
+*From R4DS Data Transformation:* 
+
+> "summarise() is not terribly useful unless we pair it with group_by(). This changes the unit of analysis from the complete dataset to individual groups. Then, when you use the dplyr verbs on a grouped data frame they’ll be automatically applied "by group"." 
+
+For example, if we applied exactly the same code to a data frame grouped by island, we get the average body mass per island:
 
 ```{r}
 penguins %>%
@@ -387,10 +457,8 @@ penguins %>%
 Try the same thing as in the example above, but this time grouping the penguins by year, and then island.
 
 ```{r question-1-13}
-answer1.13 <- #youranswer
-```
+# answer1.13 <- youranswer
 
-```{r answer-1-13}
 ### BEGIN SOLUTION
 answer1.13 <- 
   penguins %>%
@@ -399,20 +467,24 @@ answer1.13 <-
 ### END SOLUTION
 ```
 
+```{r test-1-13}
+# test that output is 9 by 3, and columns are: "year"           "island"         "body_mass_mean"
+```
+
 ## Creating tibbles
 
 Throughout Part A, we have been working with a tibble, `penguins`. Remember that when we ran 'class()' on `penguins`, we could see that it was a dataframe that had been coerced to a tibble, which is a unifying feature of the tidyverse.
 
-Suppose that you have a dataframe that you want to coerce to a tibble. To do this, you can use "as_tibble()". R comes with a few built-in datasets, one of which is `iris`. Check the class of `iris` below.
+Suppose that you have a dataframe that you want to coerce to a tibble. To do this, you can use "as_tibble()". R comes with a few built-in datasets, one of which is `mtcars`. Check the class of `mtcars` below.
 
 ```{r}
-# check here
+# your code here
 ```
 
-As you can see, iris is a dataframe. Now, coerce it to a tibble with as_tibble().
+As you can see, mtcars is a dataframe. Now, coerce it to a tibble with as_tibble().
 
 ```{r}
-as_tibble(iris)
+as_tibble(mtcars)
 ```
 
 You can read more about tibbles in the [R4DS Tibble Chapter](https://r4ds.had.co.nz/tibbles.html#creating-tibbles).
@@ -424,8 +496,8 @@ You can read more about tibbles in the [R4DS Tibble Chapter](https://r4ds.had.co
 Load the package `gapminder` with library(). Check the class of the `gapminder` dataset.
 
 ```{r}
-library(FILL_THIS_IN)
-class(FILL_THIS_IN)
+# library(FILL_THIS_IN)
+# class(FILL_THIS_IN)
 ```
 
 As you can see, it has already been coerced to a tibble.
@@ -433,10 +505,10 @@ As you can see, it has already been coerced to a tibble.
 Take all countries in Europe that have a GDP per capita greater than 10000, and select all variables except `gdpPercap`, using pipes. (Hint: use `-`).
 
 ```{r question-1-14}
-answer1.14 <- #youranswerhere
-```
+# answer1.14 <- FILL_THIS_IN %>%
+#   filter(FILL_THIS_IN > 10000) %>%
+#   FILL_THIS_IN(-FILL_THIS_IN)
 
-```{r answer-1-14}
 ### BEGIN SOLUTION
 answer1.14 <-
   gapminder %>%
@@ -445,19 +517,26 @@ answer1.14 <-
 ### END SOLUTION
 ```
 
+```{r test-1-14}
+# test that 392 by 5 and that all gdpPercap > 10000
+colnames(answer1.14)
+```
+
 **QUESTION 1.15**
 
-Coerce the `iris` data frame to a tibble, and take all columns that start with the word "Petal". 
+Coerce the `mtcars` data frame to a tibble, and take all columns that start with the letter "d". 
     - Hint: take a look at the "Select helpers" documentation by running the following code: `?tidyselect::select_helpers`.
     
 ```{r question-1-15}
-answer1.15 <- 
+# answer1.15 <- #youranswer
+
+### BEGIN SOLUTION
+answer1.15 <- as_tibble(mtcars) %>% select(starts_with("d"))
+### END SOLUTION
 ```
 
-```{r answer-1-15}
-### BEGIN SOLUTION
-answer1.15 <- as_tibble(iris) %>% select(starts_with("Petal"))
-### END SOLUTION
+```{r test-1-15}
+# test for a 32 by 2 tibble where columns are "disp", "drat" in that order
 ```
 
 This exercise is from [r-exercises](https://www.r-exercises.com/2017/10/19/dplyr-basic-functions-exercises/).
@@ -480,7 +559,7 @@ suppressPackageStartupMessages(library(tsibble))
 
 ## Grammar of Graphics
 
-Before we start, here is the [ggplot2 cheatsheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf). When you're coding on your own (i.e. working on your own project outside of class), cheatsheets are one of the most common resources that you'll continuously revisit. 
+Before we start, here is the [ggplot2 cheatsheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf). When you're coding on your own (i.e. working on your own project outside of class), cheatsheets are one of the most common resources that you'll continuously revisit.
 
 Consider the following plot. Don't concern yourself with the code at this point.
 
@@ -493,17 +572,60 @@ gapminder %>%
   theme_bw()
 ```
 
-Fill in the seven grammar components for this plot. 
+**QUESTION 2.0**
+
+Fill in the seven grammar components for this plot. Choose the best option:
+
+1:
 
 | Grammar Component     | Specification |
 |-----------------------|---------------|
 | __data__              | `gapminder` |
-| __aesthetic mapping__ | FILL_THIS_IN |
-| __geometric object__  | FILL_THIS_IN |
-| scale                 | FILL_THIS_IN |
-| statistical transform | FILL_THIS_IN |
-| coordinate system     | FILL_THIS_IN |
-| facetting             | FILL_THIS_IN |
+| __aesthetic mapping__ | `continent` |
+| __geometric object__  | `bars` |
+| scale                 | `logarithmic` |
+| statistical transform | `none` |
+| coordinate system     | `rectangular` |
+| facetting             | `none` |
+
+2:
+
+| Grammar Component     | Specification |
+|-----------------------|---------------|
+| __data__              | `gapminder` |
+| __aesthetic mapping__ | `continent` |
+| __geometric object__  | `bars` |
+| scale                 | `linear` |
+| statistical transform | `none` |
+| coordinate system     | `rectangular` |
+| facetting             | `none` |
+
+3:
+
+| Grammar Component     | Specification |
+|-----------------------|---------------|
+| __data__              | `gapminder` |
+| __aesthetic mapping__ | `year` |
+| __geometric object__  | `bars` |
+| scale                 | `linear` |
+| statistical transform | `none` |
+| coordinate system     | `rectangular` |
+| facetting             | `none` |
+
+
+```{r}
+# answer2.0 <- youranswerhere
+
+### BEGIN SOLUTION
+answer2.0 <- 2
+### END SOLUTION
+```
+
+```{r}
+test_that("Question 2.0", {
+    expect_equal(digest(as.numeric(answer2.0)), "db8e490a925a60e62212cefc7674ca02")
+})
+```
 
 Look at this plot instead.
 
@@ -515,7 +637,7 @@ ggplot(gapminder, aes(gdpPercap, lifeExp)) +
   ylab("Life Expectancy")
 ```
 
-**QUESTION 2.0**
+**QUESTION 2.1**
 
 What is the aesthetic mapping in this plot?
 
@@ -525,13 +647,17 @@ What is the aesthetic mapping in this plot?
 4: "Life Expectancy"
 
 ```{r question-2-1}
-answer2.0 <- #youranswer
+# answer2.1 <- youranswer
+
+### BEGIN SOLUTION
+answer2.1 <- 2
+### END SOLUTION
 ```
 
-```{r answer-2-1}
-### BEGIN SOLUTION
-answer2.0 <- 2
-### END SOLUTION
+```{r test-2-1}
+test_that("Question 2.1", {
+    expect_equal(digest(as.numeric(answer2.1)), "db8e490a925a60e62212cefc7674ca02")
+})
 ```
 
 ## `ggplot2` Syntax 
@@ -545,7 +671,7 @@ Execute this code to store the data in `mauna`:
    rename(month = index, conc = value))
 ```
 
-**QUESTION 2.1**
+**QUESTION 2.2**
 
 Produce a line chart showing the concentration over time. Specifically, the plot should have the following grammar components:
 
@@ -561,22 +687,24 @@ Produce a line chart showing the concentration over time. Specifically, the plot
 
 Fill in the blanks to obtain the plot:
 
-```{r, question-2-1}
-answer2.1 <- ggplot(FILL_THIS_IN, aes(FILL_THIS_IN, FILL_THIS_IN)) +
-  FILL_THIS_IN()
+```{r, question-2-2}
+# answer2.2 <- ggplot(FILL_THIS_IN, aes(FILL_THIS_IN, FILL_THIS_IN)) +
+# FILL_THIS_IN()
+
+### BEGIN SOLUTION
+answer2.2 <- ggplot(mauna, aes(x = month, y = conc) + geom_line())
+### END SOLUTION
 ```
 
-```{r answer-2-1}
-### BEGIN SOLUTION
-answer2.1 <- ggplot(mauna, aes(x = month, y = conc))
-### END SOLUTION
+```{r test-2-2}
+# test that the aesthetics of the plot are aes(x = month, y = conc) and geom_line()
 ```
 
 ```{r fig.width = 5, fig.height = 2}
 # print plot to screen here
 ```
 
-**QUESTION 2.2**
+**QUESTION 2.3**
 
 It turns out that you're allowed to specify the aesthetic mappings in a `geom` layer instead of, or in addition to, in the `ggplot()` function, with the following rules:
 
@@ -585,32 +713,40 @@ It turns out that you're allowed to specify the aesthetic mappings in a `geom` l
 
 The following code mistakenly puts the month variable on the y-axis. Fill in the `FILL_THIS_IN` so that you still obtain the same result as above.
 
-```{r question-2-2}
-answer2.2 <-
-ggplot(mauna, aes(y = month)) +
-  geom_point(aes(FILL_THIS_IN))
+```{r question-2-3}
+# answer2.3 <-
+# ggplot(mauna, aes(y = month)) +
+# geom_point(aes(FILL_THIS_IN))
 
 ### BEGIN SOLUTION 
-answer2.2 <-
+answer2.3 <-
 ggplot(mauna, aes(y = month)) +
   geom_point(aes(x = month))
 ### END SOLUTION
 ```
 
-**QUESTION 2.3**
+```{r test-2-3}
+# test for the plot aesthetics
+```
 
-You can store the output of the plot in a variable, too. The plot that you created in 2.2 is stored in the variable `answer2.2`. Add a layer to `answer2.2` that adds green points to the plot. 
+**QUESTION 2.4**
 
-```{r question-2-3}
-answer2.3 <-
-answer2.2 +
+You can store the output of the plot in a variable, too. The plot that you created in 2.3 is stored in the variable `answer2.2`. Add a layer to `answer2.2` that adds green points to the plot. 
+
+```{r question-2-4}
+answer2.4 <-
+answer2.3 +
   FILL_THIS_IN(colour = FILL_THIS_IN)
 
 ### BEGIN SOLUTION
-answer2.3 <-
-answer2.2 +
+answer2.4 <-
+answer2.3 +
   geom_point(colour = "green")
 ### END SOLUTION
+```
+
+```{r test-2-4}
+# test for the plot aesthetics
 ```
 
 Have a look at the plot!
@@ -619,27 +755,31 @@ Have a look at the plot!
 # print the plot to screen
 ```
 
-**QUESTION 2.4**
+**QUESTION 2.5**
 
 Can you fix what is wrong with the following code?
 
-```{r question-2-4}
-answer2.4 <-
-ggplot(gapminder) +
-  geom_point(x = gdpPercap, y = lifeExp, alpha = 0.1)
+```{r question-2-5}
+# answer2.5 <-
+# ggplot(gapminder) +
+#  geom_point(x = gdpPercap, y = lifeExp, alpha = 0.1)
 
 ### BEGIN SOLUTION
-answer2.4 <-
+answer2.5 <-
 ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) +
   geom_point(alpha = 0.1)
 ### END SOLUTION
+```
+
+```{r test-2-5}
+# test for the plot aesthetics
 ```
 
 ```{r, fig.width = 5, fig.height = 2}
 # print to screen
 ```
 
-**QUESTION 2.5**
+**QUESTION 2.6**
 
 So you're a ggplot2 pro? Then, let's see this plot adapted to polar coordinates. Specifically:
 
@@ -648,13 +788,13 @@ So you're a ggplot2 pro? Then, let's see this plot adapted to polar coordinates.
 
 The plot should look like a spiral, or concentric circles. 
 
-```{r question-2-5}
-FILL_THIS_IN
+```{r question-2-6}
+# FILL_THIS_IN
 ```
 
 Remember the `penguins` dataset that we worked with in Part A of the worksheet? Let's try visualizing some of that data.
 
-**QUESTION 2.6**
+**QUESTION 2.7**
 
 There are many questions that you may want to ask about the `penguins` dataset. Often, exploring relationships between variables is one of the first steps when exploring your data. Scatterplots are a great way to visualize this. 
 
@@ -665,15 +805,15 @@ Let's explore the relationship between flipper length and body mass (if any!). I
 - Set the size of the points to 3, and the alpha (transparency) to 0.8.
 - 
 
-```{r question-2-6}
-answer2.6 <- 
-  ggplot(data = FILL_THIS_IN, aes(x = FILL_THIS_IN, y = FILL_THIS_IN)) +
-  geom_point(aes(color = FILL_THIS_IN),
-             size = FILL_THIS_IN,
-             alpha = FILL_THIS_IN) 
+```{r question-2-7}
+# answer2.7 <- 
+#  ggplot(data = FILL_THIS_IN, aes(x = FILL_THIS_IN, y = FILL_THIS_IN)) +
+#  geom_point(aes(color = FILL_THIS_IN),
+#             size = FILL_THIS_IN,
+#             alpha = FILL_THIS_IN) 
 
 ### BEGIN SOLUTION
-answer2.6 <- 
+answer2.7 <- 
   ggplot(data = penguins,
                     aes(x = flipper_length_mm, y = body_mass_g)) +
   geom_point(aes(color = species),
@@ -682,21 +822,25 @@ answer2.6 <-
 ### END SOLUTION
 ```
 
-Now, print answer2.6 to screen to see your plot!
+```{r test-2-7}
+# test for the plot aesthetics
+```
+
+Now, print `answer2.7` to screen to see your plot!
 
 ```{r}
 # print to screen
 ```
 
-**QUESTION 2.7**
+**QUESTION 2.8**
 
 Try the same as in 2.7 (flipper length vs. body mass), but this time coloring by island! See if you can write the code without looking at the last question.
 
-```{r question/2/7}
-answer2.7 <- #youranswer
+```{r question-2-8}
+# answer2.8 <- youranswer
 
 ### BEGIN SOLUTION
-answer2.7 <- 
+answer2.8 <- 
   ggplot(data = penguins,
                     aes(x = flipper_length_mm, y = body_mass_g)) +
   geom_point(aes(color = island),
@@ -705,64 +849,75 @@ answer2.7 <-
 ### END SOLUTION
 ```
 
-Print answer2.7 to screen to see the plot!
-
-```{r}
-# print here
+```{r test-2-8}
+# test for the plot aesthetics 
 ```
 
-**QUESTION 2.8**
+Print `answer2.7` to screen to see the plot!
+
+```{r}
+# your code here
+```
+
+**QUESTION 2.9**
 
 Suppose you want to visualize the number of penguins per island. It seems that a bar chart could be useful for this purpose. Give it a try! Hint: bar charts only need specifying one axis (use the x axis).
 
-```{r question-2-8}
-answer2.8 <- ggplot(penguins, aes(FILL_THIS_IN)) + FILL_THIS_IN()
+```{r question-2-9}
+# answer2.9 <- ggplot(penguins, aes(FILL_THIS_IN)) + FILL_THIS_IN()
 
 ### BEGIN SOLUTION
-answer2.8 <- ggplot(penguins, aes(x = island)) + geom_bar()
+answer2.9 <- ggplot(penguins, aes(x = island)) + geom_bar()
 ### END SOLUTION
+```
+
+```{r test-2-9}
+# test for the plot aesthetics 
 ```
 
 Print the plot to screen to see the penguin distribution across different islands.
 
 ```{r}
-# print here
+# your code here
 ```
 
 Try plotting the same graph, but specifying the y axis coordinate instead. What does it look like?
 
 ```{r}
-# plot here
+# your code here
 ```
 
 Great job! Bar plots can be plotted in either way. Here is another handy way to flip the coordinates, instead of plotting the graph again.
 
 ```{r}
-# take answer2.8, which stores the vertical graph, and add coord_flip()
-answer2.8 + coord_flip()
+# take answer2.9, which stores the vertical graph, and add coord_flip()
+# answer2.9 + coord_flip()
 ```
 
 You get the same result!
 
-**QUESTION 2.9**
+**QUESTION 2.10**
 
 Maybe you want to explore the distribution of body mass. Exploring the distribution is one of the most important things when looking at data; different models have different assumptions, and the distribution of data is usually one of those assumptions. No need to worry about models for now, but it's interesting to know ways in which you can explore distribution visually! Histograms are useful for this purpose.
 
-```{r question-2-9}
-answer2.9 <-
-ggplot(FILL_THIS_IN, aes(x = FILL_THIS_IN)) +
-  geom_histogram()
+```{r question-2-10}
+# answer2.10 <-
+# ggplot(FILL_THIS_IN, aes(x = FILL_THIS_IN)) +
+#  geom_histogram()
 
 ### BEGIN SOLUTION
-answer2.9 <-
+answer2.10 <-
 ggplot(penguins, aes(x = body_mass_g)) +
   geom_histogram()
 ### END SOLUTION
 ```
 
+```{r test-2-10}
+# test for plot aesthetics
+```
+
 ```{r}
-# print to screen
-answer2.9
+# your code here
 ```
 
 Visualizing the distribution of body mass across all data is great, but a more interesting question may be what the body mass distribution is by species. We can achieve this easily by adding to the code:
@@ -779,12 +934,12 @@ ggplot(penguins, aes(x = body_mass_g, fill = species)) +
   geom_histogram(binwidth = 50)
 ```
 
-**QUESTION 2.10**
+**QUESTION 2.11**
 
 Stacked histograms still look a little awkward. When we want to visualize distributions of the data by variable in a single graph, density plots look better in terms of variables not obscuring one another. Try it yourself! Hint: Use `color` or `colour` instead of `fill` for aesthetic mapping. 
 
-```{r question-2-10}
-answer2.10 <- ggplot(COMPLETE_THE_CODE) + geom_density()
+```{r question-2-11}
+# answer2.11 <- ggplot(COMPLETE_THE_CODE) + geom_density()
 
 ### BEGIN SOLUTION
 answer2.11 <- 
@@ -793,44 +948,56 @@ ggplot(penguins, aes(x = body_mass_g, color = species)) +
 ### END SOLUTION
 ```
 
+```{r test-2-11}
+# test for plot aesthetics
+```
+
 See what the plot looks like now.
 
 ```{r}
 # print to screen
 ```
 
-**QUESTION 2.11**
+**QUESTION 2.12**
 
 Let's look at two more types of plot to once again explore the relationship between body mass and penguin species. Stripplots are univariate scatterplots, and they are a useful way of visualizing how, in this case, body mass is spread in each species. Specify "species" as x, and "body_mass_g" as y.
 
-```{r question-2-11}
-answer2.11 <-
-  ggplot(FILL_THIS_IN, aes(COMPLETE_THE_CODE)) + geom_jitter()
+```{r question-2-12}
+# answer2.12 <-
+#  ggplot(FILL_THIS_IN, aes(COMPLETE_THE_CODE)) + geom_jitter()
 
 ### BEGIN SOLUTION
-answer2.11 <- 
+answer2.12 <- 
   ggplot(penguins, aes(x = species, y = body_mass_g)) + geom_jitter()
 ### END SOLUTION
 ```
 
-**QUESTION 2.12**
+```{r test-2-12}
+# test for plot aesthetics
+```
+
+**QUESTION 2.13**
 
 A similar option is a boxplot. Hint: use geom_boxplot() instead.
 
-```{r question-2-12}
-answer2.12 <- #youranswer
+```{r question-2-13}
+# answer2.13 <- youranswer
 
 ### BEGIN SOLUTION
-answer2.12 <- 
+answer2.13 <- 
   ggplot(penguins, aes(x = species, y = body_mass_g)) + geom_boxplot()
 ### END SOLUTION
+```
+
+```{r test-2-13}
+# test for plot aesthetics
 ```
 
 Now, let's have a look at both plots.
 
 ```{r}
-answer2.11
 answer2.12
+answer2.13
 ```
 
 **Congratulations!** You've finished Part B of Worksheet 2, and with that, Worksheet 2 overall. Which also means that you've completed 3 weeks of STAT545A, and you're well on your way to being an R pro. Not quite done with practicing data viz with ggplot? We'll be diving deeper into plotting next week, but here are a few resources if you want to explore in the meantime:
