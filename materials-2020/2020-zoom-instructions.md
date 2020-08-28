@@ -60,11 +60,15 @@ Depending on the settings that the instructor sets from their end, what you can 
 
 ## Zoom etiquette
 
-+ **Upon entry to the class meeting**, participants' microphones will be muted and video will be disabled to minimize connection issues and avoid background noise.
++ **Upon entry to the class meeting**, students' microphones will be muted and video will be disabled to minimize connection issues and avoid background noise.
 
 + **Asking questions:**
   + If you wish to speak, use the "Raise Hand" button at the center of the bottom of your screen. Once the instructor or TA calls on you, unmute yourself and begin speaking. When you are done, mute your microphone again.
   + If you are not comfortable speaking, you are welcome to use the Zoom chat feature to ask questions. TAs will monitor the chat throughout the classroom and take note of your question, and they may directly answer your question in the chat, or pass it on to the instructor.
+  
++ If they wish to do so, students are invited to share their **preferred pronouns** as part of their nickname on Zoom. Of course, this is at the student's discretion.
+
++ Students are encouraged to engage in discussion with others through the chat during the class. For example, if you have a relevant resource to share, or someone asks a question that you feel comfortable with answering, feel free to do so!
 
 ## Troubleshooting
 
