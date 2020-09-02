@@ -1,0 +1,105 @@
+---
+title: "STAT 545A Assignment 03: dplyr/ggplot2 Part II"
+---
+
+
+
+<p><strong>Due October 1, 2019 at 23:59</strong></p>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>The goal is to manipulate and explore a dataset with the <code>dplyr</code> package, complemented by visualizations made with <code>ggplot2</code>. You can think of this as a deeper version of Homework 02.</p>
+</div>
+<div id="setup" class="section level2">
+<h2>Setup</h2>
+<p>Work with the <code>gapminder</code> data we explored in class, or more than one data set if you want.</p>
+<p>The Gapminder data is distributed as an R package from <a href="https://cran.r-project.org/web/packages/gapminder/index.html">CRAN</a>. Install it if you have not done so already, by executing the code <code>install.packages("gapminder")</code>, and remember to load it with <code>library(gapminder)</code>.</p>
+<p>Install and load <code>dplyr</code>, probably via the <code>tidyverse</code> meta-package.</p>
+</div>
+<div id="tidy-submission-16" class="section level2">
+<h2>Tidy Submission (16%)</h2>
+<div id="mechanics-5" class="section level3">
+<h3>Mechanics (5%)</h3>
+<p>Follow the instructions for making a tidy submission, found on the <a href="https://stat545.stat.ubc.ca/evaluation/assignments">assignments home page</a>.</p>
+<p>If there’s any further uncertainty in determining a grade for this “mechanics” portion, the <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_mech.md">UBC MDS mechanics rubric</a> will be referred to.</p>
+</div>
+<div id="writing-5" class="section level3">
+<h3>Writing (5%)</h3>
+<ul>
+<li>You must use proper English, spelling, and grammar.</li>
+<li>You should write concisely.</li>
+<li>If there’s any further uncertainty in determining a grade here, the <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md">UBC MDS writing rubric</a> will be used.</li>
+</ul>
+</div>
+<div id="github-pages-6-new" class="section level3">
+<h3>GitHub Pages (6%) <strong>NEW</strong></h3>
+<p>From now on, whenever you produce an HTML file output, you are expected to make it viewable as a webpage – for example, through GitHub Pages. There are / will be instructions added to the <a href="https://stat545.stat.ubc.ca/evaluation/assignments/">assignments home page</a> on how to do this with GitHub Pages.</p>
+<p>You should also provide links to these HTML pages in an easy-to-find location, <strong>and</strong> use words to describe what the link brings you to – probably in a <code>README.md</code> file in your <code>hw03</code> folder. Remember, make your homework submission informative to someone who doesn’t know anything about your homework repository – do not rely on the contextual knowledge that the teaching team has about your homework submission.</p>
+<p>For this homework assignment, you are expected to produce at least one html page, and link to it. You might not be required to submit an html page for future assignments, but if you do, you will be expected to link to them.</p>
+</div>
+</div>
+<div id="the-assignment-84" class="section level2">
+<h2>The Assignment (84%)</h2>
+<hr />
+<p>Rubric for each task:</p>
+<ul>
+<li><a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_quality.md">code quality</a>: (10%)
+<ul>
+<li>Did you use the tidyverse (dplyr, ggplot2) where appropriate?</li>
+</ul></li>
+<li><a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_viz.md">vis quality</a>: (9%)
+<ul>
+<li>Did you produce an effective plot?</li>
+</ul></li>
+<li><a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md">tibble accuracy</a>: (9%)
+<ul>
+<li>does your tibble reflect the task?</li>
+</ul></li>
+</ul>
+<hr />
+<p>Pick three of the six tasks below, and produce:</p>
+<ul>
+<li>a tibble, using <code>dplyr</code> as your data manipulation tool;</li>
+<li>an accompanying plot of data from the tibble, using <code>ggplot2</code> as your visualization tool; and</li>
+<li>some dialogue about what your tables/figures show (doesn’t have to be much).</li>
+</ul>
+<p>Or, make up your own task(s)! If you want to do something comparable but different, i.e. swap one quantitative variable for another, be my guest! If you are feeling inspired and curious, then we’re doing this right. Go for it. Just write down the task that you are now doing. Between the dplyr coverage in class and the list below, I think you get the idea.</p>
+<p>Relax about the following things:</p>
+<ul>
+<li>Your figure does not have to depict every single number from the data aggregation result. Use your judgement. It just needs to complement the table, add context, and allow for some sanity checking both ways.</li>
+<li>Tidying/reshaping is NOT your assignment. Many of your tables will be awkwardly shaped in the report. That’s OK.</li>
+<li>Table beauty is not a big deal. Simply printing to “screen” is fine.</li>
+</ul>
+<p>Tip: Treat this assignment as a “cheat sheet” for future-you! Don’t assume that you’ll remember the lessons you learned while writing this assignment. Write things down:</p>
+<ul>
+<li>Add notes on difficulties/oddities you encountered. For example, which figures are easy/hard to make, which data formats make better inputs for plotting functions vs. for human-friendly tables.</li>
+<li>Provide attribution whenever you take code or an idea from somewhere else, whether a blog post, a colleague, a vignette, etc. Putting those pointers in your “cheat sheet” will be useful for future-you – and it’s just good practice to indicate where you got things from.</li>
+</ul>
+<div id="task-option-1" class="section level3">
+<h3>Task Option 1</h3>
+<p>Report the absolute and/or relative abundance of countries with low life expectancy over time by continent: Compute some measure of worldwide life expectancy – you decide – a mean or median or some other quantile or perhaps your current age. Then determine how many countries on each continent have a life expectancy less than this benchmark, for each year.</p>
+</div>
+<div id="task-option-2" class="section level3">
+<h3>Task Option 2</h3>
+<p>Get the maximum and minimum of GDP per capita for all continents.</p>
+</div>
+<div id="task-option-3" class="section level3">
+<h3>Task Option 3</h3>
+<p>Look at the spread of GDP per capita within the continents.</p>
+</div>
+<div id="task-option-4" class="section level3">
+<h3>Task Option 4</h3>
+<p>Compute a trimmed mean of life expectancy for different years. Or a weighted mean, weighting by population. Just try something other than the plain vanilla mean.</p>
+</div>
+<div id="task-option-5" class="section level3">
+<h3>Task Option 5</h3>
+<p>How is life expectancy changing over time on different continents?</p>
+</div>
+<div id="task-option-6" class="section level3">
+<h3>Task Option 6</h3>
+<p>Find countries with interesting stories. Open-ended and, therefore, hard. Promising but unsuccessful attempts are encouraged. This will generate interesting questions to follow up on in class.</p>
+</div>
+</div>
+<div id="optional-exercise-2" class="section level2">
+<h2>Optional Exercise (2%)</h2>
+<p>Get table and figure side-by-side. <a href="https://gist.github.com/jennybc/e9e9aba6ba18c72cec26">This gist</a> might get you started.</p>
+</div>

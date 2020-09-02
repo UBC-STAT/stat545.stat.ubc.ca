@@ -2,16 +2,16 @@
 widget = "blank"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
-weight = 1000  # Order that this section will appear.
+weight = 15  # Order that this section will appear.
 
-title = ""
+title = "Empowering students to write a clean and modern data analysis."
 subtitle = ""
 
 align = "center"
 
 [design]
   # Choose how many columns the section has. Valid values: 1 or 2.
-  columns = "1"
+  columns = "2"
 
 [design.background]
   # Apply a background color, gradient, or image.
@@ -48,14 +48,8 @@ align = "center"
  css_class = ""
 +++
 
-## Attribution
+Learn how to:
 
-[Jenny Bryan](https://jennybryan.org/) deserves a huge amount of credit for founding and developing both STAT 545A and 547M over many year, along with her TA's, until 2017. Thank you!
-
-<p style="text-align:center">
-  <br />Edit this site on <a href = "https://github.com/STAT545-UBC/STAT545-home">github</a>
-</p>
-
-<p style="text-align:center">
-  <br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>
-</p>
+- explore, groom, visualize, and analyze data
+- make all of that reproducible, reusable, and shareable
+- using R's modern landscape
