@@ -2,7 +2,7 @@
 authors:
 - icíar
 name: Icíar Fernández Boyano
-role: Teaching assistant
+# role: Teaching assistant
 # Organizations/Affiliations
 organizations:
 - name: UBC
@@ -12,7 +12,7 @@ organizations:
 # For available icons, see: https://sourcethemes.com/academic/docs/widgets/#icons
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
 #   form "mailto:your-email@example.com" or "#contact" for contact widget.
-social:
+# social:
 # - icon: twitter
 #   icon_pack: fab
 #   link: https://twitter.com/vincenzocoia
@@ -40,3 +40,5 @@ email: ""
 user_groups:
 - Teaching Assistants
 ---
+
+<!-- Put text below here if you want it to appear on your page -->
