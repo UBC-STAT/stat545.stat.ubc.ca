@@ -12,7 +12,7 @@ title: "STAT 545A Assignment 02: Explore Gapminder and use dplyr"
 <div id="setup" class="section level2">
 <h2>Setup</h2>
 <p>Work with the <code>gapminder</code> data we explored in class, or more than one data set if you want.</p>
-<p>The Gapminder data is distributed as an R package from <a href="https://cran.r-project.org/web/packages/gapminder/index.html">CRAN</a>. Install it if you have not done so already, by executing the code <code>install.packages(&quot;gapminder&quot;)</code>, and remember to load it with <code>library(gapminder)</code>.</p>
+<p>The Gapminder data is distributed as an R package from <a href="https://cran.r-project.org/web/packages/gapminder/index.html">CRAN</a>. Install it if you have not done so already, by executing the code <code>install.packages("gapminder")</code>, and remember to load it with <code>library(gapminder)</code>.</p>
 <p>Install and load <code>dplyr</code>, probably via the <code>tidyverse</code> meta-package.</p>
 </div>
 <div id="tidy-submission-10" class="section level2">
@@ -31,8 +31,8 @@ title: "STAT 545A Assignment 02: Explore Gapminder and use dplyr"
 </ul>
 </div>
 </div>
-<div id="exercise-1-basic-dplyr" class="section level2">
-<h2>Exercise 1: Basic <code>dplyr</code></h2>
+<div id="exercise-1-basic-dplyr-45" class="section level2">
+<h2>Exercise 1: Basic <code>dplyr</code> (45%)</h2>
 <p>Use <code>dplyr</code> functions to achieve the following.</p>
 <div id="section" class="section level3">
 <h3>1.1 (9%)</h3>
@@ -84,7 +84,14 @@ title: "STAT 545A Assignment 02: Explore Gapminder and use dplyr"
 </ul></li>
 </ul>
 <hr />
-<p>Filter gapminder so that it shows the max GDP per capita experienced by each country.</p>
+<p>Choose <strong>one</strong> of the following:</p>
+<ul>
+<li>Filter gapminder so that it shows the max GDP per capita experienced by each country. <strong>Hint</strong>: you might find the <code>max()</code> function useful here.</li>
+</ul>
+<p>OR</p>
+<ul>
+<li>Filter gapminder to contain six rows: the rows with the three largest GDP per capita, and the rows with the three smallest GDP per capita. Be sure to not create any intermediate objects when doing this (with, for example, the assignment operator). <strong>Hint</strong>: you might find the <code>sort()</code> function useful, or perhaps even the <code>dplyr::slice()</code> function.</li>
+</ul>
 </div>
 <div id="section-4" class="section level3">
 <h3>1.5 (9%)</h3>
@@ -105,11 +112,11 @@ title: "STAT 545A Assignment 02: Explore Gapminder and use dplyr"
 <hr />
 <p>Rubrics:</p>
 <ul>
-<li><a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_reasoning.md">reasoning</a>: (10%)
+<li><a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_reasoning.md">reasoning</a>: (8%)
 <ul>
 <li>Does your exploration make sense?</li>
 </ul></li>
-<li><a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md">accuracy</a>: (10%)
+<li><a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md">accuracy</a>: (7%)
 <ul>
 <li>Does your code work?</li>
 </ul></li>
@@ -127,12 +134,12 @@ title: "STAT 545A Assignment 02: Explore Gapminder and use dplyr"
 <hr />
 <p>Rubrics:</p>
 <ul>
-<li><a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_reasoning.md">reasoning</a>: (10%)
+<li><a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_reasoning.md">reasoning</a>: (15%)
 <ul>
 <li>Were you able to produce plots that make sense?</li>
 <li>We’re not looking for publication quality graphics here yet.</li>
 </ul></li>
-<li><a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md">accuracy</a>: (10%)
+<li><a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_accuracy.md">accuracy</a>: (15%)
 <ul>
 <li>Does your code work?</li>
 </ul></li>

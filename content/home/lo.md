@@ -49,7 +49,7 @@ subtitle = ""
 * How to write functions and work with R in a functional style
 * Version control with Git; collaboration via [GitHub](https://github.com)
 
-### STAT 547M
+### STAT 545B
 
 * Be the boss of non-numeric data, esp. character and factor
 * Interactive pages, apps, and graphics with [Shiny](http://shiny.rstudio.com)

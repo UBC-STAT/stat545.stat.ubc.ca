@@ -1,15 +1,15 @@
-Meeting No.,Date,Topic,Helper1,Helper2
-1,sep-03 tues,Intro to course and software,Yulia,Victor
-2,sep-05 thurs,Getting familiar with R,Alejandra,Hossam
-3,sep-10 tues,Markdown and GitHub,Hossam,Yulia
-4,sep-12 thurs,The git workflow,Alejandra,Victor
-5,sep-17 tues,ggplot2 part 1,Victor,Hossam
-6,sep-19 thurs,dplyr: tibbles. piping and filtering. lubridate and tsibbles,Alejandra,Yulia
-7,sep-24 tues,dplyr: group_by summarize; index_by; nested data frames,Yulia,Victor
-8,sep-26 thurs,ggplot2 part 2,Alejandra,Hossam
-9,oct-01 tues,"tidyr, tidy data, and pivoting",Hossam,Victor
-10,oct-03 thurs,two tables: join and lookup,Alejandra,Yulia
-11,oct-08 tues,file I/O,Victor,Hossam
-12,oct-10 thurs,The joy of Factors,Alejandra,Yulia
-13,oct-15 tues,Revisit ggplot; plotly; practicalities of daily figure-making,Yulia,Victor
-14,oct-17 thurs,The model-fitting paradigm in R; `broom`; deep thoughts about data analytic work,Alejandra,Hossam
+Class No.,Date,Topic,Helper1,Helper2
+00,sep-08 tues,Imagine Day -- No Class,NA,NA
+01,sep-10 thurs,Intro to course and R,,
+02,sep-15 tues,git and GitHub,,
+03,sep-17 thurs,R Markdown & Reproducibility,,
+04,sep-22 tues,Data wrangling part I,,
+05,sep-24 thurs,Plotting part I,,
+06,sep-29 tues,Data Wrangling part II,,
+07,oct-01 thurs,Plotting part II,,
+08,oct-06 tues,Tidy data and pivoting,,
+09,oct-08 thurs,Special data types: dates and factors,,
+10,oct-13 tues,Two-table joins,,
+11,oct-15 thurs,The model-fitting paradigm in R,,
+12,oct-20 tues,File input/output,,
+13,oct-22 thurs,Choose your own adventure,,

@@ -1,8 +1,8 @@
 ---
 authors:
-- hossam
-name: Hossameldin (Hossam) Mohammed
-role: Teaching assistant for STAT 545A
+- diana
+name: Diana Lin
+# role: Teaching assistant
 # Organizations/Affiliations
 organizations:
 - name: UBC
@@ -16,9 +16,15 @@ social:
 # - icon: twitter
 #   icon_pack: fab
 #   link: https://twitter.com/vincenzocoia
-- icon: github
-  icon_pack: fab
-  link: https://github.com/hsmohammed
+# - icon: envelope
+#   icon_pack: fas
+#   link: mailto:
+# - icon: github
+#   icon_pack: fab
+#   link: 
+# - icon: twitter
+#   icon_pack: fab
+#   link: 
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.  
 # - icon: cv
@@ -27,9 +33,12 @@ social:
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
 # email: ""
-  
+email: ""
+
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.  
 user_groups:
 - Teaching Assistants
 ---
+
+<!-- Put text below here if you want it to appear on your page -->

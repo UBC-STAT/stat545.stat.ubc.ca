@@ -1,8 +1,8 @@
 ---
 authors:
-- firas
-name: Dr. Firas Moosvi
-role: Instructor for STAT 545A and STAT 547M
+- victor
+name: Almas Khan
+# role: Teaching assistant
 # Organizations/Affiliations
 organizations:
 - name: UBC
@@ -13,16 +13,18 @@ organizations:
 #   For an email link, use "fas" icon pack, "envelope" icon, and a link in the
 #   form "mailto:your-email@example.com" or "#contact" for contact widget.
 social:
-- icon: envelope
-  icon_pack: fas
-  link: mailto:firas.moosvi@ubc.ca
-- icon: home
-  icon_pack: fas
-  link: http://firas.moosvi.com
-- icon: twitter
-  icon_pack: fab
-  link: https://twitter.com/firasm
-  
+# - icon: twitter
+#   icon_pack: fab
+#   link: https://twitter.com/vincenzocoia
+# - icon: envelope
+#   icon_pack: fas
+#   link: mailto:
+# - icon: github
+#   icon_pack: fab
+#   link: 
+# - icon: twitter
+#   icon_pack: fab
+#   link: 
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.  
 # - icon: cv
@@ -30,10 +32,13 @@ social:
 #   link: files/cv.pdf
 
 # Enter email to display Gravatar (if Gravatar enabled in Config)
-email: "firas.moosvi@gmail.com"
-  
+# email: ""
+email: ""
+
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.  
 user_groups:
-- Instructors
+- Teaching Assistants
 ---
+
+<!-- Put text below here if you want it to appear on your page -->

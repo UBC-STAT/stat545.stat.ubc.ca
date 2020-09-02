@@ -18,19 +18,19 @@ date_format = "January 2, 2006"
 #   Begin/end multi-line descriptions with 3 quotes `"""`.
 [[experience]]
   title = "STAT 545A"
-  company = "ESB 2012"
+  company = "hosted online"
   company_url = ""
-  location = "Tuesdays, Thursdays 0930-1100"
-  date_start = "2019-09-03"
-  date_end = "2019-10-17"
+  location = "Tuesdays, Thursdays 0930-1100 PST"
+  date_start = "2020-09-08"
+  date_end = "2020-10-22"
   description = ""
 
 [[experience]]
-  title = "STAT 547M"
-  company = "ESB 4192"
+  title = "STAT 545B"
+  company = "hosted online"
   company_url = ""
-  location = "Tuesdays, Thursdays 1100-1230"
-  date_start = "2020-02-25"
-  date_end = "2020-04-08"
+  location = "Tuesdays, Thursdays 0930-1100 PST"
+  date_start = "2020-10-27"
+  date_end = "2020-12-10"
   description = ""
 +++

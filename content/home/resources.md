@@ -15,8 +15,8 @@ title = "Resources"
 [[feature]]
   icon = "book"
   icon_pack = "fas"
-  name = "[Textbook](https://stat545.com/topics)"
-  description = "Used to be the STAT 545 'Topics tab'"
+  name = "[Textbook](https://stat545.com/)"
+  description = "Written by Jenny Bryan and others. Used to be the STAT 545 'Topics tab'"
   
 [[feature]]
   icon = "question"
