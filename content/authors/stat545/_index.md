@@ -14,7 +14,9 @@ name: ""
 #   link: 'https://github.com/STAT545-UBC/Discussion'
 ---
 
-This is the course website for the 2019-2020 edition of STAT 545A and STAT 547M, colloquially known as just "STAT 545", delivered at The University of British Columbia in Vancouver, BC.
+## _For a clean and modern data analysis._
+
+This is the course website for the 2020-2021 edition of STAT 545 A+B, delivered at The University of British Columbia in Vancouver, BC.
 
 These courses are designed to help you:
 
