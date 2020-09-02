@@ -2,7 +2,7 @@
 authors:
 - icíar
 name: Icíar Fernández Boyano
-role: Teaching assistant for STAT 545
+role: Teaching assistant
 # Organizations/Affiliations
 organizations:
 - name: UBC

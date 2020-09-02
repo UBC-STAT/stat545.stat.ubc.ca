@@ -2,7 +2,7 @@
 authors:
 - diana
 name: Diana Lin
-role: Teaching assistant for STAT 545
+role: Teaching assistant
 # Organizations/Affiliations
 organizations:
 - name: UBC

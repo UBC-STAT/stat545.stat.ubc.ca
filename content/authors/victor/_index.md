@@ -2,7 +2,7 @@
 authors:
 - victor
 name: Victor Yuan
-role: Teaching assistant for STAT 545A
+role: Teaching assistant
 # Organizations/Affiliations
 organizations:
 - name: UBC

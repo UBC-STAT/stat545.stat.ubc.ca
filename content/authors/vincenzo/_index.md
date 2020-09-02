@@ -2,7 +2,7 @@
 authors:
 - vincenzo
 name: Dr. Vincenzo Coia
-role: Instructor for STAT 545A
+#role: Instructor for STAT 545A
 # Organizations/Affiliations
 organizations:
 - name: UBC
@@ -40,5 +40,5 @@ email: "vincenzo.coia@gmail.com"
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.  
 user_groups:
-- Instructors
+- Instructor
 ---
