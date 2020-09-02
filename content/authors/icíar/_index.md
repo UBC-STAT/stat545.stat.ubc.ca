@@ -2,7 +2,7 @@
 authors:
 - icíar
 name: Icíar Fernández Boyano
-role: Teaching assistant
+# role: Teaching assistant
 # Organizations/Affiliations
 organizations:
 - name: UBC
@@ -40,3 +40,5 @@ email: ""
 user_groups:
 - Teaching Assistants
 ---
+
+<!-- Put text below here if you want it to appear on your page -->
