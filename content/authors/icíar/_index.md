@@ -1,6 +1,6 @@
 ---
 authors:
-- icíar
+- iciar
 name: Icíar Fernández Boyano
 # role: Teaching assistant
 # Organizations/Affiliations
