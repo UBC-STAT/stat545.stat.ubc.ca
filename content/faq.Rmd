@@ -22,6 +22,10 @@ Same time slot, same room.
 
 STAT 547M became STAT 545B in 2020, so that the course codes align. Otherwise, these are the same courses. 
 
+### What happened to the guidebook?
+
+We used a guidebook in 2019/2020. It's still available at https://stat545guidebook.netlify.app, but had become deprecated in place of worksheets and some tutorials.
+
 ### Why are there two courses, instead of a single "STAT 545" course?
 
 For several years, Jenny Bryan taught STAT 545A as a 1.5 credit course. She -- and many students -- felt there was a lot of great, relevant content that could go into an additional 1.5 credits.
