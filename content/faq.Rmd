@@ -1,5 +1,5 @@
 ---
-title: "FAQ"
+title: "Prospective Students: FAQ"
 output:
   html_document:
     toc: true
@@ -9,6 +9,8 @@ output:
 ---
 
 Interested in taking STAT 545 A and/or B, and have questions? Read on!
+
+Thank you for your interest in the course!
 
 ### When is the course offered?
 
@@ -20,39 +22,48 @@ Same time slot, same room.
 
 STAT 547M became STAT 545B in 2020, so that the course codes align. Otherwise, these are the same courses. 
 
-
 ### Why are there two courses, instead of a single "STAT 545" course?
 
 For several years, Jenny Bryan taught STAT 545A as a 1.5 credit course. She -- and many students -- felt there was a lot of great, relevant content that could go into an additional 1.5 credits.
 
 A full semester of data exploration, visualization, and all-around data wrangling was piloted in 2014/2015. It was structured as two half courses primarily so that several year's worth of STAT 545A alums could register for the second part (then STAT 547M) and get the "missing half" of the course. And now it's hard to break the cycle.
 
-
 ### Am I allowed to register in ...?
 
-  * "I have taken STAT 545A for 1.5 credits in the past. Can I take STAT 547M?"
-    - YES. But STAT 545 has changed to keep current with the R world. It is your responsibility to level up. Examples: the use of Git for version control, GitHub for collaboration, `knitr` and R Markdown for dynamic documents, `ggplot2` for graphics, `dplyr` for data aggregation.
-  * "Can I just take the second half, i.e. STAT 547M?"
+  * "I have taken STAT 545A for 1.5 credits in the past. Can I take STAT 545B?"
+    - YES. But STAT 545 keeps changing to keep current with the R world. It is your responsibility to level up. 
+  * "Can I just take the second half, i.e. STAT 545B?"
     - NO, not unless you have taken STAT 545A previously.
-  * "Can I take just the first half, i.e. STAT 545A?"
-    - YES. But development is proceeding with the ultimate goal of creating a full 3 credit course. I will try to make each half stand alone reasonably well, but that is not my top priority.
-  * "What do you advise I do?"
-    - Take STAT 545A and STAT 547M!
+  * "Can I just take the second half, i.e. STAT 545B? I'll do a self-study for STAT 545A."
+    - Unfortunately, the answer is still no. As much as we'd want to say yes to you, it just becomes too difficult for us to evaluate your level without having seen deliverables for STAT 545A.
   * "I am an undergraduate. Can I take this course?"
-    - PROBABLY. Contact me.
-    - [There is a form for this.](https://www.grad.ubc.ca/forms/enrolment-undergraduate-students-graduate-course)
-  * "I am a registered UBC student. Can I audit?"
-    - PROBABLY. Contact me.
-    - If you are a registered UBC student and course participation doesn't cost you additional money, I will almost certainly require that you audit officially.
-    - There is a form for this: [UBC undergrads](http://students.ubc.ca/enrolment/courses/academic-planning/audit) and [graduate students](http://www.grad.ubc.ca/current-students/managing-your-program/audit)
-  * "I am an unclassified student, SFU student, post-doctoral fellow, etc. Can I sit in the course?"
-    - PROBABLY. Contact me.
+    - PROBABLY. Contact me. [There is a form for this.](https://www.grad.ubc.ca/forms/enrolment-undergraduate-students-graduate-course)
   * "What if I've never had a stats class?"
     - There are no official pre-requisites for STAT 545A but most students will have had at least one prior statistics course or comparable experience.
 
-### Can I sit in on the course without registering?
+### Can I audit?
 
-Unfortunately not, because the room is already at capacity, at least for STAT 545A. 
+Do you mean officially auditing, or just sitting in?
+
+* "I'm not enrolled -- can I sit in during class?" -- COVID-19 version:
+  - Unfortunately I can't allow anyone to sit in who's not registered. I know, it sounds odd because it's not like there are any room capacities this fall, but we just won't have enough human resources present in class to accommodate those who aren't registered.
+* "I'm not enrolled -- can I sit in during class?" -- NORMAL version:
+  - Unfortunately not. The room is usually at capacity, and further, we've allocated TA time for the specific number of students attending the class. 
+* "I'd like to officially audit -- can I?"
+  - Absolutely! Please take a look at what is required of auditors so that you have an understanding of your expectations coming into the course; then, fill out the form ([undergraduate version](http://students.ubc.ca/enrolment/courses/academic-planning/audit); [graduate version](http://www.grad.ubc.ca/current-students/managing-your-program/audit)) and send it to Vincenzo to get signed.
+* "The course is full -- can I audit instead?"
+  - You'll still have to join the waitlist -- auditing still counts as a seat in the class, so auditing is not a way around the course capacity.
+
+In all cases, I encourage you to register! Or if the course is full, join the waitlist. Alternatively, you can engage in your own self-study using our online resources.
+
+### The course is full. Is there a chance that the course capacity will increase?
+
+Unfortunately, the course enrollment capacity will not increase. But, I encourage you to join the waitlist.
+
+### The course is listed as "restricted". Can I get permission to register?
+
+When all the open seats are taken (usually 70), the course is listed as "restricted", with the remainder (usually 10) reserved for statistics students. I'm happy to permit your enrollment closer to the start of the term if a restricted seat is still available, but in the meantime, I encourage you to join the waitlist. Best of luck!
+
 
 ### Should I register in ...?
 
@@ -64,16 +75,12 @@ However, __if you have never programmed or worked at the command line before, pr
 
 YES. You absolutely must have access to a computer on which you can install software, download data, etc. In fact, *class meetings* will be a mix of lecture, discussion, and live coding. Students will get the most out of this if they can bring their own laptop to class every day. If this is not possible, we will try to help you work something out.
 
-### How do I audit the course?
-
-You'll need to get the instructor to sign the [Change of Registration](https://www.grad.ubc.ca/sites/default/files/forms/change_of_registration.pdf) form if there's still room.
-
 ### Prerequisites
 
-There are no official pre-requisites for STAT 545, but most students will have had at least one prior statistics course or comparable experience. 
+There are no official pre-requisites for STAT 545A, but most students will have had at least one prior statistics course or comparable experience. 
 
-STAT 547M requires STAT 545A.
+STAT 545B requires STAT 545A.
 
-### Twitter
+### Twitter and Slack
 
-The [STAT 545 Twitter account](https://twitter.com/STAT545) is no longer used for this course. 
+The [STAT 545 Twitter account](https://twitter.com/STAT545) is no longer used for this course. Instead, there is a universal STAT 545 @ UBC Slack channel that is open to the public!
