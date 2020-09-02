@@ -201,8 +201,4 @@ Vincenzo:
     - Academic integrity
     - Diversity statement (you belong)
 - Specify tech requirements on the website (and add to the intro presentation)
-<<<<<<< HEAD
-=======
 - Class is not to be held on Imagine Day to facilitate involvement in Imagine day activities. (Send FSC email letting everyone know, as well as a link to Imagine Day activities)  
-
->>>>>>> 1452372b75ac3b8854031b64ffec4c159ca9d3ba
