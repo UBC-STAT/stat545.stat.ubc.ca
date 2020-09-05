@@ -39,6 +39,12 @@ subtitle = ""
  css_class = ""
 +++
 
+Learn how to:
+
+- explore, groom, visualize, and analyze data
+- make all of that reproducible, reusable, and shareable
+- using R's modern landscape
+
 ### STAT 545A
 
 * Introduction to [R](http://www.r-project.org) and the [RStudio IDE](http://www.rstudio.com/products/rstudio/): scripts, the workspace, RStudio Projects, daily workflow

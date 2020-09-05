@@ -11,7 +11,7 @@ align = "center"
 
 [design]
   # Choose how many columns the section has. Valid values: 1 or 2.
-  columns = "2"
+  columns = "1"
 
 [design.background]
   # Apply a background color, gradient, or image.
@@ -48,8 +48,3 @@ align = "center"
  css_class = ""
 +++
 
-Learn how to:
-
-- explore, groom, visualize, and analyze data
-- make all of that reproducible, reusable, and shareable
-- using R's modern landscape

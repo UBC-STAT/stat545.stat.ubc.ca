@@ -1,8 +1,6 @@
 ---
 title: "How to get unstuck"
-math: true
-diagram: true
-markup: mmark
+date: "Updated 2020-09-04"
 ---
 
 What to do when you are stuck ...
@@ -36,3 +34,7 @@ Here are some good resources to get your head in the right place.
     - [How to Ask for Programming Help](http://codingkilledthecat.wordpress.com/2012/06/26/how-to-ask-for-programming-help/)
     - [Stack Exchange's 'How to ask'](https://codereview.stackexchange.com/help/how-to-ask)
     - [Matt Gemmell's 'What have you tried?'](http://mattgemmell.com/what-have-you-tried/)
+
+### Attribution
+
+Thanks to Jenny Bryan and her past teams for writing the majority of this.
