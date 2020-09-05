@@ -65,7 +65,7 @@ cat(tues_date_pretty)
 
 Prepare for the course:
 
-+ Watch the Intro to STAT 545 Video Series video.
++ Watch the [Intro to STAT 545 Video Series video](https://youtu.be/6REhJVsbbAM) (canvas version also available).
 + Install the software needed for STAT 545A by following along the tutorial ["Software Installation for STAT 545"](/software-stack).
 
 -----
