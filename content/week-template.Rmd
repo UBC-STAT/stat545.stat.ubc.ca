@@ -1,0 +1,103 @@
+---
+title: "STAT 545A: Week FILL_THIS_IN"
+output: html_document
+---
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+week_num <- 1  # 1 through 14
+#-------------
+source(here::here("content", "lec1.R"))
+library(stringr)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, results = "asis")
+letter <- if (week_num <= 7) "A" else "B"
+tues_class_num <- paste0(str_pad(week_num * 2 - 2, width = 2, pad = 0), letter)
+tues_date <- lec1 + ddays((week_num - 1) * 7)
+tues_date_pretty <- paste0(
+  month(tues_date, label = TRUE), " ", 
+  day(tues_date), ", ", 
+  year(tues_date)
+)
+thurs_class_num <- paste0(str_pad(week_num * 2 - 2 + 1, width = 2, pad = 0), letter)
+thurs_date <- tues_date + ddays(2)
+thurs_date_pretty <- paste0(
+  month(thurs_date, label = TRUE), " ", 
+  day(thurs_date), ", ", 
+  year(thurs_date)
+)
+fri_date <- tues_date + ddays(3)
+fri_date_pretty <- paste0(
+  month(fri_date, label = TRUE), " ", 
+  day(fri_date), ", ", 
+  year(fri_date)
+)
+```
+
+-----
+
+<!-- ******WORKSHEET****** -->
+
+## Worksheet `r paste0(week_num - 1, letter)`
+
+**Due:** Friday, `r fri_date_pretty` at 23:59 PST
+
+-----
+
+----- 
+
+<!-- ******TUESDAY'S CLASS****** -->
+
+## Tuesday's Class `r tues_class_num`: FILL_THIS_IN_WITH_TOPIC
+
+```{r tues-date}
+cat(tues_date_pretty)
+```
+
+From today's class, students are anticipated to be able to:
+
+- FILL_THIS_IN
+
+#### Prepare for Class
+
+- Watch the STAT 545 Video Series: Class `r tues_class_num`
+
+
+
+#### During Class
+
+
+-----
+
+-----
+
+<!-- ******THURSDAY'S CLASS****** -->
+
+## Thursday's Class `r thurs_class_num`: FILL_THIS_IN_WITH_TOPIC
+
+```{r thurs-date}
+cat(thurs_date_pretty)
+```
+
+From today's class, students are anticipated to be able to:
+
+- FILL_THIS_IN
+
+#### Prepare for Class
+
+- Watch the STAT 545 Video Series: Class `r thurs_class_num`
+
+#### During Class
+
+
+-----
+
+
+
+-----
+
+<!-- ******PROJECT****** -->
+
+## Mini Data Analysis Project Milestone FILL_THIS_IN
+
+**Due:** Friday, `r fri_date_pretty` at 23:59 PST
+
+-----

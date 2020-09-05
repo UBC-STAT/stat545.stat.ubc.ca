@@ -1,12 +1,235 @@
 ---
 title: "Course syllabus: 2020/2021"
-output: html_document
+output: 
+  html_document:
+    toc: true
+    toc_depth: 3
 ---
 
-## Topics
+```{r, echo = FALSE, warning = FALSE}
+suppressPackageStartupMessages(library(readr))
+suppressPackageStartupMessages(library(knitr))
+suppressPackageStartupMessages(library(here))
+suppressPackageStartupMessages(library(dplyr))
+```
+
+
+[[experience]]
+  title = "STAT 545B"
+  company = "hosted online"
+  company_url = ""
+  location = "Tuesdays, Thursdays 0930-1100 PST"
+  date_start = "2020-10-27"
+  date_end = "2020-12-10"
+  description = ""
+
+[[experience]]
+  title = "STAT 545A"
+  company = "hosted online"
+  company_url = ""
+  location = "Tuesdays, Thursdays 0930-1100 PST"
+  date_start = "2020-09-08"
+  date_end = "2020-10-22"
+  description = ""
+
+## Learning Objectives
+
+### STAT 545A
+
+* Introduction to [R](http://www.r-project.org) and the [RStudio IDE](http://www.rstudio.com/products/rstudio/): scripts, the workspace, RStudio Projects, daily workflow
+* Generate reports from R scripts and [R Markdown](http://rmarkdown.rstudio.com)
+* Coding style, file and project organization
+* Data frames or "tibbles" are the core data structure for data analysis: care for them with the tidyverse
+* Data visualization with [`ggplot2`](http://ggplot2.org)
+* How to write functions and work with R in a functional style
+* Version control with Git; collaboration via [GitHub](https://github.com)
+
+### STAT 545B
+
+* Be the boss of non-numeric data, esp. character and factor
+* Interactive pages, apps, and graphics with [Shiny](http://shiny.rstudio.com)
+* Get data off the web and expose data, code, results on the web
+* Distribute data and code via an R package
+* Automate an analytical pipeline, e.g. via `Make`
+
+## Topic Schedule
+
+<!-- Be sure to Bring a laptop to every class! -->
+
+There will always be two TA's in class to help students with the live coding exercises. 
+
+## STAT 545A
+
+```{r, echo = FALSE, results='asis'}
+cm545 <- suppressMessages(read_csv(here("content", "cm_schedule-545a.csv")))
+kable(cm545)
+```
+
+
+## Course Delivery
+
+
+
+### Outline of a Lecture
+
+- 30-minute live demo and questions.
+        - Instructor works on a real analysis. Perhaps over time, these build up to an analysis similar to their project. 
+        - Students ask questions and pose challenges real-time. TA acts as moderator. 
+        - Discussion in a chat are processed by a TA: (1) answer "easy" ones directly, (2) put others in a queue (that the TA also manages and asks on behalf of the student).
+        - Oral questions taken via "raising virtual hand", also managed by the TA. 
+    - 5-minute break (play [Random Acts of Exercise](https://www.youtube.com/playlist?list=PL6JWPcX0WhHU97aqiRA4P6Jta9f04Nanm). Each body is different, so make this your practice by modifying the activity based on what your body can do.)
+    - 45-minute "lab"; work on lecture worksheet.
+        - Each teaching member goes through random groups of 3 or 4 students in turn, coming in with some discussion points, but also allowing a natural conversation to unfold about the worksheet, as well as perhaps how the course is going. 
+        - At the same time, perhaps a TA can hold their office hour, so that students who have questions that they don't want to ask in a breakout group can go to that TA.
+- Office hours:
+    - Two teaching members staff an office hour soon before the assignment deadline. Need to think more about specifics (one member holds group conversations, while another takes individual? Maybe even host bonus material?)
+    - Allocated hours to send emails prior to the assignment deadline / cut-off (i.e. clarifying that emails that are sent the night before the deadline may go unanswered). This was suggested as a strategy to streamline TAs work in the ISW, the idea being that (of course having certain flexibility and being mindful of timezones) if students have the responsibility of sending their questions in 36 hours before the assignment deadline, that (a) helps with their time management, encouraging not to leave it until last minute, while (b) giving TAs sufficient time to compile a FAQ document to send all students (whether they asked questions or not), and to reply to individual questions that are not FAQs. Of course, if a student is ill, or any other exceptional situations, their email won't go unanswered if they don't meet this deadline. 
+    - Should act as an outlet for those from reverse time zones, in case they decide the graveyard shift isn't worth the synchronous sessions.
+    - Also used for tech support. 
+    
+<!-- __Non COVID-19 years__: Keep things similar, except synchronous part to be held in-person. -->
+
+<!-- - Lecture done in-person, but with the same structure.  -->
+<!--     - Live demo: Still use chat (Slack) so that students can ask questions if they don't want to speak up; still use TA to moderate these. -->
+<!--     - Lab part: allow breakout groups to happen just by people's physical presence; 2 teaching team members check in person-by-person, while one keeps watch for hands. -->
+    
 
 
 ## Deliverables
 
+| Deliverable        | Submission Frequency | Percent Grade | Description |
+|--------------------|----------------------|---------------|-------------|
+| Class worksheets | weekly               | 10            | Takes the place of the old "participation" deliverable. Autograded walkthroughs to guide student learning. |
+| Participation quizzes     | every class | 5  | Get full marks by answering a few quick questions per class -- doesn't matter if you're right or wrong! 24h submission period. |
+| Mini data analysis        | three checkpoints               | 50            | Students answer questions. Recycle much of previous assignments, perhaps more pared-down and streamlined to make way for the group project. |
+| Group Project      | three(?) checkpoints | 35            | Creatively analyse data. Contains peer review, but in a more natural way than before, as they review each other's work. Actually get to experience the full extent of data analysis and GitHub. |
+
+### Participation (10% + 5%)
+
++ **Overarching goal**: To assess students' engagement with the course and simultaneously create connection with students (draw their interest in the course).
+
+| Learning Objective                                                                 | Deliverable             | Submission frequency | % Grade |
+|------------------------------------------------------------------------------------|-------------------------|----------------------|---------|
+| Demonstrate understanding of lecture material through direct application in RStudio| Lecture worksheets      | weekly               | 10      |
+| Review previous class material                                                     | In-class quiz           | in-class             | 5       |
+
++ Use nbgrader for autograding of lecture worksheets locally to avoid issues with the server. *Figure out the details of how this will work*
++ Lecture worksheets will be graded for **completion** rather than **correctness**. As a proxy to evaluation completion, having 30-40% (tbd) of all autograded marks as correct in a given worksheet will equal full marks for said worksheet.
++ In-class quizzes - possibly in the form of a think-broadcast-share with the Zoom polling function, with downloadable results that show which students answered to keep track for participation marks. I would set this either at the beginning of the class or during a 5 minute break, just a couple easy questions, and points won't be given for right answers but simply for participating. Ideally, questions are geared towards more "creative" aspects (example discussed in our meeting was students choosing which visualization seems more effective), the goal is to have them engaged with the class content and create a sense of connection rather than evaluate their knowledge.
+
+### Collaborative Troubleshooting (35%)
+
++ **Overarching goal**: To assess students' ability to collaborate on GitHub + to identify common coding errors & apply their knowledge to solve them. This assessment would double as a group project, and substitute the old peer review portion of the evaluation in STAT545.
+
++ **Learning objectives**:
+
+  1. Implement a collaborative workflow for working on GitHub.
+  2. Identify and troubleshoot coding errors.
+
+| Deliverable | % Grade  | Group / Individual | Description                                                                   | Aligns with LO... |
+|-------------|----------|--------------------|-------------------------------------------------------------------------------|-------------------|
+| Repo        | 5        | Group              | Organization, commit history, READMEs                                         | 1                 |
+| TB1         | 10       | Group + Individual | Troubleshooting exercise 1 - A script centered on dplyr usage with errors     | 2                 |
+| TB2         | 10       | Group + Individual | Troubleshooting exercise 2 - A script centered on ggplot usage with errors    | 2                 |
+| TB3        | 10       | Group + Individual | Troubleshooting exercise 3 - A script that revises all (or almost all) class material | 3          |
+
++ **Deliverables in detail**:
+
+  + Repo:
+    + Create a repository.
+    + Create a README outlining the purpose of the repo.
+    + Create a teamwork document where you establish a code of conduct and expectations.
+    + *Additional notes*: This repo could be created in-class during the version control workflow lecture (lecture 4).
+    
+  + Troubleshooting exercises:
+    + Each troubleshooting script would be focused on a "topic" from the lectures (TB1 could be focused on dplyr usage, TB2 could be ggplot usage)
+    + In this way, the submission frequency would be weekly for the first 2 (lectures for dplyr --> TB1 / lectures for ggplot --> TB2), and then leave a few weeks in between for the last one so that more material is revised. Alternatively, it could also be made biweekly if it seems like it would be too much work with the assignments.
+    + The "group" component would be the commit history & the "individual" component would be the actual troubleshooting - for each of the TBs, they would have to specify who has done what tasks (expected to be divided evenly), and they would be graded based on that.
+    + I don't think I would leave in-class time for these because the point of collaborating on GitHub is being able to do it asynchronously, and the way in which students decide to do this (for example, setting personal deadlines so that they can each review each other's work prior to the official deadline) should be outlined in their teamwork document.
+    
++ **Grading components within each troubleshooting exercise**:
+
+   + Teamwork: Did students complete the work in a balanced way?
+   + Organization: Does the commit history make sense? Were pull requests used effectively?
+   + Correctness: Did students successfully troubleshoot the code?
+   
+   
+### Mini-project (50%)
+
++ An individual data analysis mini-project.
++ 3/4 "deliverables" or submissions keeping the flavour of an assignment, but rather than individual, with continuity and more flexibility - yet with concrete outcomes to avoid open-ended interpretations. 
++ More details on this project can be found in the mini-project document (*under construction*) within the STAT545 repo. 
+
+
+
+## Auditing Students
+
+Auditing students are expected to complete all assessments (assignments, peer reviews, and participation). The difference between enrolling for credit is that auditing students are graded on each assignment on a pass/fail basis.
+
+
+## Privacy
+
+Slack, Zoom, GitHub
 
 ## Policies
+
+In addition to [UBC's Campus-wide Policies and Regulations](http://www.calendar.ubc.ca/vancouver/?tree=3,0,0,0), STAT 545A and STAT 547M adopt the following policies.
+
+
+### Late Policy
+
+A late submission is defined as any work, including quizzes, submitted after the deadline. For a late submission, the student will receive a 50% scaling of their grade for the first occurrence, and will receive a grade of 0 for subsequent occurrences. In all cases, late submissions past 24 hours will receive a zero.
+
+### Academic Concession
+
+UBC no longer requires a doctor's note (or supporting documentation) for [academic concession](http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,48,0,0). A self-declaration will suffice -- [here](/concession_template.pdf) is a template you can use. Please submit this to the instructor. 
+
+For STAT 545A and 547M, a "conflicting responsibility" includes needing to travel for a conference or field work.
+
+If you arrange to have an assignment submitted late, you may not be able to receive feedback from your peers.
+
+### Plagiarism
+
+Plagiarism, which is intellectual theft, occurs where an individual submits or presents the oral or written work of another person as his or her own and can include:
+
+- multiple students submitting the same response
+- copying from sources without citing them
+- copying verbatim (word-for-word) from source and citing, but failing to make it explicit that this is a quotation (quotations should be used only rarely, if at all)
+
+Plagiarism will not be tolerated in the MDS program and may result in dismissal from the program. Students are responsible for ensuring that any work submitted does not constitute plagiarism. Students who are in any doubt as to what constitutes plagiarism should consult their Instructor before handing in any assignments.
+
+For more information see the [UBC Academic Misconduct policies](http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,54,111,959).
+
+#### Code Plagiarism
+
+Students must correctly cite any code that has been authored by someone else or by the student themselves for other assignments. Cases of code plagiarism may include, but are not limited to:
+
+- the reproduction (copying and pasting) of code with none or minimal reformatting (e.g., changing the name of the variables)
+- the translation of an algorithm or a script from a language to another
+- the generation of code by automatic code-generations software
+
+An “adequate acknowledgement” requires a detailed identification of the (parts of the) code reused and a full citation of the original source code that has been reused.
+
+### Video Conferencing with Zoom
+
+Students are encouraged to turn their cameras on whenever they are using Zoom. However, we understand that this can be an issue for some people. As such, you will never be expected to turn your camera on.
+
+### UBC's Policies and Resources to Support Student Success
+
+UBC provides resources to support student learning and to maintain healthy lifestyles but recognizes that sometimes crises arise and so there are additional resources to access including those for survivors of sexual violence. UBC values respect for the person and ideas of all members of the academic community. Harassment and discrimination are not tolerated nor is suppression of academic freedom. UBC provides appropriate accommodation for students with disabilities and for religious, spiritual and cultural observances. UBC values academic honesty and students ae expected to acknowledge the ideas generated by others and to uphold the highest academic standards in all of their actions. Details of the policies and how to access support are available [here](https://senate.ubc.ca/policies-resources-support-student-success).
+
+### Potential restrictions to international students' online learning experiences as a result of remote learning
+
+During this pandemic, the shift to online learning has greatly altered teaching and studying at UBC,
+including changes to health and safety considerations. Keep in mind that some UBC courses might cover
+topics that are censored or considered illegal by non-Canadian governments. This may include, but is not
+limited to, human rights, representative government, defamation, obscenity, gender or sexuality, and
+historical or current geopolitical controversies. If you are a student living abroad, you will be subject to the
+laws of your local jurisdiction, and your local authorities might limit your access to course material or take
+punitive action against you. UBC is strongly committed to academic freedom, but has no control over
+foreign authorities (please visit [http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,33,86,0](http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,33,86,0) for an
+articulation of the values of the University conveyed in the Senate Statement on Academic Freedom).
+Thus, we recognize that students will have legitimate reason to exercise caution in studying certain
+subjects. If you have concerns regarding your personal situation, consider postponing taking a course
+with manifest risks, until you are back on campus or reach out to your academic advisor to find substitute
+courses. For further information and support, please visit: http://academic.ubc.ca/support-resources/freedom-expression
