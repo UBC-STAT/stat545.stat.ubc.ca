@@ -9,4 +9,8 @@ output: html_document
 ## Deliverables
 
 
+## Privacy
+
+Slack
+
 ## Policies
