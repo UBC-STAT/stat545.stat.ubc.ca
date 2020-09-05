@@ -2,26 +2,26 @@
 widget = "featurette"  
 headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
-weight = 35  # Order that this section will appear.
+weight = 30  # Order that this section will appear.
 
-title = "[Calendar](/calendar)"
+title = ""
 
 [[feature]]
-  icon = ""
-  icon_pack = ""
-  name = ""
-  description = ""
+  icon = "scroll"
+  icon_pack = "fas"
+  name = "Syllabus"
+  description = "Coming soon!"
   
 [[feature]]
   icon = "calendar-alt"
   icon_pack = "fas"
-  name = ""
+  name = "[Calendar](/calendar)"
   description = ""  
 
-# [[feature]]
-#   icon = "scroll"
-#   icon_pack = "fas"
-#   name = "[Policies](/policies)"
-#   description = ""
+[[feature]]
+  icon = "school"
+  icon_pack = "fas"
+  name = "[Prospective Students](/faq)"
+  description = ""
 +++
 

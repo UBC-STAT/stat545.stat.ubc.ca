@@ -48,14 +48,7 @@ align = "center"
  css_class = ""
 +++
 
-## Attribution
+#### Attribution
 
 [Jenny Bryan](https://jennybryan.org/) deserves a huge amount of credit for founding and developing both STAT 545A and 547M over many year, along with her TA's, until 2017. Thank you!
 
-<p style="text-align:center">
-  <br />Edit this site on <a href = "https://github.com/STAT545-UBC/STAT545-home">github</a>
-</p>
-
-<p style="text-align:center">
-  <br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>
-</p>

@@ -5,7 +5,7 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 10  # Order that this section will appear in.
 
-title = "STAT 545 @ The University of British Columbia"
+title = "Empowering students to write a clean and modern data analysis."
 
 # STAT 545 "profile" being displayed, found in `content/authors/`
 # This should be the username of a profile in your `content/authors/` folder.
@@ -13,4 +13,3 @@ title = "STAT 545 @ The University of British Columbia"
 author = "stat545"
 +++
 
-Empowering students to write a clean and modern data analysis.
