@@ -12,3 +12,5 @@ title = "STAT 545 @ The University of British Columbia"
 # See https://sourcethemes.com/academic/docs/get-started/#introduce-yourself
 author = "stat545"
 +++
+
+Empowering students to write a clean and modern data analysis.
