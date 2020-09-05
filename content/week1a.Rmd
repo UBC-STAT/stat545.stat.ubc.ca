@@ -3,6 +3,7 @@ title: "STAT 545A: Week 1"
 output: html_document
 ---
 
+**UNDER DEVELOPMENT**
 
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
@@ -87,7 +88,7 @@ cat(thurs_date_pretty)
 
 Have you completed the exercises in "Class 00A"? Do that first before starting!
 
-- Watch the STAT 545 Video Series: Class `r thurs_date_num`
+- Watch the STAT 545 Video Series: Class `r thurs_class_num`
 - Read...
 
 #### During Class

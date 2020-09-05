@@ -6,14 +6,13 @@ output: html_document
 ```{r, message = FALSE, warning = FALSE, echo = FALSE}
 library(lubridate)
 lec1 <- ymd("2020-09-08")
-lec1 - ddays(1)
 ```
 
 
 **STAT 545A:**
 
 - [Week 1A](/week1a): `r lec1 - ddays(1)` - `r lec1 + ddays(3)`
-- [Week 2A](/week1a): `r lec1 + ddays(5)` - `r lec1 + ddays(10)`
+- Week 2A: `r lec1 + ddays(5)` - `r lec1 + ddays(10)`
 
 
 ## Quick-Lookup Table
