@@ -50,5 +50,7 @@ align = "center"
 
 #### Attribution
 
+Website designed and created by [Vincenzo Coia](https://vincenzocoia.com/).
+
 [Jenny Bryan](https://jennybryan.org/) deserves a huge amount of credit for founding and developing STAT 545 over many years, along with her TA's, until 2017. Thank you!
 
