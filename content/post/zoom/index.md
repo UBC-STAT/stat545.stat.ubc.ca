@@ -1,4 +1,8 @@
-# Get started with Zoom!
+---
+title: "Get started with Zoom!"
+subtitle: "Icíar Fernández Boyano"
+date: "September 2020"
+--- 
 
 Zoom is a video conferencing platform that allows for video, audio, and screen sharing between participants. It can be used from any computer, laptop, tablet, or phone, and is compatible on PC, Mac, Android and iOS devices. Zoom meets FERPA/HIPAA compliance and complies with [UBC's Information Security Standards](https://cio.ubc.ca/information-security/information-security-policy-standards-and-resources).
 
