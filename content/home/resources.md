@@ -8,7 +8,7 @@ active = true  # Activate this widget? true/false
 weight = 990  # Order that this section will appear.
 
 title = "Resources"
-subtitle = ""
+subtitle = "Want to dive deeper into a subject? Look here for some resources."
 
 [content]
   # Page type to display. E.g. post, talk, or publication.

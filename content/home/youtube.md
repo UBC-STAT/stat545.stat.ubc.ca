@@ -3,12 +3,12 @@
 widget = "hero"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
-weight = 20  # Order that this section will appear.
+weight = 30  # Order that this section will appear.
 
-title = "Start the Course"
+title = "Watch the Series on YouTube"
 
 # Hero image (optional). Enter filename of an image in the `static/img/` folder.
-# hero_media = "logo-youtube.png"
+hero_media = "logo-youtube.png"
 
 [design.background]
   # Apply a background color, gradient, or image.
@@ -20,24 +20,24 @@ title = "Start the Course"
   # color = "navy"
   
   # Background gradient.
-  # gradient_start = "#4bb4e3"
-  # gradient_end = "#2b94c3"
+  gradient_start = "#4bb4e3"
+  gradient_end = "#2b94c3"
   
   # Background image.
   # image = ""  # Name of image in `static/img/`.
   # image_darken = 0.6  # Darken the image? Range 0-1 where 0 is transparent and 1 is opaque.
 
   # Text color (true=light or false=dark).
-  text_color_light = false
+  text_color_light = true
 
 # Call to action links (optional).
 #   Display link(s) by specifying a URL and label below. Icon is optional for `[cta]`.
 #   Remove a link/note by deleting a cta/note block.
 [cta]
   url = "https://www.youtube.com/channel/UCrB-uourf2vxGeBnGjQrA0w"
-  label = "Go to the Course"
+  label = "Go to Channel"
   icon_pack = "fas"
-  icon = "running"
+  icon = "play"
   
 #[cta_alt]
 #  url = "https://sourcethemes.com/academic/"
@@ -45,7 +45,7 @@ title = "Start the Course"
 
 # Note. An optional note to show underneath the links.
 [cta_note]
-  label = 'Course materials are licensed under [Creative Commons 4.0](https://creativecommons.org/licenses/by/4.0/).'
+  label = 'Registered students can access the videos through [UBC Canvas](https://canvas.ubc.ca), so that you can be guaranteed to have access.'
 +++
 
-Many of the materials are free for the public to use. 
+Made for everyone.
