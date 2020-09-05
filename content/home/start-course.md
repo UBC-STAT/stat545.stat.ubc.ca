@@ -34,7 +34,7 @@ title = "Start the Course"
 #   Display link(s) by specifying a URL and label below. Icon is optional for `[cta]`.
 #   Remove a link/note by deleting a cta/note block.
 [cta]
-  url = "https://www.youtube.com/channel/UCrB-uourf2vxGeBnGjQrA0w"
+  url = "/course"
   label = "Go to the Course"
   icon_pack = "fas"
   icon = "running"
