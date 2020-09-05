@@ -3,25 +3,7 @@ title: "Class Meeting Schedule"
 date: "Updated `r Sys.Date()`"
 ---
 
-```{r, echo = FALSE, warning = FALSE}
-suppressPackageStartupMessages(library(readr))
-suppressPackageStartupMessages(library(knitr))
-suppressPackageStartupMessages(library(here))
-suppressPackageStartupMessages(library(dplyr))
-```
 
-<!-- Here are the topics for each class meeting. You can find the notes in the [guidebook](https://stat545guidebook.netlify.com). -->
-
-Be sure to Bring a laptop to every class!
-
-There will always be two TA's in class to help students with the live coding exercises. 
-
-## STAT 545A
-
-```{r, echo = FALSE, results='asis'}
-cm545 <- suppressMessages(read_csv(here("content", "cm_schedule-545a.csv")))
-kable(cm545)
-```
 
 
 <!-- ## STAT 547M -->

@@ -6,6 +6,13 @@ output:
     toc_depth: 3
 ---
 
+```{r, echo = FALSE, warning = FALSE}
+suppressPackageStartupMessages(library(readr))
+suppressPackageStartupMessages(library(knitr))
+suppressPackageStartupMessages(library(here))
+suppressPackageStartupMessages(library(dplyr))
+```
+
 
 [[experience]]
   title = "STAT 545B"
@@ -47,21 +54,25 @@ output:
 
 ## Topic Schedule
 
+<!-- Be sure to Bring a laptop to every class! -->
+
+There will always be two TA's in class to help students with the live coding exercises. 
+
+## STAT 545A
+
+```{r, echo = FALSE, results='asis'}
+cm545 <- suppressMessages(read_csv(here("content", "cm_schedule-545a.csv")))
+kable(cm545)
+```
+
 
 ## Course Delivery
 
 
-Asynchronous learning:
 
-- Self-learning before "lecture" (mandatory):
-    - Improved guidebook containing tutorials and learning outcomes (current version at stat545guidebook.netlify.app)
-    - Short videos parallel to the guidebook: (1) motivation for the topic, and (2) teaching the topic.
-- Asking questions via a STAT 545 slack channel.
+### Outline of a Lecture
 
-Synchronous learning:
-
-- Lectures:
-    - 30-minute live demo and questions.
+- 30-minute live demo and questions.
         - Instructor works on a real analysis. Perhaps over time, these build up to an analysis similar to their project. 
         - Students ask questions and pose challenges real-time. TA acts as moderator. 
         - Discussion in a chat are processed by a TA: (1) answer "easy" ones directly, (2) put others in a queue (that the TA also manages and asks on behalf of the student).
@@ -75,24 +86,13 @@ Synchronous learning:
     - Allocated hours to send emails prior to the assignment deadline / cut-off (i.e. clarifying that emails that are sent the night before the deadline may go unanswered). This was suggested as a strategy to streamline TAs work in the ISW, the idea being that (of course having certain flexibility and being mindful of timezones) if students have the responsibility of sending their questions in 36 hours before the assignment deadline, that (a) helps with their time management, encouraging not to leave it until last minute, while (b) giving TAs sufficient time to compile a FAQ document to send all students (whether they asked questions or not), and to reply to individual questions that are not FAQs. Of course, if a student is ill, or any other exceptional situations, their email won't go unanswered if they don't meet this deadline. 
     - Should act as an outlet for those from reverse time zones, in case they decide the graveyard shift isn't worth the synchronous sessions.
     - Also used for tech support. 
+    
+<!-- __Non COVID-19 years__: Keep things similar, except synchronous part to be held in-person. -->
 
-
-Community building:
-
-- Already discussed above:
-    - Slack for asynchronous discussions
-    - Breakout rooms on Day 1 to introduce yourself
-    - Teaching-member-led small breakout groups in "lab" portion of lecture to facilitate discussion.
-    - Chat and questions during lecture demo.
-    - Groupwork on project
-- Reach out to students who stop submitting work (needs to be the instructor who does this)
-- Announcements made via canvas (not GH Issues, to reduce the number of outlets students need to interact with).
-
-__Non COVID-19 years__: Keep things similar, except synchronous part to be held in-person.
-
-- Lecture done in-person, but with the same structure. 
-    - Live demo: Still use chat (Slack) so that students can ask questions if they don't want to speak up; still use TA to moderate these.
-    - Lab part: allow breakout groups to happen just by people's physical presence; 2 teaching team members check in person-by-person, while one keeps watch for hands.
+<!-- - Lecture done in-person, but with the same structure.  -->
+<!--     - Live demo: Still use chat (Slack) so that students can ask questions if they don't want to speak up; still use TA to moderate these. -->
+<!--     - Lab part: allow breakout groups to happen just by people's physical presence; 2 teaching team members check in person-by-person, while one keeps watch for hands. -->
+    
 
 
 ## Deliverables
