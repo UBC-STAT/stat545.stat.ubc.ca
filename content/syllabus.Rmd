@@ -11,6 +11,6 @@ output: html_document
 
 ## Privacy
 
-Slack
+Slack, Zoom, GitHub
 
 ## Policies
