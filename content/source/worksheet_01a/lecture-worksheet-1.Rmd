@@ -416,9 +416,6 @@ answer1.7b <- times[c(4, 2)]
 ```{r test-1-7}
 # Test against digested version of both
 ```
-
-
-
 **QUESTION 1.8**
 
 Extract the second through fifth entry of `times` – make use of `:` to construct sequential vectors. Store the result in a variable named `answer1.8`.
@@ -468,6 +465,10 @@ answer1.10 <- 2
 ### END SOLUTION
 ```
 
+```{r}
+# test!
+```
+
 **QUESTION 1.11**
 
 This is a bit of challenge, but I bet you can do it. Try using `[]` in conjunction with `<-` to change the `times` objects by replacing the 2nd and 3rd entries with 2 new travel times of your choosing.
@@ -500,14 +501,15 @@ You have actually already used 3 functions in this worksheet before being formal
 
 Hint: More than 1 answer may be correct.
 
-```{r question-1-11}
-answer1.11 <- #youranswer
-```
-
 ```{r answer-1-11}
+# answer1.11 <- youranswer
 ### BEGIN SOLUTION
 answer1.11 <- c(1,3,4)
 ### END SOLUTION
+```
+
+```{r}
+# test
 ```
 
 There are tens of thousands of functions that one can use in R, which seems a bit large for this worksheet. Let's explore a few basic functions just for fun. Type Sys.Date() below to see what happens!
@@ -537,15 +539,16 @@ Notice the syntax of using a function: starting by the left with the *function n
 Aside from bizarre functions, this is always the case. But functions don't always return a single value. Try the range() function (assigning the result to answer1.12a), and the sqrt() function (assigning the result to answer1.12b), using the "times" vector as an argument for both.
 
 ```{r question-1-12}
-answer1.12a <- #youranswer
-answer1.12b <- #youranswer
-```
-
-```{r answer-1-12}
+#answer1.12a <- youranswer
+#answer1.12b <- youranswer
 ### BEGIN SOLUTION
 answer1.12a <- range(times)
 answer1.12b <- sqrt(times)
 ### END SOLUTION
+```
+
+```{r answer-1-12}
+
 ```
 
 Functions can also take more than one argument as input, separated by commas. You can find out what these arguments are by accessing the function’s documentation, which you can do by executing ?"function name". Try accessing the documentation of the mean() function by executing ?mean.
@@ -570,13 +573,14 @@ For readability, this is not recommended beyond the first or sometimes second ar
 Try executing mean() again with times as an argument, but this time, set the na.rm to TRUE.
 
 ```{r question-1-13}
-answer1.13 <- #youranswer
-```
-
-```{r answer-1-13}
+#answer1.13 <- youranswer
 ### BEGIN SOLUTION
 answer1.13 <- mean(times, na.rm = TRUE)
 ### END SOLUTION
+```
+
+```{r answer-1-13}
+# test
 ```
 
 **QUESTION 1.14**
@@ -584,14 +588,15 @@ answer1.13 <- mean(times, na.rm = TRUE)
 The mean is the same, because there are no NA values in the vector "times". Put your subsetting knowledge into practice by replacing the third entry of the "times" vector by a missing value.
 
 ```{r question-1-14}
-answer1.14 <- #youranswer
+#answer1.14 <- youranswer
 #hint: solution starts with times[...
-```
-
-```{r answer-1-14}
 ### BEGIN SOLUTION
 times[3] <- NA
 ### END SOLUTION
+```
+
+```{r answer-1-14}
+# test
 ```
 
 **QUESTION 1.15**
@@ -599,19 +604,20 @@ times[3] <- NA
 Now, try executing mean() specifying na.rm as TRUE again (with times as an input).
 
 ```{r question-1-15}
-answer1.15 <- #youranswer
-```
-
-```{r answer-1-15}
+#answer1.15 <- youranswer
 ### BEGIN SOLUTION
 answer1.15 <- mean(times, na.rm = TRUE)
 ### END SOLUTION
 ```
 
-Notice how the output changes. What if you try setting na.rm as FALSE instead?
+```{r answer-1-15}
+
+```
+
+Notice how the output changes. What if you try setting `na.rm` as `FALSE` instead?
 
 ```{r activity-1-11}
-
+Describe the task here!
 ```
 
 The function cannot calculate the mean of the numeric vector if there are missing values. 
@@ -635,13 +641,14 @@ We've discussed output formats, which represent different ways in which you can 
 5: LaTeX
 
 ```{r question-1-16}
-answer1.16 <- #youranswer
-```
-
-```{r answer-1-16}
+#answer1.16 <- youranswer
 ### BEGIN SOLUTION
 answer1.16 <- c(1, 3, 4, 5)
 ### END SOLUTION
+```
+
+```{r answer-1-16}
+# test
 ```
 
 **QUESTION 1.17**
@@ -654,13 +661,14 @@ When you are working on a data analysis project, being able to integrate reprodu
 4: It cannot integrate code
 
 ```{r question-1-17}
-answer1.17 <- #youranswer
-```
-
-```{r answer-1-17}
+#answer1.17 <- youranswer
 ### BEGIN SOLUTION
 answer1.17 <- c(2, 4)
 ### END SOLUTION
+```
+
+```{r answer-1-17}
+# test
 ```
 
 **QUESTION 1.18**
@@ -672,13 +680,14 @@ Markdown is a markup language with plain-text-formatting syntax, or in other wor
 3: Specifies more features through a YAML header
 
 ```{r question-1-18}
-answer1.18 <- #youranswer
-```
-
-```{r answer-1-18}
+#answer1.18 <- youranswer
 ### BEGIN SOLUTION
 answer1.18 <- c(1, 3)
 ### END SOLUTION
+```
+
+```{r answer-1-18}
+# test
 ```
 
 ### 2.2 What we learn to do, we learn by doing!
@@ -709,9 +718,10 @@ install.packages('DT')
 
 "Official" R packages are stored and retrieved from [CRAN](https://cran.r-project.org/), the Comprehensive R Archive Network. If you need information about a package, you can check out its vignette with this command, which will open a window in your browser:
 
-```{r vignette}
+```
 browseVignettes(package = "rmarkdown")
 ```
+
 
 ### Exploring code chunks
 

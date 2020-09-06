@@ -5,3 +5,4 @@
 .Rprofile
 public/
 *.html
+*.ipynb_checkpoints
