@@ -4,5 +4,6 @@
 *.Rproj
 .Rprofile
 public/
-*.html
 *.ipynb_checkpoints
+#*.html
+.DS_store
