@@ -216,10 +216,16 @@ Your turn to give it a try. Create a new vector that contains `life_university`,
 ### BEGIN SOLUTION
 answer1.1 <- c(life_university, my_life_university, 25) 
 ### END SOLUTION
+print("success!")
 ```
 
 ```{r test-1-1}
-# Test that the digested version matches.
+test_that("Question 1.1", {
+  expect_identical(answer1.1[1L], life_university)
+  expect_identical(answer1.1[2L], my_life_university)
+  expect_equal(answer1.1[3L], 25)
+})
+
 ```
 
 
@@ -240,14 +246,20 @@ Here's a fun fact: those three numbers are actually pi, euler's number, and tau.
 Assign your answer (`1`, `2`, or `3`) to a variable named `answer1.2`.
 
 ```{r question-1-2}
-answer1.2 <- #youranswer
+#answer1.2 <- youranswer
 ### BEGIN SOLUTION
 answer1.2 <- 1
 ### END SOLUTION
 ```
 
 ```{r answer-1-2}
-# Check that digest(as.numeric(answer1.2)) matches the digested answer.
+test_that("Answer check", {
+  expect_identical(
+    digest(as.integer(answer1.2)), 
+    "4b5630ee914e848e8d07221556b0a2fb"
+  )
+})
+print("success!")
 ```
 
 
@@ -263,9 +275,9 @@ First, R multiplied each of the three elements in `x` by 2. Then, it added 100 t
 
 So far we have only dealt with **numeric** vectors. But there are other types of vectors in the R universe. Let's have a look.
 
-Enough of university, let's talk about vacation! A group of friends are discussing the places that they visited in 2019, and trying to figure out how much total vacation time each of them took. Pablo says he took 54 days off to travel locally, Dana was on vacation for only 14 days, and Marianne went to the Caribbean for 30 days.
-
 **QUESTION 1.3**
+
+Enough of university, let's talk about vacation! A group of friends are discussing the places that they visited in 2019, and trying to figure out how much total vacation time each of them took. Pablo says he took 54 days off to travel locally, Dana was on vacation for only 14 days, and Marianne went to the Caribbean for 30 days.
 
 Create a vector that contains the values of Pablo, Dana, and Marianne's vacation days, respectively. Assign it to a variable named `vacation_time`.
 
@@ -277,7 +289,13 @@ vacation_time <- c(54, 14, 30)
 ```
 
 ```{r test 1-3}
-# Test that the digested form matches.
+test_that("Answer check", {
+  expect_identical(
+    digest(as.integer(vacation_time)), 
+    "8336872ae5cc234b1c1574e27d863ebb"
+  )
+})
+print("success!")
 ```
 
 
@@ -293,7 +311,13 @@ vacation_time_minutes <- vacation_time * 1440
 ```
 
 ```{r test-1-4}
-# Test that digested version matches.
+test_that("Answer check", {
+    expect_identical(
+      digest(as.numeric(vacation_time_minutes)),
+      "ce79c61a9b5bd2b5bf4b4def95455438"
+    )
+})
+print("success!")
 ```
 
 **QUESTION 1.5**
@@ -308,7 +332,13 @@ under_21600 <- vacation_time_minutes > 21600
 ```
 
 ```{r test-1-5}
-# Test their digested answer.
+test_that("Answer check", {
+    expect_identical(
+      digest(under_21600),
+      "4f00878a54c541bdbf07c006a9d412dc"
+    )
+})
+print("success!")
 ```
 
 
@@ -380,7 +410,13 @@ answer1.5 <- times[3]
 ```
 
 ```{r test-1-5}
-# Test digested version
+test_that("Answer check", {
+    expect_identical(
+      digest(answer1.5),
+      "e3aac2c171de0322895102f09101ba98"
+    )
+})
+print("success!")
 ```
 
 
@@ -396,7 +432,13 @@ answer1.6 <- times[-3]
 ```
 
 ```{r test-1-6}
-# Test that digested version matches.
+test_that("Answer check", {
+    expect_identical(
+      digest(answer1.6),
+      "600c1ff6db302a52139f9ac39dd41d0c"
+    )
+})
+print("success!")
 ```
 
 
@@ -414,7 +456,17 @@ answer1.7b <- times[c(4, 2)]
 ```
 
 ```{r test-1-7}
-# Test against digested version of both
+test_that("Answer check", {
+  expect_identical(
+    digest(answer1.7a),
+    "24887cb43232d541bb551ce34f852e69"
+  )
+  expect_identical(
+    digest(answer1.7b),
+    "94001bedd89d74d064e93afdf1b57986"
+  )
+})
+print("success!")
 ```
 **QUESTION 1.8**
 
@@ -428,7 +480,13 @@ answer1.8 <- times[2:5]
 ```
 
 ```{r test-1-8}
-# Test digested version.
+test_that("Answer check", {
+    expect_identical(
+      digest(answer1.8),
+      "3dff0beb6577b621859c9a3579b8d379"
+    )
+})
+print("success!")
 ```
 
 
@@ -444,7 +502,13 @@ answer1.9 <- times < 30
 ```
 
 ```{r test-1-9}
-# Test digested version
+test_that("Answer check", {
+    expect_identical(
+      digest(answer1.9),
+      "2b916bf4357d49250dc2558d0dd54aa2"
+    )
+})
+print("success!")
 ```
 
 
@@ -466,23 +530,42 @@ answer1.10 <- 2
 ```
 
 ```{r}
-# test!
+test_that("Answer check", {
+    expect_identical(
+      digest(as.integer(answer1.10)),
+      "c01f179e4b57ab8bd9de309e6d576c48"
+    )
+})
+print("success!")
 ```
 
 **QUESTION 1.11**
 
 This is a bit of challenge, but I bet you can do it. Try using `[]` in conjunction with `<-` to change the `times` objects by replacing the 2nd and 3rd entries with 2 new travel times of your choosing.
 
+(Before you do that, allow us to store the original `times` object for autograding!)
+
+```{r}
+times_old <- times
+```
+
+Now, answer away!
+
 ```{r question-1-11}
 # your answer here
 ### BEGIN SOLUTION
-times[c(2,3)] <- c(10, 12) # as an example, your answer could be different!
+times[c(2, 3)] <- c(10, 12) # as an example, your answer could be different!
 ### END SOLUTION
 ```
 
 ```{r test-1-11}
 # Test that `times` still has length 10, and that the entries are the
 # same except for the 2nd and 3rd.
+test_that("Answer check", {
+  expect_identical(length(times), "71db8a6cad03244e6e50f0ad8bc95a65")
+  expect_identical(
+})
+print("success!")
 ```
 
 
