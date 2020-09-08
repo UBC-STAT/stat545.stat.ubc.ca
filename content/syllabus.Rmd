@@ -1,40 +1,22 @@
 ---
-title: "Course syllabus: 2020/2021"
+title: "STAT 545A Course syllabus: 2020/2021"
+subtitle: "https://stat545.stat.ubc.ca/"
 output: 
   html_document:
     toc: true
     toc_depth: 3
 ---
 
-```{r, echo = FALSE, warning = FALSE}
-suppressPackageStartupMessages(library(readr))
-suppressPackageStartupMessages(library(knitr))
-suppressPackageStartupMessages(library(here))
-suppressPackageStartupMessages(library(dplyr))
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+library(tidyverse)
+library(lubridate)
+source(here::here("content", "dates.R"))
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
+How to make a clean and modern data analysis, Part I. 
 
-[[experience]]
-  title = "STAT 545B"
-  company = "hosted online"
-  company_url = ""
-  location = "Tuesdays, Thursdays 0930-1100 PST"
-  date_start = "2020-10-27"
-  date_end = "2020-12-10"
-  description = ""
-
-[[experience]]
-  title = "STAT 545A"
-  company = "hosted online"
-  company_url = ""
-  location = "Tuesdays, Thursdays 0930-1100 PST"
-  date_start = "2020-09-08"
-  date_end = "2020-10-22"
-  description = ""
-
-## Learning Objectives
-
-### STAT 545A
+__Duration__: `r lec0` - `r max(dates) + ddays(1)`
 
 * Introduction to [R](http://www.r-project.org) and the [RStudio IDE](http://www.rstudio.com/products/rstudio/): scripts, the workspace, RStudio Projects, daily workflow
 * Generate reports from R scripts and [R Markdown](http://rmarkdown.rstudio.com)
@@ -52,41 +34,53 @@ suppressPackageStartupMessages(library(dplyr))
 * Distribute data and code via an R package
 * Automate an analytical pipeline, e.g. via `Make`
 
-## Topic Schedule
+
+## Teaching Team
+
+Instructor: Dr. Vincenzo Coia
+
+Teaching Assistants:
+
+- Almas Khan
+- Icíar Fernández Boyano
+- Diana Lin
+- Victor Yuan
+
+## Lectures
+
+Tuesdays and Thursdays 0930-1100 PST
 
 <!-- Be sure to Bring a laptop to every class! -->
 
 There will always be two TA's in class to help students with the live coding exercises. 
 
-## STAT 545A
 
-```{r, echo = FALSE, results='asis'}
-cm545 <- suppressMessages(read_csv(here("content", "cm_schedule-545a.csv")))
-kable(cm545)
+```{r, results = "asis"}
+here::here("content", "lecture_schedule-545a.csv") %>% 
+  read_csv() %>% 
+  mutate(Weekday = wday(dates_545a, label = TRUE),
+         Date = dates_545a_pretty_noyear) %>% 
+  select(Lesson, Weekday, Date, Topic) %>% 
+  knitr::kable()
 ```
 
+**What to expect during class**
 
-## Course Delivery
+Lectures will consist of the following components, in this order:
 
+1. Live demo and questions (20-30 minutes)
+  - Instructor demonstrates techniques; students ask questions and pose challenges.
+  - Discussion in a chat are processed by a TA: answer directly, unless the question is more involved, in which case it enters a queue (managed by that TA).
+2. Quiz
+  - Only graded by your participation, not correctness. You have 24 hours to complete.
+  - We discuss in class.
+3. Break: 5 minutes
+  - We'll try playing [Random Acts of Exercise](https://www.youtube.com/playlist?list=PL6JWPcX0WhHU97aqiRA4P6Jta9f04Nanm) (Each body is different, so make this your practice by modifying the activity based on what your body can do.)
+4. Lab (45 minutes):
+  - Instructor introduces the worksheet exercises for the period
+  - Instructor + 1 TA goes through random groups of 3 or 4 students in turn, coming in with some discussion points, but also allowing a natural conversation to unfold about the worksheet, as well as perhaps how the course is going.
+  - At the same time, a TA remains present to answer questions.
 
-
-### Outline of a Lecture
-
-- 30-minute live demo and questions.
-        - Instructor works on a real analysis. Perhaps over time, these build up to an analysis similar to their project. 
-        - Students ask questions and pose challenges real-time. TA acts as moderator. 
-        - Discussion in a chat are processed by a TA: (1) answer "easy" ones directly, (2) put others in a queue (that the TA also manages and asks on behalf of the student).
-        - Oral questions taken via "raising virtual hand", also managed by the TA. 
-    - 5-minute break (play [Random Acts of Exercise](https://www.youtube.com/playlist?list=PL6JWPcX0WhHU97aqiRA4P6Jta9f04Nanm). Each body is different, so make this your practice by modifying the activity based on what your body can do.)
-    - 45-minute "lab"; work on lecture worksheet.
-        - Each teaching member goes through random groups of 3 or 4 students in turn, coming in with some discussion points, but also allowing a natural conversation to unfold about the worksheet, as well as perhaps how the course is going. 
-        - At the same time, perhaps a TA can hold their office hour, so that students who have questions that they don't want to ask in a breakout group can go to that TA.
-- Office hours:
-    - Two teaching members staff an office hour soon before the assignment deadline. Need to think more about specifics (one member holds group conversations, while another takes individual? Maybe even host bonus material?)
-    - Allocated hours to send emails prior to the assignment deadline / cut-off (i.e. clarifying that emails that are sent the night before the deadline may go unanswered). This was suggested as a strategy to streamline TAs work in the ISW, the idea being that (of course having certain flexibility and being mindful of timezones) if students have the responsibility of sending their questions in 36 hours before the assignment deadline, that (a) helps with their time management, encouraging not to leave it until last minute, while (b) giving TAs sufficient time to compile a FAQ document to send all students (whether they asked questions or not), and to reply to individual questions that are not FAQs. Of course, if a student is ill, or any other exceptional situations, their email won't go unanswered if they don't meet this deadline. 
-    - Should act as an outlet for those from reverse time zones, in case they decide the graveyard shift isn't worth the synchronous sessions.
-    - Also used for tech support. 
-    
 <!-- __Non COVID-19 years__: Keep things similar, except synchronous part to be held in-person. -->
 
 <!-- - Lecture done in-person, but with the same structure.  -->
@@ -95,31 +89,32 @@ kable(cm545)
     
 
 
+
+    
+## Slack
+
+- We can't guarantee that the teaching team will be able to respond to your messages outside of typical workday hours (0900-1700 PST). So, please be mindful of a __17:00 PST cutoff on Fridays__ when asking assignment-related questions. 
+    
+
+
+
 ## Deliverables
 
 | Deliverable        | Submission Frequency | Percent Grade | Description |
 |--------------------|----------------------|---------------|-------------|
-| Class worksheets | weekly               | 10            | Takes the place of the old "participation" deliverable. Autograded walkthroughs to guide student learning. |
-| Participation quizzes     | every class | 5  | Get full marks by answering a few quick questions per class -- doesn't matter if you're right or wrong! 24h submission period. |
-| Mini data analysis        | three checkpoints               | 50            | Students answer questions. Recycle much of previous assignments, perhaps more pared-down and streamlined to make way for the group project. |
-| Group Project      | three(?) checkpoints | 35            | Creatively analyse data. Contains peer review, but in a more natural way than before, as they review each other's work. Actually get to experience the full extent of data analysis and GitHub. |
+| Class worksheets (5) | weekly               | 10            | Autograded walkthroughs to guide student learning. |
+| Participation quizzes (13) | every class | 5  | Get full marks by answering a few quick questions per class -- doesn't matter if you're right or wrong! 24h submission period. |
+| Mini data analysis   | three checkpoints | 50            | Students write their own mini data analysis. |
+| Collaborative Troubleshooting project | three checkpoints | 35            | Team project intended for practicing version control and collaboration, by answering some debugging problems. |
 
 ### Participation (10% + 5%)
 
-+ **Overarching goal**: To assess students' engagement with the course and simultaneously create connection with students (draw their interest in the course).
 
-| Learning Objective                                                                 | Deliverable             | Submission frequency | % Grade |
-|------------------------------------------------------------------------------------|-------------------------|----------------------|---------|
-| Demonstrate understanding of lecture material through direct application in RStudio| Lecture worksheets      | weekly               | 10      |
-| Review previous class material                                                     | In-class quiz           | in-class             | 5       |
-
-+ Use nbgrader for autograding of lecture worksheets locally to avoid issues with the server. *Figure out the details of how this will work*
-+ Lecture worksheets will be graded for **completion** rather than **correctness**. As a proxy to evaluation completion, having 30-40% (tbd) of all autograded marks as correct in a given worksheet will equal full marks for said worksheet.
 + In-class quizzes - possibly in the form of a think-broadcast-share with the Zoom polling function, with downloadable results that show which students answered to keep track for participation marks. I would set this either at the beginning of the class or during a 5 minute break, just a couple easy questions, and points won't be given for right answers but simply for participating. Ideally, questions are geared towards more "creative" aspects (example discussed in our meeting was students choosing which visualization seems more effective), the goal is to have them engaged with the class content and create a sense of connection rather than evaluate their knowledge.
 
 ### Collaborative Troubleshooting (35%)
 
-+ **Overarching goal**: To assess students' ability to collaborate on GitHub + to identify common coding errors & apply their knowledge to solve them. This assessment would double as a group project, and substitute the old peer review portion of the evaluation in STAT545.
++ **Overarching goal**: To assess students' ability to collaborate on GitHub + to identify common coding errors & apply their knowledge to solve them. This assessment would double as a group project.
 
 + **Learning objectives**:
 

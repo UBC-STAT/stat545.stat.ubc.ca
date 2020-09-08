@@ -5,14 +5,30 @@ output: html_document
 
 ```{r, message = FALSE, warning = FALSE, echo = FALSE}
 library(lubridate)
-lec1 <- ymd("2020-09-08")
+source(here::here("content", "dates.R"))
 ```
 
 
 **STAT 545A:**
 
-- [Week 1A](/week1a): `r lec1 - ddays(1)` - `r lec1 + ddays(3)`
-- Week 2A: `r lec1 + ddays(5)` - `r lec1 + ddays(10)`
+- [Week 1A](/week1a): `r lec0 - ddays(1)` - `r dates_545a_pretty_noyear[1] + ddays(1)`
+- [Week 2A](): `r dates_545a_pretty_noyear[2]  - ddays(1)` - `r dates_545a_pretty_noyear[3]  + ddays(1)`
+- [Week 3A](): `r dates_545a_pretty_noyear[4]  - ddays(1)` - `r dates_545a_pretty_noyear[5]  + ddays(1)`
+- [Week 4A](): `r dates_545a_pretty_noyear[6]  - ddays(1)` - `r dates_545a_pretty_noyear[7]  + ddays(1)`
+- [Week 5A](): `r dates_545a_pretty_noyear[8]  - ddays(1)` - `r dates_545a_pretty_noyear[9]  + ddays(1)`
+- [Week 6A](): `r dates_545a_pretty_noyear[10] - ddays(1)` - `r dates_545a_pretty_noyear[11] + ddays(1)`
+- [Week 7A](): `r dates_545a_pretty_noyear[12] - ddays(1)` - `r dates_545a_pretty_noyear[13] + ddays(1)`
+
+
+**STAT 545B:**
+
+- [Week 1B](): `r dates_545b_pretty_noyear[1]  - ddays(1)` - `r dates_545b_pretty_noyear[2]  + ddays(1)`
+- [Week 2B](): `r dates_545b_pretty_noyear[3]  - ddays(1)` - `r dates_545b_pretty_noyear[4]  + ddays(1)`
+- [Week 3B](): `r dates_545b_pretty_noyear[5]  - ddays(1)` - `r dates_545b_pretty_noyear[6]  + ddays(1)`
+- [Week 4B](): `r dates_545b_pretty_noyear[7]  - ddays(1)` - `r dates_545b_pretty_noyear[8]  + ddays(1)`
+- [Week 5B](): `r dates_545b_pretty_noyear[9]  - ddays(1)` - `r dates_545b_pretty_noyear[10] + ddays(1)`
+- [Week 6B](): `r dates_545b_pretty_noyear[11] - ddays(1)` - `r dates_545b_pretty_noyear[12] + ddays(1)`
+- [Week 7B](): `r dates_545b_pretty_noyear[13] - ddays(1)` - `r dates_545b_pretty_noyear[14] + ddays(1)`
 
 
 ## Quick-Lookup Table
