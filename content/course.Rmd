@@ -1,5 +1,5 @@
 ---
-title: "STAT 545 Material"
+title: "STAT 545 Navigation Dashboard"
 output: html_document
 ---
 
@@ -7,6 +7,8 @@ output: html_document
 library(lubridate)
 source(here::here("content", "dates.R"))
 ```
+
+Use this page to navigate your way through STAT 545. 
 
 
 **STAT 545A:**
