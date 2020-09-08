@@ -4,4 +4,4 @@
 
 This is the main repository from which we teach STAT 545 @ UBC. It contains most of the content, and produces the main website at https://stat545.stat.ubc.ca
 
-**Teaching Team**: for help in working with the course, check out the [instructor-guides](./instructor-guides) folder. 
+**Teaching Team**: for help in working with the course, check out the [instructor-guides](instructor-guides/) folder. 
