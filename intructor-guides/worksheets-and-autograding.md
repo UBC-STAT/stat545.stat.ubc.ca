@@ -1,36 +1,8 @@
-[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/) [![Netlify Status](https://api.netlify.com/api/v1/badges/686ec137-6a38-4f0b-8717-4ae964b3848c/deploy-status)](https://app.netlify.com/sites/stat545/deploys) [![Build Status](https://travis-ci.com/STAT545-UBC/STAT545-home.svg?branch=master)](https://travis-ci.com/STAT545-UBC/STAT545-home)
+# Worksheets and Autograding
 
-# STAT 545 at UBC
+This is meant to help you produce autograded worksheets.
 
-This repository contains the STAT 545 @ UBC content, and produces the main website at https://stat545.stat.ubc.ca
-
-## Editing the Website
-
-**Info**: This repository is hooked up to Travis CI and Netlify. All you need to do is push a change to the `master` branch, and the site will automatically render and deploy. _**UPDATE**: it seems html files need to be produced manually at this moment. This still needs troubleshooting._
-
-~~Wondering where the `.html` files are? They've been `.gitignore`d, and produced by Travis/Netlify.~~
-
-**To edit the homepage**:
-
-- Each "cell" has its own `.md` file in `content/home/`. Each file is a ["widget" under the Hugo Academic theme](https://wowchemy.com/docs/page-builder/) -- check out the docs to see how to edit each one.
-    - the `index.md` is special. It lives by itself and doesn't correspond to a widget on the homepage.
-- To edit your author page, edit the `.md` file in `content/authors/your_name/`
-- All other pages live somewhere in `content/`, but in order for them to be findable, they need to be linked to.
-    - The exception is the "pages" widget. Here, you're allowed to specify a folder in `content/`, and the contents of that folder will appear in the widget. 
-- Website parameters, like themes and menus, can be found in `config.toml` and `/config` toml files. 
-- `static/` contains static stuff like pictures that the site draws on.
-
-## Adding videos to canvas
-
-1. Within Canvas go to My Media
-2. Click the Add New menu and select Media Upload to upload the recorded lecture
-3. Indicate the Copyright Permission for the uploaded video: _"With the permission of the copyright holder"_. 
-4. Publishing status: "Published:
-    - Click on all of them that have "STAT545A" or "STAT 545B" in them.
-
-## Worksheets and Autograding
-
-### Making a new worksheet
+## Making a new worksheet
 
 1. Make a new folder in `content/source/` that uses the following naming convention: for example, the folder for the 5th worksheet in STAT 545A should be named `worksheet_05a`.
     - FYI: the worksheet name needs to appear in `content/nbgrader_config.py` -- the parameter specification for nbgrader. I think I've added all of the worksheets.
@@ -46,7 +18,7 @@ Note:
     - If you "make the Rmd file an assignment file" within jupyter by following Step 3 above, and proceed to specify the nbgrader metadata, the *metadata will not save* (from my experience, at least).
     - You can save an Rmd file as an ipynb file: open the Rmd in jupyter (possible thanks to JupyText), and save the worksheet as a different file. It should default to an .ipynb -- you can then "Create Assignment" and start filling in the nbgrader metadata, and the metadata will save along with file saving. 
 
-### Writing a worksheet to comply with nbgrader
+## Writing a worksheet to comply with nbgrader
 
 Here's the general idea behind writing an autograded question. It might look something like this:
 
@@ -85,7 +57,7 @@ Here are the specifics. nbgrader will complain if you don't do these things. (No
 
 Still confused about things like `digest()`? We're getting there...
 
-### Converting the source worksheet to a student-facing worksheet
+## Converting the source worksheet to a student-facing worksheet
 
 The **general idea** behind producing a worksheet for the students:
 
@@ -114,7 +86,7 @@ nbgrader generate_assignment --force worksheet_05a
 
 2C: Take a look in the `content/release/` folder -- your outputted assignment should be there!
 
-### Tips for writing autograded tests
+## Tips for writing autograded tests
 
 Here are tips when writing the source version of the worksheet.
 
