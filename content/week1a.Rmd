@@ -3,8 +3,6 @@ title: "STAT 545A: Week 1"
 output: html_document
 ---
 
-**UNDER DEVELOPMENT**
-
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE}
 week_num <- 1  # 1 through 14
@@ -44,6 +42,8 @@ fri_date_pretty <- paste0(
 
 **Finish By:** Friday, September 18 at 23:59 PST **(Not for grades -- no need to submit!)**
 
+__[Download here](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/release/worksheet_01a/worksheet_01a.ipynb)__ and open with jupyterlab.
+
 For the first two weeks, we'll be working on this worksheet in class. This worksheet is intended to:
 
 - Get you used to filling out the worksheets; and
@@ -63,10 +63,12 @@ cat(tues_date_pretty)
 
 **Imagine Day: class cancelled**
 
-Prepare for the course:
+Use today and tomorrow to prepare for the course:
 
-+ Watch the [Intro to STAT 545 Video Series video](https://youtu.be/6REhJVsbbAM) (canvas version also available).
++ Watch the [Intro to STAT 545 Video Series video](https://youtu.be/6REhJVsbbAM) (a version is also available on canvas for those who cannot access YouTube).
 + Install the software needed for STAT 545A by following along the tutorial ["Software Installation for STAT 545"](/software-stack).
+
+Note: each class will require some preparation. Take a look at the "Prepare for Class" section for Thursday's class!
 
 -----
 
@@ -80,27 +82,29 @@ Prepare for the course:
 cat(thurs_date_pretty)
 ```
 
-<!-- From today's class, students are anticipated to be able to: -->
-
-<!-- - FILL_THIS_IN -->
+Today, we'll be learning the basics of R:
 
 #### Prepare for Class
 
-Have you completed the exercises in "Class 00A"? Do that first before starting!
+Have you completed the exercises in "Class 00A"? Do that first before starting! In addition:
 
 - Watch the STAT 545 Video Series: Class `r thurs_class_num`
-- Read...
+
+Some useful (but not mandatory) readings are:
+
+- [Intro to R](https://stat545.com/r-basics.html)
+- [Why R?](https://cfss.uchicago.edu/setup/what-is-r/)
 
 #### During Class
 
-+ Intro to STAT545A & what to expect from the class - enter syllabus (~20 min)
-+ 5 minute break + additional time in case there are troubleshooting issues with R & RStudio that need to be solved individually.
-+ Why R? + Lecture worksheet / In-class demo (~50 minutes)
-  + Rather than using breakout rooms in the first class (since it may be the first time using R and RStudio for many), I think alternating between an in-class demo where everything in [2.5 Orientation to R](https://stat545guidebook.netlify.app/introduction-to-r.html) & "don't save your workspace" is demonstrated while alternating with students completing the worksheet may be good. 
-  + Example of the workflow (1) Vincenzo demonstrates Functions I and Functions II, could simply be an improvised demo in R (2) Students complete the relevant section of the worksheet, and click "yes" on Zoom when they are done (3) When all or almost all students have clicked "yes" (if there is a couple that have not, TAs reach out directly to ask), go on to the next task.
+1. We'll start with a demo of R via Zoom.
+2. We'll jump into the worksheet (see above) during the last 45 minutes. 
+
+We may alternate the two if it feels right. 
+
 
 -----
 
 
-
+Nothing to submit this week! Woohoo!
 
