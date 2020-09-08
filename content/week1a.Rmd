@@ -91,7 +91,8 @@ Today, we'll be learning the basics of R:
 
 Have you completed the exercises in "Class 00A"? Do that first before starting! In addition:
 
-- Watch the STAT 545 Video Series: Class `r thurs_class_num`
+- Watch the [STAT 545 Video Series: Episode 1-A: Coding your Analysis for Success](https://youtu.be/91LmBj29-Sc) (also available on canvas)
+- Familiarize yourself with Zoom: read the [Getting Started with Zoom](https://stat545.stat.ubc.ca/tutorials/zoom/) guide found in the "Tutorials" section of the course website. 
 
 Some useful (but not mandatory) readings are:
 
