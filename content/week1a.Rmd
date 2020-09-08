@@ -1,6 +1,9 @@
 ---
 title: "STAT 545A: Week 1"
-output: html_document
+output: 
+  html_document:
+    toc: true
+    toc_float: true
 ---
 
 
