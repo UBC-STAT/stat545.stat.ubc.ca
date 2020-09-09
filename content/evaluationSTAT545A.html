@@ -11,7 +11,7 @@
 
 
 
-<title>STAT 545A Course syllabus: 2020/2021</title>
+<title>STAT 545 Navigation Dashboard</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -374,297 +374,89 @@ summary {
 
 
 
-<h1 class="title toc-ignore">STAT 545A Course syllabus: 2020/2021</h1>
+<h1 class="title toc-ignore">STAT 545 Evaluation</h1>
 
 </div>
 
-<div id="TOC">
-<ul>
-<li><a href="#teaching-team"><span class="toc-section-number">1</span> Teaching Team</a></li>
-<li><a href="#lectures"><span class="toc-section-number">2</span> Lectures</a></li>
-<li><a href="#deliverables"><span class="toc-section-number">3</span> Deliverables</a></li>
-<li><a href="#auditing-students"><span class="toc-section-number">4</span> Auditing Students</a></li>
-<li><a href="#privacy"><span class="toc-section-number">5</span> Privacy</a>
-<ul>
-<li><a href="#slack"><span class="toc-section-number">5.1</span> Slack</a></li>
-<li><a href="#github.com"><span class="toc-section-number">5.2</span> GitHub.com</a></li>
-</ul></li>
-<li><a href="#policies"><span class="toc-section-number">6</span> Policies</a>
-<ul>
-<li><a href="#communications"><span class="toc-section-number">6.1</span> Communications</a></li>
-<li><a href="#late-policy"><span class="toc-section-number">6.2</span> Late Policy</a></li>
-<li><a href="#academic-concession"><span class="toc-section-number">6.3</span> Academic Concession</a></li>
-<li><a href="#plagiarism"><span class="toc-section-number">6.4</span> Plagiarism</a></li>
-<li><a href="#video-conferencing-with-zoom"><span class="toc-section-number">6.5</span> Video Conferencing with Zoom</a></li>
-<li><a href="#ubcs-policies-and-resources-to-support-student-success"><span class="toc-section-number">6.6</span> UBC’s Policies and Resources to Support Student Success</a></li>
-<li><a href="#potential-restrictions-to-international-students-online-learning-experiences-as-a-result-of-remote-learning"><span class="toc-section-number">6.7</span> Potential restrictions to international students’ online learning experiences as a result of remote learning</a></li>
-</ul></li>
-</ul>
-</div>
 
-<p>How to make a clean and modern data analysis, Part I.</p>
-<p><strong>Website</strong>: <a href="https://stat545.stat.ubc.ca/" class="uri">https://stat545.stat.ubc.ca/</a></p>
-<p><strong>Duration</strong>: 2020-09-08 - 2020-10-23</p>
-<ul>
-<li>Introduction to <a href="http://www.r-project.org">R</a> and the <a href="http://www.rstudio.com/products/rstudio/">RStudio IDE</a>: scripts, the workspace, RStudio Projects, daily workflow</li>
-<li>Generate reports from R scripts and <a href="http://rmarkdown.rstudio.com">R Markdown</a></li>
-<li>Coding style, file and project organization</li>
-<li>Data frames or “tibbles” are the core data structure for data analysis: care for them with the tidyverse</li>
-<li>Data visualization with <a href="http://ggplot2.org"><code>ggplot2</code></a></li>
-<li>How to write functions and work with R in a functional style</li>
-<li>Version control with Git; collaboration via <a href="https://github.com">GitHub</a></li>
-</ul>
-<div id="teaching-team" class="section level1" number="1">
-<h1 number="1"><span class="header-section-number">1</span> Teaching Team</h1>
-<p>Instructor: Dr. Vincenzo Coia</p>
-<p>Teaching Assistants:</p>
-<ul>
-<li>Almas Khan</li>
-<li>Icíar Fernández Boyano</li>
-<li>Diana Lin</li>
-<li>Victor Yuan</li>
-</ul>
-</div>
-<div id="lectures" class="section level1" number="2">
-<h1 number="2"><span class="header-section-number">2</span> Lectures</h1>
-<p>Tuesdays and Thursdays 0930-1100 PST</p>
-<!-- Be sure to Bring a laptop to every class! -->
-<p>There will always be two TA’s in class to help students with the live coding exercises.</p>
-<table>
-<thead>
-<tr class="header">
-<th align="right">Lesson</th>
-<th align="left">Weekday</th>
-<th align="left">Date</th>
-<th align="left">Topic</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">1</td>
-<td align="left">Thu</td>
-<td align="left">Sep 10</td>
-<td align="left">Introduction to STAT545 and R</td>
-</tr>
-<tr class="even">
-<td align="right">2</td>
-<td align="left">Tue</td>
-<td align="left">Sep 15</td>
-<td align="left">Collaboration and Version Control</td>
-</tr>
-<tr class="odd">
-<td align="right">3</td>
-<td align="left">Thu</td>
-<td align="left">Sep 17</td>
-<td align="left">R Markdown and Reproducibility</td>
-</tr>
-<tr class="even">
-<td align="right">4</td>
-<td align="left">Tue</td>
-<td align="left">Sep 22</td>
-<td align="left">Data Wrangling Part I</td>
-</tr>
-<tr class="odd">
-<td align="right">5</td>
-<td align="left">Thu</td>
-<td align="left">Sep 24</td>
-<td align="left">Plotting Part I</td>
-</tr>
-<tr class="even">
-<td align="right">6</td>
-<td align="left">Tue</td>
-<td align="left">Sep 29</td>
-<td align="left">Data Wrangling Part II</td>
-</tr>
-<tr class="odd">
-<td align="right">7</td>
-<td align="left">Thu</td>
-<td align="left">Oct 1</td>
-<td align="left">Plotting Part II</td>
-</tr>
-<tr class="even">
-<td align="right">8</td>
-<td align="left">Tue</td>
-<td align="left">Oct 6</td>
-<td align="left">Tidy data</td>
-</tr>
-<tr class="odd">
-<td align="right">9</td>
-<td align="left">Thu</td>
-<td align="left">Oct 8</td>
-<td align="left">The model-fitting paradigm in R</td>
-</tr>
-<tr class="even">
-<td align="right">10</td>
-<td align="left">Tue</td>
-<td align="left">Oct 13</td>
-<td align="left">Special data types: factors and dates</td>
-</tr>
-<tr class="odd">
-<td align="right">11</td>
-<td align="left">Thu</td>
-<td align="left">Oct 15</td>
-<td align="left">Tibble joins</td>
-</tr>
-<tr class="even">
-<td align="right">12</td>
-<td align="left">Tue</td>
-<td align="left">Oct 20</td>
-<td align="left">File input/output</td>
-</tr>
-<tr class="odd">
-<td align="right">13</td>
-<td align="left">Thu</td>
-<td align="left">Oct 22</td>
-<td align="left">Choose your own adventure</td>
-</tr>
-</tbody>
-</table>
-<p><strong>What to expect during class</strong></p>
-<p>Lectures will consist of the following components, in this order:</p>
-<ol style="list-style-type: decimal">
-<li>Live demo and questions (20-30 minutes)
-<ul>
-<li>Instructor demonstrates techniques; students ask questions and pose challenges.</li>
-<li>Discussion in a chat are processed by a TA: answer directly, unless the question is more involved, in which case it enters a queue (managed by that TA).</li>
-</ul></li>
-<li>Quiz
-<ul>
-<li>Only graded by your participation, not correctness. You have 24 hours to complete.</li>
-<li>We discuss in class.</li>
-</ul></li>
-<li>Break: 5 minutes
-<ul>
-<li>We’ll try playing <a href="https://www.youtube.com/playlist?list=PL6JWPcX0WhHU97aqiRA4P6Jta9f04Nanm">Random Acts of Exercise</a> (Each body is different, so make this your practice by modifying the activity based on what your body can do.)</li>
-</ul></li>
-<li>Lab (45 minutes):
-<ul>
-<li>Instructor introduces the worksheet exercises for the period</li>
-<li>Instructor + 1 TA goes through random groups of 3 or 4 students in turn, coming in with some discussion points, but also allowing a natural conversation to unfold about the worksheet, as well as perhaps how the course is going.</li>
-<li>At the same time, a TA remains present to answer questions.</li>
-</ul></li>
+<p>This page contains details about STAT545A's evaluation components, including instructions for deliverables and submissions. All deadlines can be found in the [course calendar](https://stat545.stat.ubc.ca/calendar/). </p>
+<div id="class-worksheets" class="section level2">
+<h2>Class worksheets (10%)</h2>
+<p><strong>Learning Objectives</strong></p>
+<ol>
+<li>Apply knowledge acquired in class to solve problems with data.</li>
+<li>Practice coding skills through self-directed autograded walkthroughs.</li>
 </ol>
-<!-- __Non COVID-19 years__: Keep things similar, except synchronous part to be held in-person. -->
-<!-- - Lecture done in-person, but with the same structure.  -->
-<!--     - Live demo: Still use chat (Slack) so that students can ask questions if they don't want to speak up; still use TA to moderate these. -->
-<!--     - Lab part: allow breakout groups to happen just by people's physical presence; 2 teaching team members check in person-by-person, while one keeps watch for hands. -->
-</div>
-<div id="deliverables" class="section level1" number="3">
-<h1 number="3"><span class="header-section-number">3</span> Deliverables</h1>
-<table>
-<colgroup>
-<col width="28%" />
-<col width="31%" />
-<col width="21%" />
-<col width="18%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Deliverable</th>
-<th>Submission Frequency</th>
-<th>Percent Grade</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Class worksheets (5)</td>
-<td>weekly</td>
-<td>10</td>
-<td>Autograded walkthroughs to guide student learning.</td>
-</tr>
-<tr class="even">
-<td>Participation quizzes (13)</td>
-<td>every class</td>
-<td>5</td>
-<td>Get full marks by answering a few quick questions per class – doesn’t matter if you’re right or wrong! 24h submission period.</td>
-</tr>
-<tr class="odd">
-<td>Mini data analysis</td>
-<td>three checkpoints</td>
-<td>50</td>
-<td>Students write their own mini data analysis.</td>
-</tr>
-<tr class="even">
-<td>Collaborative Troubleshooting project</td>
-<td>three checkpoints</td>
-<td>35</td>
-<td>Team project intended for practicing version control and collaboration, by answering some debugging problems.</td>
-</tr>
-</tbody>
-</table>
-<p>More details can be found <a href="https://stat545.stat.ubc.ca/evaluationSTAT545A">here</a>.</p>
-</div>
-<div id="auditing-students" class="section level1" number="4">
-<h1 number="4"><span class="header-section-number">4</span> Auditing Students</h1>
-<p>Auditing students are expected to complete all assessments (assignments, peer reviews, and participation). The difference between enrolling for credit is that auditing students are graded on each assignment on a pass/fail basis.</p>
-</div>
-<div id="privacy" class="section level1" number="5">
-<h1 number="5"><span class="header-section-number">5</span> Privacy</h1>
-<div id="slack" class="section level2" number="5.1">
-<h2 number="5.1"><span class="header-section-number">5.1</span> Slack</h2>
-<p>STAT 545 uses Slack for informal communications. Note that the messages sent on Slack are stored on a US server.</p>
-</div>
-<div id="github.com" class="section level2" number="5.2">
-<h2 number="5.2"><span class="header-section-number">5.2</span> GitHub.com</h2>
-<p>STAT 545 asks students to work on github.com. Please produce work knowing that the material you put on GitHub will be stored on US servers.</p>
-</div>
-</div>
-<div id="policies" class="section level1" number="6">
-<h1 number="6"><span class="header-section-number">6</span> Policies</h1>
-<p>In addition to <a href="http://www.calendar.ubc.ca/vancouver/?tree=3,0,0,0">UBC’s Campus-wide Policies and Regulations</a>, STAT 545A and STAT 547M adopt the following policies.</p>
-<div id="communications" class="section level2" number="6.1">
-<h2 number="6.1"><span class="header-section-number">6.1</span> Communications</h2>
-<p>The teaching team can’t guarantee that they will be able to respond to student messages outside of typical workday hours (0900-1700 PST). So, please be mindful of a <strong>17:00 PST cutoff on Fridays</strong> when asking assignment-related questions.</p>
-</div>
-<div id="late-policy" class="section level2" number="6.2">
-<h2 number="6.2"><span class="header-section-number">6.2</span> Late Policy</h2>
-<p>A late submission is defined as any work, including quizzes, submitted after the deadline. For a late submission, the student will receive a 50% scaling of their grade for the first occurrence, and will receive a grade of 0 for subsequent occurrences. In all cases, late submissions past 24 hours will receive a zero.</p>
-</div>
-<div id="academic-concession" class="section level2" number="6.3">
-<h2 number="6.3"><span class="header-section-number">6.3</span> Academic Concession</h2>
-<p>UBC no longer requires a doctor’s note (or supporting documentation) for <a href="http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,48,0,0">academic concession</a>. A self-declaration will suffice – <a href="/concession_template.pdf">here</a> is a template you can use. Please submit this to the instructor.</p>
-<p>For STAT 545A and 547M, a “conflicting responsibility” includes needing to travel for a conference or field work.</p>
-<p>If you arrange to have an assignment submitted late, you may not be able to receive feedback from your peers.</p>
-</div>
-<div id="plagiarism" class="section level2" number="6.4">
-<h2 number="6.4"><span class="header-section-number">6.4</span> Plagiarism</h2>
-<p>Plagiarism, which is intellectual theft, occurs where an individual submits or presents the oral or written work of another person as his or her own and can include:</p>
+<p><strong>Instructions and grading</strong></p>
 <ul>
-<li>multiple students submitting the same response</li>
-<li>copying from sources without citing them</li>
-<li>copying verbatim (word-for-word) from source and citing, but failing to make it explicit that this is a quotation (quotations should be used only rarely, if at all)</li>
+<li>A worksheet will be submitted *weekly* - therefore, each worksheet has content from 2 classes.</li>
+<li>There are 5 class worksheets, which altogether account for 10% of the total course grade.</li>
+<li>To get full marks for each worksheet, you must successfully answer at least 40% of all autograded questions.</li>
+<li>Autograded questions are easily identifiable in the worksheets through their labelling as **QUESTION**. Any other instructions that prompt the student to write code are activities, which are not graded and thus do not contribute to marks - but do contribute to the workflow of the worksheet!</li>
 </ul>
-<p>Plagiarism will not be tolerated in the MDS program and may result in dismissal from the program. Students are responsible for ensuring that any work submitted does not constitute plagiarism. Students who are in any doubt as to what constitutes plagiarism should consult their Instructor before handing in any assignments.</p>
-<p>For more information see the <a href="http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,54,111,959">UBC Academic Misconduct policies</a>.</p>
-<div id="code-plagiarism" class="section level3" number="6.4.1">
-<h3 number="6.4.1"><span class="header-section-number">6.4.1</span> Code Plagiarism</h3>
-<p>Students must correctly cite any code that has been authored by someone else or by the student themselves for other assignments. Cases of code plagiarism may include, but are not limited to:</p>
+<p><strong>Deliverables</strong></p>
 <ul>
-<li>the reproduction (copying and pasting) of code with none or minimal reformatting (e.g., changing the name of the variables)</li>
-<li>the translation of an algorithm or a script from a language to another</li>
-<li>the generation of code by automatic code-generations software</li>
+<li>Deadline for submission is every Friday by 11:59pm.</li>
+<li>An assignment submission will be made available every Thursday by the end of class in Canvas, under the "Assignments" tab.</li>
 </ul>
-<p>An “adequate acknowledgement” requires a detailed identification of the (parts of the) code reused and a full citation of the original source code that has been reused.</p>
 </div>
+<div id="collaborative-troubleshooting" class="section level2">
+<h2>Collaborative troubleshooting project (35%)</h2>
+<p><strong>Learning Objectives</strong></p>
+<ol>
+<li>Collaborate on a project with a partner using GitHub.</li>
+<li>Troubleshoot broken code.</li>
+<li>Rewrite code to address instructions.</li>
+</ol>
+<p><strong>Instructions / Workflow</strong></p>
+<ol>
+<li>Create a group repository.</li>
+    <ul>
+      <li>Name it GroupXX_STAT545. Your group number will be given to you at the start of the term, when you are given a partner.</li>
+      <li>Create a README outlining the purpose of the repo.</li>
+      <li>Create a teamwork contract where you establish a code of conduct and expectations, including:
+         <ul>
+           <li>Internal deadlines (for you and your partner) to push new commits prior to the course deadline.</li>
+           <li>Days in which it is expected that each partner will reply to the other's comments and/or pull requests.</li>
+           <li>Workflow for completing each worksheet - will each partner complete half of the worksheet? Or will you work together on multiple sections?</li>
+         </ul>
+      </li>
+    </ul>
+<li>There will be three milestones, in the form of Rmd deliverables that will be provided to students. As an example, for Milestone 1:</li>
+    <ul>
+      <li>Student A works on the deliverable and creates a pull request.</li>
+      <li>Student B comments on the pull request, initiates discussion, and continues working on the deliverable.</li>
+      <li>This continues until both students agree to merge the pull request.</li>
+    </ul>
+<li>A link to the last commit of the deliverable must be submitted to Canvas by the milestone deadline.</li>
+</ol>
+<p><strong>Grading scheme</strong></p>
+<ul>
+<li>The team troubleshooting project accounts for 35% of the total course grade.</li>
+<li>Each milestone is graded as a group grade.</li>
+   <ul>
+     <li>Each deliverable is graded out of 15 points (each error is 0.5 points).</li>
+     <li>Pull requests are graded out of 15 points, based on:
+       <ol>
+        <li>A good title and description. A good title is self-explanatory, and a good description clearly states what was changed in the pull request and why.</li>
+        <li>Productive discussion. Both students engaged in discussion in the pull request, and made changes to the document accordingly.</li>
+       </ol>
+      </li>
+<li>At the end of the project, each member will submit a quick evaluation of the other team members, and themselves. This evaluation is worth 10 points.</li>
+</ul>
+<p><strong>Deliverables</strong></p>
+<ul>
+<li>Create the repo and a teamwork document by Friday, September 18th. Although these are not "graded" per se, they are requirements for the workflow of the project.</li>
+<li>Milestone 1 due Friday, September 18th.</li>
+<li>Milestone 2 due Friday, September 25th.</li>
+<li>Milestone 3 and evaluation document due Friday, October 16th.</li>
+<li>To submit each deliverable, copy the link from the last commit in the group repo and paste it into the relevant Canvas submission, which will be made available close to each deadline under the "Assignments" tab.</li>
+</ul>
 </div>
-<div id="video-conferencing-with-zoom" class="section level2" number="6.5">
-<h2 number="6.5"><span class="header-section-number">6.5</span> Video Conferencing with Zoom</h2>
-<p>Students are encouraged to turn their cameras on whenever they are using Zoom. However, we understand that this can be an issue for some people. As such, you will never be expected to turn your camera on.</p>
-</div>
-<div id="ubcs-policies-and-resources-to-support-student-success" class="section level2" number="6.6">
-<h2 number="6.6"><span class="header-section-number">6.6</span> UBC’s Policies and Resources to Support Student Success</h2>
-<p>UBC provides resources to support student learning and to maintain healthy lifestyles but recognizes that sometimes crises arise and so there are additional resources to access including those for survivors of sexual violence. UBC values respect for the person and ideas of all members of the academic community. Harassment and discrimination are not tolerated nor is suppression of academic freedom. UBC provides appropriate accommodation for students with disabilities and for religious, spiritual and cultural observances. UBC values academic honesty and students ae expected to acknowledge the ideas generated by others and to uphold the highest academic standards in all of their actions. Details of the policies and how to access support are available <a href="https://senate.ubc.ca/policies-resources-support-student-success">here</a>.</p>
-</div>
-<div id="potential-restrictions-to-international-students-online-learning-experiences-as-a-result-of-remote-learning" class="section level2" number="6.7">
-<h2 number="6.7"><span class="header-section-number">6.7</span> Potential restrictions to international students’ online learning experiences as a result of remote learning</h2>
-<p>During this pandemic, the shift to online learning has greatly altered teaching and studying at UBC, including changes to health and safety considerations. Keep in mind that some UBC courses might cover topics that are censored or considered illegal by non-Canadian governments. This may include, but is not limited to, human rights, representative government, defamation, obscenity, gender or sexuality, and historical or current geopolitical controversies. If you are a student living abroad, you will be subject to the laws of your local jurisdiction, and your local authorities might limit your access to course material or take punitive action against you. UBC is strongly committed to academic freedom, but has no control over foreign authorities (please visit <a href="http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,33,86,0">http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,33,86,0</a> for an articulation of the values of the University conveyed in the Senate Statement on Academic Freedom). Thus, we recognize that students will have legitimate reason to exercise caution in studying certain subjects. If you have concerns regarding your personal situation, consider postponing taking a course with manifest risks, until you are back on campus or reach out to your academic advisor to find substitute courses. For further information and support, please visit: <a href="http://academic.ubc.ca/support-resources/freedom-expression" class="uri">http://academic.ubc.ca/support-resources/freedom-expression</a></p>
-</div>
-</div>
-
-
-
-
+<div id="data-analysis" class="section level2">
+<h2>Mini-data analysis project (50%)</h2>
+<p>A mini-data analysis project where you will get to explore a dataset of choice through wrangling and visualization! There will be 3 deliverables for this project.</p>
+<p><b>More details coming soon.</b></p>
 </div>
 
 <script>
