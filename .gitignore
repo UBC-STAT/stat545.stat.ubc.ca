@@ -7,3 +7,4 @@ public/
 *.ipynb_checkpoints
 #*.html
 .DS_store
+.DS_Store
