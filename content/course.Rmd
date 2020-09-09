@@ -32,6 +32,13 @@ Use this page to navigate your way through STAT 545.
 - [Week 6B](): `r dates_545b[11] - ddays(1)` - `r dates_545b[12] + ddays(1)`
 - [Week 7B](): `r dates_545b[13] - ddays(1)` - `r dates_545b[14] + ddays(1)`
 
+**Evaluation:**
+
+Here you will find information about the evaluation components of STAT545A and STAT545B. 
+
+- [STAT545A](/evaluationSTAT545A)
+- [STAT545B](/evaluationSTAT545B)
+
 
 ## Quick-Lookup Table
 
