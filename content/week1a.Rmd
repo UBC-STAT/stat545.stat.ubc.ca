@@ -69,7 +69,7 @@ cat(tues_date_pretty)
 Use today and tomorrow to prepare for the course:
 
 + Watch the [Intro to STAT 545 Video Series video](https://youtu.be/6REhJVsbbAM) (a version is also available on canvas for those who cannot access YouTube).
-+ Install the software needed for STAT 545A by following along the tutorial ["Software Installation for STAT 545"](/software-stack).
++ Install the software needed for STAT 545A by following along the tutorial ["Software Installation for STAT 545"](https://stat545.stat.ubc.ca/tutorials/software-stack/). **link fixed**
 
 Note: each class will require some preparation. Take a look at the "Prepare for Class" section for Thursday's class!
 
@@ -85,7 +85,9 @@ Note: each class will require some preparation. Take a look at the "Prepare for 
 cat(thurs_date_pretty)
 ```
 
-Today, we'll be learning the basics of R:
+Today, we'll be learning the basics of R.
+
+__UPDATE__: This class will be modified to promote the [scholar strike](https://scholarstrikecanada.ca/)
 
 #### Prepare for Class
 
