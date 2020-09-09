@@ -3,6 +3,8 @@ title: "STAT545A Evaluation"
 output: html_document
 ---
 
+This page contains details about STAT545A's evaluation components, including instructions for deliverables and submissions. All deadlines can be found in the [course calendar](https://stat545.stat.ubc.ca/calendar/).
+
 # Class worksheets (10%)
 
 ## Learning Objectives
