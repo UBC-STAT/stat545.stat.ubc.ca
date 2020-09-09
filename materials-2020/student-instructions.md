@@ -8,6 +8,8 @@
 
 ### Instructions / Workflow
 
+This project is to be completed independently.
+
 + Students can choose a dataset from the datateachr package
 + The mini-data analysis project is structured into 3 semi-guided deliverables meant to give the student enough freedom to answer their questions of interest about their data, while guiding the student to avoid feeling too lost in their (for many) first time data analysis! Each milestone will have the option to answer M out of N questions about the data.
 + If any additional instructions are needed for a particular milestone, these will be available in the relevant deliverable document!
