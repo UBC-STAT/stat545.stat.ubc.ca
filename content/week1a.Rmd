@@ -103,6 +103,8 @@ Some useful (but not mandatory) readings are:
 
 #### During Class
 
+Join the class via Zoom: check out the [canvas](https://canvas.ubc.ca/) announcement "Zoom Class Invitation" for the details. This is private to those registered in the course (including auditors).
+
 1. We'll start with a demo of R via Zoom.
 2. We'll jump into the worksheet (see above) during the last 45 minutes. 
 
