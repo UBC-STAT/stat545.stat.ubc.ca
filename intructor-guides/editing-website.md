@@ -13,3 +13,5 @@
     - The exception is the "pages" widget. Here, you're allowed to specify a folder in `content/`, and the contents of that folder will appear in the widget. 
 - Website parameters, like themes and menus, can be found in `config.toml` and `/config` toml files. 
 - `static/` contains static stuff like pictures that the site draws on.
+
+**When editing the website, it's okay to directly push to the main branch, as long as you check that the changes work locally first.**

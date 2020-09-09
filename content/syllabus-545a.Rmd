@@ -96,7 +96,7 @@ Lectures will consist of the following components, in this order:
 | Mini data analysis   | three checkpoints | 50            | Students write their own mini data analysis. |
 | Collaborative Troubleshooting project | three checkpoints | 35            | Team project intended for practicing version control and collaboration, by answering some debugging problems. |
 
-More details will be posted on the STAT 545 homepage. 
+More details can be found [here](https://stat545.stat.ubc.ca/evaluationSTAT545A). 
 
 
 # Auditing Students
