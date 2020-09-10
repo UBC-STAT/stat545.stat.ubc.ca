@@ -50,7 +50,7 @@ This table is evolving!
 How to download the lecture worksheets:
 
 1. Right Click<br/>
-  **Safari**: Download Linked File As<br/>
+  **Safari**: Download Linked File as<br/>
   **Chrome**: Save Link As<br/>
   **Microsoft Edge**: Save link as<br/>
   **Firefox**: Save link as<br/>
