@@ -65,6 +65,7 @@ Work on the master branch for quick fixes or updates to existing structure. Thes
 - We discuss who will do what for the week on our Monday meeting.
     - Ideally, we'll get into a rhythm where we'll be able to figure out who does what in general.
 - TA's shouldn't work more than 12 hours per week on average. Vincenzo will try his best to keep an eye on everyone's tasks to make sure they have an appropriate workload, but each TA should let Vincenzo know whenever their workload is inappropriate (no hard feelings here -- it's important that everyone feel empowered by their roles, not defeated).
+- Presence of teaching team members at meetings, lectures, or office hours will be indicated through google calendar invitations.
 
 ### Communication
 
