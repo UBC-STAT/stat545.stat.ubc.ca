@@ -24,6 +24,7 @@ Roles specific to teaching assistants:
 | Task | Level of authority |
 |------|--------------------|
 | Providing feedback and grades on student deliverables | 3 |
+| Attend office hours | 5 |
 
 
 Shared roles:
