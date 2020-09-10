@@ -51,7 +51,8 @@ Examples:
 - making a new assignment; 
 - writing a new tutorial; 
 - writing a new week guidance page.
-- proposing a change to this teamwork document (we'll commit to master if we've made a decision when we're all together).
+- proposing a change to this teamwork document
+    - (Doesn't necessarily need a branch -- for example, can commit to master if we've come to a decision during a meeting or in a GitHub Issue, or even Slack)
 
 **Master Branch**:
 
