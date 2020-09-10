@@ -48,24 +48,7 @@ Here you will find information about the evaluation components of STAT545A and S
 This table is evolving!
 
 How to download the lecture worksheets:
-
-1. Right Click<br/>
-  **Safari**: Download Linked File As<br/>
-  **Chrome**: Save Link As<br/>
-  **Microsoft Edge**: Save link as<br/>
-  **Firefox**: Save link as<br/>
-2. Command-line (bash shell), where URL is `https://raw.githubusercontent.com/...`
-
-    ```
-    $ wget <URL>
-    ```
-    &nbsp;&nbsp;&nbsp;OR
   
-    ```
-    $ curl -O -J <URL>
-    ```
-  
-
 |                                        | Learning objectives                                              | Key resources                          | Pre-class work           | Lecture worksheet                 | 
 |:-------------------------------------- |:---------------------------                                      |:--------------------------------       |:-------------------------|:----------------------------------|
 | **1: Introduction to STAT545 & R**     | 1. Become familiar with the STAT545 website and [syllabus](add link, should be located under "course structure" in website). <br /> 2. ["Software Installation for STAT 545"](/software-stack) <br /> 3. Explore the basic R syntax. <br /> 4. Write an R script to perform simple calculations. | • [Why R?](https://cfss.uchicago.edu/setup/what-is-r/) <br /> • [Intro to R](https://stat545.com/r-basics.html). |  | [Lecture Worksheet 1](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/release/worksheet_01a/worksheet_01a.ipynb)
