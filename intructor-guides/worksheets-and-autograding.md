@@ -8,6 +8,8 @@ We're scraping content from the (deprecated) guidebook. [Repo](https://github.co
 
 Also the worksheets that the guidebook links to.
 
+As for drawing boundaries on topics, try to use the topic schedule on [Issue 25](https://github.com/UBC-STAT/stat545.stat.ubc.ca/issues/25). Keep in mind the line up the worksheet with the correct week -- Worksheet 1-A is the only worksheet spanning two weeks (at least, in STAT 545A).
+
 ## Making a new worksheet
 
 1. Make a new folder in `content/source/` that uses the following naming convention: for example, the folder for the 5th worksheet in STAT 545A should be named `worksheet_05a`.
