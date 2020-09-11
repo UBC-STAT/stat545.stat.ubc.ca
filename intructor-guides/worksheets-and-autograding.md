@@ -6,7 +6,7 @@ This is meant to help you produce autograded worksheets.
 
 1. Make a new folder in `content/source/` that uses the following naming convention: for example, the folder for the 5th worksheet in STAT 545A should be named `worksheet_05a`.
     - FYI: the worksheet name needs to appear in `content/nbgrader_config.py` -- the parameter specification for nbgrader. I think I've added all of the worksheets.
-2. Make a new jupyter notebook file (under an R kernel, not python) in said folder. I like to use the same naming convention, but nbgrader won't complain.
+2. Make a new _jupyter notebook_ file (**not jupyterlab**) (under an R kernel, not python) in said folder. I like to use the same naming convention, but nbgrader won't complain.
 3. In jupyter, open the new worksheet file, and "make it an assignment file" by clicking "View > Cell Toolbar > Create Assignment". Each cell should now allow you to select nbgrader metadata (more on that later).
 
 You're all set to start writing the assignment!
