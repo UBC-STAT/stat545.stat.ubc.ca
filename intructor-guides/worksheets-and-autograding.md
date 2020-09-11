@@ -2,6 +2,12 @@
 
 This is meant to help you produce autograded worksheets.
 
+## Finding content
+
+We're scraping content from the (deprecated) guidebook. [Repo](https://github.com/UBC-STAT/stat-545-guidebook); [guidebook](https://stat545guidebook.netlify.app/)
+
+Also the worksheets that the guidebook links to.
+
 ## Making a new worksheet
 
 1. Make a new folder in `content/source/` that uses the following naming convention: for example, the folder for the 5th worksheet in STAT 545A should be named `worksheet_05a`.
