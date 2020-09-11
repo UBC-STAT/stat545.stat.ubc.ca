@@ -19,7 +19,7 @@ organizations:
 social:
 - icon: envelope
   icon_pack: fas
-  link: mailto:dlin@bcgsc.ca
+  link: mailto:dyclin@student.ubc.ca
 - icon: github
   icon_pack: fab
   link: https://github.com/dy-lin
