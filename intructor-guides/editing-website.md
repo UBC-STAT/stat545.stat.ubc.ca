@@ -14,4 +14,11 @@
 - Website parameters, like themes and menus, can be found in `config.toml` and `/config` toml files. 
 - `static/` contains static stuff like pictures that the site draws on.
 
-**When editing the website, it's okay to directly push to the main branch, as long as you check that the changes work locally first.**
+**Running the website locally**
+
+When editing the website, it's okay to directly push to the main branch, but it's usually a good idea to check that the changes work locally first:
+
+1. From RStudio, make sure the `stat545.stat.ubc.ca` Project is open.
+2. Probably a good idea to update the build of the site with `blogdown::build_site()`, just to make sure everything is up-to-date.
+    - Note: the working directory must be the root of the repository `stat545.stat.ubc.ca`
+3. Run `blogdown::serve_site()` to run the site locally. This will continually build any changes you make, and keep the local website display up-to-date.
