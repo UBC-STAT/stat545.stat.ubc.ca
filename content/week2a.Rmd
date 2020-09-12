@@ -60,34 +60,50 @@ cat(tues_date_pretty)
 
 From today's class, students are anticipated to be able to:
 
-- FILL_THIS_IN
+- Recognize the main use of github as a cloud storage and collaboration tool
+- Create a github account and repo
+- Navigate their set up repo and perform basic collaborative tasks such as:
+  + Branching
+  + Opening issues and contributing to issues
+  + Opening and merging a pull request
+  + Navigating the commit history of a file and repository
+- Edit plain text files on GitHub.
+- Identify the basic workflow used in git collaboration
+
+
 
 #### Prepare for Class
 
-+ No lecture worksheet *per se* today, there will be a document to include instructions to activities, but the only deliverable would be a link to their personal GitHub repo & to their group repo.
-+ The idea with the prework is that it covers, in 30 minutes max, setting a GitHub account and using GitHub as cloud storage - then the class time can be used for setting up Git and the use of GitHub for collaboration, which I think are more complex to follow / have the potential to cause more issues. I have several ideas for this:
++ No lecture worksheet *per se* today (there will be a document to include instructions to these  activities), the following should be completed:
+ - A github account
+ - **Delivarable**: A link to your personal GitHub repo 
+ 
++ The idea with the prework is that it covers, in 30 minutes max, setting a GitHub account and using GitHub as cloud storage - then the class time can be used for setting up Git and the use of GitHub for collaboration
+
   + Adapting the material in [Topic 2: GitHub](https://stat545guidebook.netlify.app/introduction-to-stat-545-and-github.html#topic-2-github-35-min) into a document that students can follow through, but only until (and including) "1.5.3 GitHub as cloud storage - Activity". I think that the rest is easier to just do in class (setting up Git, etc) than having them look through the STAT545 repo, which I find can be a bit confusing.
-  + Simply having them follow the [Hello World](https://guides.github.com/activities/hello-world/) tutorial, although I'm not sure if it gets a bit complicated with branching.
-+ In addition, the Canvas site could show a table with the groups of students for the collaborative troubleshooting assignment, and we could encourage them to reach out to each other through Canvas if they want! (but the actual "project" can be explained in detail in class)
-+ In class, I was thinking of an outline similar to this:
-  + Install and configure Git (~10 min)
-  + Demo [the typical workflow](https://stat545guidebook.netlify.app/the-version-control-workflow.html#the-typical-workflow-8-min) (~8 min)
-  + Students follow [the typical workflow activity](https://stat545guidebook.netlify.app/the-version-control-workflow.html#the-typical-workflow-activity-5-min) in the repo that they created as pre-work (~5 min)
-  + **2 minute break**
-  + GitHub for collaboration & intro to the collaborative troubleshooting assignment (~65 min)
- + From here on I am not sure of what you were thinking for the group project; should repos be created in advanced for each "group" of students, should they have the chance to create their own repo and add their partner as an admin, will they be using the [fork & clone](https://happygitwithr.com/fork-and-clone.html) workflow or should that be left for STAT545B...? Here are some general ideas that I think should be covered in class:
-  + Giving group partners the chance to interact in a breakout room, introduce themselves & create a teamwork document 
-  + Branching
-  + Opening issues
-  + Open and merge a pull request
-  
 
 - Watch the STAT 545 Video Series: Class `r tues_class_num`
 
+**Optional Reading**
+
+[Wysiwyg is dead](https://medium.com/@ayman/wysiwyg-is-dead-d225276ed53)
+- An entertaining and concise argument against using "WYSIWYG" editors like Microsoft Word.
 
 
 #### During Class
 
++ Configure Git-overview and demo (~15 min)
+  + Demo [the typical workflow](https://stat545guidebook.netlify.app/the-version-control-workflow.html#the-typical-workflow-8-min) (~8 min)
+  + Students follow [the typical workflow activity](https://stat545guidebook.netlify.app/the-version-control-workflow.html#the-typical-workflow-activity-5-min) in the repo that they created as pre-work (~5-6 min)
+  + **2 minute break**
++ GitHub for collaboration (~30 min):
+  + Giving group partners the chance to interact in a breakout room, introduce themselves & create a group repository and do the following (20 min):
+    + Branching
+    + Opening issues and features 
+    + Open and merge a pull request
+    + Merge conflicts
++ Go over this activity and  & intro to the [collaborative troubleshooting assignment](LINK TO TEAM TROUBLE SHOOTING) (10 min)
++ Worksheet 1A Section 1A : A first glance at R world demo (30 min)
 
 -----
 
@@ -95,7 +111,7 @@ From today's class, students are anticipated to be able to:
 
 <!-- ******THURSDAY'S CLASS****** -->
 
-## Thursday's Class `r thurs_class_num`: FILL_THIS_IN_WITH_TOPIC
+## Thursday's Class  : Topic: Output Formats, Rmarkdown and Reproducibility
 
 ```{r thurs-date}
 cat(thurs_date_pretty)
@@ -103,7 +119,11 @@ cat(thurs_date_pretty)
 
 From today's class, students are anticipated to be able to:
 
-- FILL_THIS_IN
+- Identify the basic output formats for reports
+- Knit files
+- Use basic markdown features to style reports and comments (slack,github)
+- Recognize the basic features of YAML header
+- Execute code chunks and explain the use of R packages
 
 #### Prepare for Class
 
@@ -113,9 +133,8 @@ From today's class, students are anticipated to be able to:
 #### During Class
 
   + Output formats, markdown basics, and cheatsheets (~30 min) - *a mix of explanations / in-class demo*
-  + Lecture worksheet (~30 min) - *in breakout rooms of 5/6 people*
+  + Lecture worksheet continued (~30 min) - *in breakout rooms of 5/6 people*
   + Finish & style R markdown for the teamwork document + push it to the group repo (~30 min) - *in breakout rooms with group partners*
-
 
 
 -----
@@ -124,7 +143,7 @@ From today's class, students are anticipated to be able to:
 
 <!-- ******PROJECT****** -->
 
-## Mini Data Analysis Project Milestone FILL_THIS_IN
+## Mini Data Analysis Project Milestone FILL_THIS_IN ???
 
 **Due:** Friday, `r fri_date_pretty` at 23:59 PST
 
