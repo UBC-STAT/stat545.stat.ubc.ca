@@ -11,6 +11,7 @@ We'll piggyback off of the [UBC Master of Data Science program Install Guide](ht
 
 \*\*Mac OS users: Newer models of Mac OS use a default Terminal shell called Zsh, but you may run into complications installing things with Zsh. To fix this, we recommend switching back to bash instead of Zsh by [following these instructions](https://ubc-mds.github.io/resources_pages/install_ds_stack_mac/#bash-shell) 
 
+\*\*\*Windows users: **before** following the below instructions, please follow the [instructions to install Microsoft Visual Studio Code](https://ubc-mds.github.io/resources_pages/install_ds_stack_windows/#visual-studio-code). This is necessary to follow some installation instructions for other software.
 
 - __Zoom__: We'll be using Zoom to interact remotely during lectures. [Sign up for an account here](https://zoom.us/freesignup/) (and perhaps even download the app).
 - __Slack__: Install the app if you don't want to use it through the browser (you can even download it on your smart phone). We'll be sending you an invite.
