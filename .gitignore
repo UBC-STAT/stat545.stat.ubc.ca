@@ -4,6 +4,7 @@
 *.Rproj
 .Rprofile
 public/
+*.ipynb_checkpoints
 #*.html
 2020-materials/team-troubleshooting/.DS_Store
 2020-materials/.DS_Store

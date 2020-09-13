@@ -21,15 +21,16 @@ oo545 <- suppressMessages(read_csv(here::here("content", "officehours-545a.csv")
 oo545 %>% 
 	mutate(Date = dmy(Date),
 		   Day  = wday(Date, label = TRUE)) %>% 
-	select(Person, Day, Date, Time, Place) %>% 
+  select(Person,Date,Time) %>%
+#	select(Person, Day, Date, Time, Place) %>% 
 	arrange(Date, Time) %>% 
 	# DT::datatable()
 	kable()
 ```
-
+<!--
 ## STAT 547M
-
-```{r, echo = FALSE, results='asis'}
+-->
+```{r, eval = FALSE, echo = FALSE, results='asis'}
 oo547 <- suppressMessages(read_csv(here("content", "officehours-547m.csv")))
 kable(oo547)
 ```

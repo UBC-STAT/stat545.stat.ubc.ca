@@ -1,0 +1,27 @@
+---
+title: "Sending a Private Message"
+output: html_document
+---
+
+Here's a little guidance as to whom you should contact and how.
+
+## How to contact a member of the teaching team
+
+You can either:
+
+- Send a private message over [Slack](https://stat545ubc.slack.com) **(recommended)**
+- Send an email (check out the [teaching team](#teaching_team) section)
+
+## Who to contact
+
+### Have an issue with the way you were evaluated on a project?
+
+Your TA will have left an Issue on your project GitHub repository. It's best to continue the conversation there to retain context. 
+
+If you really prefer not, contact the TA directly that graded your work.
+
+### Have an issue with the way you were evaluated, even after discussion with the TA?
+
+If you've been having a discussion using a GitHub Issue, loop Vincenzo in by tagging him: `@vincenzocoia`.
+
+Otherwise, contact Vincenzo directly. 

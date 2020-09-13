@@ -1,0 +1,75 @@
+---
+title: "STAT 545 Navigation Dashboard"
+output: html_document
+---
+
+```{r, message = FALSE, warning = FALSE, echo = FALSE}
+library(lubridate)
+source(here::here("content", "dates.R"))
+```
+
+Use this page to navigate your way through STAT 545. 
+
+
+**STAT 545A:**
+
+- [Week 1A](/week1a): `r lec0 - ddays(1)` - `r dates_545a[1] + ddays(1)`
+<!--
+- [Week 2A](): `r dates_545a[2]  - ddays(1)` - `r dates_545a[3]  + ddays(1)`
+- [Week 3A](): `r dates_545a[4]  - ddays(1)` - `r dates_545a[5]  + ddays(1)`
+- [Week 4A](): `r dates_545a[6]  - ddays(1)` - `r dates_545a[7]  + ddays(1)`
+- [Week 5A](): `r dates_545a[8]  - ddays(1)` - `r dates_545a[9]  + ddays(1)`
+- [Week 6A](): `r dates_545a[10] - ddays(1)` - `r dates_545a[11] + ddays(1)`
+- [Week 7A](): `r dates_545a[12] - ddays(1)` - `r dates_545a[13] + ddays(1)`
+-->
+
+<!--
+**STAT 545B:**
+
+- [Week 1B](): `r dates_545b[1]  - ddays(1)` - `r dates_545b[2]  + ddays(1)`
+- [Week 2B](): `r dates_545b[3]  - ddays(1)` - `r dates_545b[4]  + ddays(1)`
+- [Week 3B](): `r dates_545b[5]  - ddays(1)` - `r dates_545b[6]  + ddays(1)`
+- [Week 4B](): `r dates_545b[7]  - ddays(1)` - `r dates_545b[8]  + ddays(1)`
+- [Week 5B](): `r dates_545b[9]  - ddays(1)` - `r dates_545b[10] + ddays(1)`
+- [Week 6B](): `r dates_545b[11] - ddays(1)` - `r dates_545b[12] + ddays(1)`
+- [Week 7B](): `r dates_545b[13] - ddays(1)` - `r dates_545b[14] + ddays(1)`
+-->
+
+**Evaluation:**
+
+Here you will find information about the evaluation components of STAT545A and STAT545B. 
+
+- [STAT545A](/evaluationSTAT545A)
+- [STAT545B](/evaluationSTAT545B)
+
+
+## Quick-Lookup Table
+
+This table is evolving!
+
+How to download the lecture worksheets:
+
+1. Right Click<br/>
+  **Safari**: Download Linked File as<br/>
+  **Chrome**: Save Link As<br/>
+  **Microsoft Edge**: Save link as<br/>
+  **Firefox**: Save link as<br/>
+2. Command-line (bash shell), where URL is `https://raw.githubusercontent.com/...`
+
+    ```
+    $ wget <URL>
+    ```
+    &nbsp;&nbsp;&nbsp;OR
+
+    ```
+    $ curl -O -J <URL>
+    ```
+
+|                                        | Learning objectives                                              | Key resources                          | Pre-class work           | Lecture worksheet                 | 
+|:-------------------------------------- |:---------------------------                                      |:--------------------------------       |:-------------------------|:----------------------------------|
+| **1: Introduction to STAT545 & R**     | 1. Become familiar with the STAT545 website and [syllabus](add link, should be located under "course structure" in website). <br /> 2. ["Software Installation for STAT 545"](/tutorials/software-stack) <br /> 3. Explore the basic R syntax. <br /> 4. Write an R script to perform simple calculations. | • [Why R?](https://cfss.uchicago.edu/setup/what-is-r/) <br /> • [Intro to R](https://stat545.com/r-basics.html). |  | [Lecture Worksheet 1](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/release/worksheet_01a/worksheet_01a.ipynb) <!--<br/> <a href="/release/worksheet_01a/worksheet_01a.ipynb" download target="_blank">Lecture Worksheet 1</a> -->
+| **2: Git, GitHub & Version Control**   | *tbd* depending on what is decided for class content  | *tbd* depending on what is decided for class content |[Register for GitHub and create a repository](link here) | No worksheet today |
+| **3: R Markdown & Reproducibility**    | 1. Write documents in markdown on GitHub and RStudio <br /> 2. Style an Rmd document by editing the YAML header and customizing the code chunk options. <br /> 3. Render your finalized document to HTML & PDF. | • [R Markdown](https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) <br /> • [GitHub Markdown Cheatsheet](https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) <br /> • [YAML Headers](https://bookdown.org/yihui/rmarkdown/html-document.html) <br /> • [Code chunk options](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.177968037.1059384083.1597196687-1784159993.1567907747) on page 2. |• [Asking effective questions online](https://stat545guidebook.netlify.app/introduction-to-stat-545-and-github.html#topic-3-asking-effective-questions-online-10-min) <br /> • [10 minute markdown tutorial](https://commonmark.org/help/tutorial/) | [Lecture Worksheet 2](link here) |
+| **4: Data Wrangling I**                | 1. Recognize the advantages of the tidyverse compared to the "base R" way with respect to good coding practice <br /> 2. Subset and rearrange data with dplyr <br /> 3. Use piping when implementing function chains <br /> 4. Explore data in tibbles| • [R4DS Data Transformation](https://r4ds.had.co.nz/transform.html) <br /> • [R4DS Pipes](https://r4ds.had.co.nz/pipes.html) <br /> • [Intro to dplyr vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html) | *tbd* | [Lecture Worksheet 2](link here) |
+| **5: ggplot I**                        | 1. Identify the seven components of the grammar of graphics underlying ggplot2 <br /> 2. Recognize the advantages of ggplot2 over plotting with base R and lattice <br /> 3. Use different geometric objects and aesthetics to explore various plot types | • [ggplot2 cheatsheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf) <br /> • [R4DS Data Visualization Chapter](https://r4ds.had.co.nz/data-visualisation.html) <br /> • [Intro to dplyr vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html) <br /> • [R Cookbook Graphs](http://www.cookbook-r.com/Graphs/) <br /> • [ggplot elegant graphics for data analysis](http://webcat2.library.ubc.ca/vwebv/holdingsInfo?bibId=8489511) | *tbd* | [Lecture Worksheet 2](link here) |
+| **6: Data Wrangling II**               | 1. Use scoped variants of summarise() and mutate(), with across() <br /> 2. Apply your dplyr knowledge to exploratory data analysis of a dataset | | *tbd* | [Lecture Worksheet 3](link here) |

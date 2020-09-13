@@ -1,0 +1,182 @@
+---
+title: "STAT 545A Course syllabus: 2020/2021"
+output: 
+  pdf_document:
+    toc: true
+    toc_depth: 2
+    number_sections: true
+  html_document:
+    toc: true
+    toc_depth: 2
+    number_sections: true
+---
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+library(tidyverse)
+library(lubridate)
+source(here::here("content", "dates.R"))
+knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+```
+
+How to make a clean and modern data analysis, Part I. 
+
+__Website__: https://stat545.stat.ubc.ca/
+
+__Duration__: `r lec0` - `r max(dates_545a) + ddays(1)`
+
+* Introduction to [R](http://www.r-project.org) and the [RStudio IDE](http://www.rstudio.com/products/rstudio/): scripts, the workspace, RStudio Projects, daily workflow
+* Generate reports from R scripts and [R Markdown](http://rmarkdown.rstudio.com)
+* Coding style, file and project organization
+* Data frames or "tibbles" are the core data structure for data analysis: care for them with the tidyverse
+* Data visualization with [`ggplot2`](http://ggplot2.org)
+* How to write functions and work with R in a functional style
+* Version control with Git; collaboration via [GitHub](https://github.com)
+
+# Teaching Team
+
+Instructor: Dr. Vincenzo Coia
+
+Teaching Assistants:
+
+- Almas Khan
+- Icíar Fernández Boyano
+- Diana Lin
+- Victor Yuan
+
+# Lectures
+
+Tuesdays and Thursdays 0930-1100 PST
+
+<!-- Be sure to Bring a laptop to every class! -->
+
+There will always be two TA's in class to help students with the live coding exercises. 
+
+
+```{r, results = "asis"}
+here::here("content", "lecture_schedule-545a.csv") %>% 
+  read_csv() %>% 
+  mutate(Weekday = wday(dates_545a, label = TRUE),
+         Date = dates_545a_pretty_noyear) %>% 
+  select(Lesson, Weekday, Date, Topic) %>% 
+  knitr::kable()
+```
+
+**What to expect during class**
+
+Lectures will consist of the following components, in this order:
+
+1. Live demo and questions (20-30 minutes)
+    - Instructor demonstrates techniques; students ask questions and pose challenges.
+    - Discussion in a chat are processed by a TA: answer directly, unless the question is more involved, in which case it enters a queue (managed by that TA).
+2. Quiz
+    - Only graded by your participation, not correctness. You have 24 hours to complete.
+    - We discuss in class.
+3. Break: 5 minutes
+    - We'll try playing [Random Acts of Exercise](https://www.youtube.com/playlist?list=PL6JWPcX0WhHU97aqiRA4P6Jta9f04Nanm) (Each body is different, so make this your practice by modifying the activity based on what your body can do.)
+4. Lab (45 minutes):
+    - Instructor introduces the worksheet exercises for the period
+    - Instructor + 1 TA goes through random groups of 3 or 4 students in turn, coming in with some discussion points, but also allowing a natural conversation to unfold about the worksheet, as well as perhaps how the course is going.
+    - At the same time, a TA remains present to answer questions.
+
+<!-- __Non COVID-19 years__: Keep things similar, except synchronous part to be held in-person. -->
+
+<!-- - Lecture done in-person, but with the same structure.  -->
+<!--     - Live demo: Still use chat (Slack) so that students can ask questions if they don't want to speak up; still use TA to moderate these. -->
+<!--     - Lab part: allow breakout groups to happen just by people's physical presence; 2 teaching team members check in person-by-person, while one keeps watch for hands. -->
+    
+
+
+
+# Deliverables
+
+| Deliverable        | Submission Frequency | Percent Grade | Description |
+|--------------------|----------------------|---------------|-------------|
+| Class worksheets (5) | weekly               | 10            | Autograded walkthroughs to guide student learning. |
+| Participation quizzes (13) | every class | 5  | Get full marks by answering a few quick questions per class -- doesn't matter if you're right or wrong! 24h submission period. |
+| Mini data analysis   | three checkpoints | 50            | Students write their own mini data analysis. |
+| Collaborative Troubleshooting project | three checkpoints | 35            | Team project intended for practicing version control and collaboration, by answering some debugging problems. |
+
+More details can be found [here](https://stat545.stat.ubc.ca/evaluationSTAT545A). 
+
+
+# Auditing Students
+
+Auditing students are expected to complete all assessments (assignments, peer reviews, and participation). The difference between enrolling for credit is that auditing students are graded on each assignment on a pass/fail basis.
+
+
+# Privacy
+
+## Slack
+
+STAT 545 uses Slack for informal communications. Note that the messages sent on Slack are stored on a US server. 
+
+## GitHub.com
+
+STAT 545 asks students to work on github.com. Please produce work knowing that the material you put on GitHub will be stored on US servers. 
+
+# Policies
+
+In addition to [UBC's Campus-wide Policies and Regulations](http://www.calendar.ubc.ca/vancouver/?tree=3,0,0,0), STAT 545A and STAT 547M adopt the following policies.
+
+## Communications
+
+The teaching team can't guarantee that they will be able to respond to student messages outside of typical workday hours (0900-1700 PST). So, please be mindful of a __17:00 PST cutoff on Fridays__ when asking assignment-related questions. 
+  
+
+## Late Policy
+
+A late submission is defined as any work, including quizzes, submitted after the deadline. For a late submission, the student will receive a 50% scaling of their grade for the first occurrence, and will receive a grade of 0 for subsequent occurrences. In all cases, late submissions past 24 hours will receive a zero.
+
+## Academic Concession
+
+UBC no longer requires a doctor's note (or supporting documentation) for [academic concession](http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,48,0,0). A self-declaration will suffice -- [here](/concession_template.pdf) is a template you can use. Please submit this to the instructor. 
+
+For STAT 545A and 547M, a "conflicting responsibility" includes needing to travel for a conference or field work.
+
+If you arrange to have an assignment submitted late, you may not be able to receive feedback from your peers.
+
+## Plagiarism
+
+Plagiarism, which is intellectual theft, occurs where an individual submits or presents the oral or written work of another person as his or her own and can include:
+
+- multiple students submitting the same response
+- copying from sources without citing them
+- copying verbatim (word-for-word) from source and citing, but failing to make it explicit that this is a quotation (quotations should be used only rarely, if at all)
+
+Plagiarism will not be tolerated in the MDS program and may result in dismissal from the program. Students are responsible for ensuring that any work submitted does not constitute plagiarism. Students who are in any doubt as to what constitutes plagiarism should consult their Instructor before handing in any assignments.
+
+For more information see the [UBC Academic Misconduct policies](http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,54,111,959).
+
+### Code Plagiarism
+
+Students must correctly cite any code that has been authored by someone else or by the student themselves for other assignments. Cases of code plagiarism may include, but are not limited to:
+
+- the reproduction (copying and pasting) of code with none or minimal reformatting (e.g., changing the name of the variables)
+- the translation of an algorithm or a script from a language to another
+- the generation of code by automatic code-generations software
+
+An “adequate acknowledgement” requires a detailed identification of the (parts of the) code reused and a full citation of the original source code that has been reused.
+
+## Video Conferencing with Zoom
+
+Students are encouraged to turn their cameras on whenever they are using Zoom. However, we understand that this can be an issue for some people. As such, you will never be expected to turn your camera on.
+
+## UBC's Policies and Resources to Support Student Success
+
+UBC provides resources to support student learning and to maintain healthy lifestyles but recognizes that sometimes crises arise and so there are additional resources to access including those for survivors of sexual violence. UBC values respect for the person and ideas of all members of the academic community. Harassment and discrimination are not tolerated nor is suppression of academic freedom. UBC provides appropriate accommodation for students with disabilities and for religious, spiritual and cultural observances. UBC values academic honesty and students ae expected to acknowledge the ideas generated by others and to uphold the highest academic standards in all of their actions. Details of the policies and how to access support are available [here](https://senate.ubc.ca/policies-resources-support-student-success).
+
+## Potential restrictions to international students' online learning experiences as a result of remote learning
+
+During this pandemic, the shift to online learning has greatly altered teaching and studying at UBC,
+including changes to health and safety considerations. Keep in mind that some UBC courses might cover
+topics that are censored or considered illegal by non-Canadian governments. This may include, but is not
+limited to, human rights, representative government, defamation, obscenity, gender or sexuality, and
+historical or current geopolitical controversies. If you are a student living abroad, you will be subject to the
+laws of your local jurisdiction, and your local authorities might limit your access to course material or take
+punitive action against you. UBC is strongly committed to academic freedom, but has no control over
+foreign authorities (please visit [http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,33,86,0](http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,33,86,0) for an
+articulation of the values of the University conveyed in the Senate Statement on Academic Freedom).
+Thus, we recognize that students will have legitimate reason to exercise caution in studying certain
+subjects. If you have concerns regarding your personal situation, consider postponing taking a course
+with manifest risks, until you are back on campus or reach out to your academic advisor to find substitute
+courses. For further information and support, please visit: http://academic.ubc.ca/support-resources/freedom-expression
