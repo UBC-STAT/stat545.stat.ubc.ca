@@ -43,7 +43,7 @@ fri_date_pretty <- paste0(
 
 **Finish By:** Friday, September 18 at 23:59 PST **(Not for grades -- no need to submit!)**
 
-Continue working on Worksheet 1A this week. 
+Continue working on Worksheet 1A this week, as needed. 
 
 -----
 
@@ -64,25 +64,22 @@ From today's class, students are anticipated to be able to:
 
 #### Prepare for Class
 
-+ No lecture worksheet *per se* today, there will be a document to include instructions to activities, but the only deliverable would be a link to their personal GitHub repo & to their group repo.
-+ The idea with the prework is that it covers, in 30 minutes max, setting a GitHub account and using GitHub as cloud storage - then the class time can be used for setting up Git and the use of GitHub for collaboration, which I think are more complex to follow / have the potential to cause more issues. I have several ideas for this:
-  + Adapting the material in [Topic 2: GitHub](https://stat545guidebook.netlify.app/introduction-to-stat-545-and-github.html#topic-2-github-35-min) into a document that students can follow through, but only until (and including) "1.5.3 GitHub as cloud storage - Activity". I think that the rest is easier to just do in class (setting up Git, etc) than having them look through the STAT545 repo, which I find can be a bit confusing.
+- Lab:
+  - Take charge of their collaborative repos
+  - Create a teamwork document
+  - Branching; PR
+  - Opening Issues
+
+
+- Watch [STAT 545 Episode 2-A: Git and GitHub for an Organized Project](https://youtu.be/l2ftm-YwJs8) (a copy is also available on Canvas)
+
+- Tutorial
+  + Adapting the material in [Topic 2: GitHub](https://stat545guidebook.netlify.app/introduction-to-stat-545-and-github.html#topic-2-github-35-min) into a document that students can follow through, but only until (and including) "1.5.3 GitHub as cloud storage - Activity".
   + Simply having them follow the [Hello World](https://guides.github.com/activities/hello-world/) tutorial, although I'm not sure if it gets a bit complicated with branching.
-+ In addition, the Canvas site could show a table with the groups of students for the collaborative troubleshooting assignment, and we could encourage them to reach out to each other through Canvas if they want! (but the actual "project" can be explained in detail in class)
-+ In class, I was thinking of an outline similar to this:
-  + Install and configure Git (~10 min)
++ Demonstration:
   + Demo [the typical workflow](https://stat545guidebook.netlify.app/the-version-control-workflow.html#the-typical-workflow-8-min) (~8 min)
   + Students follow [the typical workflow activity](https://stat545guidebook.netlify.app/the-version-control-workflow.html#the-typical-workflow-activity-5-min) in the repo that they created as pre-work (~5 min)
-  + **2 minute break**
-  + GitHub for collaboration & intro to the collaborative troubleshooting assignment (~65 min)
- + From here on I am not sure of what you were thinking for the group project; should repos be created in advanced for each "group" of students, should they have the chance to create their own repo and add their partner as an admin, will they be using the [fork & clone](https://happygitwithr.com/fork-and-clone.html) workflow or should that be left for STAT545B...? Here are some general ideas that I think should be covered in class:
-  + Giving group partners the chance to interact in a breakout room, introduce themselves & create a teamwork document 
-  + Branching
-  + Opening issues
-  + Open and merge a pull request
-  
 
-- Watch the STAT 545 Video Series: Class `r tues_class_num`
 
 
 
@@ -107,7 +104,7 @@ From today's class, students are anticipated to be able to:
 
 #### Prepare for Class
 
-- Watch the STAT 545 Video Series: Class `r thurs_class_num`
+- Watch STAT 545 Episode 3-A: Reproducible Reports with R Markdown (**launched Tuesday at 11:00am PST**)
 
 
 #### During Class
