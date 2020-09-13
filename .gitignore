@@ -6,5 +6,6 @@
 public/
 *.ipynb_checkpoints
 #*.html
-.DS_store
+2020-materials/team-troubleshooting/.DS_Store
+2020-materials/.DS_Store
 .DS_Store
