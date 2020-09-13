@@ -1,9 +1,11 @@
 ---
-title: "Team Troubleshooting Deliverable 1"
-author: "Icíar Fernández Boyano"
-date: "27/08/2020"
+title: "Team Troubleshooting Deliverable 2"
 output: html_document
 ---
+
+## Attributions
+
+Icíar Fernández-Boyano
 
 ## Instructions
 
@@ -11,6 +13,8 @@ There are **30 errors** in this Rmd. Will you find them all?
 
 + *20 errors are marked* (at least the general area in which they are located) by ## ERROR HERE ## in the code chunk.
 + *10 errors are hiding.* Hint: You should be able to knit the script if all code is working correctly...
+
+**Notes:**
 
 + Errors may be in the form of **broken code** (e.g. using " " inappropriately, which returns an error when running the code), but can also be **running code that does not follow the instructions** (e.g. the goal of the code was to filter the first 3 rows, but instead, the first 3 columns were selected). Read the Rmd commentary carefully to find these.
 

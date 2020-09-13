@@ -1,9 +1,11 @@
 ---
-title: "Team Troubleshooting Deliverable 1"
-author: "Iciar Fernandez-Boyano"
-date: "27/08/2020"
+title: "Team Troubleshooting Deliverable 2"
 output: html_document
 ---
+
+## Attributions
+
+Icíar Fernández-Boyano
   
 ## Instructions
 
