@@ -66,8 +66,6 @@ Take about 30 minutes to get acquainted with the following before coming to clas
 #### During Class
 
 - 9:30 - 10:00: Vincenzo demonstrates version control and GitHub:
-    - 1.5.3, 1.5.5, 4.2.3, 4.2.6
-    - PR, as in https://guides.github.com/activities/hello-world/ -- also 4.2.8
 - 10:00 - 11:00: Students work on their Collaborative Project Milestone 1
     - These are the most important parts of this milestone to complete in class today:
         - Make/join your project repo
