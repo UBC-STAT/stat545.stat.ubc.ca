@@ -10,31 +10,41 @@ source(here::here("content", "dates.R"))
 
 Use this page to navigate your way through STAT 545. 
 
+-------
+
+-------
+
 ## Week-by-Week Guidance
 
 **STAT 545A:**
 
-- [Week 1A](/week1a): `r lec0 - ddays(1)` - `r dates_545a[1] + ddays(1)`
+| Week | Duration |
+|------|----------|
+| [Week 1-A](/week1a) | `r lec0 - ddays(1)` - `r dates_545a[1] + ddays(1)` |
 <!--
-- [Week 2A](): `r dates_545a[2]  - ddays(1)` - `r dates_545a[3]  + ddays(1)`
-- [Week 3A](): `r dates_545a[4]  - ddays(1)` - `r dates_545a[5]  + ddays(1)`
-- [Week 4A](): `r dates_545a[6]  - ddays(1)` - `r dates_545a[7]  + ddays(1)`
-- [Week 5A](): `r dates_545a[8]  - ddays(1)` - `r dates_545a[9]  + ddays(1)`
-- [Week 6A](): `r dates_545a[10] - ddays(1)` - `r dates_545a[11] + ddays(1)`
-- [Week 7A](): `r dates_545a[12] - ddays(1)` - `r dates_545a[13] + ddays(1)`
+| [Week 2-A]() | `r dates_545a[2]  - ddays(1)` - `r dates_545a[3]  + ddays(1)` |
+| [Week 3-A]() | `r dates_545a[4]  - ddays(1)` - `r dates_545a[5]  + ddays(1)` |
+| [Week 4-A]() | `r dates_545a[6]  - ddays(1)` - `r dates_545a[7]  + ddays(1)` |
+| [Week 5-A]() | `r dates_545a[8]  - ddays(1)` - `r dates_545a[9]  + ddays(1)` |
+| [Week 6-A]() | `r dates_545a[10] - ddays(1)` - `r dates_545a[11] + ddays(1)` |
+| [Week 7-A]() | `r dates_545a[12] - ddays(1)` - `r dates_545a[13] + ddays(1)` |
 -->
 
 <!--
 **STAT 545B:**
 
-- [Week 1B](): `r dates_545b[1]  - ddays(1)` - `r dates_545b[2]  + ddays(1)`
-- [Week 2B](): `r dates_545b[3]  - ddays(1)` - `r dates_545b[4]  + ddays(1)`
-- [Week 3B](): `r dates_545b[5]  - ddays(1)` - `r dates_545b[6]  + ddays(1)`
-- [Week 4B](): `r dates_545b[7]  - ddays(1)` - `r dates_545b[8]  + ddays(1)`
-- [Week 5B](): `r dates_545b[9]  - ddays(1)` - `r dates_545b[10] + ddays(1)`
-- [Week 6B](): `r dates_545b[11] - ddays(1)` - `r dates_545b[12] + ddays(1)`
-- [Week 7B](): `r dates_545b[13] - ddays(1)` - `r dates_545b[14] + ddays(1)`
+- [Week 1-B](): `r dates_545b[1]  - ddays(1)` - `r dates_545b[2]  + ddays(1)`
+- [Week 2-B](): `r dates_545b[3]  - ddays(1)` - `r dates_545b[4]  + ddays(1)`
+- [Week 3-B](): `r dates_545b[5]  - ddays(1)` - `r dates_545b[6]  + ddays(1)`
+- [Week 4-B](): `r dates_545b[7]  - ddays(1)` - `r dates_545b[8]  + ddays(1)`
+- [Week 5-B](): `r dates_545b[9]  - ddays(1)` - `r dates_545b[10] + ddays(1)`
+- [Week 6-B](): `r dates_545b[11] - ddays(1)` - `r dates_545b[12] + ddays(1)`
+- [Week 7-B](): `r dates_545b[13] - ddays(1)` - `r dates_545b[14] + ddays(1)`
 -->
+
+-------
+
+-------
 
 ## Worksheets
 
@@ -45,6 +55,10 @@ Use this page to navigate your way through STAT 545.
 | Worksheet 1-A | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_01a.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_01a.ipynb) |
 
 
+-------
+
+-------
+
 
 ## Collaborative Project (STAT 545A)
 
@@ -54,15 +68,19 @@ Use this page to navigate your way through STAT 545.
 |-----------|--------------|
 | Milestone 1 | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/collaborative-project/milestone1/README.md#stat-545a-collaborative-project-milestone-1)
 
+
+-------
+
+-------
+
 ## Mini-Data Analysis (STAT 545A)
 
-**Evaluation:**
 
-Here you will find information about the evaluation components of STAT545A and STAT545B. 
 
-- [STAT545A](/evaluationSTAT545A)
-- [STAT545B](/evaluationSTAT545B)
 
+-------
+
+-------
 
 ## Quick-Lookup Table
 
