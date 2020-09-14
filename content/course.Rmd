@@ -39,11 +39,20 @@ Use this page to navigate your way through STAT 545.
 ## Worksheets
 
 - [General Information](/worksheets-about)
-- Worksheet 1-A: [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_01a.ipynb); [View it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_01a.ipynb)
+
+| Worksheet | Download | View |
+|-----------|----------|------|
+| Worksheet 1-A | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_01a.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_01a.ipynb) |
+
 
 
 ## Collaborative Project (STAT 545A)
 
+- [General Information](/collaborative-project/collaborative-about)
+
+| Milestone | Instructions |
+|-----------|--------------|
+| Milestone 1 | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/collaborative-project/milestone1/README.md#stat-545a-collaborative-project-milestone-1)
 
 ## Mini-Data Analysis (STAT 545A)
 

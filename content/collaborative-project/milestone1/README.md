@@ -34,6 +34,7 @@ Establish guidelines with your teammate(s) as to how you will work together by i
   - (Note: you could use Slack's "direct message" feature, or you could make a private new channel -- just make sure to give it a unique name)
 - __Submission__: Who will make the final submission for each milestone, and by when.
 - __Pull Requests__: If a pull request is to be made as part of a milestone, by when will it be made? And, how long will other teammates have to review that pull request?
+- __Workflow__: will each teammate complete separate portions of the worksheet? Or will you work together on multiple sections?
 
 No need to render this markdown file. GitHub displays markdown files quite nicely.
 

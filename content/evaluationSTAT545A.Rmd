@@ -5,77 +5,8 @@ output: html_document
 
 This page contains details about STAT545A's evaluation components, including instructions for deliverables and submissions. All deadlines can be found in the [course calendar](https://stat545.stat.ubc.ca/calendar/).
 
-# Class worksheets (10%)
 
-## Learning Objectives
 
-1. Apply knowledge acquired in class to solve problems with data.
-2. Practice coding skills through self-directed autograded walkthroughs.
-
-## Instructions and grading
-
-+ A worksheet will be submitted *weekly* - therefore, each worksheet has content from 2 classes. 
-
-+ There are 5 class worksheets, which altogether account for 10% of the total course grade.
-
-+ To get full marks for each worksheet, you must successfully answer at least 40% of all autograded questions. 
-
-+ Autograded questions are easily identifiable in the worksheets through their labelling as **QUESTION**. Any other instructions that prompt the student to write code are activities, which are not graded and thus do not contribute to marks - but do contribute to the workflow of the worksheet!
-
-## Deliverables
-
-+ Deadline for submission is every Friday by 11:59pm. 
-
-+ An assignment submission will be made available every Thursday by the end of class in Canvas, under the ["Assignments"](https://canvas.ubc.ca/courses/56299/assignments) tab.
-
-# Collaborative troubleshooting project (35%)
-
-## Learning Objectives
-
-1. Collaborate on a project with a partner using GitHub.
-2. Troubleshoot broken code.
-3. Rewrite code to address instructions.
-
-## Instructions / Workflow
-
-1. Create a group repository.
-   + Name it GroupXX_STAT545. Your group number will be given to you at the start of the term, when you are given a partner.
-   + Create a README outlining the purpose of the repo.
-   + Create a teamwork contract where you establish a code of conduct and expectations, including:
-     + Internal deadlines (for you and your partner) to push new commits prior to the course deadline.
-     + Days in which it is expected that each partner will reply to the other's comments and/or pull requests.
-     + Workflow for completing each worksheet - will each partner complete half of the worksheet? Or will you work together on multiple sections?
-
-2. There will be three **milestones**, in the form of *Rmd deliverables* that will be provided to students. As an example, for **Milestone 1:**
-   + Student A works on the deliverable and creates a pull request.
-   + Student B comments on the pull request, initiates discussion, and continues working on the deliverable.
-   + This continues until both students agree to merge the pull request.
-
-3. A link to the last commit of the deliverable must be submitted to Canvas by the milestone deadline.
-
-## Grading scheme
-
-+ The team troubleshooting project accounts for 35% of the total course grade.
-
-+ Each milestone is graded as a group grade.
-  + Each deliverable is graded out of 15 points (each error is 0.5 points).
-  + Pull requests are graded out of 15 points, based on:
-    + A good title and description. A good title is self-explanatory, and a good description clearly states *what* was changed in the pull request and *why*.
-    + Productive discussion. Both students engaged in discussion in the pull request, and made changes to the document accordingly.
-
-+ At the end of the project, each member will submit a quick evaluation of the other team members, and themselves. This evaluation is worth 10 points.
-
-## Deliverables
-
-+ Create the repo and a teamwork document by **Friday, September 18th**. Although these are not "graded" per se, they are requirements for the workflow of the project.
-
-+ Milestone 1 due **Friday, September 18th.**
-
-+ Milestone 2 due **Friday, September 25th.**
-
-+ Milestone 3 and evaluation document due **Friday, October 16th.**
-
-+ To submit each deliverable, copy the link from the last commit in the group repo and paste it into the relevant Canvas submission, which will be made available close to each deadline under the "Assignments" tab.
 
 # Mini-data analysis project (50%)
 

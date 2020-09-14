@@ -1,0 +1,73 @@
+---
+title: "Welcome to the Collaborative Project!"
+subtitle: "Part of STAT 545A"
+output: html_document
+---
+
+Everything you need to know about the collaborative project can be found here.  
+
+__Note__: This is not for STAT 545B!
+
+By completing this project, students are expected to be able to:
+
+1. Collaborate on a project with a partner using GitHub.
+2. Troubleshoot broken code.
+3. Rewrite code to address instructions.
+
+## Deliverables
+
+There are three milestones:
+
++ Milestone 1 due **Friday, September 18th.**
+
++ Milestone 2 due **Friday, September 25th.**
+
++ Milestone 3 and evaluation document due **Friday, October 16th.**
+
+## General Workflow
+
+Each milestone will include a troubleshooting exercise in the form of an `.Rmd` file. Your team needs to fix the errors.
+
+You must work on _branches_ in your GitHub repository, and submit a pull request when you're ready for your teammate(s) to review your work. The team comments on the incoming changes (in the pull request), and makes changes to the branch based on the comments (if needed). Once the team agrees the branch should be merged, the merge is completed and the pull request is closed. 
+
+## Grading scheme
+
++ The team troubleshooting project accounts for 35% of the total course grade, and is graded by assigning 100 points overall.
+
++ Each Milestone is graded as a group grade.
+
++ Milestones 2 and 3 are graded as follows:
+  + Troubleshooting is worth 15 points
+  + Pull requests are worth 15 points, based on:
+    + A good title and description. A good title is self-explanatory, and a good description clearly states *what* was changed in the pull request and *why*.
+    + Productive discussion. Both students engaged in discussion in the pull request, and made changes to the document accordingly.
+
++ At the end of the project, each member will submit a quick evaluation of the other team members, and themselves. This evaluation is worth 10 points.
+
+
+## Submitting a Milestone
+
+_(These instructions will also appear on every milestone)_
+
+To submit a Milestone, you'll be tagging a release on your GitHub repository, and submitting a link to that release on canvas. 
+
+_How to tag a release_:
+
+1. Navigate to the main page (root) of your collaborative GitHub repository.
+2. There should be a small link on the right-hand-side of your page that says "Create a new release". Click that.
+  - You might also be able to get to the same place by clicking on the "tags" link beside where your branches are listed. 
+3. For the tag version, put `mV.0`, where `V` is the Milestone number.
+4. Choose a release title and description (this is less important).
+5. Do __not__ check off "This is a pre-release".
+6. Click "Publish Release".
+7. Put a link to that release as a submission on the Collaborative Project Milestone in canvas.
+  - You won't lose marks for _not_ doing this, but it would really help us out if you do this! Thank you!
+
+_Tagging another release_:
+
+If you want to change your submission _after_ tagging a release, you can still do this if it's before the deadline. Just increase the secondary version number by one -- so, make the tag version `mV.1`, then `mV.2`, etc., where `V` is the Milestone number. 
+
+
+## Attribution
+
+The main ideas for this deliverable came from collaborations between Icíar Fernández Boyano and Vincenzo Coia.
