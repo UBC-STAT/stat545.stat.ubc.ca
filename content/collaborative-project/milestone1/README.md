@@ -8,6 +8,16 @@ In this milestone, you and your teammates will be taking charge of your collabor
 
 In this document, you'll find instructions for completing this milestone.
 
+## Claim your GitHub Repository
+
+For all three collaborative project milestones, you'll be working with your teammate(s) on the same GitHub repository. One person in the team will need to make the repository; the other(s) can then join that repo.
+
+__Note__: Only students who are registered for the course (including those auditing) can claim a repository for this project.
+
+1. Log on to [canvas](https://canvas.ubc.ca) and go to `STAT 545A` -> `Assignments` -> `Collaborative Milestone 1`
+2. Continue with the instructions found there. 
+
+
 ## Teamwork Contract
 
 __5 points__
