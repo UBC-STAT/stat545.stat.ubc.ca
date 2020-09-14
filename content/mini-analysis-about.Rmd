@@ -1,0 +1,13 @@
+---
+title: "Mini Data Analysis Project"
+subtitle: "Part of STAT 545A"
+output: html_document
+---
+
+50%
+
+
+A mini-data analysis project where you will get to explore a dataset of choice through wrangling and visualization! There will be 3 deliverables for this project.
+
+**More details coming soon.**
+

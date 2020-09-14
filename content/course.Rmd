@@ -62,7 +62,7 @@ Use this page to navigate your way through STAT 545.
 
 ## Collaborative Project (STAT 545A)
 
-- [General Information](/collaborative-project/collaborative-about)
+- [General Information](/collaborative-about)
 
 | Milestone | Instructions |
 |-----------|--------------|
@@ -75,8 +75,10 @@ Use this page to navigate your way through STAT 545.
 
 ## Mini-Data Analysis (STAT 545A)
 
+- [General Information](/mini-analysis-about)
 
-
+| Milestone | Instructions |
+|-----------|--------------|
 
 -------
 
