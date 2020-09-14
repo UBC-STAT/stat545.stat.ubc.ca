@@ -3,6 +3,11 @@ title: "Team Troubleshooting Deliverable 2"
 output: html_document
 ---
 
+```{r}
+knitr::opts_chunk$set(error = TRUE)
+```
+
+
 ## Attributions
 
 Icíar Fernández-Boyano

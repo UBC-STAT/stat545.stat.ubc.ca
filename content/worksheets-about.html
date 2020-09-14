@@ -1,0 +1,81 @@
+---
+title: "Welcome to the STAT 545 Worksheets!"
+output: 
+  html_document:
+    toc: true
+---
+
+
+
+<p>Everything you need to know about the (autograded!) worksheets can be found here.</p>
+<p>These worksheets are designed to help you:</p>
+<ol style="list-style-type: decimal">
+<li>Apply knowledge acquired in class to solve problems with data.</li>
+<li>Practice coding skills through self-directed autograded walkthroughs.</li>
+</ol>
+<p><strong>STAT 545A</strong>:</p>
+<ul>
+<li>Percentage of final grade: <em>10%</em></li>
+<li>Number of Worksheets: <em>5 graded, 1 ungraded (corresponding to Weeks 1-A and 2-A).</em></li>
+<li>Deadline: <em>Every Friday by 11:59pm (starting on Week 3-A)</em></li>
+<li>Grading: <em>To get full marks for each worksheet, you must successfully answer at least 40% of all autograded questions.</em></li>
+</ul>
+<div id="downloading-the-worksheets" class="section level2">
+<h2>Downloading the Worksheets</h2>
+<p>First, you can find the worksheets on the <a href="https://stat545.stat.ubc.ca/course/">main navigation dashboard</a>.</p>
+<p>How to download the lecture worksheets:</p>
+<ol style="list-style-type: decimal">
+<li><p>Right Click<br/>
+<strong>Safari</strong>: Download Linked File as<br/>
+<strong>Chrome</strong>: Save Link As<br/>
+<strong>Microsoft Edge</strong>: Save link as<br/>
+<strong>Firefox</strong>: Save link as<br/></p></li>
+<li><p>Command-line (bash shell), where URL is <code>https://raw.githubusercontent.com/...</code></p>
+<pre><code>$ wget &lt;URL&gt;</code></pre>
+<p>   OR</p>
+<pre><code>$ curl -O -J &lt;URL&gt;</code></pre></li>
+</ol>
+</div>
+<div id="loading-a-worksheet" class="section level2">
+<h2>Loading a Worksheet</h2>
+<p>You can fill out the worksheets using <a href="https://jupyter.org/"><strong>jupyter</strong></a>. We decided against RStudio here because jupyter works nicely with an autograder called nbgrader.</p>
+<p>Steps for loading a worksheet:</p>
+<ol style="list-style-type: decimal">
+<li>Open a shell/Terminal
+<ul>
+<li>Mac: Open an app called “Terminal”</li>
+<li>Windows/other: You can open a shell using RStudio – just go to <code>Tools</code> &gt; <code>Shell...</code></li>
+</ul></li>
+<li>Type <code>jupyter lab</code> (or you could use <code>jupyter notebook</code>).</li>
+<li>Navigate to where you downloaded the worksheet, and open it.</li>
+</ol>
+</div>
+<div id="jupyter" class="section level2">
+<h2>Jupyter</h2>
+<p>The worksheets are made up of stacked “cells”; some contain text, others contain code. Here are some tips for working on a worksheet in jupyter:</p>
+<ul>
+<li>Press “shift + enter” (Windows) or “shift + return” (Mac) to execute the contents of a cell.
+<ul>
+<li>If you do this on a text (markdown) cell, it will just re-render the markdown.</li>
+</ul></li>
+<li>You won’t be able to change most of the cells – only the ones where we ask you to put an answer.</li>
+</ul>
+</div>
+<div id="autograder" class="section level2">
+<h2>Autograder</h2>
+<p>The worksheets use an autograder called nbgrader. With it, you get instant feedback as to whether your answer is acceptable or not.</p>
+<p>Here is more info:</p>
+<ul>
+<li>Autograded questions are easily identifiable in the worksheets through their labelling as <strong>QUESTION</strong>. Any other instructions that prompt the student to write code are activities, which are not graded and thus do not contribute to marks - but do contribute to the workflow of the worksheet!</li>
+<li>When you reach an autograded question:
+<ol style="list-style-type: decimal">
+<li>Input and execute your answer in the code cell.</li>
+<li>To get instant feedback as to whether your answer is acceptable, execute the code cell immediately following your answer cell. This cell contains tests that check whether your answer is acceptable or not. If this cell runs error-free, then your answer is correct!</li>
+</ol></li>
+<li>Some code cells above a question will need to be run in order for the question or test cell to run error-free. For example, there will almost surely be a cell that loads R packages with <code>library()</code> near the top of the worksheet that will definitely need to be executed!</li>
+</ul>
+</div>
+<div id="submitting-your-worksheets" class="section level2">
+<h2>Submitting your worksheets</h2>
+<p>TBD</p>
+</div>

@@ -10,6 +10,7 @@ source(here::here("content", "dates.R"))
 
 Use this page to navigate your way through STAT 545. 
 
+## Week-by-Week Guidance
 
 **STAT 545A:**
 
@@ -35,6 +36,17 @@ Use this page to navigate your way through STAT 545.
 - [Week 7B](): `r dates_545b[13] - ddays(1)` - `r dates_545b[14] + ddays(1)`
 -->
 
+## Worksheets
+
+- [General Information](/worksheets-about)
+- [Worksheet 1-A](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/release/worksheet_01a/worksheet_01a.ipynb)
+
+
+## Collaborative Project (STAT 545A)
+
+
+## Mini-Data Analysis (STAT 545A)
+
 **Evaluation:**
 
 Here you will find information about the evaluation components of STAT545A and STAT545B. 
@@ -47,23 +59,7 @@ Here you will find information about the evaluation components of STAT545A and S
 
 This table is evolving!
 
-How to download the lecture worksheets:
 
-1. Right Click<br/>
-  **Safari**: Download Linked File as<br/>
-  **Chrome**: Save Link As<br/>
-  **Microsoft Edge**: Save link as<br/>
-  **Firefox**: Save link as<br/>
-2. Command-line (bash shell), where URL is `https://raw.githubusercontent.com/...`
-
-    ```
-    $ wget <URL>
-    ```
-    &nbsp;&nbsp;&nbsp;OR
-
-    ```
-    $ curl -O -J <URL>
-    ```
 
 |                                        | Learning objectives                                              | Key resources                          | Pre-class work           | Lecture worksheet                 | 
 |:-------------------------------------- |:---------------------------                                      |:--------------------------------       |:-------------------------|:----------------------------------|
