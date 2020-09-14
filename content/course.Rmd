@@ -39,7 +39,7 @@ Use this page to navigate your way through STAT 545.
 ## Worksheets
 
 - [General Information](/worksheets-about)
-- [Worksheet 1-A](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/release/worksheet_01a/worksheet_01a.ipynb)
+- Worksheet 1-A: [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_01a.ipynb); [View it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_01a.ipynb)
 
 
 ## Collaborative Project (STAT 545A)
