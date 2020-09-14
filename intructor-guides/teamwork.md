@@ -35,6 +35,7 @@ Shared roles:
 | Updating the website with existing content | 5 | 
 | Staying in touch with the students through our communication channels. | 5 |
 | Developing material for the course | 4 |
+| Update a week's guidance page | 4 (should be reviewed by the person giving the lectures that week) |
 | Updating this teamwork document | 3 | 
 | Lecture demonstrations, if a TA chooses to take part in this (first 30 minutes) | 2 |
 
@@ -44,7 +45,7 @@ Shared roles:
 
 Work on a branch and submit a pull request whenever proposing "big changes", like developing new content for the course.
 
-If one other TA should review a pull request, we'll determine who that is in our weekly meeting.
+Rule of thumb for who reviews a pull request: the person who was the primary author on the previous document.
 
 Examples:
 
