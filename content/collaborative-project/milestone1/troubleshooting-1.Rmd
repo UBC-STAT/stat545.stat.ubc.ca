@@ -1,0 +1,36 @@
+---
+title: "STAT 545A Troubleshooting Exercise: Milestone 1"
+output: html_document
+---
+
+__Total: 5 points__
+
+## Instructions
+
+There are **3 errors** in this Rmd file. Will you find them all?
+
+- 1 point per error fixed ($\times 3$ errors = 3 points)
+- 2 points for knitting this document to an html file. 
+
+## Welcome to R and Rmd!
+
+This document is written in **R Markdown**. We'll use this document to explore the `mtcars` dataset.
+
+First, let's store the current date as a variable. We can use the function `Sys.Date` with no arguments to get the current date:
+
+```{r, error = TRUE}
+_today_ <- Sys.Date()
+```
+
+Now, let's load the `tidyverse` (meta-) package:
+
+```{r, error = TRUE}
+libraries(tidyverse)
+```
+
+By loading the tidyverse, a function called `glimpse` has been made available. This function is useful for viewing a data set. Let's take a look at the `mtcars` dataset by applying the `glimpse` function to `mtcars`!
+
+```{r, error = TRUE}
+glimpse mtcars
+```
+
