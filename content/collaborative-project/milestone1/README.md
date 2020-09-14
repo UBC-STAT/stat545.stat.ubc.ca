@@ -144,7 +144,7 @@ _How to tag a release_:
 5. Do __not__ check off "This is a pre-release".
 6. Click "Publish Release".
 7. Put a link to that release as a submission on the Collaborative Project Milestone 1
-  - You won't lose marks for _not_ doing this, but it would really help us out if you do this! Thank you!
+    - You won't lose marks for _not_ submitting your link to canvas, but it would really help us out if you do this! Thank you!
 
 _Tagging another release_:
 
