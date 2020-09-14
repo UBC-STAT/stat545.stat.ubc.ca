@@ -35,18 +35,6 @@ fri_date_pretty <- paste0(
 )
 ```
 
------
-
-<!-- ******WORKSHEET****** -->
-
-## Worksheet 1A
-
-**Finish By:** Friday, September 18 at 23:59 PST **(Not for grades -- no need to submit!)**
-
-Continue working on Worksheet 1A this week, as needed. 
-
------
-
 
 ----- 
 
@@ -151,6 +139,18 @@ Note that many cheat sheets can be found from RStudio: go to `Help` > `Cheatshee
 **Due:** Friday, September 18 at 23:59 PST
 
 We recommend you start your projects Tuesday in class. You can view instructions for Milestone 1 [here](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/collaborative-project/milestone1/README.md#stat-545a-collaborative-project-milestone-1)
+
+-----
+
+-----
+
+<!-- ******WORKSHEET****** -->
+
+## Worksheet 1A
+
+**Finish By:** Friday, September 18 at 23:59 PST **(Not for grades -- no need to submit!)**
+
+Continue working on Worksheet 1A this week, as needed. 
 
 -----
 
