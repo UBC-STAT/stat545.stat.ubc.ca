@@ -100,7 +100,7 @@ From today's class, students are anticipated to be able to:
 
 #### Prepare for Class
 
-Before class, be sure to:
+Take about 30 minutes to get acquainted with the following before coming to class:
 
 - Watch STAT 545 Episode 3-A: Reproducible Reports with R Markdown (**launched Tuesday at 11:00am PST**)
 - Read the [Official R Markdown Tutorial](https://rmarkdown.rstudio.com/lesson-1.html) from the "Introduction" up to and including the "Inline Code" section.
