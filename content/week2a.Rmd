@@ -158,7 +158,7 @@ _Note_: No office hour is being held on Wednesday.
 
 ## Collaborative Project Milestone 1
 
-**Due:** Friday, September 18 at 23:59 PST
+**Due:** ~~Friday, September 18~~ Saturday, September 19  at 23:59 PST
 
 We recommend you start your projects Tuesday in class. You can view instructions for Milestone 1 [here](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/collaborative-project/milestone1/README.md#stat-545a-collaborative-project-milestone-1)
 

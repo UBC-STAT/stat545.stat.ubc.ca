@@ -18,11 +18,11 @@ By completing this project, students are expected to be able to:
 
 There are three milestones:
 
-+ Milestone 1 due **Friday, September 18th.**
++ Milestone 1 due ~~**Friday, September 18th.**~~ **Saturday, September 19th at 23:59 PST**
 
-+ Milestone 2 due **Friday, September 25th.**
++ Milestone 2 due **Friday, September 25th at 23:59 PST.**
 
-+ Milestone 3 and evaluation document due **Friday, October 16th.**
++ Milestone 3 and evaluation document due **Friday, October 16th at 23:59 PST.**
 
 ## General Workflow
 
