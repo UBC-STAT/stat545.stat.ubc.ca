@@ -5,3 +5,5 @@
 This is the main repository from which we teach STAT 545 @ UBC. It contains most of the content, and produces the main website at https://stat545.stat.ubc.ca
 
 **Teaching Team**: for help in working with the course, check out the [instructor-guides](https://github.com/UBC-STAT/stat545.stat.ubc.ca/tree/master/intructor-guides) folder.
+
+this is on github
