@@ -65,11 +65,23 @@ Take about 30 minutes to get acquainted with the following before coming to clas
 
 #### During Class
 
-- 9:30 - 10:00: Vincenzo demonstrates version control and GitHub:
-- 10:00 - 11:00: Students work on their Collaborative Project Milestone 1
-    - These are the most important parts of this milestone to complete in class today:
-        - Make/join your project repo
-        - Create a teamwork document
+Rough schedule:
+
+| Time period | Activity |
+|-------------|----------|
+| 09:30 - 10:00 | Vincenzo demonstrates version control and GitHub |
+| 10:00 - 10:10 | Quiz discussion (see below) with think-pair-broadcast activity. |
+| 10:10 - 10:15 | Break |
+| 10:10 - 11:00 | Students work on their Collaborative Project Milestone 1, especially __Making/joining your project repo__ and __creating a teamwork document__. |
+
+Complete the __Class 2-A Quiz__ on canvas __by Wednesday, September 16 at 11:00am PST__. Questions:
+
+1. You've just successfully pushed your branch to GitHub! True or False: it's still possible for the branch on GitHub to contain work that's not on your computer.
+2. You're ready to push some code you added to `code.R` to GitHub, but just found out that your teammate completely changed `code.R` on GitHub! True or False: If you pull the repository from GitHub, you'll get an error because your `code.R` conflicts with GitHub's `code.R`. 
+3. True or False: If you've just changed a file on your computer, in order to push it to GitHub, you'll first need to commit the file. 
+
+Group of answer choices
+
 
 #### Useful Resources as references
 
@@ -125,6 +137,18 @@ Fully loaded cheat sheets:
 - [R Markdown reference guide](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.177968037.1059384083.1597196687-1784159993.1567907747)
 
 Note that many cheat sheets can be found from RStudio: go to `Help` > `Cheatsheets`
+
+-----
+
+-----
+
+## Friday Office Hour
+
+__September 18, 2020 from 16:00-17:00 PST__
+
+Join Almas and Diana to discuss anything about the course: content, structure, deliverables, etc. 
+
+_Note_: No office hour is being held on Wednesday.
 
 -----
 
