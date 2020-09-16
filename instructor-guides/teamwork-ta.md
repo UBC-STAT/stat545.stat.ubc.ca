@@ -39,6 +39,7 @@ Shared roles:
 | Updating this teamwork document | 3 | 
 | Lecture demonstrations, if a TA chooses to take part in this (first 30 minutes) | 2 |
 
+
 ### Which branch to work on?
 
 **Separate Branch**:
