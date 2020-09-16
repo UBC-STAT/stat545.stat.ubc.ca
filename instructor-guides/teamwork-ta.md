@@ -1,4 +1,4 @@
-# Teamwork Contract 2020
+# Teamwork Contract 2020: TA's
 
 Let's use this document to write down some guidelines for how the 2020 teaching team should work together.
 
