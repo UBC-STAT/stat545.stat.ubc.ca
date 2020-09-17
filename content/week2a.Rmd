@@ -119,10 +119,18 @@ Take about 30 minutes to get acquainted with the following before coming to clas
 
 #### During Class
 
-- 9:30 - 10:00: Vincenzo demonstrates markdown, R Markdown, and rendering/knitting files.
+- 9:30 - 9:50: Vincenzo demonstrates markdown, R Markdown, and rendering/knitting files.
+- 9:50 - 10:00: Quiz
 - 10:00 - 11:00: Students continue working on:
     - Collaborative Milestone 1, especially formatting their documents with markdown features.
     - Worksheet 1-A, as needed.
+    
+__TA's__: Victor and Icíar
+
+__Quiz__: True or False:
+
+1. Since GitHub only displays the code behind an html file, we need to output to pdf if we want to be able to view the rendering on GitHub. 
+2. It doesn't make sense to output an .Rmd file to markdown, because .Rmd is already markdown. 
 
 #### Useful Resources to refer to
 
