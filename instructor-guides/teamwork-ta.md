@@ -1,4 +1,4 @@
-# Teamwork Contract 2020
+# Teamwork Contract 2020: TA's
 
 Let's use this document to write down some guidelines for how the 2020 teaching team should work together.
 
@@ -38,6 +38,7 @@ Shared roles:
 | Update a week's guidance page | 4 (should be reviewed by the person giving the lectures that week) |
 | Updating this teamwork document | 3 | 
 | Lecture demonstrations, if a TA chooses to take part in this (first 30 minutes) | 2 |
+
 
 ### Which branch to work on?
 
