@@ -230,6 +230,9 @@ answer1.4 <- select(penguins, year, everything())
 
 ```{r test-1-4}
 # test that there are 344 rows and 8 columns, which are in the following order: year, species, island, bill_length_mm, bill_depth_mm, bill_depth_mm, flipper_length_mm, body_mass_g, sex
+test_that("Question 1.4", {
+    expect_equal(digest(answer1.4), "a07a1cdcb64726866df3d525811a9bf6")
+})
 ```
 
 **QUESTION 1.5**
@@ -246,6 +249,10 @@ answer1.5 <- rename(penguins, c(length_flipper_mm = "flipper_length_mm"))
 
 ```{r test-1-5}
 # check that there are 344 rows and 8 columns: year, species, island, bill_length_mm, bill_depth_mm, bill_depth_mm, length_flipper_mm, body_mass_g, sex
+test_that("Question 1.5", {
+  expect_equal(digest(dim(answer1.5)), 'd095e682a86f7f16404b7f8dd5f3d676')
+  expect_equal(digest(colnames(answer1.5)), 'ef6a2aaa40de41c0b11ad2f6888d5ce6')
+})
 ```
 
 ### `filter()` 
@@ -265,7 +272,13 @@ answer1.6 <- filter(penguins, body_mass_g > 3600)
 ```
 
 ```{r test-1-6}
-# test for an object that is 245 rows by 8 columns and that there are no entries in the body_mass_g column that is >3600
+# test for an object that is 245 rows by 8 columns and that there are no entries in the body_mass_g column that is <3600
+test_that("Question 1.6", {
+  expect_equal(digest(dim(answer1.6)), '0f80c9cad929bf5de5ae34e0d50cb60d')
+  
+  # Is this ok?
+  expect_equal(sum(pull(answer1.6, body_mass_g) < 3600), 0)
+})
 ```
 
 In question 1.6 above, you've created a subset of the `penguins` dataset by filtering for those penguins that have a body mass greater than 3600 g. Let's do a quick check to see how many penguins meet that threshold by comparing the dimensions of the `penguins` dataset and your subset, `answer1.6`. Do you remember how to check the dimensions of a dataframe? Hint: there are two different ways to do this. 
@@ -296,6 +309,13 @@ answer1.7 <- filter(penguins3600, island == "Biscoe")
 
 ```{r test-1-7}
 # test for an object that is 148 rows by 8 columns and that all entries in the island column are "Biscoe"
+test_that("Question 1.7", {
+  expect_equal(digest(dim(answer1.7)), "92ac01cd2e8809faceb1f7a283cd935f")
+  
+  a <- unique(pull(answer1.7, island))
+  expect_length(a, 1)
+  expect_equal(digest(a), "2522027d230e3dfe02d8b6eba1fd73e1")
+})
 ```
 
 **QUESTION 1.8**
@@ -312,6 +332,11 @@ answer1.8 <- filter(penguins3600, island %in% c("Torgersen", "Dream"))
 
 ```{r test-1-8}
 # test for an object that is 97 rows by 8 columns and that 28 entries in the island column are "Torgersen", and 69 of them are "Dream"
+test_that("Question 1.8", {
+  expect_equal(digest(dim(answer1.8)), "b207bbce54bb47be51e7ba7b56d24bc2")
+  expect_equal(sum(pull(answer1.8, island) == "Torgersen"), 28)
+  expect_equal(sum(pull(answer1.8, island) == "Dream"), 69)
+})
 ```
 
 ### `arrange()` 
@@ -332,6 +357,20 @@ answer1.9 <- arrange(penguins, year)
 
 ```{r test-1-9}
 # test that year column is in ascending order, not sure if this is possible?
+
+# vy: I think this will work, but check please
+expect_sorted <- function(object) {
+  act <- quasi_label(rlang::enquo(object), arg = "object")
+  expect(
+    !is.unsorted(act$val),
+    sprintf("%s not sorted", act$lab)
+  )
+  invisible(act$val)
+}
+
+test_that("Question 1.9", {
+    expect_sorted(pull(answer1.9, year))
+})
 ```
 
 **QUESTION 1.10**
@@ -348,6 +387,10 @@ answer1.10 <- arrange(penguins, desc(year))
 
 ```{r test-1-10}
 # test that year column is in descending order, not sure if this is possible?
+test_that("Question 1.10", {
+    expect_sorted(pull(answer1.10, year) %>% 
+                    rev())
+})
 ```
 
 **QUESTION 1.11**
@@ -364,6 +407,22 @@ answer1.11 <- arrange(penguins, year, body_mass_g)
 
 ```{r test-1-11}
 # again, not sure if it's possible to test the order of the columns... what else could we test for?
+test_that("Question 1.11", {
+  
+  # works for year
+  expect_sorted(pull(answer1.11, year))
+  
+  # problem is now for body_mass_g for each year...
+  # this is my attempt
+  answer1.11_list <- answer1.11 %>% 
+    group_by(year) %>% 
+    group_split()
+  
+  expect_length(answer1.11_list, 3)
+  expect_sorted(answer1.11_list[[1]] %>% pull(body_mass_g) %>% na.omit())
+  expect_sorted(answer1.11_list[[2]] %>% pull(body_mass_g) %>% na.omit())
+  expect_sorted(answer1.11_list[[3]] %>% pull(body_mass_g) %>% na.omit())
+})
 ```
 
 ### Piping, `%>%` 
@@ -417,6 +476,15 @@ penguins %>%
 # [1] "species"           "island"            "bill_length_mm"   
 # [4] "bill_depth_mm"     "flipper_length_mm" "body_mass_g"      
 # [7] "body_mass_kg"      "sex"               "year" 
+
+test_that("Question 1.12", {
+  expect_equal(digest(dim(answer1.12)), "9e9457527d068c2333ea8fd598e07f13")
+  expect_equal(digest(colnames(answer1.12)), "d7121e41fe934232c1c45dc425365040")
+  
+  # tests that body_mass_kg was correctly made
+  expect_equal(na.omit(answer1.12$body_mass_kg / answer1.12$body_mass_g) %>% digest,
+               "cdfbfd4da65e3575a474558218939055")
+})
 ```
 
 Have a look at `answer1.12` to see what the changes you made look like.
@@ -469,6 +537,10 @@ answer1.13 <-
 
 ```{r test-1-13}
 # test that output is 9 by 3, and columns are: "year"           "island"         "body_mass_mean"
+test_that("Question 1.13", {
+  expect_equal(digest(dim(answer1.13)), "f4885de1726d18557bd43d769cc0ae26")
+  expect_equal(digest(colnames(answer1.13)), "ba0c85220a5fa5222cac937acb2f94c2")
+})
 ```
 
 ## Creating tibbles
@@ -519,7 +591,12 @@ answer1.14 <-
 
 ```{r test-1-14}
 # test that 392 by 5 and that all gdpPercap > 10000
-colnames(answer1.14)
+test_that("Question 1.14", {
+  expect_equal(digest(dim(answer1.14)), "10e7af552b77b2008cc3a6465100596d")
+  
+  # it's hard to verify that all gdpPercap > 10000, since we asked to drop that column
+  expect_equal(digest(answer1.14), "3218056845cc9759df4f0098613e4428")
+})
 ```
 
 **QUESTION 1.15**
@@ -537,6 +614,10 @@ answer1.15 <- as_tibble(mtcars) %>% select(starts_with("d"))
 
 ```{r test-1-15}
 # test for a 32 by 2 tibble where columns are "disp", "drat" in that order
+test_that("Question 1.15", {
+  expect_equal(digest(dim(answer1.15)), "ea1df69d6a59227894d1d4330f9bfab8")
+  expect_equal(digest(colnames(answer1.15)), "0956954d01fe74c59c1f16850b7e874f")
+})
 ```
 
 This exercise is from [r-exercises](https://www.r-exercises.com/2017/10/19/dplyr-basic-functions-exercises/).
@@ -692,12 +773,20 @@ Fill in the blanks to obtain the plot:
 # FILL_THIS_IN()
 
 ### BEGIN SOLUTION
-answer2.2 <- ggplot(mauna, aes(x = month, y = conc) + geom_line())
+answer2.2 <- ggplot(mauna, aes(x = month, y = conc)) + geom_line()
 ### END SOLUTION
 ```
 
 ```{r test-2-2}
 # test that the aesthetics of the plot are aes(x = month, y = conc) and geom_line()
+test_that("Question 2.2", {
+  
+  expect_equal(digest(answer2.2$mapping), "58410547f02ab682a5231e8b7898486d")
+  
+  # tests that the first geom layer is geom_line
+    expect_equal(digest(answer2.2$layers[[1]]$geom),
+                 "e6be55794c0cd28ca01a12ac74dd0f5f")
+})
 ```
 
 ```{r fig.width = 5, fig.height = 2}
@@ -727,6 +816,9 @@ ggplot(mauna, aes(y = month)) +
 
 ```{r test-2-3}
 # test for the plot aesthetics
+test_that("Question 2.3", {
+  expect_equal(digest(answer2.3$mapping), "")
+})
 ```
 
 **QUESTION 2.4**
@@ -734,9 +826,9 @@ ggplot(mauna, aes(y = month)) +
 You can store the output of the plot in a variable, too. The plot that you created in 2.3 is stored in the variable `answer2.2`. Add a layer to `answer2.2` that adds green points to the plot. 
 
 ```{r question-2-4}
-answer2.4 <-
-answer2.3 +
-  FILL_THIS_IN(colour = FILL_THIS_IN)
+#answer2.4 <-
+#answer2.3 +
+#  FILL_THIS_IN(colour = FILL_THIS_IN)
 
 ### BEGIN SOLUTION
 answer2.4 <-
@@ -747,6 +839,9 @@ answer2.3 +
 
 ```{r test-2-4}
 # test for the plot aesthetics
+test_that("Question 2.4", {
+  expect_equal(digest(answer2.4$mapping), "")
+})
 ```
 
 Have a look at the plot!
@@ -773,6 +868,9 @@ ggplot(gapminder, aes(x = gdpPercap, y = lifeExp)) +
 
 ```{r test-2-5}
 # test for the plot aesthetics
+test_that("Question 2.5", {
+  expect_equal(digest(answer2.5$mapping), "6b0fe1934ff2907a629cc8b6d8581367")
+})
 ```
 
 ```{r, fig.width = 5, fig.height = 2}
@@ -789,7 +887,28 @@ So you're a ggplot2 pro? Then, let's see this plot adapted to polar coordinates.
 The plot should look like a spiral, or concentric circles. 
 
 ```{r question-2-6}
-# FILL_THIS_IN
+#answer2.6 <-
+#ggplot(mauna, aes(x = FILL_THIS_IN, y = FILL_THIS_IN)) +
+#  geom_point() +
+#  coord_polar()
+
+### BEGIN SOLUTION
+answer2.6 <-
+ggplot(mauna, aes(x = month, y = conc)) +
+  geom_point() +
+  coord_polar()
+### END SOLUTION
+```
+
+```{r test-2-6}
+test_that("Question 2.6", {
+  
+  # test for the plot aesthetics
+  expect_equal(digest(answer2.6$mapping), "58410547f02ab682a5231e8b7898486d")
+  
+  # test for polar coordinates
+  expect_equal(digest(answer2.6$coordinates), "e75662f6b6f38ad49266f787531f1ec5")
+})
 ```
 
 Remember the `penguins` dataset that we worked with in Part A of the worksheet? Let's try visualizing some of that data.
@@ -824,6 +943,14 @@ answer2.7 <-
 
 ```{r test-2-7}
 # test for the plot aesthetics
+test_that("Question 2.7", {
+  
+  # test for the plot aesthetics
+  expect_equal(digest(answer2.7$mapping), "687de3963fbc964bd4dcbcc28484a1cd")
+  
+  # test for geom_point parameters
+  expect_equal(digest(answer2.7$layers[[1]]), "6760c6d3a827d2c6797258061927e443")
+})
 ```
 
 Now, print `answer2.7` to screen to see your plot!
@@ -851,6 +978,14 @@ answer2.8 <-
 
 ```{r test-2-8}
 # test for the plot aesthetics 
+test_that("Question 2.8", {
+  
+  # test for the plot aesthetics
+  expect_equal(digest(answer2.8$mapping), "687de3963fbc964bd4dcbcc28484a1cd")
+  
+  # test for geom_point parameters
+  expect_equal(digest(answer2.8$layers[[1]]), "7e13e5b0683e061bcce7601d3a512a68")
+})
 ```
 
 Print `answer2.7` to screen to see the plot!
@@ -873,6 +1008,14 @@ answer2.9 <- ggplot(penguins, aes(x = island)) + geom_bar()
 
 ```{r test-2-9}
 # test for the plot aesthetics 
+test_that("Question 2.9", {
+  
+  # test for the plot aesthetics
+  expect_equal(digest(answer2.9$mapping), "f85cbd0c4331d25180383917c3112e53")
+  
+  # test for geom_bar 
+  expect_equal(digest(answer2.9$layers[[1]]), "682b1d788de6421850a6663bf8c6e1f4")
+})
 ```
 
 Print the plot to screen to see the penguin distribution across different islands.
@@ -914,6 +1057,14 @@ ggplot(penguins, aes(x = body_mass_g)) +
 
 ```{r test-2-10}
 # test for plot aesthetics
+test_that("Question 2.10", {
+  
+  # test for the plot aesthetics
+  expect_equal(digest(answer2.10$mapping), "9278ccffa7b7fee0acb5e87bd5b004a0")
+  
+  # test for geom_histogram
+  expect_equal(digest(answer2.10$layers[[1]]), "c0d17114c83620da7aff8273841e5113")
+})
 ```
 
 ```{r}
@@ -950,6 +1101,14 @@ ggplot(penguins, aes(x = body_mass_g, color = species)) +
 
 ```{r test-2-11}
 # test for plot aesthetics
+test_that("Question 2.11", {
+  
+  # test for the plot aesthetics
+  expect_equal(digest(answer2.11$mapping), "e56a9c19c487767537579dc2458e308e")
+  
+  # test for geom_histogram
+  expect_equal(digest(answer2.11$layers[[1]]), "5cb8099528fc10ef3d8778b001005d52")
+})
 ```
 
 See what the plot looks like now.
@@ -974,6 +1133,14 @@ answer2.12 <-
 
 ```{r test-2-12}
 # test for plot aesthetics
+test_that("Question 2.12", {
+  
+  # test for the plot aesthetics
+  expect_equal(digest(answer2.12$mapping), "9ee4270e4d1c7cfcd518ca9416b8a152")
+  
+  # test for geom_histogram
+  expect_equal(digest(answer2.12$layers[[1]]), "966b8b64d86f3d044eda56575dec2ddf")
+})
 ```
 
 **QUESTION 2.13**
@@ -991,6 +1158,14 @@ answer2.13 <-
 
 ```{r test-2-13}
 # test for plot aesthetics
+test_that("Question 2.13", {
+  
+  # test for the plot aesthetics
+  expect_equal(digest(answer2.13$mapping), "9ee4270e4d1c7cfcd518ca9416b8a152")
+  
+  # test for geom_histogram
+  expect_equal(digest(answer2.13$layers[[1]]), "a4054159b57b244e746b594e0ef7e2f8")
+})
 ```
 
 Now, let's have a look at both plots.
