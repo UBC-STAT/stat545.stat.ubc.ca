@@ -75,6 +75,15 @@ mtcars %>%
 
 #### _Student B creates the pull request for Exercise B..._
 
+#### A 'Good' Pull Request
+
+To get full marks for the [pull request](https://stat545.stat.ubc.ca/collaborative-about/) portion:
+
+- Student A who is creating the pull request must have:
+    - A good title and description. A good title is self-explanatory, and a good description clearly states what was changed in the pull request and why
+- Student B who writes the explanation must start:
+    - Productive discussion. Both students engaged in discussion in the pull request, and made changes to the document accordingly.
+
 ### Grading
 
 - Each 'corrected' code chunk in the troubleshooting document is worth 1 point, for a total of 24 points
