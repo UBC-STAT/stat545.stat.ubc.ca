@@ -22,6 +22,7 @@ Use this page to navigate your way through STAT 545.
 |------|----------|
 | [Week 1-A](/week1a) | `r lec0 - ddays(1)` - `r dates_545a[1] + ddays(1)` |
 | [Week 2-A](/week2a) | `r dates_545a[2]  - ddays(1)` - `r dates_545a[3]  + ddays(1)` |
+| [Week 3-A](/week3a) | `r dates_545a[3]  - ddays(1)` - `r dates_545a[4]  + ddays(1)` |
 <!--
 | [Week 3-A]() | `r dates_545a[4]  - ddays(1)` - `r dates_545a[5]  + ddays(1)` |
 | [Week 4-A]() | `r dates_545a[6]  - ddays(1)` - `r dates_545a[7]  + ddays(1)` |
