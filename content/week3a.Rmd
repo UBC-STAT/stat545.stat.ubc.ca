@@ -64,7 +64,7 @@ From today's class, students are anticipated to be able to:
 
 Take about 30 minutes to get acquainted with the following before coming to class:
 
-- Watch the STAT 545 Video Series: Class `r tues_class_num`
+- Watch the [STAT 545 Video Series: Class `r tues_class_num`](https://youtu.be/Gms3zSPqCk8)
 - Follow through [Jenny Bryan's Introduction to dplyr](https://stat545.com/dplyr-intro.html) at your own pace; this is optional, but very helpful in getting familiar with dplyr! You will have the chance to practice more in this week's worksheet.
 
 #### During Class
@@ -148,7 +148,7 @@ Join the TAs to discuss anything about the course: content, structure, deliverab
 
 <!-- ******PROJECT****** -->
 
-## Mini Data Analysis Project Milestone 1
+## Collaborative Project Milestone 2
 
 **Due:** Friday, `r fri_date_pretty` at 23:59 PST
 
