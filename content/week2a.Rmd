@@ -146,6 +146,11 @@ Fully loaded cheat sheets:
 
 Note that many cheat sheets can be found from RStudio: go to `Help` > `Cheatsheets`
 
+#### Interesting Reads
+
+- [WYSIWYG is dead](https://medium.com/@ayman/wysiwyg-is-dead-d225276ed53)
+    - An entertaining and concise argument against using "WYSIWYG" editors like Microsoft Word.
+
 -----
 
 -----
