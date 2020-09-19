@@ -33,6 +33,8 @@ After merging the pull request, Student B works on the next exercise, creating t
 
 Because the errors of are increasing difficulty, this ensures that the students work on alternating exercises.
 
+If you're stuck, feel free to post an Issue and tag your teammate with what you're stuck on -- they may be able to help.
+
 #### Example
 
 ##### _Student A creates the pull request: Exercise A Errors_
