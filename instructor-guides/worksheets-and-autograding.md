@@ -62,6 +62,7 @@ Here are the specifics. nbgrader will complain if you don't do these things. (No
     - There are also "manually graded" options. Same idea as auotmated, but this must happen in a markdown chunk, not a code chunk.
 - When specifying a cell as "autograded test", you also need to indicate how many points it's worth (you should see it pop up). Let's all default to making everything worth 1 point.
 - When defining a cell with a certain nbgrader type, that cell will be given a unique cell ID. This ID can be anything, but **the ID must be unique** -- this means, please don't copy and paste a cell after defining its nbgrader type! I like to leave the ID as the default.
+- There **cannot** be a YAML header in the ipynb document (it'll throw an error when generating the assignment)
 
 Still confused about things like `digest()`? We're getting there...
 
