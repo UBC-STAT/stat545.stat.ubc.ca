@@ -24,6 +24,13 @@ packageVersion('dplyr')
 
 **Note**: Errors from not installing the above packages _do not count_ as errors in the troubleshooting document.
 
+### Getting the Document
+
+The troubleshooting document will be distributed to you in the form of a pull request. Shortly, you should see a pull request in your collaborative-ELEMENT repo. Merge that pull request and you should have a directory `milestone2`, with a `TBD2.Rmd` file within it.
+
+<!-- The troubleshooting document can be found [here](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/collaborative-project/milestone2/TB2.Rmd). You will have to download this the same way as you download the lecture worksheets. -->
+
+
 ### Instructions
 In this troubleshooting document, there are ten exercises. For each exercise, Student A creates a pull request with the proposed fix. Student A should write R code-blocks of _before_ and _after_ the fix to clearly show Student B what was changed. 
 
