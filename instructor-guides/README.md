@@ -6,3 +6,4 @@ Resources to help the STAT 545 teaching team operate the course.
     - [working_with_videos.md](working_with_videos.md): Guide to working with videos on Canvas in general.
 - [worksheets-and-autograding.md](worksheets-and-autograding.md): Guide to producing worksheets that have the autograder feature
 - [week_guidance.md](week_guidance.md): For writing out a week's guidance page
+- [make-pull-request.sh](make-pull-request.sh): For making a pull request in every project repository
