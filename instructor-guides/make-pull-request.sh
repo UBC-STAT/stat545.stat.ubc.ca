@@ -9,13 +9,14 @@ PROGRAM=$(basename $0)
 function get_help() {
 	echo "DESCRIPTION:" 1>&2
 	echo -e " \
-		\tAdds specified file to each collaborative directory. If the directory does not exist, it will be cloned from GitHub using SSH. Requires a pre-configured GitHub CLI 'gh'\n \
+		\tAdds specified file to each collaborative directory. If the directory does not exist, it will be cloned from GitHub using SSH. Requires a pre-configured GitHub CLI 'gh' command.\n \
+		\tFor more information: https://cli.github.com/manual/\n \
 		" | column -s $'\t' -t 1>&2
 	echo 1>&2
 
 	echo "USAGE(S):" 1>&2
 	echo -e " \
-		\t$PROGRAM -d <DESTINATION DIRECTORY> -t <PULL REQUEST TITLE> -m <PULL REQUEST MESSAGE> <FILE(S) TO ADD>\n \
+		\t$PROGRAM -b <BRANCH NAME> -d <DESTINATION DIRECTORY> -t <PULL REQUEST TITLE> -m <PULL REQUEST MESSAGE> <FILE(S) TO ADD>\n \
 		" | column -s $'\t' -t 1>&2
 	echo 1>&2
 
@@ -31,7 +32,7 @@ function get_help() {
 
 	echo "EXAMPLE:" 1>&2
 	echo -e " \
-		\t$PROGRAM -d milestone2 -t \"Troubleshooting 2\" -m \"Adding milestone2 documents for students\" ~/stat-545-instructor/collaborative-project/milestone2/TB2.Rmd\n \
+		\t$PROGRAM -b milestone2_setup -d milestone2 -t \"Troubleshooting 2\" -m \"Adding milestone2 documents for students\" ~/stat-545-instructor/collaborative-project/milestone2/TB2.Rmd\n \
 		" | column -s $'\t' -t 1>&2
 	exit 1
 }
@@ -98,8 +99,8 @@ fi
 mkdir -p collaborative-repos
 cd collaborative-repos
 
-# names of all 35 repositories # 34 current, excluding aluminum
-repos=( "collaborative-manganese" "collaborative-chlorine" "collaborative-selenium" "collaborative-helium" "collaborative-neon" "collaborative-boron" "collaborative-gallium" "collaborative-phosphorus" "collaborative-zinc" "collaborative-titanium" "collaborative-iron" "collaborative-cobalt" "collaborative-krypton" "collaborative-lithium" "collaborative-potassium" "collaborative-fluorine" "collaborative-argon" "collaborative-germanium" "collaborative-sulfur" "collaborative-nickel" "collaborative-arsenic" "collaborative-bromine" "collaborative-hydrogen" "collaborative-chromium" "collaborative-rubidium" "collaborative-magnesium" "collaborative-vanadium" "collaborative-na" "collaborative-nitrogen" "collaborative-calcium" "collaborative-silicon" "collaborative-copper" "collaborative-oxygen" "collaborative-scandium" "collaborative-aluminum")
+# names of all 35 repositories (some may be empty and not actively worked on)
+repos=( "collaborative-manganese" "collaborative-chlorine" "collaborative-selenium" "collaborative-helium" "collaborative-neon" "collaborative-boron" "collaborative-gallium" "collaborative-phosphorus" "collaborative-zinc" "collaborative-titanium" "collaborative-iron" "collaborative-cobalt" "collaborative-krypton" "collaborative-lithium" "collaborative-potassium" "collaborative-fluorine" "collaborative-argon" "collaborative-germanium" "collaborative-sulfur" "collaborative-nickel" "collaborative-arsenic" "collaborative-bromine" "collaborative-hydrogen" "collaborative-chromium" "collaborative-rubidium" "collaborative-magnesium" "collaborative-vanadium" "collaborative-na" "collaborative-nitrogen" "collaborative-calcium" "collaborative-silicon" "collaborative-copper" "collaborative-oxygen" "collaborative-scandium" "collaborative-aluminum" )
 
 # base cloning URL- uses ssh
 base_url="git@github.com:stat545ubc-2020"
