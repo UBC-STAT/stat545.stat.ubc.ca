@@ -54,6 +54,7 @@ Use this page to navigate your way through STAT 545.
 | Worksheet | Download | View |
 |-----------|----------|------|
 | Worksheet 1-A | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_01a.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_01a.ipynb) |
+| Worksheet 2-A | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_02a.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_02a.ipynb) |
 
 
 -------

@@ -41,6 +41,9 @@ fri_date_pretty <- paste0(
 
 **Due:** Friday, `r fri_date_pretty` at 23:59 PST
 
+[.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_02a.ipynb); or [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_02a.ipynb)
+
+
 -----
 
 ----- 
