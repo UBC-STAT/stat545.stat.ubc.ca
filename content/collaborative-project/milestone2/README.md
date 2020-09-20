@@ -2,7 +2,7 @@
 
 **Deadline**: Friday, September 25, 2020 at 23:59 PST
 
-**Points**: 45
+**Points**: 30
 
 ## Troubleshooting Document
 
@@ -25,7 +25,15 @@ packageVersion('dplyr')
 **Note**: Errors from not installing the above packages _do not count_ as errors in the troubleshooting document.
 
 ### Instructions
-In this troubleshooting document, there are ten exercises. For each exercise, Student A creates a pull request with the proposed fix. Optionally, Student A can write R code-blocks of _before_ and _after_ the fix (this step is optional because changes should be easily seen in the _Files changed_ tab of the pull request too). 
+In this troubleshooting document, there are ten exercises. For each exercise, Student A creates a pull request with the proposed fix. Student A should write R code-blocks of _before_ and _after_ the fix to clearly show Student B what was changed. 
+
+> **Sidenote:** R code-blocks are like the regular GitHub-flavoured markdown codechunks using the 3 backticks. After the opening 3 backticks, you can specify what language you are writing in: r, so that GitHub uses syntax highlighting. It will look like this:
+> ``````
+> ```r
+> ### CODE HERE ###
+> ```
+> ``````
+> Read more about this [here](https://docs.github.com/en/github/writing-on-github/creating-and-highlighting-code-blocks#syntax-highlighting).
 
 Student B then comments on the issue with the explanation, and requests changes or merges the pull request. If changes are requested, Student B can merge the pull request after Student A implements those changes. 
 
@@ -35,7 +43,7 @@ Because the errors of are increasing difficulty, this ensures that the students 
 
 If you're stuck, feel free to post an Issue and tag your teammate with what you're stuck on -- they may be able to help.
 
-#### Example
+#### Basic Example
 
 ##### _Student A creates the pull request: Exercise A Errors_
 
@@ -82,17 +90,24 @@ mtcars %>%
 To get full marks for the [pull request](https://stat545.stat.ubc.ca/collaborative-about/) portion:
 
 - Student A who is creating the pull request must have:
-    - A good title and description. A good title is self-explanatory, and a good description clearly states what was changed in the pull request and why
+    - A good title and description. A good title is self-explanatory, and a good description clearly states what was changed in the pull request (e.g. use the before/after R code-blocks)
 - Student B who writes the explanation must start:
     - Productive discussion. Both students engaged in discussion in the pull request, and made changes to the document accordingly.
 
+**Note**: The example above is a _basic_ pull request, not necessarily a _good_ pull request.
+
 ### Grading
 
-- Each 'corrected' code chunk in the troubleshooting document is worth 1 point, for a total of 24 points
-- Student A's pull request per exercise is worth 1 point, and Student B's comments and merging is worth 1 point, for a total of 2 points per exercise, leading to an overall total of 20 points
-- 1 point is given for tagging the release for submission
+As specified on our course [website](https://stat545.stat.ubc.ca/collaborative-about/):
 
-**GRAND TOTAL:** 45 points
+- Troubleshooting Document: 15 points
+    - This means that each error is worth 0.625 points (24 errors x 0.625 pts = 15 pts)
+- Pull requests: 15 points
+    - Each pull request is worth 1.5 points (10 pull requests x 1.5 pts = 15 pts)
+        - 0.75 for creating the pull request, proposing the fix, being descriptive, etc. 
+        - 0.75 for holding the discussion, explaining the fix, etc.
+
+**GRAND TOTAL:** 30 points
 
 ## Submitting this Milestone
 
