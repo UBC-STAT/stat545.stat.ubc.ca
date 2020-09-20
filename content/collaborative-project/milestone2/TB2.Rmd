@@ -1,23 +1,25 @@
 ---
 title: "Team Troubleshooting Deliverable 2"
-output: html_document
+output: github_document
 ---
 
-```{r}
+```{r include = FALSE}
 knitr::opts_chunk$set(error = TRUE)
 ```
 
 
 ## Attributions
 
-Icíar Fernández-Boyano
-  
+Thanks to Icíar Fernández-Boyano for writing most of this document, and Diana Lin for her edits.
+   
 ## Instructions
 
-There are **30 errors** in this Rmd. Will you find them all?
+There are **24 errors** in this Rmd. Will you find them all?
 
-+ *20 errors are marked* by ## ERROR HERE ## in the code chunk in which they are located.
-+ *10 errors are hiding.* Hint: You should be able to knit the script if all code is working correctly...
++ *15 errors are marked* (at least the general area in which they are located) by ## ERROR HERE ## in the code chunk.
++ *9 errors are hiding.* 
+
+Hint: You should be able to knit the Rmd if all code is working correctly...but this will only catch the errors in code, and not the errors in logic or instruction-following!
 
 **Notes:**
 
@@ -41,18 +43,9 @@ mtcars %>%
 
 Notice that the instructions indicate selecting columns `disp` to `wt`, and the code reads `select(disp:vs)`. There is the error.
 
-Exercise B: *Same instructions as exercise A*. In the following chunk, I would like to select all columns of the mtcars dataset from `disp` to `wt` (inclusive), and then, filter for those with horsepower (`hp`) of at least 100 or greater.
+In addition to selecting the wrong columns, this exercise encapsulates the number 100 in between quotes - this is incorrect R syntax. In fact, if you run the code you will see that the filtering is not working.
 
-```{r}
-### ERROR HERE ###
-mtcars %>%
-  select(disp:vs) %>%
-  filter(hp >= "100")
-```
-
-In addition to selecting the wrong columns, option B encapsulates the number 100 in between quotes - this is incorrect R syntax. In fact, if you run the code you will see that the filtering is not working.
-
-**Both Exercise A and Exercise B would count as a *single error*.** Although exercise A requires a single correction and exercise B requires two, these are in *the same code chunk*, therefore, it counts as a **single error** for the purpose of grading.
+While Exercise A has 2 requires two corrections to fix, it counts as having a *single error*, as you cannot obtain your desired output without fixing both. Therefore, errors within the *same literal R markdown code chunk* count as **one error**. For the purposes of grading, each _corrected_ literal R markdown code chunk is considered **one error** and worth **one point** each, for a total of 25 points.
 
 Solution:
 
@@ -64,7 +57,7 @@ mtcars %>%
 
 ## Troubleshooting time! 
 
-There are 30 errors in this Rmd. Will you be the one to find them all? More than 1 error in a single chunk of code counts as a **single** error. 
+There are 24 code chunks in this Rmd with errors. Will you be the one to find them all? More than 1 error in a single chunk of code counts as a **single** error. 
   
 ```{r}
 ### ERROR HERE ###
@@ -72,6 +65,7 @@ libraries(dslabs)
 libraries(singer)
 libraries(tidyverse)
 libraries(stringr)
+libraries(gapminder)
 ```
 
 [MovieLens](https://dl.acm.org/doi/10.1145/2827872) are a series of datasets widely used in education, that describe movie ratings from the MovieLens [website](https://movielens.org/). There are several MovieLens datasets, collected by the [GroupLens Research Project](https://grouplens.org/datasets/movielens/) at the University of Minnesota. Here, we load the MovieLens 100K dataset from Rafael Irizarry and Amy Gill's R package, [DSLabs](https://cran.r-project.org/web/packages/dslabs/dslabs.pdf), which contains datasets useful for data analysis practice, homework, and projects in data science courses and workshops. 
@@ -169,7 +163,7 @@ movieLens %>%
          movie_id == movieId)
 ```
 
-As you already know, mutate() defines and inserts new variables into a tibble. There is *another mystery function* that you've seen already that adds the new variable, and drops existing ones. I wanted to create an average_rating column that takes the mean(rating) across all entries, and I only want to see that variable (i.e drop all others!) but I forgot what that mystery function is. Can you remember?
+As you already know, `mutate()` defines and inserts new variables into a tibble. There is *another mystery function* that you've seen already that adds the new variable, and drops existing ones. I wanted to create an average_rating column that takes the mean(rating) across all entries, and I only want to see that variable (i.e drop all others!) but I forgot what that mystery function is. Can you remember?
 
 ```{r}
 ### ERROR HERE ### 
@@ -201,7 +195,7 @@ movieLens %>%
 
 ### Exercise 6
 
-Alone, tally() is a short form of summarise(). Count() is short-hand for group_by() and tally(). 
+Alone, `tally()` is a short form of `summarise()`. `count()` is short-hand for `group_by()` and `tally()`. 
 
 + Each entry of the movieLens table corresponds to a movie rating by a user. Therefore, if more than one user rated the same movie, there will be several entries for the same movie. I want to find out how many times each movie has been reviewed, or in other words, how many times each movie title appears in the dataset.
 
@@ -211,7 +205,7 @@ movieLens %>%
   tally()
 ```
 
-+ Without using group_by(), I want to find out how many movie reviews there have been by year.
++ Without using `group_by()`, I want to find out how many movie reviews there have been by year.
 
 ```{r}
 ### ERROR HERE ###
@@ -219,16 +213,16 @@ movieLens %>%
   tally(year, sort = TRUE)
 ```
 
-+ Both count() and tally() can be called repeatedly, each time adding up a level of detail. Below, I want to count the number of movie reviews by title and rating, and sort the results.
++ Both `count()` and `tally()` can be called repeatedly, each time adding up a level of detail. Below, I want to count the number of movie reviews by title and rating, and sort the results.
 
 ```{r}
 movieLens %>%
   count(c(title, rating), sort = TRUE)
 ```
 
-Not only do count() and tally() quickly allow you to count items within your dataset, add_tally() and add_count() are handy shortcuts that add an additional columns to your tibble, rather than collapsing each group. 
+Not only do `count()` and `tally()` quickly allow you to count items within your dataset, `add_tally()` and `add_count()` are handy shortcuts that add an additional columns to your tibble, rather than collapsing each group. 
 
-+ Suppose that I am interested in finding movies that have very few reviews, very few being under 5. Without using group_by(), add a column that counts the *number of reviews per movie title*, and then filter to those that have 5 reviews or under. Rename the column `n` to `n_reviews`.
++ Suppose that I am interested in finding movies that have very few reviews, very few being under 5. Without using `group_by()`, add a column that counts the *number of reviews per movie title*, and then filter to those that have 5 reviews or under. Rename the column `n` to `n_reviews`.
 
 ```{r}
 movieLens %>%
@@ -255,7 +249,7 @@ movieLens %>%
   summarize(avg_rating = mean(rating))
 ```
 
-+ Using summarize(), find the minimum and the maximum rating by title, and store these new variables under `min_rating`, and `max_rating`, respectively. 
++ Using `summarize()`, find the minimum and the maximum rating by title, and store these new variables under `min_rating`, and `max_rating`, respectively. 
 
 ```{r}
 ### ERROR HERE ###
@@ -263,7 +257,7 @@ movieLens %>%
   mutate(min_rating = min(rating), max_rating = max(rating))
 ```
 
-+ Using group_by() and summarize(), find the number of reviews per movie title, and arrange in order of descending number of reviews. Notice that we achieved the same result in the previous exercise using tally().
++ Using `group_by()` and `summarize()`, find the number of reviews per movie title, and arrange in order of descending number of reviews. Notice that we achieved the same result in the previous exercise using `tally()`.
 
 ```{r}
 movieLens %>%
@@ -274,7 +268,7 @@ movieLens %>%
 
 ### Exercise 8
 
-Across() is a new dplyr function (dplyr 1.0.0) that allows you to apply a transformation to multiple variables selected with the select() and rename() syntax. For this section, we will use the `starwars` dataset, which is built into R. First, let's transform it into a tibble and store it under the variable `starWars`.
+`across()` is a new dplyr function (`dplyr` 1.0.0) that allows you to apply a transformation to multiple variables selected with the `select()` and `rename()` syntax. For this section, we will use the `starwars` dataset, which is built into R. First, let's transform it into a tibble and store it under the variable `starWars`.
 
 ```{r}
 starWars <- as_tibble(starwars)
@@ -284,6 +278,7 @@ starWars <- as_tibble(starwars)
 
 ```{r}
 starWars %>%
+  drop_na() %>%
   summarise(across(where(num), mean))
 ```
 
@@ -293,7 +288,8 @@ starWars %>%
 ### ERROR HERE ###
 starWars %>%
   group_by(species) %>%
-  summarise(across("height", "weight", min))
+  summarise(across("height", "weight", min)) %>%
+  drop_na()
 ```
 
 + Find the number of distinct names and homeworlds by each species.
@@ -310,7 +306,12 @@ starWars %>%
 
 The `singer` package was created by Joey Bernhardt, and it contains 3 datasets that are excerpts from the Million Songs Dataset. The `songs` and the `locations` package will be used here. These two datasets have the columns `artist_name` and `title` in common.
 
-+ The R merge() function automatically joins the frames by common variable names. Merge `songs` and `locations` using one of the join family of functions (`inner_join()`, `outer_join()`, `right_join()`, etc...), without specifying the key variable.
++ The R `merge()` function automatically joins the frames by common variable names. Merge `songs` and `locations` using one of the join family of functions (`inner_join()`, `outer_join()`, `right_join()`, etc...), without specifying the key variable.
+
+```{r include = FALSE}
+songs <- singer::songs
+locations <- singer::locations 
+```
 
 ```{r}
 ### ERROR HERE ###
@@ -360,7 +361,7 @@ Let's look at this new tibble.
 fakeStarWars
 ```
 
-+ Without assigning it to any variables, define the same tibble row-by-row with tribble(), with the columns in the following order: `name`, `birth_weight`, `birth_year`, `birth_location`.
++ Without assigning it to any variables, define the same tibble row-by-row with `tribble()`, with the columns in the following order: `name`, `birth_weight`, `birth_year`, `birth_location`.
 
 ```{r}
 ### ERROR HERE ###
