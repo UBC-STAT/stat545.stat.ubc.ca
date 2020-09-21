@@ -1,4 +1,4 @@
-# Worksheets and Autograding
+# Making Worksheets
 
 This is meant to help you produce autograded worksheets.
 
