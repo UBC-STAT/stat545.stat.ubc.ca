@@ -66,7 +66,7 @@ Here are the specifics. nbgrader will complain if you don't do these things. (No
 
 Still confused about things like `digest()`? We're getting there...
 
-## Converting the source worksheet to a student-facing worksheet
+## Launching the Assignment
 
 The **general idea** behind producing a worksheet for the students:
 
@@ -76,7 +76,7 @@ The **general idea** behind producing a worksheet for the students:
 
 Here are the details of Step 2, courtesy [Tiffany Timbers' instructions](https://github.com/ttimbers/nbgrader_r_demo#the-demo-how-i-created-it-and-ran-it):
 
-2A: run the following code in your shell to "refresh the exchange directory" (whatever that means):
+**2A**: Navigate to the `worksheets` folder in the `stat-545-instructor` repo, and run the following code in your shell to "refresh the exchange directory" (whatever that means):
 
 ```
 # remove existing directory, so we can start fresh for demo purposes
@@ -87,13 +87,28 @@ mkdir /tmp/exchange
 chmod ugo+rw /tmp/exchange
 ```
 
-2B: after navigating to `content/` in the shell, generate the student version of (say) worksheet_05a by running:
+**2B**: add the worksheet (say worksheet_05a) to the `database.db` file by running: 
+
+```
+db assignment add worksheet_05a
+```
+
+**2C**: generate the student version of (say) worksheet_05a by running:
 
 ```
 nbgrader generate_assignment --force worksheet_05a
 ```
 
-2C: Take a look in the `content/release/` folder -- your outputted assignment should be there!
+**2D**: Take a look in the `worksheets/release/` folder -- your outputted assignment should be there!
+
+**2E**: Add a new assignment to canvas for this worksheet (you'll have to click on the "More Options" button when you go to create an assignment):
+
+- Under the description, write `Please upload your Worksheet 5-A file here -- it should be a .ipynb file named worksheet_05a.`
+- Points: use the number of questions they need to get correct in order to get full points. 
+- Change the "submission type" to "File Uploads"; then, click "Restrict Upload File Types", and enter `ipynb`
+- Make the due date Friday at 11:59pm.
+- Click "Save and Publish". 
+
 
 ## Tips for writing autograded tests
 
