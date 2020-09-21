@@ -69,7 +69,7 @@ Use this page to navigate your way through STAT 545.
 | Milestone | Instructions |
 |-----------|--------------|
 | Milestone 1 | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/collaborative-project/milestone1/README.md#stat-545a-collaborative-project-milestone-1)
-
+| Milestone 2 | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/collaborative-project/milestone2/README.md) |
 
 -------
 
