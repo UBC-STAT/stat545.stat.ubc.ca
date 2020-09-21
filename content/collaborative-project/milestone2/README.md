@@ -108,11 +108,14 @@ To get full marks for the [pull request](https://stat545.stat.ubc.ca/collaborati
 As specified on our course [website](https://stat545.stat.ubc.ca/collaborative-about/):
 
 - Troubleshooting Document: 15 points
-    - This means that each error is worth 0.625 points (24 errors x 0.625 pts = 15 pts)
+    - Since Exercise 9 (containing 4 marked errors) has not been covered in class, **it will not be for marks**
+    - This means that each error is worth 0.75 points (**20 errors** x 0.75 pts = 15 pts)
 - Pull requests: 15 points
-    - Each pull request is worth 1.5 points (10 pull requests x 1.5 pts = 15 pts)
+    - Each pull request is worth 1.5 points (**10 pull requests** x 1.5 pts = 15 pts)
         - 0.75 for creating the pull request, proposing the fix, being descriptive, etc. 
         - 0.75 for holding the discussion, explaining the fix, etc.
+    - For Exercise 9, we are _still_ looking for a pull request
+        - in this case, we are looking for _an attempt_ to fix AND explain these errors, not for correctness
 
 **GRAND TOTAL:** 30 points
 
