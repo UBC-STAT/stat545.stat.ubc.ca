@@ -1,113 +1,44 @@
-# Making Worksheets
+# Autograding Worksheets
 
-This is meant to help you produce autograded worksheets.
+This guide is meant to help you go from students' worksheet submissions, to a grade for them on canvas.
 
-## Finding content
+**Prerequisites**: This assumes that the instructions under "Launching the Assignment" in the `making_worksheets.md` file have been followed correctly. 
 
-We're scraping content from the (deprecated) guidebook. [Repo](https://github.com/UBC-STAT/stat-545-guidebook); [guidebook](https://stat545guidebook.netlify.app/)
+## Step 1: Gather Submissions
 
-Also the worksheets that the guidebook links to.
+1. After the deadline, download student submissions from canvas.
+2. Move each student's submission to their own folder in the `stat-545-instructor` repo:
+    - For student with ID `bitdiddle`, their `worksheet_05a.ipynb` file should go in the folder `worksheets/submitted/bitdiddle/worksheet_05a/worsheet_05a.ipynb`
+    - **we need a script that will do this for us**
+    - **each student needs their own ID recognized by nbgrader -- still need to do this**
+        - I think the command line option [`nbgrader db student add`](https://nbgrader.readthedocs.io/en/stable/command_line_tools/nbgrader-db-student-add.html) will add one student to `database.db`, and I also believe the students need to appear in `nbgrader_config.py`, but that's all I know so far. 
 
-As for drawing boundaries on topics, try to use the topic schedule on [Issue 25](https://github.com/UBC-STAT/stat545.stat.ubc.ca/issues/25). Keep in mind to line up the worksheet with the correct week -- Worksheet 1-A is the only worksheet spanning two weeks (at least, in STAT 545A).
+## Step 2: Run the autograder
 
-## Making a new worksheet
+**Still need to find a way to do this so that students can't harm our computer with malicious code**
 
-1. Make a new folder in `content/source/` that uses the following naming convention: for example, the folder for the 5th worksheet in STAT 545A should be named `worksheet_05a`.
-    - FYI: the worksheet name needs to appear in `content/nbgrader_config.py` -- the parameter specification for nbgrader. I think I've added all of the worksheets.
-2. Make a new _jupyter notebook_ file (**not jupyterlab**) (under an R kernel, not python) in said folder. I like to use the same naming convention, but nbgrader won't complain.
-3. In jupyter, open the new worksheet file, and "make it an assignment file" by clicking "View > Cell Toolbar > Create Assignment". Each cell should now allow you to select nbgrader metadata (more on that later).
+1. Use the command line to navigate to the `worksheets` directory in the `stat-545-instructor` repo.
+2. Run the following line to autograde (say) worksheet_05a. This will make a copy of the assignments in the `autograded` folder, and will execute all of those files.
+   ```
+   autograde worksheet_05a
+   ```
 
-You're all set to start writing the assignment!
+## Step 3: Gather the scores
 
-Note:
+1. Make a (html) feedback report by running the following code (again, for worksheet_05a), still in the `worksheets` directory. It would be nice to return these to the students, but I just don't think there's a practical way to do this. And, it probably wouldn't be useful for them, anyway.
+   ```
+   nbgrader generate_feedback worksheet_05a
+   ```
+2. Update (or make) the `grades.csv` file with the grades by running the following code. Note: this file is deliberately `.gitignore`d -- even though the instructors repo is private, it's best not to take any chances.
+   ```
+   nbgrader export
+   ```
+3. Truncate each score at the maximum number of questions that the students need in order to get full marks.
+    - For example, if students only need to answer 11 questions correctly, and the student gets 18, then make that 11. If the student gets less than 11 correct, leave the score as-is.
+    - **we need an R script that will do this for us**
 
-- If you want to edit the file in RStudio, I get it. You'll have to install JupyText if it's not already installed. I'm not so familiar with it, but here's what I do know:
-    - With Jupytext, you're able to open an Rmd file within jupyter. You can even edit the file and save it, and the file will retain its Rmd status.
-    - If you "make the Rmd file an assignment file" within jupyter by following Step 3 above, and proceed to specify the nbgrader metadata, the *metadata will not save* (from my experience, at least).
-    - You can save an Rmd file as an ipynb file: open the Rmd in jupyter (possible thanks to JupyText), and save the worksheet as a different file. It should default to an .ipynb -- you can then "Create Assignment" and start filling in the nbgrader metadata, and the metadata will save along with file saving. 
+## Step 4: Upload the scores
 
-## Writing a worksheet to comply with nbgrader
-
-Here's the general idea behind writing an autograded question. It might look something like this:
-
--------
-
-**Question 1.1**
-
-Store `5` into the variable named `five`.
-
-```
-# youranswer
-### BEGIN SOLUTION
-five <- 5
-### END SOLUTION
-```
-
-```
-test_that("Answer check", {
-    expect_identical(digest(five), "5e338704a8e069ebd8b38ca71991cf94")
-})
-print("success!")
-```
-
---------
-
-
-Here are the specifics. nbgrader will complain if you don't do these things. (Note: to better understand these nuances, it might help if you take a look at the general idea behind what the next section has to say, on converting a source worksheet to a student-facing worksheet.)
-
-- Every single cell (including markdown cells!) need to be assigned nbgrader metadata. You can do this by selecting the nbgrader cell type in the drop-down menu in the upper-right corner of each cell.
-    - "Read-only": Most cells. These are cells that you don't want students to be able to modify.
-    - "Autograder answer": this is where the students will write their code to answer your question. As a developer, you need to write the answers sandwiched between the lines `### BEGIN SOLUTION` and `### END SOLUTION` (when generating the student version, nbgrader will remove these lines and everything between it).
-    - "Autograder test": this is where students can check to see whether they have the correct answer. It should immediately follow an "autograder answer" cell. If this code chunk runs error-free, nbgrader interprets this as being a correct answer. So, write tests so that an error is thrown if they are incorrect! Please use the `testthat` package.
-    - There are also "manually graded" options. Same idea as auotmated, but this must happen in a markdown chunk, not a code chunk.
-- When specifying a cell as "autograded test", you also need to indicate how many points it's worth (you should see it pop up). Let's all default to making everything worth 1 point.
-- When defining a cell with a certain nbgrader type, that cell will be given a unique cell ID. This ID can be anything, but **the ID must be unique** -- this means, please don't copy and paste a cell after defining its nbgrader type! I like to leave the ID as the default.
-- There **cannot** be a YAML header in the ipynb document (it'll throw an error when generating the assignment)
-
-Still confused about things like `digest()`? We're getting there...
-
-## Converting the source worksheet to a student-facing worksheet
-
-The **general idea** behind producing a worksheet for the students:
-
-1. As an instructor, you write a worksheet *with* all the solutions.
-2. You use nbgrader to produce a student-facing version of the worksheet. Yes, the solutions are removed in this process.
-3. The "student version" of the worksheet (an .ipynb file) is almost entirely "read and execute only", except for the cells where we ask them to write some code (i.e., provide an answer).
-
-Here are the details of Step 2, courtesy [Tiffany Timbers' instructions](https://github.com/ttimbers/nbgrader_r_demo#the-demo-how-i-created-it-and-ran-it):
-
-2A: run the following code in your shell to "refresh the exchange directory" (whatever that means):
-
-```
-# remove existing directory, so we can start fresh for demo purposes
-rm -rf /tmp/exchange
-
-# create the exchange directory, with write permissions for everyone
-mkdir /tmp/exchange
-chmod ugo+rw /tmp/exchange
-```
-
-2B: after navigating to `content/` in the shell, generate the student version of (say) worksheet_05a by running:
-
-```
-nbgrader generate_assignment --force worksheet_05a
-```
-
-2C: Take a look in the `content/release/` folder -- your outputted assignment should be there!
-
-## Tips for writing autograded tests
-
-Here are tips when writing the source version of the worksheet.
-
-- Be specific about what variable name students should store an answer in, when you're asking them a question.
-    - There's no additional magic that nbgrader brings in terms of testing R code, compared to what you'd write with (say) the `testthat` package (which, please use, by the way). 
-- Be clear when an autograded question starts. Let's use the header **Question X** to indicate that a question is being asked. 
-- Use `expect_identical()` cautiously: 
-    - Compare after coercing to a set data type. Maybe the answer is `5`, but someone ended up with `5L` (integer) -- these are not identical.
-    - If comparing a double precision number, be mindful that someone might be off by 1e-16 due to version differences, and round the answer to a reasonable length before comparing answers.
-    - The more attributes an object has, the more opportunity there are for objects to differ. Case in point: a tibble is different when it's grouped -- if grouping and other attributes don't matter to you, best to strip these attributes -- perhaps the best way is with `unclass()`. 
-- Sometimes writing a test makes the answer blaringly obvious. Case in point: asking "what's the probability of XYZ?", and testing `expect_equal(my_answer, 0.75)` is a dead giveaway. Instead, hide the answer like so:
-    1. On your own, obtain an encrypted version of the answer using the `digest::digest()` function. For example, `0.75` digested is the character `"00f3fa27c01aee5e7633e06a130c827e"`.
-    2. Write the test by comparing digested versions: `expect_identical(digest(my_answer), "00f3fa27c01aee5e7633e06a130c827e")`
-- Because we're calling on functions from the `testthat` and `digest` packages, it's best to load these in a cell near the top in a read-only R chunk.
-- Ensure the document is able to run error-free when ran from top to bottom.
+1. Modify the `grades.csv` file to abide by the [standards set out by canvas](https://community.canvaslms.com/t5/Instructor-Guide/How-do-I-import-grades-in-the-Gradebook/ta-p/807)
+    - **we need an R script that will do this for us**
+2. Upload the csv to the "grades" page by clicking on "Actions" > "Import"
