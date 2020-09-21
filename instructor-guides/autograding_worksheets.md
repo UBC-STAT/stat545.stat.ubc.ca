@@ -20,7 +20,7 @@ This guide is meant to help you go from students' worksheet submissions, to a gr
 1. Use the command line to navigate to the `worksheets` directory in the `stat-545-instructor` repo.
 2. Run the following line to autograde (say) worksheet_05a. This will make a copy of the assignments in the `autograded` folder, and will execute all of those files.
    ```
-   autograde worksheet_05a
+   nbgrader autograde worksheet_05a
    ```
 
 ## Step 3: Gather the scores
