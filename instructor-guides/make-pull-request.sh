@@ -32,7 +32,7 @@ function get_help() {
 
 	echo "EXAMPLE:" 1>&2
 	echo -e " \
-		\t$PROGRAM -b milestone2_setup -d milestone2 -t \"Troubleshooting 2\" -m \"Adding milestone2 documents for students\" ~/stat-545-instructor/collaborative-project/milestone2/TB2.Rmd\n \
+		\t$PROGRAM -b milestone3_setup -d milestone3 -t \"Troubleshooting 3\" -m \"Adding Troubleshooting Document 3 for Milestone 3. Don't forget to read the instructions in the README! Feel free to delete this branch after merging.\" ~/stat-545-instructor/collaborative-project/milestone2/TB2.Rmd ~/stat-545-instructor/collaborative-project/milestone3/README.md\n \
 		" | column -s $'\t' -t 1>&2
 	exit 1
 }
