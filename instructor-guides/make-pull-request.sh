@@ -32,7 +32,7 @@ function get_help() {
 
 	echo "EXAMPLE:" 1>&2
 	echo -e " \
-		\t$PROGRAM -b milestone3_setup -d milestone3 -t \"Troubleshooting 3\" -m \"Adding Troubleshooting Document 3 for Milestone 3. Don't forget to read the instructions in the README! Feel free to delete this branch after merging.\" ~/stat-545-instructor/collaborative-project/milestone2/TB2.Rmd ~/stat-545-instructor/collaborative-project/milestone3/README.md\n \
+		\t$PROGRAM -b milestone3_setup -d milestone3 -t \"Troubleshooting 3\" -m \"Adding Troubleshooting Document 3 for Milestone 3. Don't forget to read the instructions in the README! Feel free to delete this branch after merging.\" ~/stat-545-instructor/collaborative-project/milestone3/TB3.Rmd ~/stat-545-instructor/collaborative-project/milestone3/README.md\n \
 		" | column -s $'\t' -t 1>&2
 	exit 1
 }
@@ -99,8 +99,11 @@ fi
 mkdir -p collaborative-repos
 cd collaborative-repos
 
-# names of all 35 repositories (some may be empty and not actively worked on)
-repos=( "collaborative-manganese" "collaborative-chlorine" "collaborative-selenium" "collaborative-helium" "collaborative-neon" "collaborative-boron" "collaborative-gallium" "collaborative-phosphorus" "collaborative-zinc" "collaborative-titanium" "collaborative-iron" "collaborative-cobalt" "collaborative-krypton" "collaborative-lithium" "collaborative-potassium" "collaborative-fluorine" "collaborative-argon" "collaborative-germanium" "collaborative-sulfur" "collaborative-nickel" "collaborative-arsenic" "collaborative-bromine" "collaborative-hydrogen" "collaborative-chromium" "collaborative-rubidium" "collaborative-magnesium" "collaborative-vanadium" "collaborative-na" "collaborative-nitrogen" "collaborative-calcium" "collaborative-silicon" "collaborative-copper" "collaborative-oxygen" "collaborative-scandium" "collaborative-aluminum" )
+# names of all 33 repositories (oxygen and scandium are empty and excluded!)
+repos=( "collaborative-aluminum" "collaborative-argon" "collaborative-arsenic" "collaborative-boron" "collaborative-bromine" "collaborative-calcium" "collaborative-chlorine" "collaborative-chromium" "collaborative-cobalt" "collaborative-copper" "collaborative-fluorine" "collaborative-gallium" "collaborative-germanium" "collaborative-helium" "collaborative-hydrogen" "collaborative-iron" "collaborative-krypton" "collaborative-lithium" "collaborative-magnesium" "collaborative-manganese" "collaborative-neon" "collaborative-nickel" "collaborative-nitrogen" "collaborative-phosphorus" "collaborative-potassium" "collaborative-rubidium" "collaborative-selenium" "collaborative-silicon" "collaborative-na" "collaborative-sulfur" "collaborative-titanium" "collaborative-vanadium" "collaborative-zinc" )
+
+# test repos
+# repos=( "collaborative-oxygen" "collaborative-scandium" )
 
 # base cloning URL- uses ssh
 base_url="git@github.com:stat545ubc-2020"
@@ -141,10 +144,10 @@ do
 	
 	# get relative path of files
 	files=$(for i in "$@"; do echo "${dir}/$(basename $i)"; done)
-
+	message_short=$(echo "$message" | awk -F "." '{print $1}')
 	# stage and commit these files 
 	git add $files 
-	git commit -m "$message"
+	git commit -m "${message_short}"
 	git push --set-upstream origin $branch
 
 	# create the pull request
