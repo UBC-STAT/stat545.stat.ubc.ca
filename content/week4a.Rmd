@@ -59,7 +59,6 @@ fri_date_pretty <- paste0(
 cat(tues_date_pretty)
 ```
 
-
 From today's class, students are anticipated to be able to:
 
 + Group tibbles and compute summarized functions using `dplyr::group_by()` and `dplyr::summarize()`
@@ -71,7 +70,8 @@ From today's class, students are anticipated to be able to:
 
 Some useful (but not mandatory) readings are:
 
-- []()
+- [Jenny's dplyr tutorial](https://stat545.com/dplyr-single.html)
+- [dplyr vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html)
 
 -----
 
@@ -85,12 +85,21 @@ Some useful (but not mandatory) readings are:
 cat(thurs_date_pretty)
 ```
 
+From today's class, students are anticipated to be able to:
+
++ Become familiar with more `ggplot2` functions 
++ Understand what makes data visualizations *effective*
+
 #### Prepare for Class
 
 - Watch the [STAT 545 Video Series: Episode ](link)
 
 Some useful (but not mandatory) readings are:
 
-- []()
+- [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/introduction.html) by Claus Wilke.
+- [Visualization Analysis and Design](https://www-taylorfrancis-com.ezproxy.library.ubc.ca/books/9780429088902) by Tamara Munzner.
+- [STAT545.com](https://stat545.com/effective-graphs.html) - Effective Graphics by Jenny Bryan.
+- [ggplot2 book ](https://ggplot2-book.org/)by Hadley Wickam.
+- [Callingbull.org](https://callingbull.org/tools.html) by Carl T. Bergstrom and Jevin West.
 
 -----
