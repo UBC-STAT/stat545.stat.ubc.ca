@@ -9,7 +9,7 @@ output: html_document
 
 This time, we will explore more in depth the concept of *tidy data*, and hopefully investigate further into your research questions that you defined in milestone one.
 
-Begin by loading your data and the tidyverse packagebelow: 
+Begin by loading your data and the tidyverse package below: 
 
 ```{r}
 library(datateachr) # <- contains the data you picked!
@@ -49,9 +49,9 @@ Options:
 3. Starting with a numerical variable, create a categorical variable with 3 or more groups. You can use this new variable in the other tasks!
 4. Based on two categorical variables, calculate two summary statistics of your choosing.
 5. Create a graph out of summarized variables that has at least two geom layers.
-6. Create a graph of your choosing, make one of the axis logarithmic, and format the axis labels so that they are "pretty" or easier to read. 
+6. Create a graph of your choosing, make one of the axes logarithmic, and format the axes labels so that they are "pretty" or easier to read. 
 7. Make a graph where it makes sense to customize the alpha transparency.
-8. Create a 3 histograms out of summarized variables, with each histogram having a different sized bins. Pick the "best" one and explain why it is the best.
+8. Create 3 histograms out of summarized variables, with each histogram having different sized bins. Pick the "best" one and explain why it is the best.
 
 You should have one operation for each of your 4 research questions!
 
@@ -81,7 +81,7 @@ Tidy'ing data is sometimes necessary because it can simplify computation. Other 
 
 <!-- End of your work -->
 
-2.2 (5 points) Now, if your data is tidy, untidy it! If it's untidy, then tidy it! Be sure to explain why your reasoning for this task.
+2.2 (5 points) Now, if your data is tidy, untidy it! If it's untidy, then tidy it! Be sure to explain your reasoning for this task.
 
 <!-- Start your work below -->
 
