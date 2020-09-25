@@ -64,7 +64,26 @@ You should have one operation for each of your 4 research questions!
 
 # Task 2: Tidy your data (10 points)
 
+In this task, we will do several exercises to reshape our data. The goal here is to understand how to do this reshaping with the `tidyr` package.
+
+A reminder of the definition of *tidy* data:
+
+- Each row is an **observation**
+- Each column is a **variable**
+- Each cell is a **value**
+
+Tidy'ing data is sometimes necessary because it can simplify computation. Other times it can be nice to organize data so that it can be read more easily. 
+
+2.1 (5 points) Based on the definition above, can you identify if your data is tidy or untidy? Go through all your columns, or if you have >10 variables, just pick 10, and explain whether the data is untidy or tidy.
+
+<!-- Start your work below -->
 
 
-2.1 
-2.2 
+<!-- End of your work -->
+
+2.2 (5 points) Now, if your data is tidy, untidy it! If it's untidy, then tidy it! Be sure to explain why your reasoning for this task.
+
+<!-- Start your work below -->
+
+
+<!-- End of your work -->
