@@ -45,7 +45,7 @@ fri_date_pretty <- paste0(
 
 **Finish By:** Saturday, October 3 at 23:59 PST 
 
-[.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_03a.ipynb); or [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_03a.ipynb)
+[.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_03a.ipynb) or [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_03a.ipynb)
 
 -----
 
@@ -79,11 +79,8 @@ Some useful (but not mandatory) readings are:
   + group_by
   + summarize
   + across
-
 + 9:50 - 10:00: Quiz.
-
 + 10:00 - 10:05: Break.
-
 + 10:05 - 10:45: Lecture worksheet.
 
 **Complete the Class 6-A Quiz on Canvas by Wednesday, September 30th at 11:00am PST.**
@@ -122,11 +119,8 @@ Some useful (but not mandatory) readings are:
 + 9:30 - 9:50: In class demo, covering:
   + customizing ggplot2 graphs
   + effective visualizations
-
 + 9:50 - 10:00: Quiz.
-
 + 10:00 - 10:05: Break.
-
 + 10:05 - 10:45: Lecture worksheet.
 
 **Complete the Class 7-A Quiz on Canvas by Friday, October 2nd at 11:00am PST.**
