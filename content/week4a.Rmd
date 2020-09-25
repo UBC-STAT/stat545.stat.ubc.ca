@@ -61,7 +61,7 @@ cat(tues_date_pretty)
 
 From today's class, students are anticipated to be able to:
 
-+ Group tibbles and compute summarized functions using `dplyr::group_by()` and `dplyr::summarize()`
++ Grouping data to compute summarized functions using `dplyr::group_by()` and `dplyr::summarize()`
 + Use `dplyr::across()` to use functions with specific columns
 
 #### Prepare for Class
@@ -102,7 +102,7 @@ cat(thurs_date_pretty)
 
 From today's class, students are anticipated to be able to:
 
-+ Become familiar with more `ggplot2` functions 
++ Become familiar with customizing `ggplot2` graphs 
 + Understand what makes data visualizations *effective*
 
 #### Prepare for Class
@@ -136,5 +136,9 @@ Some useful (but not mandatory) readings are:
 October 2nd, from 16:00-17:00 PST.
 
 Join the TAs to discuss anything about the course: content, structure, deliverables, etc. Can’t make it? No worries - reach us through Slack / Canvas / email with your questions.
+
+## Deadline: Mini Data Analysis I
+
+**Due:** Saturday, October 3rd 23:59 PST.
 
 -----
