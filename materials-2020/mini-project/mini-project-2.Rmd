@@ -41,13 +41,17 @@ From milestone 1, you should have an idea of the basic structure of your dataset
 3. *FILL_THIS_IN*
 4. *FILL_THIS_IN*
 
-1.2 (15 points) Now, for each research question, complete 1 of the 8 operations described below. **Keep in mind that some of these will make more sense than others, depending on the research question!** For each of your chosen operation, you should explain why this operation *makes sense* and why the output helps answer the corresponding research question. Ensure that the output of each operation is printed! 
+1.2 (10 points) Now, for each research question, choose one task from options 1-4 (summarizing), and one other task from 4-8 (graphing). You should have 2 tasks done for each research question. **They can be the same tasks or not!** As long as it makes sense to do them. Comment on why each task helps answer the corresponding research question. 
 
-Options:
+Ensure that the output of each operation is printed! 
+
+**Summarizing:**
 1. For one of the categorical variables in your data, compute the *range*, *mean*, and *two other summary statistics*.
 2. Compute the number of observations for at least one of your categorical variables. Do not use the function `table()`!
-3. Starting with a numerical variable, create a categorical variable with 3 or more groups. You can use this new variable in the other tasks!
+3. Create a categorical variable with 3 or more groups from an existing numerical variable. You can use this new variable in the other tasks! *An example: age in years into "child, teen, adult, senior".*
 4. Based on two categorical variables, calculate two summary statistics of your choosing.
+
+**Graphing:**
 5. Create a graph out of summarized variables that has at least two geom layers.
 6. Create a graph of your choosing, make one of the axes logarithmic, and format the axes labels so that they are "pretty" or easier to read. 
 7. Make a graph where it makes sense to customize the alpha transparency.
