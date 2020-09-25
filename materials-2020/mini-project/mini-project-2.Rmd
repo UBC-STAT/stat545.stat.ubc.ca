@@ -7,7 +7,7 @@ output: html_document
 
 # Welcome back to your mini data analysis project!
 
-This time, we will explore more in depth into your research questions that you defined in milestone one. 
+This time, we will explore more in depth the concept of *tidy data*, and hopefully investigate further into your research questions that you defined in milestone one.
 
 Begin by loading your data and the tidyverse packagebelow: 
 
@@ -21,10 +21,10 @@ library(tidyverse)
 By the end of this milestone, you should:
 
 + Become familiar with manipulating and summarizing your data in tibbles using `dplyr`
-+ Understand how to use investigate research questions using `dplyr`
++ Understand what *tidy* data is, when it is useful, and how to create it
 + Generate a reproducible and clear report using R Markdown
 
-# Task 1: Process and summarize your data (15 points)
+# Task 1: Process and summarize your data (20 points)
 
 **Things to keep in mind**
 
@@ -41,19 +41,17 @@ From milestone 1, you should have an idea of the basic structure of your dataset
 3. *FILL_THIS_IN*
 4. *FILL_THIS_IN*
 
-1.2 Now, for each research question, complete 1 of the 10 operations described below. **Keep in mind that some of these will make more sense than others, depending on the research question!** For each of your chosen operation, you should explain why this operation *makes sense* and why the output helps answer the corresponding research question. Ensure that the output of each operation is printed! 
+1.2 (15 points) Now, for each research question, complete 1 of the 8 operations described below. **Keep in mind that some of these will make more sense than others, depending on the research question!** For each of your chosen operation, you should explain why this operation *makes sense* and why the output helps answer the corresponding research question. Ensure that the output of each operation is printed! 
 
 Options:
-1. Group your tibble by one variable of your choosing with `dplyr::group_by()`, and then return the range (i.e. minimum and maximum) of a second variable using `dplyr::summarize()`.
-2. Group your tibble by one variable, then return the mean and standard deviation of a second variable.
-3. Using `dplyr`, for a categorical variable, find the number of rows in each group. Don't use the function `table()`!
-4. Remove all rows with missing observations (i.e. `NA`s). Show the number of missing observations before and after this task.
-5. Filter out >1 row based on a criteria of your choice.
-6. For a numeric variable in your dataset, convert it into a different unit of measurement (e.g. length in inches into centimeters, kilometers into miles, hours into minutes).
-7. After grouping by one variable, arrange your tibble by a second variable.
-8. Give a variable a better name! Why is it better?
-9. Rename a variable by making it [snake case](https://en.wikipedia.org/wiki/Snake_case), if it's in [camel case](https://en.wikipedia.org/wiki/Camel_case), or vice versa. Why is it better?
-10. Remove 1 or more columns, then rearrange the remaining columns in a way that makes sense.
+1. For one of the categorical variables in your data, compute the *range*, *mean*, and *two other summary statistics*.
+2. Compute the number of observations for at least one of your categorical variables. Do not use the function `table()`!
+3. Starting with a numerical variable, create a categorical variable with 3 or more groups. You can use this new variable in the other tasks!
+4. Based on two categorical variables, calculate two summary statistics of your choosing.
+5. Create a graph out of summarized variables that has at least two geom layers.
+6. Create a graph of your choosing, make one of the axis logarithmic, and format the axis labels so that they are "pretty" or easier to read. 
+7. Make a graph where it makes sense to customize the alpha transparency.
+8. Create a 3 histograms out of summarized variables, with each histogram having a different sized bins. Pick the "best" one and explain why it is the best.
 
 You should have one operation for each of your 4 research questions!
 
@@ -62,28 +60,11 @@ You should have one operation for each of your 4 research questions!
 
 <!-- End of your work -->
 
-1.3 Based on the operations that you've completed, how much closer are you to answering your research questions? Think about what aspects of your research questions remain unclear. Can your research questions be refined, now that you've investigated your data a bit more? 
+1.3 (5 points) Based on the operations that you've completed, how much closer are you to answering your research questions? Think about what aspects of your research questions remain unclear. Can your research questions be refined, now that you've investigated your data a bit more? 
 
-# Task 2:  (15 points)
+# Task 2: Tidy your data (10 points)
 
-If we rewind and go back to the learning objectives, you'll see that by the end of this deliverable, you should have formulated *4* research questions about your data that you may want to answer during your project. However, it may be handy to do some more exploration on your dataset of choice before creating these questions - by looking at the data, you may get more ideas. **Before you start this task, read all instructions carefully until you reach START HERE**.
 
-2.1 Complete *4 out of the following 8 exercises* to dive deeper into your data. All datasets are different and therefore, not all of these tasks may make sense for your data - which is why you should only answer *5*. Use *dplyr* and *ggplot*.
 
-1. Plot the distribution of a numeric variable.
-2. Create a new variable based on other variables in your data (only if it makes sense)
-3. Investigate how many missing values there are per variable. Can you find a way to plot this?
-4. Explore the relationship between 2 variables in a plot.
-5. Filter observations in your data according to your own criteria. Think of what you'd like to explore - again, if this was the `titanic` dataset, I may want to narrow my search down to passengers born in a particular year...
-6. Use a boxplot to look at the frequency of different observations within a single variable. You can do this for more than one variable if you wish!
-7. Make a new tibble with a subset of your data, with variables and observations that you are interested in exploring.
-8. Use a density plot to explore any of your variables (that are suitable for this type of plot).
-
-2.2 For each of the 4 exercises that you complete, provide a *brief explanation* of why you chose that exercise in relation to your data (in other words, why does it make sense to do that?), and sufficient comments for a reader to understand your reasoning and code.
-
-# Task 3: Write your research questions (5 points)
-
-So far, you have chosen a dataset and gotten familiar with it through exploring the data. Now it's time to figure out 4 research questions that you would like to answer with your data! Write the 4 questions and any additional comments at the end of this deliverable. These questions are not necessarily set in stone - TAs will review them and give you feedback; therefore, you may choose to pursue them as they are for the rest of the project, or make modifications!
-
-<!--- *****START HERE***** --->
-
+2.1 
+2.2 
