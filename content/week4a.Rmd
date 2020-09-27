@@ -68,13 +68,12 @@ From today's class, students are anticipated to be able to:
 #### Prepare for Class
 
 - Watch the [STAT 545 Video Series: Episode 6-A](https://youtu.be/38BA_v7BwKk)
-- We recommend you read / skim through the following resources for more details: 
+- We recommend you read / skim through the following resources for more details
    - [Jenny's "dplyr single table verbs"](https://stat545.com/dplyr-single.html) for dplyr verbs.
    - [Hadley's "across" blog post](https://www.tidyverse.org/blog/2020/04/dplyr-1-0-0-colwise/) to learn more about `across()`
 
 Some useful (but not mandatory) readings are:
 
-- [Jenny's dplyr tutorial](https://stat545.com/dplyr-single.html)
 - [dplyr vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html)
 
 #### During Class
@@ -105,19 +104,20 @@ cat(thurs_date_pretty)
 From today's class, students are anticipated to be able to:
 
 + Become familiar with customizing `ggplot2` graphs 
++ Choose an appropriate plot type for Exploratory Data Analysis
 + Understand what makes data visualizations *effective*
 
 #### Prepare for Class
 
-- Watch the [STAT 545 Video Series: Episode ](link)
+- Watch the [STAT 545 Video Series: Episode 7-A](link)
 
-Some useful (but not mandatory) readings are:
+Some useful (but not mandatory) readings related to today are:
 
 - [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/introduction.html) by Claus Wilke.
-- [Visualization Analysis and Design](https://www-taylorfrancis-com.ezproxy.library.ubc.ca/books/9780429088902) by Tamara Munzner.
+  - Excellent guide to designing visuals that are appropriate to the data at hand. 
 - [STAT545.com](https://stat545.com/effective-graphs.html) - Effective Graphics by Jenny Bryan.
-- [ggplot2 book ](https://ggplot2-book.org/)by Hadley Wickam.
 - [Callingbull.org](https://callingbull.org/tools.html) by Carl T. Bergstrom and Jevin West.
+  - Great resource for rethinking the "typical" way we do things. 
 
 #### During Class
 
@@ -129,6 +129,15 @@ Some useful (but not mandatory) readings are:
 + 10:05 - 10:45: Lecture worksheet.
 
 **Complete the Class 7-A Quiz on Canvas by Friday, October 2nd at 11:00am PST.**
+
+#### Deeper Dive
+
+Here are some resources for you to investigate various aspects of graphing in more detail:
+
+- [Visualization Analysis and Design](https://www-taylorfrancis-com.ezproxy.library.ubc.ca/books/9780429088902) by Tamara Munzner.
+   - Gold-standard book for designing plots with a focus on human perception.
+- [ggplot2 book](https://ggplot2-book.org/)by Hadley Wickam.
+   - Goes into detail on how to use ggplot2
 
 ## Friday Office Hour
 
