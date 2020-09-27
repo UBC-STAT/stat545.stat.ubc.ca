@@ -62,6 +62,7 @@ cat(tues_date_pretty)
 From today's class, students are anticipated to be able to:
 
 + Grouping data to compute summarized functions using `dplyr::group_by()` and `dplyr::summarize()`
++ Compute new columns using `mutate()`
 + Use `dplyr::across()` to use functions with specific columns
 
 #### Prepare for Class
