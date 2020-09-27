@@ -81,6 +81,7 @@ Some useful (but not mandatory) readings are:
 
 + 9:30 - 9:50: In class demo, covering:
   + group_by
+  + mutate
   + summarize
   + across
 + 9:50 - 10:00: Quiz.
