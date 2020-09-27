@@ -67,7 +67,10 @@ From today's class, students are anticipated to be able to:
 
 #### Prepare for Class
 
-- Watch the [STAT 545 Video Series: Episode ](link)
+- Watch the [STAT 545 Video Series: Episode 6-A](https://youtu.be/38BA_v7BwKk)
+- We recommend you read / skim through the following resources for more details: 
+   - [Jenny's "dplyr single table verbs"](https://stat545.com/dplyr-single.html) for dplyr verbs.
+   - [Hadley's "across" blog post](https://www.tidyverse.org/blog/2020/04/dplyr-1-0-0-colwise/) to learn more about `across()`
 
 Some useful (but not mandatory) readings are:
 
