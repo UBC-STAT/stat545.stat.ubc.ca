@@ -22,9 +22,9 @@ This project is to be completed independently.
 
 ### Deadlines
 
-+ Milestone 1 is due on **Friday, October 2nd**.
-+ Milestone 2 is due on **Friday, October 9th**.
-+ Milestone 3 is due on **Friday, October 23rd**.
++ Milestone 1 is due on **Friday, October 3**.
++ Milestone 2 is due on **Friday, October 10**.
++ Milestone 3 is due on **Friday, October 24**.
 
 ### Grading Scheme
 
