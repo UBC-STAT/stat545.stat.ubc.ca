@@ -139,13 +139,25 @@ Here are some resources for you to investigate various aspects of graphing in mo
 - [ggplot2 book](https://ggplot2-book.org/)by Hadley Wickam.
    - Goes into detail on how to use ggplot2
 
+---
+
+---
+
 ## Friday Office Hour
 
 October 2nd, from 16:00-17:00 PST.
 
 Join the TAs to discuss anything about the course: content, structure, deliverables, etc. Can’t make it? No worries - reach us through Slack / Canvas / email with your questions.
 
+---
+
+---
+
 ## Deadline: Mini Data Analysis I
+
+We're switching gears in terms of the STAT 545A project this week: we'll be taking a break from the collaborative projects, and will be starting your mini data analysis.
+
+Check out the [general instructions](https://stat545.stat.ubc.ca/mini-analysis-about/) and the [Milestone 1 instructions](https://stat545.stat.ubc.ca/mini-project/mini-project-1.html)
 
 **Due:** Saturday, October 3rd 23:59 PST.
 

@@ -81,6 +81,7 @@ Use this page to navigate your way through STAT 545.
 
 | Milestone | Instructions |
 |-----------|--------------|
+| Milestone 1 | [here](https://stat545.stat.ubc.ca/mini-project/mini-project-1/) |
 
 -------
 
