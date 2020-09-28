@@ -90,7 +90,7 @@ chmod ugo+rw /tmp/exchange
 **2B**: add the worksheet (say worksheet_05a) to the `database.db` file by running: 
 
 ```
-db assignment add worksheet_05a
+nbgrader db assignment add worksheet_05a
 ```
 
 **2C**: generate the student version of (say) worksheet_05a by running:
