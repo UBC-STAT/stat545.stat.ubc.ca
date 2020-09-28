@@ -143,9 +143,9 @@ Here are some resources for you to investigate various aspects of graphing in mo
 
 ---
 
-## Friday Office Hour
+## ~~Friday~~ **Thursday** (!) Office Hour
 
-October 2nd, from 16:00-17:00 PST.
+October 1nd, from 16:00-17:00 PST.
 
 Join the TAs to discuss anything about the course: content, structure, deliverables, etc. Can’t make it? No worries - reach us through Slack / Canvas / email with your questions.
 
