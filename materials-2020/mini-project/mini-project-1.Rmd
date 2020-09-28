@@ -65,6 +65,8 @@ And that is exactly the first thing that you will do!
 
 1.1 Out of the 7 datasets available in the `datateachr` package, choose **4** that appeal to you based on their description. Write your choices below:
 
+**Note**: We encourage you to use the ones in the `datateachr` package, but if you have a dataset that you'd really like to use, you can include it here. But, please check with a member of the teaching team to see whether the dataset is of appropriate complexity. Also, include a **brief** description of the dataset here to help the teaching team understand your data.
+
 1: CHOICE_1_HERE
 2: CHOICE_2_HERE
 3: CHOICE_3_HERE
