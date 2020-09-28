@@ -1,0 +1,708 @@
+---
+title: "Team Troubleshooting Deliverable 2"
+output: github_document
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="attributions" class="section level2">
+<h2>Attributions</h2>
+<p>Thanks to Icíar Fernández-Boyano for writing most of this document, and Diana Lin for her edits.</p>
+</div>
+<div id="instructions" class="section level2">
+<h2>Instructions</h2>
+<p>There are <strong>24 errors</strong> in this Rmd. Will you find them all?</p>
+<ul>
+<li><em>15 errors are marked</em> (at least the general area in which they are located) by ## ERROR HERE ## in the code chunk.</li>
+<li><em>9 errors are hiding.</em></li>
+</ul>
+<p>Hint: You should be able to knit the Rmd if all code is working correctly…but this will only catch the errors in code, and not the errors in logic or instruction-following!</p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li><p>Errors may be in the form of <strong>broken code</strong> (e.g. using " " inappropriately, which returns an error when running the code), but can also be <strong>running code that does not follow the instructions</strong> (e.g. the goal of the code was to filter the first 3 rows, but instead, the first 3 columns were selected). Read the Rmd commentary carefully to find these.</p></li>
+<li><p>A code chunk with multiple errors, whether broken code or wrongly followed instructions, <strong>counts as a single error for the purpose of grading</strong>. An example:</p></li>
+</ul>
+<p>Exercise A: In the following chunk, I would like to select all columns of the mtcars dataset from <code>disp</code> to <code>wt</code> (inclusive), and then, filter for those with horsepower (<code>hp</code>) of at least 100 or greater.</p>
+<pre class="r"><code>### ERROR HERE ###
+mtcars %&gt;%
+  select(disp:vs) %&gt;%
+  filter(hp &gt;= 100)</code></pre>
+<pre><code>##                      disp  hp drat    wt  qsec vs
+## Mazda RX4           160.0 110 3.90 2.620 16.46  0
+## Mazda RX4 Wag       160.0 110 3.90 2.875 17.02  0
+## Hornet 4 Drive      258.0 110 3.08 3.215 19.44  1
+## Hornet Sportabout   360.0 175 3.15 3.440 17.02  0
+## Valiant             225.0 105 2.76 3.460 20.22  1
+## Duster 360          360.0 245 3.21 3.570 15.84  0
+## Merc 280            167.6 123 3.92 3.440 18.30  1
+## Merc 280C           167.6 123 3.92 3.440 18.90  1
+## Merc 450SE          275.8 180 3.07 4.070 17.40  0
+## Merc 450SL          275.8 180 3.07 3.730 17.60  0
+## Merc 450SLC         275.8 180 3.07 3.780 18.00  0
+## Cadillac Fleetwood  472.0 205 2.93 5.250 17.98  0
+## Lincoln Continental 460.0 215 3.00 5.424 17.82  0
+## Chrysler Imperial   440.0 230 3.23 5.345 17.42  0
+## Dodge Challenger    318.0 150 2.76 3.520 16.87  0
+## AMC Javelin         304.0 150 3.15 3.435 17.30  0
+## Camaro Z28          350.0 245 3.73 3.840 15.41  0
+## Pontiac Firebird    400.0 175 3.08 3.845 17.05  0
+## Lotus Europa         95.1 113 3.77 1.513 16.90  1
+## Ford Pantera L      351.0 264 4.22 3.170 14.50  0
+## Ferrari Dino        145.0 175 3.62 2.770 15.50  0
+## Maserati Bora       301.0 335 3.54 3.570 14.60  0
+## Volvo 142E          121.0 109 4.11 2.780 18.60  1</code></pre>
+<p>Notice that the instructions indicate selecting columns <code>disp</code> to <code>wt</code>, and the code reads <code>select(disp:vs)</code>. There is the error.</p>
+<p>In addition to selecting the wrong columns, this exercise encapsulates the number 100 in between quotes - this is incorrect R syntax. In fact, if you run the code you will see that the filtering is not working.</p>
+<p>While Exercise A has 2 requires two corrections to fix, it counts as having a <em>single error</em>, as you cannot obtain your desired output without fixing both. Therefore, errors within the <em>same literal R markdown code chunk</em> count as <strong>one error</strong>. For the purposes of grading, each <em>corrected</em> literal R markdown code chunk is considered <strong>one error</strong> and worth <strong>one point</strong> each, for a total of 25 points.</p>
+<p>Solution:</p>
+<pre class="r"><code>mtcars %&gt;%
+  select(disp:wt) %&gt;%
+  filter(hp &gt;= 100)</code></pre>
+<pre><code>##                      disp  hp drat    wt
+## Mazda RX4           160.0 110 3.90 2.620
+## Mazda RX4 Wag       160.0 110 3.90 2.875
+## Hornet 4 Drive      258.0 110 3.08 3.215
+## Hornet Sportabout   360.0 175 3.15 3.440
+## Valiant             225.0 105 2.76 3.460
+## Duster 360          360.0 245 3.21 3.570
+## Merc 280            167.6 123 3.92 3.440
+## Merc 280C           167.6 123 3.92 3.440
+## Merc 450SE          275.8 180 3.07 4.070
+## Merc 450SL          275.8 180 3.07 3.730
+## Merc 450SLC         275.8 180 3.07 3.780
+## Cadillac Fleetwood  472.0 205 2.93 5.250
+## Lincoln Continental 460.0 215 3.00 5.424
+## Chrysler Imperial   440.0 230 3.23 5.345
+## Dodge Challenger    318.0 150 2.76 3.520
+## AMC Javelin         304.0 150 3.15 3.435
+## Camaro Z28          350.0 245 3.73 3.840
+## Pontiac Firebird    400.0 175 3.08 3.845
+## Lotus Europa         95.1 113 3.77 1.513
+## Ford Pantera L      351.0 264 4.22 3.170
+## Ferrari Dino        145.0 175 3.62 2.770
+## Maserati Bora       301.0 335 3.54 3.570
+## Volvo 142E          121.0 109 4.11 2.780</code></pre>
+</div>
+<div id="troubleshooting-time" class="section level2">
+<h2>Troubleshooting time!</h2>
+<p>There are 24 code chunks in this Rmd with errors. Will you be the one to find them all? More than 1 error in a single chunk of code counts as a <strong>single</strong> error.</p>
+<pre class="r"><code>### ERROR HERE ###
+libraries(dslabs)</code></pre>
+<pre><code>## Error in libraries(dslabs): could not find function &quot;libraries&quot;</code></pre>
+<pre class="r"><code>libraries(singer)</code></pre>
+<pre><code>## Error in libraries(singer): could not find function &quot;libraries&quot;</code></pre>
+<pre class="r"><code>libraries(tidyverse)</code></pre>
+<pre><code>## Error in libraries(tidyverse): could not find function &quot;libraries&quot;</code></pre>
+<pre class="r"><code>libraries(stringr)</code></pre>
+<pre><code>## Error in libraries(stringr): could not find function &quot;libraries&quot;</code></pre>
+<pre class="r"><code>libraries(gapminder)</code></pre>
+<pre><code>## Error in libraries(gapminder): could not find function &quot;libraries&quot;</code></pre>
+<p><a href="https://dl.acm.org/doi/10.1145/2827872">MovieLens</a> are a series of datasets widely used in education, that describe movie ratings from the MovieLens <a href="https://movielens.org/">website</a>. There are several MovieLens datasets, collected by the <a href="https://grouplens.org/datasets/movielens/">GroupLens Research Project</a> at the University of Minnesota. Here, we load the MovieLens 100K dataset from Rafael Irizarry and Amy Gill’s R package, <a href="https://cran.r-project.org/web/packages/dslabs/dslabs.pdf">DSLabs</a>, which contains datasets useful for data analysis practice, homework, and projects in data science courses and workshops.</p>
+<div id="exercise-1" class="section level3">
+<h3>Exercise 1</h3>
+<p>Let’s have a look at the dataset! My goal is to:</p>
+<ul>
+<li>Find out the “class” of the dataset.</li>
+<li>If it isn’t a tibble already, coerce it into a tibble and store it in the variable “movieLens”.</li>
+<li>Have a quick look at the rows and columns, using a <em>dplyr function</em>.</li>
+</ul>
+<pre class="r"><code>### ERROR HERE ###
+class(dslabs::movielens)</code></pre>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<pre class="r"><code>movieLens &lt;- as_tibble(dslabs::movielens)
+dim(movieLens)</code></pre>
+<pre><code>## [1] 100004      7</code></pre>
+</div>
+<div id="exercise-2" class="section level3">
+<h3>Exercise 2</h3>
+<p>Now that we’ve had a quick look at the dataset, it would be interesting to explore the rows (observations) in some more detail. I’d like to know how many movie entries…</p>
+<ul>
+<li>Belong to the genre <em>“Drama”</em>?</li>
+<li>Don’t belong to the genre <em>“Drama”</em>?</li>
+<li>Were filmed <em>after</em> the year 2000?</li>
+<li>Have a rating of <em>4.5 or greater</em>?</li>
+<li>Were filmed in 1999 <em>or</em> 2000?</li>
+<li>Correspond to the movie <em>“Little Women”</em>?</li>
+<li>Have <em>more than</em> 4.5 stars, and were released <em>before</em> 1995?</li>
+</ul>
+<pre class="r"><code>filter(movieLens, genres == &quot;Drama&quot;)</code></pre>
+<pre><code>## # A tibble: 7,757 x 7
+##    movieId title                             year genres userId rating timestamp
+##      &lt;int&gt; &lt;chr&gt;                            &lt;int&gt; &lt;fct&gt;   &lt;int&gt;  &lt;dbl&gt;     &lt;int&gt;
+##  1      31 Dangerous Minds                   1995 Drama       1    2.5    1.26e9
+##  2    1172 Cinema Paradiso (Nuovo cinema P…  1989 Drama       1    4      1.26e9
+##  3    1293 Gandhi                            1982 Drama       1    2      1.26e9
+##  4      62 Mr. Holland&#39;s Opus                1995 Drama       2    3      8.35e8
+##  5     261 Little Women                      1994 Drama       2    4      8.35e8
+##  6     300 Quiz Show                         1994 Drama       2    3      8.35e8
+##  7     508 Philadelphia                      1993 Drama       2    4      8.35e8
+##  8     537 Sirens                            1994 Drama       2    4      8.35e8
+##  9    2702 Summer of Sam                     1999 Drama       3    3.5    1.30e9
+## 10    3949 Requiem for a Dream               2000 Drama       3    5      1.30e9
+## # … with 7,747 more rows</code></pre>
+<pre class="r"><code>filter(movieLens, !genres == &quot;Drama&quot;)</code></pre>
+<pre><code>## # A tibble: 92,247 x 7
+##    movieId title                year genres              userId rating timestamp
+##      &lt;int&gt; &lt;chr&gt;               &lt;int&gt; &lt;fct&gt;                &lt;int&gt;  &lt;dbl&gt;     &lt;int&gt;
+##  1    1029 Dumbo                1941 Animation|Children…      1    3      1.26e9
+##  2    1061 Sleepers             1996 Thriller                 1    3      1.26e9
+##  3    1129 Escape from New Yo…  1981 Action|Adventure|S…      1    2      1.26e9
+##  4    1263 Deer Hunter, The     1978 Drama|War                1    2      1.26e9
+##  5    1287 Ben-Hur              1959 Action|Adventure|D…      1    2      1.26e9
+##  6    1339 Dracula (Bram Stok…  1992 Fantasy|Horror|Rom…      1    3.5    1.26e9
+##  7    1343 Cape Fear            1991 Thriller                 1    2      1.26e9
+##  8    1371 Star Trek: The Mot…  1979 Adventure|Sci-Fi         1    2.5    1.26e9
+##  9    1405 Beavis and Butt-He…  1996 Adventure|Animatio…      1    1      1.26e9
+## 10    1953 French Connection,…  1971 Action|Crime|Thril…      1    4      1.26e9
+## # … with 92,237 more rows</code></pre>
+<pre class="r"><code>filter(movieLens, year &gt;= 2000)</code></pre>
+<pre><code>## # A tibble: 29,535 x 7
+##    movieId title                  year genres            userId rating timestamp
+##      &lt;int&gt; &lt;chr&gt;                 &lt;int&gt; &lt;fct&gt;              &lt;int&gt;  &lt;dbl&gt;     &lt;int&gt;
+##  1    3510 Frequency              2000 Drama|Thriller         3    4      1.30e9
+##  2    3949 Requiem for a Dream    2000 Drama                  3    5      1.30e9
+##  3    5349 Spider-Man             2002 Action|Adventure…      3    3      1.30e9
+##  4    5669 Bowling for Columbine  2002 Documentary            3    3.5    1.30e9
+##  5    6377 Finding Nemo           2003 Adventure|Animat…      3    3      1.30e9
+##  6    7153 Lord of the Rings: T…  2003 Action|Adventure…      3    2.5    1.30e9
+##  7    7361 Eternal Sunshine of …  2004 Drama|Romance|Sc…      3    3      1.30e9
+##  8    8622 Fahrenheit 9/11        2004 Documentary            3    3.5    1.30e9
+##  9    8636 Spider-Man 2           2004 Action|Adventure…      3    3      1.30e9
+## 10   27369 Daria: Is It Fall Ye…  2000 Animation|Comedy       3    3.5    1.30e9
+## # … with 29,525 more rows</code></pre>
+<pre class="r"><code>filter(movieLens, rating &lt; 4.5)</code></pre>
+<pre><code>## # A tibble: 77,186 x 7
+##    movieId title                  year genres            userId rating timestamp
+##      &lt;int&gt; &lt;chr&gt;                 &lt;int&gt; &lt;fct&gt;              &lt;int&gt;  &lt;dbl&gt;     &lt;int&gt;
+##  1      31 Dangerous Minds        1995 Drama                  1    2.5    1.26e9
+##  2    1029 Dumbo                  1941 Animation|Childr…      1    3      1.26e9
+##  3    1061 Sleepers               1996 Thriller               1    3      1.26e9
+##  4    1129 Escape from New York   1981 Action|Adventure…      1    2      1.26e9
+##  5    1172 Cinema Paradiso (Nuo…  1989 Drama                  1    4      1.26e9
+##  6    1263 Deer Hunter, The       1978 Drama|War              1    2      1.26e9
+##  7    1287 Ben-Hur                1959 Action|Adventure…      1    2      1.26e9
+##  8    1293 Gandhi                 1982 Drama                  1    2      1.26e9
+##  9    1339 Dracula (Bram Stoker…  1992 Fantasy|Horror|R…      1    3.5    1.26e9
+## 10    1343 Cape Fear              1991 Thriller               1    2      1.26e9
+## # … with 77,176 more rows</code></pre>
+<pre class="r"><code>filter(movieLens, year == 1999 | month == 2000)</code></pre>
+<pre><code>## Error: Problem with `filter()` input `..1`.
+## x object &#39;month&#39; not found
+## ℹ Input `..1` is `year == 1999 | month == 2000`.</code></pre>
+<pre class="r"><code>filter(movieLens, title %in% &quot;Little Women&quot;)</code></pre>
+<pre><code>## # A tibble: 54 x 7
+##    movieId title         year genres userId rating  timestamp
+##      &lt;int&gt; &lt;chr&gt;        &lt;int&gt; &lt;fct&gt;   &lt;int&gt;  &lt;dbl&gt;      &lt;int&gt;
+##  1     261 Little Women  1994 Drama       2    4    835355681
+##  2     261 Little Women  1994 Drama      19    4    855194216
+##  3     261 Little Women  1994 Drama      30    4    951008613
+##  4     261 Little Women  1994 Drama      32    4    834828302
+##  5     261 Little Women  1994 Drama      36    4    847057120
+##  6     261 Little Women  1994 Drama      85    1    837513012
+##  7     261 Little Women  1994 Drama      86    3    848161454
+##  8     261 Little Women  1994 Drama      88    3.5 1239755456
+##  9     261 Little Women  1994 Drama      95    5   1016317793
+## 10     261 Little Women  1994 Drama     102    3    957894400
+## # … with 44 more rows</code></pre>
+<pre class="r"><code>filter(movieLens, rating &gt; 4.5, year &lt; 1995)</code></pre>
+<pre><code>## # A tibble: 8,386 x 7
+##    movieId title                  year genres            userId rating timestamp
+##      &lt;int&gt; &lt;chr&gt;                 &lt;int&gt; &lt;fct&gt;              &lt;int&gt;  &lt;dbl&gt;     &lt;int&gt;
+##  1     265 Like Water for Choco…  1992 Drama|Fantasy|Ro…      2      5    8.35e8
+##  2     266 Legends of the Fall    1994 Drama|Romance|Wa…      2      5    8.35e8
+##  3     551 Nightmare Before Chr…  1993 Animation|Childr…      2      5    8.35e8
+##  4     589 Terminator 2: Judgme…  1991 Action|Sci-Fi          2      5    8.35e8
+##  5     590 Dances with Wolves     1990 Adventure|Drama|…      2      5    8.35e8
+##  6     592 Batman                 1989 Action|Crime|Thr…      2      5    8.35e8
+##  7     318 Shawshank Redemption…  1994 Crime|Drama            3      5    1.30e9
+##  8     356 Forrest Gump           1994 Comedy|Drama|Rom…      3      5    1.30e9
+##  9    1197 Princess Bride, The    1987 Action|Adventure…      3      5    1.30e9
+## 10     260 Star Wars: Episode I…  1977 Action|Adventure…      4      5    9.50e8
+## # … with 8,376 more rows</code></pre>
+</div>
+<div id="exercise-3" class="section level3">
+<h3>Exercise 3</h3>
+<p>While filtering for <em>all movies that do not belong to the genre drama</em> above, I noticed something interesting. I want to filter for the same thing again, this time selecting variables <strong>title and genres first,</strong> and then <em>everything else</em>. Hint: there is a function to select “everything else”…</p>
+<pre class="r"><code>### ERROR HERE ###
+movieLens %&gt;%
+  filter(!genres == &quot;Drama&quot;) %&gt;%
+  select(title, genres, year, rating, timestamp)</code></pre>
+<pre><code>## # A tibble: 92,247 x 5
+##    title                      genres                       year rating timestamp
+##    &lt;chr&gt;                      &lt;fct&gt;                       &lt;int&gt;  &lt;dbl&gt;     &lt;int&gt;
+##  1 Dumbo                      Animation|Children|Drama|M…  1941    3      1.26e9
+##  2 Sleepers                   Thriller                     1996    3      1.26e9
+##  3 Escape from New York       Action|Adventure|Sci-Fi|Th…  1981    2      1.26e9
+##  4 Deer Hunter, The           Drama|War                    1978    2      1.26e9
+##  5 Ben-Hur                    Action|Adventure|Drama       1959    2      1.26e9
+##  6 Dracula (Bram Stoker&#39;s Dr… Fantasy|Horror|Romance|Thr…  1992    3.5    1.26e9
+##  7 Cape Fear                  Thriller                     1991    2      1.26e9
+##  8 Star Trek: The Motion Pic… Adventure|Sci-Fi             1979    2.5    1.26e9
+##  9 Beavis and Butt-Head Do A… Adventure|Animation|Comedy…  1996    1      1.26e9
+## 10 French Connection, The     Action|Crime|Thriller        1971    4      1.26e9
+## # … with 92,237 more rows</code></pre>
+<p>Notice that some movies appear to have several genres, instead of a single one. If we filter for the movie “Dumbo” and select the genres column, we see that “Animation|Children|Drama|Musical” appear as genres.</p>
+<pre class="r"><code>movieLens %&gt;%
+  title == &quot;Dumbo&quot; %&gt;%
+  select(genres)</code></pre>
+<pre><code>## Error in title(.): plot.new has not been called yet</code></pre>
+<p>This means that when we filter for “Drama”, we are only filtering for those movies that are classified as <em>exclusively</em> Drama. What if we want to see all movies that <em>contain</em> “Drama” in their genres, even if they are a Romance-Drama, or a Comedy-Drama? Here is a handy, <strong>error-free</strong> expression that can help you do that. No errors, only for learning.</p>
+<pre class="r"><code>movieLens %&gt;%
+  filter(str_detect(genres, &quot;Drama&quot;))</code></pre>
+<pre><code>## # A tibble: 44,752 x 7
+##    movieId title                  year genres            userId rating timestamp
+##      &lt;int&gt; &lt;chr&gt;                 &lt;int&gt; &lt;fct&gt;              &lt;int&gt;  &lt;dbl&gt;     &lt;int&gt;
+##  1      31 Dangerous Minds        1995 Drama                  1    2.5    1.26e9
+##  2    1029 Dumbo                  1941 Animation|Childr…      1    3      1.26e9
+##  3    1172 Cinema Paradiso (Nuo…  1989 Drama                  1    4      1.26e9
+##  4    1263 Deer Hunter, The       1978 Drama|War              1    2      1.26e9
+##  5    1287 Ben-Hur                1959 Action|Adventure…      1    2      1.26e9
+##  6    1293 Gandhi                 1982 Drama                  1    2      1.26e9
+##  7    2455 Fly, The               1986 Drama|Horror|Sci…      1    2.5    1.26e9
+##  8      17 Sense and Sensibility  1995 Drama|Romance          2    5      8.35e8
+##  9      52 Mighty Aphrodite       1995 Comedy|Drama|Rom…      2    3      8.35e8
+## 10      62 Mr. Holland&#39;s Opus     1995 Drama                  2    3      8.35e8
+## # … with 44,742 more rows</code></pre>
+<p>Now that you know that, select (and filter, where required!):</p>
+<ul>
+<li>All colums <em>except</em> those from userId to timestamp (inclusive)</li>
+<li>Columns year, title, and genres (in that order) <em>only</em> for movies classified <em>exclusively</em> as “Romance”</li>
+<li>Columns rating, title, and year (in that order) followed by everything else (all other columns), only for movies <em>containing</em> the genre “Comedy”</li>
+</ul>
+<pre class="r"><code>### ERROR HERE ###
+select(movieLens, -(userId:timestamp))</code></pre>
+<pre><code>## # A tibble: 100,004 x 4
+##    movieId title                               year genres                      
+##      &lt;int&gt; &lt;chr&gt;                              &lt;int&gt; &lt;fct&gt;                       
+##  1      31 Dangerous Minds                     1995 Drama                       
+##  2    1029 Dumbo                               1941 Animation|Children|Drama|Mu…
+##  3    1061 Sleepers                            1996 Thriller                    
+##  4    1129 Escape from New York                1981 Action|Adventure|Sci-Fi|Thr…
+##  5    1172 Cinema Paradiso (Nuovo cinema Par…  1989 Drama                       
+##  6    1263 Deer Hunter, The                    1978 Drama|War                   
+##  7    1287 Ben-Hur                             1959 Action|Adventure|Drama      
+##  8    1293 Gandhi                              1982 Drama                       
+##  9    1339 Dracula (Bram Stoker&#39;s Dracula)     1992 Fantasy|Horror|Romance|Thri…
+## 10    1343 Cape Fear                           1991 Thriller                    
+## # … with 99,994 more rows</code></pre>
+<pre class="r"><code>movieLens %&gt;%
+  filter(genres == &quot;Romance&quot;) %&gt;%
+  select(year, title, genres)</code></pre>
+<pre><code>## # A tibble: 63 x 3
+##     year title                    genres 
+##    &lt;int&gt; &lt;chr&gt;                    &lt;fct&gt;  
+##  1  1998 Meet Joe Black           Romance
+##  2  1998 Meet Joe Black           Romance
+##  3  1984 Against All Odds         Romance
+##  4  1988 Everybody&#39;s All-American Romance
+##  5  1998 Meet Joe Black           Romance
+##  6  1998 Meet Joe Black           Romance
+##  7  1998 Meet Joe Black           Romance
+##  8  2004 Raise Your Voice         Romance
+##  9  1998 Meet Joe Black           Romance
+## 10  1998 Meet Joe Black           Romance
+## # … with 53 more rows</code></pre>
+<pre class="r"><code>movieLens %&gt;%
+  filter(str_select(genres, Romance)) %&gt;%
+  select(year, title, genres)</code></pre>
+<pre><code>## Error: Problem with `filter()` input `..1`.
+## x could not find function &quot;str_select&quot;
+## ℹ Input `..1` is `str_select(genres, Romance)`.</code></pre>
+</div>
+<div id="exercise-4" class="section level3">
+<h3>Exercise 4</h3>
+<p>Some of our variables are currently in <em>camelCase</em> (in fact, <em>movieLens</em> is in camelCase). Let’s clean these two variables to be <em>snake_case</em> instead, and assign our post-rename object back to “movieLens”.</p>
+<pre class="r"><code>movieLens &lt;-
+movieLens %&gt;%
+  rename(user_id == userId,
+         movie_id == movieId)</code></pre>
+<pre><code>## Error: object &#39;user_id&#39; not found</code></pre>
+<p>As you already know, <code>mutate()</code> defines and inserts new variables into a tibble. There is <em>another mystery function</em> that you’ve seen already that adds the new variable, and drops existing ones. I wanted to create an average_rating column that takes the mean(rating) across all entries, and I only want to see that variable (i.e drop all others!) but I forgot what that mystery function is. Can you remember?</p>
+<pre class="r"><code>### ERROR HERE ### 
+mutate(movieLens,
+       average_rating = mean(rating))</code></pre>
+<pre><code>## # A tibble: 100,004 x 8
+##    movieId title         year genres      userId rating timestamp average_rating
+##      &lt;int&gt; &lt;chr&gt;        &lt;int&gt; &lt;fct&gt;        &lt;int&gt;  &lt;dbl&gt;     &lt;int&gt;          &lt;dbl&gt;
+##  1      31 Dangerous M…  1995 Drama            1    2.5    1.26e9           3.54
+##  2    1029 Dumbo         1941 Animation|…      1    3      1.26e9           3.54
+##  3    1061 Sleepers      1996 Thriller         1    3      1.26e9           3.54
+##  4    1129 Escape from…  1981 Action|Adv…      1    2      1.26e9           3.54
+##  5    1172 Cinema Para…  1989 Drama            1    4      1.26e9           3.54
+##  6    1263 Deer Hunter…  1978 Drama|War        1    2      1.26e9           3.54
+##  7    1287 Ben-Hur       1959 Action|Adv…      1    2      1.26e9           3.54
+##  8    1293 Gandhi        1982 Drama            1    2      1.26e9           3.54
+##  9    1339 Dracula (Br…  1992 Fantasy|Ho…      1    3.5    1.26e9           3.54
+## 10    1343 Cape Fear     1991 Thriller         1    2      1.26e9           3.54
+## # … with 99,994 more rows</code></pre>
+</div>
+<div id="exercise-5" class="section level3">
+<h3>Exercise 5</h3>
+<p>I’m interested in arranging movies from the year 1998 by their descending rating. Then, I would like to rearrange the columns to show <code>rating</code> followed by <code>title</code>, and then followed by everything else.</p>
+<pre class="r"><code>movieLens %&gt;%
+  filter(year == 1998) %&gt;%
+  arrange(desc(rating)) %&gt;%
+  select(rating, title, everything())</code></pre>
+<pre><code>## # A tibble: 4,019 x 7
+##    rating title              movieId  year genres               userId timestamp
+##     &lt;dbl&gt; &lt;chr&gt;                &lt;int&gt; &lt;int&gt; &lt;fct&gt;                 &lt;int&gt;     &lt;int&gt;
+##  1      5 Wedding Singer, T…    1777  1998 Comedy|Romance            8    1.15e9
+##  2      5 American History X    2329  1998 Crime|Drama               8    1.15e9
+##  3      5 Truman Show, The      1682  1998 Comedy|Drama|Sci-Fi       9    9.39e8
+##  4      5 There&#39;s Something…    1923  1998 Comedy|Romance           10    9.43e8
+##  5      5 Out of Sight          1912  1998 Comedy|Crime|Drama|…     15    1.03e9
+##  6      5 Rushmore              2395  1998 Comedy|Drama             15    9.98e8
+##  7      5 Fear and Loathing…    1884  1998 Adventure|Comedy|Dr…     17    1.13e9
+##  8      5 Pi                    1921  1998 Drama|Sci-Fi|Thrill…     17    1.13e9
+##  9      5 Following             2579  1998 Crime|Mystery|Thril…     17    1.13e9
+## 10      5 Sliding Doors         1680  1998 Drama|Romance            20    1.22e9
+## # … with 4,009 more rows</code></pre>
+<p>Instead of filtering to a specific year, group the movies by year, and then arrange by ascending rating. Lastly, select only the year, title, and rating, in that order.</p>
+<p><em>Hint:</em> Grouped arrange needs one more argument…</p>
+<pre class="r"><code>movieLens %&gt;%
+  group_by(year) %&gt;%
+  arrange(rating) %&gt;%
+  select(year:rating)</code></pre>
+<pre><code>## # A tibble: 100,004 x 4
+## # Groups:   year [104]
+##     year genres                                      userId rating
+##    &lt;int&gt; &lt;fct&gt;                                        &lt;int&gt;  &lt;dbl&gt;
+##  1  1998 Drama|Sci-Fi|Thriller                            6    0.5
+##  2  1996 Drama                                            8    0.5
+##  3  1996 Action|Comedy|Horror|Thriller                   15    0.5
+##  4  1995 Action|Adventure|Mystery|Sci-Fi                 15    0.5
+##  5  1994 Children|Comedy|Fantasy                         15    0.5
+##  6  1993 Action|Adventure|Comedy|Fantasy                 15    0.5
+##  7  1992 Adventure|Animation|Children|Comedy|Musical     15    0.5
+##  8  1996 Action|Drama|Thriller                           15    0.5
+##  9  1996 Action|Comedy|Sci-Fi                            15    0.5
+## 10  1998 Drama|Romance                                   15    0.5
+## # … with 99,994 more rows</code></pre>
+</div>
+<div id="exercise-6" class="section level3">
+<h3>Exercise 6</h3>
+<p>Alone, <code>tally()</code> is a short form of <code>summarise()</code>. <code>count()</code> is short-hand for <code>group_by()</code> and <code>tally()</code>.</p>
+<ul>
+<li>Each entry of the movieLens table corresponds to a movie rating by a user. Therefore, if more than one user rated the same movie, there will be several entries for the same movie. I want to find out how many times each movie has been reviewed, or in other words, how many times each movie title appears in the dataset.</li>
+</ul>
+<pre class="r"><code>movieLens %&gt;%
+  group_by(title) %&gt;%
+  tally()</code></pre>
+<pre><code>## # A tibble: 8,832 x 2
+##    title                                n
+##    &lt;chr&gt;                            &lt;int&gt;
+##  1 ¡Three Amigos!                      31
+##  2 ...And God Spoke                     1
+##  3 ...And Justice for All              13
+##  4 &#39;burbs, The                         19
+##  5 &#39;Hellboy&#39;: The Seeds of Creation     1
+##  6 &#39;Neath the Arizona Skies             1
+##  7 &#39;night Mother                        3
+##  8 &#39;Round Midnight                      2
+##  9 &#39;Salem&#39;s Lot                         1
+## 10 &#39;Til There Was You                   4
+## # … with 8,822 more rows</code></pre>
+<ul>
+<li>Without using <code>group_by()</code>, I want to find out how many movie reviews there have been by year.</li>
+</ul>
+<pre class="r"><code>### ERROR HERE ###
+movieLens %&gt;%
+  tally(year, sort = TRUE)</code></pre>
+<pre><code>## # A tibble: 1 x 1
+##           n
+##       &lt;int&gt;
+## 1 199176755</code></pre>
+<ul>
+<li>Both <code>count()</code> and <code>tally()</code> can be called repeatedly, each time adding up a level of detail. Below, I want to count the number of movie reviews by title and rating, and sort the results.</li>
+</ul>
+<pre class="r"><code>movieLens %&gt;%
+  count(c(title, rating), sort = TRUE)</code></pre>
+<pre><code>## Error: Problem with `mutate()` input `..1`.
+## x Input `..1` can&#39;t be recycled to size 100004.
+## ℹ Input `..1` is `c(title, rating)`.
+## ℹ Input `..1` must be size 100004 or 1, not 200008.</code></pre>
+<p>Not only do <code>count()</code> and <code>tally()</code> quickly allow you to count items within your dataset, <code>add_tally()</code> and <code>add_count()</code> are handy shortcuts that add an additional columns to your tibble, rather than collapsing each group.</p>
+<ul>
+<li>Suppose that I am interested in finding movies that have very few reviews, very few being under 5. Without using <code>group_by()</code>, add a column that counts the <em>number of reviews per movie title</em>, and then filter to those that have 5 reviews or under. Rename the column <code>n</code> to <code>n_reviews</code>.</li>
+</ul>
+<pre class="r"><code>movieLens %&gt;%
+  add_count(title) %&gt;%
+  n &lt;= 5 %&gt;%
+  mutate(n_reviews = n)</code></pre>
+<pre><code>## Error in n(.): unused argument (.)</code></pre>
+</div>
+<div id="exercise-7" class="section level3">
+<h3>Exercise 7</h3>
+<ul>
+<li>Calculate the mean rating by title and store it in a new variable <code>avg_rating</code>.</li>
+</ul>
+<pre class="r"><code>movieLens %&gt;%
+  group_by(title) %&gt;%
+  summarize(avg_rating = mean(rating))</code></pre>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 8,832 x 2
+##    title                            avg_rating
+##    &lt;chr&gt;                                 &lt;dbl&gt;
+##  1 ¡Three Amigos!                         3.26
+##  2 ...And God Spoke                       1   
+##  3 ...And Justice for All                 3.69
+##  4 &#39;burbs, The                            3.05
+##  5 &#39;Hellboy&#39;: The Seeds of Creation       2   
+##  6 &#39;Neath the Arizona Skies               0.5 
+##  7 &#39;night Mother                          5   
+##  8 &#39;Round Midnight                        2.25
+##  9 &#39;Salem&#39;s Lot                           3.5 
+## 10 &#39;Til There Was You                     2.62
+## # … with 8,822 more rows</code></pre>
+<ul>
+<li>Calculate the mean rating by year and store it in a new variable <code>avg_rating</code>.</li>
+</ul>
+<pre class="r"><code>movieLens %&gt;%
+  group_by(year) %&gt;%
+  summarize(avg_rating = mean(rating))</code></pre>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 104 x 2
+##     year avg_rating
+##    &lt;int&gt;      &lt;dbl&gt;
+##  1  1902       4.33
+##  2  1915       3   
+##  3  1916       3.5 
+##  4  1917       4.25
+##  5  1918       4.25
+##  6  1919       3   
+##  7  1920       3.7 
+##  8  1921       4.42
+##  9  1922       3.80
+## 10  1923       4.17
+## # … with 94 more rows</code></pre>
+<ul>
+<li>Using <code>summarize()</code>, find the minimum and the maximum rating by title, and store these new variables under <code>min_rating</code>, and <code>max_rating</code>, respectively.</li>
+</ul>
+<pre class="r"><code>### ERROR HERE ###
+movieLens %&gt;%
+  mutate(min_rating = min(rating), max_rating = max(rating))</code></pre>
+<pre><code>## # A tibble: 100,004 x 9
+##    movieId title     year genres   userId rating timestamp min_rating max_rating
+##      &lt;int&gt; &lt;chr&gt;    &lt;int&gt; &lt;fct&gt;     &lt;int&gt;  &lt;dbl&gt;     &lt;int&gt;      &lt;dbl&gt;      &lt;dbl&gt;
+##  1      31 Dangero…  1995 Drama         1    2.5    1.26e9        0.5          5
+##  2    1029 Dumbo     1941 Animati…      1    3      1.26e9        0.5          5
+##  3    1061 Sleepers  1996 Thriller      1    3      1.26e9        0.5          5
+##  4    1129 Escape …  1981 Action|…      1    2      1.26e9        0.5          5
+##  5    1172 Cinema …  1989 Drama         1    4      1.26e9        0.5          5
+##  6    1263 Deer Hu…  1978 Drama|W…      1    2      1.26e9        0.5          5
+##  7    1287 Ben-Hur   1959 Action|…      1    2      1.26e9        0.5          5
+##  8    1293 Gandhi    1982 Drama         1    2      1.26e9        0.5          5
+##  9    1339 Dracula…  1992 Fantasy…      1    3.5    1.26e9        0.5          5
+## 10    1343 Cape Fe…  1991 Thriller      1    2      1.26e9        0.5          5
+## # … with 99,994 more rows</code></pre>
+<ul>
+<li>Using <code>group_by()</code> and <code>summarize()</code>, find the number of reviews per movie title, and arrange in order of descending number of reviews. Notice that we achieved the same result in the previous exercise using <code>tally()</code>.</li>
+</ul>
+<pre class="r"><code>movieLens %&gt;%
+    group_by(title) %&gt;%
+    summarise(n_reviews = &quot;n()&quot;) %&gt;%
+    arrange(n_reviews)</code></pre>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 8,832 x 2
+##    title                            n_reviews
+##    &lt;chr&gt;                            &lt;chr&gt;    
+##  1 ¡Three Amigos!                   n()      
+##  2 ...And God Spoke                 n()      
+##  3 ...And Justice for All           n()      
+##  4 &#39;burbs, The                      n()      
+##  5 &#39;Hellboy&#39;: The Seeds of Creation n()      
+##  6 &#39;Neath the Arizona Skies         n()      
+##  7 &#39;night Mother                    n()      
+##  8 &#39;Round Midnight                  n()      
+##  9 &#39;Salem&#39;s Lot                     n()      
+## 10 &#39;Til There Was You               n()      
+## # … with 8,822 more rows</code></pre>
+</div>
+<div id="exercise-8" class="section level3">
+<h3>Exercise 8</h3>
+<p><code>across()</code> is a new dplyr function (<code>dplyr</code> 1.0.0) that allows you to apply a transformation to multiple variables selected with the <code>select()</code> and <code>rename()</code> syntax. For this section, we will use the <code>starwars</code> dataset, which is built into R. First, let’s transform it into a tibble and store it under the variable <code>starWars</code>.</p>
+<pre class="r"><code>starWars &lt;- as_tibble(starwars)</code></pre>
+<ul>
+<li>Find the mean for all columns that are numeric.</li>
+</ul>
+<pre class="r"><code>starWars %&gt;%
+  drop_na() %&gt;%
+  summarise(across(where(num), mean))</code></pre>
+<pre><code>## Error: Problem with `summarise()` input `..1`.
+## x object &#39;num&#39; not found
+## ℹ Input `..1` is `across(where(num), mean)`.</code></pre>
+<ul>
+<li>Find the minimum height and weight within each species.</li>
+</ul>
+<pre class="r"><code>### ERROR HERE ###
+starWars %&gt;%
+  group_by(species) %&gt;%
+  summarise(across(&quot;height&quot;, &quot;weight&quot;, min)) %&gt;%
+  drop_na()</code></pre>
+<pre><code>## Error: Problem with `summarise()` input `..1`.
+## x Problem with `across()` input `.fns`.
+## ℹ Input `.fns` must be NULL, a function, a formula, or a list of functions/formulas.
+## ℹ Input `..1` is `across(&quot;height&quot;, &quot;weight&quot;, min)`.
+## ℹ The error occurred in group 1: species = &quot;Aleena&quot;.</code></pre>
+<ul>
+<li>Find the number of distinct names and homeworlds by each species.</li>
+</ul>
+<pre class="r"><code>### ERROR HERE ###
+starWars %&gt;%
+  species %&gt;%
+  filter(n() &gt; 0) %&gt;%
+  summarise(across(c(name, homeworld), n_distinct))</code></pre>
+<pre><code>## Error in species(.): could not find function &quot;species&quot;</code></pre>
+</div>
+<div id="exercise-9" class="section level3">
+<h3>Exercise 9</h3>
+<p>The <code>singer</code> package was created by Joey Bernhardt, and it contains 3 datasets that are excerpts from the Million Songs Dataset. The <code>songs</code> and the <code>locations</code> package will be used here. These two datasets have the columns <code>artist_name</code> and <code>title</code> in common.</p>
+<ul>
+<li>The R <code>merge()</code> function automatically joins the frames by common variable names. Merge <code>songs</code> and <code>locations</code> using one of the join family of functions (<code>inner_join()</code>, <code>outer_join()</code>, <code>right_join()</code>, etc…), without specifying the key variable.</li>
+</ul>
+<pre class="r"><code>### ERROR HERE ###
+anti_join(songs, locations)</code></pre>
+<pre><code>## Joining, by = c(&quot;title&quot;, &quot;artist_name&quot;)</code></pre>
+<pre><code>## # A tibble: 9 x 3
+##   title                            artist_name      year
+##   &lt;chr&gt;                            &lt;chr&gt;           &lt;int&gt;
+## 1 Corduroy                         Pearl Jam        1994
+## 2 Martin_ Doom! It&#39;s Seven O&#39;Clock The Boo Radleys  1995
+## 3 Leaves And Sand                  The Boo Radleys  1993
+## 4 Comb Your Hair                   The Boo Radleys  1998
+## 5 Mine Again                       Mariah Carey     2005
+## 6 Don&#39;t Forget About Us            Mariah Carey     2005
+## 7 Babydoll                         Mariah Carey     1997
+## 8 Don&#39;t Forget About Us            Mariah Carey     2005
+## 9 Vision Of Love                   Mariah Carey     1990</code></pre>
+<ul>
+<li>Join <code>songs</code> and <code>locations</code> in a way that drops all observations from <code>songs</code> that <em>do not</em> have a match in <code>locations</code>.</li>
+</ul>
+<pre class="r"><code>### ERROR HERE ###
+inner_join(songs, locations)</code></pre>
+<pre><code>## Joining, by = c(&quot;title&quot;, &quot;artist_name&quot;)</code></pre>
+<pre><code>## # A tibble: 13 x 5
+##    title                      artist_name    year city       release            
+##    &lt;chr&gt;                      &lt;chr&gt;         &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;              
+##  1 &quot;Grievance&quot;                Pearl Jam      2000 Seattle, … Binaural           
+##  2 &quot;Stupidmop&quot;                Pearl Jam      1994 Seattle, … Vitalogy           
+##  3 &quot;Present Tense&quot;            Pearl Jam      1996 Seattle, … No Code            
+##  4 &quot;MFC&quot;                      Pearl Jam      1998 Seattle, … Live On Two Legs   
+##  5 &quot;Lukin&quot;                    Pearl Jam      1996 Seattle, … Seattle Washington…
+##  6 &quot;It&#39;s Lulu&quot;                The Boo Radl…  1995 Liverpool… Best Of            
+##  7 &quot;Sparrow&quot;                  The Boo Radl…  1992 Liverpool… Everything&#39;s Alrig…
+##  8 &quot;High as Monkeys&quot;          The Boo Radl…  1998 Liverpool… Kingsize           
+##  9 &quot;Butterfly McQueen&quot;        The Boo Radl…  1993 Liverpool… Giant Steps        
+## 10 &quot;My One and Only Love&quot;     Carly Simon    2005 New York,… Moonlight Serenade 
+## 11 &quot;It Was So Easy  (LP Vers… Carly Simon    1972 New York,… No Secrets         
+## 12 &quot;I&#39;ve Got A Crush On You&quot;  Carly Simon    1994 New York,… Clouds In My Coffe…
+## 13 &quot;Manha De Carnaval (Theme… Carly Simon    2007 New York,… Into White</code></pre>
+<ul>
+<li>Combine <code>locations</code> and <code>songs</code> to find only the entries that correspond to song titles in the <code>locations</code> dataset.</li>
+</ul>
+<pre class="r"><code>### ERROR HERE ###
+left_join(songs, locations)</code></pre>
+<pre><code>## Joining, by = c(&quot;title&quot;, &quot;artist_name&quot;)</code></pre>
+<pre><code>## # A tibble: 22 x 5
+##    title                 artist_name    year city         release               
+##    &lt;chr&gt;                 &lt;chr&gt;         &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;                 
+##  1 Corduroy              Pearl Jam      1994 &lt;NA&gt;         &lt;NA&gt;                  
+##  2 Grievance             Pearl Jam      2000 Seattle, WA  Binaural              
+##  3 Stupidmop             Pearl Jam      1994 Seattle, WA  Vitalogy              
+##  4 Present Tense         Pearl Jam      1996 Seattle, WA  No Code               
+##  5 MFC                   Pearl Jam      1998 Seattle, WA  Live On Two Legs      
+##  6 Lukin                 Pearl Jam      1996 Seattle, WA  Seattle Washington No…
+##  7 It&#39;s Lulu             The Boo Radl…  1995 Liverpool, … Best Of               
+##  8 Sparrow               The Boo Radl…  1992 Liverpool, … Everything&#39;s Alright …
+##  9 Martin_ Doom! It&#39;s S… The Boo Radl…  1995 &lt;NA&gt;         &lt;NA&gt;                  
+## 10 Leaves And Sand       The Boo Radl…  1993 &lt;NA&gt;         &lt;NA&gt;                  
+## # … with 12 more rows</code></pre>
+<ul>
+<li>Merge <code>songs</code> and <code>locations</code> so that <em>all information</em> from both datasets is combined.</li>
+</ul>
+<pre class="r"><code>### ERROR HERE ###
+semi_join(songs, locations)</code></pre>
+<pre><code>## Joining, by = c(&quot;title&quot;, &quot;artist_name&quot;)</code></pre>
+<pre><code>## # A tibble: 13 x 3
+##    title                                              artist_name      year
+##    &lt;chr&gt;                                              &lt;chr&gt;           &lt;int&gt;
+##  1 &quot;Grievance&quot;                                        Pearl Jam        2000
+##  2 &quot;Stupidmop&quot;                                        Pearl Jam        1994
+##  3 &quot;Present Tense&quot;                                    Pearl Jam        1996
+##  4 &quot;MFC&quot;                                              Pearl Jam        1998
+##  5 &quot;Lukin&quot;                                            Pearl Jam        1996
+##  6 &quot;It&#39;s Lulu&quot;                                        The Boo Radleys  1995
+##  7 &quot;Sparrow&quot;                                          The Boo Radleys  1992
+##  8 &quot;High as Monkeys&quot;                                  The Boo Radleys  1998
+##  9 &quot;Butterfly McQueen&quot;                                The Boo Radleys  1993
+## 10 &quot;My One and Only Love&quot;                             Carly Simon      2005
+## 11 &quot;It Was So Easy  (LP Version)&quot;                     Carly Simon      1972
+## 12 &quot;I&#39;ve Got A Crush On You&quot;                          Carly Simon      1994
+## 13 &quot;Manha De Carnaval (Theme from \&quot;Black Orpheus\&quot;)&quot; Carly Simon      2007</code></pre>
+</div>
+<div id="exercise-10" class="section level3">
+<h3>Exercise 10</h3>
+<p>Time for reviewing… and tibbles!</p>
+<ul>
+<li><p>Create a tibble with 4 columns, <code>birth_year</code>, <code>name</code>, <code>birth_weight</code>, and <code>birth_location</code>. <code>birth_year</code> should contain years 1998 to 2005 (inclusive), <code>name</code> should contain the first 8 names in the <code>starWars</code> dataset <code>name</code> column, and <code>birth_weight</code> should take the <code>year</code> column, subtract 1995, and multiply by 0.45. <code>birth_location</code> should contain 8 randomly sampled locations in the <code>locations</code> dataset <code>city</code> column.</p></li>
+<li><p>This tibble should be stored in the variable <code>fakeStarWars</code>.</p></li>
+</ul>
+<pre class="r"><code>fakeStarWars &lt;-
+tibble(birth_year == &quot;1998:2005&quot;,
+       name == starWars$name[,1:8],
+       birth_weight == (birth_year - 1995) * 0.45,
+       birth_location == sample(locations$city, size = 8))</code></pre>
+<pre><code>## Error in eval_tidy(xs[[j]], mask): object &#39;birth_year&#39; not found</code></pre>
+<p>Let’s look at this new tibble.</p>
+<pre class="r"><code>fakeStarWars</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;fakeStarWars&#39; not found</code></pre>
+<ul>
+<li>Without assigning it to any variables, define the same tibble row-by-row with <code>tribble()</code>, with the columns in the following order: <code>name</code>, <code>birth_weight</code>, <code>birth_year</code>, <code>birth_location</code>.</li>
+</ul>
+<pre class="r"><code>### ERROR HERE ###
+tribble(
+  ~name,            ~birth_year,  ~birth_weight, ~location
+  &quot;Luke Skywalker&quot;,  1.35      ,   1998        ,  Liverpool, England,
+  &quot;C-3PO&quot;         ,  1.80      ,   1999        ,  Liverpool, England,
+  &quot;R2-D2&quot;         ,  2.25      ,   2000        ,  Seattle, WA,
+  &quot;Darth Vader&quot;   ,  2,70      ,   2001        ,  Liverpool, England,
+  &quot;Leia Organa&quot;   ,  3.15      ,   2002        ,  New York, NY,
+  &quot;Owen Lars&quot;     ,  3.60      ,   2003        ,  Seattle, WA,
+  &quot;Beru Whitesun Iars&quot;, 4.05   ,   2004        ,  Liverpool, England,
+  &quot;R5-D4&quot;         ,  4.50      ,   2005        ,  New York, NY
+)</code></pre>
+<pre><code>## Error: &lt;text&gt;:4:3: unexpected string constant
+## 3:   ~name,            ~birth_year,  ~birth_weight, ~location
+## 4:   &quot;Luke Skywalker&quot;
+##      ^</code></pre>
+<p>Now, for the grand finale!</p>
+<pre class="r"><code>gapminder_almost &lt;- gapminder %&gt;% filter(continent == &quot;Europe&quot;) %&gt;% distinct(year, .keep_all = TRUE)</code></pre>
+<pre><code>## Error in eval(lhs, parent, parent): object &#39;gapminder&#39; not found</code></pre>
+<ul>
+<li>Rearrange variables from the <code>fakeStarWars</code> dataset to be in the following order: <code>name</code>, <code>birth_year</code>, <code>birth_weight</code>, <code>birth_location</code>.</li>
+<li>Rename <code>birth_year</code> to <code>year</code>.</li>
+<li>Combine <code>fakeStarWars</code> to <code>gapminder_almost</code> by <code>year</code>, so that only those entries with a year that is present in <code>fakeStarWars</code> are merged.</li>
+<li>Drop variables <code>country</code>, <code>continent</code>, <code>pop</code>, and <code>gdpPercap</code>.</li>
+<li>Add a column that summarizes the number of times that <code>birth_location</code> entries are repeated, and name it “n_location”.</li>
+<li>Filter out locations repeated under 4 times.</li>
+<li>Arrange by descending birth weight.</li>
+<li>Drop any rows with NA values in any variable.</li>
+<li>Join with the <code>starwars</code> dataset so that only those rows that are <em>present in <code>fakeStarWars</code></em> are combined.</li>
+<li>Calculate BMI (body mass index) by dividing weight (<code>mass</code>) by squared <code>height</code> <em>in meters</em>. Store it in a column with the name <code>bmi</code>.</li>
+</ul>
+<pre class="r"><code>### ERROR HERE ###
+fakeStarWars %&gt;%
+  select(name, starts_with(birth)) %&gt;%
+  rename(year == birth_year) %&gt;%
+  left_join(gapminder_almost, by = &quot;year&quot;) %&gt;%
+  select(-c(country, continent, pop:gdpPercap)) %&gt;%
+  add_count(birth_location, name = &quot;n_location&quot;) %&gt;%
+  filter(!n_location &gt; 4) %&gt;%
+  arrange(desc(birth_weight)) %&gt;%
+  drop_na() %&gt;%
+  inner_join(&quot;starwars&quot;) %&gt;%
+  mutate(bmi = mass / height / 100 ^ 2)</code></pre>
+<pre><code>## Error in eval(lhs, parent, parent): object &#39;fakeStarWars&#39; not found</code></pre>
+</div>
+</div>
