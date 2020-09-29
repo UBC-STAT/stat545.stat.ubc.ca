@@ -61,6 +61,19 @@ Use this page to navigate your way through STAT 545.
 
 -------
 
+## Lecture Demonstrations
+
+Worksheets demonstrated in lecture will appear here.
+
+| Lecture | Worksheet | View |
+|---------|-----------|------|
+| 7-A: dplyr Part II | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demostrations/demo7a-dplyr-part2.Rmd) | [Knitted worksheet](/demonstrations/demo7a-dplyr-part2) |
+
+
+-------
+
+-------
+
 
 ## Collaborative Project (STAT 545A)
 
