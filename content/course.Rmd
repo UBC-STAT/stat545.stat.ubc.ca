@@ -67,7 +67,7 @@ Worksheets demonstrated in lecture will appear here.
 
 | Lecture | Worksheet | View |
 |---------|-----------|------|
-| 7-A: dplyr Part II | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demostrations/demo7a-dplyr-part2.Rmd) | [Knitted worksheet](/demonstrations/demo7a-dplyr-part2) |
+| 7-A: dplyr Part II | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo7a-dplyr-part2.Rmd) | [Knitted worksheet](/demonstrations/demo7a-dplyr-part2) |
 
 
 -------
