@@ -5,6 +5,8 @@ date: "22/09/2020"
 output: html_document
 ---
 
+**To complete this milestone, follow these instructions and edit this `.rmd` file directly.**
+
 # Welcome back to your mini data analysis project!
 
 This time, we will explore more in depth the concept of *tidy data*, and hopefully investigate further into your research questions that you defined in milestone one.
@@ -24,22 +26,24 @@ By the end of this milestone, you should:
 + Understand what *tidy* data is, when it is useful, and how to create it
 + Generate a reproducible and clear report using R Markdown
 
-# Task 1: Process and summarize your data (20 points)
+# Task 1: Process and summarize your data (17.5 points)
 
 **Things to keep in mind**
 
-+ Remember to document your code, be explicit about what you are doing, and write notes in this markdown document when you feel that context is required. Create your analysis as if someone else will be reading it! 
++ Remember to document your code, be explicit about what you are doing, and write notes in this markdown document when you feel that context is required. Create your analysis as if someone else will be reading it! There will be 2.5 points reserved for reproducibility, readability, and repo organization.
 
 + Before working on each task, you should always keep in mind the specific **research question** that you're trying to answer.
 
 From milestone 1, you should have an idea of the basic structure of your dataset (e.g. number of rows and columns, class types, etc.). Here, we will start investigating your data more in-depth using various `dplyr` functions. 
 
-1.1 First, write out the 4 research questions you defined in milestone 1 were. This will guide your work through milestone 2:
+1.1 (2.5 points) First, write out the 4 research questions you defined in milestone 1 were. This will guide your work through milestone 2:
 
+<!------------------------------- EDIT BELOW ---------------------------------->
 1. *FILL_THIS_IN*
 2. *FILL_THIS_IN*
 3. *FILL_THIS_IN*
 4. *FILL_THIS_IN*
+<!----------------------------------------------------------------------------->
 
 1.2 (10 points) Now, for each research question, choose one task from options 1-4 (summarizing), and one other task from 4-8 (graphing). You should have 2 tasks done for each research question. **They can be the same tasks or not!** As long as it makes sense to do them. Comment on why each task helps answer the corresponding research question. 
 
@@ -59,12 +63,17 @@ Ensure that the output of each operation is printed!
 
 You should have one operation for each of your 4 research questions!
 
-<!-- Start your work below -->
+<!------------------------- Start your work below ----------------------------->
 
 
-<!-- End of your work -->
+<!----------------------------------------------------------------------------->
 
 1.3 (5 points) Based on the operations that you've completed, how much closer are you to answering your research questions? Think about what aspects of your research questions remain unclear. Can your research questions be refined, now that you've investigated your data a bit more? 
+
+<!------------------------- Write your answer here ---------------------------->
+
+
+<!----------------------------------------------------------------------------->
 
 # Task 2: Tidy your data (15 points)
 
@@ -80,23 +89,23 @@ A reminder of the definition of *tidy* data:
 
 2.1 (5 points) Based on the definition above, can you identify if your data is tidy or untidy? Go through all your columns, or if you have >8 variables, just pick 8, and explain whether the data is untidy or tidy.
 
-<!-- Start your work below -->
+<!--------------------------- Start your work below --------------------------->
 
 
-<!-- End of your work -->
+<!----------------------------------------------------------------------------->
 
 2.2 (5 points) Now, if your data is tidy, untidy it! If it's untidy, then tidy it! Be sure to explain your reasoning for this task. Show us the "before" and "after".
 
-<!-- Start your work below -->
+<!--------------------------- Start your work below --------------------------->
 
 
-<!-- End of your work -->
+<!----------------------------------------------------------------------------->
 
 2.3 (5 points) Now, you should be more familiar with your data, and also have made progress in answering your research questions. Pick 2 of the 4 research questions to continue your analysis in milestone 3, and explain your decision. 
 
 Based on the exercises you have done in milestone 1 and 2, create a version of your data (i.e. by filtering, cleaning, tidy'ing, etc.) that you think will be appropriate to answer these 2 questions in milestone 3. Save this tibble as an `.RDS` object with the function `saveRDS()`. 
 
-<!-- Start your work below -->
+<!--------------------------- Start your work below --------------------------->
 
 
-<!-- End of your work -->
+<!----------------------------------------------------------------------------->
