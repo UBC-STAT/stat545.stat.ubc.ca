@@ -2,10 +2,10 @@
 title: "mini-project-2"
 author: "Victor Yuan"
 date: "22/09/2020"
-output: html_document
+output: github_document
 ---
 
-**To complete this milestone, follow these instructions and edit this `.rmd` file directly.**
+**To complete this milestone, follow these instructions and edit this `.rmd` file directly. When you are done, make sure to knit before submitting a tagged release on canvas.**
 
 # Welcome back to your mini data analysis project!
 
