@@ -16,7 +16,7 @@ install.packages("devtools")
 devtools::install_github("UBC-MDS/datateachr")
 ```
 
-2. Load the package below. While we are at it, let's load the tidyverse too.
+2. Load the packages below.
 
 ```{r}
 library(datateachr)
