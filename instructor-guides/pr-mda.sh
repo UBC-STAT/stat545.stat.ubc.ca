@@ -9,7 +9,7 @@ PROGRAM=$(basename $0)
 function get_help() {
 	echo "DESCRIPTION:" 1>&2
 	echo -e " \
-		\tAdds specified file to each collaborative directory. If the directory does not exist, it will be cloned from GitHub using SSH. Requires a pre-configured GitHub CLI 'gh' command.\n \
+		\tAdds specified file to each MDA directory. If the directory does not exist, it will be cloned from GitHub using SSH. Requires a pre-configured GitHub CLI 'gh' command.\n \
 		\tFor more information: https://cli.github.com/manual/\n \
 		" | column -s $'\t' -t 1>&2
 	echo 1>&2
@@ -96,32 +96,32 @@ then
 	exit 2
 fi
 
-mkdir -p collaborative-repos
-cd collaborative-repos
+mkdir -p mda-repos
+cd mda-repos
 
-# names of all 33 repositories (oxygen and scandium are empty and excluded!)
-repos=( "collaborative-aluminum" "collaborative-argon" "collaborative-arsenic" "collaborative-boron" "collaborative-bromine" "collaborative-calcium" "collaborative-chlorine" "collaborative-chromium" "collaborative-cobalt" "collaborative-copper" "collaborative-fluorine" "collaborative-gallium" "collaborative-germanium" "collaborative-helium" "collaborative-hydrogen" "collaborative-iron" "collaborative-krypton" "collaborative-lithium" "collaborative-magnesium" "collaborative-manganese" "collaborative-neon" "collaborative-nickel" "collaborative-nitrogen" "collaborative-phosphorus" "collaborative-potassium" "collaborative-rubidium" "collaborative-selenium" "collaborative-silicon" "collaborative-na" "collaborative-sulfur" "collaborative-titanium" "collaborative-vanadium" "collaborative-zinc" )
+# name of 41 MDA repos Oct 1 10:05 AM, sorted
+# repos=( "stat-545a-mini-data-analysis-Ella-Q" "stat-545a-mini-data-analysis-GiankDiluvi" "stat-545a-mini-data-analysis-Hazel233" "stat-545a-mini-data-analysis-Khushbu108" "stat-545a-mini-data-analysis-Leosuziqi" "stat-545a-mini-data-analysis-MinaHassanaghaei" "stat-545a-mini-data-analysis-OliviaJL" "stat-545a-mini-data-analysis-Seren1127" "stat-545a-mini-data-analysis-Tomiyosi-Bola" "stat-545a-mini-data-analysis-Yifan-Yin" "stat-545a-mini-data-analysis-abhinabkadel" "stat-545a-mini-data-analysis-ahushirley" "stat-545a-mini-data-analysis-andytai7" "stat-545a-mini-data-analysis-asfarlathif" "stat-545a-mini-data-analysis-ayshaab" "stat-545a-mini-data-analysis-berudri" "stat-545a-mini-data-analysis-ciarastevenson" "stat-545a-mini-data-analysis-cmrn-rhi" "stat-545a-mini-data-analysis-ddtam" "stat-545a-mini-data-analysis-donaldka" "stat-545a-mini-data-analysis-emma-wang29" "stat-545a-mini-data-analysis-epletcher" "stat-545a-mini-data-analysis-georgewangyu" "stat-545a-mini-data-analysis-gsgarbi" "stat-545a-mini-data-analysis-hantonita" "stat-545a-mini-data-analysis-hsiqsiq" "stat-545a-mini-data-analysis-janetxinli" "stat-545a-mini-data-analysis-liamg15" "stat-545a-mini-data-analysis-liawesome" "stat-545a-mini-data-analysis-lzlzlizi" "stat-545a-mini-data-analysis-ma5ki4" "stat-545a-mini-data-analysis-mackinnr" "stat-545a-mini-data-analysis-sachijay" "stat-545a-mini-data-analysis-salomebu" "stat-545a-mini-data-analysis-sfoucaul" "stat-545a-mini-data-analysis-tianyica" "stat-545a-mini-data-analysis-ymyuan98" "stat-545a-mini-data-analysis-zhaoshengEE" "stat-545a-mini-data-analysis-zhemingfan" "stat-545a-mini-data-analysis-zhuzp98" )
 
 # test repos
-# repos=( "collaborative-oxygen" "collaborative-scandium" )
+repos=( "template-mini-analysis" )
 
 # base cloning URL- uses ssh
 base_url="git@github.com:stat545ubc-2020"
 
 # iterate through each repo
-for element in "${repos[@]}"
+for student in "${repos[@]}"
 do
 	# if the repository hasn't been cloned, clone it
-	if [[ ! -d "$element" ]]
+	if [[ ! -d "$student" ]]
 	then
 		exist=false
-		git clone ${base_url}/${element}.git
+		git clone ${base_url}/${student}.git
 	else
 		exist=true
 	fi
 	
 	# change directory to the git repository
-	cd ${element}
+	cd ${student}
 
 	if [[ "$exist" == true ]]
 	then
@@ -131,10 +131,10 @@ do
 	fi
 
 	# make a new branch and switch to that branch
-	# if it exists, switch-- if it doesn't, then create and switch
-	if [[ "$(git branch -a | grep -cw "$branch")" -eq 0 ]]
+	# if it exists, just switch, if it doesn't, create it
+	if [[ $(git branch -a | grep -cw "$branch") -eq 0 ]]
 	then
-		git checkout -b  "$branch"
+		git checkout -b "$branch"
 	else
 		git checkout "$branch"
 	fi
