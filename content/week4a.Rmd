@@ -65,6 +65,10 @@ From today's class, students are anticipated to be able to:
 + Compute new columns using `mutate()`
 + Use `dplyr::across()` to use functions with specific columns
 
+| Lecture | Worksheet | View |
+|---------|-----------|------|
+| 6-A: dplyr Part II | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo6a-dplyr-part2.Rmd) | [Knitted worksheet](/demonstrations/demo6a-dplyr-part2) |
+
 #### Prepare for Class
 
 - Watch the [STAT 545 Video Series: Episode 6-A](https://youtu.be/38BA_v7BwKk)
@@ -87,7 +91,9 @@ Some useful (but not mandatory) readings are:
 + 10:00 - 10:05: Break.
 + 10:05 - 10:45: Lecture worksheet.
 
-**Complete the Class 6-A Quiz on Canvas by Wednesday, September 30th at 11:00am PST.**
+**Complete the Class 7-A Quiz on Canvas by Wednesday, September 30th at 11:00am PST.**
+
+
 
 -----
 
@@ -106,6 +112,7 @@ From today's class, students are anticipated to be able to:
 + Become familiar with customizing `ggplot2` graphs 
 + Choose an appropriate plot type for Exploratory Data Analysis
 + Understand what makes data visualizations *effective*
+
 
 #### Prepare for Class
 
@@ -129,6 +136,11 @@ Some useful (but not mandatory) readings related to today are:
 + 10:05 - 10:45: Lecture worksheet.
 
 **Complete the Class 7-A Quiz on Canvas by Friday, October 2nd at 11:00am PST.**
+
+| Lecture | Worksheet | View |
+|---------|-----------|------|
+| 7-A: ggplot2 Part II | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo7a-ggplot2-part2.Rmd) | Knitted worksheet |
+
 
 #### Deeper Dive
 
