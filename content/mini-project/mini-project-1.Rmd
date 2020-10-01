@@ -16,7 +16,7 @@ install.packages("devtools")
 devtools::install_github("UBC-MDS/datateachr")
 ```
 
-2. Load the package below. While we are at it, let's load the tidyverse too.
+2. Load the packages below.
 
 ```{r}
 library(datateachr)
@@ -25,7 +25,7 @@ library(tidyverse)
 
 # Instructions
 
-The instructions and grading scheme for Milestone 1 can be found in detail [here](). Briefly,
+More details regarding the instructions and points allocated to each task can be found below. Briefly,
 
 + Each milestone is worth 30 points. The number of points allocated to each task will be annotated within each deliverable. Tasks that are more challenging will often be allocated more points.
 
@@ -91,7 +91,7 @@ steam_games
 
 Read Tasks 2 and 3 *fully* before starting to complete either of them. Probably also a good point to grab a coffee to get ready for the fun part!
 
-This project is semi-guided, but meant to be *independent*. For this reason, you will complete tasks 2 and 3 below (under the **START HERE** mark) as if you were writing your own exploratory data analysis report, and this guidance never existed! Feel free to add a brief introduction section to your project, format the document with markdown syntax as you deem appropriate, and structure the analysis as you deem appropriate. Remember, marks will be awarded for completion of the 4 tasks, but 10 points of the whole project are allocated to a reproducible and clean analysis. If you feel lost, you can find an example [here](link example).
+This project is semi-guided, but meant to be *independent*. For this reason, you will complete tasks 2 and 3 below (under the **START HERE** mark) as if you were writing your own exploratory data analysis report, and this guidance never existed! Feel free to add a brief introduction section to your project, format the document with markdown syntax as you deem appropriate, and structure the analysis as you deem appropriate. Remember, marks will be awarded for completion of the 4 tasks, but 10 points of the whole project are allocated to a reproducible and clean analysis. If you feel lost, you can find a sample data analysis [here](https://www.kaggle.com/headsortails/tidy-titarnic) to have a better idea. However, bear in mind that it is **just an example** and you will not be required to have that level of complexity in your project.
 
 # Task 2: Exploring your dataset (15 points)
 
