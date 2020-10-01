@@ -16,7 +16,7 @@ function get_help() {
 
 	echo "USAGE(S):" 1>&2
 	echo -e " \
-		\t$PROGRAM -b <BRANCH NAME> -d <DESTINATION DIRECTORY> -t <PULL REQUEST TITLE> -m <PULL REQUEST MESSAGE> <FILE(S) TO ADD>\n \
+		\t$PROGRAM [-f] -b <BRANCH NAME> -d <DESTINATION DIRECTORY> -t <PULL REQUEST TITLE> -m <PULL REQUEST MESSAGE> <FILE(S) TO ADD>\n \
 		" | column -s $'\t' -t 1>&2
 	echo 1>&2
 
@@ -24,6 +24,7 @@ function get_help() {
 	echo -e " \
 		\t-b <NAME>\tbranch name\t(required)\n \
 		\t-d <DIR>\tdestination directory\t(default = root of repo)\n \
+		\t-f\tforce: run on the student repositories instead of the default template\n \
 		\t-h\tshow this help menu\n \
 		\t-m <MESSAGE>\tpull request message (must be in quotes!)\t(required)\n \
 		\t-t <TITLE>\tpull request title (must be in quotes!)\t(required)\n \
@@ -32,7 +33,7 @@ function get_help() {
 
 	echo "EXAMPLE:" 1>&2
 	echo -e " \
-		\t$PROGRAM -b milestone3_setup -d milestone3 -t \"Troubleshooting 3\" -m \"Adding Troubleshooting Document 3 for Milestone 3. Don't forget to read the instructions in the README! Feel free to delete this branch after merging.\" ~/stat-545-instructor/collaborative-project/milestone3/TB3.Rmd ~/stat-545-instructor/collaborative-project/milestone3/README.md\n \
+		\t$PROGRAM -f -b milestone3_setup -d milestone3 -t \"Troubleshooting 3\" -m \"Adding Troubleshooting Document 3 for Milestone 3. Don't forget to read the instructions in the README! Feel free to delete this branch after merging.\" ~/stat-545-instructor/collaborative-project/milestone3/TB3.Rmd ~/stat-545-instructor/collaborative-project/milestone3/README.md\n \
 		" | column -s $'\t' -t 1>&2
 	exit 1
 }
@@ -47,10 +48,12 @@ branch=""
 title=""
 dir="."
 message=""
-while getopts :hb:m:d:t: opt
+force=false
+while getopts :hb:m:d:t:f opt
 do
 	case $opt in 
 		b) branch="$OPTARG";;
+		f) force=true;;
 		h) get_help;;
 		m) message="$OPTARG";;
 		d) dir="$OPTARG";;
@@ -99,12 +102,14 @@ fi
 mkdir -p collaborative-repos
 cd collaborative-repos
 
-# names of all 33 repositories (oxygen and scandium are empty and excluded!)
-repos=( "collaborative-aluminum" "collaborative-argon" "collaborative-arsenic" "collaborative-boron" "collaborative-bromine" "collaborative-calcium" "collaborative-chlorine" "collaborative-chromium" "collaborative-cobalt" "collaborative-copper" "collaborative-fluorine" "collaborative-gallium" "collaborative-germanium" "collaborative-helium" "collaborative-hydrogen" "collaborative-iron" "collaborative-krypton" "collaborative-lithium" "collaborative-magnesium" "collaborative-manganese" "collaborative-neon" "collaborative-nickel" "collaborative-nitrogen" "collaborative-phosphorus" "collaborative-potassium" "collaborative-rubidium" "collaborative-selenium" "collaborative-silicon" "collaborative-na" "collaborative-sulfur" "collaborative-titanium" "collaborative-vanadium" "collaborative-zinc" )
-
-# test repos
-# repos=( "collaborative-oxygen" "collaborative-scandium" )
-
+if [[ "$force" == true ]]
+then
+	# names of all 33 repositories (oxygen and scandium are empty and excluded!)
+	repos=( "collaborative-aluminum" "collaborative-argon" "collaborative-arsenic" "collaborative-boron" "collaborative-bromine" "collaborative-calcium" "collaborative-chlorine" "collaborative-chromium" "collaborative-cobalt" "collaborative-copper" "collaborative-fluorine" "collaborative-gallium" "collaborative-germanium" "collaborative-helium" "collaborative-hydrogen" "collaborative-iron" "collaborative-krypton" "collaborative-lithium" "collaborative-magnesium" "collaborative-manganese" "collaborative-neon" "collaborative-nickel" "collaborative-nitrogen" "collaborative-phosphorus" "collaborative-potassium" "collaborative-rubidium" "collaborative-selenium" "collaborative-silicon" "collaborative-na" "collaborative-sulfur" "collaborative-titanium" "collaborative-vanadium" "collaborative-zinc" )
+else
+	# test repos
+	repos=( "collaborative-oxygen" "collaborative-scandium" )
+fi
 # base cloning URL- uses ssh
 base_url="git@github.com:stat545ubc-2020"
 

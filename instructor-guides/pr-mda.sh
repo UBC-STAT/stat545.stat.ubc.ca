@@ -16,13 +16,14 @@ function get_help() {
 
 	echo "USAGE(S):" 1>&2
 	echo -e " \
-		\t$PROGRAM -b <BRANCH NAME> -d <DESTINATION DIRECTORY> -t <PULL REQUEST TITLE> -m <PULL REQUEST MESSAGE> <FILE(S) TO ADD>\n \
+		\t$PROGRAM [-f] -b <BRANCH NAME> -d <DESTINATION DIRECTORY> -t <PULL REQUEST TITLE> -m <PULL REQUEST MESSAGE> <FILE(S) TO ADD>\n \
 		" | column -s $'\t' -t 1>&2
 	echo 1>&2
 
 	echo "OPTION(S):" 1>&2
 	echo -e " \
 		\t-b <NAME>\tbranch name\t(required)\n \
+		\t-f\tforce: run on the student repositories instead of the default template\n \
 		\t-d <DIR>\tdestination directory\t(default = root of repo)\n \
 		\t-h\tshow this help menu\n \
 		\t-m <MESSAGE>\tpull request message (must be in quotes!)\t(required)\n \
@@ -32,7 +33,7 @@ function get_help() {
 
 	echo "EXAMPLE:" 1>&2
 	echo -e " \
-		\t$PROGRAM -b milestone3_setup -d milestone3 -t \"Troubleshooting 3\" -m \"Adding Troubleshooting Document 3 for Milestone 3. Don't forget to read the instructions in the README! Feel free to delete this branch after merging.\" ~/stat-545-instructor/collaborative-project/milestone3/TB3.Rmd ~/stat-545-instructor/collaborative-project/milestone3/README.md\n \
+		\t$PROGRAM -f -b milestone3_setup -d milestone3 -t \"Troubleshooting 3\" -m \"Adding Troubleshooting Document 3 for Milestone 3. Don't forget to read the instructions in the README! Feel free to delete this branch after merging.\" ~/stat-545-instructor/collaborative-project/milestone3/TB3.Rmd ~/stat-545-instructor/collaborative-project/milestone3/README.md\n \
 		" | column -s $'\t' -t 1>&2
 	exit 1
 }
@@ -47,10 +48,12 @@ branch=""
 title=""
 dir="."
 message=""
-while getopts :hb:m:d:t: opt
+force=false
+while getopts :hb:m:d:t:f opt
 do
 	case $opt in 
 		b) branch="$OPTARG";;
+		f) force=true;;
 		h) get_help;;
 		m) message="$OPTARG";;
 		d) dir="$OPTARG";;
@@ -99,11 +102,14 @@ fi
 mkdir -p mda-repos
 cd mda-repos
 
-# name of 41 MDA repos Oct 1 10:05 AM, sorted
-# repos=( "stat-545a-mini-data-analysis-Ella-Q" "stat-545a-mini-data-analysis-GiankDiluvi" "stat-545a-mini-data-analysis-Hazel233" "stat-545a-mini-data-analysis-Khushbu108" "stat-545a-mini-data-analysis-Leosuziqi" "stat-545a-mini-data-analysis-MinaHassanaghaei" "stat-545a-mini-data-analysis-OliviaJL" "stat-545a-mini-data-analysis-Seren1127" "stat-545a-mini-data-analysis-Tomiyosi-Bola" "stat-545a-mini-data-analysis-Yifan-Yin" "stat-545a-mini-data-analysis-abhinabkadel" "stat-545a-mini-data-analysis-ahushirley" "stat-545a-mini-data-analysis-andytai7" "stat-545a-mini-data-analysis-asfarlathif" "stat-545a-mini-data-analysis-ayshaab" "stat-545a-mini-data-analysis-berudri" "stat-545a-mini-data-analysis-ciarastevenson" "stat-545a-mini-data-analysis-cmrn-rhi" "stat-545a-mini-data-analysis-ddtam" "stat-545a-mini-data-analysis-donaldka" "stat-545a-mini-data-analysis-emma-wang29" "stat-545a-mini-data-analysis-epletcher" "stat-545a-mini-data-analysis-georgewangyu" "stat-545a-mini-data-analysis-gsgarbi" "stat-545a-mini-data-analysis-hantonita" "stat-545a-mini-data-analysis-hsiqsiq" "stat-545a-mini-data-analysis-janetxinli" "stat-545a-mini-data-analysis-liamg15" "stat-545a-mini-data-analysis-liawesome" "stat-545a-mini-data-analysis-lzlzlizi" "stat-545a-mini-data-analysis-ma5ki4" "stat-545a-mini-data-analysis-mackinnr" "stat-545a-mini-data-analysis-sachijay" "stat-545a-mini-data-analysis-salomebu" "stat-545a-mini-data-analysis-sfoucaul" "stat-545a-mini-data-analysis-tianyica" "stat-545a-mini-data-analysis-ymyuan98" "stat-545a-mini-data-analysis-zhaoshengEE" "stat-545a-mini-data-analysis-zhemingfan" "stat-545a-mini-data-analysis-zhuzp98" )
-
-# test repos
-repos=( "template-mini-analysis" )
+if [[ "$force" = true ]]
+then
+	# name of 41 MDA repos Oct 1 10:05 AM, sorted
+	repos=( "stat-545a-mini-data-analysis-Ella-Q" "stat-545a-mini-data-analysis-GiankDiluvi" "stat-545a-mini-data-analysis-Hazel233" "stat-545a-mini-data-analysis-Khushbu108" "stat-545a-mini-data-analysis-Leosuziqi" "stat-545a-mini-data-analysis-MinaHassanaghaei" "stat-545a-mini-data-analysis-OliviaJL" "stat-545a-mini-data-analysis-Seren1127" "stat-545a-mini-data-analysis-Tomiyosi-Bola" "stat-545a-mini-data-analysis-Yifan-Yin" "stat-545a-mini-data-analysis-abhinabkadel" "stat-545a-mini-data-analysis-ahushirley" "stat-545a-mini-data-analysis-andytai7" "stat-545a-mini-data-analysis-asfarlathif" "stat-545a-mini-data-analysis-ayshaab" "stat-545a-mini-data-analysis-berudri" "stat-545a-mini-data-analysis-ciarastevenson" "stat-545a-mini-data-analysis-cmrn-rhi" "stat-545a-mini-data-analysis-ddtam" "stat-545a-mini-data-analysis-donaldka" "stat-545a-mini-data-analysis-emma-wang29" "stat-545a-mini-data-analysis-epletcher" "stat-545a-mini-data-analysis-georgewangyu" "stat-545a-mini-data-analysis-gsgarbi" "stat-545a-mini-data-analysis-hantonita" "stat-545a-mini-data-analysis-hsiqsiq" "stat-545a-mini-data-analysis-janetxinli" "stat-545a-mini-data-analysis-liamg15" "stat-545a-mini-data-analysis-liawesome" "stat-545a-mini-data-analysis-lzlzlizi" "stat-545a-mini-data-analysis-ma5ki4" "stat-545a-mini-data-analysis-mackinnr" "stat-545a-mini-data-analysis-sachijay" "stat-545a-mini-data-analysis-salomebu" "stat-545a-mini-data-analysis-sfoucaul" "stat-545a-mini-data-analysis-tianyica" "stat-545a-mini-data-analysis-ymyuan98" "stat-545a-mini-data-analysis-zhaoshengEE" "stat-545a-mini-data-analysis-zhemingfan" "stat-545a-mini-data-analysis-zhuzp98" )
+else
+	# test repos
+	repos=( "template-mini-analysis" )
+fi
 
 # base cloning URL- uses ssh
 base_url="git@github.com:stat545ubc-2020"
