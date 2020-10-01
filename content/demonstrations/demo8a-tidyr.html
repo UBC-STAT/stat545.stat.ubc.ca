@@ -1,0 +1,34 @@
+---
+title: "Demonstration 8-A: tidyr for tidy data"
+output: html_document
+---
+
+
+
+<pre class="r"><code>library(tidyverse)
+library(gapminder)
+knitr::opts_chunk$set(error = TRUE)</code></pre>
+<div id="demo" class="section level3">
+<h3>Demo</h3>
+<p>Use <code>complete()</code> to fill in the implicit NA’s.</p>
+<pre class="r"><code>gapminder %&gt;% 
+  group_by(country) %&gt;% 
+  arrange(year) %&gt;% 
+  mutate(inc = lifeExp - lag(lifeExp)) %&gt;% 
+  filter(inc &lt; 0)</code></pre>
+<pre><code>## # A tibble: 102 x 7
+## # Groups:   country [52]
+##    country         continent  year lifeExp       pop gdpPercap     inc
+##    &lt;fct&gt;           &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+##  1 China           Asia       1962    44.5 665770000      488. -6.05  
+##  2 Cambodia        Asia       1972    40.3   7450606      422. -5.10  
+##  3 Czech Republic  Europe     1972    70.3   9862158    13108. -0.0900
+##  4 Netherlands     Europe     1972    73.8  13329874    18795. -0.0700
+##  5 Slovak Republic Europe     1972    70.4   4593433     9674. -0.63  
+##  6 Bulgaria        Europe     1977    70.8   8797022     7612. -0.09  
+##  7 Cambodia        Asia       1977    31.2   6978607      525. -9.10  
+##  8 El Salvador     Americas   1977    56.7   4282586     5139. -1.51  
+##  9 Poland          Europe     1977    70.7  34621254     9508. -0.180 
+## 10 Uganda          Africa     1977    50.4  11457758      844. -0.666 
+## # … with 92 more rows</code></pre>
+</div>
