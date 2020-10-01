@@ -1,4 +1,4 @@
-# Milestone 1 Checklist
+# Mini Data Analysis Milestone 1 Checklist (30 points)
 
 ## Using `datateachr` datasets
 
