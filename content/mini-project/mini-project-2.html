@@ -1,0 +1,92 @@
+---
+title: "mini-project-2"
+author: "Victor Yuan"
+date: "22/09/2020"
+output: html_document
+---
+
+
+
+<p><strong>To complete this milestone, follow these instructions and edit this <code>.rmd</code> file directly. When you are done, make sure to knit to an <code>.md</code> file by changing the YAML settings, before submitting a tagged release on canvas.</strong></p>
+<div id="welcome-back-to-your-mini-data-analysis-project" class="section level1">
+<h1>Welcome back to your mini data analysis project!</h1>
+<p>This time, we will explore more in depth the concept of <em>tidy data</em>, and hopefully investigate further into your research questions that you defined in milestone one.</p>
+<p>Begin by loading your data and the tidyverse package below:</p>
+<pre class="r"><code>library(datateachr) # &lt;- contains the data you picked!
+library(tidyverse)</code></pre>
+<pre><code>## -- Attaching packages -------------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## v ggplot2 3.3.2     v purrr   0.3.4
+## v tibble  3.0.3     v dplyr   1.0.2
+## v tidyr   1.1.2     v stringr 1.4.0
+## v readr   1.3.1     v forcats 0.5.0</code></pre>
+<pre><code>## -- Conflicts ----------------------- tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+</div>
+<div id="learning-objectives" class="section level1">
+<h1>Learning Objectives</h1>
+<p>By the end of this milestone, you should:</p>
+<ul>
+<li>Become familiar with manipulating and summarizing your data in tibbles using <code>dplyr</code></li>
+<li>Understand what <em>tidy</em> data is, when it is useful, and how to create it</li>
+<li>Generate a reproducible and clear report using R Markdown</li>
+</ul>
+</div>
+<div id="task-1-process-and-summarize-your-data-17.5-points" class="section level1">
+<h1>Task 1: Process and summarize your data (17.5 points)</h1>
+<p><strong>Things to keep in mind</strong></p>
+<ul>
+<li><p>Remember to document your code, be explicit about what you are doing, and write notes in this markdown document when you feel that context is required. Create your analysis as if someone else will be reading it! There will be 2.5 points reserved for reproducibility, readability, and repo organization.</p></li>
+<li><p>Before working on each task, you should always keep in mind the specific <strong>research question</strong> that you’re trying to answer.</p></li>
+</ul>
+<p>From milestone 1, you should have an idea of the basic structure of your dataset (e.g. number of rows and columns, class types, etc.). Here, we will start investigating your data more in-depth using various <code>dplyr</code> functions.</p>
+<p>1.1 (2.5 points) First, write out the 4 research questions you defined in milestone 1 were. This will guide your work through milestone 2:</p>
+<!------------------------------- EDIT BELOW ---------------------------------->
+<ol style="list-style-type: decimal">
+<li><em>FILL_THIS_IN</em></li>
+<li><em>FILL_THIS_IN</em></li>
+<li><em>FILL_THIS_IN</em></li>
+<li><em>FILL_THIS_IN</em>
+<!-----------------------------------------------------------------------------></li>
+</ol>
+<p>1.2 (10 points) Now, for each research question, choose one task from options 1-4 (summarizing), and one other task from 4-8 (graphing). You should have 2 tasks done for each research question. <strong>They can be the same tasks or not!</strong> As long as it makes sense to do them. Comment on why each task helps answer the corresponding research question.</p>
+<p>Ensure that the output of each operation is printed!</p>
+<p><strong>Summarizing:</strong>
+1. For one of the categorical variables in your data, compute the <em>range</em>, <em>mean</em>, and <em>two other summary statistics</em>.
+2. Compute the number of observations for at least one of your categorical variables. Do not use the function <code>table()</code>!
+3. Create a categorical variable with 3 or more groups from an existing numerical variable. You can use this new variable in the other tasks! <em>An example: age in years into “child, teen, adult, senior”.</em>
+4. Based on two categorical variables, calculate two summary statistics of your choosing.</p>
+<p><strong>Graphing:</strong>
+5. Create a graph out of summarized variables that has at least two geom layers.
+6. Create a graph of your choosing, make one of the axes logarithmic, and format the axes labels so that they are “pretty” or easier to read.
+7. Make a graph where it makes sense to customize the alpha transparency.
+8. Create 3 histograms out of summarized variables, with each histogram having different sized bins. Pick the “best” one and explain why it is the best.</p>
+<p>You should have one operation for each of your 4 research questions!</p>
+<!------------------------- Start your work below ----------------------------->
+<!----------------------------------------------------------------------------->
+<p>1.3 (5 points) Based on the operations that you’ve completed, how much closer are you to answering your research questions? Think about what aspects of your research questions remain unclear. Can your research questions be refined, now that you’ve investigated your data a bit more?</p>
+<!------------------------- Write your answer here ---------------------------->
+<!----------------------------------------------------------------------------->
+</div>
+<div id="task-2-tidy-your-data-15-points" class="section level1">
+<h1>Task 2: Tidy your data (15 points)</h1>
+<p>In this task, we will do several exercises to reshape our data. The goal here is to understand how to do this reshaping with the <code>tidyr</code> package.</p>
+<p>A reminder of the definition of <em>tidy</em> data:</p>
+<ul>
+<li>Each row is an <strong>observation</strong></li>
+<li>Each column is a <strong>variable</strong></li>
+<li>Each cell is a <strong>value</strong></li>
+</ul>
+<p><em>Tidy’ing</em> data is sometimes necessary because it can simplify computation. Other times it can be nice to organize data so that it can be easier to understand when read manually.</p>
+<p>2.1 (5 points) Based on the definition above, can you identify if your data is tidy or untidy? Go through all your columns, or if you have &gt;8 variables, just pick 8, and explain whether the data is untidy or tidy.</p>
+<!--------------------------- Start your work below --------------------------->
+<!----------------------------------------------------------------------------->
+<p>2.2 (5 points) Now, if your data is tidy, untidy it! If it’s untidy, then tidy it! Be sure to explain your reasoning for this task. Show us the “before” and “after”.</p>
+<!--------------------------- Start your work below --------------------------->
+<!----------------------------------------------------------------------------->
+<p>2.3 (5 points) Now, you should be more familiar with your data, and also have made progress in answering your research questions. Pick 2 of the 4 research questions to continue your analysis in milestone 3, and explain your decision.</p>
+<p>Based on the exercises you have done in milestone 1 and 2, create a version of your data (i.e. by filtering, cleaning, tidy’ing, etc.) that you think will be appropriate to answer these 2 questions in milestone 3. Save this tibble as an <code>.RDS</code> object with the function <code>saveRDS()</code>.</p>
+<!--------------------------- Start your work below --------------------------->
+<!----------------------------------------------------------------------------->
+<p>Don’t forget to knit to an <code>md</code> file!</p>
+</div>

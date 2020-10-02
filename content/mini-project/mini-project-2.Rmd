@@ -2,10 +2,10 @@
 title: "mini-project-2"
 author: "Victor Yuan"
 date: "22/09/2020"
-output: github_document
+output: html_document
 ---
 
-**To complete this milestone, follow these instructions and edit this `.rmd` file directly. When you are done, make sure to knit to an `.md` file before submitting a tagged release on canvas.**
+**To complete this milestone, follow these instructions and edit this `.rmd` file directly. When you are done, make sure to knit to an `.md` file by changing the YAML settings, before submitting a tagged release on canvas.**
 
 # Welcome back to your mini data analysis project!
 
@@ -110,4 +110,4 @@ Based on the exercises you have done in milestone 1 and 2, create a version of y
 
 <!----------------------------------------------------------------------------->
 
-Don't forget to knit!
+Don't forget to knit to an `md` file!
