@@ -1,22 +1,23 @@
 ---
 title: "Team Troubleshooting Deliverable 2"
-output: html_document
+output: github_document
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<pre class="r"><code>knitr::opts_chunk$set(error = TRUE)</code></pre>
 <div id="attributions" class="section level2">
 <h2>Attributions</h2>
-<p>Icíar Fernández-Boyano</p>
+<p>Thanks to Icíar Fernández-Boyano for writing most of this document, and Diana Lin for her edits.</p>
 </div>
 <div id="instructions" class="section level2">
 <h2>Instructions</h2>
-<p>There are <strong>30 errors</strong> in this Rmd. Will you find them all?</p>
+<p>There are <strong>24 errors</strong> in this Rmd. Will you find them all?</p>
 <ul>
-<li><em>20 errors are marked</em> by ## ERROR HERE ## in the code chunk in which they are located.</li>
-<li><em>10 errors are hiding.</em> Hint: You should be able to knit the script if all code is working correctly…</li>
+<li><em>15 errors are marked</em> (at least the general area in which they are located) by ## ERROR HERE ## in the code chunk.</li>
+<li><em>9 errors are hiding.</em></li>
 </ul>
+<p>Hint: You should be able to knit the Rmd if all code is working correctly…but this will only catch the errors in code, and not the errors in logic or instruction-following!</p>
 <p><strong>Notes:</strong></p>
 <ul>
 <li><p>Errors may be in the form of <strong>broken code</strong> (e.g. using " " inappropriately, which returns an error when running the code), but can also be <strong>running code that does not follow the instructions</strong> (e.g. the goal of the code was to filter the first 3 rows, but instead, the first 3 columns were selected). Read the Rmd commentary carefully to find these.</p></li>
@@ -52,46 +53,8 @@ mtcars %&gt;%
 ## Maserati Bora       301.0 335 3.54 3.570 14.60  0
 ## Volvo 142E          121.0 109 4.11 2.780 18.60  1</code></pre>
 <p>Notice that the instructions indicate selecting columns <code>disp</code> to <code>wt</code>, and the code reads <code>select(disp:vs)</code>. There is the error.</p>
-<p>Exercise B: <em>Same instructions as exercise A</em>. In the following chunk, I would like to select all columns of the mtcars dataset from <code>disp</code> to <code>wt</code> (inclusive), and then, filter for those with horsepower (<code>hp</code>) of at least 100 or greater.</p>
-<pre class="r"><code>### ERROR HERE ###
-mtcars %&gt;%
-  select(disp:vs) %&gt;%
-  filter(hp &gt;= &quot;100&quot;)</code></pre>
-<pre><code>##                      disp  hp drat    wt  qsec vs
-## Mazda RX4           160.0 110 3.90 2.620 16.46  0
-## Mazda RX4 Wag       160.0 110 3.90 2.875 17.02  0
-## Datsun 710          108.0  93 3.85 2.320 18.61  1
-## Hornet 4 Drive      258.0 110 3.08 3.215 19.44  1
-## Hornet Sportabout   360.0 175 3.15 3.440 17.02  0
-## Valiant             225.0 105 2.76 3.460 20.22  1
-## Duster 360          360.0 245 3.21 3.570 15.84  0
-## Merc 240D           146.7  62 3.69 3.190 20.00  1
-## Merc 230            140.8  95 3.92 3.150 22.90  1
-## Merc 280            167.6 123 3.92 3.440 18.30  1
-## Merc 280C           167.6 123 3.92 3.440 18.90  1
-## Merc 450SE          275.8 180 3.07 4.070 17.40  0
-## Merc 450SL          275.8 180 3.07 3.730 17.60  0
-## Merc 450SLC         275.8 180 3.07 3.780 18.00  0
-## Cadillac Fleetwood  472.0 205 2.93 5.250 17.98  0
-## Lincoln Continental 460.0 215 3.00 5.424 17.82  0
-## Chrysler Imperial   440.0 230 3.23 5.345 17.42  0
-## Fiat 128             78.7  66 4.08 2.200 19.47  1
-## Honda Civic          75.7  52 4.93 1.615 18.52  1
-## Toyota Corolla       71.1  65 4.22 1.835 19.90  1
-## Toyota Corona       120.1  97 3.70 2.465 20.01  1
-## Dodge Challenger    318.0 150 2.76 3.520 16.87  0
-## AMC Javelin         304.0 150 3.15 3.435 17.30  0
-## Camaro Z28          350.0 245 3.73 3.840 15.41  0
-## Pontiac Firebird    400.0 175 3.08 3.845 17.05  0
-## Fiat X1-9            79.0  66 4.08 1.935 18.90  1
-## Porsche 914-2       120.3  91 4.43 2.140 16.70  0
-## Lotus Europa         95.1 113 3.77 1.513 16.90  1
-## Ford Pantera L      351.0 264 4.22 3.170 14.50  0
-## Ferrari Dino        145.0 175 3.62 2.770 15.50  0
-## Maserati Bora       301.0 335 3.54 3.570 14.60  0
-## Volvo 142E          121.0 109 4.11 2.780 18.60  1</code></pre>
-<p>In addition to selecting the wrong columns, option B encapsulates the number 100 in between quotes - this is incorrect R syntax. In fact, if you run the code you will see that the filtering is not working.</p>
-<p><strong>Both Exercise A and Exercise B would count as a <em>single error</em>.</strong> Although exercise A requires a single correction and exercise B requires two, these are in <em>the same code chunk</em>, therefore, it counts as a <strong>single error</strong> for the purpose of grading.</p>
+<p>In addition to selecting the wrong columns, this exercise encapsulates the number 100 in between quotes - this is incorrect R syntax. In fact, if you run the code you will see that the filtering is not working.</p>
+<p>While Exercise A has 2 requires two corrections to fix, it counts as having a <em>single error</em>, as you cannot obtain your desired output without fixing both. Therefore, errors within the <em>same literal R markdown code chunk</em> count as <strong>one error</strong>. For the purposes of grading, each <em>corrected</em> literal R markdown code chunk is considered <strong>one error</strong> and worth <strong>one point</strong> each, for a total of 25 points.</p>
 <p>Solution:</p>
 <pre class="r"><code>mtcars %&gt;%
   select(disp:wt) %&gt;%
@@ -123,7 +86,7 @@ mtcars %&gt;%
 </div>
 <div id="troubleshooting-time" class="section level2">
 <h2>Troubleshooting time!</h2>
-<p>There are 30 errors in this Rmd. Will you be the one to find them all? More than 1 error in a single chunk of code counts as a <strong>single</strong> error.</p>
+<p>There are 24 code chunks in this Rmd with errors. Will you be the one to find them all? More than 1 error in a single chunk of code counts as a <strong>single</strong> error.</p>
 <pre class="r"><code>### ERROR HERE ###
 libraries(dslabs)</code></pre>
 <pre><code>## Error in libraries(dslabs): could not find function &quot;libraries&quot;</code></pre>
@@ -133,6 +96,8 @@ libraries(dslabs)</code></pre>
 <pre><code>## Error in libraries(tidyverse): could not find function &quot;libraries&quot;</code></pre>
 <pre class="r"><code>libraries(stringr)</code></pre>
 <pre><code>## Error in libraries(stringr): could not find function &quot;libraries&quot;</code></pre>
+<pre class="r"><code>libraries(gapminder)</code></pre>
+<pre><code>## Error in libraries(gapminder): could not find function &quot;libraries&quot;</code></pre>
 <p><a href="https://dl.acm.org/doi/10.1145/2827872">MovieLens</a> are a series of datasets widely used in education, that describe movie ratings from the MovieLens <a href="https://movielens.org/">website</a>. There are several MovieLens datasets, collected by the <a href="https://grouplens.org/datasets/movielens/">GroupLens Research Project</a> at the University of Minnesota. Here, we load the MovieLens 100K dataset from Rafael Irizarry and Amy Gill’s R package, <a href="https://cran.r-project.org/web/packages/dslabs/dslabs.pdf">DSLabs</a>, which contains datasets useful for data analysis practice, homework, and projects in data science courses and workshops.</p>
 <div id="exercise-1" class="section level3">
 <h3>Exercise 1</h3>
@@ -353,7 +318,7 @@ movieLens %&gt;%
   rename(user_id == userId,
          movie_id == movieId)</code></pre>
 <pre><code>## Error: object &#39;user_id&#39; not found</code></pre>
-<p>As you already know, mutate() defines and inserts new variables into a tibble. There is <em>another mystery function</em> that you’ve seen already that adds the new variable, and drops existing ones. I wanted to create an average_rating column that takes the mean(rating) across all entries, and I only want to see that variable (i.e drop all others!) but I forgot what that mystery function is. Can you remember?</p>
+<p>As you already know, <code>mutate()</code> defines and inserts new variables into a tibble. There is <em>another mystery function</em> that you’ve seen already that adds the new variable, and drops existing ones. I wanted to create an average_rating column that takes the mean(rating) across all entries, and I only want to see that variable (i.e drop all others!) but I forgot what that mystery function is. Can you remember?</p>
 <pre class="r"><code>### ERROR HERE ### 
 mutate(movieLens,
        average_rating = mean(rating))</code></pre>
@@ -417,7 +382,7 @@ mutate(movieLens,
 </div>
 <div id="exercise-6" class="section level3">
 <h3>Exercise 6</h3>
-<p>Alone, tally() is a short form of summarise(). Count() is short-hand for group_by() and tally().</p>
+<p>Alone, <code>tally()</code> is a short form of <code>summarise()</code>. <code>count()</code> is short-hand for <code>group_by()</code> and <code>tally()</code>.</p>
 <ul>
 <li>Each entry of the movieLens table corresponds to a movie rating by a user. Therefore, if more than one user rated the same movie, there will be several entries for the same movie. I want to find out how many times each movie has been reviewed, or in other words, how many times each movie title appears in the dataset.</li>
 </ul>
@@ -439,7 +404,7 @@ mutate(movieLens,
 ## 10 &#39;Til There Was You                   4
 ## # … with 8,822 more rows</code></pre>
 <ul>
-<li>Without using group_by(), I want to find out how many movie reviews there have been by year.</li>
+<li>Without using <code>group_by()</code>, I want to find out how many movie reviews there have been by year.</li>
 </ul>
 <pre class="r"><code>### ERROR HERE ###
 movieLens %&gt;%
@@ -449,7 +414,7 @@ movieLens %&gt;%
 ##       &lt;int&gt;
 ## 1 199176755</code></pre>
 <ul>
-<li>Both count() and tally() can be called repeatedly, each time adding up a level of detail. Below, I want to count the number of movie reviews by title and rating, and sort the results.</li>
+<li>Both <code>count()</code> and <code>tally()</code> can be called repeatedly, each time adding up a level of detail. Below, I want to count the number of movie reviews by title and rating, and sort the results.</li>
 </ul>
 <pre class="r"><code>movieLens %&gt;%
   count(c(title, rating), sort = TRUE)</code></pre>
@@ -457,9 +422,9 @@ movieLens %&gt;%
 ## x Input `..1` can&#39;t be recycled to size 100004.
 ## ℹ Input `..1` is `c(title, rating)`.
 ## ℹ Input `..1` must be size 100004 or 1, not 200008.</code></pre>
-<p>Not only do count() and tally() quickly allow you to count items within your dataset, add_tally() and add_count() are handy shortcuts that add an additional columns to your tibble, rather than collapsing each group.</p>
+<p>Not only do <code>count()</code> and <code>tally()</code> quickly allow you to count items within your dataset, <code>add_tally()</code> and <code>add_count()</code> are handy shortcuts that add an additional columns to your tibble, rather than collapsing each group.</p>
 <ul>
-<li>Suppose that I am interested in finding movies that have very few reviews, very few being under 5. Without using group_by(), add a column that counts the <em>number of reviews per movie title</em>, and then filter to those that have 5 reviews or under. Rename the column <code>n</code> to <code>n_reviews</code>.</li>
+<li>Suppose that I am interested in finding movies that have very few reviews, very few being under 5. Without using <code>group_by()</code>, add a column that counts the <em>number of reviews per movie title</em>, and then filter to those that have 5 reviews or under. Rename the column <code>n</code> to <code>n_reviews</code>.</li>
 </ul>
 <pre class="r"><code>movieLens %&gt;%
   add_count(title) %&gt;%
@@ -512,7 +477,7 @@ movieLens %&gt;%
 ## 10  1923       4.17
 ## # … with 94 more rows</code></pre>
 <ul>
-<li>Using summarize(), find the minimum and the maximum rating by title, and store these new variables under <code>min_rating</code>, and <code>max_rating</code>, respectively.</li>
+<li>Using <code>summarize()</code>, find the minimum and the maximum rating by title, and store these new variables under <code>min_rating</code>, and <code>max_rating</code>, respectively.</li>
 </ul>
 <pre class="r"><code>### ERROR HERE ###
 movieLens %&gt;%
@@ -532,7 +497,7 @@ movieLens %&gt;%
 ## 10    1343 Cape Fe…  1991 Thriller      1    2      1.26e9        0.5          5
 ## # … with 99,994 more rows</code></pre>
 <ul>
-<li>Using group_by() and summarize(), find the number of reviews per movie title, and arrange in order of descending number of reviews. Notice that we achieved the same result in the previous exercise using tally().</li>
+<li>Using <code>group_by()</code> and <code>summarize()</code>, find the number of reviews per movie title, and arrange in order of descending number of reviews. Notice that we achieved the same result in the previous exercise using <code>tally()</code>.</li>
 </ul>
 <pre class="r"><code>movieLens %&gt;%
     group_by(title) %&gt;%
@@ -556,12 +521,13 @@ movieLens %&gt;%
 </div>
 <div id="exercise-8" class="section level3">
 <h3>Exercise 8</h3>
-<p>Across() is a new dplyr function (dplyr 1.0.0) that allows you to apply a transformation to multiple variables selected with the select() and rename() syntax. For this section, we will use the <code>starwars</code> dataset, which is built into R. First, let’s transform it into a tibble and store it under the variable <code>starWars</code>.</p>
+<p><code>across()</code> is a new dplyr function (<code>dplyr</code> 1.0.0) that allows you to apply a transformation to multiple variables selected with the <code>select()</code> and <code>rename()</code> syntax. For this section, we will use the <code>starwars</code> dataset, which is built into R. First, let’s transform it into a tibble and store it under the variable <code>starWars</code>.</p>
 <pre class="r"><code>starWars &lt;- as_tibble(starwars)</code></pre>
 <ul>
 <li>Find the mean for all columns that are numeric.</li>
 </ul>
 <pre class="r"><code>starWars %&gt;%
+  drop_na() %&gt;%
   summarise(across(where(num), mean))</code></pre>
 <pre><code>## Error: Problem with `summarise()` input `..1`.
 ## x object &#39;num&#39; not found
@@ -572,7 +538,8 @@ movieLens %&gt;%
 <pre class="r"><code>### ERROR HERE ###
 starWars %&gt;%
   group_by(species) %&gt;%
-  summarise(across(&quot;height&quot;, &quot;weight&quot;, min))</code></pre>
+  summarise(across(&quot;height&quot;, &quot;weight&quot;, min)) %&gt;%
+  drop_na()</code></pre>
 <pre><code>## Error: Problem with `summarise()` input `..1`.
 ## x Problem with `across()` input `.fns`.
 ## ℹ Input `.fns` must be NULL, a function, a formula, or a list of functions/formulas.
@@ -592,29 +559,87 @@ starWars %&gt;%
 <h3>Exercise 9</h3>
 <p>The <code>singer</code> package was created by Joey Bernhardt, and it contains 3 datasets that are excerpts from the Million Songs Dataset. The <code>songs</code> and the <code>locations</code> package will be used here. These two datasets have the columns <code>artist_name</code> and <code>title</code> in common.</p>
 <ul>
-<li>The R merge() function automatically joins the frames by common variable names. Merge <code>songs</code> and <code>locations</code> using one of the join family of functions (<code>inner_join()</code>, <code>outer_join()</code>, <code>right_join()</code>, etc…), without specifying the key variable.</li>
+<li>The R <code>merge()</code> function automatically joins the frames by common variable names. Merge <code>songs</code> and <code>locations</code> using one of the join family of functions (<code>inner_join()</code>, <code>outer_join()</code>, <code>right_join()</code>, etc…), without specifying the key variable.</li>
 </ul>
 <pre class="r"><code>### ERROR HERE ###
 anti_join(songs, locations)</code></pre>
-<pre><code>## Error in anti_join(songs, locations): object &#39;songs&#39; not found</code></pre>
+<pre><code>## Joining, by = c(&quot;title&quot;, &quot;artist_name&quot;)</code></pre>
+<pre><code>## # A tibble: 9 x 3
+##   title                            artist_name      year
+##   &lt;chr&gt;                            &lt;chr&gt;           &lt;int&gt;
+## 1 Corduroy                         Pearl Jam        1994
+## 2 Martin_ Doom! It&#39;s Seven O&#39;Clock The Boo Radleys  1995
+## 3 Leaves And Sand                  The Boo Radleys  1993
+## 4 Comb Your Hair                   The Boo Radleys  1998
+## 5 Mine Again                       Mariah Carey     2005
+## 6 Don&#39;t Forget About Us            Mariah Carey     2005
+## 7 Babydoll                         Mariah Carey     1997
+## 8 Don&#39;t Forget About Us            Mariah Carey     2005
+## 9 Vision Of Love                   Mariah Carey     1990</code></pre>
 <ul>
 <li>Join <code>songs</code> and <code>locations</code> in a way that drops all observations from <code>songs</code> that <em>do not</em> have a match in <code>locations</code>.</li>
 </ul>
 <pre class="r"><code>### ERROR HERE ###
 inner_join(songs, locations)</code></pre>
-<pre><code>## Error in inner_join(songs, locations): object &#39;songs&#39; not found</code></pre>
+<pre><code>## Joining, by = c(&quot;title&quot;, &quot;artist_name&quot;)</code></pre>
+<pre><code>## # A tibble: 13 x 5
+##    title                      artist_name    year city       release            
+##    &lt;chr&gt;                      &lt;chr&gt;         &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;              
+##  1 &quot;Grievance&quot;                Pearl Jam      2000 Seattle, … Binaural           
+##  2 &quot;Stupidmop&quot;                Pearl Jam      1994 Seattle, … Vitalogy           
+##  3 &quot;Present Tense&quot;            Pearl Jam      1996 Seattle, … No Code            
+##  4 &quot;MFC&quot;                      Pearl Jam      1998 Seattle, … Live On Two Legs   
+##  5 &quot;Lukin&quot;                    Pearl Jam      1996 Seattle, … Seattle Washington…
+##  6 &quot;It&#39;s Lulu&quot;                The Boo Radl…  1995 Liverpool… Best Of            
+##  7 &quot;Sparrow&quot;                  The Boo Radl…  1992 Liverpool… Everything&#39;s Alrig…
+##  8 &quot;High as Monkeys&quot;          The Boo Radl…  1998 Liverpool… Kingsize           
+##  9 &quot;Butterfly McQueen&quot;        The Boo Radl…  1993 Liverpool… Giant Steps        
+## 10 &quot;My One and Only Love&quot;     Carly Simon    2005 New York,… Moonlight Serenade 
+## 11 &quot;It Was So Easy  (LP Vers… Carly Simon    1972 New York,… No Secrets         
+## 12 &quot;I&#39;ve Got A Crush On You&quot;  Carly Simon    1994 New York,… Clouds In My Coffe…
+## 13 &quot;Manha De Carnaval (Theme… Carly Simon    2007 New York,… Into White</code></pre>
 <ul>
 <li>Combine <code>locations</code> and <code>songs</code> to find only the entries that correspond to song titles in the <code>locations</code> dataset.</li>
 </ul>
 <pre class="r"><code>### ERROR HERE ###
 left_join(songs, locations)</code></pre>
-<pre><code>## Error in left_join(songs, locations): object &#39;songs&#39; not found</code></pre>
+<pre><code>## Joining, by = c(&quot;title&quot;, &quot;artist_name&quot;)</code></pre>
+<pre><code>## # A tibble: 22 x 5
+##    title                 artist_name    year city         release               
+##    &lt;chr&gt;                 &lt;chr&gt;         &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;                 
+##  1 Corduroy              Pearl Jam      1994 &lt;NA&gt;         &lt;NA&gt;                  
+##  2 Grievance             Pearl Jam      2000 Seattle, WA  Binaural              
+##  3 Stupidmop             Pearl Jam      1994 Seattle, WA  Vitalogy              
+##  4 Present Tense         Pearl Jam      1996 Seattle, WA  No Code               
+##  5 MFC                   Pearl Jam      1998 Seattle, WA  Live On Two Legs      
+##  6 Lukin                 Pearl Jam      1996 Seattle, WA  Seattle Washington No…
+##  7 It&#39;s Lulu             The Boo Radl…  1995 Liverpool, … Best Of               
+##  8 Sparrow               The Boo Radl…  1992 Liverpool, … Everything&#39;s Alright …
+##  9 Martin_ Doom! It&#39;s S… The Boo Radl…  1995 &lt;NA&gt;         &lt;NA&gt;                  
+## 10 Leaves And Sand       The Boo Radl…  1993 &lt;NA&gt;         &lt;NA&gt;                  
+## # … with 12 more rows</code></pre>
 <ul>
 <li>Merge <code>songs</code> and <code>locations</code> so that <em>all information</em> from both datasets is combined.</li>
 </ul>
 <pre class="r"><code>### ERROR HERE ###
 semi_join(songs, locations)</code></pre>
-<pre><code>## Error in semi_join(songs, locations): object &#39;songs&#39; not found</code></pre>
+<pre><code>## Joining, by = c(&quot;title&quot;, &quot;artist_name&quot;)</code></pre>
+<pre><code>## # A tibble: 13 x 3
+##    title                                              artist_name      year
+##    &lt;chr&gt;                                              &lt;chr&gt;           &lt;int&gt;
+##  1 &quot;Grievance&quot;                                        Pearl Jam        2000
+##  2 &quot;Stupidmop&quot;                                        Pearl Jam        1994
+##  3 &quot;Present Tense&quot;                                    Pearl Jam        1996
+##  4 &quot;MFC&quot;                                              Pearl Jam        1998
+##  5 &quot;Lukin&quot;                                            Pearl Jam        1996
+##  6 &quot;It&#39;s Lulu&quot;                                        The Boo Radleys  1995
+##  7 &quot;Sparrow&quot;                                          The Boo Radleys  1992
+##  8 &quot;High as Monkeys&quot;                                  The Boo Radleys  1998
+##  9 &quot;Butterfly McQueen&quot;                                The Boo Radleys  1993
+## 10 &quot;My One and Only Love&quot;                             Carly Simon      2005
+## 11 &quot;It Was So Easy  (LP Version)&quot;                     Carly Simon      1972
+## 12 &quot;I&#39;ve Got A Crush On You&quot;                          Carly Simon      1994
+## 13 &quot;Manha De Carnaval (Theme from \&quot;Black Orpheus\&quot;)&quot; Carly Simon      2007</code></pre>
 </div>
 <div id="exercise-10" class="section level3">
 <h3>Exercise 10</h3>
@@ -633,7 +658,7 @@ tibble(birth_year == &quot;1998:2005&quot;,
 <pre class="r"><code>fakeStarWars</code></pre>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;fakeStarWars&#39; not found</code></pre>
 <ul>
-<li>Without assigning it to any variables, define the same tibble row-by-row with tribble(), with the columns in the following order: <code>name</code>, <code>birth_weight</code>, <code>birth_year</code>, <code>birth_location</code>.</li>
+<li>Without assigning it to any variables, define the same tibble row-by-row with <code>tribble()</code>, with the columns in the following order: <code>name</code>, <code>birth_weight</code>, <code>birth_year</code>, <code>birth_location</code>.</li>
 </ul>
 <pre class="r"><code>### ERROR HERE ###
 tribble(

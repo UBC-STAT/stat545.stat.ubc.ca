@@ -4,10 +4,54 @@ subtitle: "Part of STAT 545A"
 output: html_document
 ---
 
-50%
+## Mini Data Analysis Project
+
+### Learning Objectives
+
+1. Prepare or tidy data for analysis.
+2. Apply data manipulation, visualization, and modelling concepts to answer research questions using data in R.
+3. Report your findings in a clear, reproducible R markdown document.
+
+### Instructions / Workflow
+
+This project is to be completed independently.
+
++ Go to [canvas](https://canvas.ubc.ca) to get the link for you to make your homework repository. (For Milestone 1 only)
++ Students can choose a dataset from the datateachr package
++ The mini-data analysis project is structured into 3 semi-guided deliverables meant to give the student enough freedom to answer their questions of interest about their data, while guiding the student to avoid feeling too lost in their (for many) first time data analysis! 
++ Deliverables will be submitted through Canvas by the appropriate deadline.
+
+### Deadlines
+
++ Milestone 1 is due on **Friday, October 3**.
++ Milestone 2 is due on **Friday, October 10**.
++ Milestone 3 is due on **Friday, October 24**.
+
+### Grading Scheme
+
++ Each milestone is worth 30 points. The number of points allocated to each section / exercise will be annotated within each deliverable. Sections requiring more challenging code will often be allocated more points than easier questions.
+
++ 10 points will be allocated to the reproducibility, cleanliness, and coherence of the analysis. While the three milestones will be submitted as independent deliverables, the analysis itself is a continuum - think of it as 3 chapters to a story. Each chapter, or in this case, portion of your analysis, should be easily followed through by someone unfamiliar with the content. [Here](https://swcarpentry.github.io/r-novice-inflammation/06-best-practices-R/) is a good resource for what constitutes "good code". Learning good coding practices early in your career will save you hassle later on!
 
 
-A mini-data analysis project where you will get to explore a dataset of choice through wrangling and visualization! There will be 3 deliverables for this project.
+### Submitting your Milestone
 
-**More details coming soon.**
+To submit a Milestone, you'll be tagging a release on your GitHub repository, and submitting a link to that release on canvas. 
+
+_How to tag a release_:
+
+1. Navigate to the main page (root) of your mini analysis GitHub repository.
+2. There should be a small link on the right-hand-side of your page that says "Create a new release". Click that.
+  - You might also be able to get to the same place by clicking on the "tags" link beside where your branches are listed. 
+3. For the tag version, put `mV.0`, where `V` is the Milestone number.
+4. Choose a release title and description (this is less important).
+5. Do __not__ check off "This is a pre-release".
+6. Click "Publish Release".
+7. Put a link to that release as a submission on the Mini Analysis Project Milestone in canvas.
+  - You won't lose marks for _not_ doing this, but it would really help us out if you do this! Thank you!
+
+_Tagging another release_:
+
+If you want to change your submission _after_ tagging a release, you can still do this if it's before the deadline. Just increase the secondary version number by one -- so, make the tag version `mV.1`, then `mV.2`, etc., where `V` is the Milestone number. 
+
 

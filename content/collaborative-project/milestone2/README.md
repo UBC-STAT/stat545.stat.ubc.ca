@@ -32,7 +32,7 @@ The troubleshooting document will be distributed to you in the form of a pull re
 
 
 ### Instructions
-In this troubleshooting document, there are ten exercises. For each exercise, Student A creates a pull request with the proposed fix. Student A should write R code-blocks of _before_ and _after_ the fix to clearly show Student B what was changed. 
+In this troubleshooting document, there are ten exercises. For each exercise, Student A creates a pull request with the proposed fix. ~~Student A should write R code-blocks of _before_ and _after_ the fix to clearly show Student B what was changed.~~ 
 
 > **Sidenote:** R code-blocks are like the regular GitHub-flavoured markdown codechunks using the 3 backticks. After the opening 3 backticks, you can specify what language you are writing in: r, so that GitHub uses syntax highlighting. It will look like this:
 > ``````
@@ -42,7 +42,7 @@ In this troubleshooting document, there are ten exercises. For each exercise, St
 > ``````
 > Read more about this [here](https://docs.github.com/en/github/writing-on-github/creating-and-highlighting-code-blocks#syntax-highlighting).
 
-Student B then comments on the issue with the explanation, and requests changes or merges the pull request. If changes are requested, Student B can merge the pull request after Student A implements those changes. 
+Student B then comments on the issue with the explanation, and requests changes or merges the pull request. If changes are requested, Student **A or B** can merge the pull request after Student A implements those changes. 
 
 After merging the pull request, Student B works on the next exercise, creating the pull request and the cycle repeats. You _do not_ have to create a new branch per exercise.
 
@@ -50,7 +50,7 @@ Because the errors of are increasing difficulty, this ensures that the students 
 
 If you're stuck, feel free to post an Issue and tag your teammate with what you're stuck on -- they may be able to help.
 
-#### Basic Example
+#### Basic Example (Before/After Optional)
 
 ##### _Student A creates the pull request: Exercise A Errors_
 
@@ -88,7 +88,7 @@ mtcars %>%
 
 (**Error #2**: _if there was a second error..._)
 
-#### _Student B can request changes or merge the pull request_
+#### _Student B can request changes or Student **A or B** can merge the pull request_
 
 #### _Student B creates the pull request for Exercise B..._
 
@@ -100,6 +100,7 @@ To get full marks for the [pull request](https://stat545.stat.ubc.ca/collaborati
     - A good title and description. A good title is self-explanatory, and a good description clearly states what was changed in the pull request (e.g. use the before/after R code-blocks)
 - Student B who writes the explanation must start:
     - Productive discussion. Both students engaged in discussion in the pull request, and made changes to the document accordingly.
+- Either Student **A or B** can merge the pull request
 
 **Note**: The example above is a _basic_ pull request, not necessarily a _good_ pull request.
 
@@ -111,11 +112,14 @@ As specified on our course [website](https://stat545.stat.ubc.ca/collaborative-a
     - Since Exercise 9 (containing 4 marked errors) has not been covered in class, **it will not be for marks**
     - This means that each error is worth 0.75 points (**20 errors** x 0.75 pts = 15 pts)
 - Pull requests: 15 points
-    - Each pull request is worth 1.5 points (**10 pull requests** x 1.5 pts = 15 pts)
+    - *Option A:* Students create an issue and pick which 5 pull requests are to be marked at 3 points each (3 x 5 = 15pts)
+        - 1.5 for creating the pull requests and implementing the fix
+        - 1.5 for holding the discussion, explaining the fix, merging the pull request
+    - *Option B:* Students can create an issue and indicate that all 10 pull requests are to be marked, at 1.5 pts each (1.5 x 10 = 15pts)
         - 0.75 for creating the pull request, proposing the fix, being descriptive, etc. 
-        - 0.75 for holding the discussion, explaining the fix, etc.
-    - For Exercise 9, we are _still_ looking for a pull request
-        - in this case, we are looking for _an attempt_ to fix AND explain these errors, not for correctness
+        - 0.75 for holding the discussion, explaining the fix, merging the pull request
+        - For Exercise 9, we are _still_ looking for a pull request
+            - in this case, we are looking for _an attempt_ to fix AND explain these errors, not for correctness
 
 **GRAND TOTAL:** 30 points
 

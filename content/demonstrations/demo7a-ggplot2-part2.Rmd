@@ -1,0 +1,186 @@
+---
+title: "Demonstration 7-A: ggplot2 Part II"
+output: html_document
+---
+
+```{r, message = FALSE, warning = FALSE}
+library(tidyverse)
+library(gapminder)
+knitr::opts_chunk$set(error = TRUE)
+```
+
+
+### Demo 1
+
+From last class:
+
+> Compute a weighted mean of life expectancy for different years, weighting by population.
+
+Plot that global average life expectancy over time.
+
+```{r}
+gapminder %>% 
+  group_by(year) %>% 
+  summarise(wmean = sum(lifeExp * pop) / sum(pop))
+```
+
+### Demo 2
+
+From last class:
+
+> For each continent and year, how many countries have a "low" life expectancy? Let’s say life expectancy is "low" if it’s less than the median most recent life expectancy for each continent.
+
+Plot the number of "low life expectancy" countries over time for each continent. 
+
+```{r}
+gapminder %>% 
+  group_by(continent) %>% 
+  mutate(median = median(lifeExp[year == 2007])) %>% 
+  filter(lifeExp < median) %>% 
+  count(continent, year)
+```
+
+
+### Demo 3
+
+**(a)**
+
+Plot GDP per capita over time, identifying each continent. 
+
+```{r}
+ggplot(gapminder, aes(year, gdpPercap))
+```
+
+
+**(b)**
+
+From last class Demo 3:
+
+> Get the maximum and minimum `gdpPercap` for all continents.
+
+We'll also add _for each year_.  Today: modify plot (a) above so that the lines for each continent are contained within a band.
+
+```{r}
+gapminder %>% 
+  group_by(continent, year) %>% 
+  summarise(max = max(gdpPercap),
+            min = min(gdpPercap))
+```
+
+### Quiz
+
+1. True or False: Because the `dplyr::group_by()` function and ggplot2's `group` aesthetic both split a tibble into groups, we can use either one when making a plot. 
+2. True or False: In principle, mapping `continent` to letters (a, b, c, ...) is an aesthetic mapping.
+
+
+### Demo 4
+
+From last class:
+
+> Filter gapminder to all entries that have experienced a drop in life expectancy. Hint: `dplyr::lag()`.
+
+Today: Was a drop in life expectancy just as likely for any year, or were some years more prone to see a drop than others? Is this true for all continents?
+
+```{r}
+gapminder %>% 
+  group_by(country) %>% 
+  arrange(year) %>% 
+  mutate(inc = lifeExp - lag(lifeExp)) %>% 
+  filter(inc < 0)
+```
+
+
+### Demo 5
+
+How has the distribution of GDP per capita changed over time for each continent?
+
+(Breakout rooms?)
+
+```{r}
+
+```
+
+
+### Effective Vis
+
+Let's go through [Principles of Figure Design](https://vincenzocoia.com/communicating_data/#28) slides, modelling Part II of [Claus Wilke's vis book](https://clauswilke.com/dataviz/).
+
+### Demo 6
+
+The following mock dataset marks the (x,y) position of a caribou at four time points. 
+
+- Fix the plot below so that it shows the path of the caribou. 
+- Add an arrow with `arrow = arrow()`.
+- Add the `time` label with `geom_text()`.
+
+```{r, fig.width = 5, fig.height = 2}
+tribble(
+  ~time, ~x, ~y,
+  1, 0.3, 0.3,
+  2, 0.8, 0.7,
+  3, 0.5, 0.9,
+  4, 0.4, 0.5
+) %>% 
+  ggplot(aes(x, y)) + 
+  geom_line()
+
+tribble(
+  ~time, ~x, ~y,
+  1, 0.3, 0.3,
+  2, 0.8, 0.7,
+  3, 0.5, 0.9,
+  4, 0.4, 0.5
+) %>% 
+  ggplot(aes(x, y)) + 
+  geom_line()
+
+```
+
+### Demo 7
+
+- Change the following plot so that it shows _proportion_ on the y-axis, not count.
+- Change the x-axis so that it doesn't appear to be continuous.
+- Put the bars for transmission side-by-side with their own colour.
+- Capitalize the legend title.
+
+```{r, fig.width = 5, fig.height = 2}
+mtcars %>% 
+  mutate(transmission = if_else(am == 0, "automatic", "manual")) %>% 
+  ggplot(aes(cyl)) +
+  geom_bar(aes(colour = transmission))
+```
+
+### Demo 8
+
+Here's the number of people having a certain hair colour from a sample of 592 people:
+
+```{r}
+(hair <- as_tibble(HairEyeColor) %>% 
+  count(Hair, wt = n))
+```
+
+Fix the following bar plot so that it shows these counts.
+
+```{r}
+ggplot(hair, aes(Hair, n)) +
+  geom_bar()
+```
+
+### Demo 9
+
+Here's the number of people having a certain hair and eye colour from a sample of 592 people:
+
+```{r}
+(hair_eye <- as_tibble(HairEyeColor) %>% 
+  count(Hair, Eye, wt = n))
+```
+
+### Demo 10
+
+Fix the following plot so that it shows a filled-in square for each combination. 
+
+```{r}
+ggplot(hair_eye, aes(Hair, Eye)) +
+  geom_point(aes(colour = n))
+```
+

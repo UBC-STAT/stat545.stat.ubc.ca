@@ -1,0 +1,23 @@
+---
+title: "Demonstration 8-A: tidyr for tidy data"
+output: html_document
+---
+
+```{r, message = FALSE, warning = FALSE}
+library(tidyverse)
+library(gapminder)
+knitr::opts_chunk$set(error = TRUE)
+```
+
+### Demo
+
+Use `complete()` to fill in the implicit NA's.
+
+```{r}
+gapminder %>% 
+  group_by(country) %>% 
+  arrange(year) %>% 
+  mutate(inc = lifeExp - lag(lifeExp)) %>% 
+  filter(inc < 0)
+```
+
