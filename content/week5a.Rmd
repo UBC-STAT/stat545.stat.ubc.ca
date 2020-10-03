@@ -97,6 +97,8 @@ Some useful (but not mandatory) readings are:
   - `pivot_wider()`
   - univariate pivoting using the `datasets::HairEyeColor` dataset
   - multivariate pivoting using the `iris` dataset
+  - `unite()`
+  - `separate()`
   - `expand()`
   - `complete()`
 - 9:50 - 10:00: Quiz
