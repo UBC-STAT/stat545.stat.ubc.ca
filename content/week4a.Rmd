@@ -139,7 +139,8 @@ Some useful (but not mandatory) readings related to today are:
 
 | Lecture | Worksheet | View |
 |---------|-----------|------|
-| 7-A: ggplot2 Part II | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo7a-ggplot2-part2.Rmd) | Knitted worksheet |
+| 7-A: ggplot2 Part II | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo7a-ggplot2-part2.Rmd) | [Knitted worksheet](/demonstrations/demo7a-ggplot2-part2) |
+
 
 
 #### Deeper Dive
