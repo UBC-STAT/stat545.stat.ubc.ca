@@ -54,7 +54,7 @@ sat_date_pretty <- paste0(
 
 **Due:** Saturday, `r sat_date_pretty` at 23:59 PST
 
-[.ipynb]() or [view it on GitHub]()
+[.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_04a.ipynb) or [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_04a.ipynb)
 
 -----
 
