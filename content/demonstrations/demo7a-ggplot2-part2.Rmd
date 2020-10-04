@@ -21,7 +21,9 @@ Plot that global average life expectancy over time.
 ```{r}
 gapminder %>% 
   group_by(year) %>% 
-  summarise(wmean = sum(lifeExp * pop) / sum(pop))
+  summarise(wmean = sum(lifeExp * pop) / sum(pop)) %>% 
+  ggplot(aes(year, wmean)) +
+  geom_line()
 ```
 
 ### Demo 2
@@ -37,7 +39,15 @@ gapminder %>%
   group_by(continent) %>% 
   mutate(median = median(lifeExp[year == 2007])) %>% 
   filter(lifeExp < median) %>% 
-  count(continent, year)
+  count(continent, year) %>% 
+  ggplot(aes(year, n)) +
+  geom_line(aes(colour = continent)) +
+  ylab("# of countries with low lifeExp") +
+  labs(title = "Evolution over time") +
+  scale_x_continuous("") +
+  scale_colour_discrete("") +
+  theme_minimal() +
+  theme(panel.grid = element_blank())
 ```
 
 
@@ -48,7 +58,12 @@ gapminder %>%
 Plot GDP per capita over time, identifying each continent. 
 
 ```{r}
-ggplot(gapminder, aes(year, gdpPercap))
+p3 <- ggplot(gapminder, aes(year, gdpPercap)) +
+  geom_line(aes(group = country, colour = continent), alpha = 1/3) +
+  facet_wrap(~ continent) +
+  scale_y_log10(labels = scales::dollar_format()) +
+  guides(colour = FALSE)
+p3
 ```
 
 
@@ -63,9 +78,30 @@ We'll also add _for each year_.  Today: modify plot (a) above so that the lines 
 ```{r}
 gapminder %>% 
   group_by(continent, year) %>% 
-  summarise(max = max(gdpPercap),
-            min = min(gdpPercap))
+  mutate(max = max(gdpPercap),
+            min = min(gdpPercap)) %>% 
+  ggplot(aes(year, (gdpPercap))) +
+  geom_ribbon(aes(ymin = min, ymax = max), alpha = 0.5, fill = "gray") +
+  geom_line(aes(group = country, colour = continent), alpha = 1/3) +
+  # geom_ribbon(aes(ymin = quantile(gdpPercap, probs = 0.25),
+  #                 ymax = quantile(gdpPercap, probs = 0.75),
+  #                 group = year)) +
+  facet_wrap( ~ continent) +
+  scale_y_log10(labels = scales::dollar_format()) +
+  guides(colour = FALSE)
 ```
+
+```{r}
+gapminder %>% 
+  group_by(continent) %>% 
+  nrow
+gapminder %>% 
+  ggplot(aes(gdpPercap, lifeExp)) +
+  geom_point(aes(shape = continent)) +
+  scale_x_log10() +
+  scale_shape_manual(values = letters[1:5])
+```
+
 
 ### Quiz
 
