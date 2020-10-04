@@ -63,9 +63,9 @@ Use this page to navigate your way through STAT 545.
 
 ## Lecture Demonstrations
 
-Worksheets demonstrated in lecture will appear here.
+Lecture demonstration files will appear here.
 
-| Lecture | Worksheet | View |
+| Lecture | Demonstration | View |
 |---------|-----------|------|
 | 6-A: dplyr Part II | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo6a-dplyr-part2.Rmd) | [Knitted worksheet](/demonstrations/demo6a-dplyr-part2) |
 | 7-A: ggplot2 Part II | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo7a-ggplot2-part2.Rmd) | [Knitted worksheet](/demonstrations/demo7a-ggplot2-part2) |

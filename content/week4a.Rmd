@@ -65,7 +65,7 @@ From today's class, students are anticipated to be able to:
 + Compute new columns using `mutate()`
 + Use `dplyr::across()` to use functions with specific columns
 
-| Lecture | Worksheet | View |
+| Lecture | Demonstration | View |
 |---------|-----------|------|
 | 6-A: dplyr Part II | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo6a-dplyr-part2.Rmd) | [Knitted worksheet](/demonstrations/demo6a-dplyr-part2) |
 
@@ -137,7 +137,7 @@ Some useful (but not mandatory) readings related to today are:
 
 **Complete the Class 7-A Quiz on Canvas by Friday, October 2nd at 11:00am PST.**
 
-| Lecture | Worksheet | View |
+| Lecture | Demonstration | View |
 |---------|-----------|------|
 | 7-A: ggplot2 Part II | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo7a-ggplot2-part2.Rmd) | [Knitted worksheet](/demonstrations/demo7a-ggplot2-part2) |
 
