@@ -6,7 +6,7 @@ output: html_document
 ```{r, message = FALSE, warning = FALSE}
 library(tidyverse)
 library(gapminder)
-knitr::opts_chunk$set(error = TRUE)
+knitr::opts_chunk$set(error = TRUE, fig.width = 5, fig.height = 2)
 ```
 
 
@@ -88,8 +88,15 @@ gapminder %>%
   #                 group = year)) +
   facet_wrap( ~ continent) +
   scale_y_log10(labels = scales::dollar_format()) +
-  guides(colour = FALSE)
+  guides(colour = FALSE) +
+  theme_bw()
 ```
+
+
+### Quiz
+
+1. True or False: Because the `dplyr::group_by()` function and ggplot2's `group` aesthetic both split a tibble into groups, we can use either one when making a plot. 
+2. True or False: In principle, mapping `continent` to letters (a, b, c, ...) is an aesthetic mapping.
 
 ```{r}
 gapminder %>% 
@@ -101,12 +108,6 @@ gapminder %>%
   scale_x_log10() +
   scale_shape_manual(values = letters[1:5])
 ```
-
-
-### Quiz
-
-1. True or False: Because the `dplyr::group_by()` function and ggplot2's `group` aesthetic both split a tibble into groups, we can use either one when making a plot. 
-2. True or False: In principle, mapping `continent` to letters (a, b, c, ...) is an aesthetic mapping.
 
 
 ### Demo 4
@@ -122,7 +123,9 @@ gapminder %>%
   group_by(country) %>% 
   arrange(year) %>% 
   mutate(inc = lifeExp - lag(lifeExp)) %>% 
-  filter(inc < 0)
+  filter(inc < 0) %>% 
+  ggplot(aes(year)) +
+  geom_bar()
 ```
 
 
@@ -133,7 +136,14 @@ How has the distribution of GDP per capita changed over time for each continent?
 (Breakout rooms?)
 
 ```{r}
-
+gapminder %>% 
+  filter(continent != "Oceania") %>% 
+  ggplot(aes(gdpPercap, factor(year))) +
+  ggridges::geom_density_ridges(aes(fill = continent), alpha = 1/3) +
+  scale_x_log10("GDP per capita", labels = scales::dollar_format()) +
+  ylab("Year") +
+  theme_minimal() +
+  scale_fill_discrete("")
 ```
 
 
@@ -145,11 +155,23 @@ Let's go through [Principles of Figure Design](https://vincenzocoia.com/communic
 
 The following mock dataset marks the (x,y) position of a caribou at four time points. 
 
+```
+tribble(
+  ~time, ~x, ~y,
+  1, 0.3, 0.3,
+  2, 0.8, 0.7,
+  3, 0.5, 0.9,
+  4, 0.4, 0.5
+) %>% 
+  ggplot(aes(x, y)) + 
+  geom_line()
+```
+
 - Fix the plot below so that it shows the path of the caribou. 
 - Add an arrow with `arrow = arrow()`.
 - Add the `time` label with `geom_text()`.
 
-```{r, fig.width = 5, fig.height = 2}
+```{r}
 tribble(
   ~time, ~x, ~y,
   1, 0.3, 0.3,
@@ -158,18 +180,9 @@ tribble(
   4, 0.4, 0.5
 ) %>% 
   ggplot(aes(x, y)) + 
-  geom_line()
-
-tribble(
-  ~time, ~x, ~y,
-  1, 0.3, 0.3,
-  2, 0.8, 0.7,
-  3, 0.5, 0.9,
-  4, 0.4, 0.5
-) %>% 
-  ggplot(aes(x, y)) + 
-  geom_line()
-
+  geom_path(arrow = arrow()) +
+  geom_text(aes(label = time), nudge_x = 0.02) +
+  theme_void()
 ```
 
 ### Demo 7
@@ -179,11 +192,22 @@ tribble(
 - Put the bars for transmission side-by-side with their own colour.
 - Capitalize the legend title.
 
-```{r, fig.width = 5, fig.height = 2}
+```
 mtcars %>% 
   mutate(transmission = if_else(am == 0, "automatic", "manual")) %>% 
   ggplot(aes(cyl)) +
   geom_bar(aes(colour = transmission))
+```
+
+```{r, fig.width = 5, fig.height = 2}
+mtcars %>% 
+  mutate(transmission = if_else(am == 0, "automatic", "manual")) %>% 
+  ggplot(aes(factor(cyl))) +
+  geom_bar(aes(y = ..prop.., fill = transmission, group = transmission), 
+           position = "dodge") +
+  scale_fill_discrete("Transmission") +
+  labs(y = "Proportion", x = "Cylinders") +
+  theme_minimal()
 ```
 
 ### Demo 8
@@ -197,9 +221,14 @@ Here's the number of people having a certain hair colour from a sample of 592 pe
 
 Fix the following bar plot so that it shows these counts.
 
-```{r}
+```
 ggplot(hair, aes(Hair, n)) +
   geom_bar()
+```
+
+```{r}
+ggplot(hair, aes(Hair, n)) +
+  geom_col()
 ```
 
 ### Demo 9
@@ -212,11 +241,17 @@ Here's the number of people having a certain hair and eye colour from a sample o
 ```
 
 ### Demo 10
-
+ 
 Fix the following plot so that it shows a filled-in square for each combination. 
+
+```
+ggplot(hair_eye, aes(Hair, Eye)) +
+  geom_point(aes(colour = n))
+```
 
 ```{r}
 ggplot(hair_eye, aes(Hair, Eye)) +
-  geom_point(aes(colour = n))
+  geom_bin2d(aes(fill = n)) +
+  theme_minimal()
 ```
 
