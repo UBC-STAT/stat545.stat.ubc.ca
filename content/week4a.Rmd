@@ -67,7 +67,7 @@ From today's class, students are anticipated to be able to:
 
 | Lecture | Demonstration | View |
 |---------|-----------|------|
-| 6-A: dplyr Part II | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo6a-dplyr-part2.Rmd) | [Knitted worksheet](/demonstrations/demo6a-dplyr-part2) |
+| 6-A: dplyr Part II | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo6a-dplyr-part2.Rmd) | [Knitted demo](/demonstrations/demo6a-dplyr-part2) |
 
 #### Prepare for Class
 
@@ -139,7 +139,7 @@ Some useful (but not mandatory) readings related to today are:
 
 | Lecture | Demonstration | View |
 |---------|-----------|------|
-| 7-A: ggplot2 Part II | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo7a-ggplot2-part2.Rmd) | [Knitted worksheet](/demonstrations/demo7a-ggplot2-part2) |
+| 7-A: ggplot2 Part II | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo7a-ggplot2-part2.Rmd) | [Knitted demo](/demonstrations/demo7a-ggplot2-part2) |
 
 
 
