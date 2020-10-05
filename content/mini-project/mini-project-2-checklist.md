@@ -55,3 +55,4 @@
 	- [ ] Did you remove all duplicate files resulting from merge conflicts?
 	- [ ] Are all the files in their corresponding milestone directories?
 	- [ ] Did you update your README as the project has progressed?
+	- [ ] Did you tag a release for submission?
