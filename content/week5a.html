@@ -29,42 +29,32 @@ output: html_document
 <div id="prepare-for-class" class="section level4">
 <h4>Prepare for Class</h4>
 <ul>
-<li>Watch the <a href="">STAT 545 Video Series: Class 08A</a></li>
-<li>Required readings:
-<ul>
-<li><a href="https://github.com/jennybc/lotr-tidy/blob/master/01-intro.md">Jenny’s Intro to Tidy Data</a>
-<ul>
-<li>Note that in <code>tidyr 1.0.0</code>, <code>pivot_longer()</code> replaced <code>gather()</code>, and <code>pivot_wider()</code> replaced <code>spread()</code>, which are functions you may see in older documentation</li>
-</ul></li>
-<li><code>tidyr</code> <a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html">vignette</a> on tidy data</li>
-<li><code>pivot</code> <a href="https://tidyr.tidyverse.org/articles/pivot.html">vignette</a> with <code>tidyr</code></li>
-</ul></li>
+<li>Watch the <a href="https://youtu.be/qivE6exNsZI">STAT 545 Video Series: Class 08A</a> (also available on canvas)</li>
+<li>Read the <a href="https://tidyr.tidyverse.org/articles/pivot.html"><code>pivot</code> vignette</a> with <code>tidyr</code></li>
 </ul>
 <p>Some useful (but not mandatory) readings are:</p>
 <ul>
-<li><a href="https://vita.had.co.nz/papers/tidy-data.pdf">Hadley’s Paper on Tidy Data</a> (more thorough)</li>
-<li>Other new <a href="https://www.tidyverse.org/articles/2019/09/tidyr-1-0-0/">additions</a> in `tidyr</li>
+<li><code>tidyr</code> <a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html">vignette</a> on tidy data for more depth on tidy data.</li>
+<li><a href="https://vita.had.co.nz/papers/tidy-data.pdf">Hadley’s Paper on Tidy Data</a> for a formal journal article on tidy data.</li>
+<li>Other new <a href="https://www.tidyverse.org/articles/2019/09/tidyr-1-0-0/">additions</a> in <code>tidyr</code> v1.0.0</li>
 </ul>
 </div>
 <div id="during-class" class="section level4">
 <h4>During Class</h4>
 <ul>
-<li>9:30 - 9:50: In class demo, covering:
+<li>In class demo, covering:
 <ul>
 <li><code>pivot_longer()</code></li>
 <li><code>pivot_wider()</code></li>
-<li>univariate pivoting using the <code>datasets::HairEyeColor</code> dataset</li>
-<li>multivariate pivoting using the <code>iris</code> dataset</li>
-<li><code>unite()</code></li>
-<li><code>separate()</code></li>
-<li><code>expand()</code></li>
-<li><code>complete()</code></li>
+<li>univariate pivoting</li>
+<li>multivariate pivoting</li>
+<li>Convenience functions like <code>unite()</code>, <code>separate()</code>, <code>expand()</code>, <code>complete()</code></li>
 </ul></li>
-<li>9:50 - 10:00: Quiz</li>
-<li>10:00 - 10:05: Break</li>
-<li>10:05 - 10:45: Lecture worksheet</li>
+<li>Quiz
+<ul>
+<li><strong>Complete the Class 08A Quiz on Canvas by Wednesday, Oct 7, 2020 at 11:00am PST.</strong></li>
+</ul></li>
 </ul>
-<p><strong>Complete the Class 08A Quiz on Canvas by Wednesday, Oct 7, 2020 at 11:00am PST.</strong></p>
 <table>
 <thead>
 <tr class="header">
@@ -76,7 +66,7 @@ output: html_document
 <tbody>
 <tr class="odd">
 <td>08A: Tidy Data</td>
-<td><a href="">.Rmd</a></td>
+<td>.Rmd</td>
 <td>Knitted Demo</td>
 </tr>
 </tbody>
@@ -91,27 +81,28 @@ output: html_document
 <p>Oct 8, 2020</p>
 <p>From today’s class, students are anticipated to be able to:</p>
 <ul>
-<li>understand how to fit a linear regression model in R</li>
+<li>make a model object in R</li>
+<li>write a formula in R</li>
+<li>predict on a model object with the <code>broom::augment()</code> and <code>predict()</code> functions</li>
+<li>extract information from a model object using <code>broom::tidy()</code>, <code>broom::glance()</code>, and traditional means.</li>
 </ul>
 <div id="prepare-for-class-1" class="section level4">
 <h4>Prepare for Class</h4>
 <ul>
 <li>Watch the <a href="">STAT 545 Video Series: Class 09A</a></li>
-<li>Required readings:
-<ul>
-<li><a href="https://cran.r-project.org/web/packages/broom/vignettes/broom.html"><code>broom</code></a> vignette</li>
-<li><a href="https://cfss.uchicago.edu/notes/linear-models/">Tutorial</a> on model fitting in R (just the linear regression part)</li>
-</ul></li>
+<li>Read <a href="https://stat545.stat.ubc.ca/tutorials/model-fitting/">The Model-Fitting Paradigm in R</a> from the Tutorials section of the website.</li>
 </ul>
 <p>Some useful (but not mandatory) readings are:</p>
 <ul>
-<li><a href="https://www-bcf.usc.edu/~gareth/ISL/">An Introduction to Statistical Learning</a></li>
+<li>The <a href="https://cran.r-project.org/web/packages/broom/vignettes/broom.html"><code>broom</code></a> vignette is useful for learning the details of broom.</li>
+<li>If you want a quick intro to linear regression with R, check out this <a href="https://cfss.uchicago.edu/notes/linear-models/">U Chicago Tutorial</a> on model fitting in R (just the linear regression part).</li>
+<li>If you’re eager to learn more about models in general, <a href="https://www-bcf.usc.edu/~gareth/ISL/">An Introduction to Statistical Learning</a> is an approachable read (the book is freely available online)</li>
 </ul>
 </div>
 <div id="during-class-1" class="section level4">
 <h4>During Class</h4>
 <ul>
-<li>9:30 - 9:50: In class demo, covering:
+<li>In class demo, covering:
 <ul>
 <li>fitting a linear regression model using <code>lm</code></li>
 <li>plotting linear models using <code>geom_smooth</code></li>
@@ -120,9 +111,7 @@ output: html_document
 <li><code>tidy()</code></li>
 <li><code>glance()</code></li>
 </ul></li>
-<li>9:50 - 10:00: Quiz</li>
-<li>10:00 - 10:05: Break</li>
-<li>10:05 - 10:45: Lecture worksheet</li>
+<li>Quiz</li>
 </ul>
 <p><strong>Complete the Class 09A Quiz on Canvas by Friday, Oct 9, 2020 at 11:00am PST.</strong></p>
 <table>
@@ -155,7 +144,25 @@ output: html_document
 </div>
 <div id="mini-data-analysis-project-milestone-2" class="section level2">
 <h2>Mini Data Analysis Project Milestone 2</h2>
-<p>Checkout the <a href="https://stat545.stat.ubc.ca/mini-analysis-about/">general instructions</a> and the <a href="">Milestone 2 instructions</a></p>
+<p>Checkout the <a href="https://stat545.stat.ubc.ca/mini-analysis-about/">general instructions</a>. Here are the Milestone 2 specifics, taken from the course dashboard:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Milestone</th>
+<th>Instructions</th>
+<th>.Rmd</th>
+<th>Checklist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Milestone 2</td>
+<td><a href="https://stat545.stat.ubc.ca/mini-project/mini-project-2/">view</a></td>
+<td><a href="https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-2.Rmd">.Rmd</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Due:</strong> Saturday, Oct 10, 2020 at 23:59 PST</p>
 <hr />
 </div>
