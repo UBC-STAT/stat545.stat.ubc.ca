@@ -99,3 +99,7 @@ guestlist %>%
 ## Deprecated functions: spread and gather
 
 Pivoting used to be achieved through the tidyr `spread()` and `gather()` functions. These are deprecated and should not be used. 
+
+## Survey
+
+For topic(s) in the last class. 
