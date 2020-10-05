@@ -148,7 +148,7 @@ Some useful (but not mandatory) readings are:
 
 | Lecture | Demo | View |
 |---------|-----------|------|
-| `r thurs_class_num`: Model Fitting Paradigm | [.Rmd]() | Knitted Demo |
+| `r thurs_class_num`: Model Fitting Paradigm | .Rmd | Knitted Demo |
 
 -----
 
