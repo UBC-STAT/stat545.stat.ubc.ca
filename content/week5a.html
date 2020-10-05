@@ -1,0 +1,168 @@
+---
+title: "STAT 545A: Week 5"
+output: html_document
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<hr />
+<!-- ******WORKSHEET****** -->
+<div id="worksheet-4a" class="section level2">
+<h2>Worksheet 4A</h2>
+<p><strong>Due:</strong> Saturday, Oct 10, 2020 at 23:59 PST</p>
+<p><a href="https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_04a.ipynb">.ipynb</a> or <a href="https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_04a.ipynb">view it on GitHub</a></p>
+<hr />
+<hr />
+<!-- ******TUESDAY'S CLASS****** -->
+</div>
+<div id="tuesdays-class-08a-tidy-data" class="section level2">
+<h2>Tuesday’s Class 08A: Tidy Data</h2>
+<p>Oct 6, 2020</p>
+<p>From today’s class, students are anticipated to be able to:</p>
+<ul>
+<li>recognize whether a given dataset is ‘tidy’ or ‘untidy’</li>
+<li>convert a dataset between the ‘long’ and ‘wide’ format, using <code>tidyr::pivot_longer()</code> and <code>tidyr::pivot_wider()</code></li>
+<li>assess which format is best suited for each type of analysis</li>
+<li>deal with missing data in a tibble</li>
+</ul>
+<div id="prepare-for-class" class="section level4">
+<h4>Prepare for Class</h4>
+<ul>
+<li>Watch the <a href="https://youtu.be/qivE6exNsZI">STAT 545 Video Series: Class 08A</a> (also available on canvas)</li>
+<li>Read the <a href="https://tidyr.tidyverse.org/articles/pivot.html"><code>pivot</code> vignette</a> with <code>tidyr</code></li>
+</ul>
+<p>Some useful (but not mandatory) readings are:</p>
+<ul>
+<li><code>tidyr</code> <a href="https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html">vignette</a> on tidy data for more depth on tidy data.</li>
+<li><a href="https://vita.had.co.nz/papers/tidy-data.pdf">Hadley’s Paper on Tidy Data</a> for a formal journal article on tidy data.</li>
+<li>Other new <a href="https://www.tidyverse.org/articles/2019/09/tidyr-1-0-0/">additions</a> in <code>tidyr</code> v1.0.0</li>
+</ul>
+</div>
+<div id="during-class" class="section level4">
+<h4>During Class</h4>
+<ul>
+<li>In class demo, covering:
+<ul>
+<li><code>pivot_longer()</code></li>
+<li><code>pivot_wider()</code></li>
+<li>univariate pivoting</li>
+<li>multivariate pivoting</li>
+<li>Convenience functions like <code>unite()</code>, <code>separate()</code>, <code>expand()</code>, <code>complete()</code></li>
+</ul></li>
+<li>Quiz
+<ul>
+<li><strong>Complete the Class 08A Quiz on Canvas by Wednesday, Oct 7, 2020 at 11:00am PST.</strong></li>
+</ul></li>
+</ul>
+<table>
+<thead>
+<tr class="header">
+<th>Lecture</th>
+<th>Demo</th>
+<th>View</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>08A: Tidy Data</td>
+<td>.Rmd</td>
+<td>Knitted Demo</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<hr />
+<!-- ******THURSDAY'S CLASS****** -->
+</div>
+</div>
+<div id="thursdays-class-09a-the-model-fitting-paradigm-in-r" class="section level2">
+<h2>Thursday’s Class 09A: The Model-Fitting Paradigm in R</h2>
+<p>Oct 8, 2020</p>
+<p>From today’s class, students are anticipated to be able to:</p>
+<ul>
+<li>make a model object in R</li>
+<li>write a formula in R</li>
+<li>predict on a model object with the <code>broom::augment()</code> and <code>predict()</code> functions</li>
+<li>extract information from a model object using <code>broom::tidy()</code>, <code>broom::glance()</code>, and traditional means.</li>
+</ul>
+<div id="prepare-for-class-1" class="section level4">
+<h4>Prepare for Class</h4>
+<ul>
+<li>Watch the <a href="">STAT 545 Video Series: Class 09A</a></li>
+<li>Read <a href="https://stat545.stat.ubc.ca/tutorials/model-fitting/">The Model-Fitting Paradigm in R</a> from the Tutorials section of the website.</li>
+</ul>
+<p>Some useful (but not mandatory) readings are:</p>
+<ul>
+<li>The <a href="https://cran.r-project.org/web/packages/broom/vignettes/broom.html"><code>broom</code></a> vignette is useful for learning the details of broom.</li>
+<li>If you want a quick intro to linear regression with R, check out this <a href="https://cfss.uchicago.edu/notes/linear-models/">U Chicago Tutorial</a> on model fitting in R (just the linear regression part).</li>
+<li>If you’re eager to learn more about models in general, <a href="https://www-bcf.usc.edu/~gareth/ISL/">An Introduction to Statistical Learning</a> is an approachable read (the book is freely available online)</li>
+</ul>
+</div>
+<div id="during-class-1" class="section level4">
+<h4>During Class</h4>
+<ul>
+<li>In class demo, covering:
+<ul>
+<li>fitting a linear regression model using <code>lm</code></li>
+<li>plotting linear models using <code>geom_smooth</code></li>
+<li><code>I()</code></li>
+<li><code>augment()</code></li>
+<li><code>tidy()</code></li>
+<li><code>glance()</code></li>
+</ul></li>
+<li>Quiz</li>
+</ul>
+<p><strong>Complete the Class 09A Quiz on Canvas by Friday, Oct 9, 2020 at 11:00am PST.</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th>Lecture</th>
+<th>Demo</th>
+<th>View</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>09A: Model Fitting Paradigm</td>
+<td>.Rmd</td>
+<td>Knitted Demo</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<hr />
+</div>
+</div>
+<div id="thursday-office-hour" class="section level2">
+<h2>Thursday Office Hour</h2>
+<p>Oct 8, 2020 from 16:00 - 17:00 PST</p>
+<p>Join Diana to discuss anything about the course: content, structure, deliverables, etc. Can’t make it? No worries - reach us through Slack / Canvas / email with your questions.</p>
+<hr />
+<hr />
+<!-- ******PROJECT****** -->
+</div>
+<div id="mini-data-analysis-project-milestone-2" class="section level2">
+<h2>Mini Data Analysis Project Milestone 2</h2>
+<p>Checkout the <a href="https://stat545.stat.ubc.ca/mini-analysis-about/">general instructions</a>. Here are the Milestone 2 specifics, taken from the course dashboard:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Milestone</th>
+<th>Instructions</th>
+<th>.Rmd</th>
+<th>Checklist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Milestone 2</td>
+<td><a href="https://stat545.stat.ubc.ca/mini-project/mini-project-2/">view</a></td>
+<td><a href="https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-2.Rmd">.Rmd</a></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Due:</strong> Saturday, Oct 10, 2020 at 23:59 PST</p>
+<hr />
+</div>
