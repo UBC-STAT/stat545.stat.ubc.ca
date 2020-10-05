@@ -6,29 +6,93 @@ output: html_document
 
 
 <pre class="r"><code>library(tidyverse)
+library(palmerpenguins)
 library(gapminder)
-knitr::opts_chunk$set(error = TRUE)</code></pre>
-<div id="demo" class="section level3">
-<h3>Demo</h3>
-<p>Use <code>complete()</code> to fill in the implicit NA’s.</p>
+knitr::opts_chunk$set(error = TRUE)
+guestlist &lt;- read_csv(here::here(&quot;content&quot;, &quot;data&quot;, &quot;wedding&quot;, &quot;attend.csv&quot;))</code></pre>
+<div id="review" class="section level2">
+<h2>Review</h2>
+<div id="collaborative-milestone-2" class="section level3">
+<h3>Collaborative Milestone 2</h3>
+<p>Logical operators: <code>%in%</code>, <code>!=</code>, <code>!</code></p>
+<pre class="r"><code>v &lt;- c(&quot;foo&quot;, &quot;baz&quot;, &quot;foo&quot;, &quot;bar&quot;)</code></pre>
+<ul>
+<li>Avoid using deprecated functions: use <code>across()</code> instead of scoped variants like <code>mutate_at()</code> and <code>summarise_if()</code>.</li>
+<li>Troubleshooting? Check the function’s documentation.
+<ul>
+<li>Easy to access with <code>?function</code></li>
+<li>Typically concise. Not like those old fashioned “User Manuals” <a href="https://www.mrc-bsu.cam.ac.uk/wp-content/uploads/manual14.pdf">like this WinBUGS manual</a>.</li>
+</ul></li>
+</ul>
+</div>
+<div id="worksheet-3-a" class="section level3">
+<h3>Worksheet 3-A</h3>
+<p>Any requests? If not, Question 1.3:</p>
+<blockquote>
+<p>In a single expression, make a tibble with the following columns for each island in the penguins data set:</p>
+<ul>
+<li>What is the mean of each numeric variable in the penguins dataset in each island? Keep the column names the same.</li>
+<li>How many penguins are there in each island? Add this to a column named <code>n</code>.</li>
+</ul>
+</blockquote>
+</div>
+</div>
+<div id="tidyr-demo" class="section level2">
+<h2>tidyr Demo</h2>
+<p>Let’s work with this guestlist dataset.</p>
+<pre class="r"><code>guestlist</code></pre>
+<pre><code>## # A tibble: 30 x 7
+##    party name  meal_wedding meal_brunch attendance_wedd… attendance_brun…
+##    &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;       &lt;chr&gt;            &lt;chr&gt;           
+##  1     1 Somm… PENDING      PENDING     PENDING          PENDING         
+##  2     1 Phil… vegetarian   Menu C      CONFIRMED        CONFIRMED       
+##  3     1 Blan… chicken      Menu A      CONFIRMED        CONFIRMED       
+##  4     1 Emaa… PENDING      PENDING     PENDING          PENDING         
+##  5     2 Blai… chicken      Menu C      CONFIRMED        CONFIRMED       
+##  6     2 Nige… &lt;NA&gt;         &lt;NA&gt;        CANCELLED        CANCELLED       
+##  7     3 Sine… PENDING      PENDING     PENDING          PENDING         
+##  8     4 Ayra… vegetarian   Menu B      PENDING          PENDING         
+##  9     5 Atla… PENDING      PENDING     PENDING          PENDING         
+## 10     5 Denz… fish         Menu B      CONFIRMED        CONFIRMED       
+## # … with 20 more rows, and 1 more variable: attendance_golf &lt;chr&gt;</code></pre>
+<div id="country-relationship" class="section level3">
+<h3>1. Country relationship</h3>
+<p>Using the <code>gapminder</code> dataset: What’s the relationship between Canada’s GDP per capita and the United Kingdom’s? First, identify the tidy format.</p>
 <pre class="r"><code>gapminder %&gt;% 
-  group_by(country) %&gt;% 
-  arrange(year) %&gt;% 
-  mutate(inc = lifeExp - lag(lifeExp)) %&gt;% 
-  filter(inc &lt; 0)</code></pre>
-<pre><code>## # A tibble: 102 x 7
-## # Groups:   country [52]
-##    country         continent  year lifeExp       pop gdpPercap     inc
-##    &lt;fct&gt;           &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;   &lt;dbl&gt;
-##  1 China           Asia       1962    44.5 665770000      488. -6.05  
-##  2 Cambodia        Asia       1972    40.3   7450606      422. -5.10  
-##  3 Czech Republic  Europe     1972    70.3   9862158    13108. -0.0900
-##  4 Netherlands     Europe     1972    73.8  13329874    18795. -0.0700
-##  5 Slovak Republic Europe     1972    70.4   4593433     9674. -0.63  
-##  6 Bulgaria        Europe     1977    70.8   8797022     7612. -0.09  
-##  7 Cambodia        Asia       1977    31.2   6978607      525. -9.10  
-##  8 El Salvador     Americas   1977    56.7   4282586     5139. -1.51  
-##  9 Poland          Europe     1977    70.7  34621254     9508. -0.180 
-## 10 Uganda          Africa     1977    50.4  11457758      844. -0.666 
-## # … with 92 more rows</code></pre>
+  FILL_THIS_IN</code></pre>
+<pre><code>## Error in FILL_THIS_IN(.): could not find function &quot;FILL_THIS_IN&quot;</code></pre>
+</div>
+<div id="whos-pending" class="section level3">
+<h3>2. Who’s PENDING?</h3>
+<p>Our task: extract all “PENDING” entries, paired with who it is, and what information is pending.</p>
+<p>What is a tidy data format for this question? Do the tidying.</p>
+<pre class="r"><code>guestlist %&gt;% 
+  FILL_THIS_IN</code></pre>
+<pre><code>## Error in FILL_THIS_IN(.): could not find function &quot;FILL_THIS_IN&quot;</code></pre>
+</div>
+<div id="quiz" class="section level3">
+<h3>Quiz</h3>
+<ol style="list-style-type: decimal">
+<li>True or False: it’s possible to lengthen a tibble “all the way” so that it can’t be lengthened anymore.</li>
+<li>True or False: To make a scatterplot viewing the relationship of Africa’s GDP per capita vs. Europe’s, use <code>pivot_wider()</code>.</li>
+</ol>
+</div>
+<div id="relationship-between-pending" class="section level3">
+<h3>3. Relationship between PENDING</h3>
+<p>What’s the relationship between whether or not a meal is PENDING, and the attendance status? First determine what a tidy format is for this question, then answer the question.</p>
+<pre class="r"><code>guestlist %&gt;% 
+  FILL_THIS_IN</code></pre>
+<pre><code>## Error in FILL_THIS_IN(.): could not find function &quot;FILL_THIS_IN&quot;</code></pre>
+</div>
+<div id="split-name" class="section level3">
+<h3>4. Split name</h3>
+<p>Split the guest name into first and last name.</p>
+<pre class="r"><code>guestlist %&gt;% 
+  FILL_THIS_IN</code></pre>
+<pre><code>## Error in FILL_THIS_IN(.): could not find function &quot;FILL_THIS_IN&quot;</code></pre>
+</div>
+</div>
+<div id="deprecated-functions-spread-and-gather" class="section level2">
+<h2>Deprecated functions: spread and gather</h2>
+<p>Pivoting used to be achieved through the tidyr <code>spread()</code> and <code>gather()</code> functions. These are deprecated and should not be used.</p>
 </div>

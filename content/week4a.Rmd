@@ -93,7 +93,9 @@ Some useful (but not mandatory) readings are:
 
 **Complete the Class 7-A Quiz on Canvas by Wednesday, September 30th at 11:00am PST.**
 
-
+| Demonstration | Rmd | View |
+|---|---|---|
+| 8-A: tidyr | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo8a-tidyr.Rmd) | [Knitted demo](/demonstrations/demo8a-tidyr) |
 
 -----
 
