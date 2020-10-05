@@ -7,7 +7,7 @@ output: html_document
 
 <pre class="r"><code>library(tidyverse)
 library(gapminder)
-knitr::opts_chunk$set(error = TRUE)</code></pre>
+knitr::opts_chunk$set(error = TRUE, fig.width = 5, fig.height = 2)</code></pre>
 <div id="demo-1" class="section level3">
 <h3>Demo 1</h3>
 <p>From last class:</p>
@@ -17,23 +17,11 @@ knitr::opts_chunk$set(error = TRUE)</code></pre>
 <p>Plot that global average life expectancy over time.</p>
 <pre class="r"><code>gapminder %&gt;% 
   group_by(year) %&gt;% 
-  summarise(wmean = sum(lifeExp * pop) / sum(pop))</code></pre>
+  summarise(wmean = sum(lifeExp * pop) / sum(pop)) %&gt;% 
+  ggplot(aes(year, wmean)) +
+  geom_line()</code></pre>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<pre><code>## # A tibble: 12 x 2
-##     year wmean
-##    &lt;int&gt; &lt;dbl&gt;
-##  1  1952  48.9
-##  2  1957  52.1
-##  3  1962  52.3
-##  4  1967  57.0
-##  5  1972  59.5
-##  6  1977  61.2
-##  7  1982  62.9
-##  8  1987  64.4
-##  9  1992  65.6
-## 10  1997  66.8
-## 11  2002  67.8
-## 12  2007  68.9</code></pre>
+<p><img src="/demonstrations/demo7a-ggplot2-part2_files/figure-html/unnamed-chunk-2-1.png" width="480" /></p>
 </div>
 <div id="demo-2" class="section level3">
 <h3>Demo 2</h3>
@@ -46,29 +34,28 @@ knitr::opts_chunk$set(error = TRUE)</code></pre>
   group_by(continent) %&gt;% 
   mutate(median = median(lifeExp[year == 2007])) %&gt;% 
   filter(lifeExp &lt; median) %&gt;% 
-  count(continent, year)</code></pre>
-<pre><code>## # A tibble: 60 x 3
-## # Groups:   continent [5]
-##    continent  year     n
-##    &lt;fct&gt;     &lt;int&gt; &lt;int&gt;
-##  1 Africa     1952    52
-##  2 Africa     1957    50
-##  3 Africa     1962    50
-##  4 Africa     1967    47
-##  5 Africa     1972    41
-##  6 Africa     1977    38
-##  7 Africa     1982    29
-##  8 Africa     1987    28
-##  9 Africa     1992    27
-## 10 Africa     1997    26
-## # … with 50 more rows</code></pre>
+  count(continent, year) %&gt;% 
+  ggplot(aes(year, n)) +
+  geom_line(aes(colour = continent)) +
+  ylab(&quot;# of countries with low lifeExp&quot;) +
+  labs(title = &quot;Evolution over time&quot;) +
+  scale_x_continuous(&quot;&quot;) +
+  scale_colour_discrete(&quot;&quot;) +
+  theme_minimal() +
+  theme(panel.grid = element_blank())</code></pre>
+<p><img src="/demonstrations/demo7a-ggplot2-part2_files/figure-html/unnamed-chunk-3-1.png" width="480" /></p>
 </div>
 <div id="demo-3" class="section level3">
 <h3>Demo 3</h3>
 <p><strong>(a)</strong></p>
 <p>Plot GDP per capita over time, identifying each continent.</p>
-<pre class="r"><code>ggplot(gapminder, aes(year, gdpPercap))</code></pre>
-<p><img src="/demonstrations/demo7a-ggplot2-part2_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>p3 &lt;- ggplot(gapminder, aes(year, gdpPercap)) +
+  geom_line(aes(group = country, colour = continent), alpha = 1/3) +
+  facet_wrap(~ continent) +
+  scale_y_log10(labels = scales::dollar_format()) +
+  guides(colour = FALSE)
+p3</code></pre>
+<p><img src="/demonstrations/demo7a-ggplot2-part2_files/figure-html/unnamed-chunk-4-1.png" width="480" /></p>
 <p><strong>(b)</strong></p>
 <p>From last class Demo 3:</p>
 <blockquote>
@@ -77,24 +64,19 @@ knitr::opts_chunk$set(error = TRUE)</code></pre>
 <p>We’ll also add <em>for each year</em>. Today: modify plot (a) above so that the lines for each continent are contained within a band.</p>
 <pre class="r"><code>gapminder %&gt;% 
   group_by(continent, year) %&gt;% 
-  summarise(max = max(gdpPercap),
-            min = min(gdpPercap))</code></pre>
-<pre><code>## `summarise()` regrouping output by &#39;continent&#39; (override with `.groups` argument)</code></pre>
-<pre><code>## # A tibble: 60 x 4
-## # Groups:   continent [5]
-##    continent  year    max   min
-##    &lt;fct&gt;     &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt;
-##  1 Africa     1952  4725.  299.
-##  2 Africa     1957  5487.  336.
-##  3 Africa     1962  6757.  355.
-##  4 Africa     1967 18773.  413.
-##  5 Africa     1972 21011.  464.
-##  6 Africa     1977 21951.  502.
-##  7 Africa     1982 17364.  462.
-##  8 Africa     1987 11864.  390.
-##  9 Africa     1992 13522.  411.
-## 10 Africa     1997 14723.  312.
-## # … with 50 more rows</code></pre>
+  mutate(max = max(gdpPercap),
+            min = min(gdpPercap)) %&gt;% 
+  ggplot(aes(year, (gdpPercap))) +
+  geom_ribbon(aes(ymin = min, ymax = max), alpha = 0.5, fill = &quot;gray&quot;) +
+  geom_line(aes(group = country, colour = continent), alpha = 1/3) +
+  # geom_ribbon(aes(ymin = quantile(gdpPercap, probs = 0.25),
+  #                 ymax = quantile(gdpPercap, probs = 0.75),
+  #                 group = year)) +
+  facet_wrap( ~ continent) +
+  scale_y_log10(labels = scales::dollar_format()) +
+  guides(colour = FALSE) +
+  theme_bw()</code></pre>
+<p><img src="/demonstrations/demo7a-ggplot2-part2_files/figure-html/unnamed-chunk-5-1.png" width="480" /></p>
 </div>
 <div id="quiz" class="section level3">
 <h3>Quiz</h3>
@@ -102,6 +84,16 @@ knitr::opts_chunk$set(error = TRUE)</code></pre>
 <li>True or False: Because the <code>dplyr::group_by()</code> function and ggplot2’s <code>group</code> aesthetic both split a tibble into groups, we can use either one when making a plot.</li>
 <li>True or False: In principle, mapping <code>continent</code> to letters (a, b, c, …) is an aesthetic mapping.</li>
 </ol>
+<pre class="r"><code>gapminder %&gt;% 
+  group_by(continent) %&gt;% 
+  nrow</code></pre>
+<pre><code>## [1] 1704</code></pre>
+<pre class="r"><code>gapminder %&gt;% 
+  ggplot(aes(gdpPercap, lifeExp)) +
+  geom_point(aes(shape = continent)) +
+  scale_x_log10() +
+  scale_shape_manual(values = letters[1:5])</code></pre>
+<p><img src="/demonstrations/demo7a-ggplot2-part2_files/figure-html/unnamed-chunk-6-1.png" width="480" /></p>
 </div>
 <div id="demo-4" class="section level3">
 <h3>Demo 4</h3>
@@ -114,27 +106,25 @@ knitr::opts_chunk$set(error = TRUE)</code></pre>
   group_by(country) %&gt;% 
   arrange(year) %&gt;% 
   mutate(inc = lifeExp - lag(lifeExp)) %&gt;% 
-  filter(inc &lt; 0)</code></pre>
-<pre><code>## # A tibble: 102 x 7
-## # Groups:   country [52]
-##    country         continent  year lifeExp       pop gdpPercap     inc
-##    &lt;fct&gt;           &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;   &lt;dbl&gt;
-##  1 China           Asia       1962    44.5 665770000      488. -6.05  
-##  2 Cambodia        Asia       1972    40.3   7450606      422. -5.10  
-##  3 Czech Republic  Europe     1972    70.3   9862158    13108. -0.0900
-##  4 Netherlands     Europe     1972    73.8  13329874    18795. -0.0700
-##  5 Slovak Republic Europe     1972    70.4   4593433     9674. -0.63  
-##  6 Bulgaria        Europe     1977    70.8   8797022     7612. -0.09  
-##  7 Cambodia        Asia       1977    31.2   6978607      525. -9.10  
-##  8 El Salvador     Americas   1977    56.7   4282586     5139. -1.51  
-##  9 Poland          Europe     1977    70.7  34621254     9508. -0.180 
-## 10 Uganda          Africa     1977    50.4  11457758      844. -0.666 
-## # … with 92 more rows</code></pre>
+  filter(inc &lt; 0) %&gt;% 
+  ggplot(aes(year)) +
+  geom_bar()</code></pre>
+<p><img src="/demonstrations/demo7a-ggplot2-part2_files/figure-html/unnamed-chunk-7-1.png" width="480" /></p>
 </div>
 <div id="demo-5" class="section level3">
 <h3>Demo 5</h3>
 <p>How has the distribution of GDP per capita changed over time for each continent?</p>
 <p>(Breakout rooms?)</p>
+<pre class="r"><code>gapminder %&gt;% 
+  filter(continent != &quot;Oceania&quot;) %&gt;% 
+  ggplot(aes(gdpPercap, factor(year))) +
+  ggridges::geom_density_ridges(aes(fill = continent), alpha = 1/3) +
+  scale_x_log10(&quot;GDP per capita&quot;, labels = scales::dollar_format()) +
+  ylab(&quot;Year&quot;) +
+  theme_minimal() +
+  scale_fill_discrete(&quot;&quot;)</code></pre>
+<pre><code>## Picking joint bandwidth of 0.148</code></pre>
+<p><img src="/demonstrations/demo7a-ggplot2-part2_files/figure-html/unnamed-chunk-8-1.png" width="480" /></p>
 </div>
 <div id="effective-vis" class="section level3">
 <h3>Effective Vis</h3>
@@ -143,6 +133,15 @@ knitr::opts_chunk$set(error = TRUE)</code></pre>
 <div id="demo-6" class="section level3">
 <h3>Demo 6</h3>
 <p>The following mock dataset marks the (x,y) position of a caribou at four time points.</p>
+<pre><code>tribble(
+  ~time, ~x, ~y,
+  1, 0.3, 0.3,
+  2, 0.8, 0.7,
+  3, 0.5, 0.9,
+  4, 0.4, 0.5
+) %&gt;% 
+  ggplot(aes(x, y)) + 
+  geom_line()</code></pre>
 <ul>
 <li>Fix the plot below so that it shows the path of the caribou.</li>
 <li>Add an arrow with <code>arrow = arrow()</code>.</li>
@@ -156,18 +155,10 @@ knitr::opts_chunk$set(error = TRUE)</code></pre>
   4, 0.4, 0.5
 ) %&gt;% 
   ggplot(aes(x, y)) + 
-  geom_line()</code></pre>
-<p><img src="/demonstrations/demo7a-ggplot2-part2_files/figure-html/unnamed-chunk-8-1.png" width="480" /></p>
-<pre class="r"><code>tribble(
-  ~time, ~x, ~y,
-  1, 0.3, 0.3,
-  2, 0.8, 0.7,
-  3, 0.5, 0.9,
-  4, 0.4, 0.5
-) %&gt;% 
-  ggplot(aes(x, y)) + 
-  geom_line()</code></pre>
-<p><img src="/demonstrations/demo7a-ggplot2-part2_files/figure-html/unnamed-chunk-8-2.png" width="480" /></p>
+  geom_path(arrow = arrow()) +
+  geom_text(aes(label = time), nudge_x = 0.02) +
+  theme_void()</code></pre>
+<p><img src="/demonstrations/demo7a-ggplot2-part2_files/figure-html/unnamed-chunk-9-1.png" width="480" /></p>
 </div>
 <div id="demo-7" class="section level3">
 <h3>Demo 7</h3>
@@ -177,11 +168,19 @@ knitr::opts_chunk$set(error = TRUE)</code></pre>
 <li>Put the bars for transmission side-by-side with their own colour.</li>
 <li>Capitalize the legend title.</li>
 </ul>
-<pre class="r"><code>mtcars %&gt;% 
+<pre><code>mtcars %&gt;% 
   mutate(transmission = if_else(am == 0, &quot;automatic&quot;, &quot;manual&quot;)) %&gt;% 
   ggplot(aes(cyl)) +
   geom_bar(aes(colour = transmission))</code></pre>
-<p><img src="/demonstrations/demo7a-ggplot2-part2_files/figure-html/unnamed-chunk-9-1.png" width="480" /></p>
+<pre class="r"><code>mtcars %&gt;% 
+  mutate(transmission = if_else(am == 0, &quot;automatic&quot;, &quot;manual&quot;)) %&gt;% 
+  ggplot(aes(factor(cyl))) +
+  geom_bar(aes(y = ..prop.., fill = transmission, group = transmission), 
+           position = &quot;dodge&quot;) +
+  scale_fill_discrete(&quot;Transmission&quot;) +
+  labs(y = &quot;Proportion&quot;, x = &quot;Cylinders&quot;) +
+  theme_minimal()</code></pre>
+<p><img src="/demonstrations/demo7a-ggplot2-part2_files/figure-html/unnamed-chunk-10-1.png" width="480" /></p>
 </div>
 <div id="demo-8" class="section level3">
 <h3>Demo 8</h3>
@@ -196,10 +195,11 @@ knitr::opts_chunk$set(error = TRUE)</code></pre>
 ## 3 Brown   286
 ## 4 Red      71</code></pre>
 <p>Fix the following bar plot so that it shows these counts.</p>
-<pre class="r"><code>ggplot(hair, aes(Hair, n)) +
+<pre><code>ggplot(hair, aes(Hair, n)) +
   geom_bar()</code></pre>
-<pre><code>## Error: stat_count() can only have an x or y aesthetic.</code></pre>
-<p><img src="/demonstrations/demo7a-ggplot2-part2_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(hair, aes(Hair, n)) +
+  geom_col()</code></pre>
+<p><img src="/demonstrations/demo7a-ggplot2-part2_files/figure-html/unnamed-chunk-12-1.png" width="480" /></p>
 </div>
 <div id="demo-9" class="section level3">
 <h3>Demo 9</h3>
@@ -229,7 +229,10 @@ knitr::opts_chunk$set(error = TRUE)</code></pre>
 <div id="demo-10" class="section level3">
 <h3>Demo 10</h3>
 <p>Fix the following plot so that it shows a filled-in square for each combination.</p>
-<pre class="r"><code>ggplot(hair_eye, aes(Hair, Eye)) +
+<pre><code>ggplot(hair_eye, aes(Hair, Eye)) +
   geom_point(aes(colour = n))</code></pre>
-<p><img src="/demonstrations/demo7a-ggplot2-part2_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(hair_eye, aes(Hair, Eye)) +
+  geom_bin2d(aes(fill = n)) +
+  theme_minimal()</code></pre>
+<p><img src="/demonstrations/demo7a-ggplot2-part2_files/figure-html/unnamed-chunk-14-1.png" width="480" /></p>
 </div>

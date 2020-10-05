@@ -44,7 +44,7 @@
 
 ### Task 2: Exploring your dataset (15 points)
 
-- [ ] Task 2.1: Complete **4** out of the following 8 exercises:
+- [ ] **Task 2.1:** Complete **4** out of the following 8 exercises:
 	- [ ] Plot the distribution of a numeric variable
 	- [ ] Create a new variable based on other variables in your data (only if it makes sense)
 	- [ ] Investigate how many missing values there are per variable. Can you find a way to plot this?
@@ -53,7 +53,7 @@
 	- [ ] Use a boxplot to look at the frequency of different observations within a single variable. You can do this for more than one variable if you wish!
 	- [ ] Make a new tibble with a subset of your data, with variables and observations that you are interested in exploring.
 	- [ ] Use a density plot to explore any of your variables (that are suitable for this type of plot).
-- [ ] Task 2.2: For the chosen 4 above, provide a _brief_ explanation of why you chose that exercise in relation to your data (in other words, why does it make sense to do that?), and sufficient comments for a reader to understand your reasoning and code
+- [ ] **Task 2.2:** For the chosen 4 above, provide a _brief_ explanation of why you chose that exercise in relation to your data (in other words, why does it make sense to do that?), and sufficient comments for a reader to understand your reasoning and code
 
 ### Task 3: Write your research questions (5 points)
 

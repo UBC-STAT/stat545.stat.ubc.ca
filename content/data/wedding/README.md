@@ -1,1 +1,0 @@
-Made-up wedding attendance list. Names were generated mostly by [this name generator](https://www.name-generator.org.uk/quick/).
