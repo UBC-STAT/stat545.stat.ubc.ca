@@ -96,7 +96,8 @@ Lecture demonstration files will appear here.
 
 | Milestone | Instructions |
 |-----------|--------------|
-| Milestone 1 | [here](https://stat545.stat.ubc.ca/mini-project/mini-project-1/) |
+| Milestone 1 | [here](/mini-project/mini-project-1/) | 
+| Milestone 2 | [here](/mini-project/mini-project-2/) |
 
 -------
 
