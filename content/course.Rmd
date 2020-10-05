@@ -24,9 +24,8 @@ Use this page to navigate your way through STAT 545.
 | [Week 2-A](/week2a) | `r dates_545a[2]  - ddays(1)` - `r dates_545a[3]  + ddays(1)` |
 | [Week 3-A](/week3a) | `r dates_545a[4]  - ddays(1)` - `r dates_545a[5]  + ddays(1)` |
 | [Week 4-A](/week4a) | `r dates_545a[6]  - ddays(1)` - `r dates_545a[7]  + ddays(1)` |
+| [Week 5-A](/week5a) | `r dates_545a[10]  - ddays(1)` - `r dates_545a[11]  + ddays(1)` |
 <!--
-| [Week 4-A]() | `r dates_545a[8]  - ddays(1)` - `r dates_545a[9]  + ddays(1)` |
-| [Week 5-A]() | `r dates_545a[10]  - ddays(1)` - `r dates_545a[11]  + ddays(1)` |
 | [Week 6-A]() | `r dates_545a[12] - ddays(1)` - `r dates_545a[13] + ddays(1)` |
 | [Week 7-A]() | `r dates_545a[] - ddays(1)` - `r dates_545a[] + ddays(1)` |
 -->
@@ -81,10 +80,10 @@ Lecture demonstration files will appear here.
 
 - [General Information](/collaborative-about)
 
-| Milestone | Instructions |
-|-----------|--------------|
-| Milestone 1 | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/collaborative-project/milestone1/README.md#stat-545a-collaborative-project-milestone-1)
-| Milestone 2 | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/collaborative-project/milestone2/README.md) |
+| Milestone | Instructions | Troubleshooting .Rmd | 
+|-----------|--------------|----------------------|
+| Milestone 1 | [view](https://stat545.stat.ubc.ca/collaborative-project/milestone1/readme/) | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/collaborative-project/milestone1/troubleshooting-1.Rmd) |
+| Milestone 2 | [view](https://stat545.stat.ubc.ca/collaborative-project/milestone2/readme/) | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/collaborative-project/milestone2/TB2.Rmd)
 
 -------
 
@@ -94,10 +93,11 @@ Lecture demonstration files will appear here.
 
 - [General Information](/mini-analysis-about)
 
-| Milestone | Instructions |
-|-----------|--------------|
-| Milestone 1 | [here](/mini-project/mini-project-1/) | 
-| Milestone 2 | [here](/mini-project/mini-project-2/) |
+| Milestone | Instructions | .Rmd | Checklist |
+|-----------|--------------|------|-----------|
+| Milestone 1 | [view](https://stat545.stat.ubc.ca/mini-project/mini-project-1/) | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-1.Rmd) | [Checklist](https://stat545.stat.ubc.ca/mini-project/mini-project-1-checklist/) |
+| Milestone 2 | [view](https://stat545.stat.ubc.ca/mini-project/mini-project-2/) | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-2.Rmd) |  |
+
 
 -------
 

@@ -1,0 +1,180 @@
+---
+title: "STAT 545A: Week 5"
+output: html_document
+---
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+week_num <- 5  # 1 through 14
+#-------------
+source(here::here("content", "dates.R"))
+library(stringr)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, results = "asis")
+letter <- if (week_num <= 7) "A" else "B"
+tues_class_num <- paste0(str_pad(week_num * 2 - 2, width = 2, pad = 0), letter)
+tues_date <- lec0 + ddays((week_num - 1) * 7)
+tues_date_pretty <- paste0(
+  month(tues_date, label = TRUE), " ", 
+  day(tues_date), ", ", 
+  year(tues_date)
+)
+wed_date <- tues_date + ddays(1)
+wed_date_pretty <- paste0(
+  month(wed_date, label = TRUE), " ", 
+  day(wed_date), ", ", 
+  year(wed_date)
+)
+
+thurs_class_num <- paste0(str_pad(week_num * 2 - 2 + 1, width = 2, pad = 0), letter)
+thurs_date <- tues_date + ddays(2)
+thurs_date_pretty <- paste0(
+  month(thurs_date, label = TRUE), " ", 
+  day(thurs_date), ", ", 
+  year(thurs_date)
+)
+fri_date <- tues_date + ddays(3)
+fri_date_pretty <- paste0(
+  month(fri_date, label = TRUE), " ", 
+  day(fri_date), ", ", 
+  year(fri_date)
+)
+
+sat_date <- tues_date + ddays(4)
+sat_date_pretty <- paste0(
+  month(sat_date, label = TRUE), " ", 
+  day(sat_date), ", ", 
+  year(sat_date)
+)
+```
+
+-----
+
+<!-- ******WORKSHEET****** -->
+
+## Worksheet `r paste0(week_num - 1, letter)`
+
+**Due:** Saturday, `r sat_date_pretty` at 23:59 PST
+
+[.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_04a.ipynb) or [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_04a.ipynb)
+
+-----
+
+----- 
+
+<!-- ******TUESDAY'S CLASS****** -->
+
+## Tuesday's Class `r tues_class_num`: Tidy Data
+
+```{r tues-date}
+cat(tues_date_pretty)
+```
+
+From today's class, students are anticipated to be able to:
+
+- recognize whether a given dataset is 'tidy' or 'untidy'
+- convert a dataset between the 'long' and 'wide' format, using `tidyr::pivot_longer()` and `tidyr::pivot_wider()`
+- assess which format is best suited for each type of analysis
+- deal with missing data in a tibble
+
+#### Prepare for Class
+
+- Watch the [STAT 545 Video Series: Class `r tues_class_num`](https://youtu.be/qivE6exNsZI) (also available on canvas)
+- Read the [`pivot` vignette](https://tidyr.tidyverse.org/articles/pivot.html) with `tidyr`
+
+Some useful (but not mandatory) readings are:
+
+- `tidyr` [vignette](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) on tidy data for more depth on tidy data.
+- [Hadley's Paper on Tidy Data](https://vita.had.co.nz/papers/tidy-data.pdf) for a formal journal article on tidy data.
+- Other new [additions](https://www.tidyverse.org/articles/2019/09/tidyr-1-0-0/) in `tidyr` v1.0.0
+
+#### During Class
+
+- In class demo, covering:
+  - `pivot_longer()`
+  - `pivot_wider()`
+  - univariate pivoting 
+  - multivariate pivoting
+  - Convenience functions like `unite()`, `separate()`, `expand()`, `complete()`
+- Quiz
+  - **Complete the Class `r tues_class_num` Quiz on Canvas by Wednesday, `r wed_date_pretty` at 11:00am PST.**
+
+| Lecture | Demo | View |
+|---------|-----------|------|
+| `r tues_class_num`: Tidy Data | .Rmd | Knitted Demo |
+
+
+-----
+
+-----
+
+<!-- ******THURSDAY'S CLASS****** -->
+
+## Thursday's Class `r thurs_class_num`: The Model-Fitting Paradigm in R
+
+```{r thurs-date}
+cat(thurs_date_pretty)
+```
+
+From today's class, students are anticipated to be able to:
+
+- make a model object in R
+- write a formula in R
+- predict on a model object with the `broom::augment()` and `predict()` functions
+- extract information from a model object using `broom::tidy()`, `broom::glance()`, and traditional means.
+
+#### Prepare for Class
+
+- Watch the [STAT 545 Video Series: Class `r thurs_class_num`]()
+- Read [The Model-Fitting Paradigm in R](https://stat545.stat.ubc.ca/tutorials/model-fitting/) from the Tutorials section of the website. 
+
+Some useful (but not mandatory) readings are:
+
+- The [`broom`](https://cran.r-project.org/web/packages/broom/vignettes/broom.html) vignette is useful for learning the details of broom.
+- If you want a quick intro to linear regression with R, check out this [U Chicago Tutorial](https://cfss.uchicago.edu/notes/linear-models/) on model fitting in R (just the linear regression part).
+- If you're eager to learn more about models in general, [An Introduction to Statistical Learning](https://www-bcf.usc.edu/~gareth/ISL/) is an approachable read (the book is freely available online)
+
+
+#### During Class
+
+- In class demo, covering:
+  - fitting a linear regression model using `lm`
+  - plotting linear models using `geom_smooth`
+  - `I()`
+  - `augment()`
+  - `tidy()`
+  - `glance()`
+- Quiz
+
+**Complete the Class `r thurs_class_num` Quiz on Canvas by Friday, `r fri_date_pretty` at 11:00am PST.**
+
+| Lecture | Demo | View |
+|---------|-----------|------|
+| `r thurs_class_num`: Model Fitting Paradigm | .Rmd | Knitted Demo |
+
+-----
+
+-----
+
+## Thursday Office Hour
+
+`r thurs_date_pretty` from 16:00 - 17:00 PST
+
+Join Diana to discuss anything about the course: content, structure, deliverables, etc. Can’t make it? No worries - reach us through Slack / Canvas / email with your questions.
+
+-----
+
+-----
+
+<!-- ******PROJECT****** -->
+
+## Mini Data Analysis Project Milestone 2
+
+Checkout the [general instructions](https://stat545.stat.ubc.ca/mini-analysis-about/). Here are the Milestone 2 specifics, taken from the course dashboard:
+
+| Milestone | Instructions | .Rmd | Checklist |
+|-----------|--------------|------|-----------|
+| Milestone 2 | [view](https://stat545.stat.ubc.ca/mini-project/mini-project-2/) | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-2.Rmd) |  |
+
+**Due:** Saturday, `r sat_date_pretty` at 23:59 PST
+
+
+-----
