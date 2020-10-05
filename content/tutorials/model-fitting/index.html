@@ -3,11 +3,13 @@ title: "The Model-Fitting Paradigm in R"
 output: html_document
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p><em>Vincenzo Coia</em></p>
 <pre class="r"><code>library(tidyverse)
 library(broom)</code></pre>
+<p><strong>YouTube video for this tutorial:</strong> <a href="https://youtu.be/qivE6exNsZI" class="uri">https://youtu.be/qivE6exNsZI</a></p>
 <p>Data wrangling and plotting can get you pretty far when it comes to drawing insight from your data. But, sometimes you need to go further. For example:</p>
 <ul>
 <li>Investigate the relationship between two or more variables</li>
@@ -31,7 +33,7 @@ library(broom)</code></pre>
 <li>How many more miles per gallon can we expect of a car that weighs 1000 lbs less than another car?</li>
 </ol>
 <p>A simple scatterplot will give us a general idea, but can’t give us specifics. Here, we use the <code>mtcars</code> dataset in the <code>datasets</code> package. A linear model is one example of a model that can attempt to answer all three – the line corresponding to the fitted model has been added to the scatterplot.</p>
-<p><img src="/tutorials/software-stack/index_files/figure-html/unnamed-chunk-2-1.png" width="480" /></p>
+<p><img src="/tutorials/model-fitting/index_files/figure-html/unnamed-chunk-2-1.png" width="480" /></p>
 <p>(By the way, you can plot the model using <code>ggplot2</code>’s <code>geom_smooth()</code> layer – but you can’t interact with the model downstream.)</p>
 <p>We can make a prediction of mpg for a car weighing 3,000 lbs by evaluating the line at X = 3:</p>
 <pre><code>## [1] 21.25171</code></pre>

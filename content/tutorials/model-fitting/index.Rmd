@@ -10,6 +10,8 @@ library(tidyverse)
 library(broom)
 ```
 
+__YouTube video for this tutorial:__ https://youtu.be/qivE6exNsZI
+
 Data wrangling and plotting can get you pretty far when it comes to drawing insight from your data. But, sometimes you need to go further. For example:
 
 - Investigate the relationship between two or more variables
