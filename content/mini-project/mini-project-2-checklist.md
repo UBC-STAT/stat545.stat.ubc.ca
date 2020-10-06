@@ -6,7 +6,7 @@
 - [ ] **Task 1.2**: Choose **one** task from "summarizing" category and **one** other task from "graphing" category for _each_ of your research questions (10 pts)
 	- You should have 2 tasks done for each research question (total of 8)
 	- Summarizing:
-		- [ ] For one of the categorical variables in your data, compute the:
+		- [ ] Compute the statistics below of **one** numerical variable across the groups of **one** categorical variable from your data:
 			- [ ] range
 			- [ ] mean
 			- [ ] **two** other summary statistics
