@@ -2,11 +2,28 @@
 
 ## Task 1 (15 pts)
 
-- [ ] **Task 1.1**: Write out the **4** research quesstions you defined in Milestone 1 (2.5 pts)
-- [ ] **Task 1.2**: Choose **one** task from "summarizing" category and **one** other task from "graphing" category for _each_ of your research questions (10 pts)
-	- You should have 2 tasks done for each research question (total of 8)
-	- Summarizing:
-		- [ ] Compute the statistics below of **one** numerical variable across the groups of **one** categorical variable from your data:
+- [ ] **Task 1.1 (2.5 pts)**: Write out the **4** research from Milestone 1 
+- [ ] **Task 1.2 (10 pts)**: Choose **one** task from "summarizing" category and **one** other task from "graphing" category for _each_ of your **4** research questions 
+
+  - [ ] summarizing task for research question 1
+  - [ ] graphing task for research question 1
+  
+  
+  - [ ] summarizing task for question 2
+  - [ ] graphing task for question 2
+  
+  
+  - [ ] summarizing task for question 3
+  - [ ] graphing task for question 3
+  
+  
+  - [ ] summarizing task for question 4
+  - [ ] graphing task for question 4
+  
+	- Here are the tasks for 1.2:
+	
+	- **Summarizing**:
+		- [ ] For one of the categorical variables in your data, compute the:
 			- [ ] range
 			- [ ] mean
 			- [ ] **two** other summary statistics
@@ -16,7 +33,7 @@
 			- You can use this new variable in the other tasks!
 			- *An example: age in years into "child, teen, adult, senior"*
 		- [ ] Based on **two** categorical variables, calculate **two** summary statistics of your choosing
-	- Graphing:
+	- **Graphing**:
 		- [ ] Create a graph out of summarized variables that has at least **two** `geom` layers
 		- [ ] Create a graph of your choosing:
 			- [ ] Make one of the axes logarithmic
@@ -25,22 +42,23 @@
 		- [ ] Create **3** histograms out of summarized variables
 			- [ ] Each histogram having different sized bins
 			- [ ] Pick the "best" one and explain why it is the best
-- [ ] **Task 1.3**: Answer the following questions (2.5 pts)
+
+- [ ] **Task 1.3 (2.5 pts)**: Answer the following questions 
 	- [ ] How much closer are you to answering your research questions? 
-	- [ ] Think about what aspects of your research questions remain unclear
-	- [ ] Can your research questions be refined, now that you've investigated your data a bit more?
-	- [ ] Which research questions are yielding interesting results?
+	- [ ] What aspects of your research questions remain unclear?
+	- [ ] Now can your research questions be refined?
+	- [ ] Any interesting findings?
 
 ## Task 2 (12.5 pts)
 
-- [ ] **Task 2.1**: Can you identify if your data is tidy or untidy?  (2.5 pts)
+- [ ] **Task 2.1 (2.5 pts)**: Can you identify if your data is tidy or untidy?  
 	- Go through all your columns, or if you have >8 variables, just pick 8, and 
 		- [ ] Explain whether the data is untidy or tidy 
-- [ ] **Task 2.2**: Now, if your data is tidy, untidy it! If it's untidy, then tidy it! (5 pts)
+- [ ] **Task 2.2 (5 pts)**: Now, if your data is tidy, untidy it! If it's untidy, then tidy it! 
 	- [ ] Be sure to explain your reasoning for this task. Show us the "before" and "after" 
-- [ ] **Task 2.3**: Based on your interest, and your analyses, pick **2** of the 4 research questions to continue your analysis in milestone 3 (5 pts)
-	- [ ] Explain your decisions for both questions
-	- [ ] Try to choose a version of your data that you think will be appropriate to answer these 2 questions in milestone 3. Use between 4 and 8 functions that we've covered so far (i.e. by filtering, cleaning, tidy'ing, dropping irrelvant columns, etc.). Save this tibble as an `.RDS` object with the function `saveRDS()`. 
+- [ ] **Task 2.3 (5 pts)**: Based on your interest, and your analyses, pick **2** of the 4 research questions to continue your analysis in milestone 3 
+	- [ ] Explain your decisions
+	- [ ] Save a edited version of your data using 4-8 functions we've covered in this course. Use `saveRDS()`. 
 
 ## Reproducibility, Readability, Repo Organization (2.5 pts)
 
