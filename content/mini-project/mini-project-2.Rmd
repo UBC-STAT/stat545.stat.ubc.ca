@@ -58,7 +58,7 @@ Ensure that the output of each operation is printed!
 
 **Summarizing:**
 
-1. Compute the *range*, *mean*, and *two other summary statistics* across the groups of one categorical variable from your data.
+1. Compute the *range*, *mean*, and *two other summary statistics* of **one numerical variable** across the groups of **one categorical variable** from your data.
 2. Compute the number of observations for at least one of your categorical variables. Do not use the function `table()`!
 3. Create a categorical variable with 3 or more groups from an existing numerical variable. You can use this new variable in the other tasks! *An example: age in years into "child, teen, adult, senior".*
 4. Based on two categorical variables, calculate two summary statistics of your choosing.
