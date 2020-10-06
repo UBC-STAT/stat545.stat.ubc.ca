@@ -1,0 +1,121 @@
+---
+title: 'Demonstration 9-A: Model Fitting Paradigm'
+output: html_document
+editor_options: 
+  chunk_output_type: inline
+---
+
+
+## Review
+
+## Demo
+
+Topics for today's demo:
+
+fitting a linear regression model using lm
+plotting linear models using geom_smooth
+I()
+augment()
+tidy()
+glance()
+
+```{r}
+library(tidyverse)
+library(gapminder)
+library(broom)
+```
+
+# What is Model-Fitting? 
+
+A way to test if there is a "relationship" between two or more variables
+
+Let's look at dataset `mtcars` as an example:
+
+```{r}
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  labs(x = "Weight (1000's of lbs)")
+```
+
+Is there a relationship between `wt` (car weight) and `mpg` (fuel efficiency)?
+
+Or another way to ask, does car weight have some information that tells us about fuel efficiency?
+
+Modelling is a way to quantify this relationship. 
+
+## Fitting a model in R
+
+Most model fitting functions have a common format:
+
+
+```
+function(formula, data, options)
+```
+
+- **Formula** - describes the relationship you want to test (e.g. `wt ~ mpg`)
+- **data** - the `data.frame` that contains your variables
+- **options** - ways to customize the model
+
+The output of these is usually a **special _list_** object.
+
+Some model functions in R:
+
+- Linear Regression: `lm`
+- Generalized Linear Regression: `glm`
+- Local regression: `loess`
+- Quantile regression: `quantreg::rq`
+- ...
+
+Let's fit a linear model with between `wt` and `mpg` in the `mtcars` dataset:
+
+```{r}
+(my_lm <- lm(mpg ~ wt, data = mtcars))
+```
+
+What type of R object is the output of `lm`? 
+
+```{r}
+class(my_lm)
+```
+
+To complicate things further, some info is stored in _another_ list after applying the `summary` function:
+
+```{r}
+summary(my_lm)
+```
+
+### Predicting with model objects
+
+**Functions:** `broom::augment()` and `predict()`
+
+We can use the `predict()` function to make predictions from the model (default is to use fitting/training data). Here are the predictions:
+
+```{r}
+predict(my_lm) %>% 
+  head()
+```
+
+Or we can predict on a new dataset:
+
+```{r}
+wt1 <- data.frame(wt = seq(18:23))
+predict(my_lm,wt1)
+```
+
+## Plotting linear models with `geom_smooth`
+
+We can plot models (with one predictor/ X variable) using `ggplot2` through the `geom_smooth()` layer. Specifying `method="lm"` gives us the linear regression fit (but only visually!):
+
+```{r}
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+    geom_point() +
+    geom_smooth(method="lm") 
+```
+
+### Extract information from model objects using `broom::tidy()` and `broom::glance()`
+
+
+
+## Quiz 1
+
+## Quiz 2
