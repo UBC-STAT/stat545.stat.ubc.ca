@@ -172,7 +172,7 @@ Checkout the [general instructions](https://stat545.stat.ubc.ca/mini-analysis-ab
 
 | Milestone | Instructions | .Rmd | Checklist |
 |-----------|--------------|------|-----------|
-| Milestone 2 | [view](https://stat545.stat.ubc.ca/mini-project/mini-project-2/) | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-2.Rmd) |  |
+| Milestone 2 | [view](https://stat545.stat.ubc.ca/mini-project/mini-project-2/) | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-2.Rmd) |  [view](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/mini-project/mini-project-2-checklist.md)|
 
 **Due:** Saturday, `r sat_date_pretty` at 23:59 PST
 
