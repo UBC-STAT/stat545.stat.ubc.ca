@@ -119,7 +119,7 @@ wt1 <- data.frame(wt = seq(18:23))
 predict(my_lm,wt1)
 ```
 
-```{r predict-training}
+```{r augment-newdata}
 augment(my_lm, newdata = wt1)
 
 wt1 %>%
