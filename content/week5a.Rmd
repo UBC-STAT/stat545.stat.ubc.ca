@@ -99,7 +99,7 @@ Some useful (but not mandatory) readings are:
 
 | Lecture | Demo | View |
 |---------|-----------|------|
-| `r tues_class_num`: Tidy Data | .Rmd | Knitted Demo |
+| `r tues_class_num`: Tidy Data | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo8a-tidyr.Rmd) | [Knitted Demo]() |
 
 
 -----
@@ -148,7 +148,7 @@ Some useful (but not mandatory) readings are:
 
 | Lecture | Demo | View |
 |---------|-----------|------|
-| `r thurs_class_num`: Model Fitting Paradigm | .Rmd | Knitted Demo |
+| `r thurs_class_num`: Model Fitting Paradigm | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo9a-modelling.Rmd) | [Knitted Demo]() |
 
 -----
 

@@ -1,0 +1,226 @@
+---
+title: 'Demonstration 9-A: Model Fitting Paradigm'
+output: html_document
+editor_options: 
+  chunk_output_type: inline
+---
+
+# Demo
+
+Topics for today's demo:
+
+- fitting a linear regression model using `lm`
+- how to extract modelling information using the package `broom`
+- plotting models using `geom_smooth`
+
+```{r}
+library(tidyverse)
+library(gapminder)
+library(broom)
+```
+
+# What is Model-Fitting? 
+
+A way to test if there is a "relationship" between two or more variables
+
+Let's look at dataset `mtcars` as an example:
+
+```{r}
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  labs(x = "Weight (1000's of lbs)")
+```
+
+1. Is there a relationship between `wt` (car weight) and `mpg` (fuel efficiency)?
+
+2. Or another way to ask, does car weight have some information that tells us about fuel efficiency?
+
+Modelling is a way to quantify this relationship. 
+
+# Fitting a model in R
+
+Most model fitting functions have a common format:
+
+```
+function(formula, data, options)
+```
+
+1. **Formula** 
+
+- describes the relationship you want to test (e.g. `wt ~ mpg`)
+- Formulas look like this: `y ~ x1 + x2 + ...`
+
+2. **data** 
+
+- the `data.frame`/`tibble` that contains your variables
+- can omit, if variables in formula are defined in environment
+
+e.g. 
+```{r}
+y1 <- c(1,2,3)
+x1 <- c(0.1, 0.2, 0.3)
+lm(y1~x1)
+
+# same as
+d1 <- tibble(y1 = y1, x1 = x1) # store y1 and x2 into tibble
+rm(y1, x1)                     # remove y1 and x2 from environment
+lm(y1~x1, data = d1)           
+```
+
+
+3. **options** 
+
+- ways to customize the model
+- specific to each type of model
+
+The output of these is usually a **special _list_** object.
+
+```{r}
+my_model <- lm(y1~x1, data = d1) 
+str(my_model)
+```
+
+Some model functions in R:
+
+- Linear Regression: `lm`
+- Generalized Linear Regression: `glm`
+- Local regression: `loess`
+- Quantile regression: `quantreg::rq`
+- ...
+
+Let's fit a linear model with between `wt` and `mpg` in the `mtcars` dataset:
+
+```{r}
+(my_lm <- lm(mpg ~ wt, data = mtcars))
+```
+
+
+# `predict()`
+
+**Functions:** `broom::augment()` and `predict()`
+
+We can use the `predict()` or `broom::augment()` to make predictions from the model (default is to use fitting/training data). 
+
+```{r predict-training}
+predict(my_lm) %>% 
+  head()
+```
+
+
+```{r augment-training}
+augment(my_lm)
+```
+
+
+Or we can predict on a new dataset:
+
+```{r predict-newdata}
+wt1 <- data.frame(wt = seq(18:23))
+predict(my_lm,wt1)
+```
+
+```{r augment-newdata}
+augment(my_lm, newdata = wt1)
+
+wt1 %>%
+  mutate(mpg = c(32, 26, 20, 14, 8, 2)) %>%
+  augment(my_lm, newdata = .)
+```
+# `summary()`
+
+`lm` output lacks information:
+
+```{r}
+my_lm
+```
+
+To get more information, we can use `summary`:
+
+```{r}
+summary(my_lm)
+```
+
+`summary` is useful for reading, but it's not easy to work with this output
+
+# Introduce `broom::tidy`
+
+- extracts statistical summaries for each component of the model
+- returns in tabular format
+- useful for _interpretation_
+
+```{r}
+tidy(my_lm)
+```
+
+```{r}
+coef(summary(my_lm))
+```
+
+# `broom::glance`
+
+- gives statistical summary on model as a whole
+- useful for checking goodness of fit
+
+```{r}
+glance(my_lm)
+```
+
+# Quiz 1
+
+- TRUE or FALSE: the output of `glance` on the above returns only 1 row because there is only 1 explanatory variable in the model.
+- TRUE or FALSE: the output of `broom::tidy()` package is more "tidy"  than `coef(summary())` because the output is a `tibble`
+
+# Plotting linear models with `geom_smooth`
+
+We can plot models (with one predictor/ X variable) using `ggplot2` through the `geom_smooth()` layer. Specifying `method="lm"` gives us the linear regression fit (but only visually!):
+
+```{r}
+ggplot(mtcars, aes(x = wt, y = mpg)) +
+    geom_point() +
+    geom_smooth(method="lm") 
+```
+
+Let's visualize some relationships in the `gapminder` dataset.
+
+Lets the country "Zimbabwe", which has a unique behavior in the `lifeExp` and `year` relationship.
+
+```{r}
+gapminder_Zimbabwe <- gapminder %>% 
+  filter(country == "Zimbabwe")
+
+gapminder_Zimbabwe %>% 
+  ggplot(aes(year, lifeExp)) + 
+  geom_point()
+```
+Let's try fitting a linear model to this relationship
+```{r}
+ggplot(gapminder_Zimbabwe, aes(year,lifeExp)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = F)
+```
+Now we will try to fit a second degree polynomial and see what would that look like.
+
+```{r}
+ggplot(gapminder_Zimbabwe, aes(year,lifeExp)) +
+  geom_point() +
+  geom_smooth(method = "lm",
+              formula = y~poly(x,2), 
+              se = F)
+```
+
+# Quiz 2
+
+1. TRUE or FALSE: We need to use a modelling function, such as `lm`, before we can graph a fitted line with `geom_smooth`.
+2. TRUE or FALSE: If I wanted to find the amount that `lifeExp` changes per `year`, then I need to use `broom::tidy()`
+
+# Summary
+
+1. `function(formula, data, options)` - most models in R follow this structure.
+
+2. `broom::augment()` - uses a fitted model to obtain predictions. Puts this in a new column in existing `tibble`. Equivalent base-r function is `predict()`.
+
+3. `broom::tidy()` - used to extract statistical information on each component of a model. Equivalent is `coef(summary(lm_object))`.
+
+4. `broom::glance()` - used to extract statistical summaries on the whole model. Always returns a 1-row `tibble`.
+
+5. `geom_smooth()` - used to add geom_layer that shows a fitted line to the data. `method` and `formula` arguments can be used to customize model.
