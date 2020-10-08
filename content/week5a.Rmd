@@ -99,7 +99,7 @@ Some useful (but not mandatory) readings are:
 
 | Lecture | Demo | View |
 |---------|-----------|------|
-| `r tues_class_num`: Tidy Data | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo8a-tidyr.Rmd) | [Knitted Demo]() |
+| `r tues_class_num`: Tidy Data | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo8a-tidyr.Rmd) | [Knitted Demo](/demonstrations/demo8a-tidyr) |
 
 
 -----
@@ -138,7 +138,6 @@ Some useful (but not mandatory) readings are:
 - In class demo, covering:
   - fitting a linear regression model using `lm`
   - plotting linear models using `geom_smooth`
-  - `I()`
   - `augment()`
   - `tidy()`
   - `glance()`
@@ -148,7 +147,7 @@ Some useful (but not mandatory) readings are:
 
 | Lecture | Demo | View |
 |---------|-----------|------|
-| `r thurs_class_num`: Model Fitting Paradigm | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo9a-modelling.Rmd) | [Knitted Demo]() |
+| `r thurs_class_num`: Model Fitting Paradigm | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo9a-modelling.Rmd) | [Knitted Demo](/demonstrations/demo9a-modelling) |
 
 -----
 

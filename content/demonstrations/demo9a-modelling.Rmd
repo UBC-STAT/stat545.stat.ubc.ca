@@ -115,7 +115,9 @@ augment(my_lm)
 Or we can predict on a new dataset:
 
 ```{r predict-newdata}
-wt1 <- data.frame(wt = seq(18:23))
+wt1 <- tibble(wt = seq(18:23))
+wt1
+
 predict(my_lm,wt1)
 ```
 
@@ -153,7 +155,7 @@ tidy(my_lm)
 ```
 
 ```{r}
-coef(summary(my_lm))
+coef(summary(my_lm)) 
 ```
 
 # `broom::glance`
@@ -176,7 +178,7 @@ We can plot models (with one predictor/ X variable) using `ggplot2` through the 
 
 ```{r}
 ggplot(mtcars, aes(x = wt, y = mpg)) +
-    geom_point() +
+    #geom_point() +
     geom_smooth(method="lm") 
 ```
 
@@ -206,6 +208,7 @@ ggplot(gapminder_Zimbabwe, aes(year,lifeExp)) +
   geom_smooth(method = "lm",
               formula = y~poly(x,2), 
               se = F)
+#?geom_smooth
 ```
 
 # Quiz 2
