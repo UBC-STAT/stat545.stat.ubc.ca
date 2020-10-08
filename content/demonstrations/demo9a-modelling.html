@@ -16,12 +16,12 @@ editor_options:
 <li>plotting models using <code>geom_smooth</code></li>
 </ul>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## -- Attaching packages ---------------- tidyverse 1.3.0 --</code></pre>
+<pre><code>## -- Attaching packages ------------------------ tidyverse 1.3.0 --</code></pre>
 <pre><code>## v ggplot2 3.3.2     v purrr   0.3.4
 ## v tibble  3.0.3     v dplyr   1.0.2
 ## v tidyr   1.1.2     v stringr 1.4.0
 ## v readr   1.3.1     v forcats 0.5.0</code></pre>
-<pre><code>## -- Conflicts ------------------- tidyverse_conflicts() --
+<pre><code>## -- Conflicts --------------------------- tidyverse_conflicts() --
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>library(gapminder)
@@ -192,8 +192,18 @@ str(my_model)</code></pre>
 ## 10 Merc 280          19.2  3.44    18.9  0.300     0.100  0.0329   3.10  1.71e-4
 ## # ... with 22 more rows</code></pre>
 <p>Or we can predict on a new dataset:</p>
-<pre class="r"><code>wt1 &lt;- data.frame(wt = seq(18:23))
-predict(my_lm,wt1)</code></pre>
+<pre class="r"><code>wt1 &lt;- tibble(wt = seq(18:23))
+wt1</code></pre>
+<pre><code>## # A tibble: 6 x 1
+##      wt
+##   &lt;int&gt;
+## 1     1
+## 2     2
+## 3     3
+## 4     4
+## 5     5
+## 6     6</code></pre>
+<pre class="r"><code>predict(my_lm,wt1)</code></pre>
 <pre><code>##         1         2         3         4         5         6 
 ## 31.940655 26.596183 21.251711 15.907240 10.562768  5.218297</code></pre>
 <pre class="r"><code>augment(my_lm, newdata = wt1)</code></pre>
@@ -266,7 +276,7 @@ predict(my_lm,wt1)</code></pre>
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
 ## 1 (Intercept)    37.3      1.88      19.9  8.24e-19
 ## 2 wt             -5.34     0.559     -9.56 1.29e-10</code></pre>
-<pre class="r"><code>coef(summary(my_lm))</code></pre>
+<pre class="r"><code>coef(summary(my_lm)) </code></pre>
 <pre><code>##              Estimate Std. Error   t value     Pr(&gt;|t|)
 ## (Intercept) 37.285126   1.877627 19.857575 8.241799e-19
 ## wt          -5.344472   0.559101 -9.559044 1.293959e-10</code></pre>
@@ -295,7 +305,7 @@ predict(my_lm,wt1)</code></pre>
 <h1>Plotting linear models with <code>geom_smooth</code></h1>
 <p>We can plot models (with one predictor/ X variable) using <code>ggplot2</code> through the <code>geom_smooth()</code> layer. Specifying <code>method="lm"</code> gives us the linear regression fit (but only visually!):</p>
 <pre class="r"><code>ggplot(mtcars, aes(x = wt, y = mpg)) +
-    geom_point() +
+    #geom_point() +
     geom_smooth(method=&quot;lm&quot;) </code></pre>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img src="/demonstrations/demo9a-modelling_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
@@ -321,6 +331,7 @@ Now we will try to fit a second degree polynomial and see what would that look l
               formula = y~poly(x,2), 
               se = F)</code></pre>
 <p><img src="/demonstrations/demo9a-modelling_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<pre class="r"><code>#?geom_smooth</code></pre>
 </div>
 <div id="quiz-2" class="section level1">
 <h1>Quiz 2</h1>
