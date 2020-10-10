@@ -11,3 +11,4 @@ public/
 .DS_Store
 static/rmarkdown-libs/header-attrs/*
 README.html
+static/tutorials/ggplot2/
