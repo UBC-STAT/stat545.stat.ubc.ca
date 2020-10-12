@@ -1,4 +1,4 @@
-# STAT 545A Collaborative Project: Milestone 2
+# STAT 545A Collaborative Project: Milestone 3
 
 **Deadline**: Saturday, October 17, 2020 at 23:59 PST
 
