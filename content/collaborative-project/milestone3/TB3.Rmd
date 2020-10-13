@@ -25,6 +25,7 @@ Below, I load the packages that are required to run this worksheet.
 library(tidyverse)
 library(lubridate)
 library(palmerpenguins)
+knitr::opts_chunk$set(error = TRUE)
 ```
 
 ### Exercise 1
