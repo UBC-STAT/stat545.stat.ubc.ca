@@ -13,7 +13,7 @@
 + [ ] Error 9
 + [ ] Error 10
 
-## Pull requests (2.5pts x 4 PRs = 10pts)
+## Pull requests (2.5pts x 4 PRs = 10pts)
 
 + Remember that *each student* must open at least **2 pull requests**. Therefore, **4** pull requests in total will be graded.
 

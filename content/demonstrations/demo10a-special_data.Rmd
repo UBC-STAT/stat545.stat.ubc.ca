@@ -1,0 +1,23 @@
+---
+title: "Demonstration 10-A: Special Data Types"
+subtitle: "Dates and Times; Factors"
+output: html_document
+---
+
+```{r, message = FALSE, warning = FALSE}
+library(tidyverse)
+library(palmerpenguins)
+library(gapminder)
+```
+
+### Factors
+
+- "Canada" and "Other" with `fct_other()`
+- Re-ordering of levels in plots:
+  - Legend matches line plots
+  - Categories with counts are ordered
+  - Categories with distributions are ordered by something of your choosing.
+- Bar plot of the total number of penguins surveyed from each species -- noting that 5 species are missing.
+
+
+### Bonus: Tsibbles?

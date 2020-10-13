@@ -1,0 +1,253 @@
+---
+title: "Team Troubleshooting Deliverable 3"
+output: github_document
+---
+
+
+
+<div id="attributions" class="section level2">
+<h2>Attributions</h2>
+<p>Thanks to Icíar Fernández-Boyano for writing most of this document, and Vincenzo Coia for his edits.</p>
+</div>
+<div id="instructions" class="section level2">
+<h2>Instructions</h2>
+<p>There are <strong>10 errors</strong> in this Rmd. Will you find them all? Errors are marked by ## ERROR HERE ## in the code chunk in which they are located. <em>There are no hidden errors in this worksheet</em>. Hint: You should be able to knit the Rmd if all code is working correctly…but this will only catch the errors in code, and not the errors in logic or instruction-following!</p>
+<p><strong>Notes:</strong></p>
+<ul>
+<li><p><strong>Each code chunk contains a maximum of one single error.</strong></p></li>
+<li><p>Errors may be in the form of <strong>broken code</strong> (e.g. using <code>" "</code> inappropriately, which returns an error when running the code), but can also be <strong>running code that does not follow the instructions</strong> (e.g. the goal of the code was to filter the first 3 rows, but instead, the first 3 columns were selected). Read the Rmd commentary carefully to find these.</p></li>
+</ul>
+</div>
+<div id="setup" class="section level2">
+<h2>Setup</h2>
+<p>Below, I load the packages that are required to run this worksheet.</p>
+<div id="exercise-1" class="section level3">
+<h3>Exercise 1</h3>
+<p>By now, you should be familiar with tidy data. Here’s a <em>messy</em> tibble with data regarding smoking habits in a small office.</p>
+<pre class="r"><code>(smoker &lt;- tribble(
+  ~smoker, ~male, ~female, ~`non-binary`,
+  &quot;yes&quot;, 21, 10, 1,
+  &quot;no&quot;, 20, 12, 2
+))</code></pre>
+<pre><code>## # A tibble: 2 x 4
+##   smoker  male female `non-binary`
+##   &lt;chr&gt;  &lt;dbl&gt;  &lt;dbl&gt;        &lt;dbl&gt;
+## 1 yes       21     10            1
+## 2 no        20     12            2</code></pre>
+<p>To tidy it, I want to make the data <strong>longer</strong> and store it into a new variable called <code>smoker_tidy</code>. The variables/columns in the tidy version of the data are:</p>
+<ul>
+<li><code>gender</code> (“female”, “male”, “non-binary”)</li>
+<li><code>smoker</code> (“yes”, “no”)</li>
+<li><code>count</code>, which is a non-negative integer representing the number of observations.</li>
+</ul>
+<p>Remember that you should <strong>always look at the output of your code</strong> to make sure it’s doing what you’re expecting.</p>
+<p>Also remember that names that contain non-standard characters, like dashes <code>-</code>, can be worked with by surrounding the name with backticks.</p>
+<pre class="r"><code># ERROR HERE - 1
+(smoker_tidy &lt;- smoker %&gt;%
+  pivot_longer(c(yes, no), names_to = &quot;gender&quot;, values_to = &quot;count&quot;))</code></pre>
+<pre><code>## Error: Can&#39;t subset columns that don&#39;t exist.
+## [31mx[39m Column `yes` doesn&#39;t exist.</code></pre>
+</div>
+<div id="exercise-2" class="section level3">
+<h3>Exercise 2</h3>
+<p>Remember the <code>penguins</code> dataset? I want to explore the relationship between <code>flipper_length_mm</code> and <code>body_mass_g</code> to see if there is a linear relationship between the two. To do so, I will use <code>ggplot2</code> to plot my data as a scatterplot where <code>x = flipper_length_mm</code> and <code>y = body_mass_g</code>, and I will <strong>add a regression line (straight line) showing the confidence interval</strong> using <code>geom_smooth()</code>.</p>
+<p>Remember that there can only be <strong>one error</strong> in a single code chunk.</p>
+<pre class="r"><code># ERROR HERE - 2
+ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
+  geom_smooth() +
+  geom_point(method = &quot;lm&quot;, se = TRUE) +
+  theme_minimal() +
+  labs(x = &quot;Flipper Length (mm)&quot;,
+       y = &quot;Body Mass (g)&quot;)</code></pre>
+<pre><code>## Warning: Ignoring unknown parameters: method, se</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<pre><code>## Warning: Removed 2 rows containing non-finite values (stat_smooth).</code></pre>
+<pre><code>## Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
+<p><img src="/collaborative-project/milestone3/TB3_files/figure-html/2.0-error2-1.png" width="672" /></p>
+</div>
+<div id="exercise-3" class="section level3">
+<h3>Exercise 3</h3>
+<p><code>lubridate</code> is a <code>tidyverse</code> package that makes dealing with dates &amp; times in R easy. It has a series of functions for parsing dates of a known order. For example, <code>ymd()</code> will parse dates with a <em>year-month-day</em> order, and <code>dmy()</code> will parse dates with a <em>day-month-year</em> order. You can check <code>lubridate</code>’s documentation, including parsing &amp; manipulating dates, and instants, by running <code>?lubridate</code>. You can try below:</p>
+<pre class="r"><code>?lubridate</code></pre>
+<p>With that said - time to work with some dates! I have stored Rosalind Franklin’s birth date under the variable <code>rs</code>, and I would like to parse it using <strong>the appropriate <code>lubridate</code> date function</strong>, given the order in which I have stored it.</p>
+<pre class="r"><code># ERROR HERE - 3
+rs &lt;- &quot;July 25, 1920&quot;
+dym(rs) </code></pre>
+<pre><code>## Warning: All formats failed to parse. No formats found.</code></pre>
+<pre><code>## [1] NA</code></pre>
+</div>
+<div id="exercise-4" class="section level3">
+<h3>Exercise 4</h3>
+<p>Being able to parse dates is nice, but <code>lubridate</code> is also very useful when it comes to answering questions such as “How many seconds are in a day?” or “How long has it been since…?”. For example, I want to calculate how many <em>hours</em> it has been since the first landing on the moon, until today.</p>
+<pre class="r"><code># ERROR HERE - 4
+date_landing &lt;- mdy(&quot;July 20, 1969&quot;)
+difftime(today(), date_landing, units = &quot;days&quot;)</code></pre>
+<pre><code>## Time difference of 18713 days</code></pre>
+</div>
+<div id="exercise-5" class="section level3">
+<h3>Exercise 5</h3>
+<p>Now, how many <em>days</em> will it have been since the landing on the moon, <strong>in a week from now</strong>?</p>
+<pre class="r"><code># ERROR HERE - 5
+difftime(today(), date_landing + weeks(1), units = &quot;days&quot;)</code></pre>
+<pre><code>## Time difference of 18706 days</code></pre>
+</div>
+<div id="exercise-6" class="section level3">
+<h3>Exercise 6</h3>
+<p>The <code>palmerpenguins</code> dataset contains a tidy version of the dataset, <code>penguins</code>, and an untidy version, <code>penguins_raw</code>. Now… remember factors? In the words of Jenny Bryan, “factors are the variable type that useRs love to hate.” It is how we store truly categorical information in R; the values in a factor are called “levels”. They are particularly useful when it comes to plotting data, and fitting models. Which is why you should know how to use them! <code>forcats</code> is the <code>tidyverse</code> package that deals with factors.</p>
+<p>Let’s have a quick look at the <code>penguins_raw</code> dataset. There are many ways to do this, but I use <code>str()</code> because it is a fast way to see the <em>class</em> of each of the columns within the dataset.</p>
+<pre class="r"><code>str(penguins_raw)</code></pre>
+<pre><code>## tibble [344 × 17] (S3: tbl_df/tbl/data.frame)
+##  $ studyName          : chr [1:344] &quot;PAL0708&quot; &quot;PAL0708&quot; &quot;PAL0708&quot; &quot;PAL0708&quot; ...
+##  $ Sample Number      : num [1:344] 1 2 3 4 5 6 7 8 9 10 ...
+##  $ Species            : chr [1:344] &quot;Adelie Penguin (Pygoscelis adeliae)&quot; &quot;Adelie Penguin (Pygoscelis adeliae)&quot; &quot;Adelie Penguin (Pygoscelis adeliae)&quot; &quot;Adelie Penguin (Pygoscelis adeliae)&quot; ...
+##  $ Region             : chr [1:344] &quot;Anvers&quot; &quot;Anvers&quot; &quot;Anvers&quot; &quot;Anvers&quot; ...
+##  $ Island             : chr [1:344] &quot;Torgersen&quot; &quot;Torgersen&quot; &quot;Torgersen&quot; &quot;Torgersen&quot; ...
+##  $ Stage              : chr [1:344] &quot;Adult, 1 Egg Stage&quot; &quot;Adult, 1 Egg Stage&quot; &quot;Adult, 1 Egg Stage&quot; &quot;Adult, 1 Egg Stage&quot; ...
+##  $ Individual ID      : chr [1:344] &quot;N1A1&quot; &quot;N1A2&quot; &quot;N2A1&quot; &quot;N2A2&quot; ...
+##  $ Clutch Completion  : chr [1:344] &quot;Yes&quot; &quot;Yes&quot; &quot;Yes&quot; &quot;Yes&quot; ...
+##  $ Date Egg           : Date[1:344], format: &quot;2007-11-11&quot; &quot;2007-11-11&quot; ...
+##  $ Culmen Length (mm) : num [1:344] 39.1 39.5 40.3 NA 36.7 39.3 38.9 39.2 34.1 42 ...
+##  $ Culmen Depth (mm)  : num [1:344] 18.7 17.4 18 NA 19.3 20.6 17.8 19.6 18.1 20.2 ...
+##  $ Flipper Length (mm): num [1:344] 181 186 195 NA 193 190 181 195 193 190 ...
+##  $ Body Mass (g)      : num [1:344] 3750 3800 3250 NA 3450 ...
+##  $ Sex                : chr [1:344] &quot;MALE&quot; &quot;FEMALE&quot; &quot;FEMALE&quot; NA ...
+##  $ Delta 15 N (o/oo)  : num [1:344] NA 8.95 8.37 NA 8.77 ...
+##  $ Delta 13 C (o/oo)  : num [1:344] NA -24.7 -25.3 NA -25.3 ...
+##  $ Comments           : chr [1:344] &quot;Not enough blood for isotopes.&quot; NA NA &quot;Adult not sampled.&quot; ...
+##  - attr(*, &quot;spec&quot;)=
+##   .. cols(
+##   ..   studyName = col_character(),
+##   ..   `Sample Number` = col_double(),
+##   ..   Species = col_character(),
+##   ..   Region = col_character(),
+##   ..   Island = col_character(),
+##   ..   Stage = col_character(),
+##   ..   `Individual ID` = col_character(),
+##   ..   `Clutch Completion` = col_character(),
+##   ..   `Date Egg` = col_date(format = &quot;&quot;),
+##   ..   `Culmen Length (mm)` = col_double(),
+##   ..   `Culmen Depth (mm)` = col_double(),
+##   ..   `Flipper Length (mm)` = col_double(),
+##   ..   `Body Mass (g)` = col_double(),
+##   ..   Sex = col_character(),
+##   ..   `Delta 15 N (o/oo)` = col_double(),
+##   ..   `Delta 13 C (o/oo)` = col_double(),
+##   ..   Comments = col_character()
+##   .. )</code></pre>
+<p>Let’s change the <code>Sex</code> and <code>Species</code> columns - currently encoded as character columns - into factors, and store the dataset with these changes into a variable <code>penguins_new</code>.</p>
+<pre class="r"><code>penguins_new &lt;- 
+  penguins_raw %&gt;%
+  mutate(across(c(Sex, Species), as.factor))
+
+levels(penguins_new$Species) # check output</code></pre>
+<pre><code>## [1] &quot;Adelie Penguin (Pygoscelis adeliae)&quot;      
+## [2] &quot;Chinstrap penguin (Pygoscelis antarctica)&quot;
+## [3] &quot;Gentoo penguin (Pygoscelis papua)&quot;</code></pre>
+<p>Now, I noticed that the levels for the factor <code>Species</code> could be simplified. Therefore, I want to <strong>recode the levels</strong> as follows, once again saving these changes into the <code>penguins_new</code> dataset, more specifically into the same column <code>Species</code>:</p>
+<ul>
+<li>“Adelie Penguin (Pygoscelis adeliae)” to “Adelie”</li>
+<li>“Chinstrap penguin (Pygoscelis antarctica)” to “Chinstrap”</li>
+<li>“Gentoo penguin (Pygoscelis papua)” to “Gentoo”</li>
+</ul>
+<pre class="r"><code># ERROR HERE - 6
+penguins_new &lt;-
+  penguins_new %&gt;%
+  mutate(Species = rename(Species,
+                          &quot;Adelie Penguin (Pygoscelis adeliae)&quot; = &quot;Adelie&quot;,
+                          &quot;Chinstrap penguin (Pygoscelis antarctica)&quot; = &quot;Chinstrap&quot;,
+                          &quot;Gentoo penguin (Pygoscelis papua)&quot; = &quot;Gentoo&quot;))</code></pre>
+<pre><code>## Warning: Problem with `mutate()` input `Species`.
+## ℹ `rename_()` is deprecated as of dplyr 0.7.0.
+## Please use `rename()` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_warnings()` to see where this warning was generated.
+## ℹ Input `Species` is `rename(...)`.</code></pre>
+<pre><code>## Warning: `rename_()` is deprecated as of dplyr 0.7.0.
+## Please use `rename()` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
+<pre><code>## Error: Problem with `mutate()` input `Species`.
+## x no applicable method for &#39;rename_&#39; applied to an object of class &quot;factor&quot;
+## ℹ Input `Species` is `rename(...)`.</code></pre>
+<pre class="r"><code>levels(penguins_new$Species) # check output</code></pre>
+<pre><code>## [1] &quot;Adelie Penguin (Pygoscelis adeliae)&quot;      
+## [2] &quot;Chinstrap penguin (Pygoscelis antarctica)&quot;
+## [3] &quot;Gentoo penguin (Pygoscelis papua)&quot;</code></pre>
+</div>
+<div id="exercise-7" class="section level3">
+<h3>Exercise 7</h3>
+<p>So far, we’ve converted columns <code>Sex</code> and <code>Species</code> into factors. It is common practice to convert <strong>all character columns</strong> into factors. Let’s try that below; again, saving our changes into the <code>penguins_new</code> dataset.</p>
+<pre class="r"><code>penguins_new &lt;-
+  penguins_new %&gt;%
+  mutate(across(where(is_character), as_factor))</code></pre>
+<p>Say I want to create a subset of the <code>penguins_new</code> dataset, that <em>only</em> contains data for <strong>female</strong> penguins from the <strong>Adelie</strong> and <strong>Gentoo</strong> species. Save this subset into <code>penguins_subset</code> and ensure that you <em>drop all unused levels</em> from this new subset. Remember to <em>check the output</em> to ensure that the code is doing what you expect it to do!</p>
+<pre class="r"><code># ERROR HERE - 7
+penguins_subset &lt;-
+  penguins_new %&gt;%
+  filter(Species %in% c(&quot;Adelie&quot;, &quot;Gentoo&quot;) &amp; Sex == &quot;FEMALE&quot;) %&gt;%
+  drop_na() </code></pre>
+</div>
+<div id="exercise-8" class="section level3">
+<h3>Exercise 8</h3>
+<p>In the remaining 3 exercises (8, 9, and 10), we will practice joins! First, let’s create a couple of tibbles that we can practice <code>dplyr</code> joins with. This data is a subset of the <code>bechdel</code> movies dataset by <a href="https://github.com/fivethirtyeight/data/tree/master/bechdel">FiveThirtyEight</a>.</p>
+<pre class="r"><code>movies &lt;- tibble::tribble(
+                                         ~movie,     ~bechdel_binary,      ~genre,                       ~distributor,
+                              &quot;American Hustle&quot;,              &quot;pass&quot;,     &quot;drama&quot;,      &quot;Sony Pictures Entertainment&quot;,
+                                  &quot;Pacific Rim&quot;,              &quot;fail&quot;,    &quot;action&quot;,             &quot;Warner Bros Pictures&quot;,
+                             &quot;The Great Gatsby&quot;,              &quot;fail&quot;,     &quot;drama&quot;,            &quot; Warner Bros Pictures&quot;,
+                                     &quot;Hannibal&quot;,              &quot;good&quot;,  &quot;thriller&quot;,         &quot;MGM Distribution Company&quot;,
+ &quot;Harry Potter and the Deathly Hallows: Part 1&quot;,              &quot;pass&quot;,   &quot;fantasy&quot;,             &quot;Warner Bros Pictures&quot;,
+                      &quot;The Blair Witch Project&quot;,              &quot;pass&quot;,    &quot;horror&quot;,            &quot;Artisan Entertainment&quot;,
+                      &quot;The Amazing Spider-Man&quot;,              &quot;fail&quot;,    &quot;fantasy&quot;,          &quot;Sony Pictures Releasing&quot;
+  )
+
+distributors &lt;- tibble::tribble(
+                          ~distributor, ~yr_founded,
+         &quot;Sony Pictures Entertainment&quot;,        1998,
+                &quot;Warner Bros Pictures&quot;,        1923,
+            &quot;MGM Distribution Company&quot;,        1924
+  )</code></pre>
+<p>Join <code>movie</code> and <code>distributor</code> so that all rows in <code>movie</code> where there are no matching values in <code>distributor</code> are kept.</p>
+<pre class="r"><code># ERROR HERE - 8
+right_join(movies, distributors) </code></pre>
+<pre><code>## Joining, by = &quot;distributor&quot;</code></pre>
+<pre><code>## # A tibble: 4 x 5
+##   movie                     bechdel_binary genre  distributor         yr_founded
+##   &lt;chr&gt;                     &lt;chr&gt;          &lt;chr&gt;  &lt;chr&gt;                    &lt;dbl&gt;
+## 1 American Hustle           pass           drama  Sony Pictures Ente…       1998
+## 2 Pacific Rim               fail           action Warner Bros Pictur…       1923
+## 3 Hannibal                  good           thril… MGM Distribution C…       1924
+## 4 Harry Potter and the Dea… pass           fanta… Warner Bros Pictur…       1923</code></pre>
+</div>
+<div id="exercise-9" class="section level3">
+<h3>Exercise 9</h3>
+<p>Join <code>movies</code> and <code>distributors</code> so that all rows from <code>distributors</code> and all columns from <code>movies</code> and <code>distributors</code> are kept.</p>
+<pre class="r"><code># ERROR HERE - 9
+left_join(movies, distributors)</code></pre>
+<pre><code>## Joining, by = &quot;distributor&quot;</code></pre>
+<pre><code>## # A tibble: 7 x 5
+##   movie                    bechdel_binary genre   distributor         yr_founded
+##   &lt;chr&gt;                    &lt;chr&gt;          &lt;chr&gt;   &lt;chr&gt;                    &lt;dbl&gt;
+## 1 American Hustle          pass           drama   &quot;Sony Pictures Ent…       1998
+## 2 Pacific Rim              fail           action  &quot;Warner Bros Pictu…       1923
+## 3 The Great Gatsby         fail           drama   &quot; Warner Bros Pict…         NA
+## 4 Hannibal                 good           thrill… &quot;MGM Distribution …       1924
+## 5 Harry Potter and the De… pass           fantasy &quot;Warner Bros Pictu…       1923
+## 6 The Blair Witch Project  pass           horror  &quot;Artisan Entertain…         NA
+## 7 The Amazing Spider-Man   fail           fantasy &quot;Sony Pictures Rel…         NA</code></pre>
+</div>
+<div id="exercise-10" class="section level3">
+<h3>Exercise 10</h3>
+<p>Join <code>movies</code> and <code>distributors</code> so that all rows and all columns from both datasets are present.</p>
+<pre class="r"><code># ERROR HERE - 10
+inner_join(movies, distributors)</code></pre>
+<pre><code>## Joining, by = &quot;distributor&quot;</code></pre>
+<pre><code>## # A tibble: 4 x 5
+##   movie                     bechdel_binary genre  distributor         yr_founded
+##   &lt;chr&gt;                     &lt;chr&gt;          &lt;chr&gt;  &lt;chr&gt;                    &lt;dbl&gt;
+## 1 American Hustle           pass           drama  Sony Pictures Ente…       1998
+## 2 Pacific Rim               fail           action Warner Bros Pictur…       1923
+## 3 Hannibal                  good           thril… MGM Distribution C…       1924
+## 4 Harry Potter and the Dea… pass           fanta… Warner Bros Pictur…       1923</code></pre>
+</div>
+</div>
