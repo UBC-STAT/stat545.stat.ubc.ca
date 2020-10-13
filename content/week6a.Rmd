@@ -140,7 +140,7 @@ Some useful (but not mandatory) readings are:
  **Complete the Class `r thurs_class_num` Quiz on Canvas by Friday, `r fri_date_pretty` at 11:00am PST.**
 -----
 
-## Thursday Office Hours from 16:00 - 17:00 PST:
+## TBA Office Hours from 16:00 - 17:00 PST:
 
 Join Almas for office hours regarding this week's content, the milestones or other questions about R. Can't come to office hours, reach out on Slack/Canvas/Email. 
 

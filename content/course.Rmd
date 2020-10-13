@@ -25,8 +25,9 @@ Use this page to navigate your way through STAT 545.
 | [Week 3-A](/week3a) | `r dates_545a[4]  - ddays(1)` - `r dates_545a[5]  + ddays(1)` |
 | [Week 4-A](/week4a) | `r dates_545a[6]  - ddays(1)` - `r dates_545a[7]  + ddays(1)` |
 | [Week 5-A](/week5a) | `r dates_545a[8]  - ddays(1)` - `r dates_545a[9]  + ddays(1)` |
+| [Week 6-A](/week6a) | `r dates_545a[10] - ddays(1)` - `r dates_545a[11] + ddays(1)` |
 <!--
-| [Week 6-A]() | `r dates_545a[10] - ddays(1)` - `r dates_545a[11] + ddays(1)` |
+
 | [Week 7-A]() | `r dates_545a[] - ddays(1)` - `r dates_545a[] + ddays(1)` |
 -->
 
@@ -123,3 +124,5 @@ This table is evolving!
 | **7: ggplot2 II**                      | 1. Understand how to customize and fine-tune `ggplot2` graphics to create *effective* visualizations| 1. [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/introduction.html) by Claus Wilke.<br />2. [STAT545.com](https://stat545.com/effective-graphs.html) - Effective Graphics by Jenny Bryan. | | [Lecture Worksheet 3](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_03a.ipynb) |
 | **8: Tidy Data**                       | 1. Understand how to pivot between 'long' and 'wide' data frames | [Hadley's Paper on Tidy Data](https://vita.had.co.nz/papers/tidy-data.pdf) | 1. [Jenny's Intro to Tidy Data](https://github.com/jennybc/lotr-tidy/blob/master/01-intro.md)<br/>2. `tidyr` [vignette](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) on tidy data  | [Lecture Worksheet 4](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_04a.ipynb) |
 | **9: Model Fitting Paradigm** | 1. Understand how to fit a linear regression model in R | 1. [An Introduction to Statistical Learning](https://www-bcf.usc.edu/~gareth/ISL/) | 1. [`broom`](https://cran.r-project.org/web/packages/broom/vignettes/broom.html) vignette<br/>2. [Tutorial](https://cfss.uchicago.edu/notes/linear-models/) on model fitting in R| [Lecture Worksheet 4](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_04a.ipynb) |
+| **10: Factors and Dates** | 1. Understand how factors and dates work in R using forcats, lubridate and tsibble. |The [R4DS](https://r4ds.had.co.nz/dates-and-times.html) chapter on Dates and Times. The [stat545.com](https://stat545.com/factors-boss.html) chapter on Factors | 1. The [forcats](https://forcats.tidyverse.org) package page and reference guide on page. | [Worksheet 5A](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_05a.ipynb) |
+| **11:Tibble Joins** | 1. Recognize how to manipulate data through a variety of tibble joins and set operations |- [Jenny's Join Cheatsheet](https://stat545.com/join-cheatsheet.html) for a quick reference to joins. | 1.Read the "two-table verbs"'s [vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/two-table.html).  | [Worksheet 5A](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_05a.ipynb) |
