@@ -133,9 +133,13 @@ Some useful (but not mandatory) readings are:
 - [__Set operations__](https://r4ds.had.co.nz/relational-data.html#set-operations) work as if each row is an element in a set. 
 - __Binding__ stacks tables on top of or beside each other, with `bind_rows()` and `bind_cols()`.
 
+- Quiz
+ **Complete the Class `r thurs_class_num` Quiz on Canvas by Friday, `r fri_date_pretty` at 11:00am PST.**
 -----
 
+## Thursday Office Hours from 16:00 - 17:00 PST:
 
+Join Almas for office hours regarding this week's content, the milestones or other questions about R. Can't come to office hours, reach out on Slack/Canvas/Email. 
 
 -----
 
