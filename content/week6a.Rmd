@@ -78,8 +78,8 @@ From today's class, students are anticipated to be able to:
 
 
 Some useful (but not mandatory) readings for learning this material:
+
 - The [stat545.com](https://stat545.com/factors-boss.html) chapter on Factors
-  - Also useful as a reference.
 - The [R4DS](https://r4ds.had.co.nz/dates-and-times.html) chapter on Dates and Times
 - The `tsibble` [vignette](https://cran.rstudio.com/web/packages/tsibble/vignettes/intro-tsibble.html)
 - The [forcats](https://forcats.tidyverse.org) package page and reference guide on page. 
