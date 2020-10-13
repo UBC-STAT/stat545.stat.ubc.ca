@@ -75,11 +75,14 @@ From today's class, students are anticipated to be able to:
 
 #### Prepare for Class
 - Watch the STAT 545 Video Series: Class `r tues_class_num`
-- Read the [forcats](https://forcats.tidyverse.org) package page and reference guide on page. 
-- Read the `tsibble` [vignette](https://cran.rstudio.com/web/packages/tsibble/vignettes/intro-tsibble.html)
 
-Some useful (but not mandatory) readings are:
-* Jenny Bryan's notes on [factors](https://stat545.com/factors-boss.html)
+
+Some useful (but not mandatory) readings for learning this material:
+- The [stat545.com](https://stat545.com/factors-boss.html) chapter on Factors
+  - Also useful as a reference.
+- The [R4DS](https://r4ds.had.co.nz/dates-and-times.html) chapter on Dates and Times
+- The `tsibble` [vignette](https://cran.rstudio.com/web/packages/tsibble/vignettes/intro-tsibble.html)
+- The [forcats](https://forcats.tidyverse.org) package page and reference guide on page. 
 
 #### During Class
 
@@ -113,15 +116,15 @@ From today's class, students are anticipated to be able to:
   - full_join
   - anti_join
 - Perform set operations on data
-- 
+
 #### Prepare for Class
 
-- Watch the [STAT 545 Video Series: Class `r thurs_class_num`](https://youtu.be/TTNfLtEUFDQ)
+- Watch the STAT 545 Video Series: Class `r thurs_class_num`
 - Read the "two-table verbs"'s [vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/two-table.html)
 
 Some useful (but not mandatory) readings are:
 
--  [Jenny's Join Cheatsheet](https://stat545.com/join-cheatsheet.html) for a quick reference to joins.
+- [Jenny's Join Cheatsheet](https://stat545.com/join-cheatsheet.html) for a quick reference to joins.
 - [Relational Data chapter](https://r4ds.had.co.nz/relational-data.html) in "R for Data Science".
 - [dplyr cheatsheet](https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
 
