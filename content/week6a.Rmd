@@ -74,7 +74,7 @@ From today's class, students are anticipated to be able to:
 
 
 #### Prepare for Class
-- Watch the STAT 545 Video Series: Class `r tues_class_num`
+- Watch the [STAT 545 Video Series: Class `r tues_class_num`](https://youtu.be/TTNfLtEUFDQ)
 
 
 Some useful (but not mandatory) readings for learning this material:
@@ -119,7 +119,7 @@ From today's class, students are anticipated to be able to:
 
 #### Prepare for Class
 
-- Watch the STAT 545 Video Series: Class `r thurs_class_num`
+- Watch the [STAT 545 Video Series: Class `r thurs_class_num`](https://youtu.be/YAdX9MVRY1c)
 - Read the "two-table verbs"'s [vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/two-table.html)
 
 Some useful (but not mandatory) readings are:

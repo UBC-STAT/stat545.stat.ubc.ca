@@ -38,6 +38,14 @@ Shared roles:
 | Update a week's guidance page | 4 (should be reviewed by the person giving the lectures that week) |
 | Updating this teamwork document | 3 | 
 | Lecture demonstrations, if a TA chooses to take part in this (first 30 minutes) | 2 |
+| Granting extensions | 5 (see below) |
+
+**Extensions**
+
+TA's can make a decision to extend an assignment. Because this is a graduate course (and because it's turning out to be heavy for many students), let's lean towards being lenient. Here's the course of action:
+
+1. Add a comment to the [Extension Decisions](https://github.com/UBC-STAT/stat-545-instructor/issues/20) Issue in the instructor's repo. 
+2. Write a new Issue granting the extension on their milestone repo.
 
 
 ### Which branch to work on?
