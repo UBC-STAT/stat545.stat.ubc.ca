@@ -117,6 +117,10 @@ From today's class, students are anticipated to be able to:
   - anti_join
 - Perform set operations on data
 
+| Lecture | Demonstration | View |
+|---------|-----------|------|
+| 11-A: tibble joins | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo11a-joins.Rmd) | [Knitted demo](/demonstrations/demo11a-joins) |
+
 #### Prepare for Class
 
 - Watch the [STAT 545 Video Series: Class `r thurs_class_num`](https://youtu.be/YAdX9MVRY1c)
