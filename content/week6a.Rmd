@@ -117,6 +117,10 @@ From today's class, students are anticipated to be able to:
   - anti_join
 - Perform set operations on data
 
+| Lecture | Demonstration | View |
+|---------|-----------|------|
+| 11-A: tibble joins | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo11a-joins.Rmd) | [Knitted demo](/demonstrations/demo11a-joins) |
+
 #### Prepare for Class
 
 - Watch the [STAT 545 Video Series: Class `r thurs_class_num`](https://youtu.be/YAdX9MVRY1c)
@@ -136,8 +140,8 @@ Some useful (but not mandatory) readings are:
 - [__Set operations__](https://r4ds.had.co.nz/relational-data.html#set-operations) work as if each row is an element in a set. 
 - __Binding__ stacks tables on top of or beside each other, with `bind_rows()` and `bind_cols()`.
 
-- Quiz
- **Complete the Class `r thurs_class_num` Quiz on Canvas by Friday, `r fri_date_pretty` at 11:00am PST.**
+- Quiz: **No quiz** ~~Complete the Class `r thurs_class_num` Quiz on Canvas by Friday, `r fri_date_pretty` at 11:00am PST.~~
+
 -----
 
 ## TBA Office Hours from 16:00 - 17:00 PST:

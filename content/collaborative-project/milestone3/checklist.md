@@ -1,4 +1,4 @@
-# STAT 545A Collaborative Project: Milestone 2 Checklist (30 points)
+# STAT 545A Collaborative Project: Milestone 3 Checklist (30 points)
 
 ## Troubleshooting document (1.5pts x 10 errors = 15pts)
 

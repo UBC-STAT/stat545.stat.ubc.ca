@@ -73,6 +73,8 @@ Lecture demonstration files will appear here.
 | 7-A: ggplot2 Part II | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo7a-ggplot2-part2.Rmd) | [Knitted demo](/demonstrations/demo7a-ggplot2-part2) |
 | 8-A: tidyr | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo8a-tidyr.Rmd) | [Knitted demo](/demonstrations/demo8a-tidyr) |
 | 9-A: modelling in R | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo9a-modelling.Rmd) | [Knitted demo](/demonstrations/demo9a-modelling) |
+| 10-A: dates, times, factors | NA | NA |
+| 11-A: tibble joins | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo11a-joins.Rmd) | [Knitted demo](/demonstrations/demo11a-joins) |
 
 -------
 

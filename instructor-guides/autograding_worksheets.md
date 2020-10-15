@@ -42,3 +42,8 @@ This guide is meant to help you go from students' worksheet submissions, to a gr
 1. Modify the `grades.csv` file to abide by the [standards set out by canvas](https://community.canvaslms.com/t5/Instructor-Guide/How-do-I-import-grades-in-the-Gradebook/ta-p/807)
     - **we need an R script that will do this for us**
 2. Upload the csv to the "grades" page by clicking on "Actions" > "Import"
+
+
+## Some notes on autograder tests
+
+- When writing a test that uses `sort()` on a character vector that contains special characters, the behaviour/ouput will depend on the user's locale, which is also OS-dependent. Stripping away special characters with something like `gsub("[[:punct:]]", "", x)` before `sort()` can address this.
