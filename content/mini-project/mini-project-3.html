@@ -6,31 +6,30 @@ output: html_document
 
 
 
-<p><em>To complete this milestone, edit this <code>.Rmd</code> file directly. Fill in the sections that are commented out with <code>&lt;!--- start your work here---&gt;</code>. When you are done, make sure to knit to an <code>.md</code> file by changing the YAML output settings from <code>output: html_document</code> to <code>output: github_document</code>, before submitting a tagged release on canvas.</em></p>
-<p><em>This milestone is worth 40 points (compared to the usual 30 points): 30 for your analysis, and 10 for reproducibility and having an organized repository. Details follow.</em></p>
+<p><strong>Milestone leader</strong>: Vincenzo</p>
+<p><strong>Deadline</strong>: Saturday, October 24 at 23:59 PST</p>
 <div id="welcome-to-your-last-milestone-in-your-mini-data-analysis-project" class="section level1">
 <h1>Welcome to your last milestone in your mini data analysis project!</h1>
-<p>In Milestone 1, you explored your data and came up with research questions. In Milestone 2, you obtained some results by making summary tables and graphs. In Milestone 3, you’ll be sharpening some of the results you obtained from last time.</p>
+<p>In Milestone 1, you explored your data and came up with research questions. In Milestone 2, you obtained some results by making summary tables and graphs.</p>
+<p>In this (3rd) milestone, you’ll be sharpening some of the results you obtained from your previous milestone by:</p>
+<ul>
+<li>Manipulating special data types in R: factors and/or dates and times.</li>
+<li>Fitting a model object to your data, and extract some result.</li>
+<li>Reading and writing data as separate files.</li>
+</ul>
+<div id="instructions" class="section level2">
+<h2>Instructions</h2>
+<p><strong>To complete this milestone</strong>, edit this very <code>.Rmd</code> file directly. Fill in the sections that are tagged with <code>&lt;!--- start your work here---&gt;</code>.</p>
+<p><strong>To submit this milestone</strong>, make sure to knit this <code>.Rmd</code> file to an <code>.md</code> file by changing the YAML output settings from <code>output: html_document</code> to <code>output: github_document</code>. Commit and push all of your work to your mini-analysis GitHub repository, and tag a release on GitHub. Then, submit a link to your tagged release on canvas.</p>
+<p><strong>Points</strong>: This milestone is worth 40 points (compared to the usual 30 points): 30 for your analysis, and 10 for your entire mini-analysis GitHub repository. Details follow.</p>
+<p><strong>Research Questions</strong>: In Milestone 2, you chose two research questions to focus on. Wherever realistic, your work in this milestone should relate to these research questions whenever we ask for justification behind your work. In the case that some tasks in this milestone don’t align well with one of your research questions, feel free to discuss your results in the context of a different research question.</p>
+</div>
+</div>
+<div id="setup" class="section level1">
+<h1>Setup</h1>
 <p>Begin by loading your data and the tidyverse package below:</p>
 <pre class="r"><code>library(datateachr) # &lt;- contains the data you picked!
 library(tidyverse)</code></pre>
-<div id="learning-objectives" class="section level2">
-<h2>Learning Objectives</h2>
-<p>By the end of this milestone, you should:</p>
-<ul>
-<li>MORE TO COME ———</li>
-<li>Generate a reproducible and clear report using R Markdown</li>
-<li>Gain a greater understanding of how to use R to answer research questions about your data</li>
-</ul>
-<p>STILL NEED TO EDIT:</p>
-<p><strong>Things to keep in mind</strong></p>
-<ul>
-<li><p>Remember to document your code, be explicit about what you are doing, and write notes in this markdown document when you feel that context is required. Create your analysis as if someone else will be reading it! <strong>There will be 2.5 points reserved for reproducibility, readability, and repo organization.</strong></p></li>
-<li><p>Before working on each task, you should always keep in mind the specific <strong>research question</strong> that you’re trying to answer.</p></li>
-</ul>
-</div>
-<div id="research-questions" class="section level2">
-<h2>Research Questions</h2>
 <p>From Milestone 2, you chose two research questions. What were they? Put them here.</p>
 <!-------------------------- Start your work below ---------------------------->
 <ol style="list-style-type: decimal">
@@ -38,12 +37,11 @@ library(tidyverse)</code></pre>
 <li><em>FILL_THIS_IN</em>
 <!-----------------------------------------------------------------------------></li>
 </ol>
-<p>Wherever realistic, your work in this milestone should relate to these research questions whenever we ask for justification behind your work. In the case that some tasks in this milestone don’t align well with one of your research questions, feel free to provide justification in the context of another research question.</p>
-</div>
 </div>
 <div id="question-1-special-data-types-10" class="section level1">
 <h1>Question 1: Special Data Types (10)</h1>
-<p>Tasks 1 and 2 below ask you to modify a plot you made in a previous milestone. This plot should involve plotting across at least three groups (whether by facetting, or using an aesthetic like colour). Place this plot below (it’s allowed to be modified from your previous milestone). If you don’t have such a plot, you’ll need to make one.</p>
+<p>For this question, you’ll be choosing two of the three tasks below – both tasks that you choose are worth 5 points each.</p>
+<p>But first, tasks 1 and 2 below ask you to modify a plot you made in a previous milestone. The plot you choose should involve plotting across at least three groups (whether by facetting, or using an aesthetic like colour). Place this plot below (it’s allowed to be modified from your previous milestone). If you don’t have such a plot, you’ll need to make one. Place the code for your plot below.</p>
 <!-------------------------- Start your work below ---------------------------->
 <!----------------------------------------------------------------------------->
 <p>Now, choose two of the following tasks.</p>
@@ -66,68 +64,88 @@ library(tidyverse)</code></pre>
 </div>
 <div id="question-2-modelling" class="section level1">
 <h1>Question 2: Modelling</h1>
-<div id="no-marks" class="section level2">
-<h2>2.0 (no marks)</h2>
+<div id="no-points" class="section level2">
+<h2>2.0 (no points)</h2>
 <p>Pick a research question, and pick a variable of interest (we’ll call it “Y”) that’s relevant to the research question. Indicate these.</p>
 <!-------------------------- Start your work below ---------------------------->
+<p><strong>Research Question</strong>: FILL_THIS_IN</p>
+<p><strong>Variable of interest</strong>: FILL_THIS_IN</p>
 <!----------------------------------------------------------------------------->
 </div>
-<div id="marks" class="section level2">
-<h2>2.1 (5 marks)</h2>
-<p>Fit a model or run a hypothesis test that provides insight on this variable.</p>
-<p><strong>Note</strong>: It’s OK if you don’t know how these models/tests work. Here are some examples of things you can do, but the sky’s the limit here.</p>
-<ul>
-<li>Fit a model that makes predictions on Y using another variable, by using the <code>lm()</code> function.</li>
-<li>Test whether the mean of Y equals 0 using <code>t.test()</code>, or maybe the mean across two groups are different using <code>t.test()</code>, or maybe the mean across multiple groups are different using <code>anova()</code> (you may have to pivot your data for the latter two).</li>
-</ul>
+<div id="points" class="section level2">
+<h2>2.1 (5 points)</h2>
+<p>Fit a model or run a hypothesis test that provides insight on this variable with respect to the research question. Store the model object as a variable, and print its output to screen.</p>
+<p><strong>Note</strong>: It’s OK if you don’t know how these models/tests work. Here are some examples of things you can do here, but the sky’s the limit.
+- Fit a model that makes predictions on Y using another variable, by using the <code>lm()</code> function.
+- Test whether the mean of Y equals 0 using <code>t.test()</code>, or maybe the mean across two groups are different using <code>t.test()</code>, or maybe the mean across multiple groups are different using <code>anova()</code> (you may have to pivot your data for the latter two).</p>
 <!-------------------------- Start your work below ---------------------------->
 <!----------------------------------------------------------------------------->
 </div>
-<div id="marks-1" class="section level2">
-<h2>2.2 (5 marks)</h2>
+<div id="points-1" class="section level2">
+<h2>2.2 (5 points)</h2>
 <p>Produce something relevant from your fitted model: either predictions on Y, or a single value like a regression coefficient or a p-value.
 - Be sure to indicate what you chose to produce.
 - Your code should either output a tibble (in which case you should indicate the column that contains the thing you’re looking for), or the thing you’re looking for itself.
-- Obtain your results using the <code>broom</code> package, or by some other means if your model is not compatible with <code>broom</code>.</p>
+- Obtain your results using the <code>broom</code> package if possible. If your model is not compatible with the broom function you’re needing, then you can obtain your results by some other means.</p>
 <!-------------------------- Start your work below ---------------------------->
 <!----------------------------------------------------------------------------->
 </div>
 </div>
-<div id="question-3" class="section level1">
-<h1>Question 3</h1>
-<div id="marks-2" class="section level2">
-<h2>3.1 (5 marks)</h2>
-<p>Take a table that you made from Milestone 2, and write it as a csv file in your <code>Milestone 3</code> folder. Use the <code>here::here()</code> function.
+<div id="question-3-reading-and-writing-data" class="section level1">
+<h1>Question 3: Reading and writing data</h1>
+<p>Get set up for this question by making a folder called <code>output</code> in the top level of your project folder / repository. You’ll be saving things there.</p>
+<div id="points-2" class="section level2">
+<h2>3.1 (5 points)</h2>
+<p>Take a table that you made from Milestone 2, and write it as a csv file in your <code>output</code> folder. Use the <code>here::here()</code> function.
 - <strong>Robustness criteria</strong>: You should be able to move your Mini Project repository / project folder to some other location on your computer, or move this very Rmd file to another location within your project repository / folder, and your code should still work.
-- <strong>Reproducibility criteria</strong>: You should be able to delete the csv file, and remake it simply by re-running this Rmd file.</p>
+- <strong>Reproducibility criteria</strong>: You should be able to delete the csv file, and remake it simply by knitting this Rmd file.</p>
 <!-------------------------- Start your work below ---------------------------->
 <!----------------------------------------------------------------------------->
 </div>
-<div id="marks-3" class="section level2">
-<h2>3.2 (5 marks)</h2>
-<p>Write your model object from Question 2 to an R binary file (an RDS), and load it again. Be sure to save the binary file to a folder called <code>output</code> (placed in the top level of your project folder / repository).
+<div id="points-3" class="section level2">
+<h2>3.2 (5 points)</h2>
+<p>Write your model object from Question 2 to an R binary file (an RDS), and load it again. Be sure to save the binary file in your <code>output</code> folder.
 - The same robustness and reproducibility criteria as in 3.1 apply here.</p>
 <!-------------------------- Start your work below ---------------------------->
 <!----------------------------------------------------------------------------->
 </div>
 </div>
-<div id="tidy-submission-10-marks" class="section level1">
-<h1>Tidy Submission (10 marks)</h1>
-<p>Now that this is your last milestone, your entire project repository should be organized.</p>
-<ul>
-<li>There’s a <code>README</code> file at the top level of your repository that shows up when we visit the repository on GitHub.
+<div id="tidy-repository" class="section level1">
+<h1>Tidy Repository</h1>
+<p>Now that this is your last milestone, your entire project repository should be organized. Here are the criteria we’re looking for.</p>
+<div id="main-readme-3-points" class="section level2">
+<h2>Main README (3 points)</h2>
+<p>There should be a file named <code>README.md</code> at the top level of your repository. Its contents should automatically appear when you visit the repository on GitHub.</p>
+<p>Minimum contents of the README file:</p>
 <ul>
 <li>In a sentence or two, explains what this repository is, so that future-you or someone else stumbling on your repository can be oriented to the repository.</li>
 <li>In a sentence or two (or more??), briefly explains how to engage with the repository. You can assume the person reading knows the material from STAT 545A. Basically, if a visitor to your repository wants to explore your project, what should they know?</li>
-</ul></li>
-<li>You have four folders in the top level of your repository: one for each milestone, and one “output” folder. If there are any other folders, these are explained in the main README.</li>
-<li>Every folder has a <code>README</code> file, explaining in a sentence or two what is in the folder, in simple terms.</li>
-<li>All output is recent: Rmd files have been <code>knit</code>ted to their output, and all data files saved from Question 3 above appear in the <code>output</code> folder. And, all of these output files are up-to-date (haven’t fallen behind after the source files, or Rmd files, have changed).
-<ul>
-<li>Yes, this should be true for Milestones 1 and 2, as well. We suggest knitting both those milestones before submitting.</li>
-<li>PS: there’s a way where you can run all project code using a single command, instead of clicking “knit” three times. More on this in STAT 545B!</li>
-</ul></li>
-<li>Your work must be reproducible from beginning to end. That is, a member of the teaching team should be able to run all code error-free and reproduce the output files.</li>
-<li>You’ve tagged a release for Milestone 3 (1 point).</li>
 </ul>
+<p>Once you get in the habit of making README files, and seeing more README files in other projects, you’ll wonder how you ever got by without them! They are tremendously helpful.</p>
+</div>
+<div id="file-and-folder-structure-3-points" class="section level2">
+<h2>File and Folder structure (3 points)</h2>
+<p>You should have at least four folders in the top level of your repository: one for each milestone, and one output folder. If there are any other folders, these are explained in the main README.</p>
+<p>Each milestone document is contained in its respective folder, and nowhere else.</p>
+<p>Every level-1 folder (that is, the ones stored in the top level, like “Milestone1” and “output”) has a <code>README</code> file, explaining in a sentence or two what is in the folder, in plain language.</p>
+</div>
+<div id="output-2-points" class="section level2">
+<h2>Output (2 points)</h2>
+<p>All output is recent and relevant:</p>
+<ul>
+<li>All Rmd files have been <code>knit</code>ted to their output, and all data files saved from Question 3 above appear in the <code>output</code> folder.</li>
+<li>All of these output files are up-to-date – that is, they haven’t fallen behind after the source (Rmd) files have been updated.</li>
+<li>There should be no relic output files. For example, if you were knitting an Rmd to html, but then changed the output to be only a markdown file, then the html file is a relic and should be deleted.</li>
+</ul>
+<p>Our recommendation: delete all output files, and re-knit each milestone’s Rmd file, so that everything is up to date and relevant.</p>
+<p>PS: there’s a way where you can run all project code using a single command, instead of clicking “knit” three times. More on this in STAT 545B!</p>
+</div>
+<div id="error-free-code-1-point" class="section level2">
+<h2>Error-free code (1 point)</h2>
+<p>This Milestone 3 document knits error-free. (We’ve already graded this aspect for Milestone 1 and 2)</p>
+</div>
+<div id="tagged-release-1-point" class="section level2">
+<h2>Tagged release (1 point)</h2>
+<p>You’ve tagged a release for Milestone 3. (We’ve already graded this aspect for Milestone 1 and 2)</p>
+</div>
 </div>

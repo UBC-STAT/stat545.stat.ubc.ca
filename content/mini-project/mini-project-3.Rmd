@@ -4,13 +4,34 @@ subtitle: "Version 1.0"
 output: html_document
 ---
 
-*To complete this milestone, edit this `.Rmd` file directly. Fill in the sections that are commented out with `<!--- start your work here--->`. When you are done, make sure to knit to an `.md` file by changing the YAML output settings from `output: html_document` to `output: github_document`, before submitting a tagged release on canvas.*
+__Milestone leader__: Vincenzo
 
-*This milestone is worth 40 points (compared to the usual 30 points): 30 for your analysis, and 10 for reproducibility and having an organized repository. Details follow.*
+__Deadline__: Saturday, October 24 at 23:59 PST
+
 
 # Welcome to your last milestone in your mini data analysis project!
 
-In Milestone 1, you explored your data and came up with research questions. In Milestone 2, you obtained some results by making summary tables and graphs. In Milestone 3, you'll be sharpening some of the results you obtained from last time. 
+In Milestone 1, you explored your data and came up with research questions. In Milestone 2, you obtained some results by making summary tables and graphs. 
+
+In this (3rd) milestone, you'll be sharpening some of the results you obtained from your previous milestone by:
+
++ Manipulating special data types in R: factors and/or dates and times. 
++ Fitting a model object to your data, and extract some result.
++ Reading and writing data as separate files.
+
+
+## Instructions
+
+**To complete this milestone**, edit this very `.Rmd` file directly. Fill in the sections that are tagged with `<!--- start your work here--->`. 
+
+**To submit this milestone**, make sure to knit this `.Rmd` file to an `.md` file by changing the YAML output settings from `output: html_document` to `output: github_document`. Commit and push all of your work to your mini-analysis GitHub repository, and tag a release on GitHub. Then, submit a link to your tagged release on canvas. 
+
+**Points**: This milestone is worth 40 points (compared to the usual 30 points): 30 for your analysis, and 10 for your entire mini-analysis GitHub repository. Details follow.
+
+**Research Questions**: In Milestone 2, you chose two research questions to focus on. Wherever realistic, your work in this milestone should relate to these research questions whenever we ask for justification behind your work. In the case that some tasks in this milestone don't align well with one of your research questions, feel free to discuss your results in the context of a different research question.
+
+
+# Setup
 
 Begin by loading your data and the tidyverse package below: 
 
@@ -19,24 +40,6 @@ library(datateachr) # <- contains the data you picked!
 library(tidyverse)
 ```
 
-## Learning Objectives
-
-By the end of this milestone, you should:
-
-+ MORE TO COME ---------
-+ Generate a reproducible and clear report using R Markdown
-+ Gain a greater understanding of how to use R to answer research questions about your data
-
-STILL NEED TO EDIT:
-
-**Things to keep in mind**
-
-+ Remember to document your code, be explicit about what you are doing, and write notes in this markdown document when you feel that context is required. Create your analysis as if someone else will be reading it! **There will be 2.5 points reserved for reproducibility, readability, and repo organization.**
-
-+ Before working on each task, you should always keep in mind the specific **research question** that you're trying to answer.
-
-## Research Questions
-
 From Milestone 2, you chose two research questions. What were they? Put them here.
 
 <!-------------------------- Start your work below ---------------------------->
@@ -44,11 +47,12 @@ From Milestone 2, you chose two research questions. What were they? Put them her
 2. *FILL_THIS_IN*
 <!----------------------------------------------------------------------------->
 
-Wherever realistic, your work in this milestone should relate to these research questions whenever we ask for justification behind your work. In the case that some tasks in this milestone don't align well with one of your research questions, feel free to provide justification in the context of another research question.
 
 # Question 1: Special Data Types (10)
 
-Tasks 1 and 2 below ask you to modify a plot you made in a previous milestone. This plot should involve plotting across at least three groups (whether by facetting, or using an aesthetic like colour). Place this plot below (it's allowed to be modified from your previous milestone). If you don't have such a plot, you'll need to make one. 
+For this question, you'll be choosing two of the three tasks below -- both tasks that you choose are worth 5 points each. 
+
+But first, tasks 1 and 2 below ask you to modify a plot you made in a previous milestone. The plot you choose should involve plotting across at least three groups (whether by facetting, or using an aesthetic like colour). Place this plot below (it's allowed to be modified from your previous milestone). If you don't have such a plot, you'll need to make one. Place the code for your plot below.
 
 <!-------------------------- Start your work below ---------------------------->
 
@@ -92,35 +96,37 @@ Now, choose two of the following tasks.
 
 # Question 2: Modelling
 
-## 2.0 (no marks)
+## 2.0 (no points)
 
 Pick a research question, and pick a variable of interest (we'll call it "Y") that's relevant to the research question. Indicate these.
 
 <!-------------------------- Start your work below ---------------------------->
 
+**Research Question**: FILL_THIS_IN
+
+**Variable of interest**: FILL_THIS_IN
 
 <!----------------------------------------------------------------------------->
 
-## 2.1 (5 marks)
+## 2.1 (5 points)
 
-Fit a model or run a hypothesis test that provides insight on this variable. 
+Fit a model or run a hypothesis test that provides insight on this variable with respect to the research question. Store the model object as a variable, and print its output to screen. 
 
-**Note**: It's OK if you don't know how these models/tests work. Here are some examples of things you can do, but the sky's the limit here. 
-
-- Fit a model that makes predictions on Y using another variable, by using the `lm()` function.
-- Test whether the mean of Y equals 0 using `t.test()`, or maybe the mean across two groups are different using `t.test()`, or maybe the mean across multiple groups are different using `anova()` (you may have to pivot your data for the latter two).
+**Note**: It's OK if you don't know how these models/tests work. Here are some examples of things you can do here, but the sky's the limit. 
+  - Fit a model that makes predictions on Y using another variable, by using the `lm()` function.
+  - Test whether the mean of Y equals 0 using `t.test()`, or maybe the mean across two groups are different using `t.test()`, or maybe the mean across multiple groups are different using `anova()` (you may have to pivot your data for the latter two).
 
 <!-------------------------- Start your work below ---------------------------->
 
 
 <!----------------------------------------------------------------------------->
 
-## 2.2 (5 marks)
+## 2.2 (5 points)
 
 Produce something relevant from your fitted model: either predictions on Y, or a single value like a regression coefficient or a p-value. 
   - Be sure to indicate what you chose to produce. 
   - Your code should either output a tibble (in which case you should indicate the column that contains the thing you're looking for), or the thing you're looking for itself.
-  - Obtain your results using the `broom` package, or by some other means if your model is not compatible with `broom`.
+  - Obtain your results using the `broom` package if possible. If your model is not compatible with the broom function you're needing, then you can obtain your results by some other means. 
   
 <!-------------------------- Start your work below ---------------------------->
 
@@ -129,22 +135,24 @@ Produce something relevant from your fitted model: either predictions on Y, or a
 
 
 
-# Question 3
+# Question 3: Reading and writing data
 
-## 3.1 (5 marks)
+Get set up for this question by making a folder called `output` in the top level of your project folder / repository. You'll be saving things there. 
 
-Take a table that you made from Milestone 2, and write it as a csv file in your `Milestone 3` folder. Use the `here::here()` function.
+## 3.1 (5 points)
+
+Take a table that you made from Milestone 2, and write it as a csv file in your `output` folder. Use the `here::here()` function.
   - **Robustness criteria**: You should be able to move your Mini Project repository / project folder to some other location on your computer, or move this very Rmd file to another location within your project repository / folder, and your code should still work.
-  - **Reproducibility criteria**: You should be able to delete the csv file, and remake it simply by re-running this Rmd file. 
+  - **Reproducibility criteria**: You should be able to delete the csv file, and remake it simply by knitting this Rmd file. 
   
 <!-------------------------- Start your work below ---------------------------->
 
 
 <!----------------------------------------------------------------------------->
 
-## 3.2 (5 marks)
+## 3.2 (5 points)
 
-Write your model object from Question 2 to an R binary file (an RDS), and load it again. Be sure to save the binary file to a folder called `output` (placed in the top level of your project folder / repository).
+Write your model object from Question 2 to an R binary file (an RDS), and load it again. Be sure to save the binary file in your `output` folder.
   - The same robustness and reproducibility criteria as in 3.1 apply here.
 
 <!-------------------------- Start your work below ---------------------------->
@@ -152,17 +160,45 @@ Write your model object from Question 2 to an R binary file (an RDS), and load i
 
 <!----------------------------------------------------------------------------->
 
-# Tidy Submission (10 marks)
+# Tidy Repository
 
-Now that this is your last milestone, your entire project repository should be organized. 
+Now that this is your last milestone, your entire project repository should be organized. Here are the criteria we're looking for.
 
-- There's a `README` file at the top level of your repository that shows up when we visit the repository on GitHub. 
-  - In a sentence or two, explains what this repository is, so that future-you or someone else stumbling on your repository can be oriented to the repository.
-  - In a sentence or two (or more??), briefly explains how to engage with the repository. You can assume the person reading knows the material from STAT 545A. Basically, if a visitor to your repository wants to explore your project, what should they know?
-- You have four folders in the top level of your repository: one for each milestone, and one "output" folder. If there are any other folders, these are explained in the main README. 
-- Every folder has a `README` file, explaining in a sentence or two what is in the folder, in simple terms. 
-- All output is recent: Rmd files have been `knit`ted to their output, and all data files saved from Question 3 above appear in the `output` folder. And, all of these output files are up-to-date (haven't fallen behind after the source files, or Rmd files, have changed). 
-  - Yes, this should be true for Milestones 1 and 2, as well. We suggest knitting both those milestones before submitting.
-  - PS: there's a way where you can run all project code using a single command, instead of clicking "knit" three times. More on this in STAT 545B!
-- Your work must be reproducible from beginning to end. That is, a member of the teaching team should be able to run all code error-free and reproduce the output files.
-- You've tagged a release for Milestone 3 (1 point).
+## Main README (3 points)
+
+There should be a file named `README.md` at the top level of your repository. Its contents should automatically appear when you visit the repository on GitHub. 
+
+Minimum contents of the README file:
+
+- In a sentence or two, explains what this repository is, so that future-you or someone else stumbling on your repository can be oriented to the repository.
+- In a sentence or two (or more??), briefly explains how to engage with the repository. You can assume the person reading knows the material from STAT 545A. Basically, if a visitor to your repository wants to explore your project, what should they know?
+
+Once you get in the habit of making README files, and seeing more README files in other projects, you'll wonder how you ever got by without them! They are tremendously helpful.
+
+## File and Folder structure (3 points)
+
+You should have at least four folders in the top level of your repository: one for each milestone, and one output folder. If there are any other folders, these are explained in the main README.
+
+Each milestone document is contained in its respective folder, and nowhere else. 
+
+Every level-1 folder (that is, the ones stored in the top level, like "Milestone1" and "output") has a `README` file, explaining in a sentence or two what is in the folder, in plain language.
+
+## Output (2 points)
+
+All output is recent and relevant: 
+
+- All Rmd files have been `knit`ted to their output, and all data files saved from Question 3 above appear in the `output` folder. 
+- All of these output files are up-to-date -- that is, they haven't fallen behind after the source (Rmd) files have been updated.
+- There should be no relic output files. For example, if you were knitting an Rmd to html, but then changed the output to be only a markdown file, then the html file is a relic and should be deleted. 
+
+Our recommendation: delete all output files, and re-knit each milestone's Rmd file, so that everything is up to date and relevant. 
+
+PS: there's a way where you can run all project code using a single command, instead of clicking "knit" three times. More on this in STAT 545B!
+
+## Error-free code (1 point)
+
+This Milestone 3 document knits error-free. (We've already graded this aspect for Milestone 1 and 2)
+
+## Tagged release (1 point)
+
+You've tagged a release for Milestone 3. (We've already graded this aspect for Milestone 1 and 2)
