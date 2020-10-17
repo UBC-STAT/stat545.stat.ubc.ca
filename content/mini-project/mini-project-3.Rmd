@@ -155,7 +155,7 @@ Take a summary table that you made from Milestone 2 (Exercise 1.2), and write it
 
 ## 3.2 (5 points)
 
-Write your model object from Exercise 2 to an R binary file (an RDS), and load it again. Be sure to save the binary file in your `output` folder.
+Write your model object from Exercise 2 to an R binary file (an RDS), and load it again. Be sure to save the binary file in your `output` folder. Use the functions `saveRDS()` and `loadRDS()`. 
 
 - The same robustness and reproducibility criteria as in 3.1 apply here.
 
@@ -185,7 +185,7 @@ You should have at least four folders in the top level of your repository: one f
 
 Each milestone document is contained in its respective folder, and nowhere else. 
 
-Every level-1 folder (that is, the ones stored in the top level, like "Milestone1" and "output") has a `README` file, explaining in a sentence or two what is in the folder, in plain language.
+Every level-1 folder (that is, the ones stored in the top level, like "Milestone1" and "output") has a `README` file, explaining in a sentence or two what is in the folder, in plain language (it's enough to say something like "This folder contains the source for Milestone 1").
 
 ## Output (2 points)
 
