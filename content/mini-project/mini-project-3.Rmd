@@ -1,0 +1,168 @@
+---
+title: "Mini Analysis: Milestone 3"
+subtitle: "Version 1.0"
+output: html_document
+---
+
+*To complete this milestone, edit this `.Rmd` file directly. Fill in the sections that are commented out with `<!--- start your work here--->`. When you are done, make sure to knit to an `.md` file by changing the YAML output settings from `output: html_document` to `output: github_document`, before submitting a tagged release on canvas.*
+
+*This milestone is worth 40 points (compared to the usual 30 points): 30 for your analysis, and 10 for reproducibility and having an organized repository. Details follow.*
+
+# Welcome to your last milestone in your mini data analysis project!
+
+In Milestone 1, you explored your data and came up with research questions. In Milestone 2, you obtained some results by making summary tables and graphs. In Milestone 3, you'll be sharpening some of the results you obtained from last time. 
+
+Begin by loading your data and the tidyverse package below: 
+
+```{r, message = FALSE}
+library(datateachr) # <- contains the data you picked!
+library(tidyverse)
+```
+
+## Learning Objectives
+
+By the end of this milestone, you should:
+
++ MORE TO COME ---------
++ Generate a reproducible and clear report using R Markdown
++ Gain a greater understanding of how to use R to answer research questions about your data
+
+STILL NEED TO EDIT:
+
+**Things to keep in mind**
+
++ Remember to document your code, be explicit about what you are doing, and write notes in this markdown document when you feel that context is required. Create your analysis as if someone else will be reading it! **There will be 2.5 points reserved for reproducibility, readability, and repo organization.**
+
++ Before working on each task, you should always keep in mind the specific **research question** that you're trying to answer.
+
+## Research Questions
+
+From Milestone 2, you chose two research questions. What were they? Put them here.
+
+<!-------------------------- Start your work below ---------------------------->
+1. *FILL_THIS_IN*
+2. *FILL_THIS_IN*
+<!----------------------------------------------------------------------------->
+
+Wherever realistic, your work in this milestone should relate to these research questions whenever we ask for justification behind your work. In the case that some tasks in this milestone don't align well with one of your research questions, feel free to provide justification in the context of another research question.
+
+# Question 1: Special Data Types (10)
+
+Tasks 1 and 2 below ask you to modify a plot you made in a previous milestone. This plot should involve plotting across at least three groups (whether by facetting, or using an aesthetic like colour). Place this plot below (it's allowed to be modified from your previous milestone). If you don't have such a plot, you'll need to make one. 
+
+<!-------------------------- Start your work below ---------------------------->
+
+
+
+<!----------------------------------------------------------------------------->
+
+Now, choose two of the following tasks.
+
+1. Produce a new plot that reorders a factor in your original plot, using the `forcats` package (3 points). Then, in a sentence or two, briefly explain why you chose this ordering (1 point here for demonstrating understanding of the reordering, and 1 point for demonstrating some justification for the reordering, which could be subtle.)
+
+2. Produce a new plot that groups some factor levels together into an "other" category (or something similar), using the `forcats` package (3 points). Then, in a sentence or two, briefly explain why you chose this grouping (1 point here for demonstrating understanding of the grouping, and 1 point for demonstrating some justification for the grouping, which could be subtle or speculative.)
+
+3. If your data has some sort of time-based column like a date (but not just a year):
+  1. Make a new column that uses a function from the `lubridate` or `tsibble` package to modify your original time-based column. (3 points)
+    - Note that you might first have to _make_ a time-based column using a function like `ymd()`, but this doesn't count.
+    - Examples of something you might do here: extract the day of the year from a date, or extract the weekday, or let 24 hours elapse on your dates.
+  2. Then, in a sentence or two, explain how your new column might be useful in exploring a research question. (1 point for demonstrating understanding, 1 point for justification, which could be subtle or speculative).
+    - For example, you could say something like "Investigating the day of the week might be useful because penguins don't work on weekends, and so may respond differently".
+    
+
+
+<!-------------------------- Start your work below ---------------------------->
+
+**Task Number**: FILL_THIS_IN
+
+
+
+<!----------------------------------------------------------------------------->
+
+
+<!-------------------------- Start your work below ---------------------------->
+
+**Task Number**: FILL_THIS_IN
+
+
+
+<!----------------------------------------------------------------------------->
+
+    
+
+# Question 2: Modelling
+
+## 2.0 (no marks)
+
+Pick a research question, and pick a variable of interest (we'll call it "Y") that's relevant to the research question. Indicate these.
+
+<!-------------------------- Start your work below ---------------------------->
+
+
+<!----------------------------------------------------------------------------->
+
+## 2.1 (5 marks)
+
+Fit a model or run a hypothesis test that provides insight on this variable. 
+
+**Note**: It's OK if you don't know how these models/tests work. Here are some examples of things you can do, but the sky's the limit here. 
+
+- Fit a model that makes predictions on Y using another variable, by using the `lm()` function.
+- Test whether the mean of Y equals 0 using `t.test()`, or maybe the mean across two groups are different using `t.test()`, or maybe the mean across multiple groups are different using `anova()` (you may have to pivot your data for the latter two).
+
+<!-------------------------- Start your work below ---------------------------->
+
+
+<!----------------------------------------------------------------------------->
+
+## 2.2 (5 marks)
+
+Produce something relevant from your fitted model: either predictions on Y, or a single value like a regression coefficient or a p-value. 
+  - Be sure to indicate what you chose to produce. 
+  - Your code should either output a tibble (in which case you should indicate the column that contains the thing you're looking for), or the thing you're looking for itself.
+  - Obtain your results using the `broom` package, or by some other means if your model is not compatible with `broom`.
+  
+<!-------------------------- Start your work below ---------------------------->
+
+
+<!----------------------------------------------------------------------------->
+
+
+
+# Question 3
+
+## 3.1 (5 marks)
+
+Take a table that you made from Milestone 2, and write it as a csv file in your `Milestone 3` folder. Use the `here::here()` function.
+  - **Robustness criteria**: You should be able to move your Mini Project repository / project folder to some other location on your computer, or move this very Rmd file to another location within your project repository / folder, and your code should still work.
+  - **Reproducibility criteria**: You should be able to delete the csv file, and remake it simply by re-running this Rmd file. 
+  
+<!-------------------------- Start your work below ---------------------------->
+
+
+<!----------------------------------------------------------------------------->
+
+## 3.2 (5 marks)
+
+Write your model object from Question 2 to an R binary file (an RDS), and load it again. Be sure to save the binary file to a folder called `output` (placed in the top level of your project folder / repository).
+  - The same robustness and reproducibility criteria as in 3.1 apply here.
+
+<!-------------------------- Start your work below ---------------------------->
+
+
+<!----------------------------------------------------------------------------->
+
+# Tidy Submission (10 marks)
+
+Now that this is your last milestone, your entire project repository should be organized. 
+
+- There's a `README` file at the top level of your repository that shows up when we visit the repository on GitHub. 
+  - In a sentence or two, explains what this repository is, so that future-you or someone else stumbling on your repository can be oriented to the repository.
+  - In a sentence or two (or more??), briefly explains how to engage with the repository. You can assume the person reading knows the material from STAT 545A. Basically, if a visitor to your repository wants to explore your project, what should they know?
+- You have four folders in the top level of your repository: one for each milestone, and one "output" folder. If there are any other folders, these are explained in the main README. 
+- Every folder has a `README` file, explaining in a sentence or two what is in the folder, in simple terms. 
+- All output is recent: Rmd files have been `knit`ted to their output, and all data files saved from Question 3 above appear in the `output` folder. And, all of these output files are up-to-date (haven't fallen behind after the source files, or Rmd files, have changed). 
+  - Yes, this should be true for Milestones 1 and 2, as well. We suggest knitting both those milestones before submitting.
+  - PS: there's a way where you can run all project code using a single command, instead of clicking "knit" three times. More on this in STAT 545B!
+- Your work must be reproducible from beginning to end. That is, a member of the teaching team should be able to run all code error-free and reproduce the output files.
+- You've tagged a release for Milestone 3 (1 point).

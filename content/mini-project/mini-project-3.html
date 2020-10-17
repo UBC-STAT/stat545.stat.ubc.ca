@@ -1,0 +1,133 @@
+---
+title: "Mini Analysis: Milestone 3"
+subtitle: "Version 1.0"
+output: html_document
+---
+
+
+
+<p><em>To complete this milestone, edit this <code>.Rmd</code> file directly. Fill in the sections that are commented out with <code>&lt;!--- start your work here---&gt;</code>. When you are done, make sure to knit to an <code>.md</code> file by changing the YAML output settings from <code>output: html_document</code> to <code>output: github_document</code>, before submitting a tagged release on canvas.</em></p>
+<p><em>This milestone is worth 40 points (compared to the usual 30 points): 30 for your analysis, and 10 for reproducibility and having an organized repository. Details follow.</em></p>
+<div id="welcome-to-your-last-milestone-in-your-mini-data-analysis-project" class="section level1">
+<h1>Welcome to your last milestone in your mini data analysis project!</h1>
+<p>In Milestone 1, you explored your data and came up with research questions. In Milestone 2, you obtained some results by making summary tables and graphs. In Milestone 3, you’ll be sharpening some of the results you obtained from last time.</p>
+<p>Begin by loading your data and the tidyverse package below:</p>
+<pre class="r"><code>library(datateachr) # &lt;- contains the data you picked!
+library(tidyverse)</code></pre>
+<div id="learning-objectives" class="section level2">
+<h2>Learning Objectives</h2>
+<p>By the end of this milestone, you should:</p>
+<ul>
+<li>MORE TO COME ———</li>
+<li>Generate a reproducible and clear report using R Markdown</li>
+<li>Gain a greater understanding of how to use R to answer research questions about your data</li>
+</ul>
+<p>STILL NEED TO EDIT:</p>
+<p><strong>Things to keep in mind</strong></p>
+<ul>
+<li><p>Remember to document your code, be explicit about what you are doing, and write notes in this markdown document when you feel that context is required. Create your analysis as if someone else will be reading it! <strong>There will be 2.5 points reserved for reproducibility, readability, and repo organization.</strong></p></li>
+<li><p>Before working on each task, you should always keep in mind the specific <strong>research question</strong> that you’re trying to answer.</p></li>
+</ul>
+</div>
+<div id="research-questions" class="section level2">
+<h2>Research Questions</h2>
+<p>From Milestone 2, you chose two research questions. What were they? Put them here.</p>
+<!-------------------------- Start your work below ---------------------------->
+<ol style="list-style-type: decimal">
+<li><em>FILL_THIS_IN</em></li>
+<li><em>FILL_THIS_IN</em>
+<!-----------------------------------------------------------------------------></li>
+</ol>
+<p>Wherever realistic, your work in this milestone should relate to these research questions whenever we ask for justification behind your work. In the case that some tasks in this milestone don’t align well with one of your research questions, feel free to provide justification in the context of another research question.</p>
+</div>
+</div>
+<div id="question-1-special-data-types-10" class="section level1">
+<h1>Question 1: Special Data Types (10)</h1>
+<p>Tasks 1 and 2 below ask you to modify a plot you made in a previous milestone. This plot should involve plotting across at least three groups (whether by facetting, or using an aesthetic like colour). Place this plot below (it’s allowed to be modified from your previous milestone). If you don’t have such a plot, you’ll need to make one.</p>
+<!-------------------------- Start your work below ---------------------------->
+<!----------------------------------------------------------------------------->
+<p>Now, choose two of the following tasks.</p>
+<ol style="list-style-type: decimal">
+<li><p>Produce a new plot that reorders a factor in your original plot, using the <code>forcats</code> package (3 points). Then, in a sentence or two, briefly explain why you chose this ordering (1 point here for demonstrating understanding of the reordering, and 1 point for demonstrating some justification for the reordering, which could be subtle.)</p></li>
+<li><p>Produce a new plot that groups some factor levels together into an “other” category (or something similar), using the <code>forcats</code> package (3 points). Then, in a sentence or two, briefly explain why you chose this grouping (1 point here for demonstrating understanding of the grouping, and 1 point for demonstrating some justification for the grouping, which could be subtle or speculative.)</p></li>
+<li><p>If your data has some sort of time-based column like a date (but not just a year):</p></li>
+<li><p>Make a new column that uses a function from the <code>lubridate</code> or <code>tsibble</code> package to modify your original time-based column. (3 points)
+- Note that you might first have to <em>make</em> a time-based column using a function like <code>ymd()</code>, but this doesn’t count.
+- Examples of something you might do here: extract the day of the year from a date, or extract the weekday, or let 24 hours elapse on your dates.</p></li>
+<li><p>Then, in a sentence or two, explain how your new column might be useful in exploring a research question. (1 point for demonstrating understanding, 1 point for justification, which could be subtle or speculative).
+- For example, you could say something like “Investigating the day of the week might be useful because penguins don’t work on weekends, and so may respond differently”.</p></li>
+</ol>
+<!-------------------------- Start your work below ---------------------------->
+<p><strong>Task Number</strong>: FILL_THIS_IN</p>
+<!----------------------------------------------------------------------------->
+<!-------------------------- Start your work below ---------------------------->
+<p><strong>Task Number</strong>: FILL_THIS_IN</p>
+<!----------------------------------------------------------------------------->
+</div>
+<div id="question-2-modelling" class="section level1">
+<h1>Question 2: Modelling</h1>
+<div id="no-marks" class="section level2">
+<h2>2.0 (no marks)</h2>
+<p>Pick a research question, and pick a variable of interest (we’ll call it “Y”) that’s relevant to the research question. Indicate these.</p>
+<!-------------------------- Start your work below ---------------------------->
+<!----------------------------------------------------------------------------->
+</div>
+<div id="marks" class="section level2">
+<h2>2.1 (5 marks)</h2>
+<p>Fit a model or run a hypothesis test that provides insight on this variable.</p>
+<p><strong>Note</strong>: It’s OK if you don’t know how these models/tests work. Here are some examples of things you can do, but the sky’s the limit here.</p>
+<ul>
+<li>Fit a model that makes predictions on Y using another variable, by using the <code>lm()</code> function.</li>
+<li>Test whether the mean of Y equals 0 using <code>t.test()</code>, or maybe the mean across two groups are different using <code>t.test()</code>, or maybe the mean across multiple groups are different using <code>anova()</code> (you may have to pivot your data for the latter two).</li>
+</ul>
+<!-------------------------- Start your work below ---------------------------->
+<!----------------------------------------------------------------------------->
+</div>
+<div id="marks-1" class="section level2">
+<h2>2.2 (5 marks)</h2>
+<p>Produce something relevant from your fitted model: either predictions on Y, or a single value like a regression coefficient or a p-value.
+- Be sure to indicate what you chose to produce.
+- Your code should either output a tibble (in which case you should indicate the column that contains the thing you’re looking for), or the thing you’re looking for itself.
+- Obtain your results using the <code>broom</code> package, or by some other means if your model is not compatible with <code>broom</code>.</p>
+<!-------------------------- Start your work below ---------------------------->
+<!----------------------------------------------------------------------------->
+</div>
+</div>
+<div id="question-3" class="section level1">
+<h1>Question 3</h1>
+<div id="marks-2" class="section level2">
+<h2>3.1 (5 marks)</h2>
+<p>Take a table that you made from Milestone 2, and write it as a csv file in your <code>Milestone 3</code> folder. Use the <code>here::here()</code> function.
+- <strong>Robustness criteria</strong>: You should be able to move your Mini Project repository / project folder to some other location on your computer, or move this very Rmd file to another location within your project repository / folder, and your code should still work.
+- <strong>Reproducibility criteria</strong>: You should be able to delete the csv file, and remake it simply by re-running this Rmd file.</p>
+<!-------------------------- Start your work below ---------------------------->
+<!----------------------------------------------------------------------------->
+</div>
+<div id="marks-3" class="section level2">
+<h2>3.2 (5 marks)</h2>
+<p>Write your model object from Question 2 to an R binary file (an RDS), and load it again. Be sure to save the binary file to a folder called <code>output</code> (placed in the top level of your project folder / repository).
+- The same robustness and reproducibility criteria as in 3.1 apply here.</p>
+<!-------------------------- Start your work below ---------------------------->
+<!----------------------------------------------------------------------------->
+</div>
+</div>
+<div id="tidy-submission-10-marks" class="section level1">
+<h1>Tidy Submission (10 marks)</h1>
+<p>Now that this is your last milestone, your entire project repository should be organized.</p>
+<ul>
+<li>There’s a <code>README</code> file at the top level of your repository that shows up when we visit the repository on GitHub.
+<ul>
+<li>In a sentence or two, explains what this repository is, so that future-you or someone else stumbling on your repository can be oriented to the repository.</li>
+<li>In a sentence or two (or more??), briefly explains how to engage with the repository. You can assume the person reading knows the material from STAT 545A. Basically, if a visitor to your repository wants to explore your project, what should they know?</li>
+</ul></li>
+<li>You have four folders in the top level of your repository: one for each milestone, and one “output” folder. If there are any other folders, these are explained in the main README.</li>
+<li>Every folder has a <code>README</code> file, explaining in a sentence or two what is in the folder, in simple terms.</li>
+<li>All output is recent: Rmd files have been <code>knit</code>ted to their output, and all data files saved from Question 3 above appear in the <code>output</code> folder. And, all of these output files are up-to-date (haven’t fallen behind after the source files, or Rmd files, have changed).
+<ul>
+<li>Yes, this should be true for Milestones 1 and 2, as well. We suggest knitting both those milestones before submitting.</li>
+<li>PS: there’s a way where you can run all project code using a single command, instead of clicking “knit” three times. More on this in STAT 545B!</li>
+</ul></li>
+<li>Your work must be reproducible from beginning to end. That is, a member of the teaching team should be able to run all code error-free and reproduce the output files.</li>
+<li>You’ve tagged a release for Milestone 3 (1 point).</li>
+</ul>
+</div>
