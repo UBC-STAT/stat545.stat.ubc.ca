@@ -16,7 +16,7 @@ In Milestone 1, you explored your data and came up with research questions. In M
 In this (3rd) milestone, you'll be sharpening some of the results you obtained from your previous milestone by:
 
 + Manipulating special data types in R: factors and/or dates and times. 
-+ Fitting a model object to your data, and extract some result.
++ Fitting a model object to your data, and extract a result.
 + Reading and writing data as separate files.
 
 
@@ -48,11 +48,11 @@ From Milestone 2, you chose two research questions. What were they? Put them her
 <!----------------------------------------------------------------------------->
 
 
-# Question 1: Special Data Types (10)
+# Exercise 1: Special Data Types (10)
 
-For this question, you'll be choosing two of the three tasks below -- both tasks that you choose are worth 5 points each. 
+For this exercise, you'll be choosing two of the three tasks below -- both tasks that you choose are worth 5 points each. 
 
-But first, tasks 1 and 2 below ask you to modify a plot you made in a previous milestone. The plot you choose should involve plotting across at least three groups (whether by facetting, or using an aesthetic like colour). Place this plot below (it's allowed to be modified from your previous milestone). If you don't have such a plot, you'll need to make one. Place the code for your plot below.
+But first, tasks 1 and 2 below ask you to modify a plot you made in a previous milestone. The plot you choose should involve plotting across at least three groups (whether by facetting, or using an aesthetic like colour). Place this plot below (you're allowed to modify the plot if you'd like). If you don't have such a plot, you'll need to make one. Place the code for your plot below.
 
 <!-------------------------- Start your work below ---------------------------->
 
@@ -62,16 +62,16 @@ But first, tasks 1 and 2 below ask you to modify a plot you made in a previous m
 
 Now, choose two of the following tasks.
 
-1. Produce a new plot that reorders a factor in your original plot, using the `forcats` package (3 points). Then, in a sentence or two, briefly explain why you chose this ordering (1 point here for demonstrating understanding of the reordering, and 1 point for demonstrating some justification for the reordering, which could be subtle.)
+1. Produce a new plot that reorders a factor in your original plot, using the `forcats` package (3 points). Then, in a sentence or two, briefly explain why you chose this ordering (1 point here for demonstrating understanding of the reordering, and 1 point for demonstrating some justification for the reordering, which could be subtle or speculative.)
 
 2. Produce a new plot that groups some factor levels together into an "other" category (or something similar), using the `forcats` package (3 points). Then, in a sentence or two, briefly explain why you chose this grouping (1 point here for demonstrating understanding of the grouping, and 1 point for demonstrating some justification for the grouping, which could be subtle or speculative.)
 
-3. If your data has some sort of time-based column like a date (but not just a year):
-  1. Make a new column that uses a function from the `lubridate` or `tsibble` package to modify your original time-based column. (3 points)
-    - Note that you might first have to _make_ a time-based column using a function like `ymd()`, but this doesn't count.
-    - Examples of something you might do here: extract the day of the year from a date, or extract the weekday, or let 24 hours elapse on your dates.
-  2. Then, in a sentence or two, explain how your new column might be useful in exploring a research question. (1 point for demonstrating understanding, 1 point for justification, which could be subtle or speculative).
-    - For example, you could say something like "Investigating the day of the week might be useful because penguins don't work on weekends, and so may respond differently".
+3. If your data has some sort of time-based column like a date (but something more granular than just a year):
+    1. Make a new column that uses a function from the `lubridate` or `tsibble` package to modify your original time-based column. (3 points)
+        - Note that you might first have to _make_ a time-based column using a function like `ymd()`, but this doesn't count.
+        - Examples of something you might do here: extract the day of the year from a date, or extract the weekday, or let 24 hours elapse on your dates.
+    2. Then, in a sentence or two, explain how your new column might be useful in exploring a research question. (1 point for demonstrating understanding of the function you used, and 1 point for your justification, which could be subtle or speculative).
+        - For example, you could say something like "Investigating the day of the week might be insightful because penguins don't work on weekends, and so may respond differently".
     
 
 
@@ -94,7 +94,7 @@ Now, choose two of the following tasks.
 
     
 
-# Question 2: Modelling
+# Exercise 2: Modelling
 
 ## 2.0 (no points)
 
@@ -110,11 +110,12 @@ Pick a research question, and pick a variable of interest (we'll call it "Y") th
 
 ## 2.1 (5 points)
 
-Fit a model or run a hypothesis test that provides insight on this variable with respect to the research question. Store the model object as a variable, and print its output to screen. 
+Fit a model or run a hypothesis test that provides insight on this variable with respect to the research question. Store the model object as a variable, and print its output to screen. We'll omit having to justify your choice, because we don't expect you to know about model specifics in STAT 545. 
 
-**Note**: It's OK if you don't know how these models/tests work. Here are some examples of things you can do here, but the sky's the limit. 
-  - Fit a model that makes predictions on Y using another variable, by using the `lm()` function.
-  - Test whether the mean of Y equals 0 using `t.test()`, or maybe the mean across two groups are different using `t.test()`, or maybe the mean across multiple groups are different using `anova()` (you may have to pivot your data for the latter two).
+- **Note**: It's OK if you don't know how these models/tests work. Here are some examples of things you can do here, but the sky's the limit. 
+    - You could fit a model that makes predictions on Y using another variable, by using the `lm()` function.
+    - You could test whether the mean of Y equals 0 using `t.test()`, or maybe the mean across two groups are different using `t.test()`, or maybe the mean across multiple groups are different using `anova()` (you may have to pivot your data for the latter two).
+    - You could use `lm()` to test for significance of regression.
 
 <!-------------------------- Start your work below ---------------------------->
 
@@ -124,9 +125,10 @@ Fit a model or run a hypothesis test that provides insight on this variable with
 ## 2.2 (5 points)
 
 Produce something relevant from your fitted model: either predictions on Y, or a single value like a regression coefficient or a p-value. 
-  - Be sure to indicate what you chose to produce. 
-  - Your code should either output a tibble (in which case you should indicate the column that contains the thing you're looking for), or the thing you're looking for itself.
-  - Obtain your results using the `broom` package if possible. If your model is not compatible with the broom function you're needing, then you can obtain your results by some other means. 
+
+- Be sure to indicate in writing what you chose to produce. 
+- Your code should either output a tibble (in which case you should indicate the column that contains the thing you're looking for), or the thing you're looking for itself.
+- Obtain your results using the `broom` package if possible. If your model is not compatible with the broom function you're needing, then you can obtain your results by some other means, but first indicate which broom function is not compatible. 
   
 <!-------------------------- Start your work below ---------------------------->
 
@@ -135,15 +137,16 @@ Produce something relevant from your fitted model: either predictions on Y, or a
 
 
 
-# Question 3: Reading and writing data
+# Exercise 3: Reading and writing data
 
-Get set up for this question by making a folder called `output` in the top level of your project folder / repository. You'll be saving things there. 
+Get set up for this exercise by making a folder called `output` in the top level of your project folder / repository. You'll be saving things there. 
 
 ## 3.1 (5 points)
 
-Take a table that you made from Milestone 2, and write it as a csv file in your `output` folder. Use the `here::here()` function.
-  - **Robustness criteria**: You should be able to move your Mini Project repository / project folder to some other location on your computer, or move this very Rmd file to another location within your project repository / folder, and your code should still work.
-  - **Reproducibility criteria**: You should be able to delete the csv file, and remake it simply by knitting this Rmd file. 
+Take a summary table that you made from Milestone 2 (Exercise 1.2), and write it as a csv file in your `output` folder. Use the `here::here()` function.
+
+- **Robustness criteria**: You should be able to move your Mini Project repository / project folder to some other location on your computer, or move this very Rmd file to another location within your project repository / folder, and your code should still work.
+- **Reproducibility criteria**: You should be able to delete the csv file, and remake it simply by knitting this Rmd file. 
   
 <!-------------------------- Start your work below ---------------------------->
 
@@ -152,8 +155,9 @@ Take a table that you made from Milestone 2, and write it as a csv file in your 
 
 ## 3.2 (5 points)
 
-Write your model object from Question 2 to an R binary file (an RDS), and load it again. Be sure to save the binary file in your `output` folder.
-  - The same robustness and reproducibility criteria as in 3.1 apply here.
+Write your model object from Exercise 2 to an R binary file (an RDS), and load it again. Be sure to save the binary file in your `output` folder.
+
+- The same robustness and reproducibility criteria as in 3.1 apply here.
 
 <!-------------------------- Start your work below ---------------------------->
 
@@ -187,7 +191,7 @@ Every level-1 folder (that is, the ones stored in the top level, like "Milestone
 
 All output is recent and relevant: 
 
-- All Rmd files have been `knit`ted to their output, and all data files saved from Question 3 above appear in the `output` folder. 
+- All Rmd files have been `knit`ted to their output, and all data files saved from Exercise 3 above appear in the `output` folder. 
 - All of these output files are up-to-date -- that is, they haven't fallen behind after the source (Rmd) files have been updated.
 - There should be no relic output files. For example, if you were knitting an Rmd to html, but then changed the output to be only a markdown file, then the html file is a relic and should be deleted. 
 

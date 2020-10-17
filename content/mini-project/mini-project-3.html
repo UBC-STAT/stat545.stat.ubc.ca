@@ -14,7 +14,7 @@ output: html_document
 <p>In this (3rd) milestone, you’ll be sharpening some of the results you obtained from your previous milestone by:</p>
 <ul>
 <li>Manipulating special data types in R: factors and/or dates and times.</li>
-<li>Fitting a model object to your data, and extract some result.</li>
+<li>Fitting a model object to your data, and extract a result.</li>
 <li>Reading and writing data as separate files.</li>
 </ul>
 <div id="instructions" class="section level2">
@@ -38,22 +38,28 @@ library(tidyverse)</code></pre>
 <!-----------------------------------------------------------------------------></li>
 </ol>
 </div>
-<div id="question-1-special-data-types-10" class="section level1">
-<h1>Question 1: Special Data Types (10)</h1>
-<p>For this question, you’ll be choosing two of the three tasks below – both tasks that you choose are worth 5 points each.</p>
-<p>But first, tasks 1 and 2 below ask you to modify a plot you made in a previous milestone. The plot you choose should involve plotting across at least three groups (whether by facetting, or using an aesthetic like colour). Place this plot below (it’s allowed to be modified from your previous milestone). If you don’t have such a plot, you’ll need to make one. Place the code for your plot below.</p>
+<div id="exercise-1-special-data-types-10" class="section level1">
+<h1>Exercise 1: Special Data Types (10)</h1>
+<p>For this exercise, you’ll be choosing two of the three tasks below – both tasks that you choose are worth 5 points each.</p>
+<p>But first, tasks 1 and 2 below ask you to modify a plot you made in a previous milestone. The plot you choose should involve plotting across at least three groups (whether by facetting, or using an aesthetic like colour). Place this plot below (you’re allowed to modify the plot if you’d like). If you don’t have such a plot, you’ll need to make one. Place the code for your plot below.</p>
 <!-------------------------- Start your work below ---------------------------->
 <!----------------------------------------------------------------------------->
 <p>Now, choose two of the following tasks.</p>
 <ol style="list-style-type: decimal">
-<li><p>Produce a new plot that reorders a factor in your original plot, using the <code>forcats</code> package (3 points). Then, in a sentence or two, briefly explain why you chose this ordering (1 point here for demonstrating understanding of the reordering, and 1 point for demonstrating some justification for the reordering, which could be subtle.)</p></li>
+<li><p>Produce a new plot that reorders a factor in your original plot, using the <code>forcats</code> package (3 points). Then, in a sentence or two, briefly explain why you chose this ordering (1 point here for demonstrating understanding of the reordering, and 1 point for demonstrating some justification for the reordering, which could be subtle or speculative.)</p></li>
 <li><p>Produce a new plot that groups some factor levels together into an “other” category (or something similar), using the <code>forcats</code> package (3 points). Then, in a sentence or two, briefly explain why you chose this grouping (1 point here for demonstrating understanding of the grouping, and 1 point for demonstrating some justification for the grouping, which could be subtle or speculative.)</p></li>
-<li><p>If your data has some sort of time-based column like a date (but not just a year):</p></li>
-<li><p>Make a new column that uses a function from the <code>lubridate</code> or <code>tsibble</code> package to modify your original time-based column. (3 points)
-- Note that you might first have to <em>make</em> a time-based column using a function like <code>ymd()</code>, but this doesn’t count.
-- Examples of something you might do here: extract the day of the year from a date, or extract the weekday, or let 24 hours elapse on your dates.</p></li>
-<li><p>Then, in a sentence or two, explain how your new column might be useful in exploring a research question. (1 point for demonstrating understanding, 1 point for justification, which could be subtle or speculative).
-- For example, you could say something like “Investigating the day of the week might be useful because penguins don’t work on weekends, and so may respond differently”.</p></li>
+<li><p>If your data has some sort of time-based column like a date (but something more granular than just a year):</p>
+<ol style="list-style-type: decimal">
+<li>Make a new column that uses a function from the <code>lubridate</code> or <code>tsibble</code> package to modify your original time-based column. (3 points)
+<ul>
+<li>Note that you might first have to <em>make</em> a time-based column using a function like <code>ymd()</code>, but this doesn’t count.</li>
+<li>Examples of something you might do here: extract the day of the year from a date, or extract the weekday, or let 24 hours elapse on your dates.</li>
+</ul></li>
+<li>Then, in a sentence or two, explain how your new column might be useful in exploring a research question. (1 point for demonstrating understanding of the function you used, and 1 point for your justification, which could be subtle or speculative).
+<ul>
+<li>For example, you could say something like “Investigating the day of the week might be insightful because penguins don’t work on weekends, and so may respond differently”.</li>
+</ul></li>
+</ol></li>
 </ol>
 <!-------------------------- Start your work below ---------------------------->
 <p><strong>Task Number</strong>: FILL_THIS_IN</p>
@@ -62,8 +68,8 @@ library(tidyverse)</code></pre>
 <p><strong>Task Number</strong>: FILL_THIS_IN</p>
 <!----------------------------------------------------------------------------->
 </div>
-<div id="question-2-modelling" class="section level1">
-<h1>Question 2: Modelling</h1>
+<div id="exercise-2-modelling" class="section level1">
+<h1>Exercise 2: Modelling</h1>
 <div id="no-points" class="section level2">
 <h2>2.0 (no points)</h2>
 <p>Pick a research question, and pick a variable of interest (we’ll call it “Y”) that’s relevant to the research question. Indicate these.</p>
@@ -74,38 +80,49 @@ library(tidyverse)</code></pre>
 </div>
 <div id="points" class="section level2">
 <h2>2.1 (5 points)</h2>
-<p>Fit a model or run a hypothesis test that provides insight on this variable with respect to the research question. Store the model object as a variable, and print its output to screen.</p>
-<p><strong>Note</strong>: It’s OK if you don’t know how these models/tests work. Here are some examples of things you can do here, but the sky’s the limit.
-- Fit a model that makes predictions on Y using another variable, by using the <code>lm()</code> function.
-- Test whether the mean of Y equals 0 using <code>t.test()</code>, or maybe the mean across two groups are different using <code>t.test()</code>, or maybe the mean across multiple groups are different using <code>anova()</code> (you may have to pivot your data for the latter two).</p>
+<p>Fit a model or run a hypothesis test that provides insight on this variable with respect to the research question. Store the model object as a variable, and print its output to screen. We’ll omit having to justify your choice, because we don’t expect you to know about model specifics in STAT 545.</p>
+<ul>
+<li><strong>Note</strong>: It’s OK if you don’t know how these models/tests work. Here are some examples of things you can do here, but the sky’s the limit.
+<ul>
+<li>You could fit a model that makes predictions on Y using another variable, by using the <code>lm()</code> function.</li>
+<li>You could test whether the mean of Y equals 0 using <code>t.test()</code>, or maybe the mean across two groups are different using <code>t.test()</code>, or maybe the mean across multiple groups are different using <code>anova()</code> (you may have to pivot your data for the latter two).</li>
+<li>You could use <code>lm()</code> to test for significance of regression.</li>
+</ul></li>
+</ul>
 <!-------------------------- Start your work below ---------------------------->
 <!----------------------------------------------------------------------------->
 </div>
 <div id="points-1" class="section level2">
 <h2>2.2 (5 points)</h2>
-<p>Produce something relevant from your fitted model: either predictions on Y, or a single value like a regression coefficient or a p-value.
-- Be sure to indicate what you chose to produce.
-- Your code should either output a tibble (in which case you should indicate the column that contains the thing you’re looking for), or the thing you’re looking for itself.
-- Obtain your results using the <code>broom</code> package if possible. If your model is not compatible with the broom function you’re needing, then you can obtain your results by some other means.</p>
+<p>Produce something relevant from your fitted model: either predictions on Y, or a single value like a regression coefficient or a p-value.</p>
+<ul>
+<li>Be sure to indicate in writing what you chose to produce.</li>
+<li>Your code should either output a tibble (in which case you should indicate the column that contains the thing you’re looking for), or the thing you’re looking for itself.</li>
+<li>Obtain your results using the <code>broom</code> package if possible. If your model is not compatible with the broom function you’re needing, then you can obtain your results by some other means, but first indicate which broom function is not compatible.</li>
+</ul>
 <!-------------------------- Start your work below ---------------------------->
 <!----------------------------------------------------------------------------->
 </div>
 </div>
-<div id="question-3-reading-and-writing-data" class="section level1">
-<h1>Question 3: Reading and writing data</h1>
-<p>Get set up for this question by making a folder called <code>output</code> in the top level of your project folder / repository. You’ll be saving things there.</p>
+<div id="exercise-3-reading-and-writing-data" class="section level1">
+<h1>Exercise 3: Reading and writing data</h1>
+<p>Get set up for this exercise by making a folder called <code>output</code> in the top level of your project folder / repository. You’ll be saving things there.</p>
 <div id="points-2" class="section level2">
 <h2>3.1 (5 points)</h2>
-<p>Take a table that you made from Milestone 2, and write it as a csv file in your <code>output</code> folder. Use the <code>here::here()</code> function.
-- <strong>Robustness criteria</strong>: You should be able to move your Mini Project repository / project folder to some other location on your computer, or move this very Rmd file to another location within your project repository / folder, and your code should still work.
-- <strong>Reproducibility criteria</strong>: You should be able to delete the csv file, and remake it simply by knitting this Rmd file.</p>
+<p>Take a summary table that you made from Milestone 2 (Exercise 1.2), and write it as a csv file in your <code>output</code> folder. Use the <code>here::here()</code> function.</p>
+<ul>
+<li><strong>Robustness criteria</strong>: You should be able to move your Mini Project repository / project folder to some other location on your computer, or move this very Rmd file to another location within your project repository / folder, and your code should still work.</li>
+<li><strong>Reproducibility criteria</strong>: You should be able to delete the csv file, and remake it simply by knitting this Rmd file.</li>
+</ul>
 <!-------------------------- Start your work below ---------------------------->
 <!----------------------------------------------------------------------------->
 </div>
 <div id="points-3" class="section level2">
 <h2>3.2 (5 points)</h2>
-<p>Write your model object from Question 2 to an R binary file (an RDS), and load it again. Be sure to save the binary file in your <code>output</code> folder.
-- The same robustness and reproducibility criteria as in 3.1 apply here.</p>
+<p>Write your model object from Exercise 2 to an R binary file (an RDS), and load it again. Be sure to save the binary file in your <code>output</code> folder.</p>
+<ul>
+<li>The same robustness and reproducibility criteria as in 3.1 apply here.</li>
+</ul>
 <!-------------------------- Start your work below ---------------------------->
 <!----------------------------------------------------------------------------->
 </div>
@@ -133,7 +150,7 @@ library(tidyverse)</code></pre>
 <h2>Output (2 points)</h2>
 <p>All output is recent and relevant:</p>
 <ul>
-<li>All Rmd files have been <code>knit</code>ted to their output, and all data files saved from Question 3 above appear in the <code>output</code> folder.</li>
+<li>All Rmd files have been <code>knit</code>ted to their output, and all data files saved from Exercise 3 above appear in the <code>output</code> folder.</li>
 <li>All of these output files are up-to-date – that is, they haven’t fallen behind after the source (Rmd) files have been updated.</li>
 <li>There should be no relic output files. For example, if you were knitting an Rmd to html, but then changed the output to be only a markdown file, then the html file is a relic and should be deleted.</li>
 </ul>
