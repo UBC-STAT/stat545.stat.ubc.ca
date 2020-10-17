@@ -155,7 +155,7 @@ Take a summary table that you made from Milestone 2 (Exercise 1.2), and write it
 
 ## 3.2 (5 points)
 
-Write your model object from Exercise 2 to an R binary file (an RDS), and load it again. Be sure to save the binary file in your `output` folder. Use the functions `saveRDS()` and `loadRDS()`. 
+Write your model object from Exercise 2 to an R binary file (an RDS), and load it again. Be sure to save the binary file in your `output` folder. Use the functions `saveRDS()` and `readRDS()`. 
 
 - The same robustness and reproducibility criteria as in 3.1 apply here.
 

@@ -1,5 +1,7 @@
 # Milestone 3 Criteria (40 pts)
 
+Here's a checklist that might help you determine whether you successfully completed Milestone 3.
+
 ## Exercise 1: Special Data Types (10 points)
 
 - [ ] Copied over an original plot from a previous milestone
@@ -29,7 +31,7 @@
     - [ ] You've used `here::here()`, so that the robustness and reproducibility criteria are satisfied.
 - [ ] 3.2 (5 points)
     - [ ] You've written code that saves your model object to file using `saveRDS()`.
-    - [ ] You've written code that loads your model object to file using `loadRDS()`.
+    - [ ] You've written code that loads your model object to file using `readRDS()`.
     - [ ] You see the saved rds file in the output folder.
     - [ ] You've used `here::here()`, so that the robustness and reproducibility criteria are satisfied.
 
@@ -51,7 +53,7 @@
         - [ ] This is the only place where Milestone 3 content is found (except for the things in the `output` folder)
     - [ ] There's an `output` folder in the top-level of your project folder.
         - [ ] It has a README file saying briefly what's in this folder. 
-    - [ ] Any other folders in the top-level of your project folder are explained in your main README.
+    - [ ] Any other folders in the top-level of your project folder are explained in your main README, if you have any.
         - [ ] These folders have a README file. 
 - [ ] Output (2 points)
     - [ ] The milestone 1 Rmd output files are up-to-date and relevant (no relics)
@@ -59,5 +61,5 @@
     - [ ] The milestone 3 Rmd output files are up-to-date and relevant (no relics)
     - [ ] All data files saved from Exercise 3 appear in the `output` folder. 
 - [ ] This Milestone 3 Rmd document knits error-free. (1 point)
-- [ ] You've tagged a release for Milestone 3
+- [ ] You've tagged a release for Milestone 3 (1 point)
     - [ ] You've submitted a link to the tagged release on canvas
