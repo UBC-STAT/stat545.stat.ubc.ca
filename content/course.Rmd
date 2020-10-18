@@ -26,10 +26,7 @@ Use this page to navigate your way through STAT 545.
 | [Week 4-A](/week4a) | `r dates_545a[6]  - ddays(1)` - `r dates_545a[7]  + ddays(1)` |
 | [Week 5-A](/week5a) | `r dates_545a[8]  - ddays(1)` - `r dates_545a[9]  + ddays(1)` |
 | [Week 6-A](/week6a) | `r dates_545a[10] - ddays(1)` - `r dates_545a[11] + ddays(1)` |
-<!--
-
-| [Week 7-A]() | `r dates_545a[] - ddays(1)` - `r dates_545a[] + ddays(1)` |
--->
+| [Week 7-A](/week7a) | `r dates_545a[12] - ddays(1)` - `r dates_545a[13] + ddays(1)` |
 
 <!--
 **STAT 545B:**
@@ -58,6 +55,7 @@ Use this page to navigate your way through STAT 545.
 | Worksheet 3-A | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_03a.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_03a.ipynb) | 4 |
 | Worksheet 4-A | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_04a.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_04a.ipynb) | 5 | 
 | Worksheet 5-A | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_05a.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_05a.ipynb) | 8 |
+| Worksheet 6-A | coming soon | coming soon | coming soon |
 
 -------
 
@@ -103,6 +101,7 @@ Lecture demonstration files will appear here.
 |-----------|--------------|------|-----------|
 | Milestone 1 | [view](https://stat545.stat.ubc.ca/mini-project/mini-project-1/) | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-1.Rmd) | [view](https://stat545.stat.ubc.ca/mini-project/mini-project-1-checklist/) |
 | Milestone 2 | [view](https://stat545.stat.ubc.ca/mini-project/mini-project-2/) | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-2.Rmd) | [view](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/mini-project/mini-project-2-checklist.md) |
+| Milestone 3 | [view](https://stat545.stat.ubc.ca/mini-project/mini-project-3/) | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-3.Rmd) | [view](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/mini-project/mini-project-3-checklist.md) |
 
 
 -------
