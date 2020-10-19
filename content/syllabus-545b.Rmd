@@ -18,7 +18,7 @@ source(here::here("content", "dates.R"))
 knitr::opts_chunk$set(echo = FALSE, message = FALSE)
 ```
 
-How to make a clean and modern data analysis, Part I. 
+How to make a clean and modern data analysis, Part II. 
 
 __Website__: https://stat545.stat.ubc.ca/
 
