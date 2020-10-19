@@ -1,0 +1,223 @@
+---
+title: "STAT 547 Class Meeting 01: Writing your own Functions"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r}
+library(gapminder)
+library(tidyverse)
+library(testthat)
+```
+
+This worksheet is a condensed version of Jenny's stat545.com functions [part1](http://stat545.com/block011_write-your-own-function-01.html), [part2](http://stat545.com/block011_write-your-own-function-02.html), and [part3](http://stat545.com/block011_write-your-own-function-03.html).
+
+## Syntax Demo
+
+Let's demo the syntax of function-making.
+
+```{r}
+
+```
+
+## Motivating example: max minus min.
+
+Find the max minus min of the gapminder life expectancy:
+
+```{r}
+?min
+?max
+max(gapminder$lifeExp) - min(gapminder$lifeExp)
+```
+
+Exercise: turn this into a function! i.e., write a function that returns the max minus min of a vector. Try it out on the gapminder variables.
+
+```{r}
+max_minus_min <- FILL_THIS_IN
+```
+
+We'll be building on this. Development philosophy [widely attributed to the Spotify development team](http://blog.fastmonkeys.com/?utm_content=bufferc2d6e&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer):
+
+![](http://stat545.com/img/spotify-howtobuildmvp.gif)
+
+## Testing
+
+Check your function using your own eyeballs:
+
+- Apply to the vector 1:10. Do you get the intended result?
+- Apply to a random uniform vector. Do you get meaningful results?
+
+```{r}
+
+```
+
+Let's formalize this testing with the `testthat` package. `expect_*()` functions:
+
+```{r}
+expect_equal(0.1 + 0.2, 0.3)
+expect_identical(0.1 + 0.2, 0.3)
+```
+
+Add another check to the following unit test, based on the uniform random numbers:
+
+```{r}
+test_that("Simple cases work", {
+    expect_equal(max_minus_min(1:10), 9)
+    FILL_THIS_IN
+})
+```
+
+## Try and break your function
+
+Because you will eventually forget the function specifics.
+
+```{r}
+max_minus_min(numeric(0))
+max_minus_min(gapminder)
+max_minus_min(gapminder$country)
+```
+
+These don't break!
+
+```{r}
+max_minus_min(gapminder[c('lifeExp', 'gdpPercap', 'pop')])
+max_minus_min(c(TRUE, TRUE, FALSE, TRUE, TRUE))
+```
+
+We want:
+
+1. Prevent the latter cases from happening, and
+2. Make a more informative error message in the former.
+
+Check out `stopifnot` and `stop`:
+
+```{r}
+stopifnot(FALSE)
+stop("Here's my little error message.")
+```
+
+Your turn:  Use two methods:
+
+1. Using `stopifnot`, modify the max-min function to throw an error if an input is not numeric (the `is.numeric` function is useful).
+
+```{r}
+mmm1 <- function(x) {
+    FILL_THIS_IN
+    max(x) - min(x)
+}
+```
+
+2. Using `stop` and an `if` statement, Modify the max-min function to:
+    - throw an error if an input is not numeric. In the error message, indicate what's expected as an argument, and what was recieved. 
+    - return `NULL` if the input is length-0, with a warning using the `warning` function.
+
+```{r}
+mmm2 <- function(x) {
+    if (!is.numeric(x)) {
+        FILL_THIS_IN
+    }
+    max(x) - min(x)
+}
+```
+
+Try breaking the function now:
+
+```{r}
+mmm1((numeric(0)))
+mmm1(gapminder)
+mmm1(gapminder$country)
+mmm1(gapminder[c('lifeExp', 'gdpPercap', 'pop')])
+mmm1(c(TRUE, TRUE, FALSE, TRUE, TRUE))
+
+mm2((numeric(0)))
+mmm2(gapminder)
+mmm2(gapminder$country)
+mmm2(gapminder[c('lifeExp', 'gdpPercap', 'pop')])
+mmm2(c(TRUE, TRUE, FALSE, TRUE, TRUE))
+```
+
+## Naming, and generalizing to quantile difference
+
+Let's generalize the function to take the difference in two quantiles:
+
+```{r}
+qd <- function(x, probs) {
+    stopifnot(is.numeric(x))
+    if (length(x) == 0) {
+        warning("You inputted a length-0 x. Expecting length >=1. Returning NULL.")
+        return(NULL)
+    } 
+    qvec <- quantile(x, probs)
+    max(qvec) - min(qvec)
+}
+```
+
+Try it out:
+
+```{r}
+x <- runif(100)
+qd(x, c(0.25, 0.75))
+IQR(x)
+qd(x, c(0,1))
+mmm2(x)
+```
+
+Why did I call the arguments `x` and `probs`? Check out `?quantile`. 
+
+If we input a vector stored in some variable, need that variable be named `x`?
+
+## Defaults
+
+Would be nice to have defaults for `probs`, right? Add them to the below code (which is copied and pasted from above):
+
+```{r}
+qd2 <- function(x, probs) {
+    stopifnot(is.numeric(x))
+    if (length(x) == 0) {
+        warning("You inputted a length-0 x. Expecting length >=1. Returning NULL.")
+        return(NULL)
+    } 
+    qvec <- quantile(x, probs)
+    max(qvec) - min(qvec)
+}
+```
+
+## NA handling
+
+Does this return what we were expecting?
+
+```{r}
+v <- c(1:10, NA)
+qd(v)
+```
+
+Notice that `quantile()` has a `na.rm` option. Let's use it in our `qd` function. Modify the code below:
+
+```{r}
+qd2 <- function(x, probs=c(0,1)) {
+    stopifnot(is.numeric(x))
+    if (length(x) == 0) {
+        warning("You inputted a length-0 x. Expecting length >=1. Returning NULL.")
+        return(NULL)
+    } 
+    qvec <- quantile(x, probs)
+    max(qvec) - min(qvec)
+}
+```
+
+## Ellipses
+
+There are other arguments to `quantile`, like `type`, that are not used all that much. Put them in as ellipses:
+
+```{r}
+qd2 <- function(x, probs=c(0,1), na.rm=FALSE, FILL_THIS_IN) {
+    stopifnot(is.numeric(x))
+    if (length(x) == 0) {
+        warning("You inputted a length-0 x. Expecting length >=1. Returning NULL.")
+        return(NULL)
+    } 
+    qvec <- quantile(x, probs, na.rm = na.rm, FILL_THIS_IN)
+    max(qvec) - min(qvec)
+}
+```

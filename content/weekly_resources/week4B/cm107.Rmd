@@ -1,0 +1,282 @@
+# (7) Dashboarding, Part I
+
+--- LAST YEAR'S CONTENT BELOW ---
+
+## Orientation
+
+### Objective
+
+This tutorial is intended to introduce `shiny` in a classroom setting. This tutorial is intended to provide students a foundation in shiny, with the expectation that students will be able to:
+
+- develop basic shiny apps from scratch,
+- deploy a shiny app,
+- create interactive Shiny R Markdown documents, and
+- research more advanced shiny techniques.
+
+### Resources
+
+This tutorial is an abridged version of the [stat545.com shiny tutorial](http://stat545.com/shiny01_activity.html) written by Dean Attali, with some minor differences/rearrangements. (I think) the stat545.com tutorial is identical to [the tutorial on Dean's website](https://deanattali.com/blog/building-shiny-apps-tutorial/).
+
+The [official `shiny` site](https://shiny.rstudio.com/) is also very useful. It has tutorials, a gallery, and other goodies.
+
+Specific topics:
+
+- For Shiny R Markdown documents, see [Chapter 19 of Yihui's R Markdown book](https://bookdown.org/yihui/rmarkdown/shiny-documents.html).
+- For deploying shiny apps, see [shinyapps.io](http://www.shinyapps.io/).
+
+### Participation
+
+We'll be making an external product, like last week. This week we'll be making a shiny app out of the BC liquor data (loaded in later).
+
+Complete version by Dean Attali [here](https://daattali.com/shiny/bcl/).
+
+## Why use `shiny`?
+
+- When presenting your analysis: respond to others' "what if"s.
+    - Both in-person meetings and written analyses.
+- "There's an app for that", and you can make it with shiny.
+- Could even provide a user interface to your R package.
+- Could even make a website out of shiny, like [this New Zealand Tourism website](https://mbienz.shinyapps.io/tourism_dashboard_prod/).
+
+## Getting Started with `shiny`
+
+### Together:
+
+Install shiny, and load it:
+
+```
+install.packages("shiny")
+library(shiny)
+```
+
+Start a new shiny app. "File -> New File -> shiny web app -> Single file". Notice:
+
+- `app.R` is made in a new folder.
+- Shiny app needs ui and server.
+- Run with `shinyApp(ui, server)` -- or, click "Run App" (appears if `server` and `shinyApp()` are present)
+
+Delete the "guts" of ui and server.
+
+## Intro to the UI
+
+### HTML: Aside
+
+Did you know webpages are made up of HTML? Find the "view source" button on your browser!
+
+### HTML: My Turn
+
+- Character entries in `ui` displayed as-is.
+- Can add HTML. I'll add a level-1 header in three ways:
+    1. `tags` object
+    2. Some of the `tags` are available as functions, too, like `h1()`.
+    3. `HTML()` function for generic HTML.
+- You can nest tags, too: `h1(em("This is my header."))`
+- Code before the `ui` gets run, too, and can be read by the ui. Let's see!
+
+### HTML: Your Turn
+
+Try using three `tags` in the `ui`, aside from `h1` and `em`. Find the documentation for them [here](https://shiny.rstudio.com/articles/tag-glossary.html) (links to official shiny site). 
+
+### Download the data: Together
+
+Dean Attali has prepared a tidy data set as a `.csv` [here](https://deanattali.com/files/bcl-data.csv). 
+
+1. Save this csv to your app's folder as `bcl-data.csv`.
+2. Read the file in by placing this code below the loading of `shiny`:
+
+```
+bcl <- read.csv("bcl-data.csv", stringsAsFactors = FALSE)
+```
+
+Explore the data.
+
+We'll use this later.
+
+### Layouts: Together
+
+We usually place content in _panels_, arranged in _layouts_.
+
+Most common:
+
+- `sidebarLayout()`. Requires two arguments:
+    - `sidebarPanel()` (column, 1/6 of the page)
+    - `mainPanel()` (column, 5/6 of the page)
+- Grid layout with `fluidRow()` and `column()` (this is more generic; provides more control)
+
+To the `ui`, let's copy the below code, which
+
+1. gives the app a title with `titlePanel()`, and
+2. gives the app a sidebarlayout.
+
+```
+    titlePanel("BC Liquor price app", 
+               windowTitle = "BCL app"),
+    sidebarLayout(
+        sidebarPanel("This text is in the sidebar."),
+        mainPanel("This text is in the main panel.")
+    )
+```
+
+Want more info on layouts? See [shiny.rstudio.com's layouts page](https://shiny.rstudio.com/articles/layout-guide.html).
+
+### Overall look at the `ui`: My Turn
+
+Check out the `ui` object after running it. It's just HTML!
+
+
+## Intro to the server
+
+### Displaying output: My Turn
+
+Try to display a plot in the ui -- a histogram of price, with `ggplot2::qplot(bcl$Price)`. It won't work.
+
+Remove it!
+
+The shiny processing flow is as follows:
+
+1. Run code in `server`.
+2. Display output in `ui`.
+
+We'll do this backwards.
+
+### Displaying output, ui side: Together
+
+Let's create a placeholder for the output in the ui. The `*Output()` family of functions helps us with this; in this case, `plotOutput()`. Common required argument: a unique `outputId` for identification.
+
+1. Add `plotOutput()` with the ID `"price_hist"`, to the main panel in the ui.
+2. Run the app to see nothing has happened.
+
+### Displaying output, server side: Together
+
+About:
+
+- The `output` argument of our `server()` function (below `ui`) is a named list (actually, "list-like") _that we define_, with names corresponding to the ID's in the `*Output()` functions found in `ui`.
+- Each component must contain the output of a `render*()` function; in this case, `renderPlot()`. This is allowed to have R code.
+
+Let's put in the missing piece to making the histogram by adding a line to the `server()` function:
+
+1. Add an entry: `output$price_hist`.
+2. Make the entry the output of `renderPlot()`, whose input is the plotting code `ggplot2::qplot(bcl$Price)`.
+
+### Displaying output: Your Turn
+
+Use what you've learned about outputs to display a table of the BC Liquor data below the plot.
+
+Hints:
+
+- You'll need `renderTable()` and `tableOutput()` -- but where?
+- Don't forget to add a comma within the `mainPanel()` function when adding a new line, but NOT when defining the `server()` function! (Why?)
+
+
+## Inputs / Control Widgets
+
+### Inputs / Control Widgets: Together
+
+Inputs /control widgets allow the user to specify input. Example: `sliderInput()`. Full list available at the [shiny.rstudio.com control widgets tutorial](https://shiny.rstudio.com/tutorial/written-tutorial/lesson3/).
+
+Arguments for all widgets:
+
+- `inputId` -- unique identifier.
+- `label` -- "title" to the widget.
+- others specific to the widget.
+
+Add this slider to the sidebar panel so that the user can select a price range:
+
+```
+sliderInput("priceInput", "Select your desired price range.",
+            min = 0, max = 100, value = c(15, 30), pre="$")
+```
+
+View the app. Note that the widgets __aren't yet linked__ to the outputs (graph and table)!
+
+### Inputs / Control Widgets: Your Turn
+
+Add another widget to the sidebar panel:
+
+- Should be a radio button widget for users to select one type of beverage, with options given in the vector below:
+    - `c("BEER", "REFRESHMENT", "SPIRITS", "WINE")`
+- Give the widget an ID called `"typeInput"`.
+
+## Linking Inputs to Outputs
+
+### Table example: Together
+
+About:
+
+The `input` argument of our `server()` function is (like `output`) also a named list (actually, "list-like"). Its names are the widget ID's, and comes "pre-made" after having defined widgets. So: 
+
+Our widget ID's currently:
+
+- `"priceInput"`, a slider.
+- `"typeInput"`, a radio button.
+
+The corresponding `input`s:
+
+- `input$priceInput`: a numeric vector of length 2 with the lower and upper selected range.
+- `input$typeInput`: a character vector of length 1 with the drink type.
+
+Let's use `dplyr` to filter the table using columns `Price` and `Type`:
+
+1. Load `tidyverse` at the top of the script.
+2. Filter the data in the `renderTable()` function.
+3. Run the app. Notice the live-updating of the table after interacting with a widget.
+    - This is called __reactive__ programming.
+
+### Plot Example: Your Turn
+
+Modify the plot so that it only shows the filtered data.
+
+## Reactivity
+
+## The Concept of Reactivity
+
+Will the following code output `15` or `25`?
+
+```
+x <- 10
+y <- x + 5
+x <- 20
+print(y)
+```
+
+This is _non-reactive_ programming. Shiny is an exception! Where is the reactivity in Shiny?
+
+### Defining reactive variables: Together
+
+Can you spot the duplicate code in our app thus far? Use `reactive()` to prevent duplicated code:
+
+1. Save wrangled data to a variable after passing through `reactive()`
+2. Use this object instead of the duplicated code. Catch: treat the output like it's a function by putting `()` next to it.
+
+## More shiny features
+
+This concludes the "foundation of shiny". Let's take a look at other things we can do with shiny.
+
+### `uiOutput()` and `renderUI()`
+
+You can conditionally have UI appear as output. See an example in [Section 11.1 of Dean's tutorial](http://stat545.com/shiny01_activity.html#basic-example-of-uioutput).
+
+## Hosting your shiny app: shinyapps.io
+
+You can host your app as a website for free at `www.shinyapps.io` (or on your own server) -- just follow the instructions. Or, see [Section 13.1 in Dean's tutorial](http://stat545.com/shiny01_activity.html#host-on-shinyapps.io) for elaboration.
+
+### Interactive Rmd
+
+Just pop `runtime: shiny` in the YAML header of an Rmd file, and your ready to generate interactive HTML-based documents.
+
+See an example in [Section 14.1 of Dean's tutorial](http://stat545.com/shiny01_activity.html#shiny-in-rmarkdown). For an elaboration, see [Chapter 19 of Yihui's R Markdown book](https://bookdown.org/yihui/rmarkdown/shiny-documents.html).
+
+### Interacting with plots
+
+We can allow users to click on a graph to indicate input.
+
+See [this RStudio page](https://shiny.rstudio.com/articles/plot-interaction.html) for a description.
+
+### DT tables
+
+Display your tables in a nicer / less static way with [DT tables](https://rstudio.github.io/DT/).
+
+### Shiny looks
+
+- You can change the look of your shiny app with [shinythemes](http://rstudio.github.io/shinythemes/).
+- You can use the [`shinydashboard` package](https://rstudio.github.io/shinydashboard/) for a more "website-like functionality".

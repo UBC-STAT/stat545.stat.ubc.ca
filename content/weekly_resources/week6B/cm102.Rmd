@@ -1,0 +1,37 @@
+# (2) Be the boss of your character data
+
+--- LAST YEAR'S CONTENT BELOW ---
+
+## Announcements
+
+- Fill out [class survey](https://goo.gl/forms/UPvRA6a9WRod8JPb2) if you haven't already done so in STAT 545A. This allows us to link you to your github username. The link is also available on the course homepage, stat545.com/Classroom.
+- Participation:
+    - Can't attend lecture for some legitimate reason (besides not wanting to come)? Let me know. We won't look for your commit timestamp for that day, but will still expect you to show that you engaged with the material at some point.
+    - Contributing to the discussion boards is also part of participation.
+
+## Agenda
+
+Making sense of strings: how to deal with data of class `character`.
+
+We'll be using the following data that ships with `stringr`, today's R package that comes shipped with `tidyverse`:
+
+```{r}
+str(stringr::fruit)
+```
+
+```{r}
+str(stringr::words)
+```
+
+```{r}
+str(stringr::sentences)
+```
+
+## Worksheet
+
+To get participation points for today, we'll be filling out the cm102-exercise.Rmd file.
+
+- [Rmd](https://github.com/STAT545-UBC/Classroom/blob/master/notes/cm102-exercise.Rmd)
+- [html](http://stat545.com/Classroom/notes/cm102-exercise.nb.html).
+
+Add this to your participation repo. 

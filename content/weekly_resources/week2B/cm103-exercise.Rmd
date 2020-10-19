@@ -1,0 +1,221 @@
+---
+title: "cm103 Worksheet"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r}
+suppressPackageStartupMessages(library(tidyverse)) # Loads purrr, too
+library(repurrrsive) # Contains data examples
+library(listviewer) # For viewing JSON/lists interactively
+```
+
+## Resources
+
+This week, we'll be drawing from [Jenny Bryan's `purrr` tutorial](https://jennybc.github.io/purrr-tutorial/). Specifically:
+
+- The [`map` tutorial](https://jennybc.github.io/purrr-tutorial/ls01_map-name-position-shortcuts.html)
+- The [GitHub users tutorial](https://jennybc.github.io/purrr-tutorial/ls02_map-extraction-advanced.html) is similar.
+
+In addition:
+
+- Do you feel that you need a refresher on lists and vectors in R? Check out the [Vectors and Lists](https://jennybc.github.io/purrr-tutorial/bk00_vectors-and-lists.html) part of the tutorial.
+- Are you familiar with the `apply` family of functions in Base R? You might find Jenny's ["Relationship to base and plyr functions"](https://jennybc.github.io/purrr-tutorial/bk01_base-functions.html) great for bridging the gap to `purrr`.
+
+
+## Review Vectors and Lists
+
+Vectors: 
+
+- hold multiple entries of the same type.
+- coerced to the least-informative data type in the vector.
+- subset with single square brackets
+
+Lists:
+
+- hold multiple entries of anything.
+- no entries are coerced (as a result of being able to hold anything)
+- subset with `[`, `[[`, or `$`. 
+
+## Review Vectorization
+
+= element-wise application of a function.
+
+Examples:
+
+```{r}
+(1:10) ^ 2
+```
+
+```{r}
+(1:10) * (1:2)
+```
+
+```{r}
+commute <- c(40, 20, 35, 15)
+person <- c("Parveen", "Leo", "Shawn", "Emmotions")
+str_c(person, " takes ", commute, " minutes to commute to work.")
+```
+
+## `purrr`
+
+`purrr` is great when vectorization does not apply! 
+
+Particularly useful if your data is in JSON format. 
+
+Example: 
+
+1. Explore the `wesanderson` list (comes with `repurrrsive` package). Hint: `str()` might help. It's a list of vectors. 
+2. Use what you know about R to write code that extracts a vector of the first elements of each vector contained in `wesanderson`.
+
+```{r}
+YOUR_CODE_HERE
+```
+
+`str()` is not always useful! Try checking the structure of `got_chars` (= Game of Thrones characters):
+
+```{r}
+str(got_chars)
+```
+
+
+## Exploring lists
+
+1. `str()`: embrace `list.len` and `max.level`
+
+```{r}
+str(got_chars)
+```
+
+2. Interactive exploration: `View()` and `listviewer::jsonedit(..., mode = "view")`
+
+```{r}
+View(got_chars)
+jsonedit(got_chars, mode="view")
+```
+
+3. Don't be afraid to check out a subset! `names()` comes in handy, too.
+
+```{r}
+str(got_chars[[1]])
+names(got_chars[[1]])
+```
+
+
+## Exploring `purrr` fundamentals
+
+Apply a function to each element in a list/vector with `map`.
+
+General usage: `purrr::map(VECTOR_OR_LIST, YOUR_FUNCTION)`
+
+Note:
+
+- `map` always returns a list.
+- `YOUR_FUNCTION` can return anything!
+
+Toy example 1: without using vectorization, take the square root of the following vector:
+
+```{r}
+x <- 1:10
+map(FILL_THIS_IN, FILL_THIS_IN)
+```
+
+Toy example 2 (functions on-the-fly): without using vectorization, square each component of `x`:
+
+```{r}
+map(FILL_THIS_IN, FILL_THIS_IN)
+```
+
+Want a vector to be returned? Must specify the `typeof()` of the vector. Use `map_dbl()` to specify an output vector of type "double" for the above (check out the documentation `?map` for the acceptable vector types):
+
+```{r}
+map_dbl(x, sqrt)
+```
+
+Does your function have other arguments? You can specify them afterwards in the ellipses (`...`).
+
+```{r}
+map_chr(x, str_c, "potato.", sep="-")
+```
+
+## Your Turn: `purrr` fundamentals
+
+1. Let's retry the `wesanderson` example: use `purrr` to write code that extracts a vector of the first elements of each vector contained in `wesanderson`. Play around with the following, too:
+    - Use `head` instead of writing your own function.
+    - Try different `map` functions, even the "wrong" types.
+    - Use the ` ``[`` ` function if you're feeling daring.
+
+```{r}
+YOUR_CODE_HERE
+```
+
+2. Check that each character's list entry in `got_chars` has the same names as everyone else (that is, list component names, not character names). Here's one way to do it:
+    1. Use the `names` function.
+    2. Then, bind the names together in a single character.
+    3. Then, apply the `table()` function.
+
+```{r}
+YOUR_CODE_HERE
+```
+
+
+## Shortcut functions
+
+We can do the subsetting much easier with these shortcuts: just replace function with either:
+
+- index you'd like to subset by, or
+- name you'd like to subset by.
+
+```{r}
+map_chr(wesanderson, 1) # %>% unname()
+```
+
+
+## Your turn: shortcut functions
+
+1. For the `got_chars` data:
+
+- What are the titles of each character? 
+- Is a vector output appropriate here?
+- Use a pipe.
+
+Note: each character's list entry has a component named `titles` as the 9th entry.
+
+```{r}
+YOUR_CODE_HERE
+```
+
+2. For the `got_chars` data:
+
+- Extract a list of the "name" and "born" data for each person.
+    - Use the function ` ``[`` ` or `extract()` (from the `magrittr` package, does the same thing) function to do the subsetting
+- What happens when we switch to `map_dfr` instead of `map`? How about `map_dfc`?
+
+```{r}
+desired_info <- c("name", "born")
+```
+
+Note: as Jenny says, it's always safer (from a programming perspective) to work with output that's more predictable. The following would be safer, and is still readable:
+
+```{r}
+got_chars %>% {
+    tibble(
+        name = map_chr(., "name"),
+        born = map_chr(., "born")
+    )
+}
+```
+
+Note the curly braces "tricks" the object prior to the pipe from entering as the first argument to `tibble`, because ` ``{`` ` only returns the last line evaluated. In this case there are two: the above code is equivalent to
+
+```{r}
+got_chars %>% {
+    .
+    tibble(
+        name = map_chr(., "name"),
+        born = map_chr(., "born")
+    )
+}
+```
+

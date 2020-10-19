@@ -1,0 +1,260 @@
+---
+title: "Class Meeting 4 Worksheet"
+output:
+    html_notebook:
+        toc: true
+        theme: cerulean
+        number_sections: true
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r}
+suppressPackageStartupMessages(library(tidyverse))
+library(repurrrsive)
+```
+
+# Resources
+
+All are from [Jenny's `purrr` tutorial](https://jennybc.github.io/purrr-tutorial/). Specifically:
+ 
+- Parallel mapping: [Jenny's "Specifying the function in map() + parallel mapping"](https://jennybc.github.io/purrr-tutorial/ls03_map-function-syntax.html#parallel_map)
+- List columns in data frames; nesting: [Jenny's "List Columns"](https://jennybc.github.io/purrr-tutorial/ls13_list-columns.html).
+
+The all-encompassing application near the bottom of this worksheet is from [Jenny's "Sample from groups, n varies by group"](https://jennybc.github.io/purrr-tutorial/ls12_different-sized-samples.html)
+
+
+
+# Parallel Mapping
+
+We're going to work with toy cases first before the more realistic data analytic tasks, because they are easier to learn.
+
+Want to vectorize over two iterables? Use the `map2` family:
+
+```{r}
+a <- c(1,2,3)
+b <- c(4,5,6)
+map2(a, b, function(x, y) x*y)
+```
+```{r}
+map2(a, b, ~ .x * .y)
+```
+```{r}
+map2(a, b, `*`)
+```
+```{r}
+map2_dbl(a, b, `*`)
+```
+
+More than 2? Use the `pmap` family:
+
+```{r}
+a <- c(1,2,3)
+b <- c(4,5,6)
+c <- c(7,8,9)
+pmap(list(a, b, c), function(x, y, z) x*y*z)
+```
+```{r}
+pmap(list(a, b, c), ~ ..1 * ..2 * ..3)
+```
+```{r}
+pmap_dbl(list(a, b, c), ~ ..1 * ..2 * ..3)
+```
+
+## Your Turn
+
+Using the following two vectors...
+
+```{r}
+commute <- c(10, 50, 35)
+name <- c("Parveen", "Kayden", "Shawn")
+```
+
+use `map2_chr()` to come up with the following output in three ways:
+
+```{r}
+str_c(name, " takes ", commute, " minutes to get to work.")
+```
+
+1. By defining a function before feeding it into `map2()` -- call it `comm_fun`.
+
+```{r}
+comm_fun <- FILL_THIS_IN
+map2(FILL_THIS_IN, FILL_THIS_IN, FILL_THIS_IN)
+```
+
+2. By defining a function "on the fly" within the `map2()` function.
+
+```{r}
+map2(name, commute, function(t, s) FILL_THIS_IN)
+```
+
+3. By defining a formula.
+
+```{r}
+map2(name, commute, ~ FILL_THIS_IN)
+```
+
+
+# List columns
+
+## What are they?
+
+A tibble can hold a list as a column, too:
+
+```{r}
+(listcol_tib <- tibble(
+  a = c(1,2,3),
+  b = list(1,2,3),
+  c = list(sum, sqrt, str_c),
+  d = list(x=1, y=sum, z=iris)
+))
+```
+
+Printing to screen doesn't reveal the contents! `str()` helps here:
+
+```{r}
+str(listcol_tib)
+```
+
+Extract a list column in the same way as a vector column:
+
+```{r}
+print(listcol_tib$a)  # Vector
+```
+```{r}
+print(listcol_tib$b)  # List
+```
+
+This is where `map()` comes in handy! Let's make a tibble using the `got_chars` data, with two columns: "name" and "aliases", where "aliases" is a list-column (remember that each character can have a number of aliases different than 1):
+
+1. Pipe `got_chars` into `{` with `tibble()`.
+2. Specify the columns with `purrr` mappings.
+
+```{r}
+got_alias <- got_chars %>% FILL_THIS_IN
+```
+
+Write the solution down carefully -- we'll be referring to `got_alias` later. 
+
+## Making: Your Turn
+
+Extract the aliases of Melisandre (a character from Game of Thrones) from the `got_alias` data frame we just made. Try two approaches:
+
+Approach 1: Without piping
+
+1. Make a list of aliases by extracting the list column in `got_alias`.
+2. Set the names of this new list as the character names (from the other column of `got_chars`).
+3. Subset the newly-named list to Melisandre.
+
+```{r}
+(alias_list <- FILL_THIS_IN)
+names(alias_list) <- FILL_THIS_IN
+SUBSET_HERE
+```
+
+Approach 2: With piping
+
+1. Pipe `got_alias` into the `setNames()` function, to make a list of aliases, named after the person. Do you need `{` here?
+2. Then, pipe that into a subsetting function to subset Melisandre.
+
+```{r}
+got_alias %>% FILL_THIS_IN
+```
+
+## Nesting/Unnesting; Operating
+
+__Question__: What would tidy data of `got_alias` look like? Remember what `got_alias` holds:
+
+```{r}
+got_alias
+```
+
+Let's make a tidy data frame! First, let's take a closer look at `tidyr::unnest()` after making a tibble of preferred ice cream flavours:
+
+```{r}
+(icecream <- tibble(
+    name = c("Jacob", "Elena", "Mitchell"),
+    flav = list(c("strawberry", "chocolate", "lemon"),
+                c("straciatella", "strawberry"),
+                c("garlic", "tiger tail"))
+))
+```
+
+I can make a tidy data frame _without_ list columns using `tidyr::unnest()`:
+
+```{r}
+icecream %>% 
+    unnest(flav)
+```
+
+How would I subset all people that like strawberry ice cream? We can either use the tidy data, or the list data directly:
+
+From "normal" tidy data:
+
+```{r}
+icecream %>% 
+    unnest(flav) %>% 
+    filter(flav == "strawberry")
+```
+
+From list-column data:
+
+```{r}
+icecream %>% 
+  filter(map_lgl(flav, ~ FILL_THIS_IN))
+```
+
+
+## Nesting/Unnesting: Your Turn
+
+`unnest()` the `got_alias` tibble. Hint: there should be a hiccup. Check out the `str()`ucture of `got_alias` -- are all elements of the list column vectors? Would using `tidyr::drop_na()` be a good idea here?
+
+```{r}
+FILL_THIS_IN
+```
+
+We can also do the opposite with `tidyr::nest()`. Try it with the `iris` data frame:
+
+1. Group by species.
+2. `nest()`!
+
+```{r}
+FILL_THIS_IN
+```
+
+Keep the nested `iris` data frame above going! Keep piping:
+
+- Fit a linear regression model with `lm()` to `Sepal.Length ~ Sepal.Width`, separately for each species. 
+    - Inspect, to see what's going on.
+- Get the slope and intercept information by applying `broom::tidy()` to the output of `lm()`.
+- `unnest` the outputted data frames from `broom::tidy()`.
+
+# Application: Time remaining?
+
+If time remains, here is a good exercise to put everything together. 
+
+[Hilary Parker tweet](https://twitter.com/hspter/status/739886244692295680): "How do you sample from groups, with a different sample size for each group?"
+
+[Solution by Jenny Bryan](https://jennybc.github.io/purrr-tutorial/ls12_different-sized-samples.html):
+
+1. Nest by species.
+2. Specify sample size for each group.
+3. Do the subsampling of each group.
+
+Let's give it a try:
+
+```{r}
+
+```
+
+
+# Summary:
+
+- tibbles can hold columns that are lists, too!
+    - Useful for holding variable-length data.
+    - Useful for holding unusual data (example: a probability density function)
+    - Whereas `dplyr` maps vectors of length `n` to `n`, or `n` to `1`...
+    - ...list columns allow us to map `n` to any general length `m` (example: regression on groups)
+- `purrr` is a useful tool for operating on list-columns.
+- `purrr` allows for parallel mapping of iterables (vectors/lists) with the `map2` and `pmap` families.

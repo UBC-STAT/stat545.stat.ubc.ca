@@ -1,0 +1,79 @@
+# (9) Automation, Part I
+
+--- LAST YEAR'S CONTENT BELOW ---
+
+## Why Automate?
+
+Because you're going to have to rerun your analysis.
+
+This can be a pain if you have multiple files and scripts!
+
+[According to Shaun Jackman and Jenny Bryan](http://stat545.com/automation01_slides/index.html#/automate-a-pipeline):
+
+> Automate a pipeline
+> 
+> ... to reproduce previous results.   
+> ... to recreate results deleted by fat fingers.   
+> ... to rerun the pipeline with updated software.   
+> ... to run the same pipeline on a new data set.   
+
+## Non-interactive programming
+
+Run an R script from top to bottom:
+
+- `source()`/"source" button
+- `rmarkdown::render()`/"knit" button
+- `Rscript`, `Rscript -e`.
+
+## Pipelines
+
+Let's take a look at [Shaun Jackman's slides](http://stat545.com/automation01_slides/index.html#/pipelines) (scroll down).
+
+
+## Test Drive Make
+
+Complete the ["Test drive make"](http://stat545.com/automation03_make-test-drive.html) activity to see if you have `make` installed.
+
+__Windows machines__: Some options for installation.
+
+- If you installed Rtools when making R packages, you might have `make` installed already.
+	- Commentary is [here](http://stat545.com/packages01_system-prep.html#windows-system-prep); installation is found [here](https://cran.r-project.org/bin/windows/Rtools/).
+- If not, see this [special consideration for windows](http://stat545.com/automation02_windows.html).
+
+## Makefile Structure
+
+Each block of code in a Makefile is called a rule, it looks something like this:
+
+```
+file_to_create: files.it depends.on like_this.R
+	code to be run in the command line
+	that can have multiple lines of code
+	Rscript like_this.R
+```
+
+* `file_to_create` is a target, a file to be created, or built.
+* `files.it`, `depends.on`, and `like_this.R` are dependencies, files which are needed to build or update the target. Targets can have zero or more dependencies.
+* `:` separates targets from dependencies.
+* `code to be run in the command line`, ..., `Rscript like_this.R` are actions, commands to run to build or update the target using the dependencies. Targets can have zero or more actions. Actions are indented using the TAB character, not spaces.
+* Together, the target, dependencies, and actions form a rule.
+
+(Thanks to contributions from [Tiffany Timbers](https://github.com/ttimbers) here!)
+
+## LOTR Pipeline Examples
+
+We'll look at 3 pipelines that do the same thing in different ways: get data -> clean data -> extract relevant data.
+
+### Download
+
+Download the [cm109-automation_examples.zip](https://github.com/STAT545-UBC/Classroom/raw/master/notes/cm109-automation_examples.zip) file to your participation folder for today, and unzip it.
+
+Alternatively: get it unzipped [from github](https://github.com/STAT545-UBC/STAT545-UBC.github.io/tree/master/automation10_holding-area).
+
+### Test out the automation
+
+We'll test out the functionality of each pipeline, guided by suggestions from the README's of each activity.
+
+Overall goal: run the pipeline for each activity.
+
+
+

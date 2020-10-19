@@ -1,0 +1,18 @@
+# (3) Functional Programming
+
+--- LAST YEAR'S CONTENT BELOW ---
+
+## Announcements
+
+- Homework is posted.
+- Less strict with percentage grades.
+- `Watch` the `Discussion` and `Discussion-Internal` repos to get announcements such as homework releases. 
+
+## Worksheet
+
+To get participation points for today, we'll be filling out the cm103-exercise.Rmd file.
+
+- [Rmd](https://github.com/STAT545-UBC/Classroom/blob/master/notes/cm103-exercise.Rmd)
+- [html](http://stat545.com/Classroom/notes/cm103-exercise.nb.html).
+
+Add this to your participation repo. 

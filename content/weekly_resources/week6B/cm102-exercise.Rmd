@@ -1,0 +1,440 @@
+---
+title: "STAT 547 Class Meeting 02 Worksheet"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r}
+suppressPackageStartupMessages(library(tidyverse))
+library(gapminder)
+library(testthat)
+```
+
+## Resources
+
+Today's lesson has been drawn from the following resources:
+
+1. Mostly [stat545.com: character data](http://stat545.com/block028_character-data.html)
+    - See the ["Resources" section](http://stat545.com/block028_character-data.html#resources) for a more comprehensive listing of resources based on the character problem you're facing. 
+2. [Older stat545 notes](http://stat545.com/block022_regular-expression.html)
+3. [r4ds: strings](https://r4ds.had.co.nz/strings.html).
+3. [`stringr` vignette](https://cran.r-project.org/web/packages/stringr/vignettes/stringr.html)
+
+## Basic String Manipulation
+
+__Goal__: Go over some basic functionality of `stringr`. 
+
+There's that famous sentence about the quick brown fox that contains all letters of the alphabet, although I don't quite remember the sentence. Demo: Check to see if it's in the `sentences` data. Try:
+
+`str_detect(string, pattern)`   
+`str_subset(string, pattern)`
+
+```{r}
+fox <- str_subset(FILL_THIS_IN, FILL_THIS_IN)
+```
+
+Not quite the sentence I was thinking of. How many words does it contain? Use `str_split(string, pattern)`, noting its output (list).
+
+```{r}
+str_split(FILL_THIS_IN, FILL_THIS_IN)
+```
+
+Exercise: does this sentence contain all letters of the alphabet? Hints: 
+
+- Split by `""`. 
+- Consider putting all in lowercase with `str_to_lower()`.
+- Use the base R `table()` function.
+
+```{r}
+fox %>% 
+  str_split(FILL_THIS_IN) %>% 
+  FILL_THIS_IN
+```
+
+
+Working in a data frame? `tidyr` has its own version of this. Here's an example from Resource 1, with the fruit data:
+
+```{r}
+tibble(fruit)
+tibble(fruit) %>%
+  separate(fruit, into = c("pre", "post"), sep = " ")
+```
+
+Demo: we can substitute, too. Replace the word "fox" with "giraffe" using `str_replace(string, pattern, replacement)`:
+
+```{r}
+fox %>% 
+    str_replace(FILL_THIS_IN)
+```
+
+Know the position you want to extract/replace? Try `str_sub()`.
+
+`str_pad()` extends each string to a minimum length:
+
+```{r}
+fruit %>% head
+fruit %>% 
+    str_pad(width=7, side="right", pad="$") %>% 
+    head()
+```
+
+`str_length()` (Not the same as `length()`!)
+
+```{r}
+str_length(fruit)
+length(fruit)
+```
+
+
+`str_c()` for concatenating strings. Check the docs for an excellent explanation using a matrix.
+
+```{r}
+str_c(words[1:4], words[5:8], sep=" & ")
+str_c(words[3:4], words[5:8], sep=" & ")
+str_c(words[3:4], words[5:8], sep=" & ", collapse=", ")
+```
+
+There's a (more limited) `tidyr` version. Straight from Resource 1:
+
+```{r}
+fruit_df <- tibble(
+  fruit1 = fruit[1:4],
+  fruit2 = fruit[5:8]
+)
+fruit_df %>% 
+  unite("flavor_combo", fruit1, fruit2, sep = " & ")
+```
+
+
+## Exercise: Populate your Participation Repo
+
+So, you don't want to manually make 12 folders for your participation repo. I hear you. Let's do that by making a character vector with entries `"cm101"`, `"cm102"`, ..., `"cm112"`.
+
+(If you've already done this, it's still a useful exercise!)
+
+### Make Folders
+
+Let's make those folders!
+
+1. Make a character vector with entries `"01"`, `"02"`, ..., `12` with `str_pad()`.
+
+```{r}
+(num <- str_pad(FILL_THIS_IN))
+```
+
+2. Use `str_c()` to combine `"cm1"` with the numbers:
+    - If your system uses "\" instead of "/", you might need two backslashes.
+
+```{r}
+(folders <- str_c(FILL_THIS_IN))
+```
+
+3. Use `testthat` to check that each entry of `folders` has 5 characters. You might find the base R `all()` function useful.
+
+```{r}
+test_that("folder names are length 5.", {
+    expect_FILL_THIS_IN()
+})
+```
+
+4. BONUS: If applicable, make the folders using `dir.create()`.
+    - Note: `dir.create()` requires the full path to be specified. You might find the `here::here()` function useful.
+    - This code might work (depending on your directory): `for (folder in folders) dir.create(here::here(folder))`
+    - We'll learn how to use `purrr` instead of loops next week.
+
+### Make README's
+
+Now, let's seed the folders with README's.
+
+1. Add `/README.md` to the end of the folder names stored in `folders`:
+
+```{r}
+files <- FILL_THIS_IN
+```
+
+2. Make a vector of contents to put in each README. Put a title and body. 
+    - Hint: Use `\n` to indicate a new line! This works in graphs, too.
+    
+```{r}
+contents <- FILL_THIS_IN
+```
+
+3. BONUS: Write the README's to file using base R's `write(x, file)`:
+    - `for (i in 1:length(files)) write(contents[i], files[i])`
+    - There's a better alternative to a loop using `purrr`. Next week's topic!
+    - This code might not work, depending on your workind directory and system.
+
+## Regular Expressions (aka regex)
+
+Great resource is [r4ds](https://r4ds.had.co.nz/strings.html#matching-patterns-with-regular-expressions)!
+
+Premable:
+
+- Useful for identifying _patterns_, not exact character specifications.
+- Hard to read and write!
+- We'll focus on finding _matches_ (the hardest part). You can also use regex to manipulate strings -- but we'll delegate that to [r4ds: strings: tools](https://r4ds.had.co.nz/strings.html#tools).
+
+Staying true to Resource 1, let's work with the gapminder countries:
+
+```{r}
+library(gapminder)
+countries <- levels(gapminder$country)
+```
+
+### The "any character"
+
+Find all countries in the gapminder data set with the following pattern: "i", followed by any single character, followed by "a":
+
+```{r}
+str_subset(countries, pattern = "i.a")
+```
+
+Here, `.` stands for "any single character".
+
+But, where's Italy? Case-sensitive!
+
+Let's use `str_view_all()` to see the matches:
+
+```{r}
+str_view_all(countries, pattern = "i.a")
+str_view_all(countries, pattern = "i.a", match=TRUE)
+```
+
+Exercise: Canada isn't the only country with three interspersed "a"'s. Find the others. Try both `str_view_all()` and `str_subset()`.
+
+```{r}
+str_view_all(FILL_THIS_IN)
+str_subset(FILL_THIS_IN)
+```
+
+
+Let's define a handy function:
+
+```{r}
+str_view_all_match <- function(countries, pattern) {
+    str_view_all(countries, pattern, match=TRUE)
+}
+str_view_all_match(countries, pattern = "i.a")
+```
+
+
+### The escape
+
+What if I wanted to literally search for countries with a period in the name? Escape with `\`, although R requires a double escape.
+
+```{r}
+str_view_all_match(countries, pattern = "\\.")
+```
+
+Why does R require a double escape? It does one level of escaping before "executing" the regex. 
+
+- See `?Quotes`
+- Try searching for "s\. " (without quotes) in this document (don't forget to select "Regex")
+
+### Character Classes
+
+- `[letters]` matches a single character that's either l, e, t, ..., or s.
+- `[^letters]`: anything _but_ these letters. 
+
+See more at: https://r4ds.had.co.nz/strings.html#character-classes-and-alternatives
+
+Note that not all special characters "work" within `[]`, but some do, and do not always carry the same meaning (like `^`)! From said resource, they are:
+
+>  `$` `.` `|` `?` `*` `+` `(` `)` `[` `{`. Unfortunately, a few characters have special meaning even inside a character class and must be handled with backslash escapes: `]` `\` `^` and `-`.
+
+Exercise: Find all countries with three non-vowels next to each other.
+
+```{r}
+str_view_all_match(countries, pattern = "YOUR_REGEX_HERE")
+```
+
+
+### Or
+
+- Use `|` to denote "or". 
+- "And" is implied otherwise, and has precedence.
+- Use parentheses to indicate precedence.
+
+Beer or bear?
+
+```{r}
+c("bear", "beer", "bar") %>% 
+    str_view_all_match(pattern = "be(e|a)r")
+```
+
+
+### Quantifiers/Repetition
+
+The handy ones are:
+
+- `*` for 0 or more
+- `+` for 1 or more
+- `?` for 0 or 1
+
+See list at https://r4ds.had.co.nz/strings.html#repetition
+
+Find all countries that have any number of o's (but at least 1) following r:
+
+```{r}
+str_view_all_match(countries, "re+")
+```
+
+
+Find all countries that have exactly two e's next two each other:
+
+```{r}
+str_view_all_match(countries, "e{2}")
+```
+
+
+Exercise: Find all countries that have either "a" or "e", twice in a row (with a changeover allowed, such as "ae" or "ea"):
+
+```{r}
+str_view_all_match(countries, pattern="YOUR_REGEX_HERE")
+```
+
+
+### Position indicators
+
+- `^` corresponds to the __beginning__ of the line.
+- `$` corresponds to the __end__ of the line.
+
+Countries that end in "land":
+
+```{r}
+str_view_all_match(countries, pattern = "land$")
+str_view_all_match(countries, pattern = "$")
+```
+
+Countries that start with "Ca":
+
+```{r}
+str_view_all_match(countries, pattern = "^Ca")
+```
+
+Countries without a vowel? The word should start with a non-vowel, continue as a non-vowel, and end:
+
+```{r}
+str_view_all_match(countries, "^[^aeiouAEIOU]*$")
+```
+
+### Groups
+
+We can refer to parentheses groups:
+
+```{r}
+str_view_all(c("abad", "abbd"), pattern="(a)(b)\\1")
+str_view_all(c("abad", "abbd"), pattern="(a)(b)\\2")
+```
+
+Note that the parentheses are first resolved, THEN referred to. NOT re-executed.
+
+```{r}
+str_view_all(c("bananas"), "(.)(.)\\1\\2.*\\1\\2")
+```
+
+We can refer to them later in the search, too:
+
+```{r}
+str_view_all(c("bananas", "Who can? Bananas can."), "(.)(.)\\1\\2.*\\1\\2")
+```
+
+
+## Final Exercises
+
+(Solutions are indicated below.)
+
+Convert `words` to pig latin, which involves:
+
+1. Make the first letter the last letter
+    - Get the first letter with `str_sub(string, start, end)`.
+2. Remove the first letter from `words`.
+    - Hint: leave the `end` argument blank.
+3. Add "ay" to the end of the word.
+    - Use `str_c()`.
+    
+```{r}
+YOUR_CODE_HERE
+```
+
+Find all countries that end in "y"
+
+```{r}
+str_view_all_match(countries, "YOUR_REGEX_HERE")
+```
+
+Find all countries that have the same letter repeated twice (like "Greece", which has "ee").
+
+```{r}
+str_view_all_match(countries, "YOUR_REGEX_HERE")
+```
+
+Find all countries that end in two vowels. 
+
+```{r}
+str_view_all_match(countries, "YOUR_REGEX_HERE")
+```
+
+Find all countries that start with two non-vowels. How is this different from finding all countries that end in _at least_ two non-vowels? Hint: Syria.
+
+```{r}
+countries %>% 
+    str_to_lower() %>% 
+    str_view_all_match("YOUR_REGEX_HERE")
+```
+
+Find all countries that have either "oo" or "cc" in them.
+
+```{r}
+str_view_all_match(countries, "YOUR_REGEX_HERE")
+```
+
+## Final Exercises: Solutions
+
+Convert `words` to pig latin, which involves:
+
+1. Make the first letter the last letter
+    - Get the first letter with `str_sub(string, start, end)`.
+2. Remove the first letter from `words`.
+    - Hint: leave the `end` argument blank.
+3. Add "ay" to the end of the word.
+    - Use `str_c()`.
+    
+```{r}
+first <- str_sub(words, 1, 1)
+ords <- str_sub(words, 2)
+str_c(ords, first, "ay") %>% head(10)
+```
+
+Find all countries that end in "y"
+
+```{r}
+str_view_all_match(countries, "y$")
+```
+
+Find all countries that have the same letter repeated twice (like "Greece", which has "ee").
+
+```{r}
+str_view_all_match(countries, "(.)\\1")
+```
+
+Find all countries that end in two vowels. 
+
+```{r}
+str_view_all_match(countries, "[aeiou]{2}$")
+```
+
+Find all countries that start with two non-vowels. How is this different from finding all countries that end in _at least_ two non-vowels? Hint: Syria.
+
+```{r}
+countries %>% 
+    str_to_lower() %>% 
+    str_view_all_match("^[^aeiou]{2,}")
+```
+
+Find all countries that have either "oo" or "cc" in them.
+
+```{r}
+str_view_all_match(countries, "(oo|cc)")
+```

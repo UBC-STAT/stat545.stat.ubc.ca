@@ -1,0 +1,20 @@
+# (10) Automation, Part II
+
+--- LAST YEAR'S CONTENT BELOW ---
+
+## Review
+
+Last time, we saw:
+
+- Running R scripts using R, vs using the terminal
+- Running Rmd scripts using R, vs using the terminal
+- Makefile "rule" structure
+- Running `make`
+
+The three LOTR pipelines acted as a proof of concept.
+
+Today, we'll make our own Makefile and pipeline.
+
+## `make` pipeline activity
+
+We'll follow along with [Shaun and Jenny's `make` tutorial](http://stat545.com/automation04_make-activity.html).

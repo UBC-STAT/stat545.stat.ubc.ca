@@ -1,0 +1,85 @@
+# (4) List Columns
+
+--- LAST YEAR'S CONTENT BELOW ---
+
+```{r}
+suppressPackageStartupMessages(library(tidyverse))
+```
+
+
+## Today's Agenda
+
+Today's lessons are:
+
+1. Review of `purrr` and piping.
+2. Parallel mapping
+3. List columns
+4. An analysis using both
+
+## Resources
+
+All are from [Jenny's `purrr` tutorial](https://jennybc.github.io/purrr-tutorial/). Specifically:
+ 
+- Parallel mapping: [Jenny's "Specifying the function in map() + parallel mapping"](https://jennybc.github.io/purrr-tutorial/ls03_map-function-syntax.html#parallel_map)
+- List columns in data frames; nesting: [Jenny's "List Columns"](https://jennybc.github.io/purrr-tutorial/ls13_list-columns.html).
+
+The all-encompassing application near the bottom of the worksheet is from [Jenny's "Sample from groups, n varies by group"](https://jennybc.github.io/purrr-tutorial/ls12_different-sized-samples.html)
+
+
+## Review
+
+### `purrr`
+
+`map(x, f, ...)` returns a list with elements:
+
+- `f(x[[1]], ...)`
+- `f(x[[2]], ...)`
+- ...
+
+`map_dbl`, `map_lgl`, etc to return a vector.
+
+We can specify a pre-defined `f`, or write it on-the-fly, or another way that we didn't touch on last time. Example with "squaring" function: 
+
+- `map(x, square)` where `square <- function(t) t^2`;
+- `map(x, function(t) t^2)`; or
+- `map(x, ~ (.x)^2)` (function variable is `.x` by convention).
+
+### piping: `.`
+
+We know that `a %>% b()` is the same as `b(a)`.
+
+Want to refer to `a` _in addition_ to the first argument? Specify it as a `.`. Example:
+
+Gotcha: 
+
+Case 1: LHS (= left-hand side) __not__ put as first argument when `.` appears in RHS:
+
+```{r}
+log(8, base=2)
+## is identical to...
+2 %>% log(8, base=.)
+```
+
+Case 2: LHS __is still__ put as first argument, even when `.` appears in RHS:
+
+```{r}
+c(ncol(mtcars), nrow(mtcars))
+## is NOT identical to...
+1:10 %>% c(min(.), max(.))
+```
+
+Trick: Use `{}` to "absorb" the placement of LHS as first argument:
+
+```{r}
+1:10 %>% {c(min(.), max(.))}
+```
+
+
+### Worksheet
+
+To get participation points for today, we'll be filling out the `cm104-exercise.Rmd` file.
+
+- [Rmd](https://github.com/STAT545-UBC/Classroom/blob/master/notes/cm104-exercise.Rmd)
+- [html](http://stat545.com/Classroom/notes/cm104-exercise.nb.html).
+
+Add this to your participation repo. 
