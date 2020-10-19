@@ -52,6 +52,11 @@ sat_date_pretty <- paste0(
 
 **Due:** Friday, `r fri_date_pretty` at 23:59 PST
 
+| Worksheet | Download | View | # required questions |
+|-----------|----------|------|----------------------|
+| Worksheet 6-A | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_06a.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_06a.ipynb) | 5 |
+
+
 -----
 
 ----- 
