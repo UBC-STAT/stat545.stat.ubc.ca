@@ -1,0 +1,17 @@
+---
+title: "Assignment 2-B"
+subtitle: "**Development Version** 0.9000" 
+output: html_document
+---
+
+__Deadline__: Saturday, November 14, 2020
+
+- Write your own R package. Maybe one of:
+    - A data package.
+        - Students can take data that's relevant to their analysis and make a package out of it. Ideally, make it open-source so the world can use it.
+    - Turn their function(s) from Assignment 1-B into an R package.
+    - Add to the `vincenzocoia/powers` or `jennybc/foofactors` packages -- but in a fork not to be merged (since these are for expository purposes only).
+    - Contribute to an open-source R package. Add a function, documentation, and a test. Maybe propose an update to a vignette. 
+        - Actually submit a pull request to improve the package if they choose. If this is the intent, should ask the developers beforehand to see if this is of interest.
+        - Ideas: a new `geom` to ggplot; add `broom` tidy functions to a currently incompatible model. 
+- Drawing inspiration from [hw07 in 2018](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/evaluation/hw07/hw07.md)

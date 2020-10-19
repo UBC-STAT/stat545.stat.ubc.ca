@@ -1,0 +1,11 @@
+---
+title: "Assignment 1-B"
+subtitle: "**Development Version** 0.9000" 
+output: html_document
+---
+
+__Deadline__: Saturday, November 7, 2020
+
+- Should write your own function(s) and tests with `testthat`. These functions may form the foundation of the write-your-own-R-package assignment if the student chooses.
+- Should incorporate some sort of `map` function from `purrr` in an analysis.
+- Drawing inspiration from the [2018 assignment 06](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/evaluation/hw06/hw06.md) Questions 2, 4, 5, 6

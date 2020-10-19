@@ -1,0 +1,10 @@
+---
+title: "Assignment 3-B"
+subtitle: "**Development Version** 0.9000" 
+output: html_document
+---
+
+__Deadline__: Saturday, November 21, 2020
+
+- Make a shiny dashboard of a data analysis. Maybe an aspect of their 545A analysis if they have one; maybe something from the purrr part of Assignment 1. Or maybe it doesn't need to relate to a previous analysis.
+- Will probably be pretty close to [hw08 2018](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/evaluation/hw08/hw08.md)

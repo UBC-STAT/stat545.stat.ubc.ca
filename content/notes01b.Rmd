@@ -1,0 +1,62 @@
+---
+title: "Week 1-B Lecture Notes: R Functions for Data Analysis"
+subtitle: "**Development** Version 0.9000"
+output: html_document
+---
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+week_num <- 8  # 1 through 14
+#-------------
+source(here::here("content", "dates.R"))
+library(stringr)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, results = "asis")
+letter <- if (week_num <= 7) "A" else "B"
+tues_class_num <- paste0(str_pad(week_num * 2 - 2, width = 2, pad = 0), letter)
+tues_date <- lec0 + days((week_num - 1) * 7)
+thurs_date <- tues_date + days(2)
+```
+
+
+```{r tues-date}
+cat(format(tues_date, "%A, %b %d"), "-", 
+    format(thurs_date, "%A, %b %d"))
+```
+
+## Learning Objectives
+
+From today's class, students are anticipated to be able to:
+
+
+
+
+## Prepare for Class
+
+Read/watch one of the following two resources before class:
+
+- Watch STAT 545 Episode 1-B
+- Read stat545.com Functions, Parts 1-3
+
+## Resources
+
+
+
+## Outline
+
+- Many of the sections are on the philosophy of function making in an analysis.
+- start interactively, then put it in a function.
+- fail loudly and quickly: giving useful error messages
+- assertions
+- Generalizing your function; use arguments and smart defaults.
+- `return()`
+- argument names: be intentional
+- `NA`s, and their handling in the function. Propagate? `na.rm`
+- ellipses, and ellipses package [https://ellipsis.r-lib.org/](https://ellipsis.r-lib.org/)
+- testthat
+- `try()`
+- `withTimeout()`?
+- tidy eval? Could be a big rabbit hole.
+
+Grab from:
+
+- [Guidebook 2018](https://github.com/UBC-STAT/stat-545-guidebook/blob/master/cm202.Rmd)
+- [Worksheet 2018](https://github.com/UBC-STAT/stat-545-guidebook/blob/pre-leave/tutorials/cm101-exercise.Rmd)
