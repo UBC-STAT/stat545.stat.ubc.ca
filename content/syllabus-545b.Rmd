@@ -47,29 +47,24 @@ Teaching Assistants:
 
 Tuesdays and Thursdays 0930-1100 PST
 
-<!-- Be sure to Bring a laptop to every class! -->
-
 There will always be two TA's in class to help students with the live coding exercises. 
 
-
-_Lecture schedule to be determined_
+```{r, results = "asis"}
+here::here("content", "lecture_schedule-545b.csv") %>% 
+  read_csv() %>% 
+  mutate(Weekday = wday(dates_545b, label = TRUE),
+         Date = dates_545b_pretty_noyear) %>% 
+  select(Lesson, Weekday, Date, Topic) %>% 
+  knitr::kable()
+```
 
 **What to expect during class**
 
-Lectures will consist of the following components, in this order:
+Lectures will consist of:
 
-1. Live demo and questions (20-30 minutes)
-    - Instructor demonstrates techniques; students ask questions and pose challenges.
-    - Discussion in a chat are processed by a TA: answer directly, unless the question is more involved, in which case it enters a queue (managed by that TA).
-2. Quiz
-    - Only graded by your participation, not correctness. You have 24 hours to complete.
-    - We discuss in class.
-3. Break: 5 minutes
-    - We'll try playing [Random Acts of Exercise](https://www.youtube.com/playlist?list=PL6JWPcX0WhHU97aqiRA4P6Jta9f04Nanm) (Each body is different, so make this your practice by modifying the activity based on what your body can do.)
-4. Lab (45 minutes):
-    - Instructor introduces the worksheet exercises for the period
-    - Instructor + 1 TA goes through random groups of 3 or 4 students in turn, coming in with some discussion points, but also allowing a natural conversation to unfold about the worksheet, as well as perhaps how the course is going.
-    - At the same time, a TA remains present to answer questions.
+1. Live coding through the week's deliverable(s)
+2. A brief 2-question quiz mid-class
+3. Occasionally, time set aside to work on projects.
 
 <!-- __Non COVID-19 years__: Keep things similar, except synchronous part to be held in-person. -->
 
@@ -78,15 +73,21 @@ Lectures will consist of the following components, in this order:
 <!--     - Lab part: allow breakout groups to happen just by people's physical presence; 2 teaching team members check in person-by-person, while one keeps watch for hands. -->
     
 
-
-
 # Deliverables
 
-_To be determined._
+| Deliverable                | Percent Grade | Description |
+|----------------------------|---------------|-------------|
+| Class worksheets (3)       | 10            | Autograded walkthroughs to guide student learning in class. |
+| Participation quizzes (11) |  5            | Two questions per class for critical thinking. Submit on canvas within 24h. Graded for participation, not correctness.  |
+| Assignments (5)            | 85            | Adding to a data analysis, making a small R package, making a Shiny dashboard |
+
+
+More details can be found [on the course dashboard](https://stat545.stat.ubc.ca/course). 
+
 
 # Auditing Students
 
-Auditing students are expected to complete all assessments (assignments, peer reviews, and participation). The difference between enrolling for credit is that auditing students are graded on each assignment on a pass/fail basis.
+Auditing students are expected to complete all deliverables. The difference between enrolling for credit is that auditing students are graded on each assignment on a pass/fail basis.
 
 
 # Privacy
@@ -116,7 +117,7 @@ A late submission is defined as any work, including quizzes, submitted after the
 
 UBC no longer requires a doctor's note (or supporting documentation) for [academic concession](http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,48,0,0). A self-declaration will suffice -- [here](/concession_template.pdf) is a template you can use. Please submit this to the instructor. 
 
-For STAT 545A and 547M, a "conflicting responsibility" includes needing to travel for a conference or field work.
+For this course, a "conflicting responsibility" includes needing to travel for a conference or field work.
 
 If you arrange to have an assignment submitted late, you may not be able to receive feedback from your peers.
 
@@ -140,7 +141,7 @@ Students must correctly cite any code that has been authored by someone else or 
 - the translation of an algorithm or a script from a language to another
 - the generation of code by automatic code-generations software
 
-An “adequate acknowledgement” requires a detailed identification of the (parts of the) code reused and a full citation of the original source code that has been reused.
+An "adequate acknowledgement" requires a detailed identification of the (parts of the) code reused and a full citation of the original source code that has been reused.
 
 ## Video Conferencing with Zoom
 
