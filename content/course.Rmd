@@ -11,13 +11,11 @@ source(here::here("content", "dates.R"))
 
 Use this page to navigate your way through STAT 545. 
 
--------
+# STAT 545 A
 
 -------
 
 ## Week-by-Week Guidance
-
-**STAT 545A:**
 
 | Week | Duration |
 |------|----------|
@@ -29,18 +27,6 @@ Use this page to navigate your way through STAT 545.
 | [Week 6-A](/week6a) | `r format(dates_545a[10] - days(1), "%b %d")` - `r format(dates_545a[11] + days(1), "%b %d")` |
 | [Week 7-A](/week7a) | `r format(dates_545a[12] - days(1), "%b %d")` - `r format(dates_545a[13] + days(1), "%b %d")` |
 
-
-**STAT 545B:**
-
-| Week | Topic | Duration | Lecture Notes | Checklist |
-|------|-------|----------|---------------|-----------|
-| 1-B  | Functions | `r format(dates_545b[1]  - days(1), "%b %d")` - `r format(dates_545b[2]  + days(1), "%b %d")` | [notes](/notes01b) | [checklist](/week1b) |
-| 2-B  | List columns | `r format(dates_545b[3]  - days(1), "%b %d")` - `r format(dates_545b[4]  + ddays(1), "%b %d")` | [notes](/notes02b) | checklist |
-| 3-B  | R packages | `r format(dates_545b[5]  - days(1), "%b %d")` - `r format(dates_545b[6]  + ddays(1), "%b %d")` | [notes](/notes03b) | checklist |
-| 4-B  | Dashboards | `r format(dates_545b[7]  - days(1), "%b %d")` - `r format(dates_545b[8]  + ddays(1), "%b %d")` | [notes](/notes04b) | checklist |
-| 5-B  | Automation | `r format(dates_545b[9]  - days(1), "%b %d")` - `r format(dates_545b[10] + ddays(1), "%b %d")` | [notes](/notes05b) | checklist |
-| 6-B  | Character data + Your Choice | `r format(dates_545b[11] - days(1), "%b %d")` - `r format(dates_545b[12] + ddays(1), "%b %d")` | [notes](/notes06b) | checklist |
-
 -------
 
 -------
@@ -49,7 +35,6 @@ Use this page to navigate your way through STAT 545.
 
 - [General Information](/worksheets-about)
 
-**STAT 545A:**
 
 | Worksheet | Download | View | # required questions |
 |-----------|----------|------|----------------------|
@@ -59,12 +44,6 @@ Use this page to navigate your way through STAT 545.
 | Worksheet 4-A | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_04a.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_04a.ipynb) | 5 | 
 | Worksheet 5-A | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_05a.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_05a.ipynb) | 8 |
 | Worksheet 6-A | coming soon | coming soon | coming soon |
-
-**STAT 545B:**
-
-| Worksheet | Download | View | # required questions |
-|-----------|----------|------|----------------------|
-| Worksheet 1-B | coming soon | coming soon | coming soon |
 
 
 -------
@@ -118,7 +97,43 @@ Lecture demonstration files will appear here.
 
 -------
 
-## Assignments (STAT 545B)
+-------
+
+-------
+
+# STAT 545 B
+
+
+
+## Week-by-Week Guidance
+
+
+| Week | Topic | Duration | Lecture Notes | Checklist |
+|------|-------|----------|---------------|-----------|
+| 1-B  | Functions | `r format(dates_545b[1]  - days(1), "%b %d")` - `r format(dates_545b[2]  + days(1), "%b %d")` | [notes](/notes01b) | [checklist](/week1b) |
+| 2-B  | List columns | `r format(dates_545b[3]  - days(1), "%b %d")` - `r format(dates_545b[4]  + ddays(1), "%b %d")` | [notes](/notes02b) | checklist |
+| 3-B  | R packages | `r format(dates_545b[5]  - days(1), "%b %d")` - `r format(dates_545b[6]  + ddays(1), "%b %d")` | [notes](/notes03b) | checklist |
+| 4-B  | Dashboards | `r format(dates_545b[7]  - days(1), "%b %d")` - `r format(dates_545b[8]  + ddays(1), "%b %d")` | [notes](/notes04b) | checklist |
+| 5-B  | Automation | `r format(dates_545b[9]  - days(1), "%b %d")` - `r format(dates_545b[10] + ddays(1), "%b %d")` | [notes](/notes05b) | checklist |
+| 6-B  | Character data + Your Choice | `r format(dates_545b[11] - days(1), "%b %d")` - `r format(dates_545b[12] + ddays(1), "%b %d")` | [notes](/notes06b) | checklist |
+
+
+-------
+
+## Worksheets
+
+- [General Information](/worksheets-about)
+
+| Worksheet | Download | View | # required questions |
+|-----------|----------|------|----------------------|
+| Worksheet 1-B | coming soon | coming soon | coming soon |
+
+
+-------
+
+-------
+
+## Assignments 
 
 | Assignment | Instructions |
 |------------|--------------|
@@ -128,7 +143,8 @@ Lecture demonstration files will appear here.
 | 4-B        | [view](/assignments/assignment-4B) |
 | 5-B        | [view](/assignments/assignment-5B) |
 
--------
+
+
 
 -------
 
