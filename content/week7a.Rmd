@@ -104,6 +104,7 @@ By the end of this class, students will have exposure to some of the following t
 - function arguments and ellipses
 - S3 objects, generic functions, and methods. 
 - style guides
+- attributes
 
 We'll also see a tour of some other things that were of interest to the class. 
 
