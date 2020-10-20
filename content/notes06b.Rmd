@@ -1,0 +1,60 @@
+---
+title: "Week 6-B Lecture Notes: Character Data, and Choose Your Adventure"
+subtitle: "**Development** Version 0.9000"
+output: html_document
+---
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+week_num <- 13  # 1 through 14
+#-------------
+source(here::here("content", "dates.R"))
+library(stringr)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, results = "asis")
+letter <- if (week_num <= 7) "A" else "B"
+tues_class_num <- paste0(str_pad(week_num * 2 - 2, width = 2, pad = 0), letter)
+tues_date <- lec0 + days((week_num - 1) * 7)
+thurs_date <- tues_date + days(2)
+```
+
+
+```{r tues-date}
+cat(format(tues_date, "%A, %b %d"), "-", 
+    format(thurs_date, "%A, %b %d"))
+```
+
+## Learning Objectives
+
+From today's class, students are anticipated to be able to:
+
+
+
+
+## Prepare for Class
+
+Read/watch one of the following two resources before class:
+
+- Watch STAT 545 Episode
+- 
+
+## Resources
+
+## Outline
+
+- [Strings Worksheet 2018](https://github.com/UBC-STAT/stat-545-guidebook/blob/pre-leave/tutorials/cm102-exercise.Rmd)
+- multivariate pivoting? (>2)
+
+Ideas for choose-your-adventure:
+
+- Continuous Integration (with Travis? GitHub Actions?)
+- docker (or just in general, environment management)
+- Cloud computing
+- bookdown, for writing a thesis?
+- blogdown, for making a website? This might be a stretch -- not really related to data analysis.
+- organizing an analysis into multiple files
+- Making a github pages site, 
+- using blogdown, 
+- making presentation slides,
+- making a bookdown book, 
+- adding citations to markdown, 
+- numbering and referencing sections in an Rmd, 
+- shiny in an Rmd,

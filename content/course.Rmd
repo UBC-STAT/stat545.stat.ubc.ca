@@ -4,41 +4,28 @@ output: html_document
 ---
 
 ```{r, message = FALSE, warning = FALSE, echo = FALSE}
+library(tidyverse)
 library(lubridate)
 source(here::here("content", "dates.R"))
 ```
 
 Use this page to navigate your way through STAT 545. 
 
--------
+# STAT 545 A
 
 -------
 
 ## Week-by-Week Guidance
 
-**STAT 545A:**
-
 | Week | Duration |
 |------|----------|
-| [Week 1-A](/week1a) | `r lec0 - ddays(1)` - `r dates_545a[1] + ddays(1)` |
-| [Week 2-A](/week2a) | `r dates_545a[2]  - ddays(1)` - `r dates_545a[3]  + ddays(1)` |
-| [Week 3-A](/week3a) | `r dates_545a[4]  - ddays(1)` - `r dates_545a[5]  + ddays(1)` |
-| [Week 4-A](/week4a) | `r dates_545a[6]  - ddays(1)` - `r dates_545a[7]  + ddays(1)` |
-| [Week 5-A](/week5a) | `r dates_545a[8]  - ddays(1)` - `r dates_545a[9]  + ddays(1)` |
-| [Week 6-A](/week6a) | `r dates_545a[10] - ddays(1)` - `r dates_545a[11] + ddays(1)` |
-| [Week 7-A](/week7a) | `r dates_545a[12] - ddays(1)` - `r dates_545a[13] + ddays(1)` |
-
-<!--
-**STAT 545B:**
-
-- [Week 1-B](): `r dates_545b[1]  - ddays(1)` - `r dates_545b[2]  + ddays(1)`
-- [Week 2-B](): `r dates_545b[3]  - ddays(1)` - `r dates_545b[4]  + ddays(1)`
-- [Week 3-B](): `r dates_545b[5]  - ddays(1)` - `r dates_545b[6]  + ddays(1)`
-- [Week 4-B](): `r dates_545b[7]  - ddays(1)` - `r dates_545b[8]  + ddays(1)`
-- [Week 5-B](): `r dates_545b[9]  - ddays(1)` - `r dates_545b[10] + ddays(1)`
-- [Week 6-B](): `r dates_545b[11] - ddays(1)` - `r dates_545b[12] + ddays(1)`
-- [Week 7-B](): `r dates_545b[13] - ddays(1)` - `r dates_545b[14] + ddays(1)`
--->
+| [Week 1-A](/week1a) | `r format(lec0 - days(1)          , "%b %d")` - `r format(dates_545a[1] + days(1), "%b %d")` |
+| [Week 2-A](/week2a) | `r format(dates_545a[2]  - days(1), "%b %d")` - `r format(dates_545a[3]  + days(1), "%b %d")` |
+| [Week 3-A](/week3a) | `r format(dates_545a[4]  - days(1), "%b %d")` - `r format(dates_545a[5]  + days(1), "%b %d")` |
+| [Week 4-A](/week4a) | `r format(dates_545a[6]  - days(1), "%b %d")` - `r format(dates_545a[7]  + days(1), "%b %d")` |
+| [Week 5-A](/week5a) | `r format(dates_545a[8]  - days(1), "%b %d")` - `r format(dates_545a[9]  + days(1), "%b %d")` |
+| [Week 6-A](/week6a) | `r format(dates_545a[10] - days(1), "%b %d")` - `r format(dates_545a[11] + days(1), "%b %d")` |
+| [Week 7-A](/week7a) | `r format(dates_545a[12] - days(1), "%b %d")` - `r format(dates_545a[13] + days(1), "%b %d")` |
 
 -------
 
@@ -48,6 +35,7 @@ Use this page to navigate your way through STAT 545.
 
 - [General Information](/worksheets-about)
 
+
 | Worksheet | Download | View | # required questions |
 |-----------|----------|------|----------------------|
 | Worksheet 1-A | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_01a.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_01a.ipynb) | 9 |
@@ -56,6 +44,7 @@ Use this page to navigate your way through STAT 545.
 | Worksheet 4-A | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_04a.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_04a.ipynb) | 5 | 
 | Worksheet 5-A | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_05a.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_05a.ipynb) | 8 |
 | Worksheet 6-A | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_06a.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_06a.ipynb) | 5 |
+
 
 -------
 
@@ -105,6 +94,57 @@ Lecture demonstration files will appear here.
 
 
 -------
+
+-------
+
+-------
+
+-------
+
+# STAT 545 B
+
+
+
+## Week-by-Week Guidance
+
+
+| Week | Topic | Duration | Lecture Notes | Checklist |
+|------|-------|----------|---------------|-----------|
+| 1-B  | Functions | `r format(dates_545b[1]  - days(1), "%b %d")` - `r format(dates_545b[2]  + days(1), "%b %d")` | [notes](/notes01b) | [checklist](/week1b) |
+| 2-B  | List columns | `r format(dates_545b[3]  - days(1), "%b %d")` - `r format(dates_545b[4]  + ddays(1), "%b %d")` | [notes](/notes02b) | checklist |
+| 3-B  | R packages | `r format(dates_545b[5]  - days(1), "%b %d")` - `r format(dates_545b[6]  + ddays(1), "%b %d")` | [notes](/notes03b) | checklist |
+| 4-B  | Dashboards | `r format(dates_545b[7]  - days(1), "%b %d")` - `r format(dates_545b[8]  + ddays(1), "%b %d")` | [notes](/notes04b) | checklist |
+| 5-B  | Automation | `r format(dates_545b[9]  - days(1), "%b %d")` - `r format(dates_545b[10] + ddays(1), "%b %d")` | [notes](/notes05b) | checklist |
+| 6-B  | Character data + Your Choice | `r format(dates_545b[11] - days(1), "%b %d")` - `r format(dates_545b[12] + ddays(1), "%b %d")` | [notes](/notes06b) | checklist |
+
+
+-------
+
+## Worksheets
+
+- [General Information](/worksheets-about)
+
+| Worksheet | Download | View | # required questions |
+|-----------|----------|------|----------------------|
+| Worksheet 1-B | coming soon | coming soon | coming soon |
+
+
+-------
+
+-------
+
+## Assignments 
+
+| Assignment | Instructions |
+|------------|--------------|
+| 1-B        | [view](/assignments/assignment-1B) |
+| 2-B        | [view](/assignments/assignment-2B) |
+| 3-B        | [view](/assignments/assignment-3B) |
+| 4-B        | [view](/assignments/assignment-4B) |
+| 5-B        | [view](/assignments/assignment-5B) |
+
+
+
 
 -------
 

@@ -1,0 +1,54 @@
+---
+title: "Week 5-B Lecture Notes: Dashboards"
+subtitle: "**Development** Version 0.9000"
+output: html_document
+---
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+week_num <- 12  # 1 through 14
+#-------------
+source(here::here("content", "dates.R"))
+library(stringr)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, results = "asis")
+letter <- if (week_num <= 7) "A" else "B"
+tues_class_num <- paste0(str_pad(week_num * 2 - 2, width = 2, pad = 0), letter)
+tues_date <- lec0 + days((week_num - 1) * 7)
+thurs_date <- tues_date + days(2)
+```
+
+
+```{r tues-date}
+cat(format(tues_date, "%A, %b %d"), "-", 
+    format(thurs_date, "%A, %b %d"))
+```
+
+## Learning Objectives
+
+From today's class, students are anticipated to be able to:
+
+
+
+
+## Prepare for Class
+
+Read/watch one of the following two resources before class:
+
+- Watch STAT 545 Episode
+- 
+
+## Resources
+
+- Useful resources: https://www.r-bloggers.com/long-running-r-commands-unix-screen-nohup-and-r/ and https://stackoverflow.com/questions/53486153/how-to-write-console-output-to-a-text-file-with-rscript-like-you-can-with-r-cmd
+
+
+## Outline
+
+- Bash, command line, and running R scripts in the background. "jobs".
+- Philosophy behind a multi-file analysis
+- `source()`
+- Draw from my recent analysis
+
+Draw from 
+
+- [Guidebook 2018](https://github.com/UBC-STAT/stat-545-guidebook/blob/master/cm209.Rmd)
+- [Examples from 2018](https://github.com/UBC-STAT/stat-545-guidebook/blob/pre-leave/tutorials/cm109-automation_examples.zip)

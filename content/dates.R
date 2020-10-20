@@ -3,7 +3,8 @@ library(lubridate)
 lec0 <- ymd("2020-09-08")
 
 # Computations based on lec0:
-dates_545a <- sort(lec0 + ddays(c(1:6 * 7, 2 + 0:6 * 7)))
+n_weeks_a <- 7
+dates_545a <- sort(lec0 + days(c(1:(n_weeks_a - 1) * 7, 2 + 0:(n_weeks_a - 1) * 7)))
 dates_545a_pretty_noyear <- stringr::str_c(
   month(dates_545a, label = TRUE), 
   day(dates_545a), 
@@ -15,7 +16,8 @@ dates_545a_pretty_full <- stringr::str_c(
   year(dates_545a)
 )
 
-dates_545b <- sort(lec0 + ddays(7 * 7 + c(0:6 * 7, 2 + 0:6 * 7)))
+n_weeks_b <- 6
+dates_545b <- sort(lec0 + days(7 * n_weeks_a + c(0:(n_weeks_b - 1) * 7, 2 + 0:(n_weeks_b - 1) * 7)))
 dates_545b_pretty_noyear <- stringr::str_c(
   month(dates_545b, label = TRUE), 
   day(dates_545b), 
