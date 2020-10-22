@@ -95,18 +95,18 @@ Read/watch one of the following two resources before class:
 cat(thurs_date_pretty)
 ```
 
-By the end of this class, students will have exposure to some of the following topics:
+By the end of this class, we will cover as much of the following as we can:
 
-- Make a reproducible example using the `reprex` package.
-- Use of () vs. {}.
-- vectors and lists
-- environments and scoping
-- function arguments and ellipses
-- S3 objects, generic functions, and methods. 
-- style guides
-- attributes
+- More R Basics:
+  - vectors and lists
+  - Make a reproducible example using the `reprex` package.
+  - Use of {}.
+  - attributes
+  - style guides
+- Turning your GitHub repository into a Website
+- Turning your Rmd into a presentation (2 min)
 
-We'll also see a tour of some other things that were of interest to the class. 
+These three topics were the top three chosen in the poll.
 
 #### Prepare for Class
 
