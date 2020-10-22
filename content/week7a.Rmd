@@ -108,6 +108,10 @@ By the end of this class, we will cover as much of the following as we can:
 
 These three topics were the top three chosen in the poll.
 
+| Lecture | Demonstration | View |
+|---------|-----------|------|
+| 13-A: Choose your adventure | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo13a-misc.Rmd) | [Knitted demo](/demonstrations/demo13a-misc) |
+
 #### Prepare for Class
 
 Before class:
