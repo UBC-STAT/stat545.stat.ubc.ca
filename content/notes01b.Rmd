@@ -55,6 +55,8 @@ Read/watch one of the following two resources before class:
 - `try()`
 - `withTimeout()`?
 - tidy eval? Could be a big rabbit hole.
+- environments and scoping. Perhaps `search()`; `with()`.
+
 
 Grab from:
 
