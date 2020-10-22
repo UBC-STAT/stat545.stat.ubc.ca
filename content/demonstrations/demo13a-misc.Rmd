@@ -10,6 +10,19 @@ library(palmerpenguins)
 knitr::opts_chunk$set(error = TRUE)
 ```
 
+Start with reprex:
+
+```{r}
+reprex::reprex(mean(rnorm(10)))
+```
+
+``` r
+mean(rnorm(10))
+#> [1] -0.343914
+```
+
+<sup>Created on 2020-10-22 by the [reprex package](https://reprex.tidyverse.org) (v0.3.0)</sup>
+
 
 # Part I: R Basics beyond the worksheet
 
@@ -20,9 +33,12 @@ Curly brackets can hold multiple lines of code, and outputs the result at the en
 There's not a whole lot of difference if you just using them on their own:
 
 ```{r}
-{
-  ADD_SOME_CODE_HERE
+y <- {
+  x <- 10
+  x ^ 2
+  x ^ 3
 }
+y
 ```
 
 They start to matter when you need to add multiple lines of code as an argument.
@@ -40,8 +56,26 @@ gapminder %>%
 ```
 
 ```{r}
-reprex::reprex(FILL_THIS_IN)
+reprex::reprex({
+  library(tidyverse)
+  library(gapminder)
+  gapminder %>% 
+    group_by(Country) %>% 
+    summarise(mean_pop == mean(pop))
+})
 ```
+
+``` r
+library(tidyverse)
+library(gapminder)
+gapminder %>% 
+  group_by(Country) %>% 
+  summarise(mean_pop == mean(pop))
+#> Error: Must group by variables found in `.data`.
+#> * Column `Country` is not found.
+```
+
+<sup>Created on 2020-10-22 by the [reprex package](https://reprex.tidyverse.org) (v0.3.0)</sup>
 
 ### Question 2
 
@@ -49,7 +83,13 @@ Sample 10 rows randomly from the `gapminder` tibble using `dplyr::sample_n()`, s
 
 ```{r}
 gapminder %>% 
+  {
+    my_lm <- lm(lifeExp ~ gdpPercap, data = .)
+    beta1 <- coef(my_lm)[2]
+    .
+  } %>% 
   sample_n(10)
+
 ```
 
 
@@ -66,13 +106,14 @@ Why, then, doesn't it look like a list? Because it carries metadata that tells R
 The attributes of `penguins`:
 
 ```{r}
-
+attributes(penguins)
+penguins[1, 3]
 ```
 
 Remove attributes with `unclass()`:
 
 ```{r}
-
+#unclass(penguins)
 ```
 
 ### Question 3
@@ -84,11 +125,12 @@ Make the following list stored in `homemade_tibble` a tibble by changing the att
   species = c("Chinstrap", "Adelie"),
   body_mass_g = c(3405, 2304)
 ))
+attributes(homemade_tibble)
 ```
 
 ```{r}
-attr(FILL_THIS_IN, which = "class") <- FILL_THIS_IN
-attr(FILL_THIS_IN, which = "row.names") <- FILL_THIS_IN
+attr(homemade_tibble, which = "class") <- c("tbl_df" ,    "tbl"   ,     "data.frame")
+attr(homemade_tibble, which = "row.names") <- 1:2
 homemade_tibble
 ```
 
@@ -103,7 +145,8 @@ Here's a regression model:
 What object is this? Use `unclass()` to find out. What are its attributes?
 
 ```{r}
-
+unclass(my_model)
+attributes(my_model)
 ```
 
 ## Style Guide

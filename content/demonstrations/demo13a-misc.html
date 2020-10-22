@@ -6,27 +6,36 @@ output: html_document
 
 
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ── Attaching packages ──────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
 <pre><code>## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
 ## ✓ tibble  3.0.3     ✓ dplyr   1.0.2
 ## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
 ## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
-<pre><code>## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+<pre><code>## ── Conflicts ─────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>library(gapminder)
 library(palmerpenguins)
 knitr::opts_chunk$set(error = TRUE)</code></pre>
+<p>Start with reprex:</p>
+<pre class="r"><code>reprex::reprex(mean(rnorm(10)))</code></pre>
+<pre><code>## Rendering reprex...</code></pre>
+<pre class="r"><code>mean(rnorm(10))
+#&gt; [1] -0.343914</code></pre>
+<p><sup>Created on 2020-10-22 by the <a href="https://reprex.tidyverse.org">reprex package</a> (v0.3.0)</sup></p>
 <div id="part-i-r-basics-beyond-the-worksheet" class="section level1">
 <h1>Part I: R Basics beyond the worksheet</h1>
 <div id="curly-brackets" class="section level2">
 <h2>Curly brackets</h2>
 <p>Curly brackets can hold multiple lines of code, and outputs the result at the end.</p>
 <p>There’s not a whole lot of difference if you just using them on their own:</p>
-<pre class="r"><code>{
-  ADD_SOME_CODE_HERE
-}</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;ADD_SOME_CODE_HERE&#39; not found</code></pre>
+<pre class="r"><code>y &lt;- {
+  x &lt;- 10
+  x ^ 2
+  x ^ 3
+}
+y</code></pre>
+<pre><code>## [1] 1000</code></pre>
 <p>They start to matter when you need to add multiple lines of code as an argument.</p>
 <div id="question-1" class="section level3">
 <h3>Question 1</h3>
@@ -36,27 +45,46 @@ library(gapminder)
 gapminder %&gt;% 
    group_by(Country) %&gt;% 
    summarise(mean_pop == mean(pop))</code></pre>
-<pre class="r"><code>reprex::reprex(FILL_THIS_IN)</code></pre>
+<pre class="r"><code>reprex::reprex({
+  library(tidyverse)
+  library(gapminder)
+  gapminder %&gt;% 
+    group_by(Country) %&gt;% 
+    summarise(mean_pop == mean(pop))
+})</code></pre>
 <pre><code>## Rendering reprex...</code></pre>
+<pre class="r"><code>library(tidyverse)
+library(gapminder)
+gapminder %&gt;% 
+  group_by(Country) %&gt;% 
+  summarise(mean_pop == mean(pop))
+#&gt; Error: Must group by variables found in `.data`.
+#&gt; * Column `Country` is not found.</code></pre>
+<p><sup>Created on 2020-10-22 by the <a href="https://reprex.tidyverse.org">reprex package</a> (v0.3.0)</sup></p>
 </div>
 <div id="question-2" class="section level3">
 <h3>Question 2</h3>
 <p>Sample 10 rows randomly from the <code>gapminder</code> tibble using <code>dplyr::sample_n()</code>, so that you get the same results each time. Do this all in a single pipe.</p>
 <pre class="r"><code>gapminder %&gt;% 
+  {
+    my_lm &lt;- lm(lifeExp ~ gdpPercap, data = .)
+    beta1 &lt;- coef(my_lm)[2]
+    .
+  } %&gt;% 
   sample_n(10)</code></pre>
 <pre><code>## # A tibble: 10 x 6
-##    country     continent  year lifeExp     pop gdpPercap
-##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;
-##  1 Djibouti    Africa     1957    37.3   71851     2865.
-##  2 Finland     Europe     2007    79.3 5238460    33207.
-##  3 Comoros     Africa     1977    50.9  304739     1173.
-##  4 Costa Rica  Americas   1997    77.3 3518107     6677.
-##  5 Gambia      Africa     1982    45.6  715523      836.
-##  6 Costa Rica  Americas   1987    74.8 2799811     5630.
-##  7 Singapore   Asia       1992    75.8 3235865    24770.
-##  8 Congo, Rep. Africa     1957    45.1  940458     2315.
-##  9 Jordan      Asia       1977    61.1 1937652     2852.
-## 10 Cameroon    Africa     1957    40.4 5359923     1313.</code></pre>
+##    country               continent  year lifeExp      pop gdpPercap
+##    &lt;fct&gt;                 &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+##  1 Greece                Europe     1967    71    8716441     8513.
+##  2 Sudan                 Africa     2002    56.4 37090298     1993.
+##  3 Angola                Africa     1997    41.0  9875024     2277.
+##  4 France                Europe     2002    79.6 59925035    28926.
+##  5 Dominican Republic    Americas   2002    70.8  8650322     4564.
+##  6 Chad                  Africa     1997    51.6  7562011     1005.
+##  7 Korea, Rep.           Asia       1952    47.5 20947571     1031.
+##  8 Malaysia              Asia       1972    63.0 11441462     2849.
+##  9 Sao Tome and Principe Africa     1997    63.3   145608     1339.
+## 10 Malawi                Africa     1962    38.4  3628608      428.</code></pre>
 </div>
 </div>
 <div id="attributes" class="section level2">
@@ -66,7 +94,43 @@ gapminder %&gt;%
 <pre><code>## [1] TRUE</code></pre>
 <p>Why, then, doesn’t it look like a list? Because it carries metadata that tells R to treat it in a special way. The metadata is held in something called <em>attributes</em>.</p>
 <p>The attributes of <code>penguins</code>:</p>
+<pre class="r"><code>attributes(penguins)</code></pre>
+<pre><code>## $names
+## [1] &quot;species&quot;           &quot;island&quot;            &quot;bill_length_mm&quot;   
+## [4] &quot;bill_depth_mm&quot;     &quot;flipper_length_mm&quot; &quot;body_mass_g&quot;      
+## [7] &quot;sex&quot;               &quot;year&quot;             
+## 
+## $row.names
+##   [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18
+##  [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36
+##  [37]  37  38  39  40  41  42  43  44  45  46  47  48  49  50  51  52  53  54
+##  [55]  55  56  57  58  59  60  61  62  63  64  65  66  67  68  69  70  71  72
+##  [73]  73  74  75  76  77  78  79  80  81  82  83  84  85  86  87  88  89  90
+##  [91]  91  92  93  94  95  96  97  98  99 100 101 102 103 104 105 106 107 108
+## [109] 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126
+## [127] 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144
+## [145] 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162
+## [163] 163 164 165 166 167 168 169 170 171 172 173 174 175 176 177 178 179 180
+## [181] 181 182 183 184 185 186 187 188 189 190 191 192 193 194 195 196 197 198
+## [199] 199 200 201 202 203 204 205 206 207 208 209 210 211 212 213 214 215 216
+## [217] 217 218 219 220 221 222 223 224 225 226 227 228 229 230 231 232 233 234
+## [235] 235 236 237 238 239 240 241 242 243 244 245 246 247 248 249 250 251 252
+## [253] 253 254 255 256 257 258 259 260 261 262 263 264 265 266 267 268 269 270
+## [271] 271 272 273 274 275 276 277 278 279 280 281 282 283 284 285 286 287 288
+## [289] 289 290 291 292 293 294 295 296 297 298 299 300 301 302 303 304 305 306
+## [307] 307 308 309 310 311 312 313 314 315 316 317 318 319 320 321 322 323 324
+## [325] 325 326 327 328 329 330 331 332 333 334 335 336 337 338 339 340 341 342
+## [343] 343 344
+## 
+## $class
+## [1] &quot;tbl_df&quot;     &quot;tbl&quot;        &quot;data.frame&quot;</code></pre>
+<pre class="r"><code>penguins[1, 3]</code></pre>
+<pre><code>## # A tibble: 1 x 1
+##   bill_length_mm
+##            &lt;dbl&gt;
+## 1           39.1</code></pre>
 <p>Remove attributes with <code>unclass()</code>:</p>
+<pre class="r"><code>#unclass(penguins)</code></pre>
 <div id="question-3" class="section level3">
 <h3>Question 3</h3>
 <p>Make the following list stored in <code>homemade_tibble</code> a tibble by changing the attributes.</p>
@@ -79,16 +143,17 @@ gapminder %&gt;%
 ## 
 ## $body_mass_g
 ## [1] 3405 2304</code></pre>
-<pre class="r"><code>attr(FILL_THIS_IN, which = &quot;class&quot;) &lt;- FILL_THIS_IN</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;FILL_THIS_IN&#39; not found</code></pre>
-<pre class="r"><code>attr(FILL_THIS_IN, which = &quot;row.names&quot;) &lt;- FILL_THIS_IN</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;FILL_THIS_IN&#39; not found</code></pre>
-<pre class="r"><code>homemade_tibble</code></pre>
-<pre><code>## $species
-## [1] &quot;Chinstrap&quot; &quot;Adelie&quot;   
-## 
-## $body_mass_g
-## [1] 3405 2304</code></pre>
+<pre class="r"><code>attributes(homemade_tibble)</code></pre>
+<pre><code>## $names
+## [1] &quot;species&quot;     &quot;body_mass_g&quot;</code></pre>
+<pre class="r"><code>attr(homemade_tibble, which = &quot;class&quot;) &lt;- c(&quot;tbl_df&quot; ,    &quot;tbl&quot;   ,     &quot;data.frame&quot;)
+attr(homemade_tibble, which = &quot;row.names&quot;) &lt;- 1:2
+homemade_tibble</code></pre>
+<pre><code>## # A tibble: 2 x 2
+##   species   body_mass_g
+## * &lt;chr&gt;           &lt;dbl&gt;
+## 1 Chinstrap        3405
+## 2 Adelie           2304</code></pre>
 </div>
 <div id="question-4" class="section level3">
 <h3>Question 4</h3>
@@ -102,6 +167,195 @@ gapminder %&gt;%
 ## (Intercept)           wt  
 ##      37.285       -5.344</code></pre>
 <p>What object is this? Use <code>unclass()</code> to find out. What are its attributes?</p>
+<pre class="r"><code>unclass(my_model)</code></pre>
+<pre><code>## $coefficients
+## (Intercept)          wt 
+##   37.285126   -5.344472 
+## 
+## $residuals
+##           Mazda RX4       Mazda RX4 Wag          Datsun 710      Hornet 4 Drive 
+##          -2.2826106          -0.9197704          -2.0859521           1.2973499 
+##   Hornet Sportabout             Valiant          Duster 360           Merc 240D 
+##          -0.2001440          -0.6932545          -3.9053627           4.1637381 
+##            Merc 230            Merc 280           Merc 280C          Merc 450SE 
+##           2.3499593           0.2998560          -1.1001440           0.8668731 
+##          Merc 450SL         Merc 450SLC  Cadillac Fleetwood Lincoln Continental 
+##          -0.0502472          -1.8830236           1.1733496           2.1032876 
+##   Chrysler Imperial            Fiat 128         Honda Civic      Toyota Corolla 
+##           5.9810744           6.8727113           1.7461954           6.4219792 
+##       Toyota Corona    Dodge Challenger         AMC Javelin          Camaro Z28 
+##          -2.6110037          -2.9725862          -3.7268663          -3.4623553 
+##    Pontiac Firebird           Fiat X1-9       Porsche 914-2        Lotus Europa 
+##           2.4643670           0.3564263           0.1520430           1.2010593 
+##      Ford Pantera L        Ferrari Dino       Maserati Bora          Volvo 142E 
+##          -4.5431513          -2.7809399          -3.2053627          -1.0274952 
+## 
+## $effects
+##  (Intercept)           wt                                                     
+## -113.6497374  -29.1157217   -1.6613339    1.6313943    0.1111305   -0.3840041 
+##                                                                               
+##   -3.6072442    4.5003125    2.6905817    0.6111305   -0.7888695    1.1143917 
+##                                                                               
+##    0.2316793   -1.6061571    1.3014525    2.2137818    6.0995633    7.3094734 
+##                                                                               
+##    2.2421594    6.8956792   -2.2010595   -2.6694078   -3.4150859   -3.1915608 
+##                                                                               
+##    2.7346556    0.8200064    0.5948771    1.7073457   -4.2045529   -2.4018616 
+##                           
+##   -2.9072442   -0.6494289 
+## 
+## $rank
+## [1] 2
+## 
+## $fitted.values
+##           Mazda RX4       Mazda RX4 Wag          Datsun 710      Hornet 4 Drive 
+##           23.282611           21.919770           24.885952           20.102650 
+##   Hornet Sportabout             Valiant          Duster 360           Merc 240D 
+##           18.900144           18.793255           18.205363           20.236262 
+##            Merc 230            Merc 280           Merc 280C          Merc 450SE 
+##           20.450041           18.900144           18.900144           15.533127 
+##          Merc 450SL         Merc 450SLC  Cadillac Fleetwood Lincoln Continental 
+##           17.350247           17.083024            9.226650            8.296712 
+##   Chrysler Imperial            Fiat 128         Honda Civic      Toyota Corolla 
+##            8.718926           25.527289           28.653805           27.478021 
+##       Toyota Corona    Dodge Challenger         AMC Javelin          Camaro Z28 
+##           24.111004           18.472586           18.926866           16.762355 
+##    Pontiac Firebird           Fiat X1-9       Porsche 914-2        Lotus Europa 
+##           16.735633           26.943574           25.847957           29.198941 
+##      Ford Pantera L        Ferrari Dino       Maserati Bora          Volvo 142E 
+##           20.343151           22.480940           18.205363           22.427495 
+## 
+## $assign
+## [1] 0 1
+## 
+## $qr
+## $qr
+##                     (Intercept)            wt
+## Mazda RX4            -5.6568542 -18.199514334
+## Mazda RX4 Wag         0.1767767   5.447820482
+## Datsun 710            0.1767767   0.148230003
+## Hornet 4 Drive        0.1767767  -0.016055881
+## Hornet Sportabout     0.1767767  -0.057356801
+## Valiant               0.1767767  -0.061027994
+## Duster 360            0.1767767  -0.081219555
+## Merc 240D             0.1767767  -0.011466889
+## Merc 230              0.1767767  -0.004124504
+## Merc 280              0.1767767  -0.057356801
+## Merc 280C             0.1767767  -0.057356801
+## Merc 450SE            0.1767767  -0.172999378
+## Merc 450SL            0.1767767  -0.110589098
+## Merc 450SLC           0.1767767  -0.119767081
+## Cadillac Fleetwood    0.1767767  -0.389599760
+## Lincoln Continental   0.1767767  -0.421539139
+## Chrysler Imperial     0.1767767  -0.407037927
+## Fiat 128              0.1767767   0.170257160
+## Honda Civic           0.1767767   0.277639553
+## Toyota Corolla        0.1767767   0.237256431
+## Toyota Corona         0.1767767   0.121613854
+## Dodge Challenger      0.1767767  -0.072041573
+## AMC Javelin           0.1767767  -0.056439003
+## Camaro Z28            0.1767767  -0.130780659
+## Pontiac Firebird      0.1767767  -0.131698458
+## Fiat X1-9             0.1767767   0.218900467
+## Porsche 914-2         0.1767767   0.181270739
+## Lotus Europa          0.1767767   0.296362637
+## Ford Pantera L        0.1767767  -0.007795696
+## Ferrari Dino          0.1767767   0.065628162
+## Maserati Bora         0.1767767  -0.081219555
+## Volvo 142E            0.1767767   0.063792566
+## attr(,&quot;assign&quot;)
+## [1] 0 1
+## 
+## $qraux
+## [1] 1.176777 1.046354
+## 
+## $pivot
+## [1] 1 2
+## 
+## $tol
+## [1] 1e-07
+## 
+## $rank
+## [1] 2
+## 
+## attr(,&quot;class&quot;)
+## [1] &quot;qr&quot;
+## 
+## $df.residual
+## [1] 30
+## 
+## $xlevels
+## named list()
+## 
+## $call
+## lm(formula = mpg ~ wt, data = mtcars)
+## 
+## $terms
+## mpg ~ wt
+## attr(,&quot;variables&quot;)
+## list(mpg, wt)
+## attr(,&quot;factors&quot;)
+##     wt
+## mpg  0
+## wt   1
+## attr(,&quot;term.labels&quot;)
+## [1] &quot;wt&quot;
+## attr(,&quot;order&quot;)
+## [1] 1
+## attr(,&quot;intercept&quot;)
+## [1] 1
+## attr(,&quot;response&quot;)
+## [1] 1
+## attr(,&quot;.Environment&quot;)
+## &lt;environment: R_GlobalEnv&gt;
+## attr(,&quot;predvars&quot;)
+## list(mpg, wt)
+## attr(,&quot;dataClasses&quot;)
+##       mpg        wt 
+## &quot;numeric&quot; &quot;numeric&quot; 
+## 
+## $model
+##                      mpg    wt
+## Mazda RX4           21.0 2.620
+## Mazda RX4 Wag       21.0 2.875
+## Datsun 710          22.8 2.320
+## Hornet 4 Drive      21.4 3.215
+## Hornet Sportabout   18.7 3.440
+## Valiant             18.1 3.460
+## Duster 360          14.3 3.570
+## Merc 240D           24.4 3.190
+## Merc 230            22.8 3.150
+## Merc 280            19.2 3.440
+## Merc 280C           17.8 3.440
+## Merc 450SE          16.4 4.070
+## Merc 450SL          17.3 3.730
+## Merc 450SLC         15.2 3.780
+## Cadillac Fleetwood  10.4 5.250
+## Lincoln Continental 10.4 5.424
+## Chrysler Imperial   14.7 5.345
+## Fiat 128            32.4 2.200
+## Honda Civic         30.4 1.615
+## Toyota Corolla      33.9 1.835
+## Toyota Corona       21.5 2.465
+## Dodge Challenger    15.5 3.520
+## AMC Javelin         15.2 3.435
+## Camaro Z28          13.3 3.840
+## Pontiac Firebird    19.2 3.845
+## Fiat X1-9           27.3 1.935
+## Porsche 914-2       26.0 2.140
+## Lotus Europa        30.4 1.513
+## Ford Pantera L      15.8 3.170
+## Ferrari Dino        19.7 2.770
+## Maserati Bora       15.0 3.570
+## Volvo 142E          21.4 2.780</code></pre>
+<pre class="r"><code>attributes(my_model)</code></pre>
+<pre><code>## $names
+##  [1] &quot;coefficients&quot;  &quot;residuals&quot;     &quot;effects&quot;       &quot;rank&quot;         
+##  [5] &quot;fitted.values&quot; &quot;assign&quot;        &quot;qr&quot;            &quot;df.residual&quot;  
+##  [9] &quot;xlevels&quot;       &quot;call&quot;          &quot;terms&quot;         &quot;model&quot;        
+## 
+## $class
+## [1] &quot;lm&quot;</code></pre>
 </div>
 </div>
 <div id="style-guide" class="section level2">
