@@ -62,6 +62,7 @@ Lecture demonstration files will appear here.
 | 9-A: modelling in R | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo9a-modelling.Rmd) | [Knitted demo](/demonstrations/demo9a-modelling) |
 | 10-A: dates, times, factors | NA | NA |
 | 11-A: tibble joins | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo11a-joins.Rmd) | [Knitted demo](/demonstrations/demo11a-joins) |
+| 13-A: Choose your adventure | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo13a-misc.Rmd) | [Knitted demo](/demonstrations/demo13a-misc) |
 
 -------
 
