@@ -136,7 +136,7 @@ Some useful (but not mandatory) resources are:
 
 -----
 
-## Thursday Office Hours from 16:00 - 17:00 PST:
+## Friday Office Hours from 16:00 - 17:00 PST:
 
 Join Victor for office hours regarding this week's content, the milestones or other questions about R. Can't come to office hours? Reach out on Slack/Canvas/Email. 
 
