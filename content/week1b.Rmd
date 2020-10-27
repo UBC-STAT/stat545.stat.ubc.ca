@@ -3,6 +3,8 @@ title: "STAT 545 Checklist: Week 1-B"
 output: html_document
 ---
 
+**_UPDATED_ late Monday Oct. 26**
+
 A complete list of the things you'll need to do for STAT 545B this week.
 
 This week's schedule. Assessments are in __bold__. 
@@ -16,13 +18,12 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 
 ### Tuesday
 
-- [ ] Prepare: Watch this week's video episode by 9:30am PST
-- [ ] Prepare: Pre-readings by 9:30am PST
 - [ ] Attend lecture 9:30am - 11:00am PST
+- [ ] Prepare: Pre-readings by 9:30am PST (**recommended; but won't be anticipated on Tuesday's lecture**)
 
 ### Wednesday
 
-- [ ] __Complete Quiz 1-B by 11:00am PST__
+- [ ] __Complete Quiz 1-B by 11:00am PST (on canvas)__
 - Start Assignment 1-B (not due until Saturday _next week_)
 
 ### Thursday
@@ -35,6 +36,7 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 
 - [ ] __Submit Quiz 2-B by 11:00am PST__
 - [ ] Get your questions for the teaching team into Slack by mid-day (we can't necessarily be active on Slack on evenings and weekends)
+- [ ] Watch this week's video episode by 9:30am PST (**usually posted at the beginning of the week, except this week**)
 
 ### Saturday
 
