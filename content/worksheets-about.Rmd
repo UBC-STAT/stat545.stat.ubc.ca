@@ -26,6 +26,16 @@ __STAT 545B__:
 - Deadline: _Every Saturday by 11:59pm (starting on Week 1-B)_
 - Grading: _To get full marks for each worksheet, you must successfully answer some pre-specified amount of the autograded questions._
 
+## Objectives
+
+The purpose of these worksheets are two-fold:
+
+1. To provide you with exercises for practicing concepts and tools, and
+2. To provide a framework to go over in class.
+
+The built-in tests give you instant feedback as to whether your answers are correct.
+
+We envision you interacting with the worksheet at a level appropriate to you, completing as many questions that will give you a sufficient challenge for learning the material. Interact on your own and in class, experimenting with different code.
 
 ## Downloading the Worksheets
 
