@@ -38,14 +38,17 @@ output: html_document
 </div>
 <div id="quiz-1-b" class="section level2">
 <h2>Quiz 1-B</h2>
+<p>Consider the following code:</p>
+<pre><code>x &lt;- 1
+f &lt;- function(t) {
+  x &lt;- -1
+  if (x &gt; 0) return(t)
+  x * t + 1
+  x * t
+}
+f(1)</code></pre>
 <ol style="list-style-type: decimal">
-<li>What’s the output of this function?</li>
-</ol>
-<pre><code>f &lt;- function(t) {
-  if (t &gt; 0) return(FALSE)
-}</code></pre>
-<ol style="list-style-type: decimal">
-<li>[Code with an early return – what does it return?]</li>
-<li>[What happens in a function, stays in a function]</li>
+<li>True or False: the output of <code>f(1)</code> is <code>-1</code>.</li>
+<li>True or False: after running the above code, <code>x</code> is <code>-1</code>.</li>
 </ol>
 </div>

@@ -12,7 +12,6 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 ### Monday
 
 - Start Worksheet 1-B
-- Start Assignment 1-B (not due until Saturday _next week_)
 - Start lecture preparation
 
 ### Tuesday
@@ -24,6 +23,7 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 ### Wednesday
 
 - [ ] __Complete Quiz 1-B by 11:00am PST__
+- Start Assignment 1-B (not due until Saturday _next week_)
 
 ### Thursday
 
