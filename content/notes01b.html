@@ -57,72 +57,68 @@ f(1)</code></pre>
 <p>Sometimes it’s useful to work with the <em>log</em> of a variable with a positive skew, such as <code>gapminder</code>’s GDP per capita:</p>
 <p><img src="/notes01b_files/figure-html/unnamed-chunk-3-1.png" width="480" style="display: block; margin: auto;" />
 And, it’s sometimes useful to scale a variable to have mean 0 and variance 1. We’ll do both:</p>
-</div>
-<div id="a-tibble-1704-x-7" class="section level1">
-<h1>A tibble: 1,704 x 7</h1>
-<p>country continent year lifeExp pop gdpPercap gdpPercap_scaled
-<fct> <fct> <int> <dbl> <dbl> <dbl> <dbl>
-1 Afghanistan Asia 1952 28.8 -3003. 779. -0.731
-2 Afghanistan Asia 1957 30.3 -3003. 821. -0.731
-3 Afghanistan Asia 1962 32.0 -3003. 853. -0.731
-4 Afghanistan Asia 1967 34.0 -3003. 836. -0.731
-5 Afghanistan Asia 1972 36.1 -3003. 740. -0.731
-6 Afghanistan Asia 1977 38.4 -3003. 786. -0.731
-7 Afghanistan Asia 1982 39.9 -3003. 978. -0.731
-8 Afghanistan Asia 1987 40.8 -3003. 852. -0.731
-9 Afghanistan Asia 1992 41.7 -3003. 649. -0.731
-10 Afghanistan Asia 1997 41.8 -3003. 635. -0.731
-# … with 1,694 more rows
-# A tibble: 1,704 x 6
-country continent year lifeExp pop gdpPercap
-<fct> <fct> <int> <dbl> <dbl> <dbl>
-1 Afghanistan Asia 1952 28.8 -0.279 -0.731
-2 Afghanistan Asia 1957 30.3 -0.279 -0.731
-3 Afghanistan Asia 1962 32.0 -0.279 -0.731
-4 Afghanistan Asia 1967 34.0 -0.279 -0.731
-5 Afghanistan Asia 1972 36.1 -0.279 -0.731
-6 Afghanistan Asia 1977 38.4 -0.279 -0.731
-7 Afghanistan Asia 1982 39.9 -0.279 -0.731
-8 Afghanistan Asia 1987 40.8 -0.279 -0.731
-9 Afghanistan Asia 1992 41.7 -0.279 -0.731
-10 Afghanistan Asia 1997 41.8 -0.279 -0.731
-# … with 1,694 more rows</p>
+<pre><code>## # A tibble: 1,704 x 7
+##    country     continent  year lifeExp    pop gdpPercap gdpPercap_scaled
+##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;            &lt;dbl&gt;
+##  1 Afghanistan Asia       1952    28.8 -3003.      779.           -0.731
+##  2 Afghanistan Asia       1957    30.3 -3003.      821.           -0.731
+##  3 Afghanistan Asia       1962    32.0 -3003.      853.           -0.731
+##  4 Afghanistan Asia       1967    34.0 -3003.      836.           -0.731
+##  5 Afghanistan Asia       1972    36.1 -3003.      740.           -0.731
+##  6 Afghanistan Asia       1977    38.4 -3003.      786.           -0.731
+##  7 Afghanistan Asia       1982    39.9 -3003.      978.           -0.731
+##  8 Afghanistan Asia       1987    40.8 -3003.      852.           -0.731
+##  9 Afghanistan Asia       1992    41.7 -3003.      649.           -0.731
+## 10 Afghanistan Asia       1997    41.8 -3003.      635.           -0.731
+## # … with 1,694 more rows</code></pre>
+<pre><code>## # A tibble: 1,704 x 6
+##    country     continent  year lifeExp    pop gdpPercap
+##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
+##  1 Afghanistan Asia       1952    28.8 -0.279    -0.731
+##  2 Afghanistan Asia       1957    30.3 -0.279    -0.731
+##  3 Afghanistan Asia       1962    32.0 -0.279    -0.731
+##  4 Afghanistan Asia       1967    34.0 -0.279    -0.731
+##  5 Afghanistan Asia       1972    36.1 -0.279    -0.731
+##  6 Afghanistan Asia       1977    38.4 -0.279    -0.731
+##  7 Afghanistan Asia       1982    39.9 -0.279    -0.731
+##  8 Afghanistan Asia       1987    40.8 -0.279    -0.731
+##  9 Afghanistan Asia       1992    41.7 -0.279    -0.731
+## 10 Afghanistan Asia       1997    41.8 -0.279    -0.731
+## # … with 1,694 more rows</code></pre>
 <p>Where might there be repetition in this analysis? Where <strong>is</strong> there repetition?</p>
 <ul>
 <li>Doing this scaling over and over again throughout the analysis.</li>
 <li>Repetition across multiple variables, like <code>pop</code> and <code>lifeExp</code></li>
 <li><code>gdpPercap</code> appears three times.</li>
 </ul>
-</div>
-<div id="a-tibble-1704-x-6" class="section level1">
-<h1>A tibble: 1,704 x 6</h1>
-<p>country continent year lifeExp pop gdpPercap
-<fct> <fct> <int> <dbl> <dbl> <dbl>
-1 Afghanistan Asia 1952 28.8 -0.279 -0.731
-2 Afghanistan Asia 1957 30.3 -0.279 -0.731
-3 Afghanistan Asia 1962 32.0 -0.279 -0.731
-4 Afghanistan Asia 1967 34.0 -0.279 -0.731
-5 Afghanistan Asia 1972 36.1 -0.279 -0.731
-6 Afghanistan Asia 1977 38.4 -0.279 -0.731
-7 Afghanistan Asia 1982 39.9 -0.279 -0.731
-8 Afghanistan Asia 1987 40.8 -0.279 -0.731
-9 Afghanistan Asia 1992 41.7 -0.279 -0.731
-10 Afghanistan Asia 1997 41.8 -0.279 -0.731
-# … with 1,694 more rows
-# A tibble: 1,704 x 6
-country continent year lifeExp pop gdpPercap
-<fct> <fct> <int> <dbl> <dbl> <dbl>
-1 Afghanistan Asia 1952 28.8 -0.279 -0.731
-2 Afghanistan Asia 1957 30.3 -0.279 -0.731
-3 Afghanistan Asia 1962 32.0 -0.279 -0.731
-4 Afghanistan Asia 1967 34.0 -0.279 -0.731
-5 Afghanistan Asia 1972 36.1 -0.279 -0.731
-6 Afghanistan Asia 1977 38.4 -0.279 -0.731
-7 Afghanistan Asia 1982 39.9 -0.279 -0.731
-8 Afghanistan Asia 1987 40.8 -0.279 -0.731
-9 Afghanistan Asia 1992 41.7 -0.279 -0.731
-10 Afghanistan Asia 1997 41.8 -0.279 -0.731
-# … with 1,694 more rows</p>
+<pre><code>## # A tibble: 1,704 x 6
+##    country     continent  year lifeExp    pop gdpPercap
+##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
+##  1 Afghanistan Asia       1952    28.8 -0.279    -0.731
+##  2 Afghanistan Asia       1957    30.3 -0.279    -0.731
+##  3 Afghanistan Asia       1962    32.0 -0.279    -0.731
+##  4 Afghanistan Asia       1967    34.0 -0.279    -0.731
+##  5 Afghanistan Asia       1972    36.1 -0.279    -0.731
+##  6 Afghanistan Asia       1977    38.4 -0.279    -0.731
+##  7 Afghanistan Asia       1982    39.9 -0.279    -0.731
+##  8 Afghanistan Asia       1987    40.8 -0.279    -0.731
+##  9 Afghanistan Asia       1992    41.7 -0.279    -0.731
+## 10 Afghanistan Asia       1997    41.8 -0.279    -0.731
+## # … with 1,694 more rows</code></pre>
+<pre><code>## # A tibble: 1,704 x 6
+##    country     continent  year lifeExp    pop gdpPercap
+##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
+##  1 Afghanistan Asia       1952    28.8 -0.279    -0.731
+##  2 Afghanistan Asia       1957    30.3 -0.279    -0.731
+##  3 Afghanistan Asia       1962    32.0 -0.279    -0.731
+##  4 Afghanistan Asia       1967    34.0 -0.279    -0.731
+##  5 Afghanistan Asia       1972    36.1 -0.279    -0.731
+##  6 Afghanistan Asia       1977    38.4 -0.279    -0.731
+##  7 Afghanistan Asia       1982    39.9 -0.279    -0.731
+##  8 Afghanistan Asia       1987    40.8 -0.279    -0.731
+##  9 Afghanistan Asia       1992    41.7 -0.279    -0.731
+## 10 Afghanistan Asia       1997    41.8 -0.279    -0.731
+## # … with 1,694 more rows</code></pre>
 <p>Now:</p>
 <ol style="list-style-type: decimal">
 <li>Turn this into a function.</li>
