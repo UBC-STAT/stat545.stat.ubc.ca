@@ -9,41 +9,30 @@ output: html_document
 <p>Tuesday, Oct 27 - Thursday, Oct 29</p>
 <div id="learning-objectives" class="section level2">
 <h2>Learning Objectives</h2>
-<p>From today’s class, students are anticipated to be able to:</p>
+<p>Key topics this week:</p>
+<ul>
+<li>Start getting a sense of when to make a function in a data analysis (we will build on this next week).</li>
+<li>Workflow for building a function: start interactively, wrap it as a function. <code>return()</code>. Argument names.</li>
+<li>Fortify a function:
+<ul>
+<li>generalize the function and use smart defaults; <code>NA</code> handling, and ellipses package <a href="https://ellipsis.r-lib.org/">https://ellipsis.r-lib.org/</a></li>
+<li>provide useful error messages</li>
+<li>Unit tests, and (sidebar) assertions</li>
+</ul></li>
+<li>Data masking in a function.</li>
+</ul>
+<p>Possible topics this week:</p>
+<ul>
+<li><code>try()</code> and <code>withTimeout()</code>.</li>
+<li>environments and scoping. Perhaps <code>search()</code>; <code>with()</code>.</li>
+</ul>
 </div>
 <div id="prepare-for-class" class="section level2">
 <h2>Prepare for Class</h2>
-<p>Read/watch one of the following two resources before class (these will suffice for the week):</p>
+<p>Since this is the first week of Part B, I won’t be anticipating you to digest material beforehand. Plus, the video for this week won’t come until later in the week.</p>
+<p>Instead, I suggest digesting this content throughout the week:</p>
 <ul>
-<li>Watch STAT 545 Episode 1-B</li>
-<li>Read stat545.com Functions, Parts 1-3</li>
-</ul>
-</div>
-<div id="resources" class="section level2">
-<h2>Resources</h2>
-</div>
-<div id="outline" class="section level2">
-<h2>Outline</h2>
-<ul>
-<li>Many of the sections are on the philosophy of function making in an analysis.</li>
-<li>start interactively, then put it in a function.</li>
-<li>fail loudly and quickly: giving useful error messages</li>
-<li>assertions</li>
-<li>Generalizing your function; use arguments and smart defaults.</li>
-<li><code>return()</code></li>
-<li>argument names: be intentional</li>
-<li><code>NA</code>s, and their handling in the function. Propagate? <code>na.rm</code></li>
-<li>ellipses, and ellipses package <a href="https://ellipsis.r-lib.org/">https://ellipsis.r-lib.org/</a></li>
-<li>testthat</li>
-<li><code>try()</code></li>
-<li><code>withTimeout()</code>?</li>
-<li>tidy eval? Could be a big rabbit hole.</li>
-<li>environments and scoping. Perhaps <code>search()</code>; <code>with()</code>.</li>
-<li>S3 objects, generic functions, and methods?</li>
-</ul>
-<p>Grab from:</p>
-<ul>
-<li><a href="https://github.com/UBC-STAT/stat-545-guidebook/blob/master/cm202.Rmd">Guidebook 2018</a></li>
-<li><a href="https://github.com/UBC-STAT/stat-545-guidebook/blob/pre-leave/tutorials/cm101-exercise.Rmd">Worksheet 2018</a></li>
+<li>Read <a href="https://stat545.com/functions-part1.html">stat545.com Functions, Parts 1-3</a></li>
+<li>Watch STAT 545 Episode 1-B video series (I will announce when it’s available)</li>
 </ul>
 </div>

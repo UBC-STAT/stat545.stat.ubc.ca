@@ -24,42 +24,27 @@ cat(format(tues_date, "%A, %b %d"), "-",
 
 ## Learning Objectives
 
-From today's class, students are anticipated to be able to:
+Key topics this week:
 
+- Start getting a sense of when to make a function in a data analysis (we will build on this next week).
+- Workflow for building a function: start interactively, wrap it as a function. `return()`. Argument names. 
+- Fortify a function: 
+  - generalize the function and use smart defaults; `NA` handling, and ellipses package [https://ellipsis.r-lib.org/](https://ellipsis.r-lib.org/)
+  - provide useful error messages
+  - Unit tests, and (sidebar) assertions
+- Data masking in a function.
 
+Possible topics this week:
 
+- `try()` and `withTimeout()`.
+- environments and scoping. Perhaps `search()`; `with()`.
 
 ## Prepare for Class
 
-Read/watch one of the following two resources before class (these will suffice for the week):
+Since this is the first week of Part B, I won't be anticipating you to digest material beforehand. Plus, the video for this week won't come until later in the week.
 
-- Watch STAT 545 Episode 1-B
-- Read stat545.com Functions, Parts 1-3
+Instead, I suggest digesting this content throughout the week:
 
-## Resources
+- Read [stat545.com Functions, Parts 1-3](https://stat545.com/functions-part1.html)
+- Watch STAT 545 Episode 1-B video series (I will announce when it's available) 
 
-
-
-## Outline
-
-- Many of the sections are on the philosophy of function making in an analysis.
-- start interactively, then put it in a function.
-- fail loudly and quickly: giving useful error messages
-- assertions
-- Generalizing your function; use arguments and smart defaults.
-- `return()`
-- argument names: be intentional
-- `NA`s, and their handling in the function. Propagate? `na.rm`
-- ellipses, and ellipses package [https://ellipsis.r-lib.org/](https://ellipsis.r-lib.org/)
-- testthat
-- `try()`
-- `withTimeout()`?
-- tidy eval? Could be a big rabbit hole.
-- environments and scoping. Perhaps `search()`; `with()`.
-- S3 objects, generic functions, and methods?
-
-
-Grab from:
-
-- [Guidebook 2018](https://github.com/UBC-STAT/stat-545-guidebook/blob/master/cm202.Rmd)
-- [Worksheet 2018](https://github.com/UBC-STAT/stat-545-guidebook/blob/pre-leave/tutorials/cm101-exercise.Rmd)

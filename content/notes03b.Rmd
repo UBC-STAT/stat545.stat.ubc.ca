@@ -26,7 +26,12 @@ cat(format(tues_date, "%A, %b %d"), "-",
 
 From today's class, students are anticipated to be able to:
 
+- ...
 
+Topics:
+
+- Documenting functions (in and outside of packages)
+- S3 objects, generic functions, and methods
 
 
 ## Prepare for Class
