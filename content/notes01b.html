@@ -54,9 +54,24 @@ f(1)</code></pre>
 </div>
 <div id="demonstration" class="section level2">
 <h2>Demonstration</h2>
+<pre class="r"><code>library(tidyverse)
+library(gapminder)</code></pre>
 <p>Sometimes it’s useful to work with the <em>log</em> of a variable with a positive skew, such as <code>gapminder</code>’s GDP per capita:</p>
+<pre class="r"><code>cowplot::plot_grid(
+  ggplot(gapminder, aes(gdpPercap)) +
+    geom_histogram() +
+    theme_minimal(),
+  ggplot(gapminder, aes(log(gdpPercap))) +
+    geom_histogram() +
+    theme_minimal()
+)</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 <p><img src="/notes01b_files/figure-html/unnamed-chunk-3-1.png" width="480" style="display: block; margin: auto;" />
 And, it’s sometimes useful to scale a variable to have mean 0 and variance 1. We’ll do both:</p>
+<pre class="r"><code>gapminder %&gt;% 
+  mutate(gdpPercap_scaled = (log(gdpPercap) - mean(gdpPercap)) / sd(gdpPercap),
+         pop = (log(pop) - mean(pop)) / sd(gdpPercap))</code></pre>
 <pre><code>## # A tibble: 1,704 x 7
 ##    country     continent  year lifeExp    pop gdpPercap gdpPercap_scaled
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;            &lt;dbl&gt;
@@ -71,6 +86,8 @@ And, it’s sometimes useful to scale a variable to have mean 0 and variance 1. 
 ##  9 Afghanistan Asia       1992    41.7 -3003.      649.           -0.731
 ## 10 Afghanistan Asia       1997    41.8 -3003.      635.           -0.731
 ## # … with 1,694 more rows</code></pre>
+<pre class="r"><code>gapminder %&gt;% 
+  mutate(across(c(&quot;gdpPercap&quot;, &quot;pop&quot;), ~ (log(.) - mean(.)) / sd(.) ))</code></pre>
 <pre><code>## # A tibble: 1,704 x 6
 ##    country     continent  year lifeExp    pop gdpPercap
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
@@ -91,6 +108,14 @@ And, it’s sometimes useful to scale a variable to have mean 0 and variance 1. 
 <li>Repetition across multiple variables, like <code>pop</code> and <code>lifeExp</code></li>
 <li><code>gdpPercap</code> appears three times.</li>
 </ul>
+<pre class="r"><code>my_scale &lt;- function(x) {
+  (log(x) - mean(x)) / sd(x)
+}
+
+# my_scale(gapminder$gdpPercap)
+gapminder %&gt;% 
+  mutate(gdpPercap = my_scale(gdpPercap),
+         pop = my_scale(pop))</code></pre>
 <pre><code>## # A tibble: 1,704 x 6
 ##    country     continent  year lifeExp    pop gdpPercap
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
@@ -105,6 +130,8 @@ And, it’s sometimes useful to scale a variable to have mean 0 and variance 1. 
 ##  9 Afghanistan Asia       1992    41.7 -0.279    -0.731
 ## 10 Afghanistan Asia       1997    41.8 -0.279    -0.731
 ## # … with 1,694 more rows</code></pre>
+<pre class="r"><code>gapminder %&gt;% 
+  mutate(across(c(&quot;gdpPercap&quot;, &quot;pop&quot;), my_scale))</code></pre>
 <pre><code>## # A tibble: 1,704 x 6
 ##    country     continent  year lifeExp    pop gdpPercap
 ##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;
