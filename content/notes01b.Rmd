@@ -1,26 +1,24 @@
 ---
 title: "Week 1-B Lecture Notes: R Functions for Data Analysis"
-subtitle: "**Development** Version 0.9000"
+subtitle: "Version 1.0"
 output: html_document
 ---
 
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
+```{r, echo = FALSE, message = FALSE, warning = FALSE, results = "asis"}
 week_num <- 8  # 1 through 14
 #-------------
 source(here::here("content", "dates.R"))
 library(stringr)
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, results = "asis")
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, results = "asis",
+                      fig.width = 5, fig.height = 3, fig.align = "center")
 letter <- if (week_num <= 7) "A" else "B"
 tues_class_num <- paste0(str_pad(week_num * 2 - 2, width = 2, pad = 0), letter)
 tues_date <- lec0 + days((week_num - 1) * 7)
 thurs_date <- tues_date + days(2)
-```
-
-
-```{r tues-date}
 cat(format(tues_date, "%A, %b %d"), "-", 
     format(thurs_date, "%A, %b %d"))
 ```
+
 
 ## Learning Objectives
 
@@ -65,3 +63,62 @@ f(1)
 
 1. True or False: the output of `f(1)` is `-1`. 
 2. True or False: after running the above code, `x` is `-1`. 
+
+
+## Demonstration
+
+```{r, message = FALSE, warning = FALSE}
+library(tidyverse)
+library(gapminder)
+```
+
+Sometimes it's useful to work with the _log_ of a variable with a positive skew, such as `gapminder`'s GDP per capita:
+
+```{r}
+cowplot::plot_grid(
+  ggplot(gapminder, aes(gdpPercap)) +
+    geom_histogram() +
+    theme_minimal(),
+  ggplot(gapminder, aes(log(gdpPercap))) +
+    geom_histogram() +
+    theme_minimal()
+)
+```
+And, it's sometimes useful to scale a variable to have mean 0 and variance 1. We'll do both:
+
+```{r}
+gapminder %>% 
+  mutate(gdpPercap_scaled = (log(gdpPercap) - mean(gdpPercap)) / sd(gdpPercap),
+         pop = (log(pop) - mean(pop)) / sd(gdpPercap))
+
+gapminder %>% 
+  mutate(across(c("gdpPercap", "pop"), ~ (log(.) - mean(.)) / sd(.) ))
+```
+
+Where might there be repetition in this analysis? Where __is__ there repetition?
+
+- Doing this scaling over and over again throughout the analysis.
+- Repetition across multiple variables, like `pop` and `lifeExp`
+- `gdpPercap` appears three times.
+
+```{r}
+my_scale <- function(x) {
+  (log(x) - mean(x)) / sd(x)
+}
+
+# my_scale(gapminder$gdpPercap)
+gapminder %>% 
+  mutate(gdpPercap = my_scale(gdpPercap),
+         pop = my_scale(pop))
+gapminder %>% 
+  mutate(across(c("gdpPercap", "pop"), my_scale))
+```
+
+
+Now:
+
+1. Turn this into a function.
+2. Try `across()` for multiple variables.
+3. Test the function: first informally, then formally
+4. Sidebar: assertions
+5. Fortify: `NA` handling, ellipses, error messages and `if` statements.
