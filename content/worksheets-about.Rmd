@@ -19,6 +19,13 @@ __STAT 545A__:
 - Deadline: _Every Friday by 11:59pm (starting on Week 3-A)_
 - Grading: _To get full marks for each worksheet, you must successfully answer at least 40% of all autograded questions._
 
+__STAT 545B__:
+
+- Percentage of final grade: _10%_
+- Number of Worksheets: _3 graded_
+- Deadline: _Every Saturday by 11:59pm (starting on Week 1-B)_
+- Grading: _To get full marks for each worksheet, you must successfully answer some pre-specified amount of the autograded questions._
+
 
 ## Downloading the Worksheets
 
@@ -46,13 +53,24 @@ How to download the lecture worksheets:
 
 You can fill out the worksheets using [**jupyter**](https://jupyter.org/). We decided against RStudio here because jupyter works nicely with an autograder called nbgrader. 
 
-Steps for loading a worksheet:
+Steps for loading a worksheet __using jupyter lab or jupyter notebook__:
 
 1. Open a shell/Terminal
     - Mac: Open an app called "Terminal"
     - Windows/other: You can open a shell using RStudio -- just go to `Tools` > `Shell...`
 2. Type `jupyter lab` (or you could use `jupyter notebook`).
 3. Navigate to where you downloaded the worksheet, and open it.
+
+Steps for loading a worksheet __using UBC Syzygy__ (pronounced SIZ-ijee)
+
+1. Go to [ubc.syzygy.ca](https://ubc.syzygy.ca/).
+2. Sign in with your CWL account.
+3. Upload your worksheet file, and open it from there.
+
+Steps for loading a worksheet __using Google Colab__: _TBD_
+
+1. Go to [Google Colab](https://colab.research.google.com/)
+2. _TBD_
 
 ## Jupyter
 
@@ -76,4 +94,4 @@ Here is more info:
 
 ## Submitting your worksheets
 
-TBD
+Submit your worksheet file to canvas.
