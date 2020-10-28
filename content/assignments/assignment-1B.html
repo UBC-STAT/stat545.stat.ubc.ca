@@ -6,9 +6,83 @@ output: html_document
 
 
 
-<p><strong>Deadline</strong>: Saturday, November 7, 2020</p>
+<p><strong>Deadline</strong>: Saturday, November 7, 2020 at 23:59 PST</p>
+<p>In this assignment, you’ll be writing a function and using a function.</p>
 <ul>
-<li>Should write your own function(s) and tests with <code>testthat</code>. These functions may form the foundation of the write-your-own-R-package assignment if the student chooses.</li>
-<li>Should incorporate some sort of <code>map</code> function from <code>purrr</code> in an analysis.</li>
 <li>Drawing inspiration from the <a href="https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/evaluation/hw06/hw06.md">2018 assignment 06</a> Questions 2, 4, 5, 6</li>
 </ul>
+<hr />
+<div id="setup" class="section level2">
+<h2>Setup</h2>
+<p>Make your github repository by following this link: XXXXXX</p>
+<p>Work within your <code>assignment-1b</code> folder.</p>
+<p>Your repo will be seeded with instructions for this milestone.</p>
+</div>
+<div id="tidy-submission-1-point" class="section level2">
+<h2>Tidy Submission (1 point)</h2>
+<p>Be sure to knit to an output that is viewable using a web browser on the internet. GitHub pages? A markdown file through <code>output: github_document</code>?</p>
+<p>Your <code>assignment-1b</code> folder has a README.</p>
+</div>
+<div id="exercise-1-functions" class="section level2">
+<h2>Exercise 1: Functions</h2>
+<p>In this exercise, you’ll be making a function and fortifying it. To help you choose a function, you might find it useful to decide what you’ll be doing in Exercise 2, so that you can use your function from here in Exercise 2. These functions may form the foundation of the write-your-own-R-package assignment if the student chooses.</p>
+<ol style="list-style-type: decimal">
+<li>Make a function. In one or two brief sentences: why might this function be useful?</li>
+<li>Arguments: choose one: fortify with NA handling and a default; adding arguments that generalise your function together with smart defaults; ellipses. In one or two brief sentences: why might your choice of arguments be useful?</li>
+<li>Choose two:</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Useful error messages or warnings: use the <code>stop()</code> or <code>warning()</code> function in an <code>if</code> statement. Ensure the message is informative. In one or two brief sentences: Why did you choose what you chose – i.e., warning or stop?</li>
+<li>A <code>verbose</code> option.</li>
+<li>Apply a data mask.</li>
+</ol>
+<ol start="4" style="list-style-type: decimal">
+<li>Write a unit test to test the function. You should use at least three non-redundant uses of an <code>expect_()</code> function from the <code>testthat</code> package.</li>
+</ol>
+<ul>
+<li>Non-redundant means that they should be checking different features. For example, <code>expect_identical(sqrt(4), 2)</code> and <code>expect_identical(sqrt(100), 10)</code> <em>are</em> redundant.</li>
+</ul>
+<p><strong>How to choose a function to design</strong></p>
+<p>We need to see your own work here. This means you might not be able to take a function from some elsewhere – unless that function is missing the above components. In that case, just reference your source. You don’t need to stick to just one function.</p>
+<p>Bonus: (+2?) Make one of these changes to an open source case study or R package. Either submit a pull request with your changes, or put a note for your grader asking if they think this will be OK. Note: your change needs to actually be reasonable – both in order to get these points, and out of respect to the developers. If you’re nervous, perhaps ask the developers by writing an Issue in their GitHub repository if they would be interested in your proposed change, first. You probably won’t get far looking in well-developed R packages like <code>ggplot2</code>, so search for those packages that are</p>
+<p><strong>Rubric</strong></p>
+<p>Does it work?</p>
+</div>
+<div id="list-columns" class="section level2">
+<h2>List columns</h2>
+<ol style="list-style-type: decimal">
+<li>distplyr (maybe after lm?)</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Using the <code>distplyr</code> package, make a column of distributions.</li>
+<li>Evaluate a representation of your choosing on some values. Unnest.</li>
+</ol>
+<ol start="2" style="list-style-type: decimal">
+<li>lm:</li>
+</ol>
+<ol style="list-style-type: lower-alpha">
+<li>Make a column of linear models for each group.</li>
+<li>Augment and unnest.</li>
+</ol>
+<ol start="3" style="list-style-type: decimal">
+<li>rectangling</li>
+<li>Following lm on gapminder:</li>
+</ol>
+<ul>
+<li>Find countries with interesting stories. Sudden, substantial departures from the temporal trend is interesting. How could you operationalize this notion of “interesting”?</li>
+<li>Use the residuals to detect countries where your model is a terrible fit. Examples: Are there 1 or more freakishly large residuals, in an absolute sense or relative to some estimate of background variability? Are there strong patterns in the sign of the residuals? E.g., all positive, then all negative, then positive again.</li>
+<li>Fit a regression using ordinary least squares and a robust technique. Determine the difference in estimated parameters under the two approaches. If it is large, consider that country “interesting”.</li>
+<li>Compare a linear and quadratic fit</li>
+</ul>
+<p><strong>Rubric</strong></p>
+<p>Was at least one <code>map</code> function used?</p>
+<p>Was a list column made at least once?</p>
+<p>Was nesting or unnesting done?</p>
+</div>
+<div id="submitting" class="section level2">
+<h2>Submitting</h2>
+<p>Once you’re done the assignment, go back to UBC canvas, and find the “Homework 06” page. Here, do the following:</p>
+<p>Provide a link to your homework repository.
+Write a brief reflection about your experience with this assignment: what was hard/easy, problems you solved, helpful tutorials you read, etc. No need to write lots here.
+Although you don’t have to do this until the very end, we highly recommend you commit and push to your homework repo regularly!</p>
+</div>

@@ -4,8 +4,86 @@ subtitle: "**Development Version** 0.9000"
 output: html_document
 ---
 
-__Deadline__: Saturday, November 7, 2020
+__Deadline__: Saturday, November 7, 2020 at 23:59 PST
 
-- Should write your own function(s) and tests with `testthat`. These functions may form the foundation of the write-your-own-R-package assignment if the student chooses.
-- Should incorporate some sort of `map` function from `purrr` in an analysis.
+In this assignment, you'll be writing a function and using a function. 
+
 - Drawing inspiration from the [2018 assignment 06](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/evaluation/hw06/hw06.md) Questions 2, 4, 5, 6
+
+
+-----
+
+## Setup
+
+Make your github repository by following this link: XXXXXX
+
+Work within your `assignment-1b` folder. 
+
+Your repo will be seeded with instructions for this milestone.
+
+
+## Tidy Submission (1 point)
+
+Be sure to knit to an output that is viewable using a web browser on the internet. GitHub pages? A markdown file through `output: github_document`?
+
+Your `assignment-1b` folder has a README.
+
+## Exercise 1: Functions
+
+In this exercise, you'll be making a function and fortifying it. To help you choose a function, you might find it useful to decide what you'll be doing in Exercise 2, so that you can use your function from here in Exercise 2. These functions may form the foundation of the write-your-own-R-package assignment if the student chooses.
+
+1. Make a function. In one or two brief sentences: why might this function be useful?
+2. Arguments: choose one: fortify with NA handling and a default; adding arguments that generalise your function together with smart defaults; ellipses. In one or two brief sentences: why might your choice of arguments be useful?
+3. Choose two:
+  a. Useful error messages or warnings: use the `stop()` or `warning()` function in an `if` statement. Ensure the message is informative. In one or two brief sentences: Why did you choose what you chose -- i.e., warning or stop?
+  b. A `verbose` option. 
+  c. Apply a data mask.
+4. Write a unit test to test the function. You should use at least three non-redundant uses of an `expect_()` function from the `testthat` package. 
+  - Non-redundant means that they should be checking different features. For example, `expect_identical(sqrt(4), 2)` and `expect_identical(sqrt(100), 10)` _are_ redundant.
+
+
+**How to choose a function to design**
+
+We need to see your own work here. This means you might not be able to take a function from some elsewhere -- unless that function is missing the above components. In that case, just reference your source. You don't need to stick to just one function.
+
+Bonus: (+2?) Make one of these changes to an open source case study or R package. Either submit a pull request with your changes, or put a note for your grader asking if they think this will be OK. Note: your change needs to actually be reasonable -- both in order to get these points, and out of respect to the developers. If you're nervous, perhaps ask the developers by writing an Issue in their GitHub repository if they would be interested in your proposed change, first. You probably won't get far looking in well-developed R packages like `ggplot2`, so search for those packages that are 
+
+
+
+**Rubric**
+
+Does it work?
+
+
+## List columns
+
+1. distplyr (maybe after lm?)
+  a. Using the `distplyr` package, make a column of distributions. 
+  b. Evaluate a representation of your choosing on some values. Unnest.
+2. lm:
+  a. Make a column of linear models for each group. 
+  b. Augment and unnest.
+3. rectangling
+4. Following lm on gapminder:
+  - Find countries with interesting stories. Sudden, substantial departures from the temporal trend is interesting. How could you operationalize this notion of "interesting"?
+  - Use the residuals to detect countries where your model is a terrible fit. Examples: Are there 1 or more freakishly large residuals, in an absolute sense or relative to some estimate of background variability? Are there strong patterns in the sign of the residuals? E.g., all positive, then all negative, then positive again.
+  - Fit a regression using ordinary least squares and a robust technique. Determine the difference in estimated parameters under the two approaches. If it is large, consider that country "interesting".
+  - Compare a linear and quadratic fit
+
+
+**Rubric**
+
+Was at least one `map` function used?
+
+Was a list column made at least once?
+
+Was nesting or unnesting done?
+
+## Submitting
+
+Once you're done the assignment, go back to UBC canvas, and find the "Homework 06" page. Here, do the following:
+
+Provide a link to your homework repository.
+Write a brief reflection about your experience with this assignment: what was hard/easy, problems you solved, helpful tutorials you read, etc. No need to write lots here.
+Although you don't have to do this until the very end, we highly recommend you commit and push to your homework repo regularly!
+
