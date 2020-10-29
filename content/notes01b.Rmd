@@ -9,7 +9,7 @@ week_num <- 8  # 1 through 14
 #-------------
 source(here::here("content", "dates.R"))
 library(stringr)
-knitr::opts_chunk$set(fig.width = 5, fig.height = 3, fig.align = "center")
+knitr::opts_chunk$set(fig.width = 5, fig.height = 3, fig.align = "center", error = TRUE)
 letter <- if (week_num <= 7) "A" else "B"
 tues_class_num <- paste0(str_pad(week_num * 2 - 2, width = 2, pad = 0), letter)
 tues_date <- lec0 + days((week_num - 1) * 7)
@@ -81,6 +81,7 @@ f(1)
 ```{r, message = FALSE, warning = FALSE}
 library(tidyverse)
 library(gapminder)
+library(testthat)
 ```
 
 Sometimes it's useful to work with the _log_ of a variable with a positive skew, such as `gapminder`'s GDP per capita:
@@ -99,11 +100,11 @@ And, it's sometimes useful to scale a variable to have mean 0 and variance 1. We
 
 ```{r}
 gapminder %>% 
-  mutate(gdpPercap_scaled = (log(gdpPercap) - mean(gdpPercap)) / sd(gdpPercap),
-         pop = (log(pop) - mean(pop)) / sd(gdpPercap))
+  mutate(gdpPercap_scaled = (log(gdpPercap) - mean(log(gdpPercap))) / sd(log(gdpPercap)),
+         pop_scaled = (log(pop) - mean(log(pop))) / sd(log(pop)))
 
 gapminder %>% 
-  mutate(across(c("gdpPercap", "pop"), ~ (log(.) - mean(.)) / sd(.) ))
+  mutate(across(c("gdpPercap", "pop"), ~ (log(.) - mean(log(.))) / sd(log(.)) ))
 ```
 
 Where might there be repetition in this analysis? Where __is__ there repetition?
@@ -117,11 +118,31 @@ Solve the problem of repetition by writing _functions_.
 1. Turn the above into a function.
 
 ```{r}
-my_scale <- function(x) {
-  (log(x) - mean(x)) / sd(x)
+my_scale <- function(x, remove_na = TRUE, verbose = FALSE, ...) {
+  if (verbose) cat("Taking the log...\n")
+  logx <- log(x)
+  if (verbose) cat("Done taking the log!\n")
+  (logx - mean(logx, na.rm = remove_na, ...)) / sd(logx, na.rm = remove_na)
 }
+my_scale(1:10)
 
-# my_scale(gapminder$gdpPercap)
+my_scale_informative <- function(x, remove_na = TRUE, verbose = FALSE, ...) {
+  if (verbose) cat("Taking the log...\n")
+  logx <- log(x)
+  if (verbose) cat("Done taking the log!\n")
+  mu <- mean(logx, na.rm = remove_na, ...)
+  sd <- sd(logx, na.rm = remove_na)
+  list(result = (logx - mu) / sd,
+       mean = mu,
+       sd = sd)
+}
+my_scale_informative(1:10)
+```
+
+2. Try `across()` for multiple variables.
+
+
+```{r}
 gapminder %>% 
   mutate(gdpPercap = my_scale(gdpPercap),
          pop = my_scale(pop))
@@ -129,18 +150,76 @@ gapminder %>%
   mutate(across(c("gdpPercap", "pop"), my_scale))
 ```
 
-2. Try `across()` for multiple variables.
+
+
 3. Test the function: first informally, then formally
+
+```{r}
+t <- my_scale(exp(c(1, 3)), verbose = TRUE)
+t
+my_scale(exp(c(1, 3, NA)))
+my_scale(1:10)
+my_scale(1:10, trim = 0.1, foobar = 3)
+test_that("Basic testing", {
+  expect_equal(my_scale(exp(c(1, 3))), (c(1, 3) - 2) / sqrt(2))
+  expect_equal(my_scale(exp(c(1, 3, NA))), (c(1, 3, NA) - 2) / sqrt(2))
+  expect_error(my_scale(letters))
+})
+```
+
 4. Sidebar: assertions
 5. Fortify: `NA` handling, ellipses, error messages and `if` statements, verbose option.
 
 Other exercises:
 
-- Ellipses by making a strict `mean()` function that only accepts numeric.
+- Ellipsis by making a strict `mean()` function that only accepts numeric.
 - Curly-Curly with ggplot2: scatterplot of x vs. y (this is called a "data mask")
-- `as.formula` with `lm()`; polynomial.
+
+```{r, fig.width = 3, fig.height = 2}
+gapminder %>% 
+  ggplot(aes(gdpPercap, lifeExp)) +
+  geom_point()
+quick_scatter <- function(data, x, y) {
+  ggplot(data, aes({{ x }}, {{ y }})) +
+    geom_point()
+}
+gapminder %>% 
+  quick_scatter(gdpPercap, lifeExp)
+```
+
+Demonstrate use of a data mask when no such functionality exists: here's an example of subsetting the `wt` column from the `mtcars` data frame in base R:
+
+```{r}
+mtcars[["wt"]]
+```
+
+
+Make a function that does this subsetting, not using curly-curly:
+
+```
+my_subset <- function(data, variable) {
+    data[[{{ variable }}]]
+}
+my_subset(mtcars, "wt") 
+my_subset(mtcars, wt)
+```
+
+Using curly-curly doesn't grant the `[[` subsetting any data masking powers -- data masking must already be in place, as they are in `dplyr` and `ggplot2` functions.
+
+```
+my_subset <- function(data, variable) {
+    data[[{{ variable }}]]
+}
+my_subset(mtcars, "wt") 
+my_subset(mtcars, wt)
+```
+
+
+
+## Other Topics Not Covered
+
 - A function shouldn't do too much. Should do one thing well.
   - Example of a function that does too much: [my `cnqr()` function from my PhD](https://github.com/vincenzocoia/cnqr/blob/master/R/cnqr.R).
   - Does the scaling function above do too much?
-- Check out the assignment.
-- Time left? `try()` and `withTimeout()`.
+- `as.formula` with `lm()`; polynomial.
+- `try()` and `withTimeout()`.
