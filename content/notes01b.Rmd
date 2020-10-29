@@ -30,11 +30,17 @@ Key topics this week:
   - provide useful error messages; sidebar: `if` statements
   - Unit tests, and (sidebar) assertions
 - Data masking in a function.
+- Documenting a function
 
 Possible topics this week:
 
 - `try()` and `withTimeout()`.
 - environments and scoping. Perhaps `search()`; `with()`.
+
+What we're _not_ covering (this week):
+
+- Documenting functions with roxygen2 (Week 3)
+- S3 objects (and other object oriented styles) (Week 3)
 
 ## Prepare for Class
 
@@ -121,3 +127,17 @@ Now:
 3. Test the function: first informally, then formally
 4. Sidebar: assertions
 5. Fortify: `NA` handling, ellipses, error messages and `if` statements.
+
+
+Exercises:
+
+
+- Curly-Curly with dplyr
+- Curly-Curly with ggplot2
+- `as.formula` with `lm()`; polynomial?
+- what things to test in testthat?
+- documentation checklist: 
+  - arguments: defaults; what the object is expecting (numeric vector? list? any vector?); 
+- argument names -- maybe go through some examples and justify?
+- Example of a function that does too much: my `cnqr()` function.
+- Maybe fill in the assignment for a function of my choice -- maybe `max - min`.
