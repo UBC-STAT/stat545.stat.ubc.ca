@@ -71,7 +71,7 @@ f(1)
 
 ## Quiz 2-B
 
-1. True or False: Curly-curly `{{` can be used whenever we want to refer to column names outright, such as when subsetting in base R with `[[`.
+1. True or False: Curly-curly `{{}}` can be used whenever we want to refer to column names outright, such as when subsetting in base R with `[[`.
 2. You've made a function `quick_scatter()` that you can pipe a tibble into, and outputs a scatterplot of two variables. So far, you're only using the function to explore the data for your own eyes (perhaps even putting your code directly in the console). True or False: at this point, you should stop and make sure your function is documented and has formal unit tests. 
 
 
@@ -114,6 +114,7 @@ Where might there be repetition in this analysis? Where __is__ there repetition?
 - `gdpPercap` appears three times.
 
 Solve the problem of repetition by writing _functions_.
+
 
 1. Turn the above into a function.
 
@@ -223,3 +224,4 @@ my_subset(mtcars, wt)
   - Does the scaling function above do too much?
 - `as.formula` with `lm()`; polynomial.
 - `try()` and `withTimeout()`.
+
