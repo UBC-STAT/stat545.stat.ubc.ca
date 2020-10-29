@@ -197,9 +197,9 @@ mtcars[["wt"]]
 
 Make a function that does this subsetting, not using curly-curly:
 
-```
+```{r}
 my_subset <- function(data, variable) {
-    data[[{{ variable }}]]
+    data[[variable]]
 }
 my_subset(mtcars, "wt") 
 my_subset(mtcars, wt)
@@ -207,7 +207,7 @@ my_subset(mtcars, wt)
 
 Using curly-curly doesn't grant the `[[` subsetting any data masking powers -- data masking must already be in place, as they are in `dplyr` and `ggplot2` functions.
 
-```
+```{r}
 my_subset <- function(data, variable) {
     data[[{{ variable }}]]
 }

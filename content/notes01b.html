@@ -238,17 +238,25 @@ gapminder %&gt;%
 ## [13] 3.730 3.780 5.250 5.424 5.345 2.200 1.615 1.835 2.465 3.520 3.435 3.840
 ## [25] 3.845 1.935 2.140 1.513 3.170 2.770 3.570 2.780</code></pre>
 <p>Make a function that does this subsetting, not using curly-curly:</p>
-<pre><code>my_subset &lt;- function(data, variable) {
-    data[[{{ variable }}]]
+<pre class="r"><code>my_subset &lt;- function(data, variable) {
+    data[[variable]]
 }
-my_subset(mtcars, &quot;wt&quot;) 
-my_subset(mtcars, wt)</code></pre>
+my_subset(mtcars, &quot;wt&quot;) </code></pre>
+<pre><code>##  [1] 2.620 2.875 2.320 3.215 3.440 3.460 3.570 3.190 3.150 3.440 3.440 4.070
+## [13] 3.730 3.780 5.250 5.424 5.345 2.200 1.615 1.835 2.465 3.520 3.435 3.840
+## [25] 3.845 1.935 2.140 1.513 3.170 2.770 3.570 2.780</code></pre>
+<pre class="r"><code>my_subset(mtcars, wt)</code></pre>
+<pre><code>## Error in (function(x, i, exact) if (is.matrix(i)) as.matrix(x)[[i]] else .subset2(x, : object &#39;wt&#39; not found</code></pre>
 <p>Using curly-curly doesn’t grant the <code>[[</code> subsetting any data masking powers – data masking must already be in place, as they are in <code>dplyr</code> and <code>ggplot2</code> functions.</p>
-<pre><code>my_subset &lt;- function(data, variable) {
+<pre class="r"><code>my_subset &lt;- function(data, variable) {
     data[[{{ variable }}]]
 }
-my_subset(mtcars, &quot;wt&quot;) 
-my_subset(mtcars, wt)</code></pre>
+my_subset(mtcars, &quot;wt&quot;) </code></pre>
+<pre><code>##  [1] 2.620 2.875 2.320 3.215 3.440 3.460 3.570 3.190 3.150 3.440 3.440 4.070
+## [13] 3.730 3.780 5.250 5.424 5.345 2.200 1.615 1.835 2.465 3.520 3.435 3.840
+## [25] 3.845 1.935 2.140 1.513 3.170 2.770 3.570 2.780</code></pre>
+<pre class="r"><code>my_subset(mtcars, wt)</code></pre>
+<pre><code>## Error in (function(x, i, exact) if (is.matrix(i)) as.matrix(x)[[i]] else .subset2(x, : object &#39;wt&#39; not found</code></pre>
 </div>
 <div id="other-topics-not-covered" class="section level2">
 <h2>Other Topics Not Covered</h2>
