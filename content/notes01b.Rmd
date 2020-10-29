@@ -69,6 +69,12 @@ f(1)
 1. True or False: the output of `f(1)` is `-1`. 
 2. True or False: after running the above code, `x` is `-1`. 
 
+## Quiz 2-B
+
+1. True or False: Curly-curly `{{` can be used whenever we want to refer to column names outright, such as when subsetting in base R with `[[`.
+2. You've made a function `quick_scatter()` that you can pipe a tibble into, and outputs a scatterplot of two variables. So far, you're only using the function to explore the data for your own eyes (perhaps even putting your code directly in the console). True or False: at this point, you should stop and make sure your function is documented and has formal unit tests. 
+
+
 
 ## Demonstration
 
