@@ -114,6 +114,10 @@ And, it’s sometimes useful to scale a variable to have mean 0 and variance 1. 
 <li>Repetition across multiple variables, like <code>pop</code> and <code>lifeExp</code></li>
 <li><code>gdpPercap</code> appears three times.</li>
 </ul>
+<p>Solve the problem of repetition by writing <em>functions</em>.</p>
+<ol style="list-style-type: decimal">
+<li>Turn the above into a function.</li>
+</ol>
 <pre class="r"><code>my_scale &lt;- function(x) {
   (log(x) - mean(x)) / sd(x)
 }
@@ -152,26 +156,23 @@ gapminder %&gt;%
 ##  9 Afghanistan Asia       1992    41.7 -0.279    -0.731
 ## 10 Afghanistan Asia       1997    41.8 -0.279    -0.731
 ## # … with 1,694 more rows</code></pre>
-<p>Now:</p>
-<ol style="list-style-type: decimal">
-<li>Turn this into a function.</li>
+<ol start="2" style="list-style-type: decimal">
 <li>Try <code>across()</code> for multiple variables.</li>
 <li>Test the function: first informally, then formally</li>
 <li>Sidebar: assertions</li>
-<li>Fortify: <code>NA</code> handling, ellipses, error messages and <code>if</code> statements.</li>
+<li>Fortify: <code>NA</code> handling, ellipses, error messages and <code>if</code> statements, verbose option.</li>
 </ol>
-<p>Exercises:</p>
+<p>Other exercises:</p>
 <ul>
-<li>Curly-Curly with dplyr</li>
-<li>Curly-Curly with ggplot2</li>
-<li><code>as.formula</code> with <code>lm()</code>; polynomial?</li>
-<li>what things to test in testthat?</li>
-<li>documentation checklist:
+<li>Ellipses by making a strict <code>mean()</code> function that only accepts numeric.</li>
+<li>Curly-Curly with ggplot2: scatterplot of x vs. y (this is called a “data mask”)</li>
+<li><code>as.formula</code> with <code>lm()</code>; polynomial.</li>
+<li>A function shouldn’t do too much. Should do one thing well.
 <ul>
-<li>arguments: defaults; what the object is expecting (numeric vector? list? any vector?);</li>
+<li>Example of a function that does too much: <a href="https://github.com/vincenzocoia/cnqr/blob/master/R/cnqr.R">my <code>cnqr()</code> function from my PhD</a>.</li>
+<li>Does the scaling function above do too much?</li>
 </ul></li>
-<li>argument names – maybe go through some examples and justify?</li>
-<li>Example of a function that does too much: my <code>cnqr()</code> function.</li>
-<li>Maybe fill in the assignment for a function of my choice – maybe <code>max - min</code>.</li>
+<li>Check out the assignment.</li>
+<li>Time left? <code>try()</code> and <code>withTimeout()</code>.</li>
 </ul>
 </div>

@@ -106,6 +106,10 @@ Where might there be repetition in this analysis? Where __is__ there repetition?
 - Repetition across multiple variables, like `pop` and `lifeExp`
 - `gdpPercap` appears three times.
 
+Solve the problem of repetition by writing _functions_.
+
+1. Turn the above into a function.
+
 ```{r}
 my_scale <- function(x) {
   (log(x) - mean(x)) / sd(x)
@@ -119,25 +123,18 @@ gapminder %>%
   mutate(across(c("gdpPercap", "pop"), my_scale))
 ```
 
-
-Now:
-
-1. Turn this into a function.
 2. Try `across()` for multiple variables.
 3. Test the function: first informally, then formally
 4. Sidebar: assertions
-5. Fortify: `NA` handling, ellipses, error messages and `if` statements.
+5. Fortify: `NA` handling, ellipses, error messages and `if` statements, verbose option.
 
+Other exercises:
 
-Exercises:
-
-
-- Curly-Curly with dplyr
-- Curly-Curly with ggplot2
-- `as.formula` with `lm()`; polynomial?
-- what things to test in testthat?
-- documentation checklist: 
-  - arguments: defaults; what the object is expecting (numeric vector? list? any vector?); 
-- argument names -- maybe go through some examples and justify?
-- Example of a function that does too much: my `cnqr()` function.
-- Maybe fill in the assignment for a function of my choice -- maybe `max - min`.
+- Ellipses by making a strict `mean()` function that only accepts numeric.
+- Curly-Curly with ggplot2: scatterplot of x vs. y (this is called a "data mask")
+- `as.formula` with `lm()`; polynomial.
+- A function shouldn't do too much. Should do one thing well.
+  - Example of a function that does too much: [my `cnqr()` function from my PhD](https://github.com/vincenzocoia/cnqr/blob/master/R/cnqr.R).
+  - Does the scaling function above do too much?
+- Check out the assignment.
+- Time left? `try()` and `withTimeout()`.
