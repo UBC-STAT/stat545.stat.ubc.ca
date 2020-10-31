@@ -47,6 +47,7 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 ### Friday
 
 - [ ] __Submit Quiz 8-B by 11:00am PST__
+- [ ] Vote for your favourite topics to see in the last class of STAT 545B.
 - [ ] Get your questions for the teaching team into Slack by mid-day (we can't necessarily be active on Slack on evenings and weekends)
 
 ### Saturday
