@@ -1,10 +1,10 @@
 ---
-title: "STAT 545 Checklist: Week 1-B"
+title: "STAT 545 Checklist: Week 2-B"
 output: html_document
 ---
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, results = "asis"}
-week_num <- 8  # 1 through 13; Week 7 ended 545A.
+week_num <- 9  # 1 through 13; Week 7 ended 545A.
 #-------------
 source(here::here("content", "dates.R"))
 library(stringr)
@@ -24,31 +24,31 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 
 ### Monday
 
-- Start Worksheet 1-B
-- Start lecture preparation
+- Start Worksheet 2-B
+- Start lecture preparation (see notes)
 
 ### Tuesday
 
 - [ ] Attend lecture 9:30am - 11:00am PST
-- [ ] Prepare: Pre-readings by 9:30am PST (**recommended; but won't be anticipated on Tuesday's lecture**)
+- [ ] Prepare: Pre-readings by 09:30am PST
+- [ ] Prepare: Watch pre-class video by 09:30am PST
 
 ### Wednesday
 
-- [ ] __Complete Quiz 1-B by 11:00am PST (on canvas)__
-- Start Assignment 1-B (not due until Saturday _next week_)
+- [ ] __Complete Quiz 3-B by 11:00am PST (on canvas)__
 
 ### Thursday
 
 - [ ] Pre-readings by 9:30am PST
-- [ ] (Optional) Attend office hours at 16:00 - 17:00 PST
+- [ ] (Optional) Attend office hours at 16:00 - 17:00 PST in the regular "classroom".
 - [ ] Attend lecture 9:30am - 11:00am PST
 
 ### Friday
 
-- [ ] __Submit Quiz 2-B by 11:00am PST__
+- [ ] __Submit Quiz 4-B by 11:00am PST__
 - [ ] Get your questions for the teaching team into Slack by mid-day (we can't necessarily be active on Slack on evenings and weekends)
-- [ ] ~~Watch this week's video episode by 9:30am PST~~ (*this week's video is postponed*)
 
 ### Saturday
 
-- [ ] __Submit your Worksheet 1-B file to canvas by 23:59 PST__
+- [ ] __Submit your Worksheet 2-B file to canvas by 23:59 PST__
+- [ ] __Submit your Assignment 1-B URL to canvas by 23:59 PST__
