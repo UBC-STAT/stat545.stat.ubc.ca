@@ -25,7 +25,7 @@ Use this page to navigate your way through STAT 545.
 | 3-B  | R packages | `r format(dates_545b[5]  - days(1), "%b %d")` - `r format(dates_545b[6]  + ddays(1), "%b %d")` | [notes](/notes03b) | [checklist](/week3b) |
 | 4-B  | Dashboards | `r format(dates_545b[7]  - days(1), "%b %d")` - `r format(dates_545b[8]  + ddays(1), "%b %d")` | [notes](/notes04b) | [checklist](/week4b) |
 | 5-B  | Automation | `r format(dates_545b[9]  - days(1), "%b %d")` - `r format(dates_545b[10] + ddays(1), "%b %d")` | [notes](/notes05b) | [checklist](/week5b) |
-| 6-B  | Character data + Your Choice | `r format(dates_545b[11] - days(1), "%b %d")` - `r format(dates_545b[12] + ddays(1), "%b %d")` | [notes](/notes06b) | checklist |
+| 6-B  | Character data + Your Choice | `r format(dates_545b[11] - days(1), "%b %d")` - `r format(dates_545b[12] + ddays(1), "%b %d")` | [notes](/notes06b) | [checklist](/week6b) |
 
 
 -------
