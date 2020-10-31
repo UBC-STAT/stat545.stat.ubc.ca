@@ -1,5 +1,6 @@
 ---
 title: "STAT 545 Checklist: Week 1-B"
+subtitle: "Version 1.0"
 output: html_document
 ---
 
