@@ -32,7 +32,7 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 
 - [ ] Attend lecture 9:30am - 11:00am PST
 - [ ] Prepare: Pre-readings by 09:30am PST
-- [ ] Prepare: Watch pre-class video by 09:30am PST
+- [ ] ~~Prepare: Watch pre-class video by 09:30am PST~~
 
 ### Wednesday
 
@@ -43,6 +43,7 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 - [ ] Pre-readings by 9:30am PST
 - [ ] (Optional) Attend office hours at 16:00 - 17:00 PST in the regular "classroom".
 - [ ] Attend lecture 9:30am - 11:00am PST
+- [ ] _Prepare: Watch pre-class video by 09:30am PST_ (MOVED)
 
 ### Friday
 
