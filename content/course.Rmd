@@ -37,7 +37,7 @@ Use this page to navigate your way through STAT 545.
 | Worksheet | Download | View | # required questions | Deadline |
 |-----------|----------|------|----------------------|----------|
 | Worksheet 1-B | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_01b.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_01b.ipynb) | 4 | Saturday, October 31, 2020 at 23:59 PST |
-| Worksheet 2-B |  |  |  | Saturday, November 7, 2020 at 23:59 PST |
+| Worksheet 2-B | [.ipynb](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_02b.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_02b.ipynb) | 6 | Saturday, November 7, 2020 at 23:59 PST |
 | Worksheet 3-B |  |  |  | Saturday, December 5, 2020 at 23:59 PST |
 
 -------
