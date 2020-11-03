@@ -1,5 +1,5 @@
 ---
-title: "STAT 545 Checklist: Week 2-B"
+title: "STAT 545 Checklist: Week 5-B"
 subtitle: "Version 1.0"
 output: html_document
 ---
