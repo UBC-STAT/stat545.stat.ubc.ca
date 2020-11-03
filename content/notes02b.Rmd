@@ -9,7 +9,8 @@ week_num <- 9  # 1 through 14
 #-------------
 source(here::here("content", "dates.R"))
 library(stringr)
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, results = "asis")
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, 
+                      results = "asis", error = TRUE)
 letter <- if (week_num <= 7) "A" else "B"
 tues_class_num <- paste0(str_pad(week_num * 2 - 2, width = 2, pad = 0), letter)
 tues_date <- lec0 + days((week_num - 1) * 7)
@@ -24,32 +25,81 @@ cat(format(tues_date, "%A, %b %d"), "-",
 
 ## Learning Objectives
 
-From today's class, students are anticipated to be able to:
+Did you know that a column of a tibble can contain a list -- not just a vector? This week explores when such a thing would come in handy, and how to work with list columns. 
 
+From this week, students are anticipated to be able to:
 
-
-
-## Prepare for Class
-
-Read/watch one of the following two resources before class:
-
-- Watch STAT 545 Episode
-- 
+- Use the `map` family of functions from the purrr package to iteratively apply a function.
+- Create and operate on list columns in a tibble using `nest()`, `unnest()`, and the `map()` family of functions.
+- Define functions on-the-fly within a `map` function using shortcuts.
+- Apply list columns to cases in data analysis: columns of models, columns of nested lists (JSON-style data), and operating on entire groups within a tibble. 
 
 ## Resources
 
+These resources are meant to be _paired_ with this week, not necessarily digested _before_ class.
+
+- STAT 545 Episode 2-B (released later in the week)
+- [R4DS Chapter 21: Iteration](https://r4ds.had.co.nz/iteration.html) for purrr
+    - 21.1 for an intro
+    - 21.5 for the `map` family of functions
+    - The intro of 21.7 for the `map2` and `pmap` families.
+- ["List Columns"](https://jennybc.github.io/purrr-tutorial/ls13_list-columns.html) from [Jenny's purrr tutorial](https://jennybc.github.io/purrr-tutorial/index.html)
+- ["Nested data" article](https://tidyr.tidyverse.org/articles/nest.html) on tidyr's website.
+
+By the way, why use the `map` functions over `for` loops? Aside from the what's said at [R4DS's Section 21.4](https://r4ds.had.co.nz/iteration.html#for-loops-vs.-functionals), the `map` family encourages the input vector(s) and function to be carefully defined first, whereas a `for` loop is more of a free-for-all. Using `map()` is also more readable, is pipe-friendly, and jibes well with list columns in tibbles. 
+
+## Demonstration
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+library(distplyr)
+```
 
 
-## Outline
+Here are some additional exercises that we may cover in class.
 
-Nesting, list columns, rectangling, purrr. Revisit `across()`?
+### Demo 1: `map2`
 
-- Draw from Jenny's https://jennybc.github.io/purrr-tutorial/ls01_map-name-position-shortcuts.html
-- Possible new resource for nested data: [https://tidyr.tidyverse.org/articles/nest.html](https://tidyr.tidyverse.org/articles/nest.html)
-- rectangling may be most useful for JSON files -- not worth digging into deeply?
-- Use cases (as per [https://r4ds.had.co.nz/many-models.html#creating-list-columns](https://r4ds.had.co.nz/many-models.html#creating-list-columns))
-    - Nesting: `nest()` and `unnest()`
-    - rectangling for JSON data: `unnest_wider()`, `unnest_longer()`, and `hoist()`
-    - purrr list outputs with `mutate()`
-- Draw examples from my analyses over the past year or so.
-- `do.call()`
+Using the `palmerpenguins::penguins` tibble: 
+
+1. Make a Normal distribution using `distplyr::dst_norm()` for the body mass of each species, using estimates taken from `mean()` and `var()`. Title the column `distribution`.
+2. Calculate the 0.975-quantile from each distribution using `distplyr::eval_quantile()`. Try this by making a new column of distributions, and by not.
+
+Starter code:
+
+```
+(demo1 <- penguins %>% 
+  group_by(species) %>% 
+  summarise(mean = mean(body_mass_g, na.rm = TRUE),
+            var  = var(body_mass_g, na.rm = TRUE)))
+```
+
+Answer:
+
+```{r}
+(demo1 <- penguins %>% 
+  group_by(species) %>% 
+  summarise(mean = mean(body_mass_g, na.rm = TRUE),
+            var  = var(body_mass_g, na.rm = TRUE)))
+```
+
+
+### Demo 2: `unnest()`
+
+`unnest()` need not always be paired with `nest()`. For the above distributions, evaluate the 0.25, 0.50, and 0.75 quantiles using the `distplyr::enframe_quantile()` function.
+
+Starter code:
+
+```
+demo1 %>% 
+  mutate(quantiles = FILL_THIS_IN)
+```
+
+Answer
+
+```{r}
+demo1 %>% 
+  mutate(quantiles = FILL_THIS_IN)
+```
+
