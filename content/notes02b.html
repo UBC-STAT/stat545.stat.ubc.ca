@@ -34,6 +34,22 @@ output: html_document
 <li><a href="https://tidyr.tidyverse.org/articles/nest.html">“Nested data” article</a> on tidyr’s website.</li>
 </ul>
 <p>By the way, why use the <code>map</code> functions over <code>for</code> loops? Aside from the what’s said at <a href="https://r4ds.had.co.nz/iteration.html#for-loops-vs.-functionals">R4DS’s Section 21.4</a>, the <code>map</code> family encourages the input vector(s) and function to be carefully defined first, whereas a <code>for</code> loop is more of a free-for-all. Using <code>map()</code> is also more readable, is pipe-friendly, and jibes well with list columns in tibbles.</p>
+<div id="additional-resources" class="section level3">
+<h3>Additional Resources</h3>
+<p>Want to dig deeper? These resources can help.</p>
+<ul>
+<li><a href="https://adv-r.hadley.nz/functionals.html">Advanced R Chapter 9: Functionals</a> – looking at purrr and <code>map()</code> from a programming perspective.</li>
+<li><a href="https://tidyr.tidyverse.org/articles/rectangle.html">tidyr’s rectangling vignette</a> – for handling deeply nested lists (JSON-style data), similar to tidyr’s <code>pivot</code> functions.</li>
+</ul>
+</div>
+</div>
+<div id="quizzes" class="section level2">
+<h2>Quizzes</h2>
+<p><strong>Quiz 3-B</strong></p>
+<ol style="list-style-type: decimal">
+<li>True or False: <code>map(1:3, ~ function(x) x ^ 2)</code> returns the list <code>list(1, 4, 9)</code>.</li>
+<li>You write a function <code>square()</code> that squares its input – but the first thing it does is print a message to the screen! True or False: <code>map_dbl(1:10, square)</code> will throw an error, because the output is not a <code>dbl</code> (a number) – it contains the message, too.</li>
+</ol>
 </div>
 <div id="demonstration" class="section level2">
 <h2>Demonstration</h2>
