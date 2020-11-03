@@ -38,7 +38,7 @@ From this week, students are anticipated to be able to:
 
 These resources are meant to be _paired_ with this week, not necessarily digested _before_ class.
 
-- STAT 545 Episode 2-B (released later in the week)
+- STAT 545 Episode 2-B (released later)
 - [R4DS Chapter 21: Iteration](https://r4ds.had.co.nz/iteration.html) for purrr
     - 21.1 for an intro
     - 21.5 for the `map` family of functions
