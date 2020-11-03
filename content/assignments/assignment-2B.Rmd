@@ -6,13 +6,39 @@ output: html_document
 
 __Deadline__: Saturday, November 14, 2020
 
-- Write your own R package. Maybe one of:
-    - A data package.
-        - Students can take data that's relevant to their analysis and make a package out of it. Ideally, make it open-source so the world can use it.
+In Assignment 1-B, you practiced writing a function. This time, we'll be evaluating your ability to wrap an object, such as that function (but not necessarily), in an R package. 
+
+----
+
+Guidelines for creation:
+
+- We're adapting the [hw07 from 2018](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/evaluation/hw07/hw07.md)
+- This assignment has been a bit hefty in the past. Simplification and focus will happen by only getting them to wrap the R package infrastructure around a simple object (dataset or a function), without having them focus much on the actual object that they're wrapping. Previously, we had them write a few functions, AND wrap the package infrastructure around it. Now, the former was addressed in Assignment 1-B.
+- Of course, they have the option to do more than just wrap a single object. However, I am considering making the last assignment be more flexible, to align with the "choose your own adventure" theme -- I'm thinking one of the options can be for the student to add to their R package. Might be good for those students who are especially onto something with their R package and are passionate about it. This might be tricky administratively, though. 
+- R packages that we can suggest they make:
     - Turn their function(s) from Assignment 1-B into an R package.
-    - Add to the `vincenzocoia/powers` or `jennybc/foofactors` packages -- but in a fork not to be merged (since these are for expository purposes only).
-    - Contribute to an open-source R package. Add a function, documentation, and a test. Maybe propose an update to a vignette. 
-        - Actually submit a pull request to improve the package if they choose. If this is the intent, should ask the developers beforehand to see if this is of interest.
-        - Ideas: a new `geom` to ggplot; add `broom` tidy functions to a currently incompatible model. 
-    - Write about the steps you took to make the package. Important so that we know how you used the `usethis` and `devtools` packages.
-- Drawing inspiration from [hw07 in 2018](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/evaluation/hw07/hw07.md)
+    - Make a data package, like `palmerpenguins` or `gapminder`. 
+        - Students can take data that they're invested in, and make a package out of it. Ideally, make it open-source so the world can use it, but that's not necessary. 
+    - Add to the `vincenzocoia/powers` or `jennybc/foofactors` packages, as in the past assignment.
+- Grading: 
+    - Basically, the rubric should consist of two main parts: (1) are all the components of an R package present and high quality, complete with documentation and tests? and (2) did they make this R package in a modern and robust way, using the `usethis` and `devtools` packages? 
+        - For (2), we could ask them to briefly explain to us how they made each part of the R package, telling us the exact `usethis` or `devtools` code they needed to run to implement the package component, or the manual work they did with their files. This should not be detailed, but rather high-level -- we want to make sure they're not doing things manually here, but rather enlisting the help of `usethis` or `devtools`. This isn't entirely important for very simple tasks, but tasks like editing the DESCRIPTION file and using `testthat` are finicky in their requirements, so `usethis` should be used in this case.  
+    - A basic part of the rubric should be: the package passes `check()` without errors (warnings and notes are OK).
+    - We'll have to modify the previous rubric so that it doesn't focus on how good the actual object is, and the tests that they wrote -- since this was evaluated in Assignment 1-A. What matters is that the tests are incorporated into the package so that they are run when we click "Check". But still, we don't want the object or tests to be nonsense. 
+- It's probably not OK for them to make their package in an `assignment-2b` folder in their repos, because it complicates things: can't easily install package via `devtools::install_github()`; harder to launch a package website if they choose to do that; etc. Perhaps give them the option to create a new repo in the `stat545ubc-2020` Organization, which we can seed with GitHub Classroom (https://classroom.github.com/), or have them make a repo on their own account (especially if they want to take ownership of this project downstream).
+- Here are individual things that they _could_ do. Would it be too much to ask them to do all of it? I've marked the mandatory things with an (*).
+    - (*) Use roxygen2 comment style `#'` and tags like `@param` to document their function or dataset. Make sure they run `devtools::document()` to update documentation so that we can just type `?their_object` to get the documentation. Make sure all objects are `@export`ed (unless they have multiple functions and want some to be internal, but the "main" function(s) must be exported).
+    - (*) Document all exported functions and datasets. 
+    - (*) list package dependencies in their DESCRIPTION file using `usethis`.
+    - (*) DESCRIPTION file is otherwise up-to-date and informative.
+    - (*) If applicable, modify the source code of their function so that functions from other packages are called appropriately (typically need `::`).
+    - (*) Tests are in appropriate files and folders, made using `usethis`. 
+    - Make a package website, and activate it with GitHub Pages. I believe it's really straight-forward with the `pkgdown` package. If I recall correctly, you only need to run `usethis::use_pkgdown()`, and then build the website with `pkgdown::build_site()`, and you're all set -- activate github pages, and you can actually navigate the website. 
+    - Make a code coverage report with `covr`? Perhaps even an account with them? [Here's](https://codecov.io/github/tidyverse/ggplot2?branch=master) the ggplot2 `covr` page, for example. It's auto-generated.
+    - (*) Add a license. Use `usethis`. Maybe have them say, in a sentence, why they chose a particular license.
+    - Add to the Changelog or add a News article for the "release" of their package. One, or both? Example: [ggplot2 website](https://ggplot2.tidyverse.org/reference/index.html) under the "News" drop-down menu.
+    - (*) Make a README for their package (which is also the README to their repo). Should use `usethis` to kickstart the README file, and `devtools` (?) to render it. It should say what the package is, how to install it, and include a brief example of using the package. 
+    - Make a vignette. The only problem here is that, with a one-object package, there's probably no need -- but at the same time, it's worthwhile knowing how to write a vignette, because this is where they'd write a tutorial on how to use the package. 
+    - Add a code of conduct. `usethis::use_code_of_conduct()`. This should be optional, because they need to believe in the code of conduct (hopefully they all do...)
+    - Add "badges" to their README.
+    - Choose an appropriate version for their released package, based on semantic versioning. 

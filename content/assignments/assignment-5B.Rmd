@@ -8,5 +8,8 @@ __Deadline__: Saturday, December 5, 2020
 
 - regex assignment has never been all that inspiring in past years. [hw06 from 2018](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/evaluation/hw06/hw06.md) just asks students to do exercises in R4DS book.
 - maybe this year, since we moved regex to the last week, we can make this part of the choose-your-adventure theme so that students don't have to necessarily do regex outside of the worksheet if they don't want. Ideas listed in Lecture Notes 6-B. 
-    - Another idea: add onto something they did in a past assignment -- continue with their R package, or shiny dashboard, ...
-    
+- Ideas for choose-your-own-adventure:
+  - add onto something they did in a past assignment -- continue with their R package (perhaps implementing S3 OO), or shiny dashboard, ...
+  - Contribute to an open-source R package. Add a function, documentation, and a test. Maybe propose an update to a vignette. 
+      - Actually submit a pull request to improve the package if they choose. If this is the intent, should ask the developers beforehand to see if this is of interest.
+      - Ideas: a new `geom` to ggplot; add `broom` tidy functions to a currently incompatible model. 

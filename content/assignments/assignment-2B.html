@@ -4,24 +4,53 @@ subtitle: "**Development Version** 0.9000"
 output: html_document
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p><strong>Deadline</strong>: Saturday, November 14, 2020</p>
+<p>In Assignment 1-B, you practiced writing a function. This time, we’ll be evaluating your ability to wrap an object, such as that function (but not necessarily), in an R package.</p>
+<hr />
+<p>Guidelines for creation:</p>
 <ul>
-<li>Write your own R package. Maybe one of:
+<li>We’re adapting the <a href="https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/evaluation/hw07/hw07.md">hw07 from 2018</a></li>
+<li>This assignment has been a bit hefty in the past. Simplification and focus will happen by only getting them to wrap the R package infrastructure around a simple object (dataset or a function), without having them focus much on the actual object that they’re wrapping. Previously, we had them write a few functions, AND wrap the package infrastructure around it. Now, the former was addressed in Assignment 1-B.</li>
+<li>Of course, they have the option to do more than just wrap a single object. However, I am considering making the last assignment be more flexible, to align with the “choose your own adventure” theme – I’m thinking one of the options can be for the student to add to their R package. Might be good for those students who are especially onto something with their R package and are passionate about it. This might be tricky administratively, though.</li>
+<li>R packages that we can suggest they make:
 <ul>
-<li>A data package.
-<ul>
-<li>Students can take data that’s relevant to their analysis and make a package out of it. Ideally, make it open-source so the world can use it.</li>
-</ul></li>
 <li>Turn their function(s) from Assignment 1-B into an R package.</li>
-<li>Add to the <code>vincenzocoia/powers</code> or <code>jennybc/foofactors</code> packages – but in a fork not to be merged (since these are for expository purposes only).</li>
-<li>Contribute to an open-source R package. Add a function, documentation, and a test. Maybe propose an update to a vignette.
+<li>Make a data package, like <code>palmerpenguins</code> or <code>gapminder</code>.
 <ul>
-<li>Actually submit a pull request to improve the package if they choose. If this is the intent, should ask the developers beforehand to see if this is of interest.</li>
-<li>Ideas: a new <code>geom</code> to ggplot; add <code>broom</code> tidy functions to a currently incompatible model.</li>
+<li>Students can take data that they’re invested in, and make a package out of it. Ideally, make it open-source so the world can use it, but that’s not necessary.</li>
 </ul></li>
-<li>Write about the steps you took to make the package. Important so that we know how you used the <code>usethis</code> and <code>devtools</code> packages.</li>
+<li>Add to the <code>vincenzocoia/powers</code> or <code>jennybc/foofactors</code> packages, as in the past assignment.</li>
 </ul></li>
-<li>Drawing inspiration from <a href="https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/evaluation/hw07/hw07.md">hw07 in 2018</a></li>
+<li>Grading:
+<ul>
+<li>Basically, the rubric should consist of two main parts: (1) are all the components of an R package present and high quality, complete with documentation and tests? and (2) did they make this R package in a modern and robust way, using the <code>usethis</code> and <code>devtools</code> packages?
+<ul>
+<li>For (2), we could ask them to briefly explain to us how they made each part of the R package, telling us the exact <code>usethis</code> or <code>devtools</code> code they needed to run to implement the package component, or the manual work they did with their files. This should not be detailed, but rather high-level – we want to make sure they’re not doing things manually here, but rather enlisting the help of <code>usethis</code> or <code>devtools</code>. This isn’t entirely important for very simple tasks, but tasks like editing the DESCRIPTION file and using <code>testthat</code> are finicky in their requirements, so <code>usethis</code> should be used in this case.<br />
+</li>
+</ul></li>
+<li>A basic part of the rubric should be: the package passes <code>check()</code> without errors (warnings and notes are OK).</li>
+<li>We’ll have to modify the previous rubric so that it doesn’t focus on how good the actual object is, and the tests that they wrote – since this was evaluated in Assignment 1-A. What matters is that the tests are incorporated into the package so that they are run when we click “Check”. But still, we don’t want the object or tests to be nonsense.</li>
+</ul></li>
+<li>It’s probably not OK for them to make their package in an <code>assignment-2b</code> folder in their repos, because it complicates things: can’t easily install package via <code>devtools::install_github()</code>; harder to launch a package website if they choose to do that; etc. Perhaps give them the option to create a new repo in the <code>stat545ubc-2020</code> Organization, which we can seed with GitHub Classroom (<a href="https://classroom.github.com/" class="uri">https://classroom.github.com/</a>), or have them make a repo on their own account (especially if they want to take ownership of this project downstream).</li>
+<li>Here are individual things that they <em>could</em> do. Would it be too much to ask them to do all of it? I’ve marked the mandatory things with an (*).
+<ul>
+<li>(*) Use roxygen2 comment style <code>#'</code> and tags like <code>@param</code> to document their function or dataset. Make sure they run <code>devtools::document()</code> to update documentation so that we can just type <code>?their_object</code> to get the documentation. Make sure all objects are <code>@export</code>ed (unless they have multiple functions and want some to be internal, but the “main” function(s) must be exported).</li>
+<li>(*) Document all exported functions and datasets.</li>
+<li>(*) list package dependencies in their DESCRIPTION file using <code>usethis</code>.</li>
+<li>(*) DESCRIPTION file is otherwise up-to-date and informative.</li>
+<li>(*) If applicable, modify the source code of their function so that functions from other packages are called appropriately (typically need <code>::</code>).</li>
+<li>(*) Tests are in appropriate files and folders, made using <code>usethis</code>.</li>
+<li>Make a package website, and activate it with GitHub Pages. I believe it’s really straight-forward with the <code>pkgdown</code> package. If I recall correctly, you only need to run <code>usethis::use_pkgdown()</code>, and then build the website with <code>pkgdown::build_site()</code>, and you’re all set – activate github pages, and you can actually navigate the website.</li>
+<li>Make a code coverage report with <code>covr</code>? Perhaps even an account with them? <a href="https://codecov.io/github/tidyverse/ggplot2?branch=master">Here’s</a> the ggplot2 <code>covr</code> page, for example. It’s auto-generated.</li>
+<li>(*) Add a license. Use <code>usethis</code>. Maybe have them say, in a sentence, why they chose a particular license.</li>
+<li>Add to the Changelog or add a News article for the “release” of their package. One, or both? Example: <a href="https://ggplot2.tidyverse.org/reference/index.html">ggplot2 website</a> under the “News” drop-down menu.</li>
+<li>(*) Make a README for their package (which is also the README to their repo). Should use <code>usethis</code> to kickstart the README file, and <code>devtools</code> (?) to render it. It should say what the package is, how to install it, and include a brief example of using the package.</li>
+<li>Make a vignette. The only problem here is that, with a one-object package, there’s probably no need – but at the same time, it’s worthwhile knowing how to write a vignette, because this is where they’d write a tutorial on how to use the package.</li>
+<li>Add a code of conduct. <code>usethis::use_code_of_conduct()</code>. This should be optional, because they need to believe in the code of conduct (hopefully they all do…)</li>
+<li>Add “badges” to their README.</li>
+<li>Choose an appropriate version for their released package, based on semantic versioning.</li>
+</ul></li>
 </ul>
