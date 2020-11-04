@@ -24,29 +24,32 @@ cat(format(tues_date, "%A, %b %d"), "-",
 
 ## Learning Objectives
 
-From today's class, students are anticipated to be able to:
+From today's class, students are anticipated to be able to build a basic R package, especially using the `devtools` package. 
 
-- ...
+- Write a DESCRIPTION file
+- Carefully curate package dependencies
+- Document functions and data using roxygen2 comments and tags
+- Include tests with testthat in accordance with the R package infrastructure.
+- Add a license
+- Update an R package via semantic versioning, NEWS, changelog.
+- Develop and build informative vignettes and a package README.
+- Add a code of conduct
 
-Topics:
+And possibly:
 
-- Documenting functions (in and outside of packages)
-- S3 objects, generic functions, and methods
+- Make a package website with pkgdown.
+- Make a code coverage report and page with covr.
+- Add badges to the README.
+- Build an S3 object oriented package
 
 
 ## Prepare for Class
 
-Read/watch one of the following two resources before class:
-
-- Watch STAT 545 Episode
-- 
-
-## Resources
+Prep for this week is also optional. We'll be following along with ["The Whole Game" Chapter of "R packages"](https://r-pkgs.org/whole-game.html) this week.
 
 
+## Additional Resources
 
-## Outline
-
-
-- [Guidebook 2018](https://github.com/UBC-STAT/stat-545-guidebook/blob/master/cm205.Rmd)
-- [Firas Guidebook](https://github.com/UBC-STAT/stat-545-guidebook/blob/master/cm112.Rmd)
+- STAT 545 Episode 3-B
+- ["R Packages, ed. 2", by Hadley Wickham and Jenny Bryan](https://r-pkgs.org/index.html)
+- [Writing R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html): The official and comprehensive (but dry) resource for writing R packages.
