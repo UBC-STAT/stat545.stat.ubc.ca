@@ -38,7 +38,7 @@ Read/watch one of the following two resources before class:
 
 ## Resources
 
-
+["Mastering Shiny"](https://mastering-shiny.org/) by Hadley Wickham
 
 ## Outline
 
