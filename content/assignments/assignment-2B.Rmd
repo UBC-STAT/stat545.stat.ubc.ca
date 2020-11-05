@@ -9,7 +9,7 @@ __Reviewer__: Iciar Fernandez & Vincenzo Coia
 
 ----
 
-__Deadline__: Saturday, November 14, 2020
+__Deadline__: Saturday, November 14, 2020 at 23:59 PST
 
 __Total Points__: 20
 
@@ -47,7 +47,7 @@ Follow these steps to submit your work. Be sure to familiarize yourself with the
 
 ## Exercise 1: Create an R Package (3 points)
 
-- [ ] Create an R package that wraps _at least 1_ object. You _can_ wrap more than one object if you wish. To start, use the `create_package()` and `use_git()` function to create your R package GitHub repository (if you haven't made or forked one yet). Make sure that your repository is _public_ so that we can mark it.
+- [ ] Create an R package that wraps _at least 1_ object. You _can_ wrap more than one object if you wish. To start, use the `create_package()` and `use_git()` functions to create your R package GitHub repository (if you haven't made or forked one yet). Make sure that your repository is _public_ so that we can mark it.
 
 Suggested R packages:
 
@@ -61,11 +61,11 @@ Suggested R packages:
 
 - [ ] Briefly explain how you made each part of your R package. This doesn't need to be very detailed, but rather at a high-level
   - [ ] Show the exact code you used from `usethis` or `devtools` to implement the package component
-  - [ ] Show any manual work you did with your files
+  - [ ] Describe any manual work you did with your files
 
 ## Exercise 1.2: Tests (3 points)
 
-- [ ] Create tests for your package, in the appropriate files and folders, using `usethis` and `testthat`.
+- [ ] Create tests for your package, in the appropriate files and folders, using `usethis` and `testthat`. You can use the tests you wrote in Assignment 1-B, if relevant.
   - [ ] Make sure your tests are also well-documented, meaning that the description/test name is informative, and that any necessary code commenting is present
 
 ## Exercise 1.3: Documentation of your R package (10 points)
@@ -78,7 +78,7 @@ Specifically:
   - [ ] Use `devtools::document()` to update documentation, so that the `?your_object` command is able to fetch your documentation
   - [ ] Make sure that all objects are `@export`ed unless there is a valid reason for them to be internal
       - [ ] Remember to justify your decisions
-- [ ] Document _all_ exported functions and datasets
+- [ ] Document _all_ functions and datasets
 - [ ] List all package dependencies in their `DESCRIPTION` file using `usethis`
 - [ ] `DESCRIPTION` file is otherwise up-to-date and informative
 - [ ] If applicable, modify the source code of your function so that functions from other packages are called appropriately (e.g. using `::`)
@@ -89,10 +89,10 @@ Specifically:
 **Optional**:
 
 - [ ] Add a code of conduct, using `usethis::use_code_of_conduct()`
-- [ ] Make a package website, and activate it with GitHub Pages. I believe it’s really straight-forward with the pkgdown package.
-  - [ ] use the `pkgdown` package, using `usethis::use_pkgdown()`, and then `pkgdown::build_suite()`
+- [ ] Make a package website, and activate it with GitHub Pages. 
+  - [ ] use the `pkgdown` package, using `usethis::use_pkgdown()`, and then `pkgdown::build_site()`
 - [ ] Add to the Changelog or add a News article for the 'release' of your package
-- [ ] Add "badges" to their `README`
+- [ ] Add "badges" to your `README`
 
 **Rubric**: 
 
