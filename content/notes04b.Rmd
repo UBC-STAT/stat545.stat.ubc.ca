@@ -24,23 +24,40 @@ cat(format(tues_date, "%A, %b %d"), "-",
 
 ## Learning Objectives
 
-From today's class, students are anticipated to be able to:
+This week aims to provide you with a foundation for making a dashboard using R shiny. From today's class, students are anticipated to be able to:
 
+- develop basic shiny apps from scratch,
+- deploy a shiny app,
+- create interactive Shiny R Markdown documents, and
+- research more advanced shiny techniques.
 
+And possibly:
+
+- Make an interactive plot with plotly
+- Make a shiny document (embed shiny features within an Rmd file)
 
 
 ## Prepare for Class
 
 Read/watch one of the following two resources before class:
 
-- Watch STAT 545 Episode
-- 
+Prep for this week is also optional. We'll be following along with [Dean Attali's shiny tutorial](https://deanattali.com/blog/building-shiny-apps-tutorial/) this week.
 
-## Resources
+## Additional Resources
 
-["Mastering Shiny"](https://mastering-shiny.org/) by Hadley Wickham
+General:
 
-## Outline
+- STAT 545 Episode 4-B
+- ["Mastering Shiny"](https://mastering-shiny.org/) by Hadley Wickham
+- The [official shiny site](https://shiny.rstudio.com/) is also very useful. It has tutorials, a gallery, and other goodies.
 
-- shinytest package for testing shiny apps?
-- Draw from [Guidebook 2018](https://github.com/UBC-STAT/stat-545-guidebook/blob/master/cm207.Rmd)
+Specific tasks:
+
+- For deploying shiny apps, check out [https://www.shinyapps.io/](https://www.shinyapps.io/)
+- For shiny documents (= R Markdown + shiny), see [Chapter 19 of Yihui’s R Markdown book](https://bookdown.org/yihui/rmarkdown/shiny-documents.html).
+- For testing your shiny app, check out the [shinytest](https://rstudio.github.io/shinytest/) and [reactlog](https://github.com/rstudio/reactlog) packages. 
+
+Other dashboard tools besides shiny (but not in R):
+
+- With python: plotly dash. Check out the [main website](https://plotly.com/dash/), or [this Medium post](https://medium.com/plotly/introducing-dash-5ecf7191b503) introducing the tool.
+- With javascript: [D3](https://d3js.org/), a tremendously powerful tool with a steep learning curve (esp. if you don't know javascript).
