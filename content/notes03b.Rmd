@@ -24,6 +24,8 @@ cat(format(tues_date, "%A, %b %d"), "-",
 
 ## Learning Objectives
 
+*We will continue our discussion on purrr on Tuesday*
+
 From today's class, students are anticipated to be able to build a basic R package, especially using the `devtools` package. 
 
 - Write a DESCRIPTION file
