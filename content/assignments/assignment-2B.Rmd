@@ -41,8 +41,9 @@ For more information on these two tasks, see details on Exercise 1.
 
 Follow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.
 
-- [ ] Update your main `README` for your _assignment_ repository with a link to your new R package repository. Your new repository _should not_ be named `assignment-2b`. In fact, it should be named whatever you decide to name your package!
+- [ ] Update your main `README` for your _assignment_ (i.e. `stat-545b-assignments-GitHub-Username`) repository **with a link to your new R package repository.** Your new repository _should not_ be named `assignment-2b`. In fact, it should be named whatever you decide to name your package!
 - [ ] Make a `README` for your new package repository, using `usethis` to kickstart the `README`, and `devtools` to render it. Your `README` should describe what the package is, how to install it, and include an example usage of the package. The `datateachr` [repository](https://github.com/UBC-MDS/datateachr/blob/master/README.md) is a good example for a R dataset package. The `distplyr` [repository](https://github.com/vincenzocoia/distplyr/blob/master/README.md) is a good example for an R function(s) package.
+  - Your `README` must also include your explanations for Exercise 1.1 (see below)
 - [ ] Tag a release in your R package repository _corresponding to the version release of your package_. Use [semantic versioning conventions](https://semver.org). This is a release _for your package_.
   - Semantic versioning conventions: `MAJOR.MINOR.PATCH`, where initial development starts at `0.1.0`, and then increment the minor version for each subsequent release
     - Only release `1.0.0` if your package is being used in production and ready for public use
