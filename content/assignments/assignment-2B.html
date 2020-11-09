@@ -1,6 +1,6 @@
 ---
 title: "Assignment 2-B"
-subtitle: "**Development Version:** 0.900" 
+subtitle: "**Version:** 1.0" 
 output: html_document
 ---
 
@@ -38,7 +38,7 @@ Create a <em>new</em>, <em>public</em> repository under your own personal GitHub
 <p>Follow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.</p>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" />
-Update your main <code>README</code> for your <em>assignment</em> repository with a link to your new R package repository. Your new (or forked) repository <em>should not</em> be named <code>assignment-2b</code>. In fact, it should be named whatever you decide to name your package!</li>
+Update your main <code>README</code> for your <em>assignment</em> repository with a link to your new R package repository. Your new repository <em>should not</em> be named <code>assignment-2b</code>. In fact, it should be named whatever you decide to name your package!</li>
 <li><input type="checkbox" disabled="" />
 Make a <code>README</code> for your new package repository, using <code>usethis</code> to kickstart the <code>README</code>, and <code>devtools</code> to render it. Your <code>README</code> should describe what the package is, how to install it, and include an example usage of the package. The <code>datateachr</code> <a href="https://github.com/UBC-MDS/datateachr/blob/master/README.md">repository</a> is a good example for a R dataset package. The <code>distplyr</code> <a href="https://github.com/vincenzocoia/distplyr/blob/master/README.md">repository</a> is a good example for an R function(s) package.</li>
 <li><input type="checkbox" disabled="" />
@@ -63,11 +63,10 @@ Tag a release for your <em>assignment</em> repository, e.g. <code>stat-545b-ass
 <li>The above steps were followed.</li>
 <li>Your work is self-contained in your new R package repository
 <ul>
-<li>Here is an <em>example</em> structure of a typical R package repository. Note that these are <em>typical</em> of an R package repository– not every single item is <em>required</em> for yours. Look through the criteria and use your judgement.</li>
+<li>Here is an <em>example</em> structure of a typical R package repository. Note that these are <em>typical</em> of an R package repository– not every single item is <em>required</em> for yours. Look through the criteria and use your judgment. Most of this directory structure will be created when you make the package using <code>usethis</code> and <code>devtools</code>.</li>
 </ul>
 <pre><code>├── CODE_OF_CONDUCT.md
 ├── DESCRIPTION
-├── EXPLANATIONS.md
 ├── LICENSE.md
 ├── R
 │   └── function.R
@@ -88,7 +87,7 @@ Tag a release for your <em>assignment</em> repository, e.g. <code>stat-545b-ass
 <h2>Exercise 1: Create an R Package (3 points)</h2>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" />
-Create an R package that wraps <em>at least 1</em> object. You <em>can</em> wrap more than one object if you wish. To start, use the <code>create_package()</code> and <code>use_git()</code> functions to create your R package GitHub repository (if you haven’t made or forked one yet). Make sure that your repository is <em>public</em> so that we can mark it.</li>
+Create an R package that wraps <em>at least 1</em> object. You <em>can</em> wrap more than one object if you wish. To start, use the <code>create_package()</code> and <code>use_git()</code> functions to create your R package GitHub repository (if you haven’t made yet). Make sure that your repository is <em>public</em> so that we can mark it.</li>
 </ul>
 <p>Suggested R packages:</p>
 <ul>
@@ -101,7 +100,7 @@ Create an R package that wraps <em>at least 1</em> object. You <em>can</em> wrap
 </div>
 <div id="exercise-1.1-explain-your-development-2-points" class="section level2">
 <h2>Exercise 1.1: Explain Your Development (2 points)</h2>
-<p>In a separate <code>EXPLANATIONS.md</code> file in the root of your repository:</p>
+<p>In your <code>README</code>, please:</p>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" />
 Briefly explain how you made each part of your R package. This doesn’t need to be very detailed, but rather at a high-level<ul class="task-list">
@@ -111,16 +110,6 @@ Show the exact code you used from <code>usethis</code> or <code>devtools</code> 
 Describe any manual work you did with your files</li>
 </ul></li>
 </ul>
-<p>e.g. <code>EXPLANATIONS.md</code></p>
-<pre><code>## Exercise 1.1: Explain Your Development
-
-&lt;!-- EXPLANATION HERE --&gt;
-
-## Exercise 1.3: Documentation of Your R Package
-
-### Choice of LICENSE
-
-&lt;!-- EXPLANATION HERE --&gt;</code></pre>
 </div>
 <div id="exercise-1.2-tests-3-points" class="section level2">
 <h2>Exercise 1.2: Tests (3 points)</h2>
@@ -161,10 +150,10 @@ If applicable, modify the source code of your function so that functions from ot
 <li><input type="checkbox" disabled="" />
 Add a license, using <code>usethis</code></li>
 <li><input type="checkbox" disabled="" />
-Make a <em>short</em> vignette for your package</li>
+Make a <em>short</em> vignette for your package (using the <code>usethis</code> and <code>devtools</code> package)</li>
 </ul>
 <p><strong>Optional</strong></p>
-<p><strong>+1 bonus point</strong> if you can successfully do all four of these things:</p>
+<p><strong>+1 bonus point</strong> if you can successfully do <em>all four</em> of these things:</p>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" />
 Add a code of conduct, using <code>usethis::use_code_of_conduct()</code></li>
@@ -174,7 +163,7 @@ Make a package website, and activate it with GitHub Pages.<ul class="task-list">
 use the <code>pkgdown</code> package, using <code>usethis::use_pkgdown()</code>, and then <code>pkgdown::build_site()</code></li>
 </ul></li>
 <li><input type="checkbox" disabled="" />
-Add to the Changelog or add a News article for the ‘release’ of your package</li>
+Add to the Changelog or add a News article for the ‘release’ of your package (e.g. <code>NEWS.md</code> in the root of the repo, see <a href="https://github.com/vincenzocoia/distplyr/blob/master/NEWS.md">example</a> in <code>distplyr</code>)</li>
 <li><input type="checkbox" disabled="" />
 Add <a href="https://cran.r-project.org/web/packages/badgecreatr/vignettes/all_badges.html">“badges”</a> to your <code>README</code></li>
 </ul>

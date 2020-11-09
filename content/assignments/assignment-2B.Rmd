@@ -1,6 +1,6 @@
 ---
 title: "Assignment 2-B"
-subtitle: "**Development Version:** 0.900" 
+subtitle: "**Version:** 1.0" 
 output: html_document
 ---
 
@@ -41,7 +41,7 @@ For more information on these two tasks, see details on Exercise 1.
 
 Follow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.
 
-- [ ] Update your main `README` for your _assignment_ repository with a link to your new R package repository. Your new (or forked) repository _should not_ be named `assignment-2b`. In fact, it should be named whatever you decide to name your package!
+- [ ] Update your main `README` for your _assignment_ repository with a link to your new R package repository. Your new repository _should not_ be named `assignment-2b`. In fact, it should be named whatever you decide to name your package!
 - [ ] Make a `README` for your new package repository, using `usethis` to kickstart the `README`, and `devtools` to render it. Your `README` should describe what the package is, how to install it, and include an example usage of the package. The `datateachr` [repository](https://github.com/UBC-MDS/datateachr/blob/master/README.md) is a good example for a R dataset package. The `distplyr` [repository](https://github.com/vincenzocoia/distplyr/blob/master/README.md) is a good example for an R function(s) package.
 - [ ] Tag a release in your R package repository _corresponding to the version release of your package_. Use [semantic versioning conventions](https://semver.org). This is a release _for your package_.
   - Semantic versioning conventions: `MAJOR.MINOR.PATCH`, where initial development starts at `0.1.0`, and then increment the minor version for each subsequent release
@@ -59,12 +59,11 @@ To clarify, you will be making _two_ tagged releases for this assignment:
 
 - The above steps were followed.
 - Your work is self-contained in your new R package repository
-  - Here is an _example_ structure of a typical R package repository. Note that these are _typical_ of an R package repository-- not every single item is _required_ for yours. Look through the criteria and use your judgement.
+  - Here is an _example_ structure of a typical R package repository. Note that these are _typical_ of an R package repository-- not every single item is _required_ for yours. Look through the criteria and use your judgment. Most of this directory structure will be created when you make the package using `usethis` and `devtools`.
   
   ```
   ├── CODE_OF_CONDUCT.md
   ├── DESCRIPTION
-  ├── EXPLANATIONS.md
   ├── LICENSE.md
   ├── R
   │   └── function.R
@@ -84,7 +83,7 @@ To clarify, you will be making _two_ tagged releases for this assignment:
 
 ## Exercise 1: Create an R Package (3 points)
 
-- [ ] Create an R package that wraps _at least 1_ object. You _can_ wrap more than one object if you wish. To start, use the `create_package()` and `use_git()` functions to create your R package GitHub repository (if you haven't made or forked one yet). Make sure that your repository is _public_ so that we can mark it.
+- [ ] Create an R package that wraps _at least 1_ object. You _can_ wrap more than one object if you wish. To start, use the `create_package()` and `use_git()` functions to create your R package GitHub repository (if you haven't made yet). Make sure that your repository is _public_ so that we can mark it.
 
 Suggested R packages:
 
@@ -94,25 +93,11 @@ Suggested R packages:
 
 ## Exercise 1.1: Explain Your Development (2 points)
 
-In a separate `EXPLANATIONS.md` file in the root of your repository:
+In your `README`, please:
 
 - [ ] Briefly explain how you made each part of your R package. This doesn't need to be very detailed, but rather at a high-level
   - [ ] Show the exact code you used from `usethis` or `devtools` to implement the package component
   - [ ] Describe any manual work you did with your files
-
-e.g. `EXPLANATIONS.md`
-
-```
-## Exercise 1.1: Explain Your Development
-
-<!-- EXPLANATION HERE -->
-
-## Exercise 1.3: Documentation of Your R Package
-
-### Choice of LICENSE
-
-<!-- EXPLANATION HERE -->
-```
 
 ## Exercise 1.2: Tests (3 points)
 
@@ -134,16 +119,16 @@ Specifically:
 - [ ] `DESCRIPTION` file is otherwise up-to-date and informative
 - [ ] If applicable, modify the source code of your function so that functions from other packages are called appropriately (e.g. using `::`)
 - [ ] Add a license, using `usethis`
-- [ ] Make a _short_ vignette for your package
+- [ ] Make a _short_ vignette for your package (using the `usethis` and `devtools` package)
 
 **Optional**
 
-__+1 bonus point__ if you can successfully do all four of these things:
+__+1 bonus point__ if you can successfully do _all four_ of these things:
 
 - [ ] Add a code of conduct, using `usethis::use_code_of_conduct()`
 - [ ] Make a package website, and activate it with GitHub Pages.
   - [ ] use the `pkgdown` package, using `usethis::use_pkgdown()`, and then `pkgdown::build_site()`
-- [ ] Add to the Changelog or add a News article for the 'release' of your package
+- [ ] Add to the Changelog or add a News article for the 'release' of your package (e.g. `NEWS.md` in the root of the repo, see [example](https://github.com/vincenzocoia/distplyr/blob/master/NEWS.md) in `distplyr`)
 - [ ] Add ["badges"](https://cran.r-project.org/web/packages/badgecreatr/vignettes/all_badges.html) to your `README`
 
 **Rubric**: 
