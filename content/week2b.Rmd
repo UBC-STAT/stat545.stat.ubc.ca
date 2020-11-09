@@ -52,5 +52,7 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 
 ### Saturday
 
-- [ ] __Submit your Worksheet 2-B file to canvas by 23:59 PST__
-- [ ] __Submit your Assignment 1-B URL to canvas by 23:59 PST__
+- [ ] ~~__Submit your Worksheet 2-B file to canvas by 23:59 PST__~~
+- [ ] ~~__Submit your Assignment 1-B URL to canvas by 23:59 PST__~~
+
+_Nothing due today due to the extension_

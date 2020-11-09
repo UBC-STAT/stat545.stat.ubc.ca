@@ -1,6 +1,6 @@
 ---
 title: "Week 2-B Lecture Notes: List Columns"
-subtitle: "**Development** Version 0.9000"
+subtitle: "Version 1.0"
 output: html_document
 ---
 
@@ -9,8 +9,6 @@ week_num <- 9  # 1 through 14
 #-------------
 source(here::here("content", "dates.R"))
 library(stringr)
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, 
-                      results = "asis", error = TRUE)
 letter <- if (week_num <= 7) "A" else "B"
 tues_class_num <- paste0(str_pad(week_num * 2 - 2, width = 2, pad = 0), letter)
 tues_date <- lec0 + days((week_num - 1) * 7)
@@ -62,6 +60,11 @@ Want to dig deeper? These resources can help.
 1. True or False: `map(1:3, ~ function(x) x ^ 2)` returns the list `list(1, 4, 9)`.
 2. You write a function `square()` that squares its input -- but the first thing it does is print a message to the screen! True or False: `map_dbl(1:10, square)` will throw an error, because the output is not a `dbl` (a number) -- it contains the message, too.
 
+**Quiz 4-B**
+
+1. True or False: purrr-style functions, starting with `~`, can be used in dplyr's `across()` function, such as `mutate(across(where(is.numeric), ~ .x ^ 2))`, and this function can only take one argument (`.x`)
+2. True or False: If I have 10 tibbles I want to save to file, and they're all stored in a list, the best purrr function to use for saving these to file is `map()`.
+
 
 ## Demonstration
 
@@ -69,6 +72,7 @@ Want to dig deeper? These resources can help.
 library(tidyverse)
 library(palmerpenguins)
 library(distplyr)
+library(repurrrsive)
 ```
 
 
@@ -93,10 +97,34 @@ Starter code:
 Answer:
 
 ```{r}
-(demo1 <- penguins %>% 
+(demo1a <- penguins %>% 
   group_by(species) %>% 
   summarise(mean = mean(body_mass_g, na.rm = TRUE),
-            var  = var(body_mass_g, na.rm = TRUE)))
+            var  = var(body_mass_g, na.rm = TRUE)) %>% 
+   mutate(distribution = map2(mean, var, dst_norm),
+          quantile = map_dbl(distribution, eval_quantile, at = 0.975)))
+
+(demo1b <- penguins %>% 
+  group_by(species) %>% 
+  summarise(mean = mean(body_mass_g, na.rm = TRUE),
+            var  = var(body_mass_g, na.rm = TRUE)) %>% 
+    mutate(quantile = map2(mean, var, dst_norm) %>% 
+             map_dbl(eval_quantile, at = 0.975)))
+```
+
+Explore distplyr more:
+
+```{r, fig.width = 3, fig.height = 3}
+chin <- demo1a$distribution[[2]]
+print(chin)
+plot(chin, "density")
+
+eval_density(chin, at = 3000:3010)
+eval_quantile(chin, at = c(0.25, 0.5, 0.75))
+enframe_quantile(chin, at = c(0.25, 0.5, 0.75))
+
+(x <- c(chinstrap = 3, gentoo = 7, adelie = 5))
+enframe(x)
 ```
 
 
@@ -107,14 +135,76 @@ Answer:
 Starter code:
 
 ```
-demo1 %>% 
-  mutate(quantiles = FILL_THIS_IN)
+demo1a %>% 
+  mutate(quantile = FILL_THIS_IN)
 ```
 
 Answer
 
 ```{r}
-demo1 %>% 
-  mutate(quantiles = FILL_THIS_IN)
+demo1a %>% 
+  mutate(quantile = map(distribution, enframe_quantile, at = c(0.25, 0.5, 0.75))) %>% 
+  unnest(quantile)
+```
+
+Nesting the penguins tibble
+
+```{r}
+penguins %>% 
+  nest(data = body_mass_g)
+```
+
+```{r}
+penguins %>% 
+  nest(data = body_mass_g) %>% 
+  mutate(s = map_dbl(data, ~ sqrt(.x$body_mass_g)))
+penguins %>% 
+  mutate(across(where(is.numeric), ~ sqrt(.x - 10)))
+```
+
+
+
+### Demo 3: `i` for accessing index
+
+*Time permitting*
+
+Sometimes the vector/list we're iterating over has names, and it's useful to use those names. To access these names, use the `imap` family.
+
+Below is a named list of tibbles. Save them to file using the appropriate purrr function, using the names as the file names.
+
+```{r}
+data <- list(mtcars   = mtcars, 
+             chickwts = chickwts, 
+             pressure = pressure)
+iwalk(data, ~ print(.y))
+#iwalk(data, ~ write_csv(.x, glue::glue(.y, ".csv")))
+```
+
+### Demo 4: `unnest_wider()` and `unnest_longer()`
+
+*Time permitting*
+
+1. Explore the `repurrrsive::got_chars` nested list. It contains information about Game of Thrones characters.
+2. Put the list in a tibble.
+3. Would widening the list column work best, or lengthening? Do it.
+
+Explore:
+
+```{r}
+str(got_chars, list.len = 4)
+```
+Make tibble:
+
+```{r}
+(dat <- tibble(character = got_chars))
+```
+
+`unnest_wider()` is what we want, not `unnest_longer()`:
+
+```{r}
+dat %>% 
+  unnest_wider(character)
+dat %>% 
+  unnest_longer(character)
 ```
 
