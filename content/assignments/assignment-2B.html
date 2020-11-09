@@ -4,6 +4,7 @@ subtitle: "**Development Version:** 0.900"
 output: html_document
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p><strong>Leader</strong>: Diana Lin
@@ -13,35 +14,73 @@ output: html_document
 <p><strong>Total Points</strong>: 20</p>
 <p>In Assignment 1-B, you practiced writing a function. This time, we’ll be evaluating your ability to wrap an object, such as that function (but not necessarily), in an R package.</p>
 <p>This assignment covers building an R package (covered in Week 3).</p>
-<ul>
+<ul class="task-list">
 <li><input type="checkbox" disabled="" />
 For your convenience, we’ve indicated all action items with a checkbox, like so.</li>
 </ul>
 <p>Need some help? Checkout <a href="https://r-pkgs.org/whole-game.html">chapter 2</a> of this book.</p>
+<div id="note" class="section level3">
+<h3>Note</h3>
+<p>For Assignment 5-B, you will be given the opportunity to expand on your R package and develop it further. Once you finish the requirements for Assignment 2-B, tag a semantic versioning release (see Tidy Submission below for details) <em>first</em>. Any additional work after the first Assignment 2-B release will count towards Assignment 5-B.</p>
+</div>
 <div id="setup" class="section level2">
 <h2>Setup</h2>
-<p>While you used your assignment repository for <code>assignment-1b</code>, just putting your work in the <code>assignment-1b</code> directory, you may choose not to use this repository for this assignment.</p>
-<p>For this assignment, you will be developing an R package, ideally open source. Because of this, it is ideal for you to have a <em>separate</em> repository for this assignment. You will be creating a <em>new, separate</em> repository under your own personal GitHub. Using your own personal GitHub will give you more control over the future of this assignment, should you want to develop your R package any further. It will also allow others to install your package more easily using the <code>devtools::install_github()</code> command.</p>
-<ul>
+<p>While you used your assignment repository (i.e. <code>stat-545b-assignments-GitHub-Username</code>) for <code>assignment-1b</code>, just putting your work in the <code>assignment-1b</code> directory, we will <em>not</em> be using this repository for this assignment.</p>
+<p>For this assignment, you will be developing an R package, ideally open source. Because of this, it is ideal for you to have a <em>separate</em> repository for this assignment. You will be creating a <em>new, separate</em> repository under your own personal GitHub. Here is a <a href="https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/create-a-repo">guide</a> on how to create your very own repository. Using your own personal GitHub will give you more control over the future of this assignment, should you want to develop your R package any further. It will also allow others to install your package more easily using the <code>devtools::install_github()</code> command. If you are creating a data package, and concerned about having your data available to the public, please reach out to the teaching team.</p>
+<ul class="task-list">
 <li><input type="checkbox" disabled="" />
-Create a <em>new</em>, <em>public</em> repository under your own personal GitHub account, naming it after your R package</li>
+Create a <em>new</em>, <em>public</em> repository under your own personal GitHub account, naming it after your R package, OR</li>
+<li><input type="checkbox" disabled="" />
+Fork an existing repository</li>
 </ul>
+<p>For more information on these two tasks, see details on Exercise 1.</p>
 </div>
 <div id="tidy-submission-2-points" class="section level2">
 <h2>Tidy Submission (2 points)</h2>
 <p>Follow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.</p>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+Update your main <code>README</code> for your <em>assignment</em> repository with a link to your new R package repository. Your new (or forked) repository <em>should not</em> be named <code>assignment-2b</code>. In fact, it should be named whatever you decide to name your package!</li>
+<li><input type="checkbox" disabled="" />
+Make a <code>README</code> for your new package repository, using <code>usethis</code> to kickstart the <code>README</code>, and <code>devtools</code> to render it. Your <code>README</code> should describe what the package is, how to install it, and include an example usage of the package. The <code>datateachr</code> <a href="https://github.com/UBC-MDS/datateachr/blob/master/README.md">repository</a> is a good example for a R dataset package. The <code>distplyr</code> <a href="https://github.com/vincenzocoia/distplyr/blob/master/README.md">repository</a> is a good example for an R function(s) package.</li>
+<li><input type="checkbox" disabled="" />
+Tag a release in your R package repository <em>corresponding to the version release of your package</em>. Use <a href="https://semver.org">semantic versioning conventions</a>. This is a release <em>for your package</em>.<ul>
+<li>Semantic versioning conventions: <code>MAJOR.MINOR.PATCH</code>, where initial development starts at <code>0.1.0</code>, and then increment the minor version for each subsequent release
 <ul>
+<li>Only release <code>1.0.0</code> if your package is being used in production and ready for public use</li>
+<li>e.g. <code>0.1.0</code> :arrow_right: <code>0.1.1</code> :arrow_right: <code>0.1.X</code> :arrow_right: <code>1.0.0</code> :arrow_right: <code>1.0.1</code> :arrow_right: <code>1.0.X</code> :arrow_right: <code>1.1.0</code></li>
+</ul></li>
+<li>Your release versioning is especially important if you will be choosing to develop your package further in Assignment 5-B</li>
+</ul></li>
 <li><input type="checkbox" disabled="" />
-Update your main <code>README</code> for your <em>assignment</em> repository with a link to your new R package repository. Your new repository <em>should not</em> be named <code>assignment-2b</code>. In fact, it should be named whatever you decide to name your package!</li>
-<li><input type="checkbox" disabled="" />
-Make a <code>README</code> for your new package repository, using <code>usethis</code> to kickstart the <code>README</code>, and <code>devtools</code> to render it. Your <code>README</code> should describe what the package is, how to install it, and include an example usage of the package.</li>
-<li><input type="checkbox" disabled="" />
-Tag a release in your GitHub repository <em>corresponding to the version release of your package</em>. Use semantic versioning conventions. While you will be submitting this release link to Canvas, do <em>NOT</em> treat this release like a task for your assignment. This <em>is</em> a release for your package.</li>
+Tag a release for your <em>assignment</em> repository, e.g. <code>stat-545b-assignments-GitHub-Username</code> for your assignment 2-B tagged release to Canvas</li>
 </ul>
+<p>To clarify, you will be making <em>two</em> tagged releases for this assignment:</p>
+<ol style="list-style-type: decimal">
+<li>A semantic versioning tagged release for your <em>R package repository</em> (most likely <code>0.1.0</code>)</li>
+<li>A tagged release for your <em>assignment</em> repository (i.e. <code>stat-545b-assignments-GitHub-Username</code>) that you will be <em>submitting to Canvas</em> (most likely <code>hw2.0</code> or <code>a2.0</code>, or whichever is consistent with your assignment 1-B tagged release)</li>
+</ol>
 <p><strong>Rubric</strong>:</p>
 <ul>
 <li>The above steps were followed.</li>
-<li>Your work is self-contained in your new R package repository</li>
+<li>Your work is self-contained in your new R package repository
+<ul>
+<li>Here is an <em>example</em> structure of a typical R package repository. Note that these are <em>typical</em> of an R package repository– not every single item is <em>required</em> for yours. Look through the criteria and use your judgement.</li>
+</ul>
+<pre><code>├── CODE_OF_CONDUCT.md
+├── DESCRIPTION
+├── EXPLANATIONS.md
+├── LICENSE.md
+├── R
+│   └── function.R
+├── README.md
+├── data
+│   ├── data.rds
+│   └── data.tsv
+├── tests
+│   └── testthat.R
+└── vignettes
+    └── vignette.Rmd</code></pre></li>
 <li>Your work must be reproducible from beginning to end. That is, a member of the teaching team should be able to run all code error-free and reproduce the output files.</li>
 <li>You use proper English, spelling, and grammar, and write concisely. If there’s any uncertainty in determining a grade here, the <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md">UBC MDS writing rubric</a> will be referred to.</li>
 <li>If there’s any further uncertainty in determining a grade for this tidy submission portion, the <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_mech.md">UBC MDS mechanics rubric</a> will be referred to.</li>
@@ -49,7 +88,7 @@ Tag a release in your GitHub repository <em>corresponding to the version release
 </div>
 <div id="exercise-1-create-an-r-package-3-points" class="section level2">
 <h2>Exercise 1: Create an R Package (3 points)</h2>
-<ul>
+<ul class="task-list">
 <li><input type="checkbox" disabled="" />
 Create an R package that wraps <em>at least 1</em> object. You <em>can</em> wrap more than one object if you wish. To start, use the <code>create_package()</code> and <code>use_git()</code> functions to create your R package GitHub repository (if you haven’t made or forked one yet). Make sure that your repository is <em>public</em> so that we can mark it.</li>
 </ul>
@@ -62,27 +101,42 @@ Create an R package that wraps <em>at least 1</em> object. You <em>can</em> wrap
 </ul></li>
 <li>Add to the <a href="https://github.com/vincenzocoia/powers"><code>vincenzo/powers</code></a> or <a href="https://github.com/jennybc/foofactors"><code>jennybc/foofactors</code></a> packages
 <ul>
-<li>The easiest way to do this task is to fork the repository you choose</li>
+<li>The easiest way to do this task is to fork the repository you choose
+<ul>
+<li>Here are some <a href="https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo">instructions</a> on forking a repo</li>
+<li>“A fork is a copy of a repository that allows you to freely experiment with changes without affecting the original project.” <a href="https://github.community/t/the-difference-between-forking-and-cloning-a-repository/10189"><em>Source</em></a></li>
+</ul></li>
 </ul></li>
 </ul>
 </div>
 <div id="exercise-1.1-explain-your-development-2-points" class="section level2">
 <h2>Exercise 1.1: Explain Your Development (2 points)</h2>
-<ul>
+<p>In a separate <code>EXPLANATIONS.md</code> file in the root of your repository:</p>
+<ul class="task-list">
 <li><input type="checkbox" disabled="" />
-Briefly explain how you made each part of your R package. This doesn’t need to be very detailed, but rather at a high-level<ul>
+Briefly explain how you made each part of your R package. This doesn’t need to be very detailed, but rather at a high-level<ul class="task-list">
 <li><input type="checkbox" disabled="" />
 Show the exact code you used from <code>usethis</code> or <code>devtools</code> to implement the package component</li>
 <li><input type="checkbox" disabled="" />
 Describe any manual work you did with your files</li>
 </ul></li>
 </ul>
+<p>e.g. <code>EXPLANATIONS.md</code></p>
+<pre><code>## Exercise 1.1: Explain Your Development
+
+&lt;!-- EXPLANATION HERE --&gt;
+
+## Exercise 1.3: Documentation of Your R Package
+
+### Choice of LICENSE
+
+&lt;!-- EXPLANATION HERE --&gt;</code></pre>
 </div>
 <div id="exercise-1.2-tests-3-points" class="section level2">
 <h2>Exercise 1.2: Tests (3 points)</h2>
-<ul>
+<ul class="task-list">
 <li><input type="checkbox" disabled="" />
-Create tests for your package, in the appropriate files and folders, using <code>usethis</code> and <code>testthat</code>. You can use the tests you wrote in Assignment 1-B, if relevant.<ul>
+Create tests for your package, in the appropriate files and folders, using <code>usethis</code> and <code>testthat</code>. You can use the tests you wrote in Assignment 1-B, if relevant.<ul class="task-list">
 <li><input type="checkbox" disabled="" />
 Make sure your tests are also well-documented, meaning that the description/test name is informative, and that any necessary code commenting is present</li>
 </ul></li>
@@ -90,18 +144,18 @@ Make sure your tests are also well-documented, meaning that the description/test
 </div>
 <div id="exercise-1.3-documentation-of-your-r-package-10-points" class="section level2">
 <h2>Exercise 1.3: Documentation of your R package (10 points)</h2>
-<ul>
+<ul class="task-list">
 <li><input type="checkbox" disabled="" />
 Create documentation for your R package.</li>
 </ul>
 <p>Specifically:</p>
-<ul>
+<ul class="task-list">
 <li><input type="checkbox" disabled="" />
-Use <code>roxygen2</code> comment style <code>#'</code> and tags like <code>@param</code> to document your function(s) or dataset(s)<ul>
+Use <code>roxygen2</code> comment style <code>#'</code> and tags like <code>@param</code> to document your function(s) or dataset(s)<ul class="task-list">
 <li><input type="checkbox" disabled="" />
 Use <code>devtools::document()</code> to update documentation, so that the <code>?your_object</code> command is able to fetch your documentation</li>
 <li><input type="checkbox" disabled="" />
-Make sure that all objects are <code>@export</code>ed unless there is a valid reason for them to be internal<ul>
+Make sure that all objects are <code>@export</code>ed unless there is a valid reason for them to be internal<ul class="task-list">
 <li><input type="checkbox" disabled="" />
 Remember to justify your decisions</li>
 </ul></li>
@@ -115,26 +169,26 @@ List all package dependencies in their <code>DESCRIPTION</code> file using <code
 <li><input type="checkbox" disabled="" />
 If applicable, modify the source code of your function so that functions from other packages are called appropriately (e.g. using <code>::</code>)</li>
 <li><input type="checkbox" disabled="" />
-Add a license, using <code>usethis</code><ul>
+Add a license, using <code>usethis</code><ul class="task-list">
 <li><input type="checkbox" disabled="" />
-Explain why you chose that particular license</li>
+Explain why you chose that particular license, adding to <code>EXPLANATIONS.md</code> (see Exercise 1.1 example above)</li>
 </ul></li>
 <li><input type="checkbox" disabled="" />
 Make a <em>short</em> vignette for your package</li>
 </ul>
 <p><strong>Optional</strong>:</p>
-<ul>
+<ul class="task-list">
 <li><input type="checkbox" disabled="" />
 Add a code of conduct, using <code>usethis::use_code_of_conduct()</code></li>
 <li><input type="checkbox" disabled="" />
-Make a package website, and activate it with GitHub Pages.<ul>
+Make a package website, and activate it with GitHub Pages.<ul class="task-list">
 <li><input type="checkbox" disabled="" />
 use the <code>pkgdown</code> package, using <code>usethis::use_pkgdown()</code>, and then <code>pkgdown::build_site()</code></li>
 </ul></li>
 <li><input type="checkbox" disabled="" />
 Add to the Changelog or add a News article for the ‘release’ of your package</li>
 <li><input type="checkbox" disabled="" />
-Add “badges” to your <code>README</code></li>
+Add <a href="https://cran.r-project.org/web/packages/badgecreatr/vignettes/all_badges.html">“badges”</a> to your <code>README</code></li>
 </ul>
 <p><strong>Rubric</strong>:</p>
 <ol style="list-style-type: decimal">

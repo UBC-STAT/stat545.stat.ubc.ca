@@ -21,9 +21,15 @@ This assignment covers building an R package (covered in Week 3).
 
 Need some help? Checkout [chapter 2](https://r-pkgs.org/whole-game.html) of this book.
 
+
+### Note
+
+For Assignment 5-B, you will be given the opportunity to expand on your R package and develop it further. Once you finish the requirements for Assignment 2-B, tag a semantic versioning release (see Tidy Submission below for details) _first_. Any additional work after the first Assignment 2-B release will count towards Assignment 5-B.
+
+
 ## Setup
 
-While you used your assignment repository for `assignment-1b`, just putting your work in the `assignment-1b` directory, you may choose not to use this repository for this assignment.
+While you used your assignment repository (i.e. `stat-545b-assignments-GitHub-Username`) for `assignment-1b`, just putting your work in the `assignment-1b` directory, we will _not_ be using this repository for this assignment.
 
 For this assignment, you will be developing an R package, ideally open source. Because of this, it is ideal for you to have a _separate_ repository for this assignment. You will be creating a _new, separate_ repository under your own personal GitHub. Here is a [guide](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/create-a-repo) on how to create your very own repository. Using your own personal GitHub will give you more control over the future of this assignment, should you want to develop your R package any further. It will also allow others to install your package more easily using the `devtools::install_github()` command. If you are creating a data package, and concerned about having your data available to the public, please reach out to the teaching team.
 
@@ -36,17 +42,43 @@ For more information on these two tasks, see details on Exercise 1.
 
 Follow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.
 
-- [ ] Update your main `README` for your _assignment_ repository with a link to your new R package repository. Your new repository _should not_ be named `assignment-2b`. In fact, it should be named whatever you decide to name your package!
+- [ ] Update your main `README` for your _assignment_ repository with a link to your new R package repository. Your new (or forked) repository _should not_ be named `assignment-2b`. In fact, it should be named whatever you decide to name your package!
 - [ ] Make a `README` for your new package repository, using `usethis` to kickstart the `README`, and `devtools` to render it. Your `README` should describe what the package is, how to install it, and include an example usage of the package. The `datateachr` [repository](https://github.com/UBC-MDS/datateachr/blob/master/README.md) is a good example for a R dataset package. The `distplyr` [repository](https://github.com/vincenzocoia/distplyr/blob/master/README.md) is a good example for an R function(s) package.
-- [ ] Tag a release in your GitHub repository _corresponding to the version release of your package_. Use [semantic versioning conventions](https://semver.org). While you will be submitting this release link to Canvas, do _NOT_ treat this release like a task for your assignment. This _is_ a release for your package.
+- [ ] Tag a release in your R package repository _corresponding to the version release of your package_. Use [semantic versioning conventions](https://semver.org). This is a release _for your package_.
   - Semantic versioning conventions: `MAJOR.MINOR.PATCH`, where initial development starts at `0.1.0`, and then increment the minor version for each subsequent release
     - Only release `1.0.0` if your package is being used in production and ready for public use
-    - e.g. `0.1.0` :arrow_right: `0.1.1` :arrow_right: ... :arrow_right: `1.0.0` :arrow_right: `1.0.1` :arrow_right: ... :arrow_right: `1.1.0`
+    - e.g. `0.1.0` :arrow_right: `0.1.1` :arrow_right: `0.1.X` :arrow_right: `1.0.0` :arrow_right: `1.0.1` :arrow_right: `1.0.X` :arrow_right: `1.1.0`
+  - Your release versioning is especially important if you will be choosing to develop your package further in Assignment 5-B
+- [ ] Tag a release for your _assignment_ repository, e.g. `stat-545b-assignments-GitHub-Username` for your assignment 2-B tagged release to Canvas
+
+To clarify, you will be making _two_ tagged releases for this assignment:
+
+1. A semantic versioning tagged release for your _R package repository_ (most likely `0.1.0`)
+1. A tagged release for your _assignment_ repository (i.e. `stat-545b-assignments-GitHub-Username`) that you will be _submitting to Canvas_ (most likely `hw2.0` or `a2.0`, or whichever is consistent with your assignment 1-B tagged release)
 
 **Rubric**:
 
 - The above steps were followed.
 - Your work is self-contained in your new R package repository
+  - Here is an _example_ structure of a typical R package repository. Note that these are _typical_ of an R package repository-- not every single item is _required_ for yours. Look through the criteria and use your judgement.
+  
+  ```
+  ├── CODE_OF_CONDUCT.md
+  ├── DESCRIPTION
+  ├── EXPLANATIONS.md
+  ├── LICENSE.md
+  ├── R
+  │   └── function.R
+  ├── README.md
+  ├── data
+  │   ├── data.rds
+  │   └── data.tsv
+  ├── tests
+  │   └── testthat.R
+  └── vignettes
+      └── vignette.Rmd
+    ```
+    
 - Your work must be reproducible from beginning to end. That is, a member of the teaching team should be able to run all code error-free and reproduce the output files.
 - You use proper English, spelling, and grammar, and write concisely. If there's any uncertainty in determining a grade here, the [UBC MDS writing rubric](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md) will be referred to.
 - If there's any further uncertainty in determining a grade for this tidy submission portion, the [UBC MDS mechanics rubric](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_mech.md) will be referred to.
@@ -67,9 +99,25 @@ Suggested R packages:
 
 ## Exercise 1.1: Explain Your Development (2 points)
 
+In a separate `EXPLANATIONS.md` file in the root of your repository:
+
 - [ ] Briefly explain how you made each part of your R package. This doesn't need to be very detailed, but rather at a high-level
   - [ ] Show the exact code you used from `usethis` or `devtools` to implement the package component
   - [ ] Describe any manual work you did with your files
+
+e.g. `EXPLANATIONS.md`
+
+```
+## Exercise 1.1: Explain Your Development
+
+<!-- EXPLANATION HERE -->
+
+## Exercise 1.3: Documentation of Your R Package
+
+### Choice of LICENSE
+
+<!-- EXPLANATION HERE -->
+```
 
 ## Exercise 1.2: Tests (3 points)
 
@@ -91,16 +139,16 @@ Specifically:
 - [ ] `DESCRIPTION` file is otherwise up-to-date and informative
 - [ ] If applicable, modify the source code of your function so that functions from other packages are called appropriately (e.g. using `::`)
 - [ ] Add a license, using `usethis`
-  - [ ] Explain why you chose that particular license
+  - [ ] Explain why you chose that particular license, adding to `EXPLANATIONS.md` (see Exercise 1.1 example above)
 - [ ] Make a _short_ vignette for your package
 
 **Optional**:
 
 - [ ] Add a code of conduct, using `usethis::use_code_of_conduct()`
-- [ ] Make a package website, and activate it with GitHub Pages. 
+- [ ] Make a package website, and activate it with GitHub Pages.
   - [ ] use the `pkgdown` package, using `usethis::use_pkgdown()`, and then `pkgdown::build_site()`
 - [ ] Add to the Changelog or add a News article for the 'release' of your package
-- [ ] Add "badges" to your `README`
+- [ ] Add ["badges"](https://cran.r-project.org/web/packages/badgecreatr/vignettes/all_badges.html) to your `README`
 
 **Rubric**: 
 
