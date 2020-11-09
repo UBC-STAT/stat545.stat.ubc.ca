@@ -121,7 +121,8 @@ In addition to [UBC's Campus-wide Policies and Regulations](http://www.calendar.
 ## Communications
 
 The teaching team can't guarantee that they will be able to respond to student messages outside of typical workday hours (0900-1700 PST). So, please be mindful of a __17:00 PST cutoff on Fridays__ when asking assignment-related questions. 
-  
+
+Please read [this](/slack_communication) before messaging the teaching team.
 
 ## Late Policy
 
