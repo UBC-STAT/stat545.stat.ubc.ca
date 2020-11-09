@@ -37,6 +37,18 @@ For this assignment, you will be developing an R package, ideally open source. B
 
 For more information on these two tasks, see details on Exercise 1.
 
+### Note
+
+Throughout this document, we will refer to _two_ separate and different GitHub repositories:
+
+1. Your _assignment_ repository: `stat545ubc-2020/stat-545b-assignments-GitHub-Username`
+  - `README` in this repository should link to your _R package_ repository (see Tidy Submission below)
+  - Tag a release that you will submit to Canvas (see Tidy Submission below)
+1. Your _R package_ repository: `Your-GitHub-Username/Your-Package-Name`
+  - Contains all your R package files (should almost entirely be generated via `devtools` and `usethis`)
+  - Has its own `README` (see Tidy Submission below)
+  - Tag a _package version release_ using semantic versioning (see Tidy Submission below)
+
 ## Tidy Submission (2 points)
 
 Follow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.
