@@ -1,0 +1,96 @@
+---
+title: "Using Slack"
+output: html_document
+---
+
+# How to use Slack, and for what
+
+Slack is the main forum for STAT 545 for discussion between students, TAs, and the instructor. Join it by clicking this [link](stat545ubc.slack.com).
+
+We prefer Slack for all communications but in some cases you can email us instead. Find emails on the [teaching team](https://stat545.stat.ubc.ca/#team) section.
+
+The teaching team can’t guarantee that they will be able to respond to student messages outside of typical workday hours (0900-1700 PST). So, please be mindful of a 17:00 PST cutoff on Fridays when asking assignment-related questions.
+
+### Use the _#general_ channel for most communications
+
+TAs, Vincenzo and other students can participate and benefit from these conversations. Examples of appropriate topics for _#general_ are described below:
+
+#### Clarifying concepts from lectures
+
+Examples: 
+
+> What's the difference between a `tibble` and a `data.frame`?
+
+> Does `set.seed()` work on all computers (OS) and versions of R?
+
+> Is there a difference between `[]` and `[[]]`?
+
+#### Asking about course organization
+
+e.g. the syllabus, course policies, assignment deadlines...
+
+Examples:
+
+> When is the deadline for Assignment 1?
+
+> For next lecture on Tuesday, are we going to be reviewing the upcoming project?
+
+#### Clarifying instructions in assignments and other deliverables
+
+Ping the TA or instructor if you know which person developed the instructions (`@Name-of-TA-or-instructor`).
+
+Examples:
+
+> For assignment 1a, question 3, can I pick any character variable in my dataset or does it need to be one with 3 or more categories? @Victor
+
+> For assignment 2, do I use the same dataset that I used in assignment 1?
+
+
+#### When you are stuck and need help
+
+On assignments, workshops, group projects.
+
+Examples:
+
+> For worksheet 4, question 2.1, I can't seem to get the correct answer. Here is my code:
+>
+> ```
+> answer2.1 <- mtcars %>% 
+>      nest(cyl) %>%
+>      ...
+> ```
+
+> For assignment 3, I keep getting an error when installing the package `distplyr`. This is the code  and error message: `...code and errors...`
+
+Post an appropriate amount of details to get the help you want. Ideally use [`reprex`](https://www.tidyverse.org/help/), but at minimum provide your code, and any error messages.
+
+### When to message a TA or Vincenzo privately
+
+If you are still stuck **after** trying _#general_, then you can message a TA for more help. Instead messaging just one TA, please consider making a group chat and message all of the TAs, so that the most available TA can help.
+
+Example situations:
+
+> "Hi TAs, I posted in _#general_ for help, but I'm still stuck on question 2.1 of worksheet 4. Can I get some help to work through this?"
+
+If a TA feels that your message is inappropriate for a private conversation (e.g. it might be helpful for other students to see), they may redirect you to posting in the _#general_ channel. 
+
+#### When you have questions or concerns about your grades
+
+Either post an issue on your homework repo (preferred), or contact the marking TA on slack.
+
+*Only message Vincenzo if you are still unsatistified with your grade, after talking with your TA*
+
+#### When you have need a deadline extension
+
+Contact your TA if it's only for one upcoming deadline. If you need multiple deadline extensions for an extenuating circumstance, consider contacting Vincenzo
+
+#### When there is conflict with another student in a group project
+
+For example, when you feel that your partner is not pulling their weight.
+
+# Other guidelines for using Slack
+
+- Use [**threads**](https://slack.com/intl/en-ca/help/articles/115000769927-Use-threads-to-organize-discussions-) to keep conversations organized
+
+- If posting code, use \`\`\` (backticks). It's way easier to read. Even better, use [`reprex`](https://www.tidyverse.org/help/)
+
