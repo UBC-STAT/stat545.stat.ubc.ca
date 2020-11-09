@@ -46,10 +46,10 @@ Use this page to navigate your way through STAT 545.
 
 ## Assignments 
 
-| Assignment | Instructions | Ready to launch? | Deadline |
-|------------|--------------|------------------|----------|
+| Assignment | Instructions | Launched? | Deadline |
+|------------|--------------|-----------|----------|
 | Assignment 1-B | [view](/assignments/assignment-1B) | Yes | Saturday, November 7, 2020 at 23:59 PST |
-| Assignment 2-B | [view](/assignments/assignment-2B) | No | Saturday, November 14, 2020 at 23:59 PST |
+| Assignment 2-B | [view](/assignments/assignment-2B) | Yes | Saturday, November 14, 2020 at 23:59 PST |
 | Assignment 3-B | [view](/assignments/assignment-3B) | No | Saturday, November 21, 2020 at 23:59 PST |
 | Assignment 4-B | [view](/assignments/assignment-4B) | No | Saturday, November 28, 2020 at 23:59 PST |
 | Assignment 5-B | [view](/assignments/assignment-5B) | No | Saturday, December 5, 2020 at 23:59 PST |
