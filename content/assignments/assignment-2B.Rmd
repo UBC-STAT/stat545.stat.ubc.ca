@@ -33,8 +33,7 @@ While you used your assignment repository (i.e. `stat-545b-assignments-GitHub-Us
 
 For this assignment, you will be developing an R package, ideally open source. Because of this, it is ideal for you to have a _separate_ repository for this assignment. You will be creating a _new, separate_ repository under your own personal GitHub. Here is a [guide](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/create-a-repo) on how to create your very own repository. Using your own personal GitHub will give you more control over the future of this assignment, should you want to develop your R package any further. It will also allow others to install your package more easily using the `devtools::install_github()` command. If you are creating a data package, and concerned about having your data available to the public, please reach out to the teaching team.
 
-- [ ] Create a _new_, _public_ repository under your own personal GitHub account, naming it after your R package, OR
-- [ ] Fork an existing repository
+- [ ] Create a _new_, _public_ repository under your own personal GitHub account, naming it after your R package
 
 For more information on these two tasks, see details on Exercise 1.
 
