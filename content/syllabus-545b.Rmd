@@ -102,7 +102,7 @@ STAT 545 asks students to work on github.com. Please produce work knowing that t
 
 # Policies
 
-In addition to [UBC's Campus-wide Policies and Regulations](http://www.calendar.ubc.ca/vancouver/?tree=3,0,0,0), STAT 545A and STAT 547M adopt the following policies.
+In addition to [UBC's Campus-wide Policies and Regulations](http://www.calendar.ubc.ca/vancouver/?tree=3,0,0,0), STAT 545A and STAT 545B adopt the following policies.
 
 ## Communications
 
