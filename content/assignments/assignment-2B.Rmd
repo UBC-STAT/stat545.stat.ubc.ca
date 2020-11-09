@@ -134,7 +134,6 @@ Specifically:
 - [ ] `DESCRIPTION` file is otherwise up-to-date and informative
 - [ ] If applicable, modify the source code of your function so that functions from other packages are called appropriately (e.g. using `::`)
 - [ ] Add a license, using `usethis`
-  - [ ] Explain why you chose that particular license, adding to `EXPLANATIONS.md` (see Exercise 1.1 example above)
 - [ ] Make a _short_ vignette for your package
 
 **Optional**:
