@@ -4,17 +4,16 @@ subtitle: "**Development Version:** 0.900"
 output: html_document
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p><strong>Leader</strong>: Diana Lin
 <strong>Reviewer</strong>: Iciar Fernandez &amp; Vincenzo Coia</p>
 <hr />
-<p><strong>Deadline</strong>: Saturday, November 14, 2020</p>
+<p><strong>Deadline</strong>: Saturday, November 14, 2020 at 23:59 PST</p>
 <p><strong>Total Points</strong>: 20</p>
 <p>In Assignment 1-B, you practiced writing a function. This time, we’ll be evaluating your ability to wrap an object, such as that function (but not necessarily), in an R package.</p>
 <p>This assignment covers building an R package (covered in Week 3).</p>
-<ul class="task-list">
+<ul>
 <li><input type="checkbox" disabled="" />
 For your convenience, we’ve indicated all action items with a checkbox, like so.</li>
 </ul>
@@ -23,7 +22,7 @@ For your convenience, we’ve indicated all action items with a checkbox, like s
 <h2>Setup</h2>
 <p>While you used your assignment repository for <code>assignment-1b</code>, just putting your work in the <code>assignment-1b</code> directory, you may choose not to use this repository for this assignment.</p>
 <p>For this assignment, you will be developing an R package, ideally open source. Because of this, it is ideal for you to have a <em>separate</em> repository for this assignment. You will be creating a <em>new, separate</em> repository under your own personal GitHub. Using your own personal GitHub will give you more control over the future of this assignment, should you want to develop your R package any further. It will also allow others to install your package more easily using the <code>devtools::install_github()</code> command.</p>
-<ul class="task-list">
+<ul>
 <li><input type="checkbox" disabled="" />
 Create a <em>new</em>, <em>public</em> repository under your own personal GitHub account, naming it after your R package</li>
 </ul>
@@ -31,7 +30,7 @@ Create a <em>new</em>, <em>public</em> repository under your own personal GitHub
 <div id="tidy-submission-2-points" class="section level2">
 <h2>Tidy Submission (2 points)</h2>
 <p>Follow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.</p>
-<ul class="task-list">
+<ul>
 <li><input type="checkbox" disabled="" />
 Update your main <code>README</code> for your <em>assignment</em> repository with a link to your new R package repository. Your new repository <em>should not</em> be named <code>assignment-2b</code>. In fact, it should be named whatever you decide to name your package!</li>
 <li><input type="checkbox" disabled="" />
@@ -50,9 +49,9 @@ Tag a release in your GitHub repository <em>corresponding to the version release
 </div>
 <div id="exercise-1-create-an-r-package-3-points" class="section level2">
 <h2>Exercise 1: Create an R Package (3 points)</h2>
-<ul class="task-list">
+<ul>
 <li><input type="checkbox" disabled="" />
-Create an R package that wraps <em>at least 1</em> object. You <em>can</em> wrap more than one object if you wish. To start, use the <code>create_package()</code> and <code>use_git()</code> function to create your R package GitHub repository (if you haven’t made or forked one yet). Make sure that your repository is <em>public</em> so that we can mark it.</li>
+Create an R package that wraps <em>at least 1</em> object. You <em>can</em> wrap more than one object if you wish. To start, use the <code>create_package()</code> and <code>use_git()</code> functions to create your R package GitHub repository (if you haven’t made or forked one yet). Make sure that your repository is <em>public</em> so that we can mark it.</li>
 </ul>
 <p>Suggested R packages:</p>
 <ul>
@@ -69,21 +68,21 @@ Create an R package that wraps <em>at least 1</em> object. You <em>can</em> wrap
 </div>
 <div id="exercise-1.1-explain-your-development-2-points" class="section level2">
 <h2>Exercise 1.1: Explain Your Development (2 points)</h2>
-<ul class="task-list">
+<ul>
 <li><input type="checkbox" disabled="" />
-Briefly explain how you made each part of your R package. This doesn’t need to be very detailed, but rather at a high-level<ul class="task-list">
+Briefly explain how you made each part of your R package. This doesn’t need to be very detailed, but rather at a high-level<ul>
 <li><input type="checkbox" disabled="" />
 Show the exact code you used from <code>usethis</code> or <code>devtools</code> to implement the package component</li>
 <li><input type="checkbox" disabled="" />
-Show any manual work you did with your files</li>
+Describe any manual work you did with your files</li>
 </ul></li>
 </ul>
 </div>
 <div id="exercise-1.2-tests-3-points" class="section level2">
 <h2>Exercise 1.2: Tests (3 points)</h2>
-<ul class="task-list">
+<ul>
 <li><input type="checkbox" disabled="" />
-Create tests for your package, in the appropriate files and folders, using <code>usethis</code> and <code>testthat</code>.<ul class="task-list">
+Create tests for your package, in the appropriate files and folders, using <code>usethis</code> and <code>testthat</code>. You can use the tests you wrote in Assignment 1-B, if relevant.<ul>
 <li><input type="checkbox" disabled="" />
 Make sure your tests are also well-documented, meaning that the description/test name is informative, and that any necessary code commenting is present</li>
 </ul></li>
@@ -91,24 +90,24 @@ Make sure your tests are also well-documented, meaning that the description/test
 </div>
 <div id="exercise-1.3-documentation-of-your-r-package-10-points" class="section level2">
 <h2>Exercise 1.3: Documentation of your R package (10 points)</h2>
-<ul class="task-list">
+<ul>
 <li><input type="checkbox" disabled="" />
 Create documentation for your R package.</li>
 </ul>
 <p>Specifically:</p>
-<ul class="task-list">
+<ul>
 <li><input type="checkbox" disabled="" />
-Use <code>roxygen2</code> comment style <code>#'</code> and tags like <code>@param</code> to document your function(s) or dataset(s)<ul class="task-list">
+Use <code>roxygen2</code> comment style <code>#'</code> and tags like <code>@param</code> to document your function(s) or dataset(s)<ul>
 <li><input type="checkbox" disabled="" />
 Use <code>devtools::document()</code> to update documentation, so that the <code>?your_object</code> command is able to fetch your documentation</li>
 <li><input type="checkbox" disabled="" />
-Make sure that all objects are <code>@export</code>ed unless there is a valid reason for them to be internal<ul class="task-list">
+Make sure that all objects are <code>@export</code>ed unless there is a valid reason for them to be internal<ul>
 <li><input type="checkbox" disabled="" />
 Remember to justify your decisions</li>
 </ul></li>
 </ul></li>
 <li><input type="checkbox" disabled="" />
-Document <em>all</em> exported functions and datasets</li>
+Document <em>all</em> functions and datasets</li>
 <li><input type="checkbox" disabled="" />
 List all package dependencies in their <code>DESCRIPTION</code> file using <code>usethis</code></li>
 <li><input type="checkbox" disabled="" />
@@ -116,7 +115,7 @@ List all package dependencies in their <code>DESCRIPTION</code> file using <code
 <li><input type="checkbox" disabled="" />
 If applicable, modify the source code of your function so that functions from other packages are called appropriately (e.g. using <code>::</code>)</li>
 <li><input type="checkbox" disabled="" />
-Add a license, using <code>usethis</code><ul class="task-list">
+Add a license, using <code>usethis</code><ul>
 <li><input type="checkbox" disabled="" />
 Explain why you chose that particular license</li>
 </ul></li>
@@ -124,18 +123,18 @@ Explain why you chose that particular license</li>
 Make a <em>short</em> vignette for your package</li>
 </ul>
 <p><strong>Optional</strong>:</p>
-<ul class="task-list">
+<ul>
 <li><input type="checkbox" disabled="" />
 Add a code of conduct, using <code>usethis::use_code_of_conduct()</code></li>
 <li><input type="checkbox" disabled="" />
-Make a package website, and activate it with GitHub Pages. I believe it’s really straight-forward with the pkgdown package.<ul class="task-list">
+Make a package website, and activate it with GitHub Pages.<ul>
 <li><input type="checkbox" disabled="" />
-use the <code>pkgdown</code> package, using <code>usethis::use_pkgdown()</code>, and then <code>pkgdown::build_suite()</code></li>
+use the <code>pkgdown</code> package, using <code>usethis::use_pkgdown()</code>, and then <code>pkgdown::build_site()</code></li>
 </ul></li>
 <li><input type="checkbox" disabled="" />
 Add to the Changelog or add a News article for the ‘release’ of your package</li>
 <li><input type="checkbox" disabled="" />
-Add “badges” to their <code>README</code></li>
+Add “badges” to your <code>README</code></li>
 </ul>
 <p><strong>Rubric</strong>:</p>
 <ol style="list-style-type: decimal">
