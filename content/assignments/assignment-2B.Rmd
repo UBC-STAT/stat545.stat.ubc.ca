@@ -136,7 +136,9 @@ Specifically:
 - [ ] Add a license, using `usethis`
 - [ ] Make a _short_ vignette for your package
 
-**Optional**:
+**Optional**
+
+__+1 bonus point__ if you can successfully do all four of these things:
 
 - [ ] Add a code of conduct, using `usethis::use_code_of_conduct()`
 - [ ] Make a package website, and activate it with GitHub Pages.
