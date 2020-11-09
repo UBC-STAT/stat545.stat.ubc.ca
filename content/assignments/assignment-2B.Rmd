@@ -25,17 +25,23 @@ Need some help? Checkout [chapter 2](https://r-pkgs.org/whole-game.html) of this
 
 While you used your assignment repository for `assignment-1b`, just putting your work in the `assignment-1b` directory, you may choose not to use this repository for this assignment.
 
-For this assignment, you will be developing an R package, ideally open source. Because of this, it is ideal for you to have a _separate_ repository for this assignment. You will be creating a _new, separate_ repository under your own personal GitHub. Using your own personal GitHub will give you more control over the future of this assignment, should you want to develop your R package any further. It will also allow others to install your package more easily using the `devtools::install_github()` command. 
+For this assignment, you will be developing an R package, ideally open source. Because of this, it is ideal for you to have a _separate_ repository for this assignment. You will be creating a _new, separate_ repository under your own personal GitHub. Here is a [guide](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/create-a-repo) on how to create your very own repository. Using your own personal GitHub will give you more control over the future of this assignment, should you want to develop your R package any further. It will also allow others to install your package more easily using the `devtools::install_github()` command. If you are creating a data package, and concerned about having your data available to the public, please reach out to the teaching team.
 
-- [ ] Create a _new_, _public_ repository under your own personal GitHub account, naming it after your R package
+- [ ] Create a _new_, _public_ repository under your own personal GitHub account, naming it after your R package, OR
+- [ ] Fork an existing repository
+
+For more information on these two tasks, see details on Exercise 1.
 
 ## Tidy Submission (2 points)
 
 Follow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.
 
 - [ ] Update your main `README` for your _assignment_ repository with a link to your new R package repository. Your new repository _should not_ be named `assignment-2b`. In fact, it should be named whatever you decide to name your package!
-- [ ] Make a `README` for your new package repository, using `usethis` to kickstart the `README`, and `devtools` to render it. Your `README` should describe what the package is, how to install it, and include an example usage of the package.
-- [ ] Tag a release in your GitHub repository _corresponding to the version release of your package_. Use semantic versioning conventions. While you will be submitting this release link to Canvas, do _NOT_ treat this release like a task for your assignment. This _is_ a release for your package.
+- [ ] Make a `README` for your new package repository, using `usethis` to kickstart the `README`, and `devtools` to render it. Your `README` should describe what the package is, how to install it, and include an example usage of the package. The `datateachr` [repository](https://github.com/UBC-MDS/datateachr/blob/master/README.md) is a good example for a R dataset package. The `distplyr` [repository](https://github.com/vincenzocoia/distplyr/blob/master/README.md) is a good example for an R function(s) package.
+- [ ] Tag a release in your GitHub repository _corresponding to the version release of your package_. Use [semantic versioning conventions](https://semver.org). While you will be submitting this release link to Canvas, do _NOT_ treat this release like a task for your assignment. This _is_ a release for your package.
+  - Semantic versioning conventions: `MAJOR.MINOR.PATCH`, where initial development starts at `0.1.0`, and then increment the minor version for each subsequent release
+    - Only release `1.0.0` if your package is being used in production and ready for public use
+    - e.g. `0.1.0` :arrow_right: `0.1.1` :arrow_right: ... :arrow_right: `1.0.0` :arrow_right: `1.0.1` :arrow_right: ... :arrow_right: `1.1.0`
 
 **Rubric**:
 
@@ -56,6 +62,8 @@ Suggested R packages:
   - This task is recommended if there is a dataset you are passionate or invested in
 - Add to the [`vincenzo/powers`](https://github.com/vincenzocoia/powers) or [`jennybc/foofactors`](https://github.com/jennybc/foofactors) packages
   - The easiest way to do this task is to fork the repository you choose
+    - Here are some [instructions](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo) on forking a repo
+    - "A fork is a copy of a repository that allows you to freely experiment with changes without affecting the original project." [_Source_](https://github.community/t/the-difference-between-forking-and-cloning-a-repository/10189)
 
 ## Exercise 1.1: Explain Your Development (2 points)
 
