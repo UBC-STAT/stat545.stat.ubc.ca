@@ -90,11 +90,7 @@ Suggested R packages:
 
 - Turn your function(s) from `assignment-1b` into an R package
 - Make a data package, like `palmerpenguins` or `gapminder`
-  - This task is recommended if there is a dataset you are passionate or invested in
-- Add to the [`vincenzo/powers`](https://github.com/vincenzocoia/powers) or [`jennybc/foofactors`](https://github.com/jennybc/foofactors) packages
-  - The easiest way to do this task is to fork the repository you choose
-    - Here are some [instructions](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/fork-a-repo) on forking a repo
-    - "A fork is a copy of a repository that allows you to freely experiment with changes without affecting the original project." [_Source_](https://github.community/t/the-difference-between-forking-and-cloning-a-repository/10189)
+  - This task is recommended if there is a dataset you are passionate or invested in.
 
 ## Exercise 1.1: Explain Your Development (2 points)
 
