@@ -24,7 +24,7 @@ Need some help? Checkout [chapter 2](https://r-pkgs.org/whole-game.html) of this
 
 ### Note
 
-For Assignment 5-B, you will be given the opportunity to expand on your R package and develop it further. Once you finish the requirements for Assignment 2-B, tag a semantic versioning release (see Tidy Submission below for details) _first_. Any additional work after the first Assignment 2-B release will count towards Assignment 5-B.
+For Assignment 5-B, you will have the option to expand on your R package and develop it further. Once you finish the requirements for Assignment 2-B, tag a semantic versioning release (see Tidy Submission below for details) _first_. Any additional work after the first Assignment 2-B release can then count towards Assignment 5-B.
 
 
 ## Setup
