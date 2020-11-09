@@ -4,7 +4,7 @@ subtitle: "Version 1.0"
 output: html_document
 ---
 
-__Deadline__: Saturday, November 7, 2020 at 23:59 PST
+__Deadline__: ~~Saturday, November 7,~~ **Wed Nov 4**, 2020 at 23:59 PST
 
 __Total Points__: 20
 
