@@ -1,0 +1,13 @@
+---
+title: "Community"
+output: html_document
+---
+
+Interested in engaging with the R community? Here are some options. Are you part of an R group and don't see your group here? Contact us!
+
+- [R Ladies](https://rladies.org/): world-wide groups promoting gender diversity in the R community, holding in-person meetups. Open to everyone.
+- [UBC's R study group](https://libcal.library.ubc.ca/event/3511389): UBC-based group of passionate useRs who organize meetups on campus to share R knowledge.
+- [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday): An online group that posts regular data projects and showcases responses. 
+- [Vancouver R Users Group](https://www.meetup.com/Vancouver-R-Users-Group-data-analysis-statistics/): A meetup.com group dedicated to teaching and sharing R. 
+- [rstudio::conf()](https://rstudio.com/conference/): Annual global conference about R and data science.
+- [BCCHR Trainee Omics Group](https://www.bcchr.ca/tog) A motivated group of graduate students, postdoctoral fellows, and staff at BC Children's Hospital Research Institute to provide a resources for data analysis skills. Mostly R, but also some other tools.

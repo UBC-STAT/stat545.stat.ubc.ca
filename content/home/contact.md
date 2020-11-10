@@ -4,7 +4,7 @@ headless = true  # This file represents a page section.
 active = true  # Activate this widget? true/false
 weight = 80  # Order that this section will appear.
 
-title = "Let's Talk"
+title = "Connect"
 
 [[feature]]
   icon = "bullhorn"
@@ -15,14 +15,14 @@ title = "Let's Talk"
 [[feature]]
   icon = "slack"
   icon_pack = "fab"
-  name = "[Discussion](https://stat545ubc.slack.com)"
-  description = "Discuss the course through the STAT 545 Slack channel!"  
-  
+  name = "[Discussion](/slack_communication)"
+  description = "preferably on the STAT 545 Slack channel!"  
+
 [[feature]]
-  icon = "envelope"
-  icon_pack = "far"
-  name = "[Private Message](/private_message)"
-  description = "Send a private message through Slack, or send an email "
+  icon = "users"
+  icon_pack = "fas"
+  name = "[Community](/community)"
+  description = "Join different R communities"  
 +++
 
 Want to get in touch? Here are some options.
