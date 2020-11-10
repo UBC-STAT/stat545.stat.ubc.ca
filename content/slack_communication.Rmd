@@ -5,7 +5,7 @@ output: html_document
 
 # How to use Slack, and for what
 
-Slack is the main forum for STAT 545 for discussion between students, TAs, and the instructor. Join it by clicking this [link](stat545ubc.slack.com).
+Slack is the main forum for STAT 545 for discussion between students, TAs, and the instructor. Students will be given the Slack invite link at the beginning of the semester.
 
 We prefer Slack for all communications but in some cases you can email us instead. Find emails on the [teaching team](https://stat545.stat.ubc.ca/#team) section.
 
