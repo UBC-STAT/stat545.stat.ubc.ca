@@ -65,6 +65,10 @@ Want to dig deeper? These resources can help.
 1. True or False: purrr-style functions, starting with `~`, can be used in dplyr's `across()` function, such as `mutate(across(where(is.numeric), ~ .x ^ 2))`, and this function can only take one argument (`.x`)
 2. True or False: If I have 10 tibbles I want to save to file, and they're all stored in a list, the best purrr function to use for saving these to file is `map()`.
 
+**Quiz 5-B**
+
+1. True or False: Just as `c(c(1, 2), c(3, 4))` returns the vector of numbers from 1 to 4, `list(list(1, 2), list(3, 4))` returns the list of numbers from 1 to 4. 
+2. True or False: `tibble(model = lm(mpg ~ wt, data = mtcars))` doesn't work because it doesn't use a `map` function.
 
 ## Demonstration
 
