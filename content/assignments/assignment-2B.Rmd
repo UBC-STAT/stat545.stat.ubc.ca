@@ -9,7 +9,7 @@ __Reviewer__: Iciar Fernandez & Vincenzo Coia
 
 ----
 
-__Deadline__: Saturday, November 14, 2020 at 23:59 PST
+__Deadline__: ~~Saturday, November 14~~ Wed. Nov. 18, 2020 at 23:59 PST
 
 __Total Points__: 20
 

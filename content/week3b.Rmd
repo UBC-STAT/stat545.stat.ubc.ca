@@ -58,4 +58,4 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 ### Saturday
 
 - _No worksheet this week_
-- [ ] __Submit your Assignment 2-B URL to canvas by 23:59 PST__
+- [ ] ~~__Submit your Assignment 2-B URL to canvas by 23:59 PST__~~ _Assignment extended_
