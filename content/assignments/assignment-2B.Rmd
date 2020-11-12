@@ -1,44 +1,151 @@
 ---
 title: "Assignment 2-B"
-subtitle: "**Development Version** 0.9000" 
+subtitle: "**Version:** 1.0" 
 output: html_document
 ---
 
-__Deadline__: Saturday, November 14, 2020
-
-In Assignment 1-B, you practiced writing a function. This time, we'll be evaluating your ability to wrap an object, such as that function (but not necessarily), in an R package. 
+__Leader__: Diana Lin
+__Reviewer__: Iciar Fernandez & Vincenzo Coia
 
 ----
 
-Guidelines for creation:
+__Deadline__: Saturday, November 14, 2020 at 23:59 PST
 
-- We're adapting the [hw07 from 2018](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/evaluation/hw07/hw07.md)
-- This assignment has been a bit hefty in the past. Simplification and focus will happen by only getting them to wrap the R package infrastructure around a simple object (dataset or a function), without having them focus much on the actual object that they're wrapping. Previously, we had them write a few functions, AND wrap the package infrastructure around it. Now, the former was addressed in Assignment 1-B.
-- Of course, they have the option to do more than just wrap a single object. However, I am considering making the last assignment be more flexible, to align with the "choose your own adventure" theme -- I'm thinking one of the options can be for the student to add to their R package. Might be good for those students who are especially onto something with their R package and are passionate about it. This might be tricky administratively, though. 
-- R packages that we can suggest they make:
-    - Turn their function(s) from Assignment 1-B into an R package.
-    - Make a data package, like `palmerpenguins` or `gapminder`. 
-        - Students can take data that they're invested in, and make a package out of it. Ideally, make it open-source so the world can use it, but that's not necessary. 
-    - Add to the `vincenzocoia/powers` or `jennybc/foofactors` packages, as in the past assignment.
-- Grading: 
-    - Basically, the rubric should consist of two main parts: (1) are all the components of an R package present and high quality, complete with documentation and tests? and (2) did they make this R package in a modern and robust way, using the `usethis` and `devtools` packages? 
-        - For (2), we could ask them to briefly explain to us how they made each part of the R package, telling us the exact `usethis` or `devtools` code they needed to run to implement the package component, or the manual work they did with their files. This should not be detailed, but rather high-level -- we want to make sure they're not doing things manually here, but rather enlisting the help of `usethis` or `devtools`. This isn't entirely important for very simple tasks, but tasks like editing the DESCRIPTION file and using `testthat` are finicky in their requirements, so `usethis` should be used in this case.  
-    - A basic part of the rubric should be: the package passes `check()` without errors (warnings and notes are OK).
-    - We'll have to modify the previous rubric so that it doesn't focus on how good the actual object is, and the tests that they wrote -- since this was evaluated in Assignment 1-A. What matters is that the tests are incorporated into the package so that they are run when we click "Check". But still, we don't want the object or tests to be nonsense. 
-- It's probably not OK for them to make their package in an `assignment-2b` folder in their repos, because it complicates things: can't easily install package via `devtools::install_github()`; harder to launch a package website if they choose to do that; etc. Perhaps give them the option to create a new repo in the `stat545ubc-2020` Organization, which we can seed with GitHub Classroom (https://classroom.github.com/), or have them make a repo on their own account (especially if they want to take ownership of this project downstream).
-- Here are individual things that they _could_ do. Would it be too much to ask them to do all of it? I've marked the mandatory things with an (*).
-    - (*) Use roxygen2 comment style `#'` and tags like `@param` to document their function or dataset. Make sure they run `devtools::document()` to update documentation so that we can just type `?their_object` to get the documentation. Make sure all objects are `@export`ed (unless they have multiple functions and want some to be internal, but the "main" function(s) must be exported).
-    - (*) Document all exported functions and datasets. 
-    - (*) list package dependencies in their DESCRIPTION file using `usethis`.
-    - (*) DESCRIPTION file is otherwise up-to-date and informative.
-    - (*) If applicable, modify the source code of their function so that functions from other packages are called appropriately (typically need `::`).
-    - (*) Tests are in appropriate files and folders, made using `usethis`. 
-    - Make a package website, and activate it with GitHub Pages. I believe it's really straight-forward with the `pkgdown` package. If I recall correctly, you only need to run `usethis::use_pkgdown()`, and then build the website with `pkgdown::build_site()`, and you're all set -- activate github pages, and you can actually navigate the website. 
-    - Make a code coverage report with `covr`? Perhaps even an account with them? [Here's](https://codecov.io/github/tidyverse/ggplot2?branch=master) the ggplot2 `covr` page, for example. It's auto-generated.
-    - (*) Add a license. Use `usethis`. Maybe have them say, in a sentence, why they chose a particular license.
-    - Add to the Changelog or add a News article for the "release" of their package. One, or both? Example: [ggplot2 website](https://ggplot2.tidyverse.org/reference/index.html) under the "News" drop-down menu.
-    - (*) Make a README for their package (which is also the README to their repo). Should use `usethis` to kickstart the README file, and `devtools` (?) to render it. It should say what the package is, how to install it, and include a brief example of using the package. 
-    - Make a vignette. The only problem here is that, with a one-object package, there's probably no need -- but at the same time, it's worthwhile knowing how to write a vignette, because this is where they'd write a tutorial on how to use the package. 
-    - Add a code of conduct. `usethis::use_code_of_conduct()`. This should be optional, because they need to believe in the code of conduct (hopefully they all do...)
-    - Add "badges" to their README.
-    - Choose an appropriate version for their released package, based on semantic versioning. 
+__Total Points__: 20
+
+In Assignment 1-B, you practiced writing a function. This time, we'll be evaluating your ability to wrap an object, such as that function (but not necessarily), in an R package.
+
+This assignment covers building an R package (covered in Week 3).
+
+- [ ] For your convenience, we've indicated all action items with a checkbox, like so.
+
+Need some help? Checkout [chapter 2](https://r-pkgs.org/whole-game.html) of this book.
+
+
+### Note
+
+For Assignment 5-B, you will have the option to expand on your R package and develop it further. Once you finish the requirements for Assignment 2-B, tag a semantic versioning release (see Tidy Submission below for details) _first_. Any additional work after the first Assignment 2-B release can then count towards Assignment 5-B.
+
+
+## Setup
+
+While you used your assignment repository (i.e. `stat-545b-assignments-GitHub-Username`) for `assignment-1b`, just putting your work in the `assignment-1b` directory, we will _not_ be using this repository for this assignment.
+
+For this assignment, you will be developing an R package, ideally open source. Because of this, it is ideal for you to have a _separate_ repository for this assignment. You will be creating a _new, separate_ repository under your own personal GitHub. Here is a [guide](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/create-a-repo) on how to create your very own repository. Using your own personal GitHub will give you more control over the future of this assignment, should you want to develop your R package any further. It will also allow others to install your package more easily using the `devtools::install_github()` command. If you are creating a data package, and concerned about having your data available to the public, please reach out to the teaching team.
+
+- [ ] Create a _new_, _public_ repository under your own personal GitHub account, naming it after your R package
+
+For more information on these two tasks, see details on Exercise 1.
+
+### Note
+
+Throughout this document, we will refer to _two_ separate and different GitHub repositories:
+
+1. Your _assignment_ repository: `stat545ubc-2020/stat-545b-assignments-GitHub-Username`
+  - `README` in this repository should link to your _R package_ repository (see Tidy Submission below)
+  - Tag a release that you will submit to Canvas (see Tidy Submission below)
+1. Your _R package_ repository: `Your-GitHub-Username/Your-Package-Name`
+  - Contains all your R package files (should almost entirely be generated via `devtools` and `usethis`)
+  - Has its own `README` (see Tidy Submission below)
+  - Tag a _package version release_ using semantic versioning (see Tidy Submission below)
+
+## Tidy Submission (2 points)
+
+Follow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.
+
+- [ ] Update your main `README` for your _assignment_ (i.e. `stat-545b-assignments-GitHub-Username`) repository **with a link to your new R package repository.** Your new repository _should not_ be named `assignment-2b`. In fact, it should be named whatever you decide to name your package!
+- [ ] Make a `README` for your new package repository, using `usethis` to kickstart the `README`, and `devtools` to render it. Your `README` should describe what the package is, how to install it, and include an example usage of the package. The `datateachr` [repository](https://github.com/UBC-MDS/datateachr/blob/master/README.md) is a good example for a R dataset package. The `distplyr` [repository](https://github.com/vincenzocoia/distplyr/blob/master/README.md) is a good example for an R function(s) package.
+  - Your `README` must also include your explanations for Exercise 1.1 (see below)
+- [ ] Tag a release in your R package repository _corresponding to the version release of your package_. Use [semantic versioning conventions](https://semver.org). This is a release _for your package_.
+  - Semantic versioning conventions: `MAJOR.MINOR.PATCH`, where initial development starts at `0.1.0`, and then increment the minor version for each subsequent release
+    - Only release `1.0.0` if your package is being used in production and ready for public use
+    - e.g. `0.1.0` :arrow_right: `0.1.1` :arrow_right: `0.1.X` :arrow_right: `1.0.0` :arrow_right: `1.0.1` :arrow_right: `1.0.X` :arrow_right: `1.1.0`
+  - Your release versioning is especially important if you will be choosing to develop your package further in Assignment 5-B
+- [ ] Tag a release for your _assignment_ repository, e.g. `stat-545b-assignments-GitHub-Username` for your assignment 2-B tagged release to Canvas
+
+To clarify, you will be making _two_ tagged releases for this assignment:
+
+1. A semantic versioning tagged release for your _R package repository_ (most likely `0.1.0`)
+1. A tagged release for your _assignment_ repository (i.e. `stat-545b-assignments-GitHub-Username`) that you will be _submitting to Canvas_ (most likely `hw2.0` or `a2.0`, or whichever is consistent with your assignment 1-B tagged release)
+
+**Rubric**:
+
+- The above steps were followed.
+- Your work is self-contained in your new R package repository
+  - Here is an _example_ structure of a typical R package repository. Note that these are _typical_ of an R package repository-- not every single item is _required_ for yours. Look through the criteria and use your judgment. Most of this directory structure will be created when you make the package using `usethis` and `devtools`.
+  
+  ```
+  ├── CODE_OF_CONDUCT.md
+  ├── DESCRIPTION
+  ├── LICENSE.md
+  ├── R
+  │   └── function.R
+  ├── README.md
+  ├── data
+  │   ├── data.rds
+  │   └── data.tsv
+  ├── tests
+  │   └── testthat.R
+  └── vignettes
+      └── vignette.Rmd
+    ```
+    
+- Your work must be reproducible from beginning to end. That is, a member of the teaching team should be able to run all code error-free and reproduce the output files.
+- You use proper English, spelling, and grammar, and write concisely. If there's any uncertainty in determining a grade here, the [UBC MDS writing rubric](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md) will be referred to.
+- If there's any further uncertainty in determining a grade for this tidy submission portion, the [UBC MDS mechanics rubric](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_mech.md) will be referred to.
+
+## Exercise 1: Create an R Package (3 points)
+
+- [ ] Create an R package that wraps _at least 1_ object. You _can_ wrap more than one object if you wish. To start, use the `create_package()` and `use_git()` functions to create your R package GitHub repository (if you haven't made yet). Make sure that your repository is _public_ so that we can mark it.
+
+Suggested R packages:
+
+- Turn your function(s) from `assignment-1b` into an R package
+- Make a data package, like `palmerpenguins` or `gapminder`
+  - This task is recommended if there is a dataset you are passionate or invested in.
+
+## Exercise 1.1: Explain Your Development (2 points)
+
+In your `README`, please:
+
+- [ ] Briefly explain how you made each part of your R package. This doesn't need to be very detailed, but rather at a high-level
+  - [ ] Show the exact code you used from `usethis` or `devtools` to implement the package component
+  - [ ] Describe any manual work you did with your files
+
+## Exercise 1.2: Tests (3 points)
+
+- [ ] Create tests for your package, in the appropriate files and folders, using `usethis` and `testthat`. You can use the tests you wrote in Assignment 1-B, if relevant.
+  - [ ] Make sure your tests are also well-documented, meaning that the description/test name is informative, and that any necessary code commenting is present
+
+## Exercise 1.3: Documentation of your R package (10 points)
+
+- [ ] Create documentation for your R package.
+
+Specifically:
+
+- [ ] Use `roxygen2` comment style `#'` and tags like `@param` to document your function(s) or dataset(s)
+  - [ ] Use `devtools::document()` to update documentation, so that the `?your_object` command is able to fetch your documentation
+  - [ ] Make sure that all objects are `@export`ed unless there is a valid reason for them to be internal
+      - [ ] Remember to justify your decisions
+- [ ] Document _all_ functions and datasets
+- [ ] List all package dependencies in their `DESCRIPTION` file using `usethis`
+- [ ] `DESCRIPTION` file is otherwise up-to-date and informative
+- [ ] If applicable, modify the source code of your function so that functions from other packages are called appropriately (e.g. using `::`)
+- [ ] Add a license, using `usethis`
+- [ ] Make a _short_ vignette for your package (using the `usethis` and `devtools` package)
+
+**Optional**
+
+__+1 bonus point__ if you can successfully do _all four_ of these things:
+
+- [ ] Add a code of conduct, using `usethis::use_code_of_conduct()`
+- [ ] Make a package website, and activate it with GitHub Pages.
+  - [ ] use the `pkgdown` package, using `usethis::use_pkgdown()`, and then `pkgdown::build_site()`
+- [ ] Add to the Changelog or add a News article for the 'release' of your package (e.g. `NEWS.md` in the root of the repo, see [example](https://github.com/vincenzocoia/distplyr/blob/master/NEWS.md) in `distplyr`)
+- [ ] Add ["badges"](https://cran.r-project.org/web/packages/badgecreatr/vignettes/all_badges.html) to your `README`
+
+**Rubric**: 
+
+1. Are all the components of an R package present and high quality, complete with documentation and tests?
+1. Is your R package made using a modern and robust way, using `usethis` and `devtools` packages? You should explain your development process in Exercise 1.2.
+1. Your package passes the `check()` without errors (warnings and notes are OK).
