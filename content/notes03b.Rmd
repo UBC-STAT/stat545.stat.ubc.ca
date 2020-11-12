@@ -68,10 +68,24 @@ Prep for this week is also optional. We'll be following along with ["The Whole G
 - [Writing R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html)
   - The official and comprehensive (but dry) resource for writing R packages.
 - [Package development cheat sheet](https://rawgit.com/rstudio/cheatsheets/master/package-development.pdf)
+- ["Advanced R" Chapter 13: S3](https://adv-r.hadley.nz/s3.html)
+  - A digestible overview to S3 Object Oriented objects, like `mean()`, and how to make them. 
+
+## Quizzes
+
+It might help to browse a completed package directory to answer these questions, like the [powers package](https://github.com/vincenzocoia/powers).
+
+**Quiz 6-B**
+
+1. True or False: The mandatory files in an R package are a DESCRIPTION file, a NAMESPACE file, and functions in the R/ directory -- everything else is just helpful.
+2. So far we've been using devtools functions in the console (instead of saved in a script). True or False: if you're making a bigger R package, you should start putting those devtools functions in one or more R scripts.
+
+
+
 
 ## Demonstration
 
-For this topic, we'll be making an R package similar to the toy [powers package](https://github.com/vincenzocoia/powers). We'll be following along with ["The Whole Game" Chapter of "R packages"](https://r-pkgs.org/whole-game.html). Here are the actions digested from that chapter, with the corresponding section number for more info. 
+For this topic, we'll be making an R package similar to the toy [powers package](https://github.com/vincenzocoia/powers). We'll mostly be following along with ["The Whole Game" Chapter of "R packages"](https://r-pkgs.org/whole-game.html). Here are the actions digested from that chapter, with the corresponding section number for more info. 
 
 First, make a minimal viable product:
 
@@ -101,4 +115,4 @@ Release your package (Chapter 20):
 
 - 20.5.3: Make a NEWS.md file with `use_news_md()` and add the main development notes.  
 - 20.1: Choose a version number; put in description file, and tag a release on GitHub.
-  - 20.7: You should also prepare your package for the next version -- I suggest doing this on a new branch. 
+  - 20.7: You should also prepare your package for the next version -- I suggest doing this on a new branch.

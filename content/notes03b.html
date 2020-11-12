@@ -54,11 +54,24 @@ output: html_document
 <li>The official and comprehensive (but dry) resource for writing R packages.</li>
 </ul></li>
 <li><a href="https://rawgit.com/rstudio/cheatsheets/master/package-development.pdf">Package development cheat sheet</a></li>
+<li><a href="https://adv-r.hadley.nz/s3.html">“Advanced R” Chapter 13: S3</a>
+<ul>
+<li>A digestible overview to S3 Object Oriented objects, like <code>mean()</code>, and how to make them.</li>
+</ul></li>
 </ul>
+</div>
+<div id="quizzes" class="section level2">
+<h2>Quizzes</h2>
+<p>It might help to browse a completed package directory to answer these questions, like the <a href="https://github.com/vincenzocoia/powers">powers package</a>.</p>
+<p><strong>Quiz 6-B</strong></p>
+<ol style="list-style-type: decimal">
+<li>True or False: The mandatory files in an R package are a DESCRIPTION file, a NAMESPACE file, and functions in the R/ directory – everything else is just helpful.</li>
+<li>So far we’ve been using devtools functions in the console (instead of saved in a script). True or False: if you’re making a bigger R package, you should start putting those devtools functions in one or more R scripts.</li>
+</ol>
 </div>
 <div id="demonstration" class="section level2">
 <h2>Demonstration</h2>
-<p>For this topic, we’ll be making an R package similar to the toy <a href="https://github.com/vincenzocoia/powers">powers package</a>. We’ll be following along with <a href="https://r-pkgs.org/whole-game.html">“The Whole Game” Chapter of “R packages”</a>. Here are the actions digested from that chapter, with the corresponding section number for more info.</p>
+<p>For this topic, we’ll be making an R package similar to the toy <a href="https://github.com/vincenzocoia/powers">powers package</a>. We’ll mostly be following along with <a href="https://r-pkgs.org/whole-game.html">“The Whole Game” Chapter of “R packages”</a>. Here are the actions digested from that chapter, with the corresponding section number for more info.</p>
 <p>First, make a minimal viable product:</p>
 <ul>
 <li>Load the <code>devtools</code> package in the console (do this every time you go to work on your package).</li>
