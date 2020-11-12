@@ -51,6 +51,11 @@ Instead, I suggest digesting this content throughout the week:
 - Read [stat545.com Functions, Parts 1-3](https://stat545.com/functions-part1.html)
 - Watch STAT 545 Episode 1-B video series (I will announce when it's available) 
 
+## Additional Resources
+
+- [R4DS functions chapter](https://r-pkgs.org/setup.html#setup-tools)
+
+
 ## Quiz 1-B
 
 Consider the following code:

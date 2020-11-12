@@ -1,6 +1,6 @@
 ---
 title: "Week 3-B Lecture Notes: R Packages for Data Analysis"
-subtitle: "**Development** Version 0.9000"
+subtitle: "Version 1.0"
 output: html_document
 ---
 
@@ -21,6 +21,16 @@ thurs_date <- tues_date + days(2)
 cat(format(tues_date, "%A, %b %d"), "-", 
     format(thurs_date, "%A, %b %d"))
 ```
+
+
+Why make an R package? As mentioned in Week 1-B, your analysis will probably benefit from homemade functions: making functions forces you to think about your analysis in terms of its key computational parts, and makes for robust and readable code. Here are a few benefits that result by bundling these functions into an R package:
+
+- Easily access function documentation
+- Easy to share
+- Built-in checks to ensure your package is working
+- Provides a template for organizing your work
+
+The alternative is keeping the functions stored in separate files, and `source()`ing them into your analysis scripts, but this can become unwieldy. 
 
 ## Learning Objectives
 
@@ -54,4 +64,41 @@ Prep for this week is also optional. We'll be following along with ["The Whole G
 
 - STAT 545 Episode 3-B
 - ["R Packages, ed. 2", by Hadley Wickham and Jenny Bryan](https://r-pkgs.org/index.html)
-- [Writing R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html): The official and comprehensive (but dry) resource for writing R packages.
+  - A digestible guide to making R packages, especially using devtools and friends to help.
+- [Writing R Extensions](https://cran.r-project.org/doc/manuals/R-exts.html)
+  - The official and comprehensive (but dry) resource for writing R packages.
+- [Package development cheat sheet](https://rawgit.com/rstudio/cheatsheets/master/package-development.pdf)
+
+## Demonstration
+
+For this topic, we'll be making an R package similar to the toy [powers package](https://github.com/vincenzocoia/powers). We'll be following along with ["The Whole Game" Chapter of "R packages"](https://r-pkgs.org/whole-game.html). Here are the actions digested from that chapter, with the corresponding section number for more info. 
+
+First, make a minimal viable product:
+
+- Load the `devtools` package in the console (do this every time you go to work on your package).
+- 2.4: Run `create_package()` in the console (all devtools functions should be written in the console).
+  - Better defaults than going through the File menu.
+- 2.5: `use_git()`
+  - Prefer to start your project on GitHub? Or locally? Either way, useful instructions for what to do can be found [in "Happy Git with R" Part III](https://happygitwithr.com/usage-intro.html).
+- 2.6 and 2.7: Make a new R script using `use_r()`, and write a function there: start with `square()`.
+- 2.8: Test drive after using `load_all()`.
+- 2.9: Check that the package is intact: either run `check()` or click "Check".
+- 2.10 and 2.11: Edit the DESCRIPTION file. For the license, `use_mit_license("Your Name")`. 
+- 2.12: Document the function: "Code > Insert roxygen skeleton", then run `document()`.
+- 2.14: Install and Restart, or run `install()`. Try loading the package and using it!
+
+Now, expand:
+
+- 2.15: `use_testthat()` for your package, and make an R script containing tests 
+  - Check all tests with `test()`. This also happens with `check()` or the "Check" button.
+- 2.16: Expand `square()` so that it can take either a vector or list, using purrr's `map_dbl()` function. Indicate dependency with `use_package()`. 
+- 2.17: Add a package README with `use_readme_rmd()`, and render it every time with `build_readme()`.
+  - Once you successfully sync your package to GitHub, other people can install the package with `devtools::install_github("your_username/package_name")` -- this should go in the README.
+- 11.1: Make a vignette with `use_vignette()`. Build all vignettes with `build_vignettes()`.
+- 14.1: Include data with the R package with `use_data(R_OBJECT_HERE)`. Then document _a string of its name_ in a new R script using [a different collection of roxygen tags](https://r-pkgs.org/data.html#documenting-data).
+
+Release your package (Chapter 20):
+
+- 20.5.3: Make a NEWS.md file with `use_news_md()` and add the main development notes.  
+- 20.1: Choose a version number; put in description file, and tag a release on GitHub.
+  - 20.7: You should also prepare your package for the next version -- I suggest doing this on a new branch. 
