@@ -43,9 +43,16 @@ Read/watch one of the following two resources before class:
 
 ## Outline
 
-- Bash, command line, and running R scripts in the background. "jobs".
-- Philosophy behind a multi-file analysis
-- `source()`
+- The case for non-interactive programming; philosophy behind a multi-file analysis
+- How to run interactively vs. from source:
+  - Rmd: run interactively by just executing the cells; from source = knit.
+  - R script: interactive = just execute code (moves it to console); from source = "render report" or `source()`.
+  - Then move on to bash
+- Crash course on the command line (bash; zsh).
+- running R scripts in the background. "jobs".
+  - The idea behind cloud computing: run code non-interactively from a server. Need to make sure software is installed: docker. 
+- `source()` for reading in a particular R script.
+- makefiles for running parts of an analysis, or the whole thing. 
 - Draw from my recent analysis
 
 Draw from 

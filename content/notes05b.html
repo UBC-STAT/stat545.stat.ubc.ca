@@ -28,9 +28,20 @@ output: html_document
 <div id="outline" class="section level2">
 <h2>Outline</h2>
 <ul>
-<li>Bash, command line, and running R scripts in the background. “jobs”.</li>
-<li>Philosophy behind a multi-file analysis</li>
-<li><code>source()</code></li>
+<li>The case for non-interactive programming; philosophy behind a multi-file analysis</li>
+<li>How to run interactively vs. from source:
+<ul>
+<li>Rmd: run interactively by just executing the cells; from source = knit.</li>
+<li>R script: interactive = just execute code (moves it to console); from source = “render report” or <code>source()</code>.</li>
+<li>Then move on to bash</li>
+</ul></li>
+<li>Crash course on the command line (bash; zsh).</li>
+<li>running R scripts in the background. “jobs”.
+<ul>
+<li>The idea behind cloud computing: run code non-interactively from a server. Need to make sure software is installed: docker.</li>
+</ul></li>
+<li><code>source()</code> for reading in a particular R script.</li>
+<li>makefiles for running parts of an analysis, or the whole thing.</li>
 <li>Draw from my recent analysis</li>
 </ul>
 <p>Draw from</p>
