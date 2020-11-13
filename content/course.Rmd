@@ -18,22 +18,21 @@ Use this page to navigate your way through STAT 545.
 ## Week-by-Week Guidance
 
 
-| Week | Day      | Topic           | Duration | Lecture Notes | Checklist |
-|------|----------|-----------------|----------|---------------|-----------|
-| 1-B  | Tuesday  | Functions       | `r format(dates_545b[1]  - days(1), "%b %d")` - `r format(dates_545b[2]  + days(1), "%b %d")`  | [Functions](/notes01b) | [Week 1-B](/week1b) |
-| 1-B  | Thursday | Functions       | `r format(dates_545b[1]  - days(1), "%b %d")` - `r format(dates_545b[2]  + days(1), "%b %d")`  |                    |  |
-| 2-B  | Tuesday  | List columns    | `r format(dates_545b[3]  - days(1), "%b %d")` - `r format(dates_545b[4]  + ddays(1), "%b %d")` | [List columns](/notes02b) | [Week 2-B](/week2b) |
-| 2-B  | Thursday | List columns    | `r format(dates_545b[3]  - days(1), "%b %d")` - `r format(dates_545b[4]  + ddays(1), "%b %d")` |  | [checklist](/week2b) |
-| 3-B  | Tuesday  | List columns    | `r format(dates_545b[5]  - days(1), "%b %d")` - `r format(dates_545b[6]  + ddays(1), "%b %d")` |  | [Week 3-B](/week3b) |
-| 3-B  | Thursday | R packages      | `r format(dates_545b[5]  - days(1), "%b %d")` - `r format(dates_545b[6]  + ddays(1), "%b %d")` | [R packages](/notes03b) |  |
-| 4-B  | Tuesday  | R packages      | `r format(dates_545b[7]  - days(1), "%b %d")` - `r format(dates_545b[8]  + ddays(1), "%b %d")` |  | [Week 4-B](/week4b) |
-| 4-B  | Thursday | Dashboards      | `r format(dates_545b[7]  - days(1), "%b %d")` - `r format(dates_545b[8]  + ddays(1), "%b %d")` | [Dashboards](/notes04b) |  |
-| 5-B  | Tuesday  | Dashboards      | `r format(dates_545b[9]  - days(1), "%b %d")` - `r format(dates_545b[10] + ddays(1), "%b %d")` |  | [Week 5-B](/week5b) |
-| 5-B  | Thursday | Automation      | `r format(dates_545b[9]  - days(1), "%b %d")` - `r format(dates_545b[10] + ddays(1), "%b %d")` | [Automation](/notes05b) |  |
-| 6-B  | Tuesday  | Automation      | `r format(dates_545b[11] - days(1), "%b %d")` - `r format(dates_545b[12] + ddays(1), "%b %d")` |  | [Week 6-B](/week6b) |
-| 6-B  | Thursday | Character data  | `r format(dates_545b[11] - days(1), "%b %d")` - `r format(dates_545b[12] + ddays(1), "%b %d")` | [Character data](/notes06b) |  |
-| 7-B  | Tuesday  | _no new topics_ | `r format(dates_545b[13] - days(1), "%b %d")` - `r format(dates_545b[14] + ddays(1), "%b %d")` | _no notes_         | [Week 7-B](/week7b) |
-| 7-B  | Thursday | _no new topics_ | `r format(dates_545b[13] - days(1), "%b %d")` - `r format(dates_545b[14] + ddays(1), "%b %d")` | _no notes_         | |
+| Week | Day      | Topic           | Date                                | Lecture Notes | Weekly Checklist |
+|------|----------|-----------------|-------------------------------------|---------------|------------------|
+| 1-B  | Tuesday  | Functions       | `r format(dates_545b[1] , "%b %d")` | [Functions](/notes01b) | [Week 1-B](/week1b) |
+| 1-B  | Thursday | Functions       | `r format(dates_545b[2] , "%b %d")` |  |  |
+| 2-B  | Tuesday  | List columns    | `r format(dates_545b[3] , "%b %d")` | [List columns](/notes02b) | [Week 2-B](/week2b) |
+| 2-B  | Thursday | List columns    | `r format(dates_545b[4] , "%b %d")` |  |  |
+| 3-B  | Tuesday  | List columns    | `r format(dates_545b[5] , "%b %d")` |  | [Week 3-B](/week3b) |
+| 3-B  | Thursday | R packages      | `r format(dates_545b[6] , "%b %d")` | [R packages](/notes03b) |  |
+| 4-B  | Tuesday  | R packages      | `r format(dates_545b[7] , "%b %d")` |  | [Week 4-B](/week4b) |
+| 4-B  | Thursday | Dashboards      | `r format(dates_545b[8] , "%b %d")` | [Dashboards](/notes04b) |  |
+| 5-B  | Tuesday  | Dashboards      | `r format(dates_545b[9] , "%b %d")` |  | [Week 5-B](/week5b) |
+| 5-B  | Thursday | Automation      | `r format(dates_545b[10], "%b %d")` | [Automation](/notes05b) |  |
+| 6-B  | Tuesday  | Automation      | `r format(dates_545b[11], "%b %d")` |  | [Week 6-B](/week6b) |
+| 6-B  | Thursday | Character data  | `r format(dates_545b[12], "%b %d")` | [Character data](/notes06b) |  |
+| 7-B  |          | _no new topics_ |  | _no notes_ | [Week 7-B](/week7b) |
 
 
 -------
@@ -45,7 +44,7 @@ Use this page to navigate your way through STAT 545.
 | Worksheet | Download | View | # required questions | Deadline |
 |-----------|----------|------|----------------------|----------|
 | Worksheet 1-B | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_01b.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_01b.ipynb) | 4 | Saturday, October 31, 2020 at 23:59 PST |
-| Worksheet 2-B | [.ipynb](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_02b.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_02b.ipynb) | 6 | ~~Saturday, November 7,~~ **Wed Nov 11**, 2020 at 23:59 PST |
+| Worksheet 2-B | [.ipynb](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_02b.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_02b.ipynb) | 6 | Wednesday, November 11, 2020 at 23:59 PST |
 | Worksheet 3-B |  |  |  | Saturday, December 5, 2020 at 23:59 PST |
 
 -------
