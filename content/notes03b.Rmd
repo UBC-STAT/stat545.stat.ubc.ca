@@ -80,6 +80,8 @@ It might help to browse a completed package directory to answer these questions,
 1. True or False: The mandatory files in an R package are a DESCRIPTION file, a NAMESPACE file, and functions in the R/ directory -- everything else is just helpful.
 2. So far we've been using devtools functions in the console (instead of saved in a script). True or False: if you're making a bigger R package, you should start putting those devtools functions in one or more R scripts.
 
+**Quiz 7-B**
+
 
 
 
