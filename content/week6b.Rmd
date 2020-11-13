@@ -38,6 +38,7 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 ### Wednesday
 
 - [ ] __Complete Quiz 11-B by 11:00am PST (on canvas)__
+- [ ] __Submit your Assignment 4-B URL to canvas by 23:59 PST__
 
 ### Thursday
 

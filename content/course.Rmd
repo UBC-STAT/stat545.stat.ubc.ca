@@ -18,14 +18,22 @@ Use this page to navigate your way through STAT 545.
 ## Week-by-Week Guidance
 
 
-| Week | Topic | Duration | Lecture Notes | Checklist |
-|------|-------|----------|---------------|-----------|
-| 1-B  | Functions | `r format(dates_545b[1]  - days(1), "%b %d")` - `r format(dates_545b[2]  + days(1), "%b %d")` | [notes](/notes01b) | [checklist](/week1b) |
-| 2-B  | List columns | `r format(dates_545b[3]  - days(1), "%b %d")` - `r format(dates_545b[4]  + ddays(1), "%b %d")` | [notes](/notes02b) | [checklist](/week2b) |
-| 3-B  | R packages | `r format(dates_545b[5]  - days(1), "%b %d")` - `r format(dates_545b[6]  + ddays(1), "%b %d")` | [notes](/notes03b) | [checklist](/week3b) |
-| 4-B  | Dashboards | `r format(dates_545b[7]  - days(1), "%b %d")` - `r format(dates_545b[8]  + ddays(1), "%b %d")` | [notes](/notes04b) | [checklist](/week4b) |
-| 5-B  | Automation | `r format(dates_545b[9]  - days(1), "%b %d")` - `r format(dates_545b[10] + ddays(1), "%b %d")` | [notes](/notes05b) | [checklist](/week5b) |
-| 6-B  | Character data + Your Choice | `r format(dates_545b[11] - days(1), "%b %d")` - `r format(dates_545b[12] + ddays(1), "%b %d")` | [notes](/notes06b) | [checklist](/week6b) |
+| Week | Day      | Topic           | Duration | Lecture Notes | Checklist |
+|------|----------|-----------------|----------|---------------|-----------|
+| 1-B  | Tuesday  | Functions       | `r format(dates_545b[1]  - days(1), "%b %d")` - `r format(dates_545b[2]  + days(1), "%b %d")`  | [Functions](/notes01b) | [Week 1-B](/week1b) |
+| 1-B  | Thursday | Functions       | `r format(dates_545b[1]  - days(1), "%b %d")` - `r format(dates_545b[2]  + days(1), "%b %d")`  |                    |  |
+| 2-B  | Tuesday  | List columns    | `r format(dates_545b[3]  - days(1), "%b %d")` - `r format(dates_545b[4]  + ddays(1), "%b %d")` | [List columns](/notes02b) | [Week 2-B](/week2b) |
+| 2-B  | Thursday | List columns    | `r format(dates_545b[3]  - days(1), "%b %d")` - `r format(dates_545b[4]  + ddays(1), "%b %d")` |  | [checklist](/week2b) |
+| 3-B  | Tuesday  | List columns    | `r format(dates_545b[5]  - days(1), "%b %d")` - `r format(dates_545b[6]  + ddays(1), "%b %d")` |  | [Week 3-B](/week3b) |
+| 3-B  | Thursday | R packages      | `r format(dates_545b[5]  - days(1), "%b %d")` - `r format(dates_545b[6]  + ddays(1), "%b %d")` | [R packages](/notes03b) |  |
+| 4-B  | Tuesday  | R packages      | `r format(dates_545b[7]  - days(1), "%b %d")` - `r format(dates_545b[8]  + ddays(1), "%b %d")` |  | [Week 4-B](/week4b) |
+| 4-B  | Thursday | Dashboards      | `r format(dates_545b[7]  - days(1), "%b %d")` - `r format(dates_545b[8]  + ddays(1), "%b %d")` | [Dashboards](/notes04b) |  |
+| 5-B  | Tuesday  | Dashboards      | `r format(dates_545b[9]  - days(1), "%b %d")` - `r format(dates_545b[10] + ddays(1), "%b %d")` |  | [Week 5-B](/week5b) |
+| 5-B  | Thursday | Automation      | `r format(dates_545b[9]  - days(1), "%b %d")` - `r format(dates_545b[10] + ddays(1), "%b %d")` | [Automation](/notes05b) |  |
+| 6-B  | Tuesday  | Automation      | `r format(dates_545b[11] - days(1), "%b %d")` - `r format(dates_545b[12] + ddays(1), "%b %d")` |  | [Week 6-B](/week6b) |
+| 6-B  | Thursday | Character data  | `r format(dates_545b[11] - days(1), "%b %d")` - `r format(dates_545b[12] + ddays(1), "%b %d")` | [Character data](/notes06b) |  |
+| 7-B  | Tuesday  | _no new topics_ | `r format(dates_545b[13] - days(1), "%b %d")` - `r format(dates_545b[14] + ddays(1), "%b %d")` | _no notes_         | [Week 7-B](/week7b) |
+| 7-B  | Thursday | _no new topics_ | `r format(dates_545b[13] - days(1), "%b %d")` - `r format(dates_545b[14] + ddays(1), "%b %d")` | _no notes_         | |
 
 
 -------
@@ -48,11 +56,11 @@ Use this page to navigate your way through STAT 545.
 
 | Assignment | Instructions | Launched? | Deadline |
 |------------|--------------|-----------|----------|
-| Assignment 1-B | [view](/assignments/assignment-1B) | Yes | ~~Saturday, November 7~~ **Wed. Nov 11**, 2020 at 23:59 PST |
-| Assignment 2-B | [view](/assignments/assignment-2B) | Yes | ~~Saturday, November 14~~ **Wed. Nov 18**, 2020 at 23:59 PST |
-| Assignment 3-B | [view](/assignments/assignment-3B) | No | Saturday, November 21, 2020 at 23:59 PST |
-| Assignment 4-B | [view](/assignments/assignment-4B) | No | Saturday, November 28, 2020 at 23:59 PST |
-| Assignment 5-B | [view](/assignments/assignment-5B) | No | Saturday, December 5, 2020 at 23:59 PST |
+| Assignment 1-B | [view](/assignments/assignment-1B) | Yes | Wednesday, November 11, 2020 at 23:59 PST |
+| Assignment 2-B | [view](/assignments/assignment-2B) | Yes | Wednesday, November 18, 2020 at 23:59 PST |
+| Assignment 3-B | [view](/assignments/assignment-3B) | No | Wednesday, November 25, 2020 at 23:59 PST |
+| Assignment 4-B | [view](/assignments/assignment-4B) | No | Wednesday, December 02, 2020 at 23:59 PST |
+| Assignment 5-B | [view](/assignments/assignment-5B) | No | Wednesday, December 09, 2020 at 23:59 PST |
 
 
 -------

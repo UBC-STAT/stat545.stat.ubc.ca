@@ -1,6 +1,6 @@
 ---
 title: "STAT 545 Checklist: Week 5-B"
-subtitle: "Version 1.0"
+subtitle: "Version 1.1"
 output: html_document
 ---
 
@@ -38,6 +38,7 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 ### Wednesday
 
 - [ ] __Complete Quiz 9-B by 11:00am PST (on canvas)__
+- [ ] __Submit your Assignment 3-B URL to canvas by 23:59 PST__ 
 
 ### Thursday
 
@@ -53,4 +54,3 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 ### Saturday
 
 - _No worksheet this week_
-- [ ] __Submit your Assignment 4-B URL to canvas by 23:59 PST__
