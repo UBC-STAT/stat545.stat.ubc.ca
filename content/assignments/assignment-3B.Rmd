@@ -17,7 +17,7 @@ In Assignment 2-B, you practiced creating an R package. This week, we'll be crea
 + **Option A:** Add three features to an already-existing BC Liquor shiny app, and deploy it.
 + **Option B:** Create your own shiny app with three features, and deploy it.
 
-Read all the instructions in this document *thoroughly* before proceeding with your assignment. 
+Read all the instructions in this document *thoroughly* before proceeding with your assignment. The grading rubric is detailed at the very end, and *it doubles as a checklist* for you to keep track of your progress!
 
 ## Acknowledgements
 
@@ -34,7 +34,7 @@ This homework was originally developed by Dean Attali, with modifications by Giu
 
 ## Feature ideas 
 
-There are countless possibilities for features, but here are just a few ideas. You can choose any 3 or more ideas from this list or do anything else! Note that many of the examples in this list refer to the BC Liquor app, but they are all still applicable to creating your own Shiny app if you choose to do that instead. 
+There are countless possibilities for features, but here are just a few ideas. You can choose any 3 or more ideas from this list or do anything else! Note that many of the examples in this list refer to the BC Liquor app, but they are all still applicable to creating your own Shiny app if that is your chosen option for the assignment. Want more ideas than what's below? Check [this](https://rstudio.github.io/shiny/tutorial/#welcome) out.
 
 #### If you have a table in your app...
 
@@ -99,18 +99,18 @@ Follow these steps to submit your work. Be sure to familiarize yourself with the
 
 ### Shiny app development (15 points)
 
-- There are three features in your Shiny app. Clearly state which three features you are modifying or creating in your code, with comments. (12 pts, 4 per feature)
-  - Option A: Adding three features to the already existing BC Liquor app.
+- There are three features in your Shiny app. Clearly state which three features you are modifying or creating in your code, with comments. Specifically, *write a sentence per feature explaining how it is useful*. (12 pts, 4 per feature)
+  - **Option A:** Adding three features to the already existing BC Liquor app.
     - [ ] There's at least one new functional widget that modifies at least one output. (4 pts)
     - [ ] There's at least one change to the UI (aside from the addition of a widget). (4 pts)
     - [ ] A third feature, whether it's a change to the UI, or a functional widget. (4 pts)
-  - Option B: Create your own shiny app with three features, and deploy it.
+  - **Option B:** Create your own shiny app with three features, and deploy it.
     - [ ] Feature 1. (4 pts)
     - [ ] Feature 2. (4 pts)
     - [ ] Feature 3. (4 pts)
   - *What are we looking for in your features?*
-     + Variety. Including three tables as part of your dashboard and having the same exact feature for each of them (e.g. a filtering option, even if the tables are distinct) will be penalized; at least 2 of the 3 features must be unique. 
-     + For either option A or B, we will evaluate the *usefulness* of your features in the context of your app (does it add to the user experience?). If we consider any of your features to be irrelevant for the app, 0.5pts will be penalized for that particular feature.
+     + *Variety.* Including three tables as part of your dashboard and having the same exact feature for each of them (e.g. a filtering option, even if the tables are distinct) will be penalized; at least 2 of the 3 features must be unique. 
+     + For either option A or B, we will evaluate the *usefulness* of your features in the context of your app (does it add to the user experience?). We expect your features to be sensible, meaning that they add to the user experience in a way that makes sense - as an example, adding a filtering option for "country" in a table that only has data for Canada does not seem very useful, even if you added the filtering feature correctly. If we consider any of your features to be irrelevant for the app, 0.5pts will be penalized for that particular feature.
      
 - RRR (3 pts):
   - [ ] Code runs without errors and it is appropriately annotated, legible, and easy to follow. (1.5 pts)
