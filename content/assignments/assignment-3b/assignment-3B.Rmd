@@ -17,7 +17,7 @@ In Assignment 2-B, you practiced creating an R package. This week, we'll be crea
 + **Option A:** Add three features to an already-existing BC Liquor shiny app, and deploy it.
 + **Option B:** Create your own shiny app with three features, and deploy it.
 
-Read all the instructions in this document *thoroughly* before proceeding with your assignment. The grading rubric is detailed at the very end, and *it doubles as a checklist* to keep track of your progress!
+Read all the instructions in this document *thoroughly* before proceeding with your assignment. The grading rubric is detailed at the very end, and *it doubles as a checklist* for you to keep track of your progress!
 
 ## Acknowledgements
 
