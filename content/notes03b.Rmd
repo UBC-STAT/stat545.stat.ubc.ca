@@ -82,7 +82,8 @@ It might help to browse a completed package directory to answer these questions,
 
 **Quiz 7-B**
 
-
+1. True or False: Add any package name to the `Imports` field in the DESCRIPTION file, and we can now use functions from that package using `::`.
+2. True or False: We can't *both* add exports to the NAMESPACE file manually and by using `devtools::document()`. 
 
 
 ## Demonstration
@@ -107,7 +108,10 @@ Now, expand:
 
 - 2.15: `use_testthat()` for your package, and make an R script containing tests 
   - Check all tests with `test()`. This also happens with `check()` or the "Check" button.
-- 2.16: Expand `square()` so that it can take either a vector or list, using purrr's `map_dbl()` function. Indicate dependency with `use_package()`. 
+- 2.16: Expand `square()` so that it can take either a vector or list, using purrr's `map_dbl()` function. Indicate dependency with `use_package()`. Types of dependencies:
+  - `Imports`: almost always use this; access functions with `::`. Can also [import specific functions](https://r-pkgs.org/namespace.html#import-r), like `%>%`.
+  - `Suggests`: these packages make your package better, but are not needed (eg. outputting a tibble vs. a data frame)
+  - Others, like `Depends`, [should rarely be used](https://r-pkgs.org/namespace.html#search-path).
 - 2.17: Add a package README with `use_readme_rmd()`, and render it every time with `build_readme()`.
   - Once you successfully sync your package to GitHub, other people can install the package with `devtools::install_github("your_username/package_name")` -- this should go in the README.
 - 11.1: Make a vignette with `use_vignette()`. Build all vignettes with `build_vignettes()`.

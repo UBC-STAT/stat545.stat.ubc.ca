@@ -69,6 +69,10 @@ output: html_document
 <li>So far we’ve been using devtools functions in the console (instead of saved in a script). True or False: if you’re making a bigger R package, you should start putting those devtools functions in one or more R scripts.</li>
 </ol>
 <p><strong>Quiz 7-B</strong></p>
+<ol style="list-style-type: decimal">
+<li>True or False: Add any package name to the <code>Imports</code> field in the DESCRIPTION file, and we can now use functions from that package using <code>::</code>.</li>
+<li>True or False: We can’t <em>both</em> add exports to the NAMESPACE file manually and by using <code>devtools::document()</code>.</li>
+</ol>
 </div>
 <div id="demonstration" class="section level2">
 <h2>Demonstration</h2>
@@ -97,7 +101,12 @@ output: html_document
 <ul>
 <li>Check all tests with <code>test()</code>. This also happens with <code>check()</code> or the “Check” button.</li>
 </ul></li>
-<li>2.16: Expand <code>square()</code> so that it can take either a vector or list, using purrr’s <code>map_dbl()</code> function. Indicate dependency with <code>use_package()</code>.</li>
+<li>2.16: Expand <code>square()</code> so that it can take either a vector or list, using purrr’s <code>map_dbl()</code> function. Indicate dependency with <code>use_package()</code>. Types of dependencies:
+<ul>
+<li><code>Imports</code>: almost always use this; access functions with <code>::</code>. Can also <a href="https://r-pkgs.org/namespace.html#import-r">import specific functions</a>, like <code>%&gt;%</code>.</li>
+<li><code>Suggests</code>: these packages make your package better, but are not needed (eg. outputting a tibble vs. a data frame)</li>
+<li>Others, like <code>Depends</code>, <a href="https://r-pkgs.org/namespace.html#search-path">should rarely be used</a>.</li>
+</ul></li>
 <li>2.17: Add a package README with <code>use_readme_rmd()</code>, and render it every time with <code>build_readme()</code>.
 <ul>
 <li>Once you successfully sync your package to GitHub, other people can install the package with <code>devtools::install_github("your_username/package_name")</code> – this should go in the README.</li>
