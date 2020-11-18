@@ -1,11 +1,62 @@
 ---
-title: "Assignment 4-B"
+title: "Assignment 4-B: Automating Data-analysis Pipelines"
 subtitle: "**Development Version** 0.9000" 
 output: html_document
 ---
 
 __Deadline__: Saturday, November 28, 2020
 
-- Automate a multi-script analysis. Ideally, one they've been working with.
-- Demonstrate ability to run R in the background. Maybe even in the Makefile. 
-- Probably close to [2018 hw09](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/evaluation/hw09/hw09.md) except for the "run in the background" part. 
+__Total Points__: 20
+
+
+## Overview
+
+Your task, high level: modify the [`make` pipeline](http://stat545.com/automation04_make-activity.html) we made in class.
+
+> pipeline analysis should be moved to the `stat545.stat.ubc.ca` repo, probably under an `assignment-4b` folder. 
+
+- [ ] For your convenience, we've indicated all action items with a checkbox, like so.
+
+## Setup
+
+We've made a pull request on your repositories containing the [starting point](https://github.com/STAT545-UBC/make-activity) of the analysis that you will modify.
+
+- [ ] Accept the pull request. You're on your way!
+
+> This starting point, and the assignment, needs to be included in the [template repo](https://github.com/stat545ubc-2020/template-545b-assignments) in preparation to make a pull request, in an `assignment-4b` folder. This should probably be the same folder that appears in the `stat545.stat.ubc.ca` repo.
+
+## Tidy Submission (2 points)
+
+> Take from previous assignments
+
+## Exercises
+
+> Need to clarify these tasks (you have the freedom to do so as you see fit), add checkboxes where appropriate, and make clear rubrics explaining how they will be graded for each (again, you have the freedom to decide this).
+
+- Get them to indicate the code to run a part of the analysis in the background, and where they would run that code if they didn't have a Makefile. 
+- Modify one thing about the seeded analysis (add a file? add another output file?), and update the Makefile accordingly. Let us know what it was that you changed. 
+- Make a Makefile in the root of your assignment repo so that you can make the assignments present in your repo (use a phony output per assignment). Be sure to also include the `all` and `clean` phony outputs. 
+  - For Assignment 4-B, you shouldn't copy and paste _its_ Makefile content into the higher-level Makefile.
+  - "Making" Assignment 3-B should result in the shiny app being launched.
+- List all of the dependencies required for each assignment, in the main README. Make it easy for someone to install these dependencies.
+
+> Pieces of rubric from last time that can be recycled:
+
+- Your Makefile should be written so that, if a dependency changes, running `make` should update the appropriate output (and all downstream portions of the pipeline).
+- Running `make all` should result in having all output present in your repo.
+- Running `make clean` should remove all output. 
+- There shouldn't be any useless output, such as an `Rplots.pdf` file (which sometimes arises as a byproduct of running `Rscript`).
+- Partial marks: Having a hard time getting `make` working? You can still automate your pipeline with a "master R script" in place of the Makefile. You won't get full points, but you can still get partial marks here. Make it clear in your README if this is what you're doing.
+
+> These are from previous assignment and need to be updated:
+
+RRR
+
+- [ ] Code runs without errors and it is appropriately annotated, legible, and easy to follow. (1.5 pts)
+- [ ] Your app should be deployed online on shinyapps.io (or on another server if you’d like). Make sure your app actually works online (sometimes your app will work in RStudio but will have errors on shinyapps.io - make sure you deploy early and often to make debugging easier). (1.5 pts)
+
+
+## Bonus (X points)
+
+- [ ] Make a graph of a Makefile (either one), and put it in the corresponding README. Have this happen in an automated and reproducible way.
+	- Some software that may help: [makefile2dot](https://github.com/vak/makefile2dot), [GraphViz::Makefile](https://metacpan.org/pod/GraphViz::Makefile), [j4make](https://github.com/lindenb/j4make), [makefile2graph](https://github.com/lindenb/makefile2graph).
