@@ -129,3 +129,4 @@ Here are tips when writing the source version of the worksheet.
     2. Write the test by comparing digested versions: `expect_identical(digest(my_answer), "00f3fa27c01aee5e7633e06a130c827e")`
 - Because we're calling on functions from the `testthat` and `digest` packages, it's best to load these in a cell near the top in a read-only R chunk.
 - Ensure the document is able to run error-free when ran from top to bottom.
+- Do not wrap the `expect_` calls within `test_that()`. It doesn't add anything to the tests and versions >= 3.0.0 of the testthat package suppress errors from tests, braking nbgrader.
