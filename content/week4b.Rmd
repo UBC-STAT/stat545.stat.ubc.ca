@@ -39,11 +39,12 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 
 - [ ] __Complete Quiz 7-B by 11:00am PST (on canvas)__
 - [ ] __NEW: Submit your Assignment 2-B URL to canvas by 23:59 PST__
+- [ ] (Optional) Attend office hours at 15:30 - 16:30 PST in the regular "classroom".
 
 ### Thursday
 
 - [ ] Pre-readings by 9:30am PST
-- [ ] (Optional) Attend office hours at 16:00 - 17:00 PST in the regular "classroom".
+- [ ] ~~(Optional) Attend office hours at 16:00 - 17:00 PST in the regular "classroom".~~
 - [ ] Attend lecture 9:30am - 11:00am PST
 
 ### Friday

@@ -34,5 +34,6 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 ### Wednesday
 
 - [ ] __Submit your Assignment 5-B URL to canvas by 23:59 PST__
+- [ ] (Optional) Attend office hours at 16:00 - 17:00 PST in the regular "classroom".
 
 **That completes STAT 545B!**
