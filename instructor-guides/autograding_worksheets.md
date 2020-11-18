@@ -18,8 +18,8 @@ docker run --rm -p 8888:8888 \
   nbgrader:latest
 ```
   This will show the link to use to connect to the Jupyter web interface.
-3. You also need to attach a terminal to the new container with `docker exec -it nbgradercontainer /bin/bash`.
-   This will be the main point of interaction with nbgrader.
+  You also need to attach a terminal to the new container with `docker exec -it nbgradercontainer /bin/bash`.
+  This will be the main point of interaction with nbgrader.
 
 ## Preparation Step
 
@@ -27,8 +27,8 @@ docker run --rm -p 8888:8888 \
 
 To use nbgrader, the student IDs from Canvas must be imported first.
 
-1. Export the gradebook as CSV file (e.g., `students.csv`) and remove all but the _ID_ column. Rename the _ID_ column to (lower-case) _id_.
-2. Run the following command `nbgrader db student import path/to/students.csv`
+1. Export the gradebook as CSV file named `students.csv` (stored in folder `worksheets/`) and remove all but the _ID_ column. Rename the _ID_ column to (lower-case) _id_.
+2. Run the following command `nbgrader db student import /mnt/nbgrader_root/students.csv`
 
 ## Step 2: Gather Submissions
 
@@ -49,8 +49,9 @@ c.ZipCollectApp.strict = True
 worksheet_02a (due: None)  # <-- assignment "worksheet_02a" is available
     - worksheet_02a        # <-- a notebook called "worksheet_02a" is generated
 ```
-  2. If the assignment is not listed, add it with `nbgrader db assignmnet add {assignment_id}`.
-  3. Generate the assignment with `nbgrader generate_assignment {assignment_id}`.
+  If the assignment is not listed, add it with `nbgrader db assignmnet add {assignment_id}`.
+  Generate the assignment with `nbgrader generate_assignment {assignment_id}`.
+
 3. Run autograding with `nbgrader autograde {assignment_id}`.
 4. Export grades with `nbgrader export`. This creates a file `grades.csv` with the students' canvas ID and the points for this one worksheet (although the other worksheets are present as well, they can be ignored). Move this file to the `grades` directory with `mv grades.csv grades/grades_{assignment_id}.csv`. Otherwise it will be lost when the Docker container is terminated.
 
