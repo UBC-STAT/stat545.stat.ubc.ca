@@ -24,7 +24,7 @@ Note:
 - If you want to edit the file in RStudio, I get it. You'll have to install JupyText if it's not already installed. I'm not so familiar with it, but here's what I do know:
     - With Jupytext, you're able to open an Rmd file within jupyter. You can even edit the file and save it, and the file will retain its Rmd status.
     - If you "make the Rmd file an assignment file" within jupyter by following Step 3 above, and proceed to specify the nbgrader metadata, the *metadata will not save* (from my experience, at least).
-    - You can save an Rmd file as an ipynb file: open the Rmd in jupyter (possible thanks to JupyText), and save the worksheet as a different file. It should default to an .ipynb -- you can then "Create Assignment" and start filling in the nbgrader metadata, and the metadata will save along with file saving. 
+    - You can save an Rmd file as an ipynb file: open the Rmd in jupyter (possible thanks to JupyText), and save the worksheet as a different file. It should default to an .ipynb -- you can then "Create Assignment" and start filling in the nbgrader metadata, and the metadata will save along with file saving.
 
 ## Writing a worksheet to comply with nbgrader
 
@@ -74,6 +74,9 @@ The **general idea** behind producing a worksheet for the students:
 2. You use nbgrader to produce a student-facing version of the worksheet. Yes, the solutions are removed in this process.
 3. The "student version" of the worksheet (an .ipynb file) is almost entirely "read and execute only", except for the cells where we ask them to write some code (i.e., provide an answer).
 
+**Important: Do not edit the worksheet after the creating the student-facing worksheet or autograding will fail.**
+If there is a problem with the worksheet, copy the notebook to a new file in the same directory, and make the fixes in this new document!
+
 Here are the details of Step 2, courtesy [Tiffany Timbers' instructions](https://github.com/ttimbers/nbgrader_r_demo#the-demo-how-i-created-it-and-ran-it):
 
 **2A**: Navigate to the `worksheets` folder in the `stat-545-instructor` repo, and run the following code in your shell to "refresh the exchange directory" (whatever that means):
@@ -87,7 +90,7 @@ mkdir /tmp/exchange
 chmod ugo+rw /tmp/exchange
 ```
 
-**2B**: add the worksheet (say worksheet_05a) to the `database.db` file by running: 
+**2B**: add the worksheet (say worksheet_05a) to the `database.db` file by running:
 
 ```
 nbgrader db assignment add worksheet_05a
@@ -104,10 +107,10 @@ nbgrader generate_assignment --force worksheet_05a
 **2E**: Add a new assignment to canvas for this worksheet (you'll have to click on the "More Options" button when you go to create an assignment):
 
 - Under the description, write `Please upload your Worksheet 5-A file here -- it should be a .ipynb file named worksheet_05a.`
-- Points: use the number of questions they need to get correct in order to get full points. 
+- Points: use the number of questions they need to get correct in order to get full points.
 - Change the "submission type" to "File Uploads"; then, click "Restrict Upload File Types", and enter `ipynb`
 - Make the due date Friday at 11:59pm.
-- Click "Save and Publish". 
+- Click "Save and Publish".
 
 
 ## Tips for writing autograded tests
@@ -115,12 +118,12 @@ nbgrader generate_assignment --force worksheet_05a
 Here are tips when writing the source version of the worksheet.
 
 - Be specific about what variable name students should store an answer in, when you're asking them a question.
-    - There's no additional magic that nbgrader brings in terms of testing R code, compared to what you'd write with (say) the `testthat` package (which, please use, by the way). 
-- Be clear when an autograded question starts. Let's use the header **Question X** to indicate that a question is being asked. 
-- Use `expect_identical()` cautiously: 
+    - There's no additional magic that nbgrader brings in terms of testing R code, compared to what you'd write with (say) the `testthat` package (which, please use, by the way).
+- Be clear when an autograded question starts. Let's use the header **Question X** to indicate that a question is being asked.
+- Use `expect_identical()` cautiously:
     - Compare after coercing to a set data type. Maybe the answer is `5`, but someone ended up with `5L` (integer) -- these are not identical.
     - If comparing a double precision number, be mindful that someone might be off by 1e-16 due to version differences, and round the answer to a reasonable length before comparing answers.
-    - The more attributes an object has, the more opportunity there are for objects to differ. Case in point: a tibble is different when it's grouped -- if grouping and other attributes don't matter to you, best to strip these attributes -- perhaps the best way is with `unclass()`. 
+    - The more attributes an object has, the more opportunity there are for objects to differ. Case in point: a tibble is different when it's grouped -- if grouping and other attributes don't matter to you, best to strip these attributes -- perhaps the best way is with `unclass()`.
 - Sometimes writing a test makes the answer blaringly obvious. Case in point: asking "what's the probability of XYZ?", and testing `expect_equal(my_answer, 0.75)` is a dead giveaway. Instead, hide the answer like so:
     1. On your own, obtain an encrypted version of the answer using the `digest::digest()` function. For example, `0.75` digested is the character `"00f3fa27c01aee5e7633e06a130c827e"`.
     2. Write the test by comparing digested versions: `expect_identical(digest(my_answer), "00f3fa27c01aee5e7633e06a130c827e")`
