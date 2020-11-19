@@ -5,17 +5,8 @@ output: html_document
 ---
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, results = "asis"}
-week_num <- 8  # 1 through 14
-#-------------
-source(here::here("content", "dates.R"))
-library(stringr)
-knitr::opts_chunk$set(fig.width = 5, fig.height = 3, fig.align = "center", error = TRUE)
-letter <- if (week_num <= 7) "A" else "B"
-tues_class_num <- paste0(str_pad(week_num * 2 - 2, width = 2, pad = 0), letter)
-tues_date <- lec0 + days((week_num - 1) * 7)
-thurs_date <- tues_date + days(2)
-cat(format(tues_date, "%A, %b %d"), "-", 
-    format(thurs_date, "%A, %b %d"))
+knitr::opts_chunk$set(fig.width = 5, fig.height = 3, 
+                      fig.align = "center", error = TRUE)
 ```
 
 
@@ -56,7 +47,7 @@ Instead, I suggest digesting this content throughout the week:
 - [R4DS functions chapter](https://r-pkgs.org/setup.html#setup-tools)
 
 
-**Quiz 1-B**
+## Quiz
 
 Consider the following code:
 
@@ -73,9 +64,6 @@ f(1)
 
 1. True or False: the output of `f(1)` is `-1`. 
 2. True or False: after running the above code, `x` is `-1`. 
-
-**Quiz 2-B**
-
 1. True or False: Curly-curly `{{}}` can be used whenever we want to refer to column names outright, such as when subsetting in base R with `[[`.
 2. You've made a function `quick_scatter()` that you can pipe a tibble into, and outputs a scatterplot of two variables. So far, you're only using the function to explore the data for your own eyes (perhaps even putting your code directly in the console). True or False: at this point, you should stop and make sure your function is documented and has formal unit tests. 
 

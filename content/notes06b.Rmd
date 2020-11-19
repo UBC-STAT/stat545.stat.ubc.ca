@@ -4,23 +4,6 @@ subtitle: "**Development** Version 0.9000"
 output: html_document
 ---
 
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
-week_num <- 13  # 1 through 14
-#-------------
-source(here::here("content", "dates.R"))
-library(stringr)
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, results = "asis")
-letter <- if (week_num <= 7) "A" else "B"
-tues_class_num <- paste0(str_pad(week_num * 2 - 2, width = 2, pad = 0), letter)
-tues_date <- lec0 + days((week_num - 1) * 7)
-thurs_date <- tues_date + days(2)
-```
-
-
-```{r tues-date}
-cat(format(tues_date, "%A, %b %d"), "-", 
-    format(thurs_date, "%A, %b %d"))
-```
 
 ## Learning Objectives
 

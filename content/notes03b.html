@@ -6,7 +6,6 @@ output: html_document
 
 
 
-<p>Tuesday, Nov 10 - Thursday, Nov 12</p>
 <p>Why make an R package? As mentioned in Week 1-B, your analysis will probably benefit from homemade functions: making functions forces you to think about your analysis in terms of its key computational parts, and makes for robust and readable code. Here are a few benefits that result by bundling these functions into an R package:</p>
 <ul>
 <li>Easily access function documentation</li>
@@ -60,16 +59,12 @@ output: html_document
 </ul></li>
 </ul>
 </div>
-<div id="quizzes" class="section level2">
-<h2>Quizzes</h2>
+<div id="quiz" class="section level2">
+<h2>Quiz</h2>
 <p>It might help to browse a completed package directory to answer these questions, like the <a href="https://github.com/vincenzocoia/powers">powers package</a>.</p>
-<p><strong>Quiz 6-B</strong></p>
 <ol style="list-style-type: decimal">
 <li>True or False: The mandatory files in an R package are a DESCRIPTION file, a NAMESPACE file, and functions in the R/ directory – everything else is just helpful.</li>
 <li>So far we’ve been using devtools functions in the console (instead of saved in a script). True or False: if you’re making a bigger R package, you should start putting those devtools functions in one or more R scripts.</li>
-</ol>
-<p><strong>Quiz 7-B</strong></p>
-<ol style="list-style-type: decimal">
 <li>True or False: Add any package name to the <code>Imports</code> field in the DESCRIPTION file, and we can now use functions from that package using <code>::</code>.</li>
 <li>True or False: We can’t <em>both</em> add exports to the NAMESPACE file manually and by using <code>devtools::document()</code>.</li>
 </ol>

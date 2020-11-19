@@ -4,25 +4,6 @@ subtitle: "Version 1.0"
 output: html_document
 ---
 
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
-week_num <- 10  # 1 through 14
-#-------------
-source(here::here("content", "dates.R"))
-library(stringr)
-knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, results = "asis")
-letter <- if (week_num <= 7) "A" else "B"
-tues_class_num <- paste0(str_pad(week_num * 2 - 2, width = 2, pad = 0), letter)
-tues_date <- lec0 + days((week_num - 1) * 7)
-thurs_date <- tues_date + days(2)
-```
-
-
-```{r tues-date}
-cat(format(tues_date, "%A, %b %d"), "-", 
-    format(thurs_date, "%A, %b %d"))
-```
-
-
 Why make an R package? As mentioned in Week 1-B, your analysis will probably benefit from homemade functions: making functions forces you to think about your analysis in terms of its key computational parts, and makes for robust and readable code. Here are a few benefits that result by bundling these functions into an R package:
 
 - Easily access function documentation
@@ -71,17 +52,12 @@ Prep for this week is also optional. We'll be following along with ["The Whole G
 - ["Advanced R" Chapter 13: S3](https://adv-r.hadley.nz/s3.html)
   - A digestible overview to S3 Object Oriented objects, like `mean()`, and how to make them. 
 
-## Quizzes
+## Quiz
 
 It might help to browse a completed package directory to answer these questions, like the [powers package](https://github.com/vincenzocoia/powers).
 
-**Quiz 6-B**
-
 1. True or False: The mandatory files in an R package are a DESCRIPTION file, a NAMESPACE file, and functions in the R/ directory -- everything else is just helpful.
 2. So far we've been using devtools functions in the console (instead of saved in a script). True or False: if you're making a bigger R package, you should start putting those devtools functions in one or more R scripts.
-
-**Quiz 7-B**
-
 1. True or False: Add any package name to the `Imports` field in the DESCRIPTION file, and we can now use functions from that package using `::`.
 2. True or False: We can't *both* add exports to the NAMESPACE file manually and by using `devtools::document()`. 
 

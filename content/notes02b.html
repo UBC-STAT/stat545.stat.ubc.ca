@@ -6,9 +6,6 @@ output: html_document
 
 
 
-<pre class="r"><code>cat(format(tues_date, &quot;%A, %b %d&quot;), &quot;-&quot;, 
-    format(thurs_date, &quot;%A, %b %d&quot;))</code></pre>
-<pre><code>## Tuesday, Nov 03 - Thursday, Nov 05</code></pre>
 <div id="learning-objectives" class="section level2">
 <h2>Learning Objectives</h2>
 <p>Did you know that a column of a tibble can contain a list – not just a vector? This week explores when such a thing would come in handy, and how to work with list columns.</p>
@@ -44,20 +41,13 @@ output: html_document
 </ul>
 </div>
 </div>
-<div id="quizzes" class="section level2">
-<h2>Quizzes</h2>
-<p><strong>Quiz 3-B</strong></p>
+<div id="quiz" class="section level2">
+<h2>Quiz</h2>
 <ol style="list-style-type: decimal">
 <li>True or False: <code>map(1:3, ~ function(x) x ^ 2)</code> returns the list <code>list(1, 4, 9)</code>.</li>
 <li>You write a function <code>square()</code> that squares its input – but the first thing it does is print a message to the screen! True or False: <code>map_dbl(1:10, square)</code> will throw an error, because the output is not a <code>dbl</code> (a number) – it contains the message, too.</li>
-</ol>
-<p><strong>Quiz 4-B</strong></p>
-<ol style="list-style-type: decimal">
 <li>True or False: purrr-style functions, starting with <code>~</code>, can be used in dplyr’s <code>across()</code> function, such as <code>mutate(across(where(is.numeric), ~ .x ^ 2))</code>, and this function can only take one argument (<code>.x</code>)</li>
 <li>True or False: If I have 10 tibbles I want to save to file, and they’re all stored in a list, the best purrr function to use for saving these to file is <code>map()</code>.</li>
-</ol>
-<p><strong>Quiz 5-B</strong></p>
-<ol style="list-style-type: decimal">
 <li>True or False: Just as <code>c(c(1, 2), c(3, 4))</code> returns the vector of numbers from 1 to 4, <code>list(list(1, 2), list(3, 4))</code> returns the list of numbers from 1 to 4.</li>
 <li>True or False: <code>tibble(model = lm(mpg ~ wt, data = mtcars))</code> doesn’t work because it doesn’t use a <code>map</code> function.</li>
 </ol>
@@ -65,27 +55,17 @@ output: html_document
 <div id="demonstration" class="section level2">
 <h2>Demonstration</h2>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ── Attaching packages ──────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
 <pre><code>## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
 ## ✓ tibble  3.0.3     ✓ dplyr   1.0.2
-## ✓ tidyr   1.1.2     ✓ forcats 0.5.0
-## ✓ readr   1.3.1</code></pre>
-<pre><code>## ── Conflicts ───────────────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
-## x lubridate::as.difftime() masks base::as.difftime()
-## x lubridate::date()        masks base::date()
-## x dplyr::filter()          masks stats::filter()
-## x lubridate::intersect()   masks base::intersect()
-## x dplyr::lag()             masks stats::lag()
-## x lubridate::setdiff()     masks base::setdiff()
-## x lubridate::union()       masks base::union()</code></pre>
+## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
+<pre><code>## ── Conflicts ─────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>library(palmerpenguins)
-library(distplyr)</code></pre>
-<pre><code>## 
-## Attaching package: &#39;distplyr&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:lubridate&#39;:
-## 
-##     dst</code></pre>
-<pre class="r"><code>library(repurrrsive)</code></pre>
+library(distplyr)
+library(repurrrsive)</code></pre>
 <p>Here are some additional exercises that we may cover in class.</p>
 <div id="demo-1-map2" class="section level3">
 <h3>Demo 1: <code>map2</code></h3>
@@ -141,7 +121,7 @@ print(chin)</code></pre>
 ## 
 ## Number of Discontinuities:  0</code></pre>
 <pre class="r"><code>plot(chin, &quot;density&quot;)</code></pre>
-<p><img src="/notes02b_files/figure-html/unnamed-chunk-4-1.png" width="288" /></p>
+<p><img src="/notes02b_files/figure-html/unnamed-chunk-3-1.png" width="288" /></p>
 <pre class="r"><code>eval_density(chin, at = 3000:3010)</code></pre>
 <pre><code>##  [1] 0.0001683311 0.0001691680 0.0001700079 0.0001708508 0.0001716968
 ##  [6] 0.0001725458 0.0001733978 0.0001742528 0.0001751109 0.0001759720
