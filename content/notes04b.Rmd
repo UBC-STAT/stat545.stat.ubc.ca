@@ -48,6 +48,11 @@ Other dashboard tools besides shiny (but not in R):
 
 ## Quiz
 
+**Quiz 8B**
+
+1. True or False: A shiny app, as a website, still requires an instance of R running in the background. The stat545.stat.ubc.ca website is static: it doesn't require an active session to be running in the background.
+2. True or False: Although it's important to document both a shiny app and an R package, documentation is more important in R packages compared to shiny apps.
+
 
 
 ## Demonstration
