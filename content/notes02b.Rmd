@@ -1,6 +1,6 @@
 ---
 title: "Lecture Notes: List Columns"
-subtitle: "Version 1.0"
+subtitle: "Version 1.0.0.9000"
 output: html_document
 ---
 
@@ -15,9 +15,9 @@ From this week, students are anticipated to be able to:
 - Define functions on-the-fly within a `map` function using shortcuts.
 - Apply list columns to cases in data analysis: columns of models, columns of nested lists (JSON-style data), and operating on entire groups within a tibble. 
 
-## Resources
+## Parallel Resources
 
-These resources are meant to be _paired_ with this week, not necessarily digested _before_ class.
+This topic parallels these resources:
 
 - STAT 545 Episode 2-B (released later)
 - [R4DS Chapter 21: Iteration](https://r4ds.had.co.nz/iteration.html) for purrr
@@ -27,9 +27,9 @@ These resources are meant to be _paired_ with this week, not necessarily digeste
 - ["List Columns"](https://jennybc.github.io/purrr-tutorial/ls13_list-columns.html) from [Jenny's purrr tutorial](https://jennybc.github.io/purrr-tutorial/index.html)
 - ["Nested data" article](https://tidyr.tidyverse.org/articles/nest.html) on tidyr's website.
 
-By the way, why use the `map` functions over `for` loops? Aside from the what's said at [R4DS's Section 21.4](https://r4ds.had.co.nz/iteration.html#for-loops-vs.-functionals), the `map` family encourages the input vector(s) and function to be carefully defined first, whereas a `for` loop is more of a free-for-all. Using `map()` is also more readable, is pipe-friendly, and jibes well with list columns in tibbles. 
+I suggest digesting this material before class, or at least throughout our discussion of the topic. 
 
-### Additional Resources
+## Additional Resources
 
 Want to dig deeper? These resources can help.
 
@@ -56,6 +56,8 @@ library(repurrrsive)
 
 
 Here are some additional exercises that we may cover in class.
+
+By the way, why use the `map` functions over `for` loops? Aside from the what's said at [R4DS's Section 21.4](https://r4ds.had.co.nz/iteration.html#for-loops-vs.-functionals), the `map` family encourages the input vector(s) and function to be carefully defined first, whereas a `for` loop is more of a free-for-all. Using `map()` is also more readable, is pipe-friendly, and jibes well with list columns in tibbles. 
 
 ### Demo 1: `map2`
 

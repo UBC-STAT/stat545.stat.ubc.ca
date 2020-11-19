@@ -1,6 +1,6 @@
 ---
 title: "Lecture Notes: R Functions for Data Analysis"
-subtitle: "Version 1.0"
+subtitle: "Version 1.0.0.9000"
 output: html_document
 ---
 
@@ -32,14 +32,14 @@ output: html_document
 <li>S3 objects (and other object oriented styles) (Week 3)</li>
 </ul>
 </div>
-<div id="prepare-for-class" class="section level2">
-<h2>Prepare for Class</h2>
-<p>Since this is the first week of Part B, I won’t be anticipating you to digest material beforehand. Plus, the video for this week won’t come until later in the week.</p>
-<p>Instead, I suggest digesting this content throughout the week:</p>
+<div id="parallel-resources" class="section level2">
+<h2>Parallel Resources</h2>
+<p>This topic parallels these resources:</p>
 <ul>
-<li>Read <a href="https://stat545.com/functions-part1.html">stat545.com Functions, Parts 1-3</a></li>
-<li>Watch STAT 545 Episode 1-B video series (I will announce when it’s available)</li>
+<li><a href="https://stat545.com/functions-part1.html">stat545.com Functions, Parts 1-3</a></li>
+<li><a href="https://youtu.be/3nDgR7l5Tps">STAT 545 Episode 1-B: R Functions for Data Analysis</a></li>
 </ul>
+<p>I suggest digesting this material before class, or at least throughout our discussion of the topic.</p>
 </div>
 <div id="additional-resources" class="section level2">
 <h2>Additional Resources</h2>
@@ -212,7 +212,7 @@ my_scale_informative(1:10)</code></pre>
   expect_equal(my_scale(exp(c(1, 3, NA))), (c(1, 3, NA) - 2) / sqrt(2))
   expect_error(my_scale(letters))
 })</code></pre>
-<pre><code>## Test passed 🎉</code></pre>
+<pre><code>## Test passed 😀</code></pre>
 <ol start="4" style="list-style-type: decimal">
 <li>Sidebar: assertions</li>
 <li>Fortify: <code>NA</code> handling, ellipses, error messages and <code>if</code> statements, verbose option.</li>

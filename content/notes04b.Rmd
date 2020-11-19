@@ -1,37 +1,39 @@
 ---
 title: "Lecture Notes: Shiny Dashboards"
-subtitle: "**Development** Version 0.9000"
+subtitle: "**Development** Version 0.1.0"
 output: html_document
 ---
 
 ## Learning Objectives
 
-This week aims to provide you with a foundation for making a dashboard using R shiny. From today's class, students are anticipated to be able to:
+This week aims to provide you with a foundation for making a shiny app. From today's class, students are anticipated to be able to:
 
-- develop basic shiny apps from scratch,
-- deploy a shiny app,
-- create interactive Shiny R Markdown documents, and
-- research more advanced shiny techniques.
+- develop the user interface of a shiny app from scratch,
+- develop interactivity using widgets in a shiny app,
+- deploy a shiny app to shinyapps.io,
+- create interactive Shiny R Markdown documents (embed shiny features within an Rmd file).
 
 And possibly:
 
 - Make an interactive plot with plotly
-- Make a shiny document (embed shiny features within an Rmd file)
 
 
-## Prepare for Class
+## Parallel Resources
 
-Read/watch one of the following two resources before class:
+This topic parallels these resources:
 
-Prep for this week is also optional. We'll be following along with [Dean Attali's shiny tutorial](https://deanattali.com/blog/building-shiny-apps-tutorial/) this week.
+- STAT 545 Episode 4-B (launched later)
+- [Dean Attali's shiny tutorial](https://deanattali.com/blog/building-shiny-apps-tutorial/)
+
+I suggest digesting this material before class, or at least throughout our discussion of the topic.
 
 ## Additional Resources
 
 General:
 
-- STAT 545 Episode 4-B
 - ["Mastering Shiny"](https://mastering-shiny.org/) by Hadley Wickham
-- The [official shiny site](https://shiny.rstudio.com/) is also very useful. It has tutorials, a gallery, and other goodies.
+  - A new (Fall 2020) book about shiny
+- The [official shiny site](https://shiny.rstudio.com/) has tutorials, a gallery, and other goodies.
 
 Specific tasks:
 
@@ -43,3 +45,121 @@ Other dashboard tools besides shiny (but not in R):
 
 - With python: plotly dash. Check out the [main website](https://plotly.com/dash/), or [this Medium post](https://medium.com/plotly/introducing-dash-5ecf7191b503) introducing the tool.
 - With javascript: [D3](https://d3js.org/), a tremendously powerful tool with a steep learning curve (esp. if you don't know javascript).
+
+## Quiz
+
+
+
+## Demonstration
+
+For an elaboration of this demonstration, see [Dean Attali's tutorial](https://deanattali.com/blog/building-shiny-apps-tutorial/).
+
+### Introducing shiny
+
+Motivation for shiny: explore the [shiny user showcase](https://shiny.rstudio.com/gallery/#user-showcase):
+
+- [ ] First, let's find a "shiny demo"
+- [ ] Then, a "shiny user showcase".
+
+The code behind a shiny app has the following layout in a file called `app.R` -- development involves filling in the `FILL_THIS_IN` parts:
+
+```
+library(shiny)
+
+ui <- fluidPage(FILL_THIS_IN)
+
+server <- function(input, output) {
+    FILL_THIS_IN
+}
+
+shinyApp(ui = ui, server = server)
+```
+
+There is also a two-file option if you'd like, defining the `ui` object in `ui.R`, and the `server` object in `server.R`.  
+
+### Exploring the RStudio Boilerplate
+
+Open the boilerplate:
+
+1. [ ] File > New File > Shiny Web App...
+2. [ ] Ensure "Single File" is selected, and choose a directory.
+
+What R objects are `ui` and `server`? What are they meant for?
+
+- `ui` is HTML; `server` is a function.
+- `ui` is for the display; `server` holds the R machinery.
+
+Side-by-side comparison between the launched app and the code:
+
+- Notice the layouts: `sidebarLayout()`, `titlePanel()`.
+- Notice the widget code, and the placeholder for a plot.
+- Notice that calculations (and more familiar R code) go in the `server`.
+- Notice that we _define_ the (list-like) `output` argument, and _use_ the (list-like) `input` argument. 
+- Notice that additions to `ui` are _function arguments_, and additions to `server` are new lines (specifically: lines that define things).
+
+### Making the BCL Shiny App
+
+Get set up:
+
+1. [ ] Start from scratch -- try the above template containing the `FILL_THIS_IN` fields.
+2. [ ] BCL Data: 
+    a. [ ] Download the [data](https://deanattali.com/files/bcl-data.csv); place alongside `app.R`.
+    b. [ ] Load the tidyverse.
+    c. [ ] Read in the data above `ui` with `bcl <- read_csv("bcl-data.csv")`
+3. [ ] Include `options(shiny.autoreload = TRUE)` so that I can see the changes appear instantly. 
+
+Add a plot to the app:
+
+1. [ ] Verify that calling ggplot2 in the `ui` won't work. Why not? Think coercion. 
+2. [ ] Instead of trying to place the plot directly in `ui`, make a _placeholder_ for the plot: `plotOutput()`.
+    - Always needs an ID (first argument): this will be the link between `server` and `ui`.
+3. [ ] Render the plot in the `server`, and link it to the placeholder:
+    a. [ ] As if `output` is a list, make an entry named by the plot ID. Try setting this to the plot itself -- doesn't work. Plot code:
+    ```
+    ggplot(bcl, aes(Alcohol_Content)) +
+      geom_histogram()
+    ```
+    b. [ ] Wrap plot in `renderPlot()` function.
+    c. [ ] Improve formatting: allow for the possibility of multiple lines with `{}`.
+
+Add interactivity to the plot via a slider:
+
+1. [ ] Add a slider to the `ui` with `sliderInput()`. 
+    a. [ ] Add arguments to allow a user select a price range between 0 and 100. All `*Input()` functions require: 
+        - an ID (to communicate between `ui` and `server`)
+        - a label (text to appear with the widget)
+        - All other arguments are specific to the widget. Hint: `value` should be a vector; use `pre = "$"`.
+    b. [ ] Check out [other widgets](https://shiny.rstudio.com/tutorial/written-tutorial/lesson3/) (from the official Shiny tutorial)
+2. The (list-like) `input` argument in `server` now has an entry named by the widget ID:
+    a. [ ] Investigate the contents of this list entry using this trick: `print()` it to screen in your `renderPlot()` function. Where does it print to screen? Less hacky method: use the `observe()` function instead, top level of function.
+    b. [ ] Use this list entry to filter the `bcl` data.
+3. [ ] Try adding another widget to further filter the data: `radioButtons()`.
+    - Use `choices = c("BEER", "REFRESHMENT", "SPIRITS", "WINE")`
+
+Improve the user interface:
+
+1. [ ] Add a `titlePanel()`. What's the output of `titlePanel()`?
+2. [ ] Add a `sidebarLayout()` with a `sidebarPanel()` and `mainPanel()`. What should go where?
+3. [ ] Add some description to the app -- maybe some welcome text.
+    a. [ ] Try raw text
+    b. [ ] Try headers with `h1()`, `h2()`, etc; bold with `b()` from the `tags` object; and a link to Dean's original BCL app with `a(href = "https://github.com/daattali/shiny-server/tree/master/bcl", "TEXT_HERE")` 
+  
+Display a table of the BC Liquor data below the plot:
+
+1. [ ] Use `renderTable()` and `tableOutput()`.
+
+Data filtering happens twice. Use reactive programming to prevent duplicated code:
+
+1. [ ] Gotcha #1: Try saving the filtered data in the `sever()` function as a new variable. Does it work?
+2. [ ] Make it work by wrapping the `reactive()` function.
+3. [ ] Gotcha #2: Can you refer to the variable you made by name? No. Treat it as a function with no arguments by appending `()`.
+
+
+
+
+More to come:
+
+- themes, tabs/dashboards.
+- shinyapps.io
+- shiny Rmd files
+- DT data tables

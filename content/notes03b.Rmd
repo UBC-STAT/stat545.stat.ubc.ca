@@ -1,6 +1,6 @@
 ---
 title: "Lecture Notes: R Packages for Data Analysis"
-subtitle: "Version 1.0"
+subtitle: "Version 1.0.0.9000"
 output: html_document
 ---
 
@@ -36,9 +36,14 @@ And possibly:
 - Build an S3 object oriented package
 
 
-## Prepare for Class
+## Parallel Resources
 
-Prep for this week is also optional. We'll be following along with ["The Whole Game" Chapter of "R packages"](https://r-pkgs.org/whole-game.html) this week.
+This topic parallels these resources:
+
+- STAT 545 Episode 3-B
+- ["The Whole Game" Chapter of "R packages"](https://r-pkgs.org/whole-game.html)
+
+I suggest digesting this material before class, or at least throughout our discussion of the topic. 
 
 
 ## Additional Resources

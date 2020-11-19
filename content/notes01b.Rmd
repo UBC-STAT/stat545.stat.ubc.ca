@@ -1,6 +1,6 @@
 ---
 title: "Lecture Notes: R Functions for Data Analysis"
-subtitle: "Version 1.0"
+subtitle: "Version 1.0.0.9000"
 output: html_document
 ---
 
@@ -33,19 +33,18 @@ What we're _not_ covering (this week):
 - Documenting functions with roxygen2 (Week 3)
 - S3 objects (and other object oriented styles) (Week 3)
 
-## Prepare for Class
+## Parallel Resources
 
-Since this is the first week of Part B, I won't be anticipating you to digest material beforehand. Plus, the video for this week won't come until later in the week.
+This topic parallels these resources:
 
-Instead, I suggest digesting this content throughout the week:
+- [stat545.com Functions, Parts 1-3](https://stat545.com/functions-part1.html)
+- [STAT 545 Episode 1-B: R Functions for Data Analysis](https://youtu.be/3nDgR7l5Tps)
 
-- Read [stat545.com Functions, Parts 1-3](https://stat545.com/functions-part1.html)
-- Watch STAT 545 Episode 1-B video series (I will announce when it's available) 
+I suggest digesting this material before class, or at least throughout our discussion of the topic. 
 
 ## Additional Resources
 
 - [R4DS functions chapter](https://r-pkgs.org/setup.html#setup-tools)
-
 
 ## Quiz
 

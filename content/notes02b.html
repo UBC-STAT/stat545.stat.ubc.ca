@@ -1,6 +1,6 @@
 ---
 title: "Lecture Notes: List Columns"
-subtitle: "Version 1.0"
+subtitle: "Version 1.0.0.9000"
 output: html_document
 ---
 
@@ -17,9 +17,9 @@ output: html_document
 <li>Apply list columns to cases in data analysis: columns of models, columns of nested lists (JSON-style data), and operating on entire groups within a tibble.</li>
 </ul>
 </div>
-<div id="resources" class="section level2">
-<h2>Resources</h2>
-<p>These resources are meant to be <em>paired</em> with this week, not necessarily digested <em>before</em> class.</p>
+<div id="parallel-resources" class="section level2">
+<h2>Parallel Resources</h2>
+<p>This topic parallels these resources:</p>
 <ul>
 <li>STAT 545 Episode 2-B (released later)</li>
 <li><a href="https://r4ds.had.co.nz/iteration.html">R4DS Chapter 21: Iteration</a> for purrr
@@ -31,15 +31,15 @@ output: html_document
 <li><a href="https://jennybc.github.io/purrr-tutorial/ls13_list-columns.html">“List Columns”</a> from <a href="https://jennybc.github.io/purrr-tutorial/index.html">Jenny’s purrr tutorial</a></li>
 <li><a href="https://tidyr.tidyverse.org/articles/nest.html">“Nested data” article</a> on tidyr’s website.</li>
 </ul>
-<p>By the way, why use the <code>map</code> functions over <code>for</code> loops? Aside from the what’s said at <a href="https://r4ds.had.co.nz/iteration.html#for-loops-vs.-functionals">R4DS’s Section 21.4</a>, the <code>map</code> family encourages the input vector(s) and function to be carefully defined first, whereas a <code>for</code> loop is more of a free-for-all. Using <code>map()</code> is also more readable, is pipe-friendly, and jibes well with list columns in tibbles.</p>
-<div id="additional-resources" class="section level3">
-<h3>Additional Resources</h3>
+<p>I suggest digesting this material before class, or at least throughout our discussion of the topic.</p>
+</div>
+<div id="additional-resources" class="section level2">
+<h2>Additional Resources</h2>
 <p>Want to dig deeper? These resources can help.</p>
 <ul>
 <li><a href="https://adv-r.hadley.nz/functionals.html">Advanced R Chapter 9: Functionals</a> – looking at purrr and <code>map()</code> from a programming perspective.</li>
 <li><a href="https://tidyr.tidyverse.org/articles/rectangle.html">tidyr’s rectangling vignette</a> – for handling deeply nested lists (JSON-style data), similar to tidyr’s <code>pivot</code> functions.</li>
 </ul>
-</div>
 </div>
 <div id="quiz" class="section level2">
 <h2>Quiz</h2>
@@ -64,9 +64,15 @@ output: html_document
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
 <pre class="r"><code>library(palmerpenguins)
-library(distplyr)
-library(repurrrsive)</code></pre>
+library(distplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;distplyr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:stats&#39;:
+## 
+##     sd</code></pre>
+<pre class="r"><code>library(repurrrsive)</code></pre>
 <p>Here are some additional exercises that we may cover in class.</p>
+<p>By the way, why use the <code>map</code> functions over <code>for</code> loops? Aside from the what’s said at <a href="https://r4ds.had.co.nz/iteration.html#for-loops-vs.-functionals">R4DS’s Section 21.4</a>, the <code>map</code> family encourages the input vector(s) and function to be carefully defined first, whereas a <code>for</code> loop is more of a free-for-all. Using <code>map()</code> is also more readable, is pipe-friendly, and jibes well with list columns in tibbles.</p>
 <div id="demo-1-map2" class="section level3">
 <h3>Demo 1: <code>map2</code></h3>
 <p>Using the <code>palmerpenguins::penguins</code> tibble:</p>
