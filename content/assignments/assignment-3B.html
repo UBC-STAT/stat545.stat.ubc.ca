@@ -4,12 +4,13 @@ subtitle: "Version 1.0"
 output: html_document
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <ul>
-<li><strong>Leader</strong>: Iciar Fernandez</li>
-<li><strong>Reviewer</strong>: Almas Khan &amp; Vincenzo Coia</li>
-<li><p><strong>Deadline</strong>: Saturday, November 21, 2020 at 23:59 PST</p></li>
+<li><p><strong>Leader</strong>: Iciar Fernandez</p></li>
+<li><p><strong>Reviewer</strong>: Almas Khan &amp; Vincenzo Coia</p></li>
+<li><p><strong>Deadline</strong>: <del>Saturday, November 21, 2020 at 23:59 PST</del> Wednesday, November 25, 2020 at 23:59 PST</p></li>
 <li><p><strong>Total Points</strong>: 20</p></li>
 </ul>
 <div id="overview" class="section level2">
@@ -77,7 +78,7 @@ output: html_document
 <ul>
 <li>Add an image to the UI. In the case of the BC Liquor app, you could add an image of the BC Liquor Store. If you’re building your own app from scratch, an image may make your app more visually interesting or add information!
 <ul>
-<li><em>Hint:</em> Place the image in a folder named www, and use <code>img(src = &quot;imagename.png&quot;)</code> to add the image.</li>
+<li><em>Hint:</em> Place the image in a folder named www, and use <code>img(src = "imagename.png")</code> to add the image.</li>
 </ul></li>
 <li>If you know CSS, add CSS to make your app look nicer.
 <ul>
@@ -109,18 +110,22 @@ output: html_document
 <div id="tidy-submission-5-points" class="section level3">
 <h3>Tidy Submission (5 points)</h3>
 <p>Follow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.</p>
-<ul>
-<li>[ ] (1 pts) Update your main <code>README</code> for your <em>assignment repository</em> (i.e. <code>stat-545b-assignments-GitHub-Username</code>) <strong>with a link to a running instance of your Shiny app.</strong></li>
-<li>[ ] (3 pts) Make a <code>README</code> within your <code>assignment-3b</code> folder. The README must include:
-<ul>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+(1 pts) Update your main <code>README</code> for your <em>assignment repository</em> (i.e. <code>stat-545b-assignments-GitHub-Username</code>) <strong>with a link to a running instance of your Shiny app.</strong></li>
+<li><input type="checkbox" disabled="" />
+(3 pts) Make a <code>README</code> within your <code>assignment-3b</code> folder. The README must include:<ul>
 <li>Your choice of assignment clearly stated: Option A - BC Liquor app, or Option B - your own Shiny app.</li>
 <li>A description of your app. In the case of Option A, write about what makes your app different from the “basic” version after implementing your chosen features.</li>
 <li>A link to the URL where the app is hosted.</li>
 <li>Whatever dataset you will use, acknowledge its source clearly. Remember that we value open, reproducible science: this means that the user of your app should have direct access to the data, or know where to go to access it.</li>
 </ul></li>
-<li>[ ] (1 pts) Tag a release in your assignment repository.</li>
-<li>[ ] Submit a link to your tagged release in your assignment repository to canvas.</li>
-<li>[ ] (Optional) When you submit to canvas, we would appreciate hearing about your experience with this assignment: what was hard/easy, problems you solved, helpful tutorials you read, things you liked or would have preferred to see, etc. No need to write lots here, this just allows us to make improvements for next year.</li>
+<li><input type="checkbox" disabled="" />
+(1 pts) Tag a release in your assignment repository.</li>
+<li><input type="checkbox" disabled="" />
+Submit a link to your tagged release in your assignment repository to canvas.</li>
+<li><input type="checkbox" disabled="" />
+(Optional) When you submit to canvas, we would appreciate hearing about your experience with this assignment: what was hard/easy, problems you solved, helpful tutorials you read, things you liked or would have preferred to see, etc. No need to write lots here, this just allows us to make improvements for next year.</li>
 </ul>
 </div>
 <div id="shiny-app-development-15-points" class="section level3">
@@ -129,16 +134,22 @@ output: html_document
 <li>There are three features in your Shiny app. Clearly state which three features you are modifying or creating in your code, with comments. Specifically, <em>write a sentence per feature explaining how it is useful</em>. (12 pts, 4 per feature)
 <ul>
 <li><strong>Option A:</strong> Adding three features to the already existing BC Liquor app.
-<ul>
-<li>[ ] There’s at least one new functional widget that modifies at least one output. (4 pts)</li>
-<li>[ ] There’s at least one change to the UI (aside from the addition of a widget). (4 pts)</li>
-<li>[ ] A third feature, whether it’s a change to the UI, or a functional widget. (4 pts)</li>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+There’s at least one new functional widget that modifies at least one output. (4 pts)</li>
+<li><input type="checkbox" disabled="" />
+There’s at least one change to the UI (aside from the addition of a widget). (4 pts)</li>
+<li><input type="checkbox" disabled="" />
+A third feature, whether it’s a change to the UI, or a functional widget. (4 pts)</li>
 </ul></li>
 <li><strong>Option B:</strong> Create your own shiny app with three features, and deploy it.
-<ul>
-<li>[ ] Feature 1. (4 pts)</li>
-<li>[ ] Feature 2. (4 pts)</li>
-<li>[ ] Feature 3. (4 pts)</li>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+Feature 1. (4 pts)</li>
+<li><input type="checkbox" disabled="" />
+Feature 2. (4 pts)</li>
+<li><input type="checkbox" disabled="" />
+Feature 3. (4 pts)</li>
 </ul></li>
 <li><em>What are we looking for in your features?</em>
 <ul>
@@ -147,9 +158,11 @@ output: html_document
 </ul></li>
 </ul></li>
 <li>RRR (3 pts):
-<ul>
-<li>[ ] Code runs without errors and it is appropriately annotated, legible, and easy to follow. (1.5 pts)</li>
-<li>[ ] Your app should be deployed online on shinyapps.io (or on another server if you’d like). Make sure your app actually works online (sometimes your app will work in RStudio but will have errors on shinyapps.io - make sure you deploy early and often to make debugging easier). (1.5 pts)</li>
+<ul class="task-list">
+<li><input type="checkbox" disabled="" />
+Code runs without errors and it is appropriately annotated, legible, and easy to follow. (1.5 pts)</li>
+<li><input type="checkbox" disabled="" />
+Your app should be deployed online on shinyapps.io (or on another server if you’d like). Make sure your app actually works online (sometimes your app will work in RStudio but will have errors on shinyapps.io - make sure you deploy early and often to make debugging easier). (1.5 pts)</li>
 </ul></li>
 </ul>
 <p><strong>Submit the link to your tagged release in Canvas when you have finished all of the above and your assignment.</strong></p>
