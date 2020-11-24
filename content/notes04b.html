@@ -1,6 +1,6 @@
 ---
 title: "Lecture Notes: Shiny Dashboards"
-subtitle: "**Development** Version 0.1.0"
+subtitle: "Version 1.0.0"
 output: html_document
 ---
 
@@ -18,6 +18,7 @@ output: html_document
 <p>And possibly:</p>
 <ul>
 <li>Make an interactive plot with plotly</li>
+<li>Make an interactive data table with the DT package</li>
 </ul>
 </div>
 <div id="parallel-resources" class="section level2">
@@ -57,6 +58,14 @@ output: html_document
 <ol style="list-style-type: decimal">
 <li>True or False: A shiny app, as a website, still requires an instance of R running in the background. The stat545.stat.ubc.ca website is static: it doesn’t require an active session to be running in the background.</li>
 <li>True or False: Although it’s important to document both a shiny app and an R package, documentation is more important in R packages compared to shiny apps.</li>
+</ol>
+<p><strong>Quiz 9B</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>True or False: The following code ordinarily has <code>y</code> as 15, but using <code>shiny::reactive()</code> in a shiny app can have <code>y</code> equal <code>11</code>.</p>
+<pre><code>x &lt;- 10
+y &lt;- x + 10
+x &lt;- 1</code></pre></li>
+<li><p>True or False: Since shiny’s UI is html, we can manually write the UI by writing HTML in the <code>HTML()</code> function.</p></li>
 </ol>
 </div>
 <div id="demonstration" class="section level2">
@@ -193,18 +202,62 @@ Use <code>renderTable()</code> and <code>tableOutput()</code>.</li>
 <p>Data filtering happens twice. Use reactive programming to prevent duplicated code:</p>
 <ol style="list-style-type: decimal">
 <li><input type="checkbox" disabled="" />
-Gotcha #1: Try saving the filtered data in the <code>sever()</code> function as a new variable. Does it work?</li>
+Gotcha #1: Try saving the filtered data in the <code>server()</code> function as a new variable. Does it work?</li>
 <li><input type="checkbox" disabled="" />
 Make it work by wrapping the <code>reactive()</code> function.</li>
 <li><input type="checkbox" disabled="" />
 Gotcha #2: Can you refer to the variable you made by name? No. Treat it as a function with no arguments by appending <code>()</code>.</li>
 </ol>
-<p>More to come:</p>
+</div>
+<div id="taking-shiny-further" class="section level3">
+<h3>Taking shiny further</h3>
+<p>Want to do more with shiny? Let’s explore these features, although we won’t implement them.</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://shiny.rstudio.com/articles/plot-interaction.html">Mouse-based interaction with plots</a>: use arguments of <code>plotOutput()</code>.
 <ul>
-<li>themes, tabs/dashboards.</li>
-<li>shinyapps.io</li>
-<li>shiny Rmd files</li>
-<li>DT data tables</li>
-</ul>
+<li>See the example at the bottom of the above page.</li>
+<li>Notice: no widget, but instead, ID given for <code>click</code>, <code>dblclick</code>, <code>hover</code>, or <code>brush</code> arguments of <code>plotOutput()</code>.</li>
+</ul></li>
+<li>Create dynamic UI components (<a href="https://shiny.rstudio.com/articles/dynamic-ui.html">RStudio tutorial</a>; <a href="https://stat545.com/shiny-tutorial.html#basic-example-of-uioutput">stat545.com basic example</a>)
+<ul>
+<li>Try out the stat545.com example.</li>
+<li>Notice <code>uiOutput()</code> and <code>renderUI()</code>, as per normal, except this time <code>sliderInput()</code> is in the <code>renderUI()</code> function in the <code>server</code> object, not the <code>ui</code>.</li>
+</ul></li>
+<li><a href="https://rstudio.github.io/shinythemes/">Change the theme</a> (colour palette, font, etc) of your shiny app using the <code>shinythemes</code> package.</li>
+<li>Make a shiny app look like a website, complete with tabs and pages, using the <code>shinydashboard</code> package – <a href="https://rstudio.github.io/shinydashboard/get_started.html">getting started page</a>. Notice:
+<ul>
+<li>Uses <code>dashboardPage()</code> instead of <code>fluidPage()</code> for UI.</li>
+<li>Tabs link to separate pages: a <code>menuItem()</code> within a <code>sidebarMenu()</code> is linked to a page defined in <code>tabItem()</code>, linked via <code>tabName</code>.</li>
+<li>Tabs without shinydashboard: use <code>navbarPage()</code> or <code>tabsetPanel()</code>.</li>
+</ul></li>
+<li>Deploy your apps for free to shinyapps.io – click the “publish” button in RStudio, and follow the instructions. Notes:
+<ul>
+<li>shinyapps.io limits: free version</li>
+<li>Requires R to run in the background, so can’t just be any host.</li>
+</ul></li>
+<li>Make shiny documents / Interactive documents (Rmd). Learn more from <a href="https://bookdown.org/yihui/rmarkdown/shiny-documents.html">Chapter 19: Shiny Document</a> from the “R Markdown” book by Yihui Xie et al.
+<ul>
+<li>Load the RStudio boilerplates (presentation and html): File &gt; New File &gt; R Markdown… &gt; Shiny</li>
+<li>Notice:
+<ul>
+<li>The <code>runtime: shiny</code> in the YAML header.</li>
+<li>The addition of a widget with an <code>*Input</code> function like <code>sliderInput()</code>.</li>
+<li>The addition of a plot with <code>renderPlot()</code>.</li>
+</ul></li>
+</ul></li>
+</ol>
+<p>Interactivity without shiny:</p>
+<ol style="list-style-type: decimal">
+<li>Make navigable data tables from the DT package. <em>HTML output does not require an R instance to be running!</em>
+<ul>
+<li>Wrap a tibble / data frame in <code>DT::datatable()</code> in an Rmd file, and knit.</li>
+</ul></li>
+<li>Make interactive plots with plotly (an R package, but primarily <a href="https://plotly.com/javascript/">exists as a javascript graphing library</a>). <em>HTML output does not require an R instance to be running!</em>
+<ul>
+<li>Browse around some plots in the above link.</li>
+<li>Quick win: wrap a ggplot object with the <code>plotly::ggplotly()</code> function.</li>
+<li>Make a plotly plot from scratch with <code>plot_ly()</code></li>
+</ul></li>
+</ol>
 </div>
 </div>

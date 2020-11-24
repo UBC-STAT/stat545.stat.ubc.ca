@@ -1,6 +1,6 @@
 ---
 title: "Lecture Notes: Shiny Dashboards"
-subtitle: "**Development** Version 0.1.0"
+subtitle: "Version 1.0.0"
 output: html_document
 ---
 
@@ -16,6 +16,7 @@ This week aims to provide you with a foundation for making a shiny app. From tod
 And possibly:
 
 - Make an interactive plot with plotly
+- Make an interactive data table with the DT package
 
 
 ## Parallel Resources
@@ -54,6 +55,15 @@ Other dashboard tools besides shiny (but not in R):
 2. True or False: Although it's important to document both a shiny app and an R package, documentation is more important in R packages compared to shiny apps.
 
 
+**Quiz 9B**
+
+1. True or False: The following code ordinarily has `y` as 15, but using `shiny::reactive()` in a shiny app can have `y` equal `11`.
+   ```
+   x <- 10
+   y <- x + 10
+   x <- 1
+   ```
+2. True or False: Since shiny's UI is html, we can manually write the UI by writing HTML in the `HTML()` function. 
 
 ## Demonstration
 
@@ -155,16 +165,40 @@ Display a table of the BC Liquor data below the plot:
 
 Data filtering happens twice. Use reactive programming to prevent duplicated code:
 
-1. [ ] Gotcha #1: Try saving the filtered data in the `sever()` function as a new variable. Does it work?
+1. [ ] Gotcha #1: Try saving the filtered data in the `server()` function as a new variable. Does it work?
 2. [ ] Make it work by wrapping the `reactive()` function.
 3. [ ] Gotcha #2: Can you refer to the variable you made by name? No. Treat it as a function with no arguments by appending `()`.
 
+### Taking shiny further
 
+Want to do more with shiny? Let's explore these features, although we won't implement them.
 
+1. [Mouse-based interaction with plots](https://shiny.rstudio.com/articles/plot-interaction.html): use arguments of `plotOutput()`. 
+    - See the example at the bottom of the above page.
+    - Notice: no widget, but instead, ID given for `click`, `dblclick`, `hover`, or `brush` arguments of `plotOutput()`.
+2. Create dynamic UI components ([RStudio tutorial](https://shiny.rstudio.com/articles/dynamic-ui.html); [stat545.com basic example](https://stat545.com/shiny-tutorial.html#basic-example-of-uioutput))
+    - Try out the stat545.com example.
+    - Notice `uiOutput()` and `renderUI()`, as per normal, except this time `sliderInput()` is in the `renderUI()` function in the `server` object, not the `ui`.
+3. [Change the theme](https://rstudio.github.io/shinythemes/) (colour palette, font, etc) of your shiny app using the `shinythemes` package.
+4. Make a shiny app look like a website, complete with tabs and pages, using the `shinydashboard` package -- [getting started page](https://rstudio.github.io/shinydashboard/get_started.html). Notice:
+    - Uses `dashboardPage()` instead of `fluidPage()` for UI.
+    - Tabs link to separate pages: a `menuItem()` within a `sidebarMenu()` is linked to a page defined in `tabItem()`, linked via `tabName`.
+    - Tabs without shinydashboard: use `navbarPage()` or `tabsetPanel()`.
+5. Deploy your apps for free to shinyapps.io -- click the "publish" button in RStudio, and follow the instructions. Notes:
+    - shinyapps.io limits: free version
+    - Requires R to run in the background, so can't just be any host.
+6. Make shiny documents / Interactive documents (Rmd). Learn more from [Chapter 19: Shiny Document](https://bookdown.org/yihui/rmarkdown/shiny-documents.html) from the "R Markdown" book by Yihui Xie et al.
+    - Load the RStudio boilerplates (presentation and html): File > New File > R Markdown... > Shiny
+    - Notice:
+        - The `runtime: shiny` in the YAML header. 
+        - The addition of a widget with an `*Input` function like `sliderInput()`.
+        - The addition of a plot with `renderPlot()`.
 
-More to come:
+Interactivity without shiny:
 
-- themes, tabs/dashboards.
-- shinyapps.io
-- shiny Rmd files
-- DT data tables
+1. Make navigable data tables from the DT package. *HTML output does not require an R instance to be running!*
+    - Wrap a tibble / data frame in `DT::datatable()` in an Rmd file, and knit.
+2. Make interactive plots with plotly (an R package, but primarily [exists as a javascript graphing library](https://plotly.com/javascript/)). *HTML output does not require an R instance to be running!*
+    - Browse around some plots in the above link.
+    - Quick win: wrap a ggplot object with the `plotly::ggplotly()` function.
+    - Make a plotly plot from scratch with `plot_ly()`
