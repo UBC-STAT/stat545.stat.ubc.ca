@@ -1,5 +1,5 @@
 ---
-title: "Lecture Notes: "
+title: "Lecture Notes: Intro to R"
 subtitle: "Version 1.0.0"
 output: html_document
 ---
@@ -13,14 +13,17 @@ Reminder: Join the class via Zoom: check out the [canvas](https://canvas.ubc.ca/
 
 ## Learning Objectives
 
-_Today's topic cancelled due to the scholar strike_
+1. Become familiar with the STAT 545 website and syllabus.
+2. Explore the basic R syntax.
+3. Write an R script to perform simple calculations.
 
 ## Parallel Resources
 
-To get the most out of this topic, briefly review the following resources before coming to class.
+This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:
 
-- Watch the [STAT 545 Video Series: Episode 1-A: Coding your Analysis for Success](https://youtu.be/91LmBj29-Sc) (also available on canvas)
+- [STAT 545 Episode 1-A: Coding your Analysis for Success](https://youtu.be/91LmBj29-Sc) (also available on canvas)
 
+We suggest referring to this material when engaging with today's topic.
 
 ## Additional Resources
 
@@ -37,3 +40,4 @@ _No quiz for this topic_
 
 We'll work on Worksheet 1-A (link available on course dashboard, https://stat545.stat.ubc.ca/course)
 
+_Today's topic cancelled due to the scholar strike_

@@ -74,8 +74,6 @@ Use this page to navigate your way through STAT 545.
 
 # STAT 545 A
 
--------
-
 ## Topics
 
 | Week | Date                                    | Lecture Notes | Weekly Checklist |
@@ -83,40 +81,24 @@ Use this page to navigate your way through STAT 545.
 | 1-A  | `r format(dates_545a[1] , "%a, %b %d")` | _N/A_ | [Week 1-A](/week1a) |
 | 1-A  | `r format(dates_545a[1] , "%a, %b %d")` | [Intro to R](/notes01a) |  |
 | 2-A  | `r format(dates_545a[2] , "%a, %b %d")` | [Version Control](/notes02a) | [Week 2-A](/week2a) |
-| 2-A  | `r format(dates_545a[3] , "%a, %b %d")` | [R Markdown](/notes03a) |  |
+| 2-A  | `r format(dates_545a[3] , "%a, %b %d")` | [Authoring](/notes03a) |  |
 | 3-A  | `r format(dates_545a[4] , "%a, %b %d")` | [Data Wrangling I](/notes04a) | [Week 3-A](/week3a) |
 | 3-A  | `r format(dates_545a[5] , "%a, %b %d")` | [Plotting I](/notes05a) |  |
 | 4-A  | `r format(dates_545a[6] , "%a, %b %d")` | [Data Wrangling II](/notes06a) | [Week 4-A](/week4a) |
 | 4-A  | `r format(dates_545a[7] , "%a, %b %d")` | [Plotting II](/notes07a) |  |
 | 5-A  | `r format(dates_545a[8] , "%a, %b %d")` | [Tidy Data](/notes08a) | [Week 5-A](/week5a) |
-| 5-A  | `r format(dates_545a[9] , "%a, %b %d")` | [Fitting Models](/notes09a) |  |
+| 5-A  | `r format(dates_545a[9] , "%a, %b %d")` | [Model Fitting](/notes09a) |  |
 | 6-A  | `r format(dates_545a[10], "%a, %b %d")` | [Factors and Dates](/notes10a) | [Week 6-A](/week6a) |
 | 6-A  | `r format(dates_545a[11], "%a, %b %d")` | [Tibble joins](/notes11a) |  |
 | 7-A  | `r format(dates_545a[12], "%a, %b %d")` | [Reading and Writing Data](/notes12a) | [Week 7-A](/week7a) |
 | 7-A  | `r format(dates_545a[13], "%a, %b %d")` | [Choose your Adventure](/notes13a) |  |
 
 
-
-
-
-
-| Week | Duration |
-|------|----------|
-| [Week 1-A](/week1a) | `r format(lec0 - days(1)          , "%b %d")` - `r format(dates_545a[1] + days(1), "%b %d")` |
-| [Week 2-A](/week2a) | `r format(dates_545a[2]  - days(1), "%b %d")` - `r format(dates_545a[3]  + days(1), "%b %d")` |
-| [Week 3-A](/week3a) | `r format(dates_545a[4]  - days(1), "%b %d")` - `r format(dates_545a[5]  + days(1), "%b %d")` |
-| [Week 4-A](/week4a) | `r format(dates_545a[6]  - days(1), "%b %d")` - `r format(dates_545a[7]  + days(1), "%b %d")` |
-| [Week 5-A](/week5a) | `r format(dates_545a[8]  - days(1), "%b %d")` - `r format(dates_545a[9]  + days(1), "%b %d")` |
-| [Week 6-A](/week6a) | `r format(dates_545a[10] - days(1), "%b %d")` - `r format(dates_545a[11] + days(1), "%b %d")` |
-| [Week 7-A](/week7a) | `r format(dates_545a[12] - days(1), "%b %d")` - `r format(dates_545a[13] + days(1), "%b %d")` |
-
 -------
 
 -------
 
 ## Worksheets
-
-- [General Information](/worksheets-about)
 
 
 | Worksheet | Download | View | # required questions |
@@ -128,24 +110,6 @@ Use this page to navigate your way through STAT 545.
 | Worksheet 5-A | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_05a.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_05a.ipynb) | 8 |
 | Worksheet 6-A | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_06a.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_06a.ipynb) | 5 |
 
-
--------
-
--------
-
-## Lecture Demonstrations
-
-Lecture demonstration files will appear here.
-
-| Lecture | Demonstration | View |
-|---------|-----------|------|
-| 6-A: dplyr Part II | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo6a-dplyr-part2.Rmd) | [Knitted demo](/demonstrations/demo6a-dplyr-part2) |
-| 7-A: ggplot2 Part II | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo7a-ggplot2-part2.Rmd) | [Knitted demo](/demonstrations/demo7a-ggplot2-part2) |
-| 8-A: tidyr | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo8a-tidyr.Rmd) | [Knitted demo](/demonstrations/demo8a-tidyr) |
-| 9-A: modelling in R | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo9a-modelling.Rmd) | [Knitted demo](/demonstrations/demo9a-modelling) |
-| 10-A: dates, times, factors | NA | NA |
-| 11-A: tibble joins | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo11a-joins.Rmd) | [Knitted demo](/demonstrations/demo11a-joins) |
-| 13-A: Choose your adventure | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo13a-misc.Rmd) | [Knitted demo](/demonstrations/demo13a-misc) |
 
 -------
 
@@ -176,27 +140,3 @@ Lecture demonstration files will appear here.
 | Milestone 2 | [view](https://stat545.stat.ubc.ca/mini-project/mini-project-2/) | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-2.Rmd) | [view](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/mini-project/mini-project-2-checklist.md) |
 | Milestone 3 | [view](https://stat545.stat.ubc.ca/mini-project/mini-project-3/) | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-3.Rmd) | [view](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/mini-project/mini-project-3-checklist.md) |
 
-
-
-
--------
-
-## Quick-Lookup Table
-
-This table is evolving!
-
-
-
-|                                        | Learning objectives                                              | Key resources                          | Pre-class work           | Lecture worksheet                 | 
-|:-------------------------------------- |:---------------------------                                      |:--------------------------------       |:-------------------------|:----------------------------------|
-| **1: Introduction to STAT545 & R**     | 1. Become familiar with the STAT545 website and [syllabus](https://stat545.stat.ubc.ca/syllabus-545a/). <br /> 2. ["Software Installation for STAT 545"](/tutorials/software-stack) <br /> 3. Explore the basic R syntax. <br /> 4. Write an R script to perform simple calculations. | • [Why R?](https://cfss.uchicago.edu/setup/what-is-r/) <br /> • [Intro to R](https://stat545.com/r-basics.html). |  | [Lecture Worksheet 1](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/release/worksheet_01a/worksheet_01a.ipynb) <!--<br/> <a href="/release/worksheet_01a/worksheet_01a.ipynb" download target="_blank">Lecture Worksheet 1</a> -->
-| **2: Git, GitHub & Version Control**   | *tbd* depending on what is decided for class content  | *tbd* depending on what is decided for class content |[Register for GitHub and create a repository](link here) | No worksheet today |
-| **3: R Markdown & Reproducibility**    | 1. Write documents in markdown on GitHub and RStudio <br /> 2. Style an Rmd document by editing the YAML header and customizing the code chunk options. <br /> 3. Render your finalized document to HTML & PDF. | • [R Markdown](https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) <br /> • [GitHub Markdown Cheatsheet](https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf) <br /> • [YAML Headers](https://bookdown.org/yihui/rmarkdown/html-document.html) <br /> • [Code chunk options](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.177968037.1059384083.1597196687-1784159993.1567907747) on page 2. |• [Asking effective questions online](https://stat545guidebook.netlify.app/introduction-to-stat-545-and-github.html#topic-3-asking-effective-questions-online-10-min) <br /> • [10 minute markdown tutorial](https://commonmark.org/help/tutorial/) | [Lecture Worksheet 2](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_02a.ipynb) |
-| **4: Data Wrangling I**                | 1. Recognize the advantages of the tidyverse compared to the "base R" way with respect to good coding practice <br /> 2. Subset and rearrange data with dplyr <br /> 3. Use piping when implementing function chains <br /> 4. Explore data in tibbles| • [R4DS Data Transformation](https://r4ds.had.co.nz/transform.html) <br /> • [R4DS Pipes](https://r4ds.had.co.nz/pipes.html) <br /> • [Intro to dplyr vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html) | *tbd* | [Lecture Worksheet 2](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_02a.ipynb) |
-| **5: ggplot I**                        | 1. Identify the seven components of the grammar of graphics underlying ggplot2 <br /> 2. Recognize the advantages of ggplot2 over plotting with base R and lattice <br /> 3. Use different geometric objects and aesthetics to explore various plot types | • [ggplot2 cheatsheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf) <br /> • [R4DS Data Visualization Chapter](https://r4ds.had.co.nz/data-visualisation.html) <br /> • [Intro to dplyr vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html) <br /> • [R Cookbook Graphs](http://www.cookbook-r.com/Graphs/) <br /> • [ggplot elegant graphics for data analysis](http://webcat2.library.ubc.ca/vwebv/holdingsInfo?bibId=8489511) | *tbd* | [Lecture Worksheet 2](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_02a.ipynb) |
-| **6: Data Wrangling II**               | 1. Use scoped variants of summarise() and mutate(), with across() <br /> 2. Apply your dplyr knowledge to exploratory data analysis of a dataset | 1. [Jenny's dplyr tutorial](https://stat545.com/dplyr-single.html) <br /> 2. [dplyr vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html) | | [Lecture Worksheet 3](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_03a.ipynb) |
-| **7: ggplot2 II**                      | 1. Understand how to customize and fine-tune `ggplot2` graphics to create *effective* visualizations| 1. [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/introduction.html) by Claus Wilke.<br />2. [STAT545.com](https://stat545.com/effective-graphs.html) - Effective Graphics by Jenny Bryan. | | [Lecture Worksheet 3](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_03a.ipynb) |
-| **8: Tidy Data**                       | 1. Understand how to pivot between 'long' and 'wide' data frames | [Hadley's Paper on Tidy Data](https://vita.had.co.nz/papers/tidy-data.pdf) | 1. [Jenny's Intro to Tidy Data](https://github.com/jennybc/lotr-tidy/blob/master/01-intro.md)<br/>2. `tidyr` [vignette](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) on tidy data  | [Lecture Worksheet 4](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_04a.ipynb) |
-| **9: Model Fitting Paradigm** | 1. Understand how to fit a linear regression model in R | 1. [An Introduction to Statistical Learning](https://www-bcf.usc.edu/~gareth/ISL/) | 1. [`broom`](https://cran.r-project.org/web/packages/broom/vignettes/broom.html) vignette<br/>2. [Tutorial](https://cfss.uchicago.edu/notes/linear-models/) on model fitting in R| [Lecture Worksheet 4](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_04a.ipynb) |
-| **10: Factors and Dates** | 1. Understand how factors and dates work in R using forcats, lubridate and tsibble. |The [R4DS](https://r4ds.had.co.nz/dates-and-times.html) chapter on Dates and Times. The [stat545.com](https://stat545.com/factors-boss.html) chapter on Factors | 1. The [forcats](https://forcats.tidyverse.org) package page and reference guide on page. | [Worksheet 5A](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_05a.ipynb) |
-| **11:Tibble Joins** | 1. Recognize how to manipulate data through a variety of tibble joins and set operations |- [Jenny's Join Cheatsheet](https://stat545.com/join-cheatsheet.html) for a quick reference to joins. | 1.Read the "two-table verbs"'s [vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/two-table.html).  | [Worksheet 5A](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_05a.ipynb) |

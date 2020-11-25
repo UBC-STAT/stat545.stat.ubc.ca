@@ -1,5 +1,5 @@
 ---
-title: "Lecture Notes: "
+title: "Lecture Notes: Data Wrangling Part II"
 subtitle: "Version 1.0.0"
 output: html_document
 ---
@@ -8,21 +8,249 @@ output: html_document
 
 <div id="learning-objectives" class="section level2">
 <h2>Learning Objectives</h2>
+<p>From today’s class, students are anticipated to be able to:</p>
+<ul>
+<li>Grouping data to compute summarized functions using <code>dplyr::group_by()</code> and <code>dplyr::summarize()</code>.</li>
+<li>Compute new columns using <code>mutate()</code>.</li>
+<li>Use <code>dplyr::across()</code> to use functions with specific columns.</li>
+<li>Use scoped variants of <code>summarise()</code> and <code>mutate()</code>, with <code>across()</code>.</li>
+<li>Apply your dplyr knowledge to exploratory data analysis of a dataset.</li>
+</ul>
 </div>
 <div id="parallel-resources" class="section level2">
 <h2>Parallel Resources</h2>
 <p>This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:</p>
 <ul>
-<li></li>
+<li><a href="https://youtu.be/38BA_v7BwKk">STAT 545 Episode 6-A: dplyr Part 2: Calculations on tibbles</a></li>
+<li>We recommend you read / skim through the following resources for more details
+<ul>
+<li><a href="https://stat545.com/dplyr-single.html">Jenny’s “dplyr single table verbs”</a> for dplyr verbs.</li>
+<li><a href="https://www.tidyverse.org/blog/2020/04/dplyr-1-0-0-colwise/">Hadley’s “across” blog post</a> to learn more about <code>across()</code></li>
+</ul></li>
 </ul>
-<p>I suggest referring to this material when engaging with today’s topic.</p>
+<p>We suggest referring to this material when engaging with today’s topic.</p>
 </div>
 <div id="additional-resources" class="section level2">
 <h2>Additional Resources</h2>
+<ul>
+<li><a href="https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html">dplyr vignette</a></li>
+<li><a href="https://stat545.com/dplyr-single.html">Jenny’s dplyr tutorial</a></li>
+</ul>
 </div>
 <div id="quiz" class="section level2">
 <h2>Quiz</h2>
+<p>True or False?</p>
+<ol style="list-style-type: decimal">
+<li><code>summarise()</code> reduces each group down to one row, and <code>mutate()</code> preserves the number of rows. But, between the two, there’s a way to reduce each group down to <em>two</em> rows.</li>
+<li><code>across()</code> is useful, but it doesn’t allow you to make new column names.</li>
+</ol>
 </div>
 <div id="demonstration" class="section level2">
 <h2>Demonstration</h2>
+<pre class="r"><code>library(tidyverse)
+library(gapminder)
+gapminder</code></pre>
+<pre><code>## # A tibble: 1,704 x 6
+##    country     continent  year lifeExp      pop gdpPercap
+##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+##  1 Afghanistan Asia       1952    28.8  8425333      779.
+##  2 Afghanistan Asia       1957    30.3  9240934      821.
+##  3 Afghanistan Asia       1962    32.0 10267083      853.
+##  4 Afghanistan Asia       1967    34.0 11537966      836.
+##  5 Afghanistan Asia       1972    36.1 13079460      740.
+##  6 Afghanistan Asia       1977    38.4 14880372      786.
+##  7 Afghanistan Asia       1982    39.9 12881816      978.
+##  8 Afghanistan Asia       1987    40.8 13867957      852.
+##  9 Afghanistan Asia       1992    41.7 16317921      649.
+## 10 Afghanistan Asia       1997    41.8 22227415      635.
+## # … with 1,694 more rows</code></pre>
+<div id="demo-1" class="section level3">
+<h3>Demo 1</h3>
+<p>Compute a weighted mean of life expectancy for different years, weighting by population.</p>
+<pre class="r"><code>gapminder %&gt;% 
+  group_by(year) %&gt;% 
+  mutate(wmean = sum(lifeExp * pop) / sum(pop))</code></pre>
+<pre><code>## # A tibble: 1,704 x 7
+## # Groups:   year [12]
+##    country     continent  year lifeExp      pop gdpPercap wmean
+##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt; &lt;dbl&gt;
+##  1 Afghanistan Asia       1952    28.8  8425333      779.  48.9
+##  2 Afghanistan Asia       1957    30.3  9240934      821.  52.1
+##  3 Afghanistan Asia       1962    32.0 10267083      853.  52.3
+##  4 Afghanistan Asia       1967    34.0 11537966      836.  57.0
+##  5 Afghanistan Asia       1972    36.1 13079460      740.  59.5
+##  6 Afghanistan Asia       1977    38.4 14880372      786.  61.2
+##  7 Afghanistan Asia       1982    39.9 12881816      978.  62.9
+##  8 Afghanistan Asia       1987    40.8 13867957      852.  64.4
+##  9 Afghanistan Asia       1992    41.7 16317921      649.  65.6
+## 10 Afghanistan Asia       1997    41.8 22227415      635.  66.8
+## # … with 1,694 more rows</code></pre>
+<p>What if I wanted those values repeated for each line?</p>
+</div>
+<div id="demo-2" class="section level3">
+<h3>Demo 2</h3>
+<p>For each continent and year, how many countries have a “low” life expectancy? Let’s say life expectancy is “low” if it’s less than the median most recent life expectancy for each continent.</p>
+<pre class="r"><code>v &lt;- c(4, 7, 2, 4, 5, 9)
+v[v &lt; 6]</code></pre>
+<pre><code>## [1] 4 2 4 5</code></pre>
+<pre class="r"><code>v &lt; 6</code></pre>
+<pre><code>## [1]  TRUE FALSE  TRUE  TRUE  TRUE FALSE</code></pre>
+<pre class="r"><code>v[1:2]</code></pre>
+<pre><code>## [1] 4 7</code></pre>
+<pre class="r"><code>gapminder %&gt;% 
+  group_by(continent) %&gt;% 
+  mutate(median = median(lifeExp[year == 2007])) %&gt;% 
+  filter(lifeExp &lt; median) %&gt;% 
+  count(continent, year)</code></pre>
+<pre><code>## # A tibble: 60 x 3
+## # Groups:   continent [5]
+##    continent  year     n
+##    &lt;fct&gt;     &lt;int&gt; &lt;int&gt;
+##  1 Africa     1952    52
+##  2 Africa     1957    50
+##  3 Africa     1962    50
+##  4 Africa     1967    47
+##  5 Africa     1972    41
+##  6 Africa     1977    38
+##  7 Africa     1982    29
+##  8 Africa     1987    28
+##  9 Africa     1992    27
+## 10 Africa     1997    26
+## # … with 50 more rows</code></pre>
+<pre class="r"><code>  # group_by(continent, year) %&gt;% 
+  # summarise(n = n())
+
+gapminder %&gt;% 
+  mutate(asia = continent == &quot;Asia&quot;)</code></pre>
+<pre><code>## # A tibble: 1,704 x 7
+##    country     continent  year lifeExp      pop gdpPercap asia 
+##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt; &lt;lgl&gt;
+##  1 Afghanistan Asia       1952    28.8  8425333      779. TRUE 
+##  2 Afghanistan Asia       1957    30.3  9240934      821. TRUE 
+##  3 Afghanistan Asia       1962    32.0 10267083      853. TRUE 
+##  4 Afghanistan Asia       1967    34.0 11537966      836. TRUE 
+##  5 Afghanistan Asia       1972    36.1 13079460      740. TRUE 
+##  6 Afghanistan Asia       1977    38.4 14880372      786. TRUE 
+##  7 Afghanistan Asia       1982    39.9 12881816      978. TRUE 
+##  8 Afghanistan Asia       1987    40.8 13867957      852. TRUE 
+##  9 Afghanistan Asia       1992    41.7 16317921      649. TRUE 
+## 10 Afghanistan Asia       1997    41.8 22227415      635. TRUE 
+## # … with 1,694 more rows</code></pre>
+</div>
+<div id="demo-3" class="section level3">
+<h3>Demo 3</h3>
+<p>Get the maximum and minimum <code>gdpPercap</code> for all continents.</p>
+<pre class="r"><code>gapminder %&gt;% 
+  group_by(continent) %&gt;% 
+  summarise(max_g = max(gdpPercap),
+            min_g = min(gdpPercap)) %&gt;% 
+  group_by(continent == &quot;Asia&quot;) %&gt;% 
+  summarise(max2 = max(max_g))</code></pre>
+<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)
+## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 2 x 2
+##   `continent == &quot;Asia&quot;`    max2
+##   &lt;lgl&gt;                   &lt;dbl&gt;
+## 1 FALSE                  49357.
+## 2 TRUE                  113523.</code></pre>
+</div>
+<div id="demo-4" class="section level3">
+<h3>Demo 4</h3>
+<p>Filter gapminder to all entries that have experienced a drop in life expectancy. Hint: <code>dplyr::lag()</code>.</p>
+<pre class="r"><code>v &lt;- 1:4
+v</code></pre>
+<pre><code>## [1] 1 2 3 4</code></pre>
+<pre class="r"><code>dplyr::lag(v)</code></pre>
+<pre><code>## [1] NA  1  2  3</code></pre>
+<pre class="r"><code>gapminder %&gt;% 
+  group_by(country) %&gt;% 
+  arrange(year) %&gt;% 
+  mutate(inc = lifeExp - lag(lifeExp)) %&gt;% 
+  filter(inc &lt; 0)</code></pre>
+<pre><code>## # A tibble: 102 x 7
+## # Groups:   country [52]
+##    country         continent  year lifeExp       pop gdpPercap     inc
+##    &lt;fct&gt;           &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;     &lt;int&gt;     &lt;dbl&gt;   &lt;dbl&gt;
+##  1 China           Asia       1962    44.5 665770000      488. -6.05  
+##  2 Cambodia        Asia       1972    40.3   7450606      422. -5.10  
+##  3 Czech Republic  Europe     1972    70.3   9862158    13108. -0.0900
+##  4 Netherlands     Europe     1972    73.8  13329874    18795. -0.0700
+##  5 Slovak Republic Europe     1972    70.4   4593433     9674. -0.63  
+##  6 Bulgaria        Europe     1977    70.8   8797022     7612. -0.09  
+##  7 Cambodia        Asia       1977    31.2   6978607      525. -9.10  
+##  8 El Salvador     Americas   1977    56.7   4282586     5139. -1.51  
+##  9 Poland          Europe     1977    70.7  34621254     9508. -0.180 
+## 10 Uganda          Africa     1977    50.4  11457758      844. -0.666 
+## # … with 92 more rows</code></pre>
+</div>
+<div id="demo-5" class="section level3">
+<h3>Demo 5</h3>
+<p>Filter gapminder to contain six rows: the rows with the three largest GDP per capita, and the rows with the three smallest GDP per capita. Don’t make any excerpts.</p>
+<pre class="r"><code>gap1 &lt;- filter(gapminder, continent == &quot;Europe&quot;)
+gap2 &lt;- summarise(gap1, mean_gdp = mean(gdpPercap))
+gap2</code></pre>
+<pre><code>## # A tibble: 1 x 1
+##   mean_gdp
+##      &lt;dbl&gt;
+## 1   14469.</code></pre>
+<pre class="r"><code>nrow(gapminder)</code></pre>
+<pre><code>## [1] 1704</code></pre>
+<pre class="r"><code>gapminder %&gt;% 
+  arrange(gdpPercap) %&gt;% 
+  slice(c(1   , 2   , 3, 1702, 1703 ,1704)
+    #c(1:3, (n() - 2):n())
+  )</code></pre>
+<pre><code>## # A tibble: 6 x 6
+##   country          continent  year lifeExp      pop gdpPercap
+##   &lt;fct&gt;            &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;
+## 1 Congo, Dem. Rep. Africa     2002    45.0 55379852      241.
+## 2 Congo, Dem. Rep. Africa     2007    46.5 64606759      278.
+## 3 Lesotho          Africa     1952    42.1   748747      299.
+## 4 Kuwait           Asia       1952    55.6   160000   108382.
+## 5 Kuwait           Asia       1972    67.7   841934   109348.
+## 6 Kuwait           Asia       1957    58.0   212846   113523.</code></pre>
+<pre class="r"><code>c(1:3, (1704 - 2):1704)</code></pre>
+<pre><code>## [1]    1    2    3 1702 1703 1704</code></pre>
+<pre class="r"><code>c(1:3, 1702:1704)</code></pre>
+<pre><code>## [1]    1    2    3 1702 1703 1704</code></pre>
+<pre class="r"><code>gapminder %&gt;% 
+  group_by(continent) %&gt;% 
+  mutate(n_function = n())</code></pre>
+<pre><code>## # A tibble: 1,704 x 7
+## # Groups:   continent [5]
+##    country     continent  year lifeExp      pop gdpPercap n_function
+##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;      &lt;int&gt;
+##  1 Afghanistan Asia       1952    28.8  8425333      779.        396
+##  2 Afghanistan Asia       1957    30.3  9240934      821.        396
+##  3 Afghanistan Asia       1962    32.0 10267083      853.        396
+##  4 Afghanistan Asia       1967    34.0 11537966      836.        396
+##  5 Afghanistan Asia       1972    36.1 13079460      740.        396
+##  6 Afghanistan Asia       1977    38.4 14880372      786.        396
+##  7 Afghanistan Asia       1982    39.9 12881816      978.        396
+##  8 Afghanistan Asia       1987    40.8 13867957      852.        396
+##  9 Afghanistan Asia       1992    41.7 16317921      649.        396
+## 10 Afghanistan Asia       1997    41.8 22227415      635.        396
+## # … with 1,694 more rows</code></pre>
+<pre class="r"><code>gapminder %&gt;% 
+  mutate(decade = floor(year / 10)) %&gt;% 
+  group_by(country, continent, decade) %&gt;% 
+  summarise(across(where(is.numeric), mean)) %&gt;% 
+  select(-year)</code></pre>
+<pre><code>## `summarise()` regrouping output by &#39;country&#39;, &#39;continent&#39; (override with `.groups` argument)</code></pre>
+<pre><code>## # A tibble: 852 x 6
+## # Groups:   country, continent [142]
+##    country     continent decade lifeExp       pop gdpPercap
+##    &lt;fct&gt;       &lt;fct&gt;      &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+##  1 Afghanistan Asia         195    29.6  8833134.      800.
+##  2 Afghanistan Asia         196    33.0 10902524.      845.
+##  3 Afghanistan Asia         197    37.3 13979916       763.
+##  4 Afghanistan Asia         198    40.3 13374886.      915.
+##  5 Afghanistan Asia         199    41.7 19272668       642.
+##  6 Afghanistan Asia         200    43.0 28579164       851.
+##  7 Albania     Europe       195    57.3  1379601      1772.
+##  8 Albania     Europe       196    65.5  1856098.     2537.
+##  9 Albania     Europe       197    68.3  2386301      3423.
+## 10 Albania     Europe       198    71.2  2927709      3685.
+## # … with 842 more rows</code></pre>
+</div>
 </div>

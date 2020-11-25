@@ -9,3 +9,13 @@ As a general rule, please submit changes as a pull request. If you'd like to mak
 ## Teaching Assistants
 
 TA's for the course should feel free to commit to `master` when it comes to things like updating assignments and peer review information. Otherwise, please adopt the "General Rule".
+
+## Publishing Material
+
+We adopt high standards when it comes to material that is published to the STAT 545 @ UBC website.
+
+- Code should always appear in code font.
+- Functions are referred to like `sqrt()`, not `sqrt`. 
+- Sentences should end with a period.
+- Proper English, spelling, and grammar are to be observed whenever appropriate. 
+- Code adopts the [tidyverse style guide](https://style.tidyverse.org/)

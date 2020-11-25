@@ -1,5 +1,5 @@
 ---
-title: "Lecture Notes: "
+title: "Lecture Notes: The Model-Fitting Paradigm in R"
 subtitle: "Version 1.0.0"
 output: html_document
 ---
@@ -8,21 +8,375 @@ output: html_document
 
 <div id="learning-objectives" class="section level2">
 <h2>Learning Objectives</h2>
+<p>From today’s class, students are anticipated to be able to:</p>
+<ul>
+<li>make a model object in R, using <code>lm()</code> as an example.</li>
+<li>write a formula in R.</li>
+<li>predict on a model object with the <code>broom::augment()</code> and <code>predict()</code> functions.</li>
+<li>extract information from a model object using <code>broom::tidy()</code>, <code>broom::glance()</code>, and traditional means.</li>
+</ul>
 </div>
 <div id="parallel-resources" class="section level2">
 <h2>Parallel Resources</h2>
 <p>This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:</p>
 <ul>
-<li></li>
+<li><a href="https://youtu.be/jQqCDeJYzao">STAT 545 Episode 9-A: The Model-Fitting Paradigm in R</a></li>
+<li>Read <a href="https://stat545.stat.ubc.ca/tutorials/model-fitting/">The Model-Fitting Paradigm in R</a> from the Tutorials section of the website.</li>
 </ul>
-<p>I suggest referring to this material when engaging with today’s topic.</p>
+<p>We suggest referring to this material when engaging with today’s topic.</p>
 </div>
 <div id="additional-resources" class="section level2">
 <h2>Additional Resources</h2>
+<ul>
+<li>The <a href="https://cran.r-project.org/web/packages/broom/vignettes/broom.html"><code>broom</code></a> vignette is useful for learning the details of broom.</li>
+<li>If you want a quick intro to linear regression with R, check out this <a href="https://cfss.uchicago.edu/notes/linear-models/">U Chicago Tutorial</a> on model fitting in R (just the linear regression part).</li>
+<li>If you’re eager to learn more about models in general, <a href="https://www-bcf.usc.edu/~gareth/ISL/">An Introduction to Statistical Learning</a> is an approachable read (the book is freely available online)</li>
+<li><a href="https://www.youtube.com/playlist?list=PLqzoL9-eJTNBlVXxWvJkq0dtVut2sICUW">Mike Marin’s R playlist on YouTube</a> helps you use R to obtain statistical results.</li>
+</ul>
 </div>
 <div id="quiz" class="section level2">
 <h2>Quiz</h2>
+<ul>
+<li>TRUE or FALSE: the output of <code>glance</code> on the above returns only 1 row because there is only 1 explanatory variable in the model.</li>
+<li>TRUE or FALSE: the output of <code>broom::tidy()</code> package is more “tidy” than <code>coef(summary())</code> because the output is a <code>tibble</code></li>
+</ul>
+<ol style="list-style-type: decimal">
+<li>TRUE or FALSE: We need to use a modelling function, such as <code>lm</code>, before we can graph a fitted line with <code>geom_smooth</code>.</li>
+<li>TRUE or FALSE: If I wanted to find the amount that <code>lifeExp</code> changes per <code>year</code>, then I need to use <code>broom::tidy()</code></li>
+</ol>
 </div>
 <div id="demonstration" class="section level2">
 <h2>Demonstration</h2>
+<p>Topics for today’s demo:</p>
+<ul>
+<li>fitting a linear regression model using <code>lm</code></li>
+<li>how to extract modelling information using the package <code>broom</code></li>
+<li>plotting models using <code>geom_smooth</code></li>
+</ul>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ──────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
+## ✓ tibble  3.0.3     ✓ dplyr   1.0.2
+## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
+## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
+<pre><code>## ── Conflicts ─────────────────────────────────────────────────────────────────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(gapminder)
+library(broom)</code></pre>
+<div id="what-is-model-fitting" class="section level3">
+<h3>What is Model-Fitting?</h3>
+<p>A way to test if there is a “relationship” between two or more variables</p>
+<p>Let’s look at dataset <code>mtcars</code> as an example:</p>
+<pre class="r"><code>ggplot(mtcars, aes(x = wt, y = mpg)) +
+  geom_point() +
+  labs(x = &quot;Weight (1000&#39;s of lbs)&quot;)</code></pre>
+<p><img src="/notes09a_files/figure-html/unnamed-chunk-3-1.png" width="480" style="display: block; margin: auto;" /></p>
+<ol style="list-style-type: decimal">
+<li><p>Is there a relationship between <code>wt</code> (car weight) and <code>mpg</code> (fuel efficiency)?</p></li>
+<li><p>Or another way to ask, does car weight have some information that tells us about fuel efficiency?</p></li>
+</ol>
+<p>Modelling is a way to quantify this relationship.</p>
+</div>
+<div id="fitting-a-model-in-r" class="section level3">
+<h3>Fitting a model in R</h3>
+<p>Most model fitting functions have a common format:</p>
+<pre><code>function(formula, data, options)</code></pre>
+<ol style="list-style-type: decimal">
+<li><strong>Formula</strong></li>
+</ol>
+<ul>
+<li>describes the relationship you want to test (e.g. <code>wt ~ mpg</code>)</li>
+<li>Formulas look like this: <code>y ~ x1 + x2 + ...</code></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>data</strong></li>
+</ol>
+<ul>
+<li>the <code>data.frame</code>/<code>tibble</code> that contains your variables</li>
+<li>can omit, if variables in formula are defined in environment</li>
+</ul>
+<p>e.g. </p>
+<pre class="r"><code>y1 &lt;- c(1,2,3)
+x1 &lt;- c(0.1, 0.2, 0.3)
+lm(y1~x1)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = y1 ~ x1)
+## 
+## Coefficients:
+## (Intercept)           x1  
+##  -5.128e-16    1.000e+01</code></pre>
+<pre class="r"><code># same as
+d1 &lt;- tibble(y1 = y1, x1 = x1) # store y1 and x2 into tibble
+rm(y1, x1)                     # remove y1 and x2 from environment
+lm(y1~x1, data = d1)           </code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = y1 ~ x1, data = d1)
+## 
+## Coefficients:
+## (Intercept)           x1  
+##  -5.128e-16    1.000e+01</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>options</strong></li>
+</ol>
+<ul>
+<li>ways to customize the model</li>
+<li>specific to each type of model</li>
+</ul>
+<p>The output of these is usually a <strong>special <em>list</em></strong> object.</p>
+<pre class="r"><code>my_model &lt;- lm(y1~x1, data = d1) 
+str(my_model)</code></pre>
+<pre><code>## List of 12
+##  $ coefficients : Named num [1:2] -5.13e-16 1.00e+01
+##   ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;(Intercept)&quot; &quot;x1&quot;
+##  $ residuals    : Named num [1:3] 0 0 0
+##   ..- attr(*, &quot;names&quot;)= chr [1:3] &quot;1&quot; &quot;2&quot; &quot;3&quot;
+##  $ effects      : Named num [1:3] -3.46 -1.41 0
+##   ..- attr(*, &quot;names&quot;)= chr [1:3] &quot;(Intercept)&quot; &quot;x1&quot; &quot;&quot;
+##  $ rank         : int 2
+##  $ fitted.values: Named num [1:3] 1 2 3
+##   ..- attr(*, &quot;names&quot;)= chr [1:3] &quot;1&quot; &quot;2&quot; &quot;3&quot;
+##  $ assign       : int [1:2] 0 1
+##  $ qr           :List of 5
+##   ..$ qr   : num [1:3, 1:2] -1.732 0.577 0.577 -0.346 -0.141 ...
+##   .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. .. ..$ : chr [1:3] &quot;1&quot; &quot;2&quot; &quot;3&quot;
+##   .. .. ..$ : chr [1:2] &quot;(Intercept)&quot; &quot;x1&quot;
+##   .. ..- attr(*, &quot;assign&quot;)= int [1:2] 0 1
+##   ..$ qraux: num [1:2] 1.58 1.26
+##   ..$ pivot: int [1:2] 1 2
+##   ..$ tol  : num 1e-07
+##   ..$ rank : int 2
+##   ..- attr(*, &quot;class&quot;)= chr &quot;qr&quot;
+##  $ df.residual  : int 1
+##  $ xlevels      : Named list()
+##  $ call         : language lm(formula = y1 ~ x1, data = d1)
+##  $ terms        :Classes &#39;terms&#39;, &#39;formula&#39;  language y1 ~ x1
+##   .. ..- attr(*, &quot;variables&quot;)= language list(y1, x1)
+##   .. ..- attr(*, &quot;factors&quot;)= int [1:2, 1] 0 1
+##   .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. .. .. ..$ : chr [1:2] &quot;y1&quot; &quot;x1&quot;
+##   .. .. .. ..$ : chr &quot;x1&quot;
+##   .. ..- attr(*, &quot;term.labels&quot;)= chr &quot;x1&quot;
+##   .. ..- attr(*, &quot;order&quot;)= int 1
+##   .. ..- attr(*, &quot;intercept&quot;)= int 1
+##   .. ..- attr(*, &quot;response&quot;)= int 1
+##   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: R_GlobalEnv&gt; 
+##   .. ..- attr(*, &quot;predvars&quot;)= language list(y1, x1)
+##   .. ..- attr(*, &quot;dataClasses&quot;)= Named chr [1:2] &quot;numeric&quot; &quot;numeric&quot;
+##   .. .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;y1&quot; &quot;x1&quot;
+##  $ model        :&#39;data.frame&#39;:   3 obs. of  2 variables:
+##   ..$ y1: num [1:3] 1 2 3
+##   ..$ x1: num [1:3] 0.1 0.2 0.3
+##   ..- attr(*, &quot;terms&quot;)=Classes &#39;terms&#39;, &#39;formula&#39;  language y1 ~ x1
+##   .. .. ..- attr(*, &quot;variables&quot;)= language list(y1, x1)
+##   .. .. ..- attr(*, &quot;factors&quot;)= int [1:2, 1] 0 1
+##   .. .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. .. .. .. ..$ : chr [1:2] &quot;y1&quot; &quot;x1&quot;
+##   .. .. .. .. ..$ : chr &quot;x1&quot;
+##   .. .. ..- attr(*, &quot;term.labels&quot;)= chr &quot;x1&quot;
+##   .. .. ..- attr(*, &quot;order&quot;)= int 1
+##   .. .. ..- attr(*, &quot;intercept&quot;)= int 1
+##   .. .. ..- attr(*, &quot;response&quot;)= int 1
+##   .. .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: R_GlobalEnv&gt; 
+##   .. .. ..- attr(*, &quot;predvars&quot;)= language list(y1, x1)
+##   .. .. ..- attr(*, &quot;dataClasses&quot;)= Named chr [1:2] &quot;numeric&quot; &quot;numeric&quot;
+##   .. .. .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;y1&quot; &quot;x1&quot;
+##  - attr(*, &quot;class&quot;)= chr &quot;lm&quot;</code></pre>
+<p>Some model functions in R:</p>
+<ul>
+<li>Linear Regression: <code>lm</code></li>
+<li>Generalized Linear Regression: <code>glm</code></li>
+<li>Local regression: <code>loess</code></li>
+<li>Quantile regression: <code>quantreg::rq</code></li>
+<li>…</li>
+</ul>
+<p>Let’s fit a linear model with between <code>wt</code> and <code>mpg</code> in the <code>mtcars</code> dataset:</p>
+<pre class="r"><code>(my_lm &lt;- lm(mpg ~ wt, data = mtcars))</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ wt, data = mtcars)
+## 
+## Coefficients:
+## (Intercept)           wt  
+##      37.285       -5.344</code></pre>
+</div>
+<div id="predict" class="section level3">
+<h3><code>predict()</code></h3>
+<p><strong>Functions:</strong> <code>broom::augment()</code> and <code>predict()</code></p>
+<p>We can use the <code>predict()</code> or <code>broom::augment()</code> to make predictions from the model (default is to use fitting/training data).</p>
+<pre class="r"><code>predict(my_lm) %&gt;% 
+  head()</code></pre>
+<pre><code>##         Mazda RX4     Mazda RX4 Wag        Datsun 710    Hornet 4 Drive 
+##          23.28261          21.91977          24.88595          20.10265 
+## Hornet Sportabout           Valiant 
+##          18.90014          18.79325</code></pre>
+<pre class="r"><code>augment(my_lm)</code></pre>
+<pre><code>## # A tibble: 32 x 9
+##    .rownames          mpg    wt .fitted .resid .std.resid   .hat .sigma  .cooksd
+##    &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
+##  1 Mazda RX4         21    2.62    23.3 -2.28     -0.766  0.0433   3.07  1.33e-2
+##  2 Mazda RX4 Wag     21    2.88    21.9 -0.920    -0.307  0.0352   3.09  1.72e-3
+##  3 Datsun 710        22.8  2.32    24.9 -2.09     -0.706  0.0584   3.07  1.54e-2
+##  4 Hornet 4 Drive    21.4  3.22    20.1  1.30      0.433  0.0313   3.09  3.02e-3
+##  5 Hornet Sportabo…  18.7  3.44    18.9 -0.200    -0.0668 0.0329   3.10  7.60e-5
+##  6 Valiant           18.1  3.46    18.8 -0.693    -0.231  0.0332   3.10  9.21e-4
+##  7 Duster 360        14.3  3.57    18.2 -3.91     -1.31   0.0354   3.01  3.13e-2
+##  8 Merc 240D         24.4  3.19    20.2  4.16      1.39   0.0313   3.00  3.11e-2
+##  9 Merc 230          22.8  3.15    20.5  2.35      0.784  0.0314   3.07  9.96e-3
+## 10 Merc 280          19.2  3.44    18.9  0.300     0.100  0.0329   3.10  1.71e-4
+## # … with 22 more rows</code></pre>
+<p>Or we can predict on a new dataset:</p>
+<pre class="r"><code>wt1 &lt;- tibble(wt = seq(18:23))
+wt1</code></pre>
+<pre><code>## # A tibble: 6 x 1
+##      wt
+##   &lt;int&gt;
+## 1     1
+## 2     2
+## 3     3
+## 4     4
+## 5     5
+## 6     6</code></pre>
+<pre class="r"><code>predict(my_lm,wt1)</code></pre>
+<pre><code>##         1         2         3         4         5         6 
+## 31.940655 26.596183 21.251711 15.907240 10.562768  5.218297</code></pre>
+<pre class="r"><code>augment(my_lm, newdata = wt1)</code></pre>
+<pre><code>## Warning: &#39;newdata&#39; had 6 rows but variables found have 234 rows</code></pre>
+<pre><code>## # A tibble: 6 x 2
+##      wt .fitted
+##   &lt;int&gt;   &lt;dbl&gt;
+## 1     1   31.9 
+## 2     2   26.6 
+## 3     3   21.3 
+## 4     4   15.9 
+## 5     5   10.6 
+## 6     6    5.22</code></pre>
+<pre class="r"><code>wt1 %&gt;%
+  mutate(mpg = c(32, 26, 20, 14, 8, 2)) %&gt;%
+  augment(my_lm, newdata = .)</code></pre>
+<pre><code>## # A tibble: 6 x 4
+##      wt   mpg .fitted  .resid
+##   &lt;int&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+## 1     1    32   31.9   0.0593
+## 2     2    26   26.6  -0.596 
+## 3     3    20   21.3  -1.25  
+## 4     4    14   15.9  -1.91  
+## 5     5     8   10.6  -2.56  
+## 6     6     2    5.22 -3.22</code></pre>
+</div>
+<div id="summary" class="section level3">
+<h3><code>summary()</code></h3>
+<p><code>lm</code> output lacks information:</p>
+<pre class="r"><code>my_lm</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ wt, data = mtcars)
+## 
+## Coefficients:
+## (Intercept)           wt  
+##      37.285       -5.344</code></pre>
+<p>To get more information, we can use <code>summary</code>:</p>
+<pre class="r"><code>summary(my_lm)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ wt, data = mtcars)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.5432 -2.3647 -0.1252  1.4096  6.8727 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  37.2851     1.8776  19.858  &lt; 2e-16 ***
+## wt           -5.3445     0.5591  -9.559 1.29e-10 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.046 on 30 degrees of freedom
+## Multiple R-squared:  0.7528, Adjusted R-squared:  0.7446 
+## F-statistic: 91.38 on 1 and 30 DF,  p-value: 1.294e-10</code></pre>
+<p><code>summary</code> is useful for reading, but it’s not easy to work with this output</p>
+</div>
+<div id="introduce-broomtidy" class="section level3">
+<h3>Introduce <code>broom::tidy</code></h3>
+<ul>
+<li>extracts statistical summaries for each component of the model</li>
+<li>returns in tabular format</li>
+<li>useful for <em>interpretation</em></li>
+</ul>
+<pre class="r"><code>tidy(my_lm)</code></pre>
+<pre><code>## # A tibble: 2 x 5
+##   term        estimate std.error statistic  p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)    37.3      1.88      19.9  8.24e-19
+## 2 wt             -5.34     0.559     -9.56 1.29e-10</code></pre>
+<pre class="r"><code>coef(summary(my_lm)) </code></pre>
+<pre><code>##              Estimate Std. Error   t value     Pr(&gt;|t|)
+## (Intercept) 37.285126   1.877627 19.857575 8.241799e-19
+## wt          -5.344472   0.559101 -9.559044 1.293959e-10</code></pre>
+</div>
+<div id="broomglance" class="section level3">
+<h3><code>broom::glance</code></h3>
+<ul>
+<li>gives statistical summary on model as a whole</li>
+<li>useful for checking goodness of fit</li>
+</ul>
+<pre class="r"><code>glance(my_lm)</code></pre>
+<pre><code>## # A tibble: 1 x 12
+##   r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC
+##       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     0.753         0.745  3.05      91.4 1.29e-10     1  -80.0  166.  170.
+## # … with 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
+</div>
+<div id="plotting-linear-models-with-geom_smooth" class="section level3">
+<h3>Plotting linear models with <code>geom_smooth</code></h3>
+<p>We can plot models (with one predictor/ X variable) using <code>ggplot2</code> through the <code>geom_smooth()</code> layer. Specifying <code>method="lm"</code> gives us the linear regression fit (but only visually!):</p>
+<pre class="r"><code>ggplot(mtcars, aes(x = wt, y = mpg)) +
+    #geom_point() +
+    geom_smooth(method=&quot;lm&quot;) </code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="/notes09a_files/figure-html/unnamed-chunk-12-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Let’s visualize some relationships in the <code>gapminder</code> dataset.</p>
+<p>Lets the country “Zimbabwe”, which has a unique behavior in the <code>lifeExp</code> and <code>year</code> relationship.</p>
+<pre class="r"><code>gapminder_Zimbabwe &lt;- gapminder %&gt;% 
+  filter(country == &quot;Zimbabwe&quot;)
+
+gapminder_Zimbabwe %&gt;% 
+  ggplot(aes(year, lifeExp)) + 
+  geom_point()</code></pre>
+<p><img src="/notes09a_files/figure-html/unnamed-chunk-13-1.png" width="480" style="display: block; margin: auto;" />
+Let’s try fitting a linear model to this relationship</p>
+<pre class="r"><code>ggplot(gapminder_Zimbabwe, aes(year,lifeExp)) +
+  geom_point() +
+  geom_smooth(method = &quot;lm&quot;, se = F)</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="/notes09a_files/figure-html/unnamed-chunk-14-1.png" width="480" style="display: block; margin: auto;" />
+Now we will try to fit a second degree polynomial and see what would that look like.</p>
+<pre class="r"><code>ggplot(gapminder_Zimbabwe, aes(year,lifeExp)) +
+  geom_point() +
+  geom_smooth(method = &quot;lm&quot;,
+              formula = y~poly(x,2), 
+              se = F)</code></pre>
+<p><img src="/notes09a_files/figure-html/unnamed-chunk-15-1.png" width="480" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>#?geom_smooth</code></pre>
+</div>
+<div id="summary-1" class="section level3">
+<h3>Summary</h3>
+<ol style="list-style-type: decimal">
+<li><p><code>function(formula, data, options)</code> - most models in R follow this structure.</p></li>
+<li><p><code>broom::augment()</code> - uses a fitted model to obtain predictions. Puts this in a new column in existing <code>tibble</code>. Equivalent base-r function is <code>predict()</code>.</p></li>
+<li><p><code>broom::tidy()</code> - used to extract statistical information on each component of a model. Equivalent is <code>coef(summary(lm_object))</code>.</p></li>
+<li><p><code>broom::glance()</code> - used to extract statistical summaries on the whole model. Always returns a 1-row <code>tibble</code>.</p></li>
+<li><p><code>geom_smooth()</code> - used to add geom_layer that shows a fitted line to the data. <code>method</code> and <code>formula</code> arguments can be used to customize model.</p></li>
+</ol>
+</div>
+</div>
+<div id="attribution" class="section level2">
+<h2>Attribution</h2>
+<ul>
+<li>Fall 2020: Victor Yuan put this demonstration together.</li>
+</ul>
 </div>

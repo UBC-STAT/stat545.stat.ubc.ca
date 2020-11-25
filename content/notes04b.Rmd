@@ -60,7 +60,7 @@ Other dashboard tools besides shiny (but not in R):
 1. True or False: The following code ordinarily has `y` as 15, but using `shiny::reactive()` in a shiny app can have `y` equal `11`.
    ```
    x <- 10
-   y <- x + 10
+   y <- x + 5
    x <- 1
    ```
 2. True or False: Since shiny's UI is html, we can manually write the UI by writing HTML in the `HTML()` function. 

@@ -1,5 +1,5 @@
 ---
-title: "Lecture Notes: "
+title: "Lecture Notes: Plotting Part II"
 subtitle: "Version 1.0.0"
 output: html_document
 ---
@@ -12,48 +12,22 @@ knitr::opts_chunk$set(fig.width = 5, fig.height = 3,
 
 ## Learning Objectives
 
+From today's class, students are anticipated to be able to:
+
++ Become familiar with customizing `ggplot2` graphs.
++ Choose an appropriate plot type for Exploratory Data Analysis.
++ Understand what makes data visualizations *effective*.
++ Understand how to customize and fine-tune ggplot2 graphics to create effective visualizations.
 
 ## Parallel Resources
 
 This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:
 
-- 
+- [STAT 545 Episode 7-A: ggplot2 Part 2: Plotting for Exploratory Data Analysis](https://youtu.be/X8b44P5D-5w)
 
-I suggest referring to this material when engaging with today's topic.
+We suggest referring to this material when engaging with today's topic.
 
 ## Additional Resources
-
-
-
-## Quiz
-
-
-
-## Demonstration
-
-
-
-
-<!-- ******THURSDAY'S CLASS****** -->
-
-## Thursday's Class `r thurs_class_num`: ggplot2 II 
-
-```{r thurs-date}
-cat(thurs_date_pretty)
-```
-
-From today's class, students are anticipated to be able to:
-
-+ Become familiar with customizing `ggplot2` graphs 
-+ Choose an appropriate plot type for Exploratory Data Analysis
-+ Understand what makes data visualizations *effective*
-
-
-#### Prepare for Class
-
-- Watch the [STAT 545 Video Series: Episode 7-A](link)
-
-Some useful (but not mandatory) readings related to today are:
 
 - [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/introduction.html) by Claus Wilke.
   - Excellent guide to designing visuals that are appropriate to the data at hand. 
@@ -61,28 +35,266 @@ Some useful (but not mandatory) readings related to today are:
 - [Callingbull.org](https://callingbull.org/tools.html) by Carl T. Bergstrom and Jevin West.
   - Great resource for rethinking the "typical" way we do things. 
 
-#### During Class
-
-+ 9:30 - 9:50: In class demo, covering:
-  + customizing ggplot2 graphs
-  + effective visualizations
-+ 9:50 - 10:00: Quiz.
-+ 10:00 - 10:05: Break.
-+ 10:05 - 10:45: Lecture worksheet.
-
-**Complete the Class 7-A Quiz on Canvas by Friday, October 2nd at 11:00am PST.**
-
-| Lecture | Demonstration | View |
-|---------|-----------|------|
-| 7-A: ggplot2 Part II | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo7a-ggplot2-part2.Rmd) | [Knitted demo](/demonstrations/demo7a-ggplot2-part2) |
-
-
-
-#### Deeper Dive
-
 Here are some resources for you to investigate various aspects of graphing in more detail:
 
 - [Visualization Analysis and Design](https://www-taylorfrancis-com.ezproxy.library.ubc.ca/books/9780429088902) by Tamara Munzner.
    - Gold-standard book for designing plots with a focus on human perception.
 - [ggplot2 book](https://ggplot2-book.org/)by Hadley Wickam.
-   - Goes into detail on how to use ggplot2
+   - Goes into detail on how to use ggplot2.
+
+## Quiz
+
+1. True or False: Because the `dplyr::group_by()` function and ggplot2's `group` aesthetic both split a tibble into groups, we can use either one when making a plot. 
+2. True or False: In principle, mapping `continent` to letters (a, b, c, ...) is an aesthetic mapping.
+
+```{r}
+gapminder %>% 
+  group_by(continent) %>% 
+  nrow
+gapminder %>% 
+  ggplot(aes(gdpPercap, lifeExp)) +
+  geom_point(aes(shape = continent)) +
+  scale_x_log10() +
+  scale_shape_manual(values = letters[1:5])
+```
+
+
+
+## Demonstration
+
+
+```{r, message = FALSE, warning = FALSE}
+library(tidyverse)
+library(gapminder)
+knitr::opts_chunk$set(error = TRUE, fig.width = 5, fig.height = 2)
+```
+
+
+### Demo 1
+
+From last class:
+
+> Compute a weighted mean of life expectancy for different years, weighting by population.
+
+Plot that global average life expectancy over time.
+
+```{r}
+gapminder %>% 
+  group_by(year) %>% 
+  summarise(wmean = sum(lifeExp * pop) / sum(pop)) %>% 
+  ggplot(aes(year, wmean)) +
+  geom_line()
+```
+
+### Demo 2
+
+From last class:
+
+> For each continent and year, how many countries have a "low" life expectancy? Let’s say life expectancy is "low" if it’s less than the median most recent life expectancy for each continent.
+
+Plot the number of "low life expectancy" countries over time for each continent. 
+
+```{r}
+gapminder %>% 
+  group_by(continent) %>% 
+  mutate(median = median(lifeExp[year == 2007])) %>% 
+  filter(lifeExp < median) %>% 
+  count(continent, year) %>% 
+  ggplot(aes(year, n)) +
+  geom_line(aes(colour = continent)) +
+  ylab("# of countries with low lifeExp") +
+  labs(title = "Evolution over time") +
+  scale_x_continuous("") +
+  scale_colour_discrete("") +
+  theme_minimal() +
+  theme(panel.grid = element_blank())
+```
+
+
+### Demo 3
+
+**(a)**
+
+Plot GDP per capita over time, identifying each continent. 
+
+```{r}
+p3 <- ggplot(gapminder, aes(year, gdpPercap)) +
+  geom_line(aes(group = country, colour = continent), alpha = 1/3) +
+  facet_wrap(~ continent) +
+  scale_y_log10(labels = scales::dollar_format()) +
+  guides(colour = FALSE)
+p3
+```
+
+
+**(b)**
+
+From last class Demo 3:
+
+> Get the maximum and minimum `gdpPercap` for all continents.
+
+We'll also add _for each year_.  Today: modify plot (a) above so that the lines for each continent are contained within a band.
+
+```{r}
+gapminder %>% 
+  group_by(continent, year) %>% 
+  mutate(max = max(gdpPercap),
+            min = min(gdpPercap)) %>% 
+  ggplot(aes(year, (gdpPercap))) +
+  geom_ribbon(aes(ymin = min, ymax = max), alpha = 0.5, fill = "gray") +
+  geom_line(aes(group = country, colour = continent), alpha = 1/3) +
+  # geom_ribbon(aes(ymin = quantile(gdpPercap, probs = 0.25),
+  #                 ymax = quantile(gdpPercap, probs = 0.75),
+  #                 group = year)) +
+  facet_wrap( ~ continent) +
+  scale_y_log10(labels = scales::dollar_format()) +
+  guides(colour = FALSE) +
+  theme_bw()
+```
+
+
+### Demo 4
+
+From last class:
+
+> Filter gapminder to all entries that have experienced a drop in life expectancy. Hint: `dplyr::lag()`.
+
+Today: Was a drop in life expectancy just as likely for any year, or were some years more prone to see a drop than others? Is this true for all continents?
+
+```{r}
+gapminder %>% 
+  group_by(country) %>% 
+  arrange(year) %>% 
+  mutate(inc = lifeExp - lag(lifeExp)) %>% 
+  filter(inc < 0) %>% 
+  ggplot(aes(year)) +
+  geom_bar()
+```
+
+
+### Demo 5
+
+How has the distribution of GDP per capita changed over time for each continent?
+
+(Breakout rooms?)
+
+```{r}
+gapminder %>% 
+  filter(continent != "Oceania") %>% 
+  ggplot(aes(gdpPercap, factor(year))) +
+  ggridges::geom_density_ridges(aes(fill = continent), alpha = 1/3) +
+  scale_x_log10("GDP per capita", labels = scales::dollar_format()) +
+  ylab("Year") +
+  theme_minimal() +
+  scale_fill_discrete("")
+```
+
+
+### Effective Vis
+
+Let's go through [Principles of Figure Design](https://vincenzocoia.com/communicating_data/#28) slides, modelling Part II of [Claus Wilke's vis book](https://clauswilke.com/dataviz/).
+
+### Demo 6
+
+The following mock dataset marks the (x,y) position of a caribou at four time points. 
+
+```
+tribble(
+  ~time, ~x, ~y,
+  1, 0.3, 0.3,
+  2, 0.8, 0.7,
+  3, 0.5, 0.9,
+  4, 0.4, 0.5
+) %>% 
+  ggplot(aes(x, y)) + 
+  geom_line()
+```
+
+- Fix the plot below so that it shows the path of the caribou. 
+- Add an arrow with `arrow = arrow()`.
+- Add the `time` label with `geom_text()`.
+
+```{r}
+tribble(
+  ~time, ~x, ~y,
+  1, 0.3, 0.3,
+  2, 0.8, 0.7,
+  3, 0.5, 0.9,
+  4, 0.4, 0.5
+) %>% 
+  ggplot(aes(x, y)) + 
+  geom_path(arrow = arrow()) +
+  geom_text(aes(label = time), nudge_x = 0.02) +
+  theme_void()
+```
+
+### Demo 7
+
+- Change the following plot so that it shows _proportion_ on the y-axis, not count.
+- Change the x-axis so that it doesn't appear to be continuous.
+- Put the bars for transmission side-by-side with their own colour.
+- Capitalize the legend title.
+
+```
+mtcars %>% 
+  mutate(transmission = if_else(am == 0, "automatic", "manual")) %>% 
+  ggplot(aes(cyl)) +
+  geom_bar(aes(colour = transmission))
+```
+
+```{r, fig.width = 5, fig.height = 2}
+mtcars %>% 
+  mutate(transmission = if_else(am == 0, "automatic", "manual")) %>% 
+  ggplot(aes(factor(cyl))) +
+  geom_bar(aes(y = ..prop.., fill = transmission, group = transmission), 
+           position = "dodge") +
+  scale_fill_discrete("Transmission") +
+  labs(y = "Proportion", x = "Cylinders") +
+  theme_minimal()
+```
+
+### Demo 8
+
+Here's the number of people having a certain hair colour from a sample of 592 people:
+
+```{r}
+(hair <- as_tibble(HairEyeColor) %>% 
+  count(Hair, wt = n))
+```
+
+Fix the following bar plot so that it shows these counts.
+
+```
+ggplot(hair, aes(Hair, n)) +
+  geom_bar()
+```
+
+```{r}
+ggplot(hair, aes(Hair, n)) +
+  geom_col()
+```
+
+### Demo 9
+
+Here's the number of people having a certain hair and eye colour from a sample of 592 people:
+
+```{r}
+(hair_eye <- as_tibble(HairEyeColor) %>% 
+  count(Hair, Eye, wt = n))
+```
+
+### Demo 10
+ 
+Fix the following plot so that it shows a filled-in square for each combination. 
+
+```
+ggplot(hair_eye, aes(Hair, Eye)) +
+  geom_point(aes(colour = n))
+```
+
+```{r}
+ggplot(hair_eye, aes(Hair, Eye)) +
+  geom_bin2d(aes(fill = n)) +
+  theme_minimal()
+```
+

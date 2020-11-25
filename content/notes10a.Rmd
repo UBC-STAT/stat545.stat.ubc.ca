@@ -1,5 +1,5 @@
 ---
-title: "Lecture Notes: "
+title: "Lecture Notes: Special objects in R: Dates, Times, and Factors"
 subtitle: "Version 1.0.0"
 output: html_document
 ---
@@ -12,37 +12,6 @@ knitr::opts_chunk$set(fig.width = 5, fig.height = 3,
 
 ## Learning Objectives
 
-
-## Parallel Resources
-
-This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:
-
-- 
-
-I suggest referring to this material when engaging with today's topic.
-
-## Additional Resources
-
-
-
-## Quiz
-
-
-
-## Demonstration
-
-
-
------ 
-
-<!-- ******TUESDAY'S CLASS****** -->
-
-## Tuesday's Class `r tues_class_num`: Special Data Types-Factors and Dates
-
-```{r tues-date}
-cat(tues_date_pretty)
-```
-
 From today's class, students are anticipated to be able to:
 
 - Recognize what the factor class is 
@@ -51,28 +20,69 @@ From today's class, students are anticipated to be able to:
 - Plot with factors
 - Reorder levels within factors
 
+## Parallel Resources
 
-#### Prepare for Class
-- Watch the [STAT 545 Video Series: Class `r tues_class_num`](https://youtu.be/TTNfLtEUFDQ)
+This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:
 
+- [STAT 545 Episode 10-A: Special Data Types in R: Dates, Times, and Factors](https://youtu.be/TTNfLtEUFDQ)
 
-Some useful (but not mandatory) readings for learning this material:
+We suggest referring to this material when engaging with today's topic.
+
+## Additional Resources
 
 - The [stat545.com](https://stat545.com/factors-boss.html) chapter on Factors
 - The [R4DS](https://r4ds.had.co.nz/dates-and-times.html) chapter on Dates and Times
 - The `tsibble` [vignette](https://cran.rstudio.com/web/packages/tsibble/vignettes/intro-tsibble.html)
 - The [forcats](https://forcats.tidyverse.org) package page and reference guide on page. 
 
-#### During Class
 
-- In class demo, covering:
-  - Converting data to factor types and defining levels
-  - Plotting with factors
-  - Changing order of levels
-  - Recoding factors
-  - Recoding data into dates using tsibble
+## Quiz
 
-- Quiz
-  - **Complete the Class `r tues_class_num` Quiz on Canvas by Wednesday, `r wed_date_pretty` at 11:00am PST.**
+1. The output of the following code is equivalent to a factor with the letters "a" to "f".
 
------
+``` r
+(abc <- factor(letters[1:3]))
+#> [1] a b c
+#> Levels: a b c
+(def <- factor(letters[4:6]))
+#> [1] d e f
+#> Levels: d e f
+c(abc, def)
+```
+
+2. The output of the following code is a date object.
+
+```r
+
+library(lubridate)
+
+date <- ymd("2020-10-13")
+
+dt <- ymd_hms("2020-10-13 09:30:00")
+
+c(date, dt)
+
+```
+
+## Demonstration
+
+
+```{r, message = FALSE, warning = FALSE}
+library(tidyverse)
+library(palmerpenguins)
+library(gapminder)
+```
+
+Factors: demonstrate:
+
+- "Canada" and "Other" with `fct_other()`
+- Re-ordering of levels in plots:
+  - Legend matches line plots
+  - Categories with counts are ordered
+  - Categories with distributions are ordered by something of your choosing.
+- Bar plot of the total number of penguins surveyed from each species -- noting that 5 species are missing.
+
+
+Tsibbles (did not cover)
+
+
