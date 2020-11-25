@@ -49,5 +49,5 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 
 ### Saturday
 
-- [ ] **Submit Collaborative Project Milestone 1 at 23:59 PST**
+- [ ] **Submit Collaborative Project Milestone 1 to canvas by 23:59 PST**
 - Finish up with Worksheet 1-A -- but don't submit it, because this one is not for marks.

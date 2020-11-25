@@ -30,3 +30,46 @@ I suggest referring to this material when engaging with today's topic.
 
 
 ## Demonstration
+
+-----
+
+<!-- ******THURSDAY'S CLASS****** -->
+
+## Thursday's Class `r thurs_class_num`: ggplot2 I
+
+```{r thurs-date}
+cat(thurs_date_pretty)
+```
+
+From today's class, students are anticipated to be able to:
+
++ Identify the seven components of the grammar of graphics underlying ggplot2
++ Recognize the advantages of ggplot2 over plotting with base R and lattice
++ Use different geometric objects and aesthetics to explore various plot types
+
+#### Prepare for Class
+
+Allocate about 30 minutes to get familiar with the contents for this class - guaranteed to make your life easier!
+
+- Watch the STAT 545 Video Series: [Class `r thurs_class_num`](https://youtu.be/cqcQT44mJTM)
+- With R Studio handy, follow through sections 3.1 to 3.4 of [R4DS Data Visualization](https://r4ds.had.co.nz/data-visualisation.html#introduction-1) at your own pace. Don't worry if you don't cover it all, we will go through these concepts in class!
+
+#### During Class
+
++ 9:30 - 9:50: In-class demo, covering:
+  + Why data visualization? Just plot it + The grammar of graphics (~10 minutes)
+  + In-class demo of creating a scatterplot (~10 minutes)
+  
++ 9:50 - 10:00: Quiz.
+
++ 10:00 - 10:20: Introduce the Mini Data Analysis Project.
+
++ 10:20 - 10:45: Lecture Worksheet + Share your work through Slack!
+
+Complete the **Class 4-A Quiz** on Canvas by **Friday, September 25th** at **11:00am PST.** 
+
+#### Resources
+
+A comprehensive list of [data visualization resources](https://stat545.stat.ubc.ca/resources/r-vis/) has been compiled to save you time browsing through the endless resources that are available out there. There are cheatsheets and quick resources (most notably the [ggplot 2 cheatsheet](https://rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf)), books, and other fun things!
+
+-----

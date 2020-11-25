@@ -30,3 +30,50 @@ I suggest referring to this material when engaging with today's topic.
 
 
 ## Demonstration
+
+
+----- 
+
+<!-- ******TUESDAY'S CLASS****** -->
+
+## Tuesday's Class `r tues_class_num`: Data Wrangling I
+
+```{r tues-date}
+cat(tues_date_pretty)
+```
+
+From today's class, students are anticipated to be able to:
+
++ Recognize the advantages of the tidyverse compared to base R with respect to good coding practice
++ Subset and rearrange data with dplyr
++ Use piping when implementing function chains
++ Explore data in tibbles
+
+#### Prepare for Class
+
+Take about 30 minutes to get acquainted with the following before coming to class:
+
+- Watch the [STAT 545 Video Series: Class `r tues_class_num`](https://youtu.be/Gms3zSPqCk8)
+- Follow through [Jenny Bryan's Introduction to dplyr](https://stat545.com/dplyr-intro.html) at your own pace; this is optional, but very helpful in getting familiar with dplyr! You will have the chance to practice more in this week's worksheet.
+
+#### During Class
+
++ 9:30 - 9:50: In class demo, covering:
+  + tidyverse
+  + dplyr
+  + piping
+  + tibbles 
+  
++ 9:50 - 10:00: Quiz.
+
++ 10:00 - 10:05: Break.
+
++ 10:05 - 10:45: Lecture worksheet.
+
+Complete the **Class 3-A Quiz** on Canvas by **Wednesday, September 23rd** at **11:00am PST.**
+
+#### Resources
+
+We have compiled a list of resources for data manipulation [here](https://stat545.stat.ubc.ca/resources/r-data-manipulation/). These resources are available for you to consult concepts, get more advanced knowledge, or explore other topics at your own pace (if you wish to do so). The [dplyr cheatsheet](http://gauss.inf.um.es/tabular/www/data-transformation.pdf) should come in handy for this class.
+
+-----
