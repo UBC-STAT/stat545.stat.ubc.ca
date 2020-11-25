@@ -1,6 +1,6 @@
 ---
 title: "Assignment 4-B: Automating Data-analysis Pipelines"
-subtitle: "**Development Version** 0.9000" 
+subtitle: "**Development Version** 0.9100" 
 output: html_document
 ---
 
@@ -11,9 +11,9 @@ __Total Points__: 20
 
 ## Overview
 
-Your task, high level: modify the [`make` pipeline](http://stat545.com/automation04_make-activity.html) we made in class.
+Your task, high level: modify the [`make` pipeline](https://github.com/STAT545-UBC/make-activity) we made in class. 
 
-> pipeline analysis should be moved to the `stat545.stat.ubc.ca` repo, probably under an `assignment-4b` folder. 
+More information about the activity can be found here:  [`make` activity](http://stat545.com/automation04_make-activity.html)
 
 - [ ] For your convenience, we've indicated all action items with a checkbox, like so.
 
@@ -27,36 +27,42 @@ We've made a pull request on your repositories containing the [starting point](h
 
 ## Tidy Submission (2 points)
 
-> Take from previous assignments
+Follow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.
 
-## Exercises
+1. [ ] Make a README file in your `assignment-4b` folder. It should let a visitor know what's in this folder.
+2. [ ] Make/update a main README file for your entire repository. It should orient a visitor to what this repository _is_, and that visitor should know how to engage with the repository. There should not be much here.
+3. [ ] Make your assignment appear nicely rendered and viewable online, such as by changing the output to `output: github_document` in the YAML header. 
+    - You could also use GitHub pages. But, the assignment needs to correspond to the tagged release, and we still need to be able to navigate to your repository somehow.
+4. [ ] Tag a release in your GitHub repository corresponding to your submission before the deadline.
+    - Forgotten how to tag a release? We have instructions at the bottom of the [Collaborative Milestone 1 repo](https://stat545.stat.ubc.ca/collaborative-project/milestone1/readme/) from STAT 545A.
+5. [ ] Grab the URL corresponding to your viewable output from Step 3, and submit that to canvas. Also, please let us know what you thought of this assignment -- any feedback would be appreciated. Follow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.
 
-> Need to clarify these tasks (you have the freedom to do so as you see fit), add checkboxes where appropriate, and make clear rubrics explaining how they will be graded for each (again, you have the freedom to decide this).
 
-- Get them to indicate the code to run a part of the analysis in the background, and where they would run that code if they didn't have a Makefile. 
-- Modify one thing about the seeded analysis (add a file? add another output file?), and update the Makefile accordingly. Let us know what it was that you changed. 
-- Make a Makefile in the root of your assignment repo so that you can make the assignments present in your repo (use a phony output per assignment). Be sure to also include the `all` and `clean` phony outputs. 
-  - For Assignment 4-B, you shouldn't copy and paste _its_ Makefile content into the higher-level Makefile.
-  - "Making" Assignment 3-B should result in the shiny app being launched.
-- List all of the dependencies required for each assignment, in the main README. Make it easy for someone to install these dependencies.
+## Makefile Step by Step Instructions (12.5 marks)
 
-> Pieces of rubric from last time that can be recycled:
+1. [ ] Indicate the code to run a part of the analysis in the background, and where you would run that code if you didn't have a Makefile. (2 points)
+2. [ ] Modify one thing about the seeded analysis (add a file? add another output file?), and update the Makefile accordingly.(1 point)
+3. [ ] Let us know what it was that you changed in 2. in a couple of sentences. (1 point)
+4. Make a Makefile in the root of your assignment repo. Be sure to also include the `all` and `clean` phony outputs.(5 points, breakdown below) 
+  - [ ] Making the makefile in the root so that you can make the assignments present in your repo (use a phony output per assignment). (1 point)
+  - [ ] Your Makefile should be written so that, if a dependency changes, running `make` should update the appropriate output (and all downstream portions of the pipeline). (1 point)
+  - [ ] Running `make all` should result in having all output present in your repo. (1 point)
+  - [ ] Running `make clean` should remove all output. (1 point)
+  - [ ] There isn't any useless outputs such as an `Rplots.pdf` file (which sometimes arises as a byproduct of running `Rscript`). (0.5 points)
+  - [ ] For Assignment 4-B, you shouldn't copy and paste _its_ Makefile content into the higher-level Makefile. (0.5 points)
+5. [ ] "Making" Assignment 3-B results in the shiny app being launched. (1 point)
+6. [ ] Your app should be deployed online on shinyapps.io (or on another server if you’d like). Make sure your app actually works online (sometimes your app will work in RStudio but will have errors on shinyapps.io - make sure you deploy early and often to make debugging easier). (1.5 pts)
+7. [ ] List all of the dependencies required for each assignment, in the main README. Make it easy for someone to install these dependencies. (1 point )
 
-- Your Makefile should be written so that, if a dependency changes, running `make` should update the appropriate output (and all downstream portions of the pipeline).
-- Running `make all` should result in having all output present in your repo.
-- Running `make clean` should remove all output. 
-- There shouldn't be any useless output, such as an `Rplots.pdf` file (which sometimes arises as a byproduct of running `Rscript`).
-- Partial marks: Having a hard time getting `make` working? You can still automate your pipeline with a "master R script" in place of the Makefile. You won't get full points, but you can still get partial marks here. Make it clear in your README if this is what you're doing.
+- [ ] **Partial marks**: Having a hard time getting `make` working? You can still automate your pipeline with a "master R script" in place of the Makefile. You won't get full points, but you can still get partial marks here. Make it clear in your README if this is what you're doing. (2.5 marks instead of full 5)
 
-> These are from previous assignment and need to be updated:
-
-RRR
+### Code Quality:
 
 - [ ] Code runs without errors and it is appropriately annotated, legible, and easy to follow. (1.5 pts)
-- [ ] Your app should be deployed online on shinyapps.io (or on another server if you’d like). Make sure your app actually works online (sometimes your app will work in RStudio but will have errors on shinyapps.io - make sure you deploy early and often to make debugging easier). (1.5 pts)
 
 
-## Bonus (X points)
+
+## Bonus (1 point)
 
 - [ ] Make a graph of a Makefile (either one), and put it in the corresponding README. Have this happen in an automated and reproducible way.
 	- Some software that may help: [makefile2dot](https://github.com/vak/makefile2dot), [GraphViz::Makefile](https://metacpan.org/pod/GraphViz::Makefile), [j4make](https://github.com/lindenb/j4make), [makefile2graph](https://github.com/lindenb/makefile2graph).
