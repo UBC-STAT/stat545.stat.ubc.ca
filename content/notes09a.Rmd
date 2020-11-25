@@ -30,3 +30,56 @@ I suggest referring to this material when engaging with today's topic.
 
 
 ## Demonstration
+
+
+
+
+
+
+-----
+
+<!-- ******THURSDAY'S CLASS****** -->
+
+## Thursday's Class `r thurs_class_num`: The Model-Fitting Paradigm in R
+
+```{r thurs-date}
+cat(thurs_date_pretty)
+```
+
+From today's class, students are anticipated to be able to:
+
+- make a model object in R
+- write a formula in R
+- predict on a model object with the `broom::augment()` and `predict()` functions
+- extract information from a model object using `broom::tidy()`, `broom::glance()`, and traditional means.
+
+#### Prepare for Class
+
+- Watch the [STAT 545 Video Series: Class `r thurs_class_num`]()
+- Read [The Model-Fitting Paradigm in R](https://stat545.stat.ubc.ca/tutorials/model-fitting/) from the Tutorials section of the website. 
+
+Some useful (but not mandatory) readings are:
+
+- The [`broom`](https://cran.r-project.org/web/packages/broom/vignettes/broom.html) vignette is useful for learning the details of broom.
+- If you want a quick intro to linear regression with R, check out this [U Chicago Tutorial](https://cfss.uchicago.edu/notes/linear-models/) on model fitting in R (just the linear regression part).
+- If you're eager to learn more about models in general, [An Introduction to Statistical Learning](https://www-bcf.usc.edu/~gareth/ISL/) is an approachable read (the book is freely available online)
+- [Mike Marin's R playlist on YouTube](https://www.youtube.com/playlist?list=PLqzoL9-eJTNBlVXxWvJkq0dtVut2sICUW) helps you use R to obtain statistical results. 
+
+
+#### During Class
+
+- In class demo, covering:
+  - fitting a linear regression model using `lm`
+  - plotting linear models using `geom_smooth`
+  - `augment()`
+  - `tidy()`
+  - `glance()`
+- Quiz
+
+**Complete the Class `r thurs_class_num` Quiz on Canvas by Friday, `r fri_date_pretty` at 11:00am PST.**
+
+| Lecture | Demo | View |
+|---------|-----------|------|
+| `r thurs_class_num`: Model Fitting Paradigm | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo9a-modelling.Rmd) | [Knitted Demo](/demonstrations/demo9a-modelling) |
+
+-----

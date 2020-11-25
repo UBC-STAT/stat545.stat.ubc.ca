@@ -30,3 +30,59 @@ I suggest referring to this material when engaging with today's topic.
 
 
 ## Demonstration
+
+
+
+
+<!-- ******THURSDAY'S CLASS****** -->
+
+## Thursday's Class `r thurs_class_num`: ggplot2 II 
+
+```{r thurs-date}
+cat(thurs_date_pretty)
+```
+
+From today's class, students are anticipated to be able to:
+
++ Become familiar with customizing `ggplot2` graphs 
++ Choose an appropriate plot type for Exploratory Data Analysis
++ Understand what makes data visualizations *effective*
+
+
+#### Prepare for Class
+
+- Watch the [STAT 545 Video Series: Episode 7-A](link)
+
+Some useful (but not mandatory) readings related to today are:
+
+- [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/introduction.html) by Claus Wilke.
+  - Excellent guide to designing visuals that are appropriate to the data at hand. 
+- [STAT545.com](https://stat545.com/effective-graphs.html) - Effective Graphics by Jenny Bryan.
+- [Callingbull.org](https://callingbull.org/tools.html) by Carl T. Bergstrom and Jevin West.
+  - Great resource for rethinking the "typical" way we do things. 
+
+#### During Class
+
++ 9:30 - 9:50: In class demo, covering:
+  + customizing ggplot2 graphs
+  + effective visualizations
++ 9:50 - 10:00: Quiz.
++ 10:00 - 10:05: Break.
++ 10:05 - 10:45: Lecture worksheet.
+
+**Complete the Class 7-A Quiz on Canvas by Friday, October 2nd at 11:00am PST.**
+
+| Lecture | Demonstration | View |
+|---------|-----------|------|
+| 7-A: ggplot2 Part II | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo7a-ggplot2-part2.Rmd) | [Knitted demo](/demonstrations/demo7a-ggplot2-part2) |
+
+
+
+#### Deeper Dive
+
+Here are some resources for you to investigate various aspects of graphing in more detail:
+
+- [Visualization Analysis and Design](https://www-taylorfrancis-com.ezproxy.library.ubc.ca/books/9780429088902) by Tamara Munzner.
+   - Gold-standard book for designing plots with a focus on human perception.
+- [ggplot2 book](https://ggplot2-book.org/)by Hadley Wickam.
+   - Goes into detail on how to use ggplot2

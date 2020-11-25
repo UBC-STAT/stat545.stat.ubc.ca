@@ -30,3 +30,50 @@ I suggest referring to this material when engaging with today's topic.
 
 
 ## Demonstration
+
+
+<!-- ******TUESDAY'S CLASS****** -->
+
+## Tuesday's Class `r tues_class_num`: Data Wrangling II
+
+```{r tues-date}
+cat(tues_date_pretty)
+```
+
+From today's class, students are anticipated to be able to:
+
++ Grouping data to compute summarized functions using `dplyr::group_by()` and `dplyr::summarize()`
++ Compute new columns using `mutate()`
++ Use `dplyr::across()` to use functions with specific columns
+
+| Lecture | Demonstration | View |
+|---------|-----------|------|
+| 6-A: dplyr Part II | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo6a-dplyr-part2.Rmd) | [Knitted demo](/demonstrations/demo6a-dplyr-part2) |
+
+#### Prepare for Class
+
+- Watch the [STAT 545 Video Series: Episode 6-A](https://youtu.be/38BA_v7BwKk)
+- We recommend you read / skim through the following resources for more details
+   - [Jenny's "dplyr single table verbs"](https://stat545.com/dplyr-single.html) for dplyr verbs.
+   - [Hadley's "across" blog post](https://www.tidyverse.org/blog/2020/04/dplyr-1-0-0-colwise/) to learn more about `across()`
+
+Some useful (but not mandatory) readings are:
+
+- [dplyr vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html)
+
+#### During Class
+
++ 9:30 - 9:50: In class demo, covering:
+  + group_by
+  + mutate
+  + summarize
+  + across
++ 9:50 - 10:00: Quiz.
++ 10:00 - 10:05: Break.
++ 10:05 - 10:45: Lecture worksheet.
+
+**Complete the Class 7-A Quiz on Canvas by Wednesday, September 30th at 11:00am PST.**
+
+| Demonstration | Rmd | View |
+|---|---|---|
+| 8-A: tidyr | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo8a-tidyr.Rmd) | [Knitted demo](/demonstrations/demo8a-tidyr) |

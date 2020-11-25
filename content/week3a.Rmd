@@ -4,7 +4,7 @@ output: html_document
 ---
 
 ```{r, echo = FALSE, message = FALSE, warning = FALSE, results = "asis"}
-week_num <- 1  # 1 through 13; Week 7 ended 545A.
+week_num <- 3  # 1 through 13; Week 7 ended 545A.
 #-------------
 source(here::here("content", "dates.R"))
 library(stringr)

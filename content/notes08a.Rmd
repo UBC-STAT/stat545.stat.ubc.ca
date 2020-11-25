@@ -30,3 +30,50 @@ I suggest referring to this material when engaging with today's topic.
 
 
 ## Demonstration
+
+
+----- 
+
+<!-- ******TUESDAY'S CLASS****** -->
+
+## Tuesday's Class `r tues_class_num`: Tidy Data
+
+```{r tues-date}
+cat(tues_date_pretty)
+```
+
+From today's class, students are anticipated to be able to:
+
+- recognize whether a given dataset is 'tidy' or 'untidy'
+- convert a dataset between the 'long' and 'wide' format, using `tidyr::pivot_longer()` and `tidyr::pivot_wider()`
+- assess which format is best suited for each type of analysis
+- deal with missing data in a tibble
+
+#### Prepare for Class
+
+- Watch the [STAT 545 Video Series: Class `r tues_class_num`](https://youtu.be/qivE6exNsZI) (also available on canvas)
+- Read the [`pivot` vignette](https://tidyr.tidyverse.org/articles/pivot.html) with `tidyr`
+
+Some useful (but not mandatory) readings are:
+
+- `tidyr` [vignette](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) on tidy data for more depth on tidy data.
+- [Hadley's Paper on Tidy Data](https://vita.had.co.nz/papers/tidy-data.pdf) for a formal journal article on tidy data.
+- Other new [additions](https://www.tidyverse.org/articles/2019/09/tidyr-1-0-0/) in `tidyr` v1.0.0
+
+#### During Class
+
+- In class demo, covering:
+  - `pivot_longer()`
+  - `pivot_wider()`
+  - univariate pivoting 
+  - multivariate pivoting
+  - Convenience functions like `unite()`, `separate()`, `expand()`, `complete()`
+- Quiz
+  - **Complete the Class `r tues_class_num` Quiz on Canvas by Wednesday, `r wed_date_pretty` at 11:00am PST.**
+
+| Lecture | Demo | View |
+|---------|-----------|------|
+| `r tues_class_num`: Tidy Data | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo8a-tidyr.Rmd) | [Knitted Demo](/demonstrations/demo8a-tidyr) |
+
+
+-----
