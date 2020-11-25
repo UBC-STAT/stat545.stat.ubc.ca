@@ -30,3 +30,35 @@ I suggest referring to this material when engaging with today's topic.
 
 
 ## Demonstration
+
+
+----- 
+
+<!-- ******TUESDAY'S CLASS****** -->
+
+## Tuesday's Class `r tues_class_num`: Reading and Writing Data
+
+```{r tues-date}
+cat(tues_date_pretty)
+```
+
+From today's class, students are anticipated to be able to:
+
+- Read and write a delimited file, like a csv, from R using the `readr` package.
+- Make relative paths using the `here::here()` function.
+- Read data from a spreadsheet
+- Read and write R binary files (rds files) from R.
+
+#### Prepare for Class
+
+Read/watch one of the following two resources before class:
+
+- Watch the [STAT 545 Video Series: Class `r tues_class_num`](https://youtu.be/2nHuNu6Zaqk)
+- Read the ["Writing and Reading files"](https://stat545.com/import-export.html) chapter of stat545.com.
+
+
+#### During Class
+
+- **Quiz**: Complete the Class `r tues_class_num` Quiz on Canvas by Wednesday, `r wed_date_pretty` at 11:00am PST.
+
+-----
