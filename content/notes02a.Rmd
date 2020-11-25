@@ -1,0 +1,71 @@
+---
+title: "Lecture Notes: Version Control"
+subtitle: "Version 1.0.0"
+output: html_document
+---
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, results = "asis"}
+knitr::opts_chunk$set(fig.width = 5, fig.height = 3, 
+                      fig.align = "center", error = TRUE)
+```
+
+
+## Learning Objectives
+
+From today's topic, students are anticipated to be able to:
+
+- use git on their own computer (locally)
+- connect between a local git repository and that repository on GitHub, using RStudio
+- make commits in git using RStudio
+- make a branch in git using RStudio or GitHub
+- use collaborative GitHub features such as Issues and pull requests.
+
+## Parallel Resources
+
+This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:
+
+- Watch [STAT 545 Episode 2-A: Git and GitHub for an Organized Project](https://youtu.be/l2ftm-YwJs8) (a copy is also available on Canvas)
+- Read about the basic version control workflow (without branching) at [Happy git w R: Chapter 20](https://happygitwithr.com/git-basics.html).
+- Read the [Understanding the GitHub flow](https://guides.github.com/introduction/flow/) to get a sense of branching.
+
+I suggest referring to this material when engaging with today's topic.
+
+## Additional Resources
+
+- Linking a project between GitHub and local:
+    - [From GitHub to local](https://happygitwithr.com/new-github-first.html)
+    - [From local to GitHub](https://happygitwithr.com/existing-github-last.html)
+
+
+## Quiz
+
+1. You've just successfully pushed your branch to GitHub! True or False: it's still possible for the branch on GitHub to contain work that's not on your computer.
+2. You're ready to push some code you added to `code.R` to GitHub, but just found out that your teammate completely changed `code.R` on GitHub! True or False: If you pull the repository from GitHub, you'll get an error because your `code.R` conflicts with GitHub's `code.R`. 
+3. True or False: If you've just changed a file on your computer, in order to push it to GitHub, you'll first need to commit the file. 
+
+## Demonstration
+
+### Get Acquainted with GitHub
+
+- Orgs vs. personal account: Explore some of my personal repos vs. some of my organization repos
+- Issues: check out course topics Issue in STAT 545 repo.
+  - Watching repo
+- Working on GitHub: Change the README on STAT 545 site on GitHub
+
+### Linear Synchronizing: Working between GitHub and Local; Merge Conflicts
+
+- clone stat 545 repo
+- make a local change -> commit, push, check GitHub.
+- make a GitHub change, then a local NON CONFLICTING change -> sync.
+- make a GitHub change, then a local CONFLICTING change -> sync.
+
+### Branching and PR
+
+Let's organize our participation repo in a branch.
+
+- Make a branch.
+  - GitHub first, local second
+  - Local first, GitHub second
+- Add a new file on the branch.
+- Switch branches to see file appear and disappear.
+- submit and merge a PR.

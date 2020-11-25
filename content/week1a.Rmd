@@ -79,36 +79,9 @@ Note: each class will require some preparation. Take a look at the "Prepare for 
 
 <!-- ******THURSDAY'S CLASS****** -->
 
-## Thursday's Class `r thurs_class_num`: Intro to R and STAT 545
-
-```{r thurs-date}
-cat(thurs_date_pretty)
-```
-
-Today, we'll be learning the basics of R.
-
-__UPDATE__: This class will be modified to promote the [scholar strike](https://scholarstrikecanada.ca/)
-
-#### Prepare for Class
-
-Have you completed the exercises in "Class 00A"? Do that first before starting! In addition:
-
-- Watch the [STAT 545 Video Series: Episode 1-A: Coding your Analysis for Success](https://youtu.be/91LmBj29-Sc) (also available on canvas)
 - Familiarize yourself with Zoom: read the [Getting Started with Zoom](https://stat545.stat.ubc.ca/tutorials/zoom/) guide found in the "Tutorials" section of the course website. 
 
-Some useful (but not mandatory) readings are:
-
-- [Intro to R](https://stat545.com/r-basics.html)
-- [Why R?](https://cfss.uchicago.edu/setup/what-is-r/)
-
-#### During Class
-
 Join the class via Zoom: check out the [canvas](https://canvas.ubc.ca/) announcement "Zoom Class Invitation" for the details. This is private to those registered in the course (including auditors).
-
-1. We'll start with a demo of R via Zoom.
-2. We'll jump into the worksheet (see above) during the last 45 minutes. 
-
-We may alternate the two if it feels right. 
 
 
 -----

@@ -1,6 +1,6 @@
 ---
 title: "Lecture Notes: R Functions for Data Analysis"
-subtitle: "Version 1.0.0.9000"
+subtitle: "Version 1.0.1"
 output: html_document
 ---
 

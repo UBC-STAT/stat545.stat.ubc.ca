@@ -1,0 +1,39 @@
+---
+title: "Lecture Notes: "
+subtitle: "Version 1.0.0"
+output: html_document
+---
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, results = "asis"}
+knitr::opts_chunk$set(fig.width = 5, fig.height = 3, 
+                      fig.align = "center", error = TRUE)
+```
+
+Reminder: Join the class via Zoom: check out the [canvas](https://canvas.ubc.ca/) announcement "Zoom Class Invitation" for the details. This is private to those registered in the course (including auditors).
+
+## Learning Objectives
+
+_Today's topic cancelled due to the scholar strike_
+
+## Parallel Resources
+
+To get the most out of this topic, briefly review the following resources before coming to class.
+
+- Watch the [STAT 545 Video Series: Episode 1-A: Coding your Analysis for Success](https://youtu.be/91LmBj29-Sc) (also available on canvas)
+
+
+## Additional Resources
+
+Some useful (but not mandatory) readings are:
+
+- [stat545.com's Intro to R](https://stat545.com/r-basics.html)
+- [Why R?](https://cfss.uchicago.edu/setup/what-is-r/)
+
+## Quiz
+
+_No quiz for this topic_
+
+## Demonstration
+
+We'll work on Worksheet 1-A (link available on course dashboard, https://stat545.stat.ubc.ca/course)
+

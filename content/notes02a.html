@@ -1,0 +1,84 @@
+---
+title: "Lecture Notes: Version Control"
+subtitle: "Version 1.0.0"
+output: html_document
+---
+
+
+
+<div id="learning-objectives" class="section level2">
+<h2>Learning Objectives</h2>
+<p>From today’s topic, students are anticipated to be able to:</p>
+<ul>
+<li>use git on their own computer (locally)</li>
+<li>connect between a local git repository and that repository on GitHub, using RStudio</li>
+<li>make commits in git using RStudio</li>
+<li>make a branch in git using RStudio or GitHub</li>
+<li>use collaborative GitHub features such as Issues and pull requests.</li>
+</ul>
+</div>
+<div id="parallel-resources" class="section level2">
+<h2>Parallel Resources</h2>
+<p>This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:</p>
+<ul>
+<li>Watch <a href="https://youtu.be/l2ftm-YwJs8">STAT 545 Episode 2-A: Git and GitHub for an Organized Project</a> (a copy is also available on Canvas)</li>
+<li>Read about the basic version control workflow (without branching) at <a href="https://happygitwithr.com/git-basics.html">Happy git w R: Chapter 20</a>.</li>
+<li>Read the <a href="https://guides.github.com/introduction/flow/">Understanding the GitHub flow</a> to get a sense of branching.</li>
+</ul>
+<p>I suggest referring to this material when engaging with today’s topic.</p>
+</div>
+<div id="additional-resources" class="section level2">
+<h2>Additional Resources</h2>
+<ul>
+<li>Linking a project between GitHub and local:
+<ul>
+<li><a href="https://happygitwithr.com/new-github-first.html">From GitHub to local</a></li>
+<li><a href="https://happygitwithr.com/existing-github-last.html">From local to GitHub</a></li>
+</ul></li>
+</ul>
+</div>
+<div id="quiz" class="section level2">
+<h2>Quiz</h2>
+<ol style="list-style-type: decimal">
+<li>You’ve just successfully pushed your branch to GitHub! True or False: it’s still possible for the branch on GitHub to contain work that’s not on your computer.</li>
+<li>You’re ready to push some code you added to <code>code.R</code> to GitHub, but just found out that your teammate completely changed <code>code.R</code> on GitHub! True or False: If you pull the repository from GitHub, you’ll get an error because your <code>code.R</code> conflicts with GitHub’s <code>code.R</code>.</li>
+<li>True or False: If you’ve just changed a file on your computer, in order to push it to GitHub, you’ll first need to commit the file.</li>
+</ol>
+</div>
+<div id="demonstration" class="section level2">
+<h2>Demonstration</h2>
+<div id="get-acquainted-with-github" class="section level3">
+<h3>Get Acquainted with GitHub</h3>
+<ul>
+<li>Orgs vs. personal account: Explore some of my personal repos vs. some of my organization repos</li>
+<li>Issues: check out course topics Issue in STAT 545 repo.
+<ul>
+<li>Watching repo</li>
+</ul></li>
+<li>Working on GitHub: Change the README on STAT 545 site on GitHub</li>
+</ul>
+</div>
+<div id="linear-synchronizing-working-between-github-and-local-merge-conflicts" class="section level3">
+<h3>Linear Synchronizing: Working between GitHub and Local; Merge Conflicts</h3>
+<ul>
+<li>clone stat 545 repo</li>
+<li>make a local change -&gt; commit, push, check GitHub.</li>
+<li>make a GitHub change, then a local NON CONFLICTING change -&gt; sync.</li>
+<li>make a GitHub change, then a local CONFLICTING change -&gt; sync.</li>
+</ul>
+</div>
+<div id="branching-and-pr" class="section level3">
+<h3>Branching and PR</h3>
+<p>Let’s organize our participation repo in a branch.</p>
+<ul>
+<li>Make a branch.
+<ul>
+<li>GitHub first, local second</li>
+<li>Local first, GitHub second</li>
+</ul></li>
+<li>Add a new file on the branch.</li>
+<li>Switch branches to see file appear and disappear.</li>
+<li>submit and merge a PR.</li>
+</ul>
+</div>
+</div>

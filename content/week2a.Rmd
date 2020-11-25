@@ -38,59 +38,7 @@ fri_date_pretty <- paste0(
 
 ----- 
 
-<!-- ******TUESDAY'S CLASS****** -->
 
-## Tuesday's Class `r tues_class_num`: Collaboration with git and GitHub
-
-```{r tues-date}
-cat(tues_date_pretty)
-```
-
-From today's class, students are anticipated to be able to:
-
-- use git on their own computer (locally)
-- connect between a local git repository and that repository on GitHub, using RStudio
-- make commits in git using RStudio
-- make a branch in git using RStudio or GitHub
-- use collaborative GitHub features such as Issues and pull requests.
-
-#### Prepare for Class
-
-Take about 30 minutes to get acquainted with the following before coming to class:
-
-- Watch [STAT 545 Episode 2-A: Git and GitHub for an Organized Project](https://youtu.be/l2ftm-YwJs8) (a copy is also available on Canvas)
-- Read about the basic version control workflow (without branching) at [Happy git w R: Chapter 20](https://happygitwithr.com/git-basics.html).
-- Read the [Understanding the GitHub flow](https://guides.github.com/introduction/flow/) to get a sense of branching.
-
-
-#### During Class
-
-Rough schedule:
-
-| Time period | Activity |
-|-------------|----------|
-| 09:30 - 10:00 | Vincenzo demonstrates version control and GitHub |
-| 10:00 - 10:10 | Quiz discussion (see below) with think-pair-broadcast activity. |
-| 10:10 - 10:15 | Break |
-| 10:10 - 11:00 | Students work on their Collaborative Project Milestone 1, especially __Making/joining your project repo__ and __creating a teamwork document__. |
-
-Complete the __Class 2-A Quiz__ on canvas __by Wednesday, September 16 at 11:00am PST__. Questions:
-
-1. You've just successfully pushed your branch to GitHub! True or False: it's still possible for the branch on GitHub to contain work that's not on your computer.
-2. You're ready to push some code you added to `code.R` to GitHub, but just found out that your teammate completely changed `code.R` on GitHub! True or False: If you pull the repository from GitHub, you'll get an error because your `code.R` conflicts with GitHub's `code.R`. 
-3. True or False: If you've just changed a file on your computer, in order to push it to GitHub, you'll first need to commit the file. 
-
-Group of answer choices
-
-
-#### Useful Resources as references
-
-- Linking a project between GitHub and local:
-    - [From GitHub to local](https://happygitwithr.com/new-github-first.html)
-    - [From local to GitHub](https://happygitwithr.com/existing-github-last.html)
-
-
------
 
 -----
 

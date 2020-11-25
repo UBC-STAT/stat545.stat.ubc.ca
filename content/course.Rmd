@@ -15,7 +15,7 @@ Use this page to navigate your way through STAT 545.
 
 
 
-## Week-by-Week Guidance
+## Topics
 
 
 | Week | Day      | Topic           | Date                                | Lecture Notes | Weekly Checklist |
@@ -76,7 +76,29 @@ Use this page to navigate your way through STAT 545.
 
 -------
 
-## Week-by-Week Guidance
+## Topics
+
+| Week | Date                                    | Lecture Notes | Weekly Checklist |
+|------|-----------------------------------------|---------------|------------------|
+| 1-A  | `r format(dates_545a[1] , "%a, %b %d")` | _N/A_ | [Week 1-A](/week1a) |
+| 1-A  | `r format(dates_545a[1] , "%a, %b %d")` | [Intro to R](/notes01a) |  |
+| 2-A  | `r format(dates_545a[2] , "%a, %b %d")` | [Version Control](/notes02a) | [Week 2-A](/week2a) |
+| 2-A  | `r format(dates_545a[3] , "%a, %b %d")` | [R Markdown](/notes03a) |  |
+| 3-A  | `r format(dates_545a[4] , "%a, %b %d")` | [Data Wrangling I](/notes04a) | [Week 3-A](/week3a) |
+| 3-A  | `r format(dates_545a[5] , "%a, %b %d")` | [Plotting I](/notes05a) |  |
+| 4-A  | `r format(dates_545a[6] , "%a, %b %d")` | [Data Wrangling II](/notes06a) | [Week 4-A](/week4a) |
+| 4-A  | `r format(dates_545a[7] , "%a, %b %d")` | [Plotting II](/notes07a) |  |
+| 5-A  | `r format(dates_545a[8] , "%a, %b %d")` | [Tidy Data](/notes08a) | [Week 5-A](/week5a) |
+| 5-A  | `r format(dates_545a[9] , "%a, %b %d")` | [Fitting Models](/notes09a) |  |
+| 6-A  | `r format(dates_545a[10], "%a, %b %d")` | [Factors and Dates](/notes10a) | [Week 6-A](/week6a) |
+| 6-A  | `r format(dates_545a[11], "%a, %b %d")` | [Tibble joins](/notes11a) |  |
+| 7-A  | `r format(dates_545a[12], "%a, %b %d")` | [Reading and Writing Data](/notes12a) | [Week 7-A](/week7a) |
+| 7-A  | `r format(dates_545a[13], "%a, %b %d")` | [Choose your Adventure](/notes13a) |  |
+
+
+
+
+
 
 | Week | Duration |
 |------|----------|

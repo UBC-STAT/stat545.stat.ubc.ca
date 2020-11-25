@@ -1,0 +1,33 @@
+---
+title: "Lecture Notes: "
+subtitle: "Version 1.0.0"
+output: html_document
+---
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, results = "asis"}
+knitr::opts_chunk$set(fig.width = 5, fig.height = 3, 
+                      fig.align = "center", error = TRUE)
+```
+
+
+## Learning Objectives
+
+
+## Parallel Resources
+
+This topic parallels these resources:
+
+- [STAT 545 Episode]()
+- 
+
+I suggest digesting this material before class, or at least throughout our discussion of the topic. 
+
+## Additional Resources
+
+
+
+## Quiz
+
+
+
+## Demonstration
