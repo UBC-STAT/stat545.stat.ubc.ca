@@ -24,20 +24,16 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 
 ### Monday
 
-_Labour day_
+- Start pre-readings for next lecture. 
 
 ### Tuesday
 
-_Imagine day -- classes cancelled_
+- [ ] Pre-readings by 9:30am PST
 - [ ] Attend lecture 9:30am - 11:00am PST
-- [ ] Prepare: Pre-readings by 9:30am PST (**recommended; but won't be anticipated on Tuesday's lecture**)
 
 ### Wednesday
 
-- [ ] Watch the [Intro to STAT 545 Video Series video](https://youtu.be/6REhJVsbbAM) (a version is also available on canvas for those who cannot access YouTube).
-- [ ] Install the software needed for STAT 545A by following along the tutorial ["Software Installation for STAT 545"](https://stat545.stat.ubc.ca/tutorials/software-stack/).
-- [ ] Familiarize yourself with Zoom: read the [Getting Started with Zoom](https://stat545.stat.ubc.ca/tutorials/zoom/) guide found in the "Tutorials" section of the course website. 
-- Start Worksheet 1-A (not for grades)
+- [ ] __Submit Quiz 2-A by 11:00am PST__
 - Start pre-readings for next lecture.
 
 ### Thursday
@@ -45,64 +41,13 @@ _Imagine day -- classes cancelled_
 - [ ] Pre-readings by 9:30am PST
 - [ ] Attend lecture 9:30am - 11:00am PST
 - [ ] (Optional) Attend office hours at 16:00 - 17:00 PST
-- Start Assignment 1-B (not due until Saturday _next week_)
 
 ### Friday
 
-- [ ] __Submit Quiz 1-A by 11:00am PST__
+- [ ] __Submit Quiz 3-A by 11:00am PST__
 - [ ] Get your questions for the teaching team into Slack by mid-day (we can't necessarily be active on Slack on evenings and weekends)
 
 ### Saturday
 
-_no events_
-
-
-
-
-
-
------ 
-
-
-
------
-
-
------
-
------
-
-## Friday Office Hour
-
-__September 18, 2020 from 16:00-17:00 PST__
-
-Join Almas and Diana to discuss anything about the course: content, structure, deliverables, etc. 
-
-_Note_: No office hour is being held on Wednesday.
-
------
-
------
-
-<!-- ******PROJECT****** -->
-
-## Collaborative Project Milestone 1
-
-**Due:** ~~Friday, September 18~~ Saturday, September 19  at 23:59 PST
-
-We recommend you start your projects Tuesday in class. You can view instructions for Milestone 1 [here](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/collaborative-project/milestone1/README.md#stat-545a-collaborative-project-milestone-1)
-
------
-
------
-
-<!-- ******WORKSHEET****** -->
-
-## Worksheet 1A
-
-**Finish By:** Friday, September 18 at 23:59 PST **(Not for grades -- no need to submit!)**
-
-Continue working on Worksheet 1A this week, as needed. 
-
------
-
+- [ ] **Submit Collaborative Project Milestone 1 at 23:59 PST**
+- Finish up with Worksheet 1-A -- but don't submit it, because this one is not for marks.
