@@ -23,7 +23,6 @@ We've made a pull request on your repositories containing the [starting point](h
 
 - [ ] Accept the pull request. You're on your way!
 
-> This starting point, and the assignment, needs to be included in the [template repo](https://github.com/stat545ubc-2020/template-545b-assignments) in preparation to make a pull request, in an `assignment-4b` folder. This should probably be the same folder that appears in the `stat545.stat.ubc.ca` repo.
 
 ## Tidy Submission (2 points)
 
