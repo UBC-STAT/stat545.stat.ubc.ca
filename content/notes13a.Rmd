@@ -15,12 +15,11 @@ knitr::opts_chunk$set(fig.width = 5, fig.height = 3,
 
 ## Parallel Resources
 
-This topic parallels these resources:
+This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:
 
-- [STAT 545 Episode]()
 - 
 
-I suggest digesting this material before class, or at least throughout our discussion of the topic. 
+I suggest referring to this material when engaging with today's topic.
 
 ## Additional Resources
 
