@@ -30,3 +30,49 @@ I suggest referring to this material when engaging with today's topic.
 
 
 ## Demonstration
+
+
+
+----- 
+
+<!-- ******TUESDAY'S CLASS****** -->
+
+## Tuesday's Class `r tues_class_num`: Special Data Types-Factors and Dates
+
+```{r tues-date}
+cat(tues_date_pretty)
+```
+
+From today's class, students are anticipated to be able to:
+
+- Recognize what the factor class is 
+- Convert data in a dataframe to factors
+- Use the tsibble package to convert to various date formats
+- Plot with factors
+- Reorder levels within factors
+
+
+#### Prepare for Class
+- Watch the [STAT 545 Video Series: Class `r tues_class_num`](https://youtu.be/TTNfLtEUFDQ)
+
+
+Some useful (but not mandatory) readings for learning this material:
+
+- The [stat545.com](https://stat545.com/factors-boss.html) chapter on Factors
+- The [R4DS](https://r4ds.had.co.nz/dates-and-times.html) chapter on Dates and Times
+- The `tsibble` [vignette](https://cran.rstudio.com/web/packages/tsibble/vignettes/intro-tsibble.html)
+- The [forcats](https://forcats.tidyverse.org) package page and reference guide on page. 
+
+#### During Class
+
+- In class demo, covering:
+  - Converting data to factor types and defining levels
+  - Plotting with factors
+  - Changing order of levels
+  - Recoding factors
+  - Recoding data into dates using tsibble
+
+- Quiz
+  - **Complete the Class `r tues_class_num` Quiz on Canvas by Wednesday, `r wed_date_pretty` at 11:00am PST.**
+
+-----

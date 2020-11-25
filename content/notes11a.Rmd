@@ -30,3 +30,48 @@ I suggest referring to this material when engaging with today's topic.
 
 
 ## Demonstration
+
+
+-----
+
+<!-- ******THURSDAY'S CLASS****** -->
+
+## Thursday's Class `r thurs_class_num`: Tibble Joins
+
+```{r thurs-date}
+cat(thurs_date_pretty)
+```
+
+From today's class, students are anticipated to be able to:
+
+- Recognize how to manipulate data through a variety of tibble joins such as:
+  - left_join
+  - right_join
+  - full_join
+  - anti_join
+- Perform set operations on data
+
+| Lecture | Demonstration | View |
+|---------|-----------|------|
+| 11-A: tibble joins | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/demonstrations/demo11a-joins.Rmd) | [Knitted demo](/demonstrations/demo11a-joins) |
+
+#### Prepare for Class
+
+- Watch the [STAT 545 Video Series: Class `r thurs_class_num`](https://youtu.be/YAdX9MVRY1c)
+- Read the "two-table verbs"'s [vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/two-table.html)
+
+Some useful (but not mandatory) readings are:
+
+- [Jenny's Join Cheatsheet](https://stat545.com/join-cheatsheet.html) for a quick reference to joins.
+- [Relational Data chapter](https://r4ds.had.co.nz/relational-data.html) in "R for Data Science".
+- [dplyr cheatsheet](https://rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf)
+
+#### During Class
+
+- In class demo, covering:
+- [__Mutating joins__](https://r4ds.had.co.nz/relational-data.html#mutating-joins) add new columns to the "original" tibble.
+- [__Filtering joins__](https://r4ds.had.co.nz/relational-data.html#filtering-joins) filter the "original" tibble's rows.
+- [__Set operations__](https://r4ds.had.co.nz/relational-data.html#set-operations) work as if each row is an element in a set. 
+- __Binding__ stacks tables on top of or beside each other, with `bind_rows()` and `bind_cols()`.
+
+- Quiz: **No quiz** ~~Complete the Class `r thurs_class_num` Quiz on Canvas by Friday, `r fri_date_pretty` at 11:00am PST.~~

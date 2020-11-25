@@ -26,7 +26,7 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 
 - Start pre-readings for next lecture. 
 - Start Worksheet 4-A
-- Start Mini Data Analysis Milestone 1
+- Start Mini Data Analysis Milestone 2
 
 ### Tuesday
 
