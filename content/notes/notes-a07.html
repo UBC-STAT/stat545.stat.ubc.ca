@@ -84,7 +84,7 @@ knitr::opts_chunk$set(error = TRUE, fig.width = 5, fig.height = 2)</code></pre>
   ggplot(aes(year, wmean)) +
   geom_line()</code></pre>
 <pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<p><img src="/notes07a_files/figure-html/unnamed-chunk-4-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/notes/notes-a07_files/figure-html/unnamed-chunk-4-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="demo-2" class="section level3">
 <h3>Demo 2</h3>
@@ -106,7 +106,7 @@ knitr::opts_chunk$set(error = TRUE, fig.width = 5, fig.height = 2)</code></pre>
   scale_colour_discrete(&quot;&quot;) +
   theme_minimal() +
   theme(panel.grid = element_blank())</code></pre>
-<p><img src="/notes07a_files/figure-html/unnamed-chunk-5-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/notes/notes-a07_files/figure-html/unnamed-chunk-5-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="demo-3" class="section level3">
 <h3>Demo 3</h3>
@@ -118,7 +118,7 @@ knitr::opts_chunk$set(error = TRUE, fig.width = 5, fig.height = 2)</code></pre>
   scale_y_log10(labels = scales::dollar_format()) +
   guides(colour = FALSE)
 p3</code></pre>
-<p><img src="/notes07a_files/figure-html/unnamed-chunk-6-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/notes/notes-a07_files/figure-html/unnamed-chunk-6-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p><strong>(b)</strong></p>
 <p>From last class Demo 3:</p>
 <blockquote>
@@ -139,7 +139,7 @@ p3</code></pre>
   scale_y_log10(labels = scales::dollar_format()) +
   guides(colour = FALSE) +
   theme_bw()</code></pre>
-<p><img src="/notes07a_files/figure-html/unnamed-chunk-7-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/notes/notes-a07_files/figure-html/unnamed-chunk-7-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="demo-4" class="section level3">
 <h3>Demo 4</h3>
@@ -155,7 +155,7 @@ p3</code></pre>
   filter(inc &lt; 0) %&gt;% 
   ggplot(aes(year)) +
   geom_bar()</code></pre>
-<p><img src="/notes07a_files/figure-html/unnamed-chunk-8-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/notes/notes-a07_files/figure-html/unnamed-chunk-8-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="demo-5" class="section level3">
 <h3>Demo 5</h3>
@@ -170,7 +170,7 @@ p3</code></pre>
   theme_minimal() +
   scale_fill_discrete(&quot;&quot;)</code></pre>
 <pre><code>## Picking joint bandwidth of 0.148</code></pre>
-<p><img src="/notes07a_files/figure-html/unnamed-chunk-9-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/notes/notes-a07_files/figure-html/unnamed-chunk-9-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="effective-vis" class="section level3">
 <h3>Effective Vis</h3>
@@ -204,7 +204,7 @@ p3</code></pre>
   geom_path(arrow = arrow()) +
   geom_text(aes(label = time), nudge_x = 0.02) +
   theme_void()</code></pre>
-<p><img src="/notes07a_files/figure-html/unnamed-chunk-10-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/notes/notes-a07_files/figure-html/unnamed-chunk-10-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="demo-7" class="section level3">
 <h3>Demo 7</h3>
@@ -226,7 +226,7 @@ p3</code></pre>
   scale_fill_discrete(&quot;Transmission&quot;) +
   labs(y = &quot;Proportion&quot;, x = &quot;Cylinders&quot;) +
   theme_minimal()</code></pre>
-<p><img src="/notes07a_files/figure-html/unnamed-chunk-11-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/notes/notes-a07_files/figure-html/unnamed-chunk-11-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="demo-8" class="section level3">
 <h3>Demo 8</h3>
@@ -245,7 +245,7 @@ p3</code></pre>
   geom_bar()</code></pre>
 <pre class="r"><code>ggplot(hair, aes(Hair, n)) +
   geom_col()</code></pre>
-<p><img src="/notes07a_files/figure-html/unnamed-chunk-13-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/notes/notes-a07_files/figure-html/unnamed-chunk-13-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="demo-9" class="section level3">
 <h3>Demo 9</h3>
@@ -280,6 +280,6 @@ p3</code></pre>
 <pre class="r"><code>ggplot(hair_eye, aes(Hair, Eye)) +
   geom_bin2d(aes(fill = n)) +
   theme_minimal()</code></pre>
-<p><img src="/notes07a_files/figure-html/unnamed-chunk-15-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/notes/notes-a07_files/figure-html/unnamed-chunk-15-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 </div>

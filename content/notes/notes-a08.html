@@ -178,12 +178,12 @@ v %in% c(&quot;foo&quot;, &quot;baz&quot;)</code></pre>
   pivot_wider(id_cols = year, names_from = country, values_from = gdpPercap) %&gt;% 
   ggplot(aes(x = Canada, y = `United Kingdom`)) +
   geom_point()</code></pre>
-<p><img src="/notes08a_files/figure-html/unnamed-chunk-8-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/notes/notes-a08_files/figure-html/unnamed-chunk-8-1.png" width="480" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>gapminder %&gt;% 
   filter(country %in% c(&quot;Canada&quot;, &quot;United Kingdom&quot;)) %&gt;% 
   ggplot(aes(x = gdpPercap, y = gdpPercap)) +
   geom_point()</code></pre>
-<p><img src="/notes08a_files/figure-html/unnamed-chunk-8-2.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/notes/notes-a08_files/figure-html/unnamed-chunk-8-2.png" width="480" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>`_x` &lt;- 4
 `this is a variable` &lt;- 5</code></pre>
 </div>
