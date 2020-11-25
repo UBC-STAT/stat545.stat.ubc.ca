@@ -1,0 +1,263 @@
+---
+title: "Lecture Notes: Shiny Dashboards"
+subtitle: "Version 1.0.0"
+output: html_document
+---
+
+
+
+<div id="learning-objectives" class="section level2">
+<h2>Learning Objectives</h2>
+<p>This week aims to provide you with a foundation for making a shiny app. From today’s class, students are anticipated to be able to:</p>
+<ul>
+<li>develop the user interface of a shiny app from scratch,</li>
+<li>develop interactivity using widgets in a shiny app,</li>
+<li>deploy a shiny app to shinyapps.io,</li>
+<li>create interactive Shiny R Markdown documents (embed shiny features within an Rmd file).</li>
+</ul>
+<p>And possibly:</p>
+<ul>
+<li>Make an interactive plot with plotly</li>
+<li>Make an interactive data table with the DT package</li>
+</ul>
+</div>
+<div id="parallel-resources" class="section level2">
+<h2>Parallel Resources</h2>
+<p>This topic parallels these resources:</p>
+<ul>
+<li>STAT 545 Episode 4-B (launched later)</li>
+<li><a href="https://deanattali.com/blog/building-shiny-apps-tutorial/">Dean Attali’s shiny tutorial</a></li>
+</ul>
+<p>I suggest digesting this material before class, or at least throughout our discussion of the topic.</p>
+</div>
+<div id="additional-resources" class="section level2">
+<h2>Additional Resources</h2>
+<p>General:</p>
+<ul>
+<li><a href="https://mastering-shiny.org/">“Mastering Shiny”</a> by Hadley Wickham
+<ul>
+<li>A new (Fall 2020) book about shiny</li>
+</ul></li>
+<li>The <a href="https://shiny.rstudio.com/">official shiny site</a> has tutorials, a gallery, and other goodies.</li>
+</ul>
+<p>Specific tasks:</p>
+<ul>
+<li>For deploying shiny apps, check out <a href="https://www.shinyapps.io/">https://www.shinyapps.io/</a></li>
+<li>For shiny documents (= R Markdown + shiny), see <a href="https://bookdown.org/yihui/rmarkdown/shiny-documents.html">Chapter 19 of Yihui’s R Markdown book</a>.</li>
+<li>For testing your shiny app, check out the <a href="https://rstudio.github.io/shinytest/">shinytest</a> and <a href="https://github.com/rstudio/reactlog">reactlog</a> packages.</li>
+</ul>
+<p>Other dashboard tools besides shiny (but not in R):</p>
+<ul>
+<li>With python: plotly dash. Check out the <a href="https://plotly.com/dash/">main website</a>, or <a href="https://medium.com/plotly/introducing-dash-5ecf7191b503">this Medium post</a> introducing the tool.</li>
+<li>With javascript: <a href="https://d3js.org/">D3</a>, a tremendously powerful tool with a steep learning curve (esp. if you don’t know javascript).</li>
+</ul>
+</div>
+<div id="quiz" class="section level2">
+<h2>Quiz</h2>
+<p><strong>Quiz 8B</strong></p>
+<ol style="list-style-type: decimal">
+<li>True or False: A shiny app, as a website, still requires an instance of R running in the background. The stat545.stat.ubc.ca website is static: it doesn’t require an active session to be running in the background.</li>
+<li>True or False: Although it’s important to document both a shiny app and an R package, documentation is more important in R packages compared to shiny apps.</li>
+</ol>
+<p><strong>Quiz 9B</strong></p>
+<ol style="list-style-type: decimal">
+<li><p>True or False: The following code ordinarily has <code>y</code> as 15, but using <code>shiny::reactive()</code> in a shiny app can have <code>y</code> equal <code>11</code>.</p>
+<pre><code>x &lt;- 10
+y &lt;- x + 5
+x &lt;- 1</code></pre></li>
+<li><p>True or False: Since shiny’s UI is html, we can manually write the UI by writing HTML in the <code>HTML()</code> function.</p></li>
+</ol>
+</div>
+<div id="demonstration" class="section level2">
+<h2>Demonstration</h2>
+<p>For an elaboration of this demonstration, see <a href="https://deanattali.com/blog/building-shiny-apps-tutorial/">Dean Attali’s tutorial</a>.</p>
+<div id="introducing-shiny" class="section level3">
+<h3>Introducing shiny</h3>
+<p>Motivation for shiny: explore the <a href="https://shiny.rstudio.com/gallery/#user-showcase">shiny user showcase</a>:</p>
+<ul>
+<li><input type="checkbox" disabled="" />
+First, let’s find a “shiny demo”</li>
+<li><input type="checkbox" disabled="" />
+Then, a “shiny user showcase”.</li>
+</ul>
+<p>The code behind a shiny app has the following layout in a file called <code>app.R</code> – development involves filling in the <code>FILL_THIS_IN</code> parts:</p>
+<pre><code>library(shiny)
+
+ui &lt;- fluidPage(FILL_THIS_IN)
+
+server &lt;- function(input, output) {
+    FILL_THIS_IN
+}
+
+shinyApp(ui = ui, server = server)</code></pre>
+<p>There is also a two-file option if you’d like, defining the <code>ui</code> object in <code>ui.R</code>, and the <code>server</code> object in <code>server.R</code>.</p>
+</div>
+<div id="exploring-the-rstudio-boilerplate" class="section level3">
+<h3>Exploring the RStudio Boilerplate</h3>
+<p>Open the boilerplate:</p>
+<ol style="list-style-type: decimal">
+<li><input type="checkbox" disabled="" />
+File &gt; New File &gt; Shiny Web App…</li>
+<li><input type="checkbox" disabled="" />
+Ensure “Single File” is selected, and choose a directory.</li>
+</ol>
+<p>What R objects are <code>ui</code> and <code>server</code>? What are they meant for?</p>
+<ul>
+<li><code>ui</code> is HTML; <code>server</code> is a function.</li>
+<li><code>ui</code> is for the display; <code>server</code> holds the R machinery.</li>
+</ul>
+<p>Side-by-side comparison between the launched app and the code:</p>
+<ul>
+<li>Notice the layouts: <code>sidebarLayout()</code>, <code>titlePanel()</code>.</li>
+<li>Notice the widget code, and the placeholder for a plot.</li>
+<li>Notice that calculations (and more familiar R code) go in the <code>server</code>.</li>
+<li>Notice that we <em>define</em> the (list-like) <code>output</code> argument, and <em>use</em> the (list-like) <code>input</code> argument.</li>
+<li>Notice that additions to <code>ui</code> are <em>function arguments</em>, and additions to <code>server</code> are new lines (specifically: lines that define things).</li>
+</ul>
+</div>
+<div id="making-the-bcl-shiny-app" class="section level3">
+<h3>Making the BCL Shiny App</h3>
+<p>Get set up:</p>
+<ol style="list-style-type: decimal">
+<li><input type="checkbox" disabled="" />
+Start from scratch – try the above template containing the <code>FILL_THIS_IN</code> fields.</li>
+<li><input type="checkbox" disabled="" />
+BCL Data:<ol style="list-style-type: lower-alpha">
+<li><input type="checkbox" disabled="" />
+Download the <a href="https://deanattali.com/files/bcl-data.csv">data</a>; place alongside <code>app.R</code>.</li>
+<li><input type="checkbox" disabled="" />
+Load the tidyverse.</li>
+<li><input type="checkbox" disabled="" />
+Read in the data above <code>ui</code> with <code>bcl &lt;- read_csv("bcl-data.csv")</code></li>
+</ol></li>
+<li><input type="checkbox" disabled="" />
+Include <code>options(shiny.autoreload = TRUE)</code> so that I can see the changes appear instantly.</li>
+</ol>
+<p>Add a plot to the app:</p>
+<ol style="list-style-type: decimal">
+<li><input type="checkbox" disabled="" />
+Verify that calling ggplot2 in the <code>ui</code> won’t work. Why not? Think coercion.</li>
+<li><input type="checkbox" disabled="" />
+Instead of trying to place the plot directly in <code>ui</code>, make a <em>placeholder</em> for the plot: <code>plotOutput()</code>.<ul>
+<li>Always needs an ID (first argument): this will be the link between <code>server</code> and <code>ui</code>.</li>
+</ul></li>
+<li><input type="checkbox" disabled="" />
+Render the plot in the <code>server</code>, and link it to the placeholder:<ol style="list-style-type: lower-alpha">
+<li><input type="checkbox" disabled="" />
+As if <code>output</code> is a list, make an entry named by the plot ID. Try setting this to the plot itself – doesn’t work. Plot code:</li>
+</ol>
+<pre><code>ggplot(bcl, aes(Alcohol_Content)) +
+  geom_histogram()</code></pre>
+<ol start="2" style="list-style-type: lower-alpha">
+<li><input type="checkbox" disabled="" />
+Wrap plot in <code>renderPlot()</code> function.</li>
+<li><input type="checkbox" disabled="" />
+Improve formatting: allow for the possibility of multiple lines with <code>{}</code>.</li>
+</ol></li>
+</ol>
+<p>Add interactivity to the plot via a slider:</p>
+<ol style="list-style-type: decimal">
+<li><input type="checkbox" disabled="" />
+Add a slider to the <code>ui</code> with <code>sliderInput()</code>.<ol style="list-style-type: lower-alpha">
+<li><input type="checkbox" disabled="" />
+Add arguments to allow a user select a price range between 0 and 100. All <code>*Input()</code> functions require:<ul>
+<li>an ID (to communicate between <code>ui</code> and <code>server</code>)</li>
+<li>a label (text to appear with the widget)</li>
+<li>All other arguments are specific to the widget. Hint: <code>value</code> should be a vector; use <code>pre = "$"</code>.</li>
+</ul></li>
+<li><input type="checkbox" disabled="" />
+Check out <a href="https://shiny.rstudio.com/tutorial/written-tutorial/lesson3/">other widgets</a> (from the official Shiny tutorial)</li>
+</ol></li>
+<li>The (list-like) <code>input</code> argument in <code>server</code> now has an entry named by the widget ID:
+<ol style="list-style-type: lower-alpha">
+<li><input type="checkbox" disabled="" />
+Investigate the contents of this list entry using this trick: <code>print()</code> it to screen in your <code>renderPlot()</code> function. Where does it print to screen? Less hacky method: use the <code>observe()</code> function instead, top level of function.</li>
+<li><input type="checkbox" disabled="" />
+Use this list entry to filter the <code>bcl</code> data.</li>
+</ol></li>
+<li><input type="checkbox" disabled="" />
+Try adding another widget to further filter the data: <code>radioButtons()</code>.<ul>
+<li>Use <code>choices = c("BEER", "REFRESHMENT", "SPIRITS", "WINE")</code></li>
+</ul></li>
+</ol>
+<p>Improve the user interface:</p>
+<ol style="list-style-type: decimal">
+<li><input type="checkbox" disabled="" />
+Add a <code>titlePanel()</code>. What’s the output of <code>titlePanel()</code>?</li>
+<li><input type="checkbox" disabled="" />
+Add a <code>sidebarLayout()</code> with a <code>sidebarPanel()</code> and <code>mainPanel()</code>. What should go where?</li>
+<li><input type="checkbox" disabled="" />
+Add some description to the app – maybe some welcome text.<ol style="list-style-type: lower-alpha">
+<li><input type="checkbox" disabled="" />
+Try raw text</li>
+<li><input type="checkbox" disabled="" />
+Try headers with <code>h1()</code>, <code>h2()</code>, etc; bold with <code>b()</code> from the <code>tags</code> object; and a link to Dean’s original BCL app with <code>a(href = "https://github.com/daattali/shiny-server/tree/master/bcl", "TEXT_HERE")</code></li>
+</ol></li>
+</ol>
+<p>Display a table of the BC Liquor data below the plot:</p>
+<ol style="list-style-type: decimal">
+<li><input type="checkbox" disabled="" />
+Use <code>renderTable()</code> and <code>tableOutput()</code>.</li>
+</ol>
+<p>Data filtering happens twice. Use reactive programming to prevent duplicated code:</p>
+<ol style="list-style-type: decimal">
+<li><input type="checkbox" disabled="" />
+Gotcha #1: Try saving the filtered data in the <code>server()</code> function as a new variable. Does it work?</li>
+<li><input type="checkbox" disabled="" />
+Make it work by wrapping the <code>reactive()</code> function.</li>
+<li><input type="checkbox" disabled="" />
+Gotcha #2: Can you refer to the variable you made by name? No. Treat it as a function with no arguments by appending <code>()</code>.</li>
+</ol>
+</div>
+<div id="taking-shiny-further" class="section level3">
+<h3>Taking shiny further</h3>
+<p>Want to do more with shiny? Let’s explore these features, although we won’t implement them.</p>
+<ol style="list-style-type: decimal">
+<li><a href="https://shiny.rstudio.com/articles/plot-interaction.html">Mouse-based interaction with plots</a>: use arguments of <code>plotOutput()</code>.
+<ul>
+<li>See the example at the bottom of the above page.</li>
+<li>Notice: no widget, but instead, ID given for <code>click</code>, <code>dblclick</code>, <code>hover</code>, or <code>brush</code> arguments of <code>plotOutput()</code>.</li>
+</ul></li>
+<li>Create dynamic UI components (<a href="https://shiny.rstudio.com/articles/dynamic-ui.html">RStudio tutorial</a>; <a href="https://stat545.com/shiny-tutorial.html#basic-example-of-uioutput">stat545.com basic example</a>)
+<ul>
+<li>Try out the stat545.com example.</li>
+<li>Notice <code>uiOutput()</code> and <code>renderUI()</code>, as per normal, except this time <code>sliderInput()</code> is in the <code>renderUI()</code> function in the <code>server</code> object, not the <code>ui</code>.</li>
+</ul></li>
+<li><a href="https://rstudio.github.io/shinythemes/">Change the theme</a> (colour palette, font, etc) of your shiny app using the <code>shinythemes</code> package.</li>
+<li>Make a shiny app look like a website, complete with tabs and pages, using the <code>shinydashboard</code> package – <a href="https://rstudio.github.io/shinydashboard/get_started.html">getting started page</a>. Notice:
+<ul>
+<li>Uses <code>dashboardPage()</code> instead of <code>fluidPage()</code> for UI.</li>
+<li>Tabs link to separate pages: a <code>menuItem()</code> within a <code>sidebarMenu()</code> is linked to a page defined in <code>tabItem()</code>, linked via <code>tabName</code>.</li>
+<li>Tabs without shinydashboard: use <code>navbarPage()</code> or <code>tabsetPanel()</code>.</li>
+</ul></li>
+<li>Deploy your apps for free to shinyapps.io – click the “publish” button in RStudio, and follow the instructions. Notes:
+<ul>
+<li>shinyapps.io limits: free version</li>
+<li>Requires R to run in the background, so can’t just be any host.</li>
+</ul></li>
+<li>Make shiny documents / Interactive documents (Rmd). Learn more from <a href="https://bookdown.org/yihui/rmarkdown/shiny-documents.html">Chapter 19: Shiny Document</a> from the “R Markdown” book by Yihui Xie et al.
+<ul>
+<li>Load the RStudio boilerplates (presentation and html): File &gt; New File &gt; R Markdown… &gt; Shiny</li>
+<li>Notice:
+<ul>
+<li>The <code>runtime: shiny</code> in the YAML header.</li>
+<li>The addition of a widget with an <code>*Input</code> function like <code>sliderInput()</code>.</li>
+<li>The addition of a plot with <code>renderPlot()</code>.</li>
+</ul></li>
+</ul></li>
+</ol>
+<p>Interactivity without shiny:</p>
+<ol style="list-style-type: decimal">
+<li>Make navigable data tables from the DT package. <em>HTML output does not require an R instance to be running!</em>
+<ul>
+<li>Wrap a tibble / data frame in <code>DT::datatable()</code> in an Rmd file, and knit.</li>
+</ul></li>
+<li>Make interactive plots with plotly (an R package, but primarily <a href="https://plotly.com/javascript/">exists as a javascript graphing library</a>). <em>HTML output does not require an R instance to be running!</em>
+<ul>
+<li>Browse around some plots in the above link.</li>
+<li>Quick win: wrap a ggplot object with the <code>plotly::ggplotly()</code> function.</li>
+<li>Make a plotly plot from scratch with <code>plot_ly()</code></li>
+</ul></li>
+</ol>
+</div>
+</div>

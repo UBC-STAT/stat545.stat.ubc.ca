@@ -1,0 +1,218 @@
+---
+title: "Lecture Notes: R Functions for Data Analysis"
+subtitle: "Version 1.0.1"
+output: html_document
+---
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, results = "asis"}
+knitr::opts_chunk$set(fig.width = 5, fig.height = 3, 
+                      fig.align = "center", error = TRUE)
+```
+
+
+## Learning Objectives
+
+Key topics this week:
+
+- Start getting a sense of when to make a function in a data analysis (we will build on this next week).
+- Workflow for building a function: start interactively, wrap it as a function. `return()`. Argument names. 
+- Fortify a function: 
+  - generalize the function and use smart defaults; `NA` handling, and ellipses package [https://ellipsis.r-lib.org/](https://ellipsis.r-lib.org/)
+  - provide useful error messages; sidebar: `if` statements
+  - Unit tests, and (sidebar) assertions
+- Data masking in a function.
+- Documenting a function
+
+Possible topics this week:
+
+- `try()` and `withTimeout()`.
+- environments and scoping. Perhaps `search()`; `with()`.
+
+What we're _not_ covering (this week):
+
+- Documenting functions with roxygen2 (Week 3)
+- S3 objects (and other object oriented styles) (Week 3)
+
+## Parallel Resources
+
+This topic parallels these resources:
+
+- [stat545.com Functions, Parts 1-3](https://stat545.com/functions-part1.html)
+- [STAT 545 Episode 1-B: R Functions for Data Analysis](https://youtu.be/3nDgR7l5Tps)
+
+I suggest digesting this material before class, or at least throughout our discussion of the topic. 
+
+## Additional Resources
+
+- [R4DS functions chapter](https://r-pkgs.org/setup.html#setup-tools)
+
+## Quiz
+
+Consider the following code:
+
+```
+x <- 1
+f <- function(t) {
+  x <- -1
+  if (x > 0) return(t)
+  x * t + 1
+  x * t
+}
+f(1)
+```
+
+1. True or False: the output of `f(1)` is `-1`. 
+2. True or False: after running the above code, `x` is `-1`. 
+1. True or False: Curly-curly `{{}}` can be used whenever we want to refer to column names outright, such as when subsetting in base R with `[[`.
+2. You've made a function `quick_scatter()` that you can pipe a tibble into, and outputs a scatterplot of two variables. So far, you're only using the function to explore the data for your own eyes (perhaps even putting your code directly in the console). True or False: at this point, you should stop and make sure your function is documented and has formal unit tests. 
+
+
+## Demonstration
+
+```{r, message = FALSE, warning = FALSE}
+library(tidyverse)
+library(gapminder)
+library(testthat)
+```
+
+Sometimes it's useful to work with the _log_ of a variable with a positive skew, such as `gapminder`'s GDP per capita:
+
+```{r}
+cowplot::plot_grid(
+  ggplot(gapminder, aes(gdpPercap)) +
+    geom_histogram() +
+    theme_minimal(),
+  ggplot(gapminder, aes(log(gdpPercap))) +
+    geom_histogram() +
+    theme_minimal()
+)
+```
+And, it's sometimes useful to scale a variable to have mean 0 and variance 1. We'll do both:
+
+```{r}
+gapminder %>% 
+  mutate(gdpPercap_scaled = (log(gdpPercap) - mean(log(gdpPercap))) / sd(log(gdpPercap)),
+         pop_scaled = (log(pop) - mean(log(pop))) / sd(log(pop)))
+
+gapminder %>% 
+  mutate(across(c("gdpPercap", "pop"), ~ (log(.) - mean(log(.))) / sd(log(.)) ))
+```
+
+Where might there be repetition in this analysis? Where __is__ there repetition?
+
+- Doing this scaling over and over again throughout the analysis.
+- Repetition across multiple variables, like `pop` and `lifeExp`
+- `gdpPercap` appears three times.
+
+Solve the problem of repetition by writing _functions_.
+
+
+1. Turn the above into a function.
+
+```{r}
+my_scale <- function(x, remove_na = TRUE, verbose = FALSE, ...) {
+  if (verbose) cat("Taking the log...\n")
+  logx <- log(x)
+  if (verbose) cat("Done taking the log!\n")
+  (logx - mean(logx, na.rm = remove_na, ...)) / sd(logx, na.rm = remove_na)
+}
+my_scale(1:10)
+
+my_scale_informative <- function(x, remove_na = TRUE, verbose = FALSE, ...) {
+  if (verbose) cat("Taking the log...\n")
+  logx <- log(x)
+  if (verbose) cat("Done taking the log!\n")
+  mu <- mean(logx, na.rm = remove_na, ...)
+  sd <- sd(logx, na.rm = remove_na)
+  list(result = (logx - mu) / sd,
+       mean = mu,
+       sd = sd)
+}
+my_scale_informative(1:10)
+```
+
+2. Try `across()` for multiple variables.
+
+
+```{r}
+gapminder %>% 
+  mutate(gdpPercap = my_scale(gdpPercap),
+         pop = my_scale(pop))
+gapminder %>% 
+  mutate(across(c("gdpPercap", "pop"), my_scale))
+```
+
+
+
+3. Test the function: first informally, then formally
+
+```{r}
+t <- my_scale(exp(c(1, 3)), verbose = TRUE)
+t
+my_scale(exp(c(1, 3, NA)))
+my_scale(1:10)
+my_scale(1:10, trim = 0.1, foobar = 3)
+test_that("Basic testing", {
+  expect_equal(my_scale(exp(c(1, 3))), (c(1, 3) - 2) / sqrt(2))
+  expect_equal(my_scale(exp(c(1, 3, NA))), (c(1, 3, NA) - 2) / sqrt(2))
+  expect_error(my_scale(letters))
+})
+```
+
+4. Sidebar: assertions
+5. Fortify: `NA` handling, ellipses, error messages and `if` statements, verbose option.
+
+Other exercises:
+
+- Ellipsis by making a strict `mean()` function that only accepts numeric.
+- Curly-Curly with ggplot2: scatterplot of x vs. y (this is called a "data mask")
+
+```{r, fig.width = 3, fig.height = 2}
+gapminder %>% 
+  ggplot(aes(gdpPercap, lifeExp)) +
+  geom_point()
+quick_scatter <- function(data, x, y) {
+  ggplot(data, aes({{ x }}, {{ y }})) +
+    geom_point()
+}
+gapminder %>% 
+  quick_scatter(gdpPercap, lifeExp)
+```
+
+Demonstrate use of a data mask when no such functionality exists: here's an example of subsetting the `wt` column from the `mtcars` data frame in base R:
+
+```{r}
+mtcars[["wt"]]
+```
+
+
+Make a function that does this subsetting, not using curly-curly:
+
+```{r}
+my_subset <- function(data, variable) {
+    data[[variable]]
+}
+my_subset(mtcars, "wt") 
+my_subset(mtcars, wt)
+```
+
+Using curly-curly doesn't grant the `[[` subsetting any data masking powers -- data masking must already be in place, as they are in `dplyr` and `ggplot2` functions.
+
+```{r}
+my_subset <- function(data, variable) {
+    data[[{{ variable }}]]
+}
+my_subset(mtcars, "wt") 
+my_subset(mtcars, wt)
+```
+
+
+
+## Other Topics Not Covered
+
+- A function shouldn't do too much. Should do one thing well.
+  - Example of a function that does too much: [my `cnqr()` function from my PhD](https://github.com/vincenzocoia/cnqr/blob/master/R/cnqr.R).
+  - Does the scaling function above do too much?
+- `as.formula` with `lm()`; polynomial.
+- `try()` and `withTimeout()`.
+

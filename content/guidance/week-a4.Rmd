@@ -1,0 +1,62 @@
+---
+title: "STAT 545A: Week 4"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, results = "asis"}
+week_num <- 4  # 1 through 13; Week 7 ended 545A.
+#-------------
+source(here::here("content", "dates.R"))
+library(stringr)
+letter <- if (week_num <= 7) "A" else "B"
+tues_class_num <- paste0(str_pad(week_num * 2 - 2, width = 2, pad = 0), letter)
+mon_date <- lec0 + days((week_num - 1) * 7 - 1)
+sat_date <- mon_date + days(5)
+cat(format(mon_date, "%A, %b %d"), "-", 
+    format(sat_date, "%A, %b %d"))
+```
+
+A complete list of the things you'll need to do for STAT 545A this week.
+
+This week's schedule. Assessments are in __bold__. 
+
+See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of these things (except for lecture prep)
+
+### Monday
+
+- Start pre-readings for next lecture. 
+- Start Worksheet 3-A
+- Start Mini Data Analysis Milestone 1
+
+### Tuesday
+
+- [ ] Pre-readings by 9:30am PST
+- [ ] Attend lecture 9:30am - 11:00am PST
+
+### Wednesday
+
+- [ ] __Submit Quiz 6-A by 11:00am PST__
+- Start pre-readings for next lecture.
+
+### Thursday
+
+- [ ] Pre-readings by 9:30am PST
+- [ ] Attend lecture 9:30am - 11:00am PST
+- [ ] (Optional) Attend office hours at 16:00 - 17:00 PST
+
+### Friday
+
+- [ ] __Submit Quiz 7-A by 11:00am PST__
+- [ ] Get your questions for the teaching team into Slack by mid-day (we can't necessarily be active on Slack on evenings and weekends)
+
+### Saturday
+
+- [ ] **Submit Mini Data Analysis Milestone 1 to canvas by 23:59 PST**
+- [ ] **Submit Worksheet 3-A to canvas by 23:59 PST**
+
+
+

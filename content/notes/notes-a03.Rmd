@@ -1,0 +1,61 @@
+---
+title: "Lecture Notes: Authoring and Reproducibility"
+subtitle: "Version 1.0.0"
+output: html_document
+---
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, results = "asis"}
+knitr::opts_chunk$set(fig.width = 5, fig.height = 3, 
+                      fig.align = "center", error = TRUE)
+```
+
+
+## Learning Objectives
+
+From today's class, students are anticipated to be able to:
+
+- Use basic markdown features.
+- Write documents in markdown on GitHub and RStudio.
+- Choose whether html or pdf is an appropriate output.
+- Style an Rmd document by editing the YAML header.
+- Demonstrate at least two Rmd code chunk options.
+- Render your finalized document to HTML & PDF.
+
+## Parallel Resources
+
+This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:
+
+- [STAT 545 Episode 3-A: Reproducible Reports with R Markdown](https://youtu.be/ZzDSkBgt9xQ)
+- Read the [Official R Markdown Tutorial](https://rmarkdown.rstudio.com/lesson-1.html) from the "Introduction" up to and including the "Inline Code" section.
+
+We suggest referring to this material when engaging with today's topic.
+
+## Additional Resources
+
+Simple cheat sheets:
+
+- [Simple markdown cheat sheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
+- [YAML headers options](https://bookdown.org/yihui/rmarkdown/html-document.html)
+
+Fully loaded cheat sheets:
+
+- [R Markdown cheat sheet](https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
+- [R Markdown reference guide](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.177968037.1059384083.1597196687-1784159993.1567907747)
+
+Note that many cheat sheets can be found from RStudio: go to `Help` > `Cheatsheets`.
+
+Interesting reads: 
+
+- [WYSIWYG is dead](https://medium.com/@ayman/wysiwyg-is-dead-d225276ed53)
+    - An entertaining and concise argument against using "WYSIWYG" editors like Microsoft Word.
+
+
+## Quiz
+
+1. True or False: Since GitHub only displays the code behind an html file, we need to output to pdf if we want to be able to view the rendering on GitHub. 
+2. True or False: It doesn't make sense to output an .Rmd file to markdown, because .Rmd is already markdown. 
+
+
+## Demonstration
+
+Work on Worksheet 1-A (available on course dashboard).

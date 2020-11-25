@@ -1,0 +1,273 @@
+---
+title: "Lecture Notes: R Functions for Data Analysis"
+subtitle: "Version 1.0.1"
+output: html_document
+---
+
+
+
+<div id="learning-objectives" class="section level2">
+<h2>Learning Objectives</h2>
+<p>Key topics this week:</p>
+<ul>
+<li>Start getting a sense of when to make a function in a data analysis (we will build on this next week).</li>
+<li>Workflow for building a function: start interactively, wrap it as a function. <code>return()</code>. Argument names.</li>
+<li>Fortify a function:
+<ul>
+<li>generalize the function and use smart defaults; <code>NA</code> handling, and ellipses package <a href="https://ellipsis.r-lib.org/">https://ellipsis.r-lib.org/</a></li>
+<li>provide useful error messages; sidebar: <code>if</code> statements</li>
+<li>Unit tests, and (sidebar) assertions</li>
+</ul></li>
+<li>Data masking in a function.</li>
+<li>Documenting a function</li>
+</ul>
+<p>Possible topics this week:</p>
+<ul>
+<li><code>try()</code> and <code>withTimeout()</code>.</li>
+<li>environments and scoping. Perhaps <code>search()</code>; <code>with()</code>.</li>
+</ul>
+<p>What we’re <em>not</em> covering (this week):</p>
+<ul>
+<li>Documenting functions with roxygen2 (Week 3)</li>
+<li>S3 objects (and other object oriented styles) (Week 3)</li>
+</ul>
+</div>
+<div id="parallel-resources" class="section level2">
+<h2>Parallel Resources</h2>
+<p>This topic parallels these resources:</p>
+<ul>
+<li><a href="https://stat545.com/functions-part1.html">stat545.com Functions, Parts 1-3</a></li>
+<li><a href="https://youtu.be/3nDgR7l5Tps">STAT 545 Episode 1-B: R Functions for Data Analysis</a></li>
+</ul>
+<p>I suggest digesting this material before class, or at least throughout our discussion of the topic.</p>
+</div>
+<div id="additional-resources" class="section level2">
+<h2>Additional Resources</h2>
+<ul>
+<li><a href="https://r-pkgs.org/setup.html#setup-tools">R4DS functions chapter</a></li>
+</ul>
+</div>
+<div id="quiz" class="section level2">
+<h2>Quiz</h2>
+<p>Consider the following code:</p>
+<pre><code>x &lt;- 1
+f &lt;- function(t) {
+  x &lt;- -1
+  if (x &gt; 0) return(t)
+  x * t + 1
+  x * t
+}
+f(1)</code></pre>
+<ol style="list-style-type: decimal">
+<li>True or False: the output of <code>f(1)</code> is <code>-1</code>.</li>
+<li>True or False: after running the above code, <code>x</code> is <code>-1</code>.</li>
+<li>True or False: Curly-curly <code>{{}}</code> can be used whenever we want to refer to column names outright, such as when subsetting in base R with <code>[[</code>.</li>
+<li>You’ve made a function <code>quick_scatter()</code> that you can pipe a tibble into, and outputs a scatterplot of two variables. So far, you’re only using the function to explore the data for your own eyes (perhaps even putting your code directly in the console). True or False: at this point, you should stop and make sure your function is documented and has formal unit tests.</li>
+</ol>
+</div>
+<div id="demonstration" class="section level2">
+<h2>Demonstration</h2>
+<pre class="r"><code>library(tidyverse)
+library(gapminder)
+library(testthat)</code></pre>
+<p>Sometimes it’s useful to work with the <em>log</em> of a variable with a positive skew, such as <code>gapminder</code>’s GDP per capita:</p>
+<pre class="r"><code>cowplot::plot_grid(
+  ggplot(gapminder, aes(gdpPercap)) +
+    geom_histogram() +
+    theme_minimal(),
+  ggplot(gapminder, aes(log(gdpPercap))) +
+    geom_histogram() +
+    theme_minimal()
+)</code></pre>
+<pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+<p><img src="/notes/notes-b01_files/figure-html/unnamed-chunk-3-1.png" width="480" style="display: block; margin: auto;" />
+And, it’s sometimes useful to scale a variable to have mean 0 and variance 1. We’ll do both:</p>
+<pre class="r"><code>gapminder %&gt;% 
+  mutate(gdpPercap_scaled = (log(gdpPercap) - mean(log(gdpPercap))) / sd(log(gdpPercap)),
+         pop_scaled = (log(pop) - mean(log(pop))) / sd(log(pop)))</code></pre>
+<pre><code>## # A tibble: 1,704 x 8
+##    country  continent  year lifeExp    pop gdpPercap gdpPercap_scaled pop_scaled
+##    &lt;fct&gt;    &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;  &lt;int&gt;     &lt;dbl&gt;            &lt;dbl&gt;      &lt;dbl&gt;
+##  1 Afghani… Asia       1952    28.8 8.43e6      779.            -1.21      0.113
+##  2 Afghani… Asia       1957    30.3 9.24e6      821.            -1.17      0.170
+##  3 Afghani… Asia       1962    32.0 1.03e7      853.            -1.14      0.236
+##  4 Afghani… Asia       1967    34.0 1.15e7      836.            -1.15      0.309
+##  5 Afghani… Asia       1972    36.1 1.31e7      740.            -1.25      0.387
+##  6 Afghani… Asia       1977    38.4 1.49e7      786.            -1.20      0.467
+##  7 Afghani… Asia       1982    39.9 1.29e7      978.            -1.03      0.377
+##  8 Afghani… Asia       1987    40.8 1.39e7      852.            -1.14      0.423
+##  9 Afghani… Asia       1992    41.7 1.63e7      649.            -1.36      0.525
+## 10 Afghani… Asia       1997    41.8 2.22e7      635.            -1.37      0.717
+## # … with 1,694 more rows</code></pre>
+<pre class="r"><code>gapminder %&gt;% 
+  mutate(across(c(&quot;gdpPercap&quot;, &quot;pop&quot;), ~ (log(.) - mean(log(.))) / sd(log(.)) ))</code></pre>
+<pre><code>## # A tibble: 1,704 x 6
+##    country     continent  year lifeExp   pop gdpPercap
+##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;
+##  1 Afghanistan Asia       1952    28.8 0.113     -1.21
+##  2 Afghanistan Asia       1957    30.3 0.170     -1.17
+##  3 Afghanistan Asia       1962    32.0 0.236     -1.14
+##  4 Afghanistan Asia       1967    34.0 0.309     -1.15
+##  5 Afghanistan Asia       1972    36.1 0.387     -1.25
+##  6 Afghanistan Asia       1977    38.4 0.467     -1.20
+##  7 Afghanistan Asia       1982    39.9 0.377     -1.03
+##  8 Afghanistan Asia       1987    40.8 0.423     -1.14
+##  9 Afghanistan Asia       1992    41.7 0.525     -1.36
+## 10 Afghanistan Asia       1997    41.8 0.717     -1.37
+## # … with 1,694 more rows</code></pre>
+<p>Where might there be repetition in this analysis? Where <strong>is</strong> there repetition?</p>
+<ul>
+<li>Doing this scaling over and over again throughout the analysis.</li>
+<li>Repetition across multiple variables, like <code>pop</code> and <code>lifeExp</code></li>
+<li><code>gdpPercap</code> appears three times.</li>
+</ul>
+<p>Solve the problem of repetition by writing <em>functions</em>.</p>
+<ol style="list-style-type: decimal">
+<li>Turn the above into a function.</li>
+</ol>
+<pre class="r"><code>my_scale &lt;- function(x, remove_na = TRUE, verbose = FALSE, ...) {
+  if (verbose) cat(&quot;Taking the log...\n&quot;)
+  logx &lt;- log(x)
+  if (verbose) cat(&quot;Done taking the log!\n&quot;)
+  (logx - mean(logx, na.rm = remove_na, ...)) / sd(logx, na.rm = remove_na)
+}
+my_scale(1:10)</code></pre>
+<pre><code>##  [1] -2.0605622 -1.1149624 -0.5618220 -0.1693627  0.1350524  0.3837777
+##  [7]  0.5940719  0.7762371  0.9369181  1.0806522</code></pre>
+<pre class="r"><code>my_scale_informative &lt;- function(x, remove_na = TRUE, verbose = FALSE, ...) {
+  if (verbose) cat(&quot;Taking the log...\n&quot;)
+  logx &lt;- log(x)
+  if (verbose) cat(&quot;Done taking the log!\n&quot;)
+  mu &lt;- mean(logx, na.rm = remove_na, ...)
+  sd &lt;- sd(logx, na.rm = remove_na)
+  list(result = (logx - mu) / sd,
+       mean = mu,
+       sd = sd)
+}
+my_scale_informative(1:10)</code></pre>
+<pre><code>## $result
+##  [1] -2.0605622 -1.1149624 -0.5618220 -0.1693627  0.1350524  0.3837777
+##  [7]  0.5940719  0.7762371  0.9369181  1.0806522
+## 
+## $mean
+## [1] 1.510441
+## 
+## $sd
+## [1] 0.7330239</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Try <code>across()</code> for multiple variables.</li>
+</ol>
+<pre class="r"><code>gapminder %&gt;% 
+  mutate(gdpPercap = my_scale(gdpPercap),
+         pop = my_scale(pop))</code></pre>
+<pre><code>## # A tibble: 1,704 x 6
+##    country     continent  year lifeExp   pop gdpPercap
+##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;
+##  1 Afghanistan Asia       1952    28.8 0.113     -1.21
+##  2 Afghanistan Asia       1957    30.3 0.170     -1.17
+##  3 Afghanistan Asia       1962    32.0 0.236     -1.14
+##  4 Afghanistan Asia       1967    34.0 0.309     -1.15
+##  5 Afghanistan Asia       1972    36.1 0.387     -1.25
+##  6 Afghanistan Asia       1977    38.4 0.467     -1.20
+##  7 Afghanistan Asia       1982    39.9 0.377     -1.03
+##  8 Afghanistan Asia       1987    40.8 0.423     -1.14
+##  9 Afghanistan Asia       1992    41.7 0.525     -1.36
+## 10 Afghanistan Asia       1997    41.8 0.717     -1.37
+## # … with 1,694 more rows</code></pre>
+<pre class="r"><code>gapminder %&gt;% 
+  mutate(across(c(&quot;gdpPercap&quot;, &quot;pop&quot;), my_scale))</code></pre>
+<pre><code>## # A tibble: 1,704 x 6
+##    country     continent  year lifeExp   pop gdpPercap
+##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;
+##  1 Afghanistan Asia       1952    28.8 0.113     -1.21
+##  2 Afghanistan Asia       1957    30.3 0.170     -1.17
+##  3 Afghanistan Asia       1962    32.0 0.236     -1.14
+##  4 Afghanistan Asia       1967    34.0 0.309     -1.15
+##  5 Afghanistan Asia       1972    36.1 0.387     -1.25
+##  6 Afghanistan Asia       1977    38.4 0.467     -1.20
+##  7 Afghanistan Asia       1982    39.9 0.377     -1.03
+##  8 Afghanistan Asia       1987    40.8 0.423     -1.14
+##  9 Afghanistan Asia       1992    41.7 0.525     -1.36
+## 10 Afghanistan Asia       1997    41.8 0.717     -1.37
+## # … with 1,694 more rows</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Test the function: first informally, then formally</li>
+</ol>
+<pre class="r"><code>t &lt;- my_scale(exp(c(1, 3)), verbose = TRUE)</code></pre>
+<pre><code>## Taking the log...
+## Done taking the log!</code></pre>
+<pre class="r"><code>t</code></pre>
+<pre><code>## [1] -0.7071068  0.7071068</code></pre>
+<pre class="r"><code>my_scale(exp(c(1, 3, NA)))</code></pre>
+<pre><code>## [1] -0.7071068  0.7071068         NA</code></pre>
+<pre class="r"><code>my_scale(1:10)</code></pre>
+<pre><code>##  [1] -2.0605622 -1.1149624 -0.5618220 -0.1693627  0.1350524  0.3837777
+##  [7]  0.5940719  0.7762371  0.9369181  1.0806522</code></pre>
+<pre class="r"><code>my_scale(1:10, trim = 0.1, foobar = 3)</code></pre>
+<pre><code>##  [1] -2.18305093 -1.23745119 -0.68431080 -0.29185144  0.01256368  0.26128895
+##  [7]  0.47158316  0.65374830  0.81442934  0.95816343</code></pre>
+<pre class="r"><code>test_that(&quot;Basic testing&quot;, {
+  expect_equal(my_scale(exp(c(1, 3))), (c(1, 3) - 2) / sqrt(2))
+  expect_equal(my_scale(exp(c(1, 3, NA))), (c(1, 3, NA) - 2) / sqrt(2))
+  expect_error(my_scale(letters))
+})</code></pre>
+<pre><code>## Test passed 🎉</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>Sidebar: assertions</li>
+<li>Fortify: <code>NA</code> handling, ellipses, error messages and <code>if</code> statements, verbose option.</li>
+</ol>
+<p>Other exercises:</p>
+<ul>
+<li>Ellipsis by making a strict <code>mean()</code> function that only accepts numeric.</li>
+<li>Curly-Curly with ggplot2: scatterplot of x vs. y (this is called a “data mask”)</li>
+</ul>
+<pre class="r"><code>gapminder %&gt;% 
+  ggplot(aes(gdpPercap, lifeExp)) +
+  geom_point()</code></pre>
+<p><img src="/notes/notes-b01_files/figure-html/unnamed-chunk-8-1.png" width="288" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>quick_scatter &lt;- function(data, x, y) {
+  ggplot(data, aes({{ x }}, {{ y }})) +
+    geom_point()
+}
+gapminder %&gt;% 
+  quick_scatter(gdpPercap, lifeExp)</code></pre>
+<p><img src="/notes/notes-b01_files/figure-html/unnamed-chunk-8-2.png" width="288" style="display: block; margin: auto;" /></p>
+<p>Demonstrate use of a data mask when no such functionality exists: here’s an example of subsetting the <code>wt</code> column from the <code>mtcars</code> data frame in base R:</p>
+<pre class="r"><code>mtcars[[&quot;wt&quot;]]</code></pre>
+<pre><code>##  [1] 2.620 2.875 2.320 3.215 3.440 3.460 3.570 3.190 3.150 3.440 3.440 4.070
+## [13] 3.730 3.780 5.250 5.424 5.345 2.200 1.615 1.835 2.465 3.520 3.435 3.840
+## [25] 3.845 1.935 2.140 1.513 3.170 2.770 3.570 2.780</code></pre>
+<p>Make a function that does this subsetting, not using curly-curly:</p>
+<pre class="r"><code>my_subset &lt;- function(data, variable) {
+    data[[variable]]
+}
+my_subset(mtcars, &quot;wt&quot;) </code></pre>
+<pre><code>##  [1] 2.620 2.875 2.320 3.215 3.440 3.460 3.570 3.190 3.150 3.440 3.440 4.070
+## [13] 3.730 3.780 5.250 5.424 5.345 2.200 1.615 1.835 2.465 3.520 3.435 3.840
+## [25] 3.845 1.935 2.140 1.513 3.170 2.770 3.570 2.780</code></pre>
+<pre class="r"><code>my_subset(mtcars, wt)</code></pre>
+<pre><code>## Error in (function(x, i, exact) if (is.matrix(i)) as.matrix(x)[[i]] else .subset2(x, : object &#39;wt&#39; not found</code></pre>
+<p>Using curly-curly doesn’t grant the <code>[[</code> subsetting any data masking powers – data masking must already be in place, as they are in <code>dplyr</code> and <code>ggplot2</code> functions.</p>
+<pre class="r"><code>my_subset &lt;- function(data, variable) {
+    data[[{{ variable }}]]
+}
+my_subset(mtcars, &quot;wt&quot;) </code></pre>
+<pre><code>##  [1] 2.620 2.875 2.320 3.215 3.440 3.460 3.570 3.190 3.150 3.440 3.440 4.070
+## [13] 3.730 3.780 5.250 5.424 5.345 2.200 1.615 1.835 2.465 3.520 3.435 3.840
+## [25] 3.845 1.935 2.140 1.513 3.170 2.770 3.570 2.780</code></pre>
+<pre class="r"><code>my_subset(mtcars, wt)</code></pre>
+<pre><code>## Error in (function(x, i, exact) if (is.matrix(i)) as.matrix(x)[[i]] else .subset2(x, : object &#39;wt&#39; not found</code></pre>
+</div>
+<div id="other-topics-not-covered" class="section level2">
+<h2>Other Topics Not Covered</h2>
+<ul>
+<li>A function shouldn’t do too much. Should do one thing well.
+<ul>
+<li>Example of a function that does too much: <a href="https://github.com/vincenzocoia/cnqr/blob/master/R/cnqr.R">my <code>cnqr()</code> function from my PhD</a>.</li>
+<li>Does the scaling function above do too much?</li>
+</ul></li>
+<li><code>as.formula</code> with <code>lm()</code>; polynomial.</li>
+<li><code>try()</code> and <code>withTimeout()</code>.</li>
+</ul>
+</div>

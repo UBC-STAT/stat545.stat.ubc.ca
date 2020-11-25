@@ -1,0 +1,43 @@
+---
+title: "Lecture Notes: Reading and Writing Data"
+subtitle: "Version 1.0.0"
+output: html_document
+---
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, results = "asis"}
+knitr::opts_chunk$set(fig.width = 5, fig.height = 3, 
+                      fig.align = "center", error = TRUE)
+```
+
+
+## Learning Objectives
+
+From today's class, students are anticipated to be able to:
+
+- Read and write a delimited file, like a csv, from R using the `readr` package.
+- Make relative paths using the `here::here()` function.
+- Read data from a spreadsheet
+- Read and write R binary files (rds files) from R.
+
+
+## Parallel Resources
+
+This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:
+
+- [STAT 545 Episode 12-A: Reading and Writing Data](https://youtu.be/2nHuNu6Zaqk)
+- Read the ["Writing and Reading files"](https://stat545.com/import-export.html) chapter of stat545.com.
+
+We suggest referring to this material when engaging with today's topic.
+
+## Additional Resources
+
+
+
+## Quiz
+
+1. True or False: if you want to be deliberate about where `here::here()` points to on your computer, you need to ensure you have an .Rproj file.
+2. True or False: Suppose you have an .Rproj file in the same folder as your R script. Running `here::here()` from that R script will always point to that folder.
+
+## Demonstration
+
+In-class coverage of Worksheet 6-A.

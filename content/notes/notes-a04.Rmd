@@ -1,0 +1,44 @@
+---
+title: "Lecture Notes: Data Wrangling Part I"
+subtitle: "Version 1.0.0"
+output: html_document
+---
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, results = "asis"}
+knitr::opts_chunk$set(fig.width = 5, fig.height = 3, 
+                      fig.align = "center", error = TRUE)
+```
+
+
+## Learning Objectives
+
+From today's class, students are anticipated to be able to:
+
++ Recognize the advantages of the tidyverse compared to base R with respect to good coding practice.
++ Subset and rearrange data with dplyr.
++ Use piping when implementing function chains.
++ Explore data in tibbles.
+
+## Parallel Resources
+
+This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:
+
+- [STAT 545 Episode 4-A: dplyr Part 1: Basic Data Manipulation](https://youtu.be/Gms3zSPqCk8)
+- Follow through [Jenny Bryan's Introduction to dplyr](https://stat545.com/dplyr-intro.html) at your own pace; this is optional, but very helpful in getting familiar with dplyr! You will have the chance to practice more in this week's worksheet.
+
+We suggest referring to this material when engaging with today's topic.
+
+## Additional Resources
+
+- [R4DS Data Transformation](https://r4ds.had.co.nz/transform.html) 
+- [R4DS Pipes](https://r4ds.had.co.nz/pipes.html)
+- [Intro to dplyr vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html)
+
+## Quiz
+
+1. True or False? Running filter or select on your tibble permanently changes your tibble. 
+2. True or False? The pipe operator `%>%` works for functions outside of the tidyverse, too.
+
+## Demonstration
+
+We will go through Worksheet 2-A in class. 

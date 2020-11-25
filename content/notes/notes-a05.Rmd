@@ -1,0 +1,48 @@
+---
+title: "Lecture Notes: Plotting Part I"
+subtitle: "Version 1.0.0"
+output: html_document
+---
+
+```{r, echo = FALSE, message = FALSE, warning = FALSE, results = "asis"}
+knitr::opts_chunk$set(fig.width = 5, fig.height = 3, 
+                      fig.align = "center", error = TRUE)
+```
+
+
+## Learning Objectives
+
+From this topic, students are anticipated to be able to:
+
++ Identify the seven components of the grammar of graphics underlying ggplot2.
++ Recognize the advantages of ggplot2 over plotting with base R and lattice.
++ Use different geometric objects and aesthetics to explore various plot types.
+
+## Parallel Resources
+
+This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:
+
+- [STAT 545 Episode 5-A: ggplot2 Part 1: Introduction to Plotting](https://youtu.be/cqcQT44mJTM)
+- With RStudio handy, follow through sections 3.1 to 3.4 of [R4DS Data Visualization](https://r4ds.had.co.nz/data-visualisation.html#introduction-1) at your own pace. Don't worry if you don't cover it all, we will go through these concepts in class!
+
+We suggest referring to this material when engaging with today's topic.
+
+## Additional Resources
+
+- [ggplot2 cheatsheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf)
+- [R4DS Data Visualization Chapter](https://r4ds.had.co.nz/data-visualisation.html)
+- [Intro to dplyr vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html)
+- [R Cookbook Graphs](http://www.cookbook-r.com/Graphs/) 
+- [ggplot elegant graphics for data analysis](http://webcat2.library.ubc.ca/vwebv/holdingsInfo?bibId=8489511)
+
+## Quiz
+
+1. True or False: You can re-specify global aesthetics by adding an aes() layer to a ggplot object. 
+2. True or False: With ggplot2, we can specify the data in a geom layer, in addition to the initial ggplot() layer.
+
+## Demonstration
+
++ In-class demo of creating a scatterplot (~10 minutes)
++ Why data visualization? Just plot it + The grammar of graphics (~10 minutes)
+  
+
