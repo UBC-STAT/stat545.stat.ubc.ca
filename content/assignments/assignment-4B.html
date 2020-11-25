@@ -455,11 +455,11 @@ Accept the pull request. You’re on your way!</li>
 <p>Follow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.</p>
 <ol style="list-style-type: decimal">
 <li><input type="checkbox" disabled></input>
-Make a README file in your <code>assignment-4b</code> folder. It should let a visitor know what’s in this folder.</li>
+Create a README file in your <code>assignment-4b</code> folder. It should let a visitor know what’s in this folder.</li>
 <li><input type="checkbox" disabled></input>
-Make/update a main README file for your entire repository. It should orient a visitor to what this repository <em>is</em>, and that visitor should know how to engage with the repository. There should not be much here.</li>
+Create/update a main README file for your entire repository. It should orient a visitor to what this repository <em>is</em>, and that visitor should know how to engage with the repository. There should not be much here.</li>
 <li><input type="checkbox" disabled></input>
-Make your assignment appear nicely rendered and viewable online, such as by changing the output to <code>output: github_document</code> in the YAML header.<ul>
+Check that your assignment appear nicely rendered and viewable online, such as by changing the output to <code>output: github_document</code> in the YAML header.<ul>
 <li>You could also use GitHub pages. But, the assignment needs to correspond to the tagged release, and we still need to be able to navigate to your repository somehow.</li>
 </ul></li>
 <li><input type="checkbox" disabled></input>
@@ -470,18 +470,18 @@ Tag a release in your GitHub repository corresponding to your submission before 
 Grab the URL corresponding to your viewable output from Step 3, and submit that to canvas. Also, please let us know what you thought of this assignment – any feedback would be appreciated. Follow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.</li>
 </ol>
 </div>
-<div id="makefile-step-by-step-instructions-12.5-marks" class="section level2">
-<h2>Makefile Step by Step Instructions (12.5 marks)</h2>
+<div id="makefile-step-by-step-instructions-10.5-marks" class="section level2">
+<h2>Makefile Step by Step Instructions (10.5 marks)</h2>
 <ol style="list-style-type: decimal">
 <li><input type="checkbox" disabled></input>
 Indicate the code to run a part of the analysis in the background, and where you would run that code if you didn’t have a Makefile. (2 points)</li>
 <li><input type="checkbox" disabled></input>
 Modify one thing about the seeded analysis (add a file? add another output file?), and update the Makefile accordingly.(1 point)</li>
 <li><input type="checkbox" disabled></input>
-Let us know what it was that you changed in 2. in a couple of sentences. (1 point)</li>
-<li>Make a Makefile in the root of your assignment repo. Be sure to also include the <code>all</code> and <code>clean</code> phony outputs.(5 points, breakdown below)</li>
+Let us know what it was that you changed in 2. in a couple of sentences in your <strong>Assignment 4B folder Readme</strong>. (1 point)</li>
+<li>Make a Makefile in the root of your assignment repo. Be sure to also include the <code>all</code> and <code>clean</code> phony outputs.(4.5 points, breakdown below)</li>
 </ol>
-<ul class="task-list">
+<ul>
 <li><input type="checkbox" disabled></input>
 Making the makefile in the root so that you can make the assignments present in your repo (use a phony output per assignment). (1 point)</li>
 <li><input type="checkbox" disabled></input>
@@ -492,20 +492,17 @@ Running <code>make all</code> should result in having all output present in your
 Running <code>make clean</code> should remove all output. (1 point)</li>
 <li><input type="checkbox" disabled></input>
 There isn’t any useless outputs such as an <code>Rplots.pdf</code> file (which sometimes arises as a byproduct of running <code>Rscript</code>). (0.5 points)</li>
-<li><input type="checkbox" disabled></input>
-For Assignment 4-B, you shouldn’t copy and paste <em>its</em> Makefile content into the higher-level Makefile. (0.5 points)</li>
+<li>For Assignment 4-B, you shouldn’t copy and paste <em>its</em> Makefile content into the higher-level Makefile.</li>
 </ul>
 <ol start="5" style="list-style-type: decimal">
 <li><input type="checkbox" disabled></input>
 “Making” Assignment 3-B results in the shiny app being launched. (1 point)</li>
 <li><input type="checkbox" disabled></input>
-Your app should be deployed online on shinyapps.io (or on another server if you’d like). Make sure your app actually works online (sometimes your app will work in RStudio but will have errors on shinyapps.io - make sure you deploy early and often to make debugging easier). (1.5 pts)</li>
-<li><input type="checkbox" disabled></input>
-List all of the dependencies required for each assignment, in the main README. Make it easy for someone to install these dependencies. (1 point )</li>
+List all of the dependencies required for each assignment, in the main README, such that it would be easy for someone to install these dependencies. (1 point )</li>
 </ol>
 <ul class="task-list">
 <li><input type="checkbox" disabled></input>
-<strong>Partial marks</strong>: Having a hard time getting <code>make</code> working? You can still automate your pipeline with a “master R script” in place of the Makefile. You won’t get full points, but you can still get partial marks here. Make it clear in your README if this is what you’re doing. (2.5 marks instead of full 5)</li>
+<strong>Partial marks</strong>: Having a hard time getting <code>make</code> working? You can still automate your pipeline with a “master R script” in place of the Makefile. You won’t get full points, but you can still get partial marks here. Make it clear in your README if this is what you’re doing. (2 marks instead of full 4)</li>
 </ul>
 <div id="code-quality" class="section level3">
 <h3>Code Quality:</h3>
