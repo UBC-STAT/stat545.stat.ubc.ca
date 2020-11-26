@@ -25,7 +25,7 @@ Use this page to navigate your way through STAT 545.
 | 2-B  | Tuesday  | List columns    | `r format(dates_545b[3] , "%b %d")` | [List columns](/notes/notes-b02) | [Week 2-B](/guidance/week-b2) |
 | 2-B  | Thursday | List columns    | `r format(dates_545b[4] , "%b %d")` |  |  |
 | 3-B  | Tuesday  | List columns    | `r format(dates_545b[5] , "%b %d")` |  | [Week 3-B](guidance/week-b3) |
-| 3-B  | Thursday | R packages      | `r format(dates_545b[6] , "%b %d")` | [R packages](/notes/notes-b3) |  |
+| 3-B  | Thursday | R packages      | `r format(dates_545b[6] , "%b %d")` | [R packages](/notes/notes-b03) |  |
 | 4-B  | Tuesday  | R packages      | `r format(dates_545b[7] , "%b %d")` |  | [Week 4-B](/guidance/week-b4) |
 | 4-B  | Thursday | Dashboards      | `r format(dates_545b[8] , "%b %d")` | [Dashboards](/notes/notes-b04) |  |
 | 5-B  | Tuesday  | Dashboards      | `r format(dates_545b[9] , "%b %d")` |  | [Week 5-B](/guidance/week-b5) |
