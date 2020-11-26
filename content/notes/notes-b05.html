@@ -1,6 +1,6 @@
 ---
 title: "Lecture Notes: Automation"
-subtitle: "Version 0.1.1"
+subtitle: "Version 0.1.2"
 output: html_document
 ---
 
@@ -10,21 +10,18 @@ output: html_document
 <h2>Learning Objectives</h2>
 <p>From today’s class, students are anticipated to be able to:</p>
 <ul>
-<li>How to run an R script non-interactively</li>
-<li>How to use <code>make</code>
+<li>Run an R script non-interactively</li>
+<li>Use <code>make</code>
 <ul>
 <li>to record which files are inputs vs. intermediates vs. outputs</li>
 <li>to capture how scripts and commands convert inputs to outputs</li>
 <li>to re-run parts of an analysis that are out-of-date</li>
 </ul></li>
-<li>The intersection of R and <code>make</code>, i.e. how to
-<ul>
-<li>run snippets of R code</li>
-<li>run an entire R script</li>
-<li>render an R Markdown document (or R script)</li>
-</ul></li>
-<li>The interface between RStudio and <code>make</code></li>
-<li>How to use <code>make</code> from the shell</li>
+<li>Render R code (.R or .Rmd) in batch mode using <code>Rscript</code>, either entire scripts or snippets of code.</li>
+<li>Render R code (.R or .Rmd) from within R.</li>
+<li>Write a Makefile.</li>
+<li>Interact with <code>make</code> in RStudio.</li>
+<li>Use <code>make</code> from the shell.</li>
 </ul>
 </div>
 <div id="parallel-resources" class="section level2">
@@ -36,6 +33,7 @@ output: html_document
 <li><a href="https://stat545.com/automating-pipeline.html">stat545.com’s make activity</a></li>
 </ul>
 <p>We suggest digesting this material throughout our discussion of the topic.</p>
+<p><strong>NOTE</strong>: <code>make</code> should already be installed for MacOS and Linux users. Windows users might have to specially install <code>make</code>: info can be found <a href="https://stat545.com/make-windows.html">in the stat545.com Chapter 34</a>.</p>
 </div>
 <div id="additional-resources" class="section level2">
 <h2>Additional Resources</h2>

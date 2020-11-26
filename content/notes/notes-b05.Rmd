@@ -1,6 +1,6 @@
 ---
 title: "Lecture Notes: Automation"
-subtitle: "Version 0.1.1"
+subtitle: "Version 0.1.2"
 output: html_document
 ---
 
@@ -9,17 +9,16 @@ output: html_document
 
 From today's class, students are anticipated to be able to:
 
-* How to run an R script non-interactively
-* How to use `make`
+* Run an R script non-interactively
+* Use `make`
   - to record which files are inputs vs. intermediates vs. outputs
   - to capture how scripts and commands convert inputs to outputs
   - to re-run parts of an analysis that are out-of-date
-* The intersection of R and `make`, i.e. how to
-  - run snippets of R code
-  - run an entire R script
-  - render an R Markdown document (or R script)
-* The interface between RStudio and `make`
-* How to use `make` from the shell
+* Render R code (.R or .Rmd) in batch mode using `Rscript`, either entire scripts or snippets of code.
+* Render R code (.R or .Rmd) from within R.
+* Write a Makefile.
+* Interact with `make` in RStudio.
+* Use `make` from the shell.
 
 ## Parallel Resources
 
@@ -30,6 +29,8 @@ This topic parallels these resources:
 - [stat545.com's make activity](https://stat545.com/automating-pipeline.html)
 
 We suggest digesting this material throughout our discussion of the topic.
+
+**NOTE**: `make` should already be installed for MacOS and Linux users. Windows users might have to specially install `make`: info can be found [in the stat545.com Chapter 34](https://stat545.com/make-windows.html).
 
 ## Additional Resources
 
