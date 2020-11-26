@@ -1,10 +1,10 @@
 ---
 title: "Assignment 4-B: Automating Data-analysis Pipelines"
-subtitle: "**Development Version** 0.9100" 
+subtitle: "Version 1.0.0" 
 output: html_document
 ---
 
-__Deadline__: Wednesday, December 2, 2020
+__Deadline__: **Friday**, December 4, 2020
 
 __Total Points__: 20
 
@@ -43,25 +43,25 @@ Follow these steps to submit your work. Be sure to familiarize yourself with the
 1. [ ] Independently from any Makefile, indicate the code that you would run in the command line (Terminal) in order to run an `.R` file _in the background_, so that you can close your Terminal and have the code still run. Add this to the README in your `assignment-4b` folder. (2 points)
 
 
-## Exercise 2: Makefile Step by Step Instructions (8.5 marks)
+## Exercise 2: Makefile Step by Step Instructions (14 marks)
 
-1. [ ] Modify one thing about the seeded analysis (add a file? add another output file?), and update the Makefile accordingly. (1 point)
+1. [ ] Modify one thing about the seeded analysis (add a file? add another output file?), and update the Makefile accordingly. (2 points)
 2. [ ] Let us know what it was that you changed in 2. in a couple of sentences in your **Assignment 4B folder README**. (1 point)
-3. Make a Makefile in the root of your assignment repo (that is, outside of the `assignment-4b` folder). Be sure to also include the `all` and `clean` phony outputs. (4.5 points, breakdown below) 
-  - [ ] Make the Makefile in the root so that you can make the assignments that are present in your repo (use a phony output per assignment). (1 point)
-  - [ ] Your Makefile should be written so that, if a dependency changes, running `make` should update the appropriate output (and all downstream portions of the pipeline). (1 point)
+3. Make a Makefile in the root of your assignment repo (that is, outside of the `assignment-4b` folder). Be sure to also include the `all` and `clean` phony outputs. (9 points, breakdown below) 
+  - [ ] Make the Makefile in the root so that you can make the assignments that are present in your repo (use a phony output per assignment). (6 points)
+    - Your Makefile should be written so that, if a dependency changes, running `make` should update the appropriate output (and all downstream portions of the pipeline).
   - [ ] Running `make all` should result in having all output present in your repo. (1 point)
   - [ ] Running `make clean` should remove all output. (1 point)
-  - [ ] There isn't any useless outputs such as an `Rplots.pdf` file (which sometimes arises as a byproduct of running `Rscript`). (0.5 points)
+  - [ ] There isn't any useless outputs such as an `Rplots.pdf` file (which sometimes arises as a byproduct of running `Rscript`). (1 point)
   - For Assignment 4-B, you shouldn't copy and paste _its_ Makefile content into the higher-level Makefile. 
 4. [ ] "Making" Assignment 3-B results in the shiny app being launched. (1 point)
 5. [ ] List all of the dependencies required for each assignment, in the main README, such that it would be easy for someone to install these dependencies. (1 point)
 
 - [ ] **Partial marks**: Having a hard time getting `make` working? You can still automate your pipeline with a "master R script" in place of the Makefile. You won't get full points, but you can still get partial marks here. Make it clear in your README if this is what you're doing. (2 marks instead of full 4)
 
-### Code Quality (1.5 marks)
+### Code Quality (2 marks)
 
-- [ ] Code runs without errors and it is appropriately annotated, legible, and easy to follow. (1.5 pts)
+- [ ] Code runs without errors and it is appropriately annotated, legible, and easy to follow. (2 pts)
 
 
 
