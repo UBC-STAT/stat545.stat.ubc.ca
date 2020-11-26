@@ -1,6 +1,6 @@
 ---
 title: "STAT 545 Checklist: Week 6-B"
-subtitle: "Version 1.0"
+subtitle: "Version 1.1"
 output: html_document
 ---
 
@@ -29,11 +29,18 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 
 ### Tuesday
 
-- _no events today_
+- [ ] (Optional) Attend office hours at 16:00 - 17:00 PST in the regular "classroom".
 
 ### Wednesday
 
+- _no events today_
+
+### Thursday
+
+- _no events today_
+
+### Friday
+
 - [ ] __Submit your Assignment 5-B URL to canvas by 23:59 PST__
-- [ ] (Optional) Attend office hours at 16:00 - 17:00 PST in the regular "classroom".
 
 **That completes STAT 545B!**
