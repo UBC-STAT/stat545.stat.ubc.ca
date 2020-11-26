@@ -1,0 +1,78 @@
+---
+title: "Assignment 4-B: Automating Data-analysis Pipelines"
+subtitle: "**Development Version** 0.9100" 
+output: html_document
+---
+
+__Deadline__: Wednesday, December 2, 2020
+
+__Total Points__: 20
+
+__Assignment leader__: Almas
+
+## Overview
+
+Your task, high level: modify the [`make` pipeline](https://github.com/UBC-STAT/stat545.stat.ubc.ca/tree/master/content/assignments/assignment-4b/make-activity) we made in class. 
+
+More information about the activity can be found in [Chapter 36 of the stat545.com book](http://stat545.com/automation04_make-activity.html).
+
+- [ ] For your convenience, we've indicated all action items with a checkbox, like so.
+
+## Setup
+
+We've made a pull request on your repositories containing the [starting point](https://github.com/UBC-STAT/stat545.stat.ubc.ca/tree/master/content/assignments/assignment-4b) of the analysis that you will modify.
+
+- [ ] Accept the pull request. You're on your way!
+
+
+## Tidy Submission (2 points)
+
+Follow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.
+
+1. [ ] Create a README file in your `assignment-4b` folder. It should let a visitor know what's in this folder.
+2. [ ] Create/update a main README file for your entire repository. It should orient a visitor to what this repository _is_, and that visitor should know how to engage with the repository. There should not be much here.
+3. [ ] Check that your assignment appears nicely rendered and viewable online, such as by changing the output to `output: github_document` in the YAML header. 
+    - You could also use GitHub pages. But, the assignment needs to correspond to the tagged release, and we still need to be able to navigate to your repository somehow.
+4. [ ] Tag a release in your GitHub repository corresponding to your submission before the deadline.
+    - Forgotten how to tag a release? We have instructions at the bottom of the [Collaborative Milestone 1 repo](https://stat545.stat.ubc.ca/collaborative-project/milestone1/readme/) from STAT 545A.
+5. [ ] Grab the URL corresponding to your viewable output from Step 3, and submit that to canvas. Also, please let us know what you thought of this assignment -- any feedback would be appreciated. Follow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.
+
+
+## Exercise 1: Warmup (2 points)
+
+1. [ ] Independently from any Makefile, indicate the code that you would run in the command line (Terminal) in order to run an `.R` file _in the background_, so that you can close your Terminal and have the code still run. Add this to the README in your `assignment-4b` folder. (2 points)
+
+
+## Exercise 2: Makefile Step by Step Instructions (8.5 marks)
+
+1. [ ] Modify one thing about the seeded analysis (add a file? add another output file?), and update the Makefile accordingly. (1 point)
+2. [ ] Let us know what it was that you changed in 2. in a couple of sentences in your **Assignment 4B folder README**. (1 point)
+3. Make a Makefile in the root of your assignment repo (that is, outside of the `assignment-4b` folder). Be sure to also include the `all` and `clean` phony outputs. (4.5 points, breakdown below) 
+  - [ ] Make the Makefile in the root so that you can make the assignments that are present in your repo (use a phony output per assignment). (1 point)
+  - [ ] Your Makefile should be written so that, if a dependency changes, running `make` should update the appropriate output (and all downstream portions of the pipeline). (1 point)
+  - [ ] Running `make all` should result in having all output present in your repo. (1 point)
+  - [ ] Running `make clean` should remove all output. (1 point)
+  - [ ] There isn't any useless outputs such as an `Rplots.pdf` file (which sometimes arises as a byproduct of running `Rscript`). (0.5 points)
+  - For Assignment 4-B, you shouldn't copy and paste _its_ Makefile content into the higher-level Makefile. 
+4. [ ] "Making" Assignment 3-B results in the shiny app being launched. (1 point)
+5. [ ] List all of the dependencies required for each assignment, in the main README, such that it would be easy for someone to install these dependencies. (1 point)
+
+- [ ] **Partial marks**: Having a hard time getting `make` working? You can still automate your pipeline with a "master R script" in place of the Makefile. You won't get full points, but you can still get partial marks here. Make it clear in your README if this is what you're doing. (2 marks instead of full 4)
+
+### Code Quality (1.5 marks)
+
+- [ ] Code runs without errors and it is appropriately annotated, legible, and easy to follow. (1.5 pts)
+
+
+
+## Exercise 3: Bonus (1 point)
+
+**This exercise is optional**
+
+- [ ] Make a graph of a Makefile (either one), and put it in the corresponding README. Have this happen in an automated and reproducible way.
+	- Some software that may help: [makefile2dot](https://github.com/vak/makefile2dot), [GraphViz::Makefile](https://metacpan.org/pod/GraphViz::Makefile), [j4make](https://github.com/lindenb/j4make), [makefile2graph](https://github.com/lindenb/makefile2graph).
+	
+## Attribution
+
+- The main idea of modifying this analysis was present when Jenny Bryan taught STAT 545.
+- For 2020, some modifications to the activities were proposed by Vincenzo Coia, and Almas Khan implemented the details. 
