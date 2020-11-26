@@ -8,6 +8,7 @@ __Deadline__: Wednesday, December 2, 2020
 
 __Total Points__: 20
 
+__Assignment leader__: Almas
 
 ## Overview
 
@@ -64,3 +65,8 @@ Follow these steps to submit your work. Be sure to familiarize yourself with the
 
 - [ ] Make a graph of a Makefile (either one), and put it in the corresponding README. Have this happen in an automated and reproducible way.
 	- Some software that may help: [makefile2dot](https://github.com/vak/makefile2dot), [GraphViz::Makefile](https://metacpan.org/pod/GraphViz::Makefile), [j4make](https://github.com/lindenb/j4make), [makefile2graph](https://github.com/lindenb/makefile2graph).
+	
+## Attribution
+
+- The main idea of modifying this analysis was present when Jenny Bryan taught STAT 545.
+- For 2020, some modifications to the activities were proposed by Vincenzo Coia, and Almas Khan implemented the details. 
