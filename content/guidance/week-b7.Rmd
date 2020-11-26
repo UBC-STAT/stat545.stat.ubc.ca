@@ -29,7 +29,7 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 
 ### Tuesday
 
-- [ ] (Optional) Attend office hours at 16:00 - 17:00 PST in the regular "classroom".
+- _no events today_
 
 ### Wednesday
 
@@ -37,7 +37,7 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 
 ### Thursday
 
-- _no events today_
+- [ ] (Optional) Attend office hours at 16:00 - 17:00 PST in the regular "classroom".
 
 ### Friday
 
