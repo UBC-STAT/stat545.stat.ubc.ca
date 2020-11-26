@@ -1,6 +1,6 @@
 ---
 title: "STAT 545 Checklist: Week 6-B"
-subtitle: "Version 1.0"
+subtitle: "Version 1.1"
 output: html_document
 ---
 
@@ -38,7 +38,6 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 ### Wednesday
 
 - [ ] __Complete Quiz 11-B by 11:00am PST (on canvas)__
-- [ ] __Submit your Assignment 4-B URL to canvas by 23:59 PST__
 - [ ] (Optional) Attend office hours at 16:00 - 17:00 PST in the regular "classroom".
 
 ### Thursday
@@ -51,6 +50,7 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 
 - [ ] _No quiz for last class_
 - [ ] Get your questions for the teaching team into Slack by mid-day (we can't necessarily be active on Slack on evenings and weekends)
+- [ ] __Submit your Assignment 4-B URL to canvas by 23:59 PST__
 
 ### Saturday
 
