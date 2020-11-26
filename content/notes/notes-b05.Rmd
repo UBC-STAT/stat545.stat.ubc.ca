@@ -1,6 +1,6 @@
 ---
 title: "Lecture Notes: Automation"
-subtitle: "Version 0.1.0"
+subtitle: "Version 0.1.1"
 output: html_document
 ---
 
@@ -29,7 +29,7 @@ This topic parallels these resources:
 - [Shaun Jackman and Jenny Bryan's automation notes](https://github.com/STAT545-UBC/STAT545-UBC-original-website/blob/master/automation01_slides/slides.md) for getting familiar with the command line.
 - [stat545.com's make activity](https://stat545.com/automating-pipeline.html)
 
-I suggest digesting this material throughout our discussion of the topic.
+We suggest digesting this material throughout our discussion of the topic.
 
 ## Additional Resources
 
@@ -37,6 +37,9 @@ The entire [Part IX: All the Automation Things](https://stat545.com/automation-o
 
 ## Quiz
 
+1. True or False: You've opened Terminal, and are now about to run `Rscript` for a second time. Because you haven't restarted the Terminal, the code will continue to build in the same session as before.
+2. You have information in `script1.R` that you'd like to pass to `scipt2.R`. True or false: the best way to pass the info to `script2.R` is by saving the final workspace from `script1.R` in an `.RData` or `.rds` file, and loading that it into `script2.R`.
+3. It's almost always better to write an `.Rmd` file over an `.R` file, because you're able to interlace markdown. 
 
 
 ## Demonstration
