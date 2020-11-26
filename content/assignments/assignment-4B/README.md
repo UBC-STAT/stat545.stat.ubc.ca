@@ -9,4 +9,4 @@ A reminder of what your README must include:
 
 When you edit this README, make sure to include the following acknowledgement:
 
-+ The original Make activity was put together by Jenny Bryan's STAT 545 team before 2017.
++ The original Make activity was put together by Jenny Bryan's STAT 545 team before 2017, with the associated content available in [stat545.com Chapter 36: Automating Data Analysis Pipelines](https://stat545.com/automating-pipeline.html).
