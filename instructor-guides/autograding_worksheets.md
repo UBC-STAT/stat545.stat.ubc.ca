@@ -2,46 +2,65 @@
 
 This guide is meant to help you go from students' worksheet submissions, to a grade for them on canvas.
 
-**Prerequisites**: This assumes that the instructions under "Launching the Assignment" in the `making_worksheets.md` file have been followed correctly. 
+**Prerequisites**: This assumes that the instructions under "Launching the Assignment" in the `making_worksheets.md` file have been followed correctly.
 
-## Step 1: Gather Submissions
+## Start Docker Container
 
-1. After the deadline, download student submissions from canvas.
-2. Move each student's submission to their own folder in the `stat-545-instructor` repo:
-    - For student with ID `bitdiddle`, their `worksheet_05a.ipynb` file should go in the folder `worksheets/submitted/bitdiddle/worksheet_05a/worsheet_05a.ipynb`
-    - **we need a script that will do this for us**
-    - **each student needs their own ID recognized by nbgrader -- still need to do this**
-        - I think the command line option [`nbgrader db student add`](https://nbgrader.readthedocs.io/en/stable/command_line_tools/nbgrader-db-student-add.html) will add one student to `database.db`, and I also believe the students need to appear in `nbgrader_config.py`, but that's all I know so far. 
+**Do NOT run the submissions on your computer! Everything should be run in a Docker container!**
+
+1. Open a terminal and go to the folder `worksheet_dockerfile/`.
+2. Build the Docker image with `docker build . -t nbgrader`.
+2. Go to the folder `worksheets/` (i.e., the folder containing the `nbgrader_config.py` file) and run a Docker container with the following command:
+```
+docker run --rm -p 8888:8888 \
+  -v "${PWD}":/mnt/nbgrader_root \
+  --name nbgradercontainer \
+  nbgrader:latest
+```
+  This will show the link to use to connect to the Jupyter web interface.
+  You also need to attach a terminal to the new container with `docker exec -it nbgradercontainer /bin/bash`.
+  This will be the main point of interaction with nbgrader.
+
+## Preparation Step
+
+**This step needs to be done only the first time.**
+
+To use nbgrader, the student IDs from Canvas must be imported first.
+
+1. Export the gradebook as CSV file named `students.csv` (stored in folder `worksheets/`) and remove all but the _ID_ column. Rename the _ID_ column to (lower-case) _id_.
+2. Run the following command `nbgrader db student import /mnt/nbgrader_root/students.csv`
+
+## Step 2: Gather Submissions
+
+1. After the deadline, download student submissions from Canvas.
+2. Move the ZIP file into the folder `downloaded/{assignment_id}/archive`.
+3. Ensure that the file `canvas.py` is in the worksheet directory and that the `nbgrader_config.py` file contains the following lines:
+```python
+# Only collect submitted notebooks with valid names
+c.ZipCollectApp.strict = True
+```
+4. Collect the submissions with `nbgrader zip_collect --collector=canvas.CanvasPlugin {assignment_id}`, for example `nbgrader zip_collect --collector=canvas.CanvasPlugin worksheet_02a`.
 
 ## Step 2: Run the autograder
 
-**Still need to find a way to do this so that students can't harm our computer with malicious code**
+1. Ensure the assignment is added to nbgrader and the notebook generated
+  1. Run `nbgrader db assignment list`. You should see something like
+```
+worksheet_02a (due: None)  # <-- assignment "worksheet_02a" is available
+    - worksheet_02a        # <-- a notebook called "worksheet_02a" is generated
+```
+  If the assignment is not listed, add it with `nbgrader db assignmnet add {assignment_id}`.
+  Generate the assignment with `nbgrader generate_assignment {assignment_id}`.
 
-1. Use the command line to navigate to the `worksheets` directory in the `stat-545-instructor` repo.
-2. Run the following line to autograde (say) worksheet_05a. This will make a copy of the assignments in the `autograded` folder, and will execute all of those files.
-   ```
-   nbgrader autograde worksheet_05a
-   ```
+3. Run autograding with `nbgrader autograde {assignment_id}`.
+4. Export grades with `nbgrader export`. This creates a file `grades.csv` with the students' canvas ID and the points for this one worksheet (although the other worksheets are present as well, they can be ignored). Move this file to the `grades` directory with `mv grades.csv grades/grades_{assignment_id}.csv`. Otherwise it will be lost when the Docker container is terminated.
 
-## Step 3: Gather the scores
 
-1. Make a (html) feedback report by running the following code (again, for worksheet_05a), still in the `worksheets` directory. It would be nice to return these to the students, but I just don't think there's a practical way to do this. And, it probably wouldn't be useful for them, anyway.
-   ```
-   nbgrader generate_feedback worksheet_05a
-   ```
-2. Update (or make) the `grades.csv` file with the grades by running the following code. Note: this file is deliberately `.gitignore`d -- even though the instructors repo is private, it's best not to take any chances.
-   ```
-   nbgrader export
-   ```
-3. Truncate each score at the maximum number of questions that the students need in order to get full marks.
-    - For example, if students only need to answer 11 questions correctly, and the student gets 18, then make that 11. If the student gets less than 11 correct, leave the score as-is.
-    - **we need an R script that will do this for us**
+## Step 3: Publish scores
 
-## Step 4: Upload the scores
-
-1. Modify the `grades.csv` file to abide by the [standards set out by canvas](https://community.canvaslms.com/t5/Instructor-Guide/How-do-I-import-grades-in-the-Gradebook/ta-p/807)
-    - **we need an R script that will do this for us**
-2. Upload the csv to the "grades" page by clicking on "Actions" > "Import"
+1. Use the file `grading/compile_nbgrader_grades.R` to compile the grades from nbgrader to a Canvas-readable CSV format.
+2. Verify that the scores are correct.
+3. Upload the CSV to the "grades" page by clicking on "Actions" > "Import"
 
 
 ## Some notes on autograder tests
