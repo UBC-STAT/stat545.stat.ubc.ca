@@ -1,23 +1,134 @@
 ---
 title: "Assignment 5-B"
-subtitle: "**Development Version** 0.9000" 
+subtitle: "**Development Version** 0.9100" 
 output: html_document
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<p><strong>Deadline</strong>: Saturday, December 5, 2020</p>
 <ul>
-<li>regex assignment has never been all that inspiring in past years. <a href="https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/evaluation/hw06/hw06.md">hw06 from 2018</a> just asks students to do exercises in R4DS book.</li>
-<li>maybe this year, since we moved regex to the last week, we can make this part of the choose-your-adventure theme so that students don’t have to necessarily do regex outside of the worksheet if they don’t want. Ideas listed in Lecture Notes 6-B.</li>
-<li>Ideas for choose-your-own-adventure:
+<li><p><strong>Leader</strong>: Victor Yuan</p></li>
+<li><p><strong>Reviewer</strong>: Diana Lin &amp; Vincenzo Coia</p></li>
+<li><p><strong>Deadline</strong>: Thursday, December 10, 2020 at 23:59 PST</p></li>
+<li><p><strong>Total Points</strong>: 20</p></li>
+</ul>
+<div id="overview" class="section level2">
+<h2>Overview</h2>
+<p>In Assignment 5-B, you will pick one of three options described below:</p>
 <ul>
-<li>add onto something they did in a past assignment – continue with their R package (perhaps implementing S3 OO), or shiny dashboard, …</li>
-<li>Contribute to an open-source R package. Add a function, documentation, and a test. Maybe propose an update to a vignette.
+<li><strong>Option A:</strong> Strings Regex</li>
+<li><strong>Option B:</strong> Improve assignment 2b’s R package. Or create a new one. The standards for this assignment will be higher than assignment 2b.</li>
+<li><strong>Option C:</strong> Improve assignment 3b’s Shiny app. Or create a new one. The standards for this will be higher than assignment 3b.</li>
+</ul>
+<p>Read all the instructions in this document <em>thoroughly</em> before proceeding with your assignment. The grading rubric is detailed at the very end, and <em>it doubles as a checklist</em> to keep track of your progress!</p>
+</div>
+<div id="option-a-strings-in-r" class="section level2">
+<h2>Option A – Strings in R</h2>
+</div>
+<div id="option-b-improve-your-r-package" class="section level2">
+<h2>Option B – Improve your R package</h2>
+<p>For this option, you will be updating your package to a new version. For full marks, you will need to improve your R package <em>significantly</em>. What kind of improvements qualify as a <em>significant</em> improvement? This is of course a bit subjective and also dependent on your individual R packages, but the quality and quantity of changes should fall under the category of a <strong>minor</strong> or <strong>major</strong> release defined on <a href="https://r-pkgs.org/release.html#release-version">this page</a>.</p>
+<p><em><strong>Note:</strong> You might consider breaking up your changes into several minor releases or patches. This might make sense if you are both fixing a number of errors or bugs, and also adding significant functionality.</em></p>
+<p>Before you start! Make sure that you indicate which version and tagged release corresponds to Assignment 2b. For many of you this is <code>v0.1.0</code>. If there was a problem with versioning, or you originally had forgotten to do this, just tag a release now before you start, and clearly indicate this in the README or in canvas.</p>
+<div id="implement-version-updates-15-marks" class="section level4">
+<h4>Implement version updates (15 marks)</h4>
+<ol style="list-style-type: decimal">
+<li>Create a list of <em><strong>at least 3 improvements or fixes</strong></em> that you plan to address in this updated version. Put each distinct change (or set of changes) as a <em><strong>new github issue</strong></em>. Some examples of possible types of issues:</li>
+</ol>
 <ul>
-<li>Actually submit a pull request to improve the package if they choose. If this is the intent, should ask the developers beforehand to see if this is of interest.</li>
-<li>Ideas: a new <code>geom</code> to ggplot; add <code>broom</code> tidy functions to a currently incompatible model.</li>
+<li>errors or bugs that needs to be fixed</li>
+<li>added functionality</li>
+<li>improved documentation</li>
+</ul>
+<p><strong>Any feedback that was given on your assignment 2b needs to be addressed!</strong> If addressing TA feedback, please quote the feedback in the issue. Some of this feedback might not be substantial enough to warrant an entire github issue. For example, small typos do not need an entire github issue. See Rubric for more details on what qualifies as a “substantial” improvement.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Create these new changes in a <em><strong>new branch</strong></em>, titled something informative and unique (e.g. “updates” is not an informative title, “add-function-XYZ” is better).</p></li>
+<li><p><em><strong>Address each issue</strong></em>, while also ensuring that your R package still “works”. It should “check” without errors.</p></li>
+<li><p><em><strong>Create a pull request</strong></em>, comment and describe how each issue was addressed. Make sure you reference the issues with the appropriate hashtag, and also reference new files or lines of code when appropriate.</p></li>
+<li><p><em><strong>Merge pull request and update version number</strong></em>. Also ensure that all documentation (including version number in <code>DESCRIPTION</code>) is updated. Don’t forget to update <code>NEWS.md</code></p></li>
+</ol>
+<p><strong>Rubric</strong></p>
+<ul>
+<li><input type="checkbox" disabled="" />
+(4 pts) Are the issues well-described?<ul>
+<li>Is it clear what the errors are and where they appear?</li>
+<li>Is it clear what kind of challenges that new functionality addresses?</li>
+<li>Do they take advantage of github’s feature of referencing files and lines of code?</li>
 </ul></li>
+<li><input type="checkbox" disabled="" />
+(4 pts) Do the issues make sense?<ul>
+<li>Are the errors or bugs actually errors or bugs</li>
+<li>Are issues distinct from each other? Does it make sense to group some set of changes together into a single github issue?</li>
+<li>Are the issues substantial?
+<ul>
+<li>e.g. a small typo in documentation does not warrant an entire github issue</li>
+<li>e.g. missing description of the type of input (e.g. type of vector) is substantial enough</li>
+<li>e.g. functions do not work on some types of inputs that should work is a good issue</li>
+</ul></li>
+</ul></li>
+<li><input type="checkbox" disabled="" />
+(1 pt) Do the branch(es) and pull request have a good title?</li>
+<li><input type="checkbox" disabled="" />
+(2 pts) Does the pull request ddescribe how each issue was addressed?<ul>
+<li>The PR should summarize the changes that were made</li>
+<li>Issues are referenced</li>
+</ul></li>
+<li><input type="checkbox" disabled="" />
+(4 pts) The quality of the changess will be evaluated<ul>
+<li>Do the changes address the github issue</li>
+<li>Are the changes minimal?
+<ul>
+<li>Do they require unnecessary dependencies to be added?</li>
+<li>Is the code efficient?</li>
+</ul></li>
+<li>Is documentation updated to reflect these changes?</li>
 </ul></li>
 </ul>
+</div>
+<div id="readme-5-marks" class="section level4">
+<h4>README (5 marks)</h4>
+<p>Create a quality README. In Assignment 2b, we asked for a basic README with some brief description. Here, we want to see a README that:</p>
+<ul>
+<li><input type="checkbox" disabled="" />
+(1 pt) Describes the purpose of your R package<ul>
+<li>For example, describe the challenges or problems that your R package “solves”</li>
+</ul></li>
+<li><input type="checkbox" disabled="" />
+(3 pt) Has examples demonstrating the use of the core functions or datasets<ul>
+<li>Every major function in your package should be demonstrated</li>
+<li>The examples should be easily ran by your users</li>
+</ul></li>
+<li><input type="checkbox" disabled="" />
+(1 pt) Writing is clear</li>
+</ul>
+</div>
+<div id="package-design-bonus-1-mark" class="section level4">
+<h4>Package design (BONUS, 1 mark)</h4>
+<p>Design:</p>
+<p>A bonus mark will be awarded if,</p>
+<ul>
+<li><input type="checkbox" disabled="" />
+The package is designed in a user-friendly way (documentation and usability)<ul>
+<li>The documentation is clear and complete</li>
+<li>The functionality is easy to use and makes sense</li>
+</ul></li>
+<li><input type="checkbox" disabled="" />
+The package is useful</li>
+</ul>
+</div>
+<div id="submission" class="section level4">
+<h4>Submission</h4>
+<ul>
+<li><p><input type="checkbox" disabled="" />
+Tag a release in your assignment repository. Update README describing that you picked this option for assignment 5b, and also provide a link to your updated package.</p></li>
+<li><p><input type="checkbox" disabled="" />
+In canvas, provide the tagged release to your assignment repository.</p></li>
+</ul>
+</div>
+</div>
+<div id="option-c-improve-your-shiny-app" class="section level2">
+<h2>Option C – Improve your Shiny app</h2>
+</div>
+<div id="acknowledgements" class="section level2">
+<h2>Acknowledgements</h2>
+</div>
