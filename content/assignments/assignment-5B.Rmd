@@ -49,12 +49,12 @@ Before you start! Make sure that you indicate which version and tagged release c
 
 **Rubric**
 
-- [ ] (4 pts) Are the issues well-described?
+- [ ] (4 points) Are the issues well-described?
   - Is it clear what the errors are and where they appear?
   - Is it clear what kind of challenges that new functionality addresses?
   - Do they take advantage of github's feature of referencing files and lines of code? 
 
-- [ ] (4 pts) Do the issues make sense?
+- [ ] (4 points) Do the issues make sense?
   - Are the errors or bugs actually errors or bugs
   - Are issues distinct from each other? Does it make sense to group some set of changes together into a single github issue?
   - Are the issues substantial? 
@@ -63,11 +63,11 @@ Before you start! Make sure that you indicate which version and tagged release c
     - e.g. functions do not work on some types of inputs that should work is a good issue
 
 - [ ] (1 pt) Do the branch(es) and pull request have a good title?
-- [ ] (2 pts) Does the pull request ddescribe how each issue was addressed?
+- [ ] (2 points) Does the pull request ddescribe how each issue was addressed?
   - The PR should summarize the changes that were made
   - Issues are referenced
 
-- [ ] (4 pts) The quality of the changess will be evaluated
+- [ ] (4 points) The quality of the changess will be evaluated
   - Do the changes address the github issue
   - Are the changes minimal? 
     - Do they require unnecessary dependencies to be added? 
@@ -85,7 +85,7 @@ Create a quality README. In Assignment 2b, we asked for a basic README with some
   - Every major function in your package should be demonstrated
   - The examples should be easily ran by your users
   
-- [ ] (1 pt) Writing is clear
+- [ ] (1 pt) Writing is clear (link rubric)
 
 #### Package design (BONUS, 1 mark)
 
@@ -97,7 +97,7 @@ A bonus mark will be awarded if,
   - The documentation is clear and complete
   - The functionality is easy to use and makes sense
   
-- [ ] The package is useful
+- [ ] The package is useful. It is clear that someone outside of STAT545 might benefit from a package like yours, potentially over other available options.
 
 #### Submission
 
@@ -107,5 +107,68 @@ A bonus mark will be awarded if,
 
 ## Option C -- Improve your Shiny app
 
+For this option, you will implement additional features and improvements to your shiny app that you worked on in Assignment 3b. 
+
+#### Logistics 
+
+Ensure that your assignment 3b shiny app is deployed and viewable on [shinyapps.io](). We will use this as a reference to mark your improved version.
+
+In your assignment repository, start by copying over your app (code and any data files) to an Assignment 5b folder. Complete this assignment by editing this version of your app. When finished deploy this on [shinyapps.io]().
+
+Update the README clearly indicating with links, which version is Assignment 5b, and which is Assignment 3b.
+
+As usual, when you are ready to submit your work, tag a release and post this link to canvas.
+
+#### Tasks
+
+1. Implement any feedback given from Assignment 3b. 
+
+2. Implement _**5 improvements or fixes**_ (2 marks each) that you plan to address in this updated version. Describe these in the Assignment 5b README. These cannot be changes for the sake of change - they need to be obvious improvements to the app. These can be:
+  - more user-friendly UI
+  - more efficient server code
+  - errors or bugs that needs to be fixed
+  - added functionality
+    - can be in the form of widgets
+    - more options in the UI
+    - @Vincenzo, @Diana feel free to add here
+
+**One of the five changes must be added functionality.** The other four are up to you!
+
+3. The Assignment 5b README is a README for your app. Make sure that it is good quality. This means:
+  - The README should describe the purpose of the app
+  - The writing is clear (link rubric)
+
+4. Make sure it is easy for someone to understand how to use your app, without needing to consult your README, or with help from you. In other words, if someone is given a link to your app, can they understand what your app does, and also how to use it? 
+
+#### Rubric
+
+- [ ] (2 points) Did you implement feedback from assignment 3b?
+
+- [ ] (15 points) Five improvements (3 points/improvement) are described in README and implemented well. Each improvement will be graded as follows:
+  - [ ] Are these good improvements?
+    - They must be substantial improvements. Some suggestions:
+    - Fixing bugs, errors, or unexpected errors
+    - Improving user instruction, or documentation in general
+    - Improve readability of output. 
+      - e.g. no extraneous data (e.g. columns). 
+      - e.g. plots are readable and make sense
+    - Improving the UI
+      - e.g. resizing, rearranging, and widget choice
+    - They cannot be trivially small fixes, such as fixing small spelling errors
+  - [ ] Do the implemented changes achieve your goals? 
+    - e.g. do bug fixes actually fix the bugs, without introducing new errors
+    - e.g. is new functionality in line with the app's purpose
+    - e.g. does improved UI improve user-friendliness
+    - e.g. does improved UI help better understand how users are supposed to engage with the app
+
+- [ ] (1 points) The README is clear and describes the purpose of the app
+
+- [ ] (1 points) The overall quality of the app is good. 
+  - The UI is user-friendly
+  - It is clear what the app's purpose is
+  - The design makes it obvious how the user needs to interact with the app
+  - The server code is efficient
+  
+- [ ] (1 points) One point will be reserved for tidy'ness, organization, and whether the submission instructions were followed correctly
 
 ## Acknowledgements
