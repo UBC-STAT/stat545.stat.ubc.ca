@@ -123,16 +123,20 @@ As usual, when you are ready to submit your work, tag a release and post this li
 
 1. Implement any feedback given from Assignment 3b. 
 
-2. Implement _**5 improvements or fixes**_ (2 marks each) that you plan to address in this updated version. Describe these in the Assignment 5b README. These cannot be changes for the sake of change - they need to be obvious improvements to the app. These can be:
-  - more user-friendly UI
-  - more efficient server code
-  - errors or bugs that needs to be fixed
-  - added functionality
+2. Implement _**5 improvements or fixes**_  that you plan to address in this updated version. Describe these in the Assignment 5b README. These cannot be changes for the sake of change - they need to be obvious improvements to the app. Some options:
+  - Make UI more user-friendly
+    - Is there a better widget for choosing your input?
+    - Are text, input, and ouput organized in a way that makes sense?
+    - Consider experimenting with different preset layouts and [tabs](https://shiny.rstudio.com/articles/tabsets.html)
+  - If you haven't already, implement a [theme](https://rstudio.github.io/shinythemes/)
+  - Improve your server code. Make it more efficient. 
+  - Address any errors, bugs, or unexpected outputs
+  - Add functionality
     - can be in the form of widgets
-    - more options in the UI
+    - more options in the UI, e.g. filtering options, plot/table customization
     - @Vincenzo, @Diana feel free to add here
 
-**One of the five changes must be added functionality.** The other four are up to you!
+**One of the five changes must be _added functionality_.** The other four are up to you!
 
 3. The Assignment 5b README is a README for your app. Make sure that it is good quality. This means:
   - The README should describe the purpose of the app
@@ -146,15 +150,11 @@ As usual, when you are ready to submit your work, tag a release and post this li
 
 - [ ] (15 points) Five improvements (3 points/improvement) are described in README and implemented well. Each improvement will be graded as follows:
   - [ ] Are these good improvements?
-    - They must be substantial improvements. Some suggestions:
-    - Fixing bugs, errors, or unexpected errors
-    - Improving user instruction, or documentation in general
-    - Improve readability of output. 
-      - e.g. no extraneous data (e.g. columns). 
-      - e.g. plots are readable and make sense
-    - Improving the UI
-      - e.g. resizing, rearranging, and widget choice
-    - They cannot be trivially small fixes, such as fixing small spelling errors
+    - This is about your decision to include these changes.
+    - Are they consistent with the app's purpose? 
+    - Does your new app feel like an improved version of the existing one, or does it now feel like an entirely different app?
+    - They must be substantial improvements. Not small things like fixing typos
+    - Do they fix broken things? Was there actually a need for this fix or improvement?
   - [ ] Do the implemented changes achieve your goals? 
     - e.g. do bug fixes actually fix the bugs, without introducing new errors
     - e.g. is new functionality in line with the app's purpose
@@ -163,12 +163,12 @@ As usual, when you are ready to submit your work, tag a release and post this li
 
 - [ ] (1 points) The README is clear and describes the purpose of the app
 
-- [ ] (1 points) The overall quality of the app is good. 
+- [ ] (1 points) The overall design of the app is good. 
   - The UI is user-friendly
   - It is clear what the app's purpose is
-  - The design makes it obvious how the user needs to interact with the app
+  - It's clear how the user needs to interact with the app
   - The server code is efficient
   
-- [ ] (1 points) One point will be reserved for tidy'ness, organization, and whether the submission instructions were followed correctly
+- [ ] (1 points) One point will be reserved for tidy'ness, file organization, and whether the submission instructions were followed correctly
 
 ## Acknowledgements
