@@ -27,11 +27,11 @@ output: html_document
 </div>
 <div id="option-b-improve-your-r-package" class="section level2">
 <h2>Option B – Improve your R package</h2>
-<p>For this option, you will be updating your package to a new version. For full marks, you will need to improve your R package <em>significantly</em>. What kind of improvements qualify as a <em>significant</em> improvement? This is of course a bit subjective and also dependent on your individual R packages, but the quality and quantity of changes should fall under the category of a <strong>minor</strong> or <strong>major</strong> release defined on <a href="https://r-pkgs.org/release.html#release-version">this page</a>.</p>
-<p><em><strong>Note:</strong> You might consider breaking up your changes into several minor releases or patches. This might make sense if you are both fixing a number of errors or bugs, and also adding significant functionality.</em></p>
+<p>For this option, you will be updating your package to a new version. For full marks, you will need to improve your R package <em>significantly</em>. What kind of improvements qualify as a <em>significant</em> improvement? This is of course a bit subjective and also dependent on your individual R packages, but the quality and quantity of changes should fall under the category of a <strong>minor</strong> or <strong>major</strong> release defined on <a href="https://r-pkgs.org/release.html#release-version">this page</a>. Update your version number accordingly.</p>
+<p><em><strong>Note:</strong> You might consider breaking up your changes into several minor releases or patches. This might make sense if you are both fixing a number of distinct errors or bugs, and also adding significant functionality.</em></p>
 <p>Before you start! Make sure that you indicate which version and tagged release corresponds to Assignment 2b. For many of you this is <code>v0.1.0</code>. If there was a problem with versioning, or you originally had forgotten to do this, just tag a release now before you start, and clearly indicate this in the README or in canvas.</p>
-<div id="implement-version-updates-15-marks" class="section level4">
-<h4>Implement version updates (15 marks)</h4>
+<div id="how-to-implement-package-updates-15-marks" class="section level4">
+<h4>How to implement package updates (15 marks)</h4>
 <ol style="list-style-type: decimal">
 <li>Create a list of <em><strong>at least 3 improvements or fixes</strong></em> that you plan to address in this updated version. Put each distinct change (or set of changes) as a <em><strong>new github issue</strong></em>. Some examples of possible types of issues:</li>
 </ol>
@@ -40,23 +40,25 @@ output: html_document
 <li>added functionality</li>
 <li>improved documentation</li>
 </ul>
-<p><strong>Any feedback that was given on your assignment 2b needs to be addressed!</strong> If addressing TA feedback, please quote the feedback in the issue. Some of this feedback might not be substantial enough to warrant an entire github issue. For example, small typos do not need an entire github issue. See Rubric for more details on what qualifies as a “substantial” improvement.</p>
+<p><strong>Any feedback that was given on your assignment 2b needs to be addressed!</strong> If addressing TA feedback, please quote the feedback in the issue. Some of this feedback might not be substantial enough to warrant an entire github issue. For example, small typos do not need an entire github issue. See the rubric below for more details on what qualifies as a “substantial” improvement.</p>
 <ol start="2" style="list-style-type: decimal">
 <li><p>Create these new changes in a <em><strong>new branch</strong></em>, titled something informative and unique (e.g. “updates” is not an informative title, “add-function-XYZ” is better).</p></li>
 <li><p><em><strong>Address each issue</strong></em>, while also ensuring that your R package still “works”. It should “check” without errors.</p></li>
 <li><p><em><strong>Create a pull request</strong></em>, comment and describe how each issue was addressed. Make sure you reference the issues with the appropriate hashtag, and also reference new files or lines of code when appropriate.</p></li>
 <li><p><em><strong>Merge pull request and update version number</strong></em>. Also ensure that all documentation (including version number in <code>DESCRIPTION</code>) is updated. Don’t forget to update <code>NEWS.md</code></p></li>
 </ol>
-<p><strong>Rubric</strong></p>
+</div>
+<div id="option-b---rubric" class="section level4">
+<h4>Option B - Rubric</h4>
 <ul>
 <li><input type="checkbox" disabled="" />
-(4 points) Are the issues well-described?<ul>
+(4 points) <strong>Are the issues well-described?</strong><ul>
 <li>Is it clear what the errors are and where they appear?</li>
 <li>Is it clear what kind of challenges that new functionality addresses?</li>
 <li>Do they take advantage of github’s feature of referencing files and lines of code?</li>
 </ul></li>
 <li><input type="checkbox" disabled="" />
-(4 points) Do the issues make sense?<ul>
+(4 points) <strong>Do the issues make sense?</strong><ul>
 <li>Are the errors or bugs actually errors or bugs</li>
 <li>Are issues distinct from each other? Does it make sense to group some set of changes together into a single github issue?</li>
 <li>Are the issues substantial?
@@ -67,14 +69,14 @@ output: html_document
 </ul></li>
 </ul></li>
 <li><input type="checkbox" disabled="" />
-(1 pt) Do the branch(es) and pull request have a good title?</li>
+(1 pt) <strong>Do the branch(es) and pull request have a good title?</strong></li>
 <li><input type="checkbox" disabled="" />
 (2 points) Does the pull request ddescribe how each issue was addressed?<ul>
 <li>The PR should summarize the changes that were made</li>
 <li>Issues are referenced</li>
 </ul></li>
 <li><input type="checkbox" disabled="" />
-(4 points) The quality of the changess will be evaluated<ul>
+(4 points) <strong>Each change will be evaluated</strong><ul>
 <li>Do the changes address the github issue</li>
 <li>Are the changes minimal?
 <ul>
@@ -84,9 +86,7 @@ output: html_document
 <li>Is documentation updated to reflect these changes?</li>
 </ul></li>
 </ul>
-</div>
-<div id="readme-5-marks" class="section level4">
-<h4>README (5 marks)</h4>
+<p><strong>README (5 marks)</strong></p>
 <p>Create a quality README. In Assignment 2b, we asked for a basic README with some brief description. Here, we want to see a README that:</p>
 <ul>
 <li><input type="checkbox" disabled="" />
@@ -101,9 +101,7 @@ output: html_document
 <li><input type="checkbox" disabled="" />
 (1 pt) Writing is clear (link rubric)</li>
 </ul>
-</div>
-<div id="package-design-bonus-1-mark" class="section level4">
-<h4>Package design (BONUS, 1 mark)</h4>
+<p><strong>Package design (BONUS, 1 mark)</strong></p>
 <p>Design:</p>
 <p>A bonus mark will be awarded if,</p>
 <ul>
@@ -136,10 +134,10 @@ In canvas, provide the tagged release to your assignment repository.</p></li>
 <p>Update the README clearly indicating with links, which version is Assignment 5b, and which is Assignment 3b.</p>
 <p>As usual, when you are ready to submit your work, tag a release and post this link to canvas.</p>
 </div>
-<div id="tasks" class="section level4">
-<h4>Tasks</h4>
+<div id="implement-changes-to-your-shiny-app" class="section level4">
+<h4>Implement changes to your Shiny app</h4>
 <ol style="list-style-type: decimal">
-<li><p>Implement any feedback given from Assignment 3b.</p></li>
+<li><p>Implement <strong>feedback given from Assignment 3b.</strong></p></li>
 <li><p>Implement <em><strong>5 improvements or fixes</strong></em> that you plan to address in this updated version. Describe these in the Assignment 5b README. These cannot be changes for the sake of change - they need to be obvious improvements to the app. Some options:</p></li>
 </ol>
 <ul>
@@ -161,23 +159,23 @@ In canvas, provide the tagged release to your assignment repository.</p></li>
 </ul>
 <p><strong>One of the five changes must be <em>added functionality</em>.</strong> The other four are up to you!</p>
 <ol start="3" style="list-style-type: decimal">
-<li>The Assignment 5b README is a README for your app. Make sure that it is good quality. This means:</li>
+<li>The <strong>Assignment 5b README</strong> is a README for your app. Make sure that it is good quality. This means:</li>
 </ol>
 <ul>
 <li>The README should describe the purpose of the app</li>
 <li>The writing is clear (link rubric)</li>
 </ul>
 <ol start="4" style="list-style-type: decimal">
-<li>Make sure it is easy for someone to understand how to use your app, without needing to consult your README, or with help from you. In other words, if someone is given a link to your app, can they understand what your app does, and also how to use it?</li>
+<li><strong>Make sure it is easy for someone to understand how to use your app,</strong> without needing to consult your README, or with help from you. In other words, if someone is given a link to your app, can they understand what your app does, and also how to use it?</li>
 </ol>
 </div>
-<div id="rubric" class="section level4">
-<h4>Rubric</h4>
+<div id="option-c---rubric" class="section level4">
+<h4>Option C - Rubric</h4>
 <ul>
 <li><p><input type="checkbox" disabled="" />
-(2 points) Did you implement feedback from assignment 3b?</p></li>
+(2 points) <strong>Did you implement feedback from assignment 3b?</strong></p></li>
 <li><p><input type="checkbox" disabled="" />
-(15 points) Five improvements (3 points/improvement) are described in README and implemented well. Each improvement will be graded as follows:</p><ul>
+(15 points) <strong>Five improvements (3 points/improvement) are described in README and implemented well.</strong> Each improvement will be graded as follows:</p><ul>
 <li><input type="checkbox" disabled="" />
 Are these good improvements?<ul>
 <li>This is about your decision to include these changes.</li>
@@ -195,16 +193,16 @@ Do the implemented changes achieve your goals?<ul>
 </ul></li>
 </ul></li>
 <li><p><input type="checkbox" disabled="" />
-(1 points) The README is clear and describes the purpose of the app</p></li>
+(1 points) <strong>The README is clear and describes the purpose of the app</strong></p></li>
 <li><p><input type="checkbox" disabled="" />
-(1 points) The overall design of the app is good.</p><ul>
+(1 points) <strong>The overall design of the app is good</strong></p><ul>
 <li>The UI is user-friendly</li>
 <li>It is clear what the app’s purpose is</li>
 <li>It’s clear how the user needs to interact with the app</li>
 <li>The server code is efficient</li>
 </ul></li>
 <li><p><input type="checkbox" disabled="" />
-(1 points) One point will be reserved for tidy’ness, file organization, and whether the submission instructions were followed correctly</p></li>
+(1 points) <strong>One point will be reserved for tidy’ness, file organization, and whether the submission instructions were followed correctly</strong></p></li>
 </ul>
 </div>
 </div>
