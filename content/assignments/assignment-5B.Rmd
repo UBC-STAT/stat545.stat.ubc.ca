@@ -183,7 +183,7 @@ Some example options:
   
   - Does your new app feel like an improved version of the existing one, or does it now feel like an entirely different app?
 
-**README, code quality, and tidy'ness**
+**README, code quality, and tidy'ness (4 points)**
 
 - [ ] (1 points) The **README** is clear and describes the purpose of the app
 
