@@ -12,7 +12,7 @@ output: html_document
 
 ## Overview
 
-In Assignment 5-B, you will pick one of three options described below:
+In Assignment 5-B, you will pick one of three options described below. Please indicate which one you choose in your Assignment 5b README.
 
 + **Option A:** Strings Regex
 + **Option B:** Improve assignment 2b's R package. Or create a new one. The standards for this assignment will be higher than assignment 2b.
@@ -24,15 +24,15 @@ Read all the instructions in this document *thoroughly* before proceeding with y
 
 ## Option B -- Improve your R package
 
-For this option, you will be updating your package to a new version. For full marks, you will need to improve your R package *significantly*. What kind of improvements qualify as a *significant* improvement? This is of course a bit subjective and also dependent on your individual R packages, but the quality and quantity of changes should fall under the category of a **minor** or **major** release defined on [this page](https://r-pkgs.org/release.html#release-version). Update your version number accordingly.
+For this option, you will be updating your package to a new version. For full marks, you will need to improve your R package *significantly*. This time, we will be evaluating the quality of your R package, not just that you can create one. What kind of improvements qualify as a *significant* improvement? This is of course a bit subjective and also dependent on your individual R packages, but the quality and quantity of changes should fall under the category of a **minor** or **major** release defined on [this page](https://r-pkgs.org/release.html#release-version). Update your version number accordingly.
 
 _**Note:** You might consider breaking up your changes into several minor releases or patches. This might make sense if you are both fixing a number of distinct errors or bugs, and also adding significant functionality._
 
 Before you start! Make sure that you indicate which version and tagged release corresponds to Assignment 2b. For many of you this is `v0.1.0`. If there was a problem with versioning, or you originally had forgotten to do this, just tag a release now before you start, and clearly indicate this in the README or in canvas.
 
-#### How to implement package updates (15 marks)
+#### How to implement package updates
 
-1. Create a list of _**at least 3 improvements or fixes**_ that you plan to address in this updated version. Put each distinct change (or set of changes) as a _**new github issue**_. Some examples of possible types of issues:
+1. Create a list of _**at least 3 improvements or fixes**_ that you plan to address in this updated version. Put each distinct change (or set of changes) as a _**new github issue**_, and also briefly describe how you propose to address each issue. Some examples of possible types of issues:
   - errors or bugs that needs to be fixed
   - added functionality
   - improved documentation
@@ -49,12 +49,15 @@ Before you start! Make sure that you indicate which version and tagged release c
 
 #### Option B - Rubric
 
-- [ ] (4 points) **Are the issues well-described?**
+**Implementing improvements (10 points)**
+
+- [ ] (3 points) **Are the issues well-described?**
   - Is it clear what the errors are and where they appear?
   - Is it clear what kind of challenges that new functionality addresses?
+  - Did you briefly describe how you will address the github issues?
   - Do they take advantage of github's feature of referencing files and lines of code? 
 
-- [ ] (4 points) **Do the issues make sense?**
+- [ ] (3 points) **Do the issues make sense?**
   - Are the errors or bugs actually errors or bugs
   - Are issues distinct from each other? Does it make sense to group some set of changes together into a single github issue?
   - Are the issues substantial? 
@@ -62,30 +65,41 @@ Before you start! Make sure that you indicate which version and tagged release c
     - e.g. missing description of the type of input (e.g. type of vector) is substantial enough
     - e.g. functions do not work on some types of inputs that should work is a good issue
 
-- [ ] (1 pt) **Do the branch(es) and pull request have a good title?**
-- [ ] (2 points) Does the pull request ddescribe how each issue was addressed?
+- [ ] (1 point) Does the pull request describe how each issue was addressed?
   - The PR should summarize the changes that were made
   - Issues are referenced
+  - The PR should have a good title
 
-- [ ] (4 points) **Each change will be evaluated**
+- [ ] (3 points) **Each change will be evaluated**
   - Do the changes address the github issue
   - Are the changes minimal? 
     - Do they require unnecessary dependencies to be added? 
     - Is the code efficient?
   - Is documentation updated to reflect these changes?
 
+**Package structure (5 points)**
+
+Also ensure that your package has proper structure. 
+
+- [ ] (1 point) All user-facing functions have tests
+- [ ] (1 point) Each test has at least 3 expectations with non-redundant inputs
+- [ ] (1 point) All functions and data have *complete* documentation
+- [ ] (1 point) DESCRIPTION has up-to-date and correct information
+  - no unnecessary dependencies
+- [ ] (1 point) Essential files are not missing (e.g. license)
+
 **README (5 marks)**
 
 Create a quality README. In Assignment 2b, we asked for a basic README with some brief description. Here, we want to see a README that:
 
-- [ ] (1 pt) Describes the purpose of your R package
+- [ ] (1 point) Describes the purpose of your R package
   - For example, describe the challenges or problems that your R package "solves"
   
-- [ ] (3 pt) Has examples demonstrating the use of the core functions or datasets
+- [ ] (3 points) Has examples demonstrating the use of the core functions or datasets
   - Every major function in your package should be demonstrated
   - The examples should be easily ran by your users
   
-- [ ] (1 pt) Writing is clear (link rubric)
+- [ ] (1 point) [Writing is clear](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md) and information is correct (e.g. install instructions are correct).
 
 **Package design (BONUS, 1 mark)**
 
@@ -121,54 +135,74 @@ As usual, when you are ready to submit your work, tag a release and post this li
 
 #### Implement changes to your Shiny app
 
-1. Implement **feedback given from Assignment 3b.**
+1. Implement **feedback given from Assignment 3b.** In your assignment 5b README, quote the feedback and also describe how you addressed the feedback. 
 
-2. Implement _**5 improvements or fixes**_  that you plan to address in this updated version. Describe these in the Assignment 5b README. These cannot be changes for the sake of change - they need to be obvious improvements to the app. Some options:
+2. Implement **5 improvements or fixes**  that you plan to address in this updated version. *Clearly number these 5 changes and describe them in the Assignment 5b README*. These cannot be changes for the sake of change - they need to be **obvious improvements** to the app. For each change, make an argument on why your change is an improvement. 
+
+Some example options:
+
   - Make UI more user-friendly
     - Is there a better widget for choosing your input?
-    - Are text, input, and ouput organized in a way that makes sense?
+    - Are text, input, and output organized in a way that makes sense?
     - Consider experimenting with different preset layouts and [tabs](https://shiny.rstudio.com/articles/tabsets.html)
   - If you haven't already, implement a [theme](https://rstudio.github.io/shinythemes/)
   - Improve your server code. Make it more efficient. 
   - Address any errors, bugs, or unexpected outputs
   - Add functionality
     - can be in the form of widgets
-    - more options in the UI, e.g. filtering options, plot/table customization
+    - more options for the user, e.g. filtering options, plot/table customization
+    - more output, or more specific output
     - @Vincenzo, @Diana feel free to add here
 
 **One of the five changes must be _added functionality_.** The other four are up to you!
 
-3. The **Assignment 5b README** is a README for your app. Make sure that it is good quality. This means:
+3. The assignment 5b README is a README for your app. Make sure that it is good quality. This means:
   - The README should describe the purpose of the app
-  - The writing is clear (link rubric)
+  - It should briefly describe how the app works (user-interaction and expected output)
+  - You use proper English, spelling, and grammar, and write concisely. If there’s any uncertainty in determining a grade here, the [UBC MDS writing rubric](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md) will be referred to. 
 
 4. **Make sure it is easy for someone to understand how to use your app,** without needing to consult your README, or with help from you. In other words, if someone is given a link to your app, can they understand what your app does, and also how to use it? 
 
 #### Option C - Rubric
 
-- [ ] (2 points) **Did you implement feedback from assignment 3b?**
+**Implementing changes (16 points)**
 
-- [ ] (15 points) **Five improvements (3 points/improvement) are described in README and implemented well.** Each improvement will be graded as follows:
+- [ ] (1 points) Did you **implement feedback** from assignment 3b?
+
+- [ ] (15 points) **Five improvements (3 points/improvement)** are described in README and implemented well. Each improvement will be graded as follows:
   - [ ] Are these good improvements?
-    - This is about your decision to include these changes.
     - Are they consistent with the app's purpose? 
-    - Does your new app feel like an improved version of the existing one, or does it now feel like an entirely different app?
-    - They must be substantial improvements. Not small things like fixing typos
-    - Do they fix broken things? Was there actually a need for this fix or improvement?
+    - Are they substantial? Or are they small things like fixing typos
+    - Do they fix broken things? 
+    - Is it clear that there is a need for this fix or improvement?
   - [ ] Do the implemented changes achieve your goals? 
     - e.g. do bug fixes actually fix the bugs, without introducing new errors
     - e.g. is new functionality in line with the app's purpose
     - e.g. does improved UI improve user-friendliness
     - e.g. does improved UI help better understand how users are supposed to engage with the app
-
-- [ ] (1 points) **The README is clear and describes the purpose of the app**
-
-- [ ] (1 points) **The overall design of the app is good**
-  - The UI is user-friendly
-  - It is clear what the app's purpose is
-  - It's clear how the user needs to interact with the app
-  - The server code is efficient
   
-- [ ] (1 points) **One point will be reserved for tidy'ness, file organization, and whether the submission instructions were followed correctly**
+  - Does your new app feel like an improved version of the existing one, or does it now feel like an entirely different app?
 
-## Acknowledgements
+**README, code quality, and tidy'ness**
+
+- [ ] (1 points) The **README** is clear and describes the purpose of the app
+
+- [ ] (1 points) Code is efficient and good quality
+  - Is there unnecessary code?
+  - Did you use `tidyverse` functions when appropriate?
+  - Are there unnecessary dependencies?
+  - Is the code easy to read?
+  - If the code is not easy to read, did you narrate using code comments?
+  - Were reactive expressions used appropriately?
+  
+- [ ] (1 points) One point will be reserved for *tidy'ness*, *file organization*, and whether the submission *instructions were followed* correctly
+
+**Package design (BONUS, 1 mark)**
+
+A bonus point will be awarded to exceptionally well-designed apps. At minimum the app should have these qualities:
+
+- It's clear how the user needs to interact with the app
+- The output makes sense and is easy to understand
+- The UI is user-friendly
+- The app is useful
+- The server code is efficient and easy to understand
