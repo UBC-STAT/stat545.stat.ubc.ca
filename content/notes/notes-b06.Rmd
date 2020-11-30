@@ -1,6 +1,6 @@
 ---
-title: "Lecture Notes: Character Data, and Choose Your Adventure"
-subtitle: "**Development** Version 0.0.0.9000"
+title: "Lecture Notes: Character Data"
+subtitle: "Version 0.1.0"
 output: html_document
 ---
 
@@ -9,35 +9,25 @@ output: html_document
 
 From today's class, students are anticipated to be able to:
 
+- Manipulate a character vector in R using the stringr package.
+- Write simple regular expressions (regex).
+- Apply regular expressions to data manipulation.
 
+## Parallel Resources
 
+This topic parallels these resources:
 
-## Prepare for Class
+- STAT 545 Episode (future resource)
+- Similar overview tutorials:
+    - [stat545.com Chapter 11: character vectors](https://stat545.com/character-vectors.html)
+    - [R4DS Chapter 14: strings](https://r4ds.had.co.nz/strings.html).
 
-Read/watch one of the following two resources before class:
+I suggest digesting this material before class, or at least throughout our discussion of the topic.
 
-- Watch STAT 545 Episode
-- 
+## Additional Resources
 
-## Resources
+The stat545.com Chapter 11 on character vectors [has an elaborate discussion on useful resources](https://stat545.com/character-vectors.html#resources-3) for learning more about strings. 
 
 ## Outline
 
-- [Strings Worksheet 2018](https://github.com/UBC-STAT/stat-545-guidebook/blob/pre-leave/tutorials/cm102-exercise.Rmd)
-- multivariate pivoting? (>2)
-
-Ideas for choose-your-adventure:
-
-- Continuous Integration (with Travis? GitHub Actions?)
-- docker (or just in general, environment management)
-- Cloud computing
-- bookdown, for writing a thesis?
-- blogdown, for making a website? This might be a stretch -- not really related to data analysis.
-- organizing an analysis into multiple files
-- Making a github pages site, 
-- using blogdown, 
-- making presentation slides,
-- making a bookdown book, 
-- adding citations to markdown, 
-- numbering and referencing sections in an Rmd, 
-- shiny in an Rmd,
+Today, we'll work on Worksheet 3-B, on strings and regular expressions.
