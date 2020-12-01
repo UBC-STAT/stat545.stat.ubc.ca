@@ -41,6 +41,10 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 
 ### Friday
 
+- _no events today_
+
+### Saturday
+
 - [ ] __Submit your Assignment 5-B URL to canvas by 23:59 PST__
 
 **That completes STAT 545B!**
