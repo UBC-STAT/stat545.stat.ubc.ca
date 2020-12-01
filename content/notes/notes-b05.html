@@ -1,6 +1,6 @@
 ---
 title: "Lecture Notes: Automation"
-subtitle: "Version 1.0.0"
+subtitle: "Version 1.0.1"
 output: html_document
 ---
 
@@ -152,7 +152,7 @@ output: html_document
 </ul>
 <div id="makefile-activity" class="section level4">
 <h4>Makefile activity</h4>
-<p>We’ll now run through the <a href="https://stat545.com/automating-pipeline.html">makefile activity</a> included in the stat545.com book. Here is a digested version of the activity.</p>
+<p>We’ll now run through the <a href="https://stat545.com/automating-pipeline.html">makefile activity</a> included in the stat545.com book. Here is a digested version of the activity, with slight modifications.</p>
 <ol style="list-style-type: decimal">
 <li><p><input type="checkbox" disabled="" />
 Start a new RStudio project.</p></li>
@@ -165,24 +165,26 @@ Add the creation of <code>words.txt</code> to the Makefile:</p><pre><code>words.
 <li>Try running <code>make words.txt</code> in the Terminal.</li>
 </ul></li>
 <li><p><input type="checkbox" disabled="" />
-Create rules for <code>all</code> and <code>clean</code>:</p><pre><code>all: words.txt
-
-clean:
-  rm -f words.txt</code></pre>
-<ul>
-<li>Try running <code>make</code>; <code>make all</code>; <code>make clean</code>; or, use the Build tab in RStudio.</li>
-</ul></li>
-<li><p><input type="checkbox" disabled="" />
 Make a new R script that makes a table of word lengths – <a href="https://raw.githubusercontent.com/STAT545-UBC/STAT545-UBC.github.io/master/automation10_holding-area/activity/histogram.r">code here</a>.</p></li>
 <li><p><input type="checkbox" disabled="" />
-Add the tsv output to the makefile:</p><pre><code>histogram.tsv: histogram.r words.txt
+Add the tsv output to the makefile:</p><pre><code>histogram.tsv: histogram.R words.txt
  Rscript $&lt;</code></pre>
+<ul>
+<li>Shortcuts:
 <ul>
 <li><code>$&lt;</code> refers to <code>histogram.r</code></li>
 <li><code>$@</code> refers to <code>histogram.tsv</code></li>
 </ul></li>
+<li>What happens if a dependency is not present? Try deleting <code>histogram.R</code>. Try deleting <code>words.txt</code>.</li>
+</ul></li>
 <li><p><input type="checkbox" disabled="" />
-Update rules for <code>all</code> and <code>clean</code>.</p></li>
+Create rules for <code>all</code> and <code>clean</code>:</p><pre><code>all: words.txt histogram.tsv
+
+clean:
+  rm words.txt histogram.tsv</code></pre>
+<ul>
+<li>Try running <code>make</code>; <code>make all</code>; <code>make clean</code>; or, use the Build tab in RStudio.</li>
+</ul></li>
 <li><p><input type="checkbox" disabled="" />
 Plot a histogram of word lengths, direct in the Makefile.</p><pre><code>histogram.png: histogram.tsv
   Rscript -e &#39;library(ggplot2); qplot(Length, Freq, data=read.delim(&quot;$&lt;&quot;)); ggsave(&quot;$@&quot;)&#39;</code></pre></li>
