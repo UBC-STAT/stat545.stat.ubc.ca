@@ -22,6 +22,19 @@ Read all the instructions in this document *thoroughly* before proceeding with y
 
 ## Option A -- Strings in R
 
+- Choose a stringr function and apply it to a dataset to get it into another form. We suggest the wedding dataset. In a brief sentence, say what it is that you did. 
+
+Ideas from R4DS:
+
+> - Explain why each of these strings don't match a \: "\", "\\", "\\\".
+> - Is "q" always followed by a "u"?
+> - Describe, in words, what these expressions will match:
+>     - `(.)\1\1`
+>     - `"(.)(.)\\2\\1"`
+>     - `(..)\1`
+>     - `"(.).\\1.\\1"`
+>     - `"(.)(.)(.).*\\3\\2\\1"`
+
 ## Option B -- Improve your R package
 
 For this option, you will be updating your package to a new version. For full marks, you will need to improve your R package *significantly*. This time, we will be evaluating the quality of your R package, not just that you can create one. What kind of improvements qualify as a *significant* improvement? This is of course a bit subjective and also dependent on your individual R packages, but the quality and quantity of changes should fall under the category of a **minor** or **major** release defined on [this page](https://r-pkgs.org/release.html#release-version). Update your version number accordingly.
