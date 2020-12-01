@@ -1,6 +1,6 @@
 ---
 title: "Lecture Notes: Automation"
-subtitle: "Version 0.1.2"
+subtitle: "Version 1.0.0"
 output: html_document
 ---
 
@@ -38,9 +38,16 @@ The entire [Part IX: All the Automation Things](https://stat545.com/automation-o
 
 ## Quiz
 
+Use these questions to check your understanding of the material. 
+
 1. True or False: You've opened Terminal, and are now about to run `Rscript` for a second time. Because you haven't restarted the Terminal, the code will continue to build in the same session as before.
 2. You have information in `script1.R` that you'd like to pass to `scipt2.R`. True or false: the best way to pass the info to `script2.R` is by saving the final workspace from `script1.R` in an `.RData` or `.rds` file, and loading that it into `script2.R`.
-3. It's almost always better to write an `.Rmd` file over an `.R` file, because you're able to interlace markdown. 
+3. True or False: It's almost always better to write an `.Rmd` file over an `.R` file, because you're able to interlace markdown. 
+4. True or false: `make`ing a *phony* target will always run its rules, whereas `make`ing a target *file* will only run its rules if the output needs updating. 
+5. True or false: If a dependency file is not present on your computer, you can still call `make` error-free if the dependency is the target of another rule. This is true even if the dependency never gets made.
+6. True or false: The rules to `make` a target file will be run if either the target file or the dependencies are modified.
+7. True or false: Dependencies in `make` are accessed "lazily", so that if the dependencies are never actually used when executing a rule, they don't actually have any impact on the Makefile.
+
 
 
 ## Demonstration
@@ -120,6 +127,11 @@ file_to_create: files.it depends.on like_this.R
 * `:` separates targets from dependencies.
 * `code to be run in the command line`, ..., `Rscript like_this.R` are actions, commands to run to build or update the target using the dependencies. Targets can have zero or more actions. Actions are indented using the TAB character, not spaces.
 * Together, the target, dependencies, and actions form a rule.
+
+When will a rule be run?
+
+- If the target is not present in your folder, or
+- If a dependency is newer than the target file.
 
 #### Makefile activity
 
