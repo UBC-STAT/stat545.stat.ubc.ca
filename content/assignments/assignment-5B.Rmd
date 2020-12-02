@@ -39,17 +39,19 @@ Ideas from R4DS:
 
 For this option, you will be updating your package to a new version, or creating an entirely new R package from scratch. This time, we will be evaluating the *quality and overall design* of your R package, not just that you can create one. That means, not only do you need all of the components of a working R package, the quality of the components themselves will be expected to be of high quality. We will also evaluate the overall cohesiveness and design of the package.
 
-Whereas the previous assignment focused on component additions evaluated by functionality (such as components of an R package being present and functional, or having added 3 functional features), this time we will evaluate how well your product forms a complete whole, satisfying a clearly stated purpose with an effectively designed interface ("interface" being how a user interacts with the product).
+Whereas the previous assignment 2b focused on component additions evaluated by functionality (such as components of an R package being present and functional, or having added 3 functional features), this time we will evaluate how well your product forms a complete whole, satisfying a clearly stated purpose with an effectively designed interface ("interface" being how a user interacts with the product).
 
-Feel free to start a new R package if you're not interested in building on assignment 2b. However, keep in mind that most of the requirements for assignment 2b are also required here, and more. 
+If you have decided to build onto assignment 2, this might mean you don't need to add anymore functionality, just improve the existing components of your package!
 
-If you have decided to improve assignment 2b, then be sure to have a properly tagged release and version number for assignment 2b, so that we can easily see the new changes you've implemented for assignment 5b. If there was a problem with versioning, or you originally had forgotten to do this, just tag a release now before you start, and clearly indicate this in the README or in canvas.
+Feel free to start a new R package if you are not interested in building on assignment 2b. However, keep in mind that most of the requirements for assignment 2b are also required here. 
+
+If you have decided to build onto assignment 2b, then be sure to have a properly tagged release and version number for assignment 2b, so that we can easily see the new changes you've implemented for assignment 5b. If there was a problem with versioning, or you originally had forgotten to do this, just tag a release now before you start, and clearly indicate this in the README or in canvas.
 
 #### How to implement package updates
 
-1. Create changes to your R package that you plan to address in this updated version. If appropriate, describe the improvements using **Github Issues**. Also consider taking advantage of Git Branches to categorize your changes.
+1. Create changes to your R package that you plan to address in this updated version. If appropriate, describe the improvements using *Github Issues*. Consider also taking advantage of *Git Branches* to group sets of related changes.
 
-  **Any feedback that was given on your assignment 2b needs to be addressed!** If addressing TA feedback, please quote the feedback in the issue. Some of this feedback might not be substantial enough to warrant an entire github issue. For example, small typos do not need an entire github issue. See the rubric below for more details on what qualifies as a "substantial" improvement.
+  **Any feedback that was given on your assignment 2b needs to be addressed!** If addressing TA feedback, *respond to the Github Issue containing the feedback*. 
 
 2. _**Address each issue**_, while also ensuring that your R package still "works". It should "check" without errors. 
 
@@ -59,7 +61,7 @@ If you have decided to improve assignment 2b, then be sure to have a properly ta
 
 #### Option B - Rubric
 
-**Basic structure and functionality (5 points)**
+**Basic structure and functionality (2.5 points)**
 
 Following assignment 2b instructions and rubric may be helpful for completing this
 
@@ -96,7 +98,7 @@ Following assignment 2b instructions and rubric may be helpful for completing th
   
 - [Writing is clear](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md).
 
-**Package development (2.5 points)**
+**Package development (5 points)**
 
 - [ ] Did you develop your R package in a robust way, using `usethis` and `devtools`?
 - [ ] Did you use Github Issues, branches, and pull requests in an appropriate manner? 
@@ -109,90 +111,62 @@ Following assignment 2b instructions and rubric may be helpful for completing th
 
 - [ ] In canvas, provide the tagged release to your assignment repository.
 
-## Option C -- Improve your Shiny app
+## Option C -- Shiny App
 
-For this option, you will implement additional features and improvements to your shiny app that you worked on in Assignment 3b. 
+For this option, you will be implement additional features and improvements to your shiny app that you worked on in Assignment 3b, or creating an entirely new shiny app from scratch. This time, we will be evaluating the *quality and overall design* of your shiny app. 
 
-#### Logistics 
+#### Before you start
 
-Ensure that your assignment 3b shiny app is deployed and viewable on [shinyapps.io](). We will use this as a reference to mark your improved version.
+**If you are building onto assignment 3b shiny app,**
 
-In your assignment repository, start by copying over your app (code and any data files) to an Assignment 5b folder. Complete this assignment by editing this version of your app. When finished deploy this on [shinyapps.io]().
+Ensure that your assignment 3b shiny app is deployed and viewable on [shinyapps.io](). We will use this as a reference to mark your improved version. Start by copying over your app (code and any data files) to an Assignment 5b folder. Complete this assignment by editing this version of your app. When finished deploy this on [shinyapps.io]().
 
-Update the README clearly indicating with links, which version is Assignment 5b, and which is Assignment 3b.
+**If you are starting a new app from scratch,** state so in the assignment 5b README.
 
-As usual, when you are ready to submit your work, tag a release and post this link to canvas.
+#### Requirements
 
-#### Implement changes to your Shiny app
+If you are building onto assignment 3-B, after addressing feedback, you should have three working features implemented. If you are starting from scratch, you'll need to produce the equivalent of Assignment 3-B (i.e. have three working features) before moving on.
 
-1. Implement **feedback given from Assignment 3b.** In your assignment 5b README, quote the feedback and also describe how you addressed the feedback. 
+You might find that to satisfy some of these requirements, new features will have to be implemented.
 
-2. Implement **5 improvements or fixes**  that you plan to address in this updated version. *Clearly number these 5 changes and describe them in the Assignment 5b README*. These cannot be changes for the sake of change - they need to be **obvious improvements** to the app. For each change, make an argument on why your change is an improvement. 
+**App design**
 
-Some example options:
+This time we will be evaluating the overall app design. Your app should have a clearly defined purpose and function accordingly. The way the user interacts with the app is another important design decision. It should be easy for the user to both understand how the app is supposed to be used and also for the user to use the app. 
 
-  - Make UI more user-friendly
-    - Is there a better widget for choosing your input?
-    - Are text, input, and output organized in a way that makes sense?
-    - Consider experimenting with different preset layouts and [tabs](https://shiny.rstudio.com/articles/tabsets.html)
-  - If you haven't already, implement a [theme](https://rstudio.github.io/shinythemes/)
-  - Improve your server code. Make it more efficient. 
-  - Address any errors, bugs, or unexpected outputs
-  - Add functionality
-    - can be in the form of widgets
-    - more options for the user, e.g. filtering options, plot/table customization
-    - more output, or more specific output
-    - @Vincenzo, @Diana feel free to add here
+**Code mastery**
 
-**One of the five changes must be _added functionality_.** The other four are up to you!
-
-3. The assignment 5b README is a README for your app. Make sure that it is good quality. This means:
-  - The README should describe the purpose of the app
-  - It should briefly describe how the app works (user-interaction and expected output)
-  - You use proper English, spelling, and grammar, and write concisely. If there’s any uncertainty in determining a grade here, the [UBC MDS writing rubric](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md) will be referred to. 
-
-4. **Make sure it is easy for someone to understand how to use your app,** without needing to consult your README, or with help from you. In other words, if someone is given a link to your app, can they understand what your app does, and also how to use it? 
+Ensure that your code is of high quality. This means that a minimal amount code and dependencies are used (code efficiency). We will also look for appropriate usage of shiny-specific concepts, such as reactive expressions. 
 
 #### Option C - Rubric
 
-**Implementing changes (16 points)**
+**3 features are implemented (5 points)**
 
-- [ ] (1 points) Did you **implement feedback** from assignment 3b?
+- [ ] After addressing assignment 3b feedback, you should have 3 functional features
+- [ ] If starting from scratch, you have at least 3 working features
 
-- [ ] (15 points) **Five improvements (3 points/improvement)** are described in README and implemented well. Each improvement will be graded as follows:
-  - [ ] Are these good improvements?
-    - Are they consistent with the app's purpose? 
-    - Are they substantial? Or are they small things like fixing typos
-    - Do they fix broken things? 
-    - Is it clear that there is a need for this fix or improvement?
-  - [ ] Do the implemented changes achieve your goals? 
-    - e.g. do bug fixes actually fix the bugs, without introducing new errors
-    - e.g. is new functionality in line with the app's purpose
-    - e.g. does improved UI improve user-friendliness
-    - e.g. does improved UI help better understand how users are supposed to engage with the app
-  
-  - Does your new app feel like an improved version of the existing one, or does it now feel like an entirely different app?
+**User friendly design (5 points)**
 
-**README, code quality, and tidy'ness (4 points)**
+- [ ] Is it easy for users to understand how to engage with the app?
+- [ ] Were chosen widgets appropriate for each type of input? 
+- [ ] Is the writing clear?
+- [ ] Does the layout make sense?
 
-- [ ] (1 points) The **README** is clear and describes the purpose of the app
+**Code quality (5 points)**
 
-- [ ] (1 points) Code is efficient and good quality
-  - Is there unnecessary code?
-  - Did you use `tidyverse` functions when appropriate?
-  - Are there unnecessary dependencies?
-  - Is the code easy to read?
-  - If the code is not easy to read, did you narrate using code comments?
-  - Were reactive expressions used appropriately?
-  
-- [ ] (1 points) One point will be reserved for *tidy'ness*, *file organization*, and whether the submission *instructions were followed* correctly
+- [ ] Code is efficient
+- [ ] Reactive expressions used appropriately
+- [ ] `tidyverse` used when appropriate
+- [ ] Code comments are appropriately used
+- [ ] Only essential R packages are loaded
 
-**Package design (BONUS, 1 mark)**
+**Design and functionality (5 points)**
 
-A bonus point will be awarded to exceptionally well-designed apps. At minimum the app should have these qualities:
+- [ ] The purpose of the app is clearly indicated
+- [ ] The functioning of the app adequately achieves the purpose
+- [ ] There's enough documentation to know how to use the app. Ideally, one doesn't *have* to read all that much to use the app at a superficial level.
 
-- It's clear how the user needs to interact with the app
-- The output makes sense and is easy to understand
-- The UI is user-friendly
-- The app is useful
-- The server code is efficient and easy to understand
+#### Submission
+
+As usual, when you are ready to submit your work, tag a release in your assignment repository and post this link to canvas.
+
+Update your assignment repo READMEs with the appropriate [shinyapp.io]() links. 
