@@ -15,8 +15,8 @@ output: html_document
 In Assignment 5-B, you will pick one of three options described below. Please indicate which one you choose in your Assignment 5b README.
 
 + **Option A:** Strings Regex
-+ **Option B:** Improve assignment 2b's R package. Or create a new one. The standards for this assignment will be higher than assignment 2b.
-+ **Option C:** Improve assignment 3b's Shiny app. Or create a new one. The standards for this will be higher than assignment 3b.
++ **Option B:** R Package 
++ **Option C:** Shiny App
 
 Read all the instructions in this document *thoroughly* before proceeding with your assignment. The grading rubric is detailed at the very end, and *it doubles as a checklist* to keep track of your progress!
 
@@ -35,21 +35,15 @@ Ideas from R4DS:
 >     - `"(.).\\1.\\1"`
 >     - `"(.)(.)(.).*\\3\\2\\1"`
 
-## Option B -- Improve your R package
+## Option B -- R package
 
-For this option, you will be updating your package to a new version, or creating an entirely new R package from scratch. This time, we will be evaluating the *quality and overall design* of your R package, not just that you can create one. If assignment 2b was like creating a skeleton, this time we will be giving real weight to your R package.
-
-What kind of improvements qualify as a *significant* improvement? This is of course a bit subjective and also dependent on your individual R packages, but the quality and quantity of changes should fall under the category of a **minor** or **major** release defined on [this page](https://r-pkgs.org/release.html#release-version). Update your version number accordingly.
-
-_**Note:** You might consider breaking up your changes into several minor releases or patches. This might make sense if you are both fixing a number of distinct errors or bugs, and also adding significant functionality._
+For this option, you will be updating your package to a new version, or creating an entirely new R package from scratch. This time, we will be evaluating the *quality and overall design* of your R package, not just that you can create one. That means, not only do you need all of the components of a working R package, the quality of the components themselves will be expected to be of high quality. We will also evaluate the overall cohesiveness and design of the package.
 
 Whereas the previous assignment focused on component additions evaluated by functionality (such as components of an R package being present and functional, or having added 3 functional features), this time we will evaluate how well your product forms a complete whole, satisfying a clearly stated purpose with an effectively designed interface ("interface" being how a user interacts with the product).
 
-Before you start! Make sure that you indicate which version and tagged release corresponds to Assignment 2b. For many of you this is `v0.1.0`. If there was a problem with versioning, or you originally had forgotten to do this, just tag a release now before you start, and clearly indicate this in the README or in canvas.
+Feel free to start a new R package if you're not interested in building on assignment 2b. However, keep in mind that most of the requirements for assignment 2b are also required here, and more. 
 
-#### How to complete this option
-
-
+If you have decided to improve assignment 2b, then be sure to have a properly tagged release and version number for assignment 2b, so that we can easily see the new changes you've implemented for assignment 5b. If there was a problem with versioning, or you originally had forgotten to do this, just tag a release now before you start, and clearly indicate this in the README or in canvas.
 
 #### How to implement package updates
 
@@ -57,79 +51,57 @@ Before you start! Make sure that you indicate which version and tagged release c
 
   **Any feedback that was given on your assignment 2b needs to be addressed!** If addressing TA feedback, please quote the feedback in the issue. Some of this feedback might not be substantial enough to warrant an entire github issue. For example, small typos do not need an entire github issue. See the rubric below for more details on what qualifies as a "substantial" improvement.
 
-2. Create these new changes in a _**new branch**_, titled something informative and unique (e.g. "updates" is not an informative title, "add-function-XYZ" is better).
+2. _**Address each issue**_, while also ensuring that your R package still "works". It should "check" without errors. 
 
-3. _**Address each issue**_, while also ensuring that your R package still "works". It should "check" without errors. 
+3. _**Create a pull request (or multiple, if appropriate)**_, comment and describe how each issue was addressed. Make sure you reference the issues with the appropriate hashtag, and also reference new files or lines of code when appropriate. 
 
-4. _**Create a pull request**_, comment and describe how each issue was addressed. Make sure you reference the issues with the appropriate hashtag, and also reference new files or lines of code when appropriate. 
-
-5. _**Merge pull request and update version number**_. Also ensure that all documentation (including version number in `DESCRIPTION`) is updated. Don't forget to update `NEWS.md`
+5. _**Merge pull request(s) and update to an appropriate version number**_. Also ensure that all documentation (including version number in `DESCRIPTION`) is updated. Don't forget to update `NEWS.md`. See [here](https://r-pkgs.org/release.html#release-version) for help on deciding version numbering.
 
 #### Option B - Rubric
 
-**Implementing improvements (10 points)**
+**Basic structure and functionality (5 points)**
 
-- [ ] (3 points) **Are the issues well-described?**
-  - Is it clear what the errors are and where they appear?
-  - Is it clear what kind of challenges that new functionality addresses?
-  - Did you briefly describe how you will address the github issues?
-  - Do they take advantage of github's feature of referencing files and lines of code? 
+Following assignment 2b instructions and rubric may be helpful for completing this
 
-- [ ] (3 points) **Do the issues make sense?**
-  - Are the errors or bugs actually errors or bugs
-  - Are issues distinct from each other? Does it make sense to group some set of changes together into a single github issue?
-  - Are the issues substantial? 
-    - e.g. a small typo in documentation does not warrant an entire github issue
-    - e.g. missing description of the type of input (e.g. type of vector) is substantial enough
-    - e.g. functions do not work on some types of inputs that should work is a good issue
+- [ ] Do you have all essential components for your R package? 
+  - [ ] All functions have tests
+  - [ ] All functions and data have documentation
+  - [ ] If data was included, did you include how the data was sourced?
+  - [ ] DESCRIPTION has correct information
+  - [ ] If your package is a data package, do you have a vignette?
 
-- [ ] (1 point) Does the pull request describe how each issue was addressed?
-  - The pull request should summarize the changes that were made
-  - Issues are referenced
-  - The pull request should have a good title
+**Code Mastery (5 points)**
 
-- [ ] (3 points) **Each change will be evaluated**
-  - Do the changes address the github issue
-  - Are the changes minimal? 
-    - Do they require unnecessary dependencies to be added? 
-    - Is the code efficient?
-  - Is documentation updated to reflect these changes?
+- [ ] (3 points) Is your code written efficiently?
+  - [ ] Did you use tidyverse when appropriate?
+  - [ ] Is your code easy to understand? Did you write code comments when appropriate?
+- [ ] (2 points) Are your tests good quality?
 
-**Package structure (5 points)**
+**Package design (7.5 points)**
 
-Also ensure that your package has proper structure. 
-
-- [ ] (1 point) All user-facing functions have tests
-- [ ] (1 point) Each test has at least 3 expectations with non-redundant inputs
-- [ ] (1 point) All functions and data have *complete* documentation
-- [ ] (1 point) DESCRIPTION has up-to-date and correct information
-  - no unnecessary dependencies
-- [ ] (1 point) Essential files are not missing (e.g. license)
-
-**README (5 marks)**
-
-Create a quality README. In Assignment 2b, we asked for a basic README with some brief description. Here, we want to see a README that:
-
-- [ ] (1 point) Describes the purpose of your R package
-  - For example, describe the challenges or problems that your R package "solves"
+- [ ] (2.5 points) Does your package have a clear and consistent purpose?
+  - [ ] Functions and data make sense to be packaged together
+  - e.g. `ggplot2` is a package all about plotting
   
-- [ ] (3 points) Has examples demonstrating the use of the core functions or datasets
-  - Every major function in your package should be demonstrated
-  - The examples should be easily ran by your users
+- [ ] (2.5 points) Do package functions and data have user-friendly design?
+  - Function arguments make sense
+  - Data is organized appropriately and can be easily accessed
+  - Documentation is helpful and complete
   
-- [ ] (1 point) [Writing is clear](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md) and information is correct (e.g. install instructions are correct).
-
-**Package design (BONUS, 1 mark)**
-
-Design:
-
-A bonus mark will be awarded if,
-
-- [ ] The package is designed in a user-friendly way (documentation and usability)
-  - The documentation is clear and complete
-  - The functionality is easy to use and makes sense
+- [ ] (2.5) README and vignette is helpful
+  - Purpose of package is clearly described
+  - Functions and datasets are demonstrated
+  - Examples should be easy to be run by users
+  - *If developing a data package*, more weight will be put towards a providing a good quality vignette that showcases the data
   
-- [ ] The package is useful. It is clear that someone outside of STAT545 might benefit from a package like yours, potentially over other available options.
+- [Writing is clear](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md).
+
+**Package development (2.5 points)**
+
+- [ ] Did you develop your R package in a robust way, using `usethis` and `devtools`?
+- [ ] Did you use Github Issues, branches, and pull requests in an appropriate manner? 
+- [ ] Did you address all errors from running `check()`?
+- [ ] Did you tag releases and update version numbers appropriately?
 
 #### Submission
 
