@@ -37,11 +37,19 @@ Ideas from R4DS:
 
 ## Option B -- Improve your R package
 
-For this option, you will be updating your package to a new version. For full marks, you will need to improve your R package *significantly*. This time, we will be evaluating the quality of your R package, not just that you can create one. What kind of improvements qualify as a *significant* improvement? This is of course a bit subjective and also dependent on your individual R packages, but the quality and quantity of changes should fall under the category of a **minor** or **major** release defined on [this page](https://r-pkgs.org/release.html#release-version). Update your version number accordingly.
+For this option, you will be updating your package to a new version, or creating an entirely new R package from scratch. This time, we will be evaluating the *quality and overall design* of your R package, not just that you can create one. If assignment 2b was like creating a skeleton, this time we will be giving real weight to your R package.
+
+What kind of improvements qualify as a *significant* improvement? This is of course a bit subjective and also dependent on your individual R packages, but the quality and quantity of changes should fall under the category of a **minor** or **major** release defined on [this page](https://r-pkgs.org/release.html#release-version). Update your version number accordingly.
 
 _**Note:** You might consider breaking up your changes into several minor releases or patches. This might make sense if you are both fixing a number of distinct errors or bugs, and also adding significant functionality._
 
+Whereas the previous assignment focused on component additions evaluated by functionality (such as components of an R package being present and functional, or having added 3 functional features), this time we will evaluate how well your product forms a complete whole, satisfying a clearly stated purpose with an effectively designed interface ("interface" being how a user interacts with the product).
+
 Before you start! Make sure that you indicate which version and tagged release corresponds to Assignment 2b. For many of you this is `v0.1.0`. If there was a problem with versioning, or you originally had forgotten to do this, just tag a release now before you start, and clearly indicate this in the README or in canvas.
+
+#### How to complete this option
+
+
 
 #### How to implement package updates
 
