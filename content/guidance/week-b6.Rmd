@@ -42,7 +42,7 @@ See the [calendar](https://stat545.stat.ubc.ca/calendar) for a visual view of th
 ### Thursday
 
 - [ ] Pre-readings by 9:30am PST
-- [ ] (Optional) Attend office hours at 16:00 - 17:00 PST in the regular "classroom".
+- [ ] (Optional) Attend office hours at ~~16:00 - 17:00~~ 15:00 - 16:00 PST in the regular "classroom".
 - [ ] Attend lecture 9:30am - 11:00am PST
 
 ### Friday
