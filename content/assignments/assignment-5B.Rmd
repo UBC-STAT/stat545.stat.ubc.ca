@@ -87,9 +87,9 @@ Before you start! Make sure that you indicate which version and tagged release c
     - e.g. functions do not work on some types of inputs that should work is a good issue
 
 - [ ] (1 point) Does the pull request describe how each issue was addressed?
-  - The PR should summarize the changes that were made
+  - The pull request should summarize the changes that were made
   - Issues are referenced
-  - The PR should have a good title
+  - The pull request should have a good title
 
 - [ ] (3 points) **Each change will be evaluated**
   - Do the changes address the github issue
