@@ -1,6 +1,6 @@
 ---
 title: "Assignment 5-B"
-subtitle: "**Development Version** 0.9100" 
+subtitle: "**Development Version** 0.9200" 
 output: html_document
 ---
 
@@ -53,10 +53,7 @@ Before you start! Make sure that you indicate which version and tagged release c
 
 #### How to implement package updates
 
-1. Create a list of _**at least 3 improvements or fixes**_ that you plan to address in this updated version. Put each distinct change (or set of changes) as a _**new github issue**_, and also briefly describe how you propose to address each issue. Some examples of possible types of issues:
-  - errors or bugs that needs to be fixed
-  - added functionality
-  - improved documentation
+1. Create changes to your R package that you plan to address in this updated version. If appropriate, describe the improvements using **Github Issues**. Also consider taking advantage of Git Branches to categorize your changes.
 
   **Any feedback that was given on your assignment 2b needs to be addressed!** If addressing TA feedback, please quote the feedback in the issue. Some of this feedback might not be substantial enough to warrant an entire github issue. For example, small typos do not need an entire github issue. See the rubric below for more details on what qualifies as a "substantial" improvement.
 

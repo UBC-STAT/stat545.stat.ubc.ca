@@ -1,6 +1,6 @@
 ---
 title: "Assignment 5-B"
-subtitle: "**Development Version** 0.9100" 
+subtitle: "**Development Version** 0.9200" 
 output: html_document
 ---
 
@@ -45,19 +45,19 @@ output: html_document
 </div>
 <div id="option-b-improve-your-r-package" class="section level2">
 <h2>Option B – Improve your R package</h2>
-<p>For this option, you will be updating your package to a new version. For full marks, you will need to improve your R package <em>significantly</em>. This time, we will be evaluating the quality of your R package, not just that you can create one. What kind of improvements qualify as a <em>significant</em> improvement? This is of course a bit subjective and also dependent on your individual R packages, but the quality and quantity of changes should fall under the category of a <strong>minor</strong> or <strong>major</strong> release defined on <a href="https://r-pkgs.org/release.html#release-version">this page</a>. Update your version number accordingly.</p>
+<p>For this option, you will be updating your package to a new version, or creating an entirely new R package from scratch. This time, we will be evaluating the <em>quality and overall design</em> of your R package, not just that you can create one. If assignment 2b was like creating a skeleton, this time we will be giving real weight to your R package.</p>
+<p>What kind of improvements qualify as a <em>significant</em> improvement? This is of course a bit subjective and also dependent on your individual R packages, but the quality and quantity of changes should fall under the category of a <strong>minor</strong> or <strong>major</strong> release defined on <a href="https://r-pkgs.org/release.html#release-version">this page</a>. Update your version number accordingly.</p>
 <p><em><strong>Note:</strong> You might consider breaking up your changes into several minor releases or patches. This might make sense if you are both fixing a number of distinct errors or bugs, and also adding significant functionality.</em></p>
+<p>Whereas the previous assignment focused on component additions evaluated by functionality (such as components of an R package being present and functional, or having added 3 functional features), this time we will evaluate how well your product forms a complete whole, satisfying a clearly stated purpose with an effectively designed interface (“interface” being how a user interacts with the product).</p>
 <p>Before you start! Make sure that you indicate which version and tagged release corresponds to Assignment 2b. For many of you this is <code>v0.1.0</code>. If there was a problem with versioning, or you originally had forgotten to do this, just tag a release now before you start, and clearly indicate this in the README or in canvas.</p>
+<div id="how-to-complete-this-option" class="section level4">
+<h4>How to complete this option</h4>
+</div>
 <div id="how-to-implement-package-updates" class="section level4">
 <h4>How to implement package updates</h4>
 <ol style="list-style-type: decimal">
-<li>Create a list of <em><strong>at least 3 improvements or fixes</strong></em> that you plan to address in this updated version. Put each distinct change (or set of changes) as a <em><strong>new github issue</strong></em>, and also briefly describe how you propose to address each issue. Some examples of possible types of issues:</li>
+<li>Create changes to your R package that you plan to address in this updated version. If appropriate, describe the improvements using <strong>Github Issues</strong>. Also consider taking advantage of Git Branches to categorize your changes.</li>
 </ol>
-<ul>
-<li>errors or bugs that needs to be fixed</li>
-<li>added functionality</li>
-<li>improved documentation</li>
-</ul>
 <p><strong>Any feedback that was given on your assignment 2b needs to be addressed!</strong> If addressing TA feedback, please quote the feedback in the issue. Some of this feedback might not be substantial enough to warrant an entire github issue. For example, small typos do not need an entire github issue. See the rubric below for more details on what qualifies as a “substantial” improvement.</p>
 <ol start="2" style="list-style-type: decimal">
 <li><p>Create these new changes in a <em><strong>new branch</strong></em>, titled something informative and unique (e.g. “updates” is not an informative title, “add-function-XYZ” is better).</p></li>
@@ -90,9 +90,9 @@ output: html_document
 </ul></li>
 <li><input type="checkbox" disabled="" />
 (1 point) Does the pull request describe how each issue was addressed?<ul>
-<li>The PR should summarize the changes that were made</li>
+<li>The pull request should summarize the changes that were made</li>
 <li>Issues are referenced</li>
-<li>The PR should have a good title</li>
+<li>The pull request should have a good title</li>
 </ul></li>
 <li><input type="checkbox" disabled="" />
 (3 points) <strong>Each change will be evaluated</strong><ul>
