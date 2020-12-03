@@ -44,15 +44,7 @@ Today:
 2. Explore regex in the demo below.
 3. Continue Worksheet 3-B, "Part 2: Regex"
 
-### Regex Demo
-
-- Useful for identifying _patterns_, not exact character specifications.
-- Hard to read and write!
-- We'll focus on finding _matches_ (the hardest part). You can also use regex to manipulate strings -- but we'll delegate that to [r4ds: strings: tools](https://r4ds.had.co.nz/strings.html#tools).
-
-#### Not re*pr*ex!
-
-They sound the same, but are very different things:
+__Note that re*g*ex is different from re*pr*ex!__ They sound the same, but are very different things:
 
 - re*pr*ex = reproducible example.
 - re*g*ex = regular expression.
@@ -73,22 +65,3 @@ regex:
 ```
 "STAT 545[A|B].*"
 ```
-
-#### Exploring regex with stringr
-
-- Use `str_view_all(countries, pattern = "FILL_THIS_IN")`, where `FILL_THIS_IN` matches the solution, to view exactly what is matched for each country.
-- Use `match = TRUE` to only view those entries with a match. 
-- Escape using `\` to match a special character literally -- use two in R, because R does one level of escaping before "executing" the regular expression.
-  - Try searching for a period in a text file using RStudio: with and without "regex" checked off.
-
-
-### Character Classes
-
-- `[letters]` matches a single character that's either l, e, t, ..., or s.
-- `[^letters]`: anything _but_ these letters. 
-
-See more at: https://r4ds.had.co.nz/strings.html#character-classes-and-alternatives
-
-Note that not all special characters "work" within `[]`, but some do, and do not always carry the same meaning (like `^`)! From said resource, they are:
-
->  `$` `.` `|` `?` `*` `+` `(` `)` `[` `{`. Unfortunately, a few characters have special meaning even inside a character class and must be handled with backslash escapes: `]` `\` `^` and `-`.
