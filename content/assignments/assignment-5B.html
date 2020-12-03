@@ -1,6 +1,6 @@
 ---
 title: "Assignment 5-B"
-subtitle: "**Development Version** 0.9100" 
+subtitle: "Version 0.0.0.9000" 
 output: html_document
 ---
 
@@ -24,24 +24,33 @@ output: html_document
 </div>
 <div id="option-a-strings-in-r" class="section level2">
 <h2>Option A – Strings in R</h2>
-<ul>
-<li>Choose a stringr function and apply it to a dataset to get it into another form. We suggest the wedding dataset. In a brief sentence, say what it is that you did.</li>
-</ul>
-<p>Ideas from R4DS:</p>
+<p>Complete the following two exercises.</p>
+<div id="tidy-submission-2-points" class="section level3">
+<h3>Tidy Submission (2 points)</h3>
+<p>Two points are set aside for a tidy submission, as per previous assignments. You choose where you want to answer these questions – just make this clear in your Assignment 5-B README file. You don’t need to update your Makefile accordingly for this assignment (but we suggest you give it a try).</p>
+</div>
+<div id="exercise-1-9-points" class="section level3">
+<h3>Exercise 1 (9 points)</h3>
+<p>Take a Jane Austen book contained in the <code>janeaustenr</code> package, or another book from some other source. Make a plot of the most common words in the book, removing “stop words” of your choosing (words like “the”, “a”, etc.) or stopwords from a pre-defined source, like the <code>stopwords</code> package or <code>tidytext::stop_words</code>.</p>
+</div>
+<div id="exercise-2-9-points" class="section level3">
+<h3>Exercise 2 (9 points)</h3>
+<p>Make a function that converts words to your own version of Pig Latin.</p>
+<p>The specific input and output that you decide upon is up to you. Don’t forget to implement good function-making hygiene: we’ll be looking for documentation (being sure to describe your Pig Latin conversion), examples of applying the function, 3 non-redundant tests, appropriate use of arguments, and appropriate amount of checking for proper input.</p>
+<p>Your Pig Latin should incorporate two components:</p>
+<p><strong>Rearrangement component</strong></p>
+<p>The default Pig Latin rearrangement rule, <a href="https://en.wikipedia.org/wiki/Pig_Latin#Background">as per Wikipedia</a>, moves beginning letters to the end:</p>
 <blockquote>
-<ul>
-<li>Explain why each of these strings don’t match a : “",”\“,”\".</li>
-<li>Is “q” always followed by a “u”?</li>
-<li>Describe, in words, what these expressions will match:
-<ul>
-<li><code>(.)\1\1</code></li>
-<li><code>"(.)(.)\\2\\1"</code></li>
-<li><code>(..)\1</code></li>
-<li><code>"(.).\\1.\\1"</code></li>
-<li><code>"(.)(.)(.).*\\3\\2\\1"</code></li>
-</ul></li>
-</ul>
+<ol style="list-style-type: decimal">
+<li>For words that begin with consonant sounds, all letters before the initial vowel are placed at the end of the word sequence.</li>
+<li>When words begin with consonant clusters (multiple consonants that form one sound), the whole sound is added to the end</li>
+<li>For words beginning with vowel sounds, one removes the initial vowel(s) along with the first consonant or consonant cluster.</li>
+</ol>
 </blockquote>
+<p>Modify this somehow. Maybe you move letters from the end to the beginning, or you change the rules altogether, keeping a similar level of complexity.</p>
+<p><strong>Addition component</strong></p>
+<p>The default Pig Latin addition rule is to add “ay” to the end of the word, after rearranging the letters of the word. You should choose some other addition rule.</p>
+</div>
 </div>
 <div id="option-b-improve-your-r-package" class="section level2">
 <h2>Option B – Improve your R package</h2>
