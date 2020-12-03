@@ -1,6 +1,6 @@
 ---
 title: "Lecture Notes: Character Data"
-subtitle: "Version 0.1.0.9000"
+subtitle: "Version 0.1.1"
 output: html_document
 ---
 
@@ -11,7 +11,7 @@ From today's class, students are anticipated to be able to:
 
 - Manipulate a character vector in R using the stringr package.
 - Write simple regular expressions (regex).
-- Apply regular expressions to data manipulation.
+- Apply stringr and regular expressions to manipulate data in tibbles.
 
 ## Parallel Resources
 
@@ -35,6 +35,8 @@ Use these questions to check your understanding of the material.
 **NOTE**: No canvas submission is required for Class 12-B.
 
 1. True or False: The regular expression `[ab][ab]` will match "ab", "aa", and "bb" as possibilities, whereas `[ab]{2}` will only match "aa" or "bb".
+2. True or False: The regular expression `[ab][ab]` will match "ab", "aa", and "bb" as possibilities, whereas `(ab)(ab)` will only match "aa" or "bb".
+3. True or False: The regular expression `^ab` will match "ab" as the first characters to a string, whereas `[^ab]` will match "a" or "b" as being the first character to a string.
 
 ## Demonstration
 
