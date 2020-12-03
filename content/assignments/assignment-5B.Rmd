@@ -1,6 +1,6 @@
 ---
 title: "Assignment 5-B"
-subtitle: "**Development Version** 0.9200" 
+subtitle: "**Development Version** 0.9300" 
 output: html_document
 ---
 
@@ -51,7 +51,7 @@ If you have decided to build onto assignment 2b, then be sure to have a properly
 
 1. Create changes to your R package that you plan to address in this updated version. If appropriate, describe the improvements using *Github Issues*. Consider also taking advantage of *Git Branches* to group sets of related changes.
 
-  **Any feedback that was given on your assignment 2b needs to be addressed!** If addressing TA feedback, *respond to the Github Issue containing the feedback*. 
+  **Any feedback that was given on your assignment 2b needs to be addressed!** If addressing TA feedback, it would be in good practice to *respond to the Github Issue containing the feedback* :) 
 
 2. _**Address each issue**_, while also ensuring that your R package still "works". It should "check" without errors. 
 
