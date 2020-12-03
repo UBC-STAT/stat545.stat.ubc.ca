@@ -1,6 +1,6 @@
 ---
 title: "Assignment 5-B"
-subtitle: "Version 0.0.0.9000" 
+subtitle: "Version 0.0.0.9000"
 output: html_document
 ---
 
@@ -17,8 +17,8 @@ output: html_document
 <p>In Assignment 5-B, you will pick one of three options described below. Please indicate which one you choose in your Assignment 5b README.</p>
 <ul>
 <li><strong>Option A:</strong> Strings Regex</li>
-<li><strong>Option B:</strong> Improve assignment 2b’s R package. Or create a new one. The standards for this assignment will be higher than assignment 2b.</li>
-<li><strong>Option C:</strong> Improve assignment 3b’s Shiny app. Or create a new one. The standards for this will be higher than assignment 3b.</li>
+<li><strong>Option B:</strong> R Package</li>
+<li><strong>Option C:</strong> Shiny App</li>
 </ul>
 <p>Read all the instructions in this document <em>thoroughly</em> before proceeding with your assignment. The grading rubric is detailed at the very end, and <em>it doubles as a checklist</em> to keep track of your progress!</p>
 </div>
@@ -52,110 +52,89 @@ output: html_document
 <p>The default Pig Latin addition rule is to add “ay” to the end of the word, after rearranging the letters of the word. You should choose some other addition rule.</p>
 </div>
 </div>
-<div id="option-b-improve-your-r-package" class="section level2">
-<h2>Option B – Improve your R package</h2>
-<p>For this option, you will be updating your package to a new version. For full marks, you will need to improve your R package <em>significantly</em>. This time, we will be evaluating the quality of your R package, not just that you can create one. What kind of improvements qualify as a <em>significant</em> improvement? This is of course a bit subjective and also dependent on your individual R packages, but the quality and quantity of changes should fall under the category of a <strong>minor</strong> or <strong>major</strong> release defined on <a href="https://r-pkgs.org/release.html#release-version">this page</a>. Update your version number accordingly.</p>
-<p><em><strong>Note:</strong> You might consider breaking up your changes into several minor releases or patches. This might make sense if you are both fixing a number of distinct errors or bugs, and also adding significant functionality.</em></p>
-<p>Before you start! Make sure that you indicate which version and tagged release corresponds to Assignment 2b. For many of you this is <code>v0.1.0</code>. If there was a problem with versioning, or you originally had forgotten to do this, just tag a release now before you start, and clearly indicate this in the README or in canvas.</p>
+<div id="option-b-r-package" class="section level2">
+<h2>Option B – R package</h2>
+<p>For this option, you will be updating your package to a new version, or creating an entirely new R package from scratch. This time, we will be evaluating the <em>quality and overall design</em> of your R package, not just that you can create one. That means, not only do you need all of the components of a working R package, the quality of the components themselves will be expected to be of high quality. We will also evaluate the overall cohesiveness and design of the package.</p>
+<p>Whereas the previous assignment 2b focused on component additions evaluated by functionality (such as components of an R package being present and functional, or having added 3 functional features), this time we will evaluate how well your product forms a complete whole, satisfying a clearly stated purpose with an effectively designed interface (“interface” being how a user interacts with the product).</p>
+<p>If you have decided to build onto assignment 2, this might mean you don’t need to add anymore functionality, just improve the existing components of your package!</p>
+<p>Feel free to start a new R package if you are not interested in building on assignment 2b. However, keep in mind that most of the requirements for assignment 2b are also required here.</p>
+<p>If you have decided to build onto assignment 2b, then be sure to have a properly tagged release and version number for assignment 2b, so that we can easily see the new changes you’ve implemented for assignment 5b. If there was a problem with versioning, or you originally had forgotten to do this, just tag a release now before you start, and clearly indicate this in the README or in canvas.</p>
 <div id="how-to-implement-package-updates" class="section level4">
 <h4>How to implement package updates</h4>
 <ol style="list-style-type: decimal">
-<li>Create a list of <em><strong>at least 3 improvements or fixes</strong></em> that you plan to address in this updated version. Put each distinct change (or set of changes) as a <em><strong>new github issue</strong></em>, and also briefly describe how you propose to address each issue. Some examples of possible types of issues:</li>
+<li>Create changes to your R package that you plan to address in this updated version. If appropriate, describe the improvements using <em>Github Issues</em>. Consider also taking advantage of <em>Git Branches</em> to group sets of related changes.</li>
 </ol>
-<ul>
-<li>errors or bugs that needs to be fixed</li>
-<li>added functionality</li>
-<li>improved documentation</li>
-</ul>
-<p><strong>Any feedback that was given on your assignment 2b needs to be addressed!</strong> If addressing TA feedback, please quote the feedback in the issue. Some of this feedback might not be substantial enough to warrant an entire github issue. For example, small typos do not need an entire github issue. See the rubric below for more details on what qualifies as a “substantial” improvement.</p>
+<p><strong>Any feedback that was given on your assignment 2b needs to be addressed!</strong> If addressing TA feedback, it would be in good practice to <em>respond to the Github Issue containing the feedback</em> :)</p>
 <ol start="2" style="list-style-type: decimal">
-<li><p>Create these new changes in a <em><strong>new branch</strong></em>, titled something informative and unique (e.g. “updates” is not an informative title, “add-function-XYZ” is better).</p></li>
 <li><p><em><strong>Address each issue</strong></em>, while also ensuring that your R package still “works”. It should “check” without errors.</p></li>
-<li><p><em><strong>Create a pull request</strong></em>, comment and describe how each issue was addressed. Make sure you reference the issues with the appropriate hashtag, and also reference new files or lines of code when appropriate.</p></li>
-<li><p><em><strong>Merge pull request and update version number</strong></em>. Also ensure that all documentation (including version number in <code>DESCRIPTION</code>) is updated. Don’t forget to update <code>NEWS.md</code></p></li>
+<li><p><em><strong>Create a pull request (or multiple, if appropriate)</strong></em>, comment and describe how each issue was addressed. Make sure you reference the issues with the appropriate hashtag, and also reference new files or lines of code when appropriate.</p></li>
+<li><p><em><strong>Merge pull request(s) and update to an appropriate version number</strong></em>. Also ensure that all documentation (including version number in <code>DESCRIPTION</code>) is updated. Don’t forget to update <code>NEWS.md</code>. See <a href="https://r-pkgs.org/release.html#release-version">here</a> for help on deciding version numbering.</p></li>
 </ol>
 </div>
 <div id="option-b---rubric" class="section level4">
 <h4>Option B - Rubric</h4>
-<p><strong>Implementing improvements (10 points)</strong></p>
+<p><strong>Basic structure and functionality (2.5 points)</strong></p>
+<p>Following assignment 2b instructions and rubric may be helpful for completing this</p>
 <ul>
 <li><input type="checkbox" disabled="" />
-(3 points) <strong>Are the issues well-described?</strong><ul>
-<li>Is it clear what the errors are and where they appear?</li>
-<li>Is it clear what kind of challenges that new functionality addresses?</li>
-<li>Did you briefly describe how you will address the github issues?</li>
-<li>Do they take advantage of github’s feature of referencing files and lines of code?</li>
-</ul></li>
+Do you have all essential components for your R package?<ul>
 <li><input type="checkbox" disabled="" />
-(3 points) <strong>Do the issues make sense?</strong><ul>
-<li>Are the errors or bugs actually errors or bugs</li>
-<li>Are issues distinct from each other? Does it make sense to group some set of changes together into a single github issue?</li>
-<li>Are the issues substantial?
-<ul>
-<li>e.g. a small typo in documentation does not warrant an entire github issue</li>
-<li>e.g. missing description of the type of input (e.g. type of vector) is substantial enough</li>
-<li>e.g. functions do not work on some types of inputs that should work is a good issue</li>
-</ul></li>
-</ul></li>
+All functions have tests</li>
 <li><input type="checkbox" disabled="" />
-(1 point) Does the pull request describe how each issue was addressed?<ul>
-<li>The PR should summarize the changes that were made</li>
-<li>Issues are referenced</li>
-<li>The PR should have a good title</li>
-</ul></li>
+All functions and data have documentation</li>
 <li><input type="checkbox" disabled="" />
-(3 points) <strong>Each change will be evaluated</strong><ul>
-<li>Do the changes address the github issue</li>
-<li>Are the changes minimal?
-<ul>
-<li>Do they require unnecessary dependencies to be added?</li>
-<li>Is the code efficient?</li>
-</ul></li>
-<li>Is documentation updated to reflect these changes?</li>
+If data was included, did you include how the data was sourced?</li>
+<li><input type="checkbox" disabled="" />
+DESCRIPTION has correct information</li>
+<li><input type="checkbox" disabled="" />
+If your package is a data package, do you have a vignette?</li>
 </ul></li>
 </ul>
-<p><strong>Package structure (5 points)</strong></p>
-<p>Also ensure that your package has proper structure.</p>
+<p><strong>Code Mastery (5 points)</strong></p>
 <ul>
 <li><input type="checkbox" disabled="" />
-(1 point) All user-facing functions have tests</li>
+(3 points) Is your code written efficiently?<ul>
 <li><input type="checkbox" disabled="" />
-(1 point) Each test has at least 3 expectations with non-redundant inputs</li>
+Did you use tidyverse when appropriate?</li>
 <li><input type="checkbox" disabled="" />
-(1 point) All functions and data have <em>complete</em> documentation</li>
-<li><input type="checkbox" disabled="" />
-(1 point) DESCRIPTION has up-to-date and correct information<ul>
-<li>no unnecessary dependencies</li>
+Is your code easy to understand? Did you write code comments when appropriate?</li>
 </ul></li>
 <li><input type="checkbox" disabled="" />
-(1 point) Essential files are not missing (e.g. license)</li>
+(2 points) Are your tests good quality?</li>
 </ul>
-<p><strong>README (5 marks)</strong></p>
-<p>Create a quality README. In Assignment 2b, we asked for a basic README with some brief description. Here, we want to see a README that:</p>
+<p><strong>Package design (7.5 points)</strong></p>
 <ul>
 <li><input type="checkbox" disabled="" />
-(1 point) Describes the purpose of your R package<ul>
-<li>For example, describe the challenges or problems that your R package “solves”</li>
+(2.5 points) Does your package have a clear and consistent purpose?<ul>
+<li><input type="checkbox" disabled="" />
+Functions and data make sense to be packaged together</li>
+<li>e.g. <code>ggplot2</code> is a package all about plotting</li>
 </ul></li>
 <li><input type="checkbox" disabled="" />
-(3 points) Has examples demonstrating the use of the core functions or datasets<ul>
-<li>Every major function in your package should be demonstrated</li>
-<li>The examples should be easily ran by your users</li>
+(2.5 points) Do package functions and data have user-friendly design?<ul>
+<li>Function arguments make sense</li>
+<li>Data is organized appropriately and can be easily accessed</li>
+<li>Documentation is helpful and complete</li>
 </ul></li>
 <li><input type="checkbox" disabled="" />
-(1 point) <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md">Writing is clear</a> and information is correct (e.g. install instructions are correct).</li>
+(2.5) README and vignette is helpful<ul>
+<li>Purpose of package is clearly described</li>
+<li>Functions and datasets are demonstrated</li>
+<li>Examples should be easy to be run by users</li>
+<li><em>If developing a data package</em>, more weight will be put towards a providing a good quality vignette that showcases the data</li>
+</ul></li>
+<li><a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md">Writing is clear</a>.</li>
 </ul>
-<p><strong>Package design (BONUS, 1 mark)</strong></p>
-<p>Design:</p>
-<p>A bonus mark will be awarded if,</p>
+<p><strong>Package development (5 points)</strong></p>
 <ul>
 <li><input type="checkbox" disabled="" />
-The package is designed in a user-friendly way (documentation and usability)<ul>
-<li>The documentation is clear and complete</li>
-<li>The functionality is easy to use and makes sense</li>
-</ul></li>
+Did you develop your R package in a robust way, using <code>usethis</code> and <code>devtools</code>?</li>
 <li><input type="checkbox" disabled="" />
-The package is useful. It is clear that someone outside of STAT545 might benefit from a package like yours, potentially over other available options.</li>
+Did you use Github Issues, branches, and pull requests in an appropriate manner?</li>
+<li><input type="checkbox" disabled="" />
+Did you address all errors from running <code>check()</code>?</li>
+<li><input type="checkbox" disabled="" />
+Did you tag releases and update version numbers appropriately?</li>
 </ul>
 </div>
 <div id="submission" class="section level4">
@@ -168,103 +147,70 @@ In canvas, provide the tagged release to your assignment repository.</p></li>
 </ul>
 </div>
 </div>
-<div id="option-c-improve-your-shiny-app" class="section level2">
-<h2>Option C – Improve your Shiny app</h2>
-<p>For this option, you will implement additional features and improvements to your shiny app that you worked on in Assignment 3b.</p>
-<div id="logistics" class="section level4">
-<h4>Logistics</h4>
-<p>Ensure that your assignment 3b shiny app is deployed and viewable on <a href="">shinyapps.io</a>. We will use this as a reference to mark your improved version.</p>
-<p>In your assignment repository, start by copying over your app (code and any data files) to an Assignment 5b folder. Complete this assignment by editing this version of your app. When finished deploy this on <a href="">shinyapps.io</a>.</p>
-<p>Update the README clearly indicating with links, which version is Assignment 5b, and which is Assignment 3b.</p>
-<p>As usual, when you are ready to submit your work, tag a release and post this link to canvas.</p>
+<div id="option-c-shiny-app" class="section level2">
+<h2>Option C – Shiny App</h2>
+<p>For this option, you will be implement additional features and improvements to your shiny app that you worked on in Assignment 3b, or creating an entirely new shiny app from scratch. This time, we will be evaluating the <em>quality and overall design</em> of your shiny app.</p>
+<div id="before-you-start" class="section level4">
+<h4>Before you start</h4>
+<p><strong>If you are building onto assignment 3b shiny app,</strong></p>
+<p>Ensure that your assignment 3b shiny app is deployed and viewable on <a href="">shinyapps.io</a>. We will use this as a reference to mark your improved version. Start by copying over your app (code and any data files) to an Assignment 5b folder. Complete this assignment by editing this version of your app. When finished deploy this on <a href="">shinyapps.io</a>.</p>
+<p><strong>If you are starting a new app from scratch,</strong> state so in the assignment 5b README.</p>
 </div>
-<div id="implement-changes-to-your-shiny-app" class="section level4">
-<h4>Implement changes to your Shiny app</h4>
-<ol style="list-style-type: decimal">
-<li><p>Implement <strong>feedback given from Assignment 3b.</strong> In your assignment 5b README, quote the feedback and also describe how you addressed the feedback.</p></li>
-<li><p>Implement <strong>5 improvements or fixes</strong> that you plan to address in this updated version. <em>Clearly number these 5 changes and describe them in the Assignment 5b README</em>. These cannot be changes for the sake of change - they need to be <strong>obvious improvements</strong> to the app. For each change, make an argument on why your change is an improvement.</p></li>
-</ol>
-<p>Some example options:</p>
-<ul>
-<li>Make UI more user-friendly
-<ul>
-<li>Is there a better widget for choosing your input?</li>
-<li>Are text, input, and output organized in a way that makes sense?</li>
-<li>Consider experimenting with different preset layouts and <a href="https://shiny.rstudio.com/articles/tabsets.html">tabs</a></li>
-</ul></li>
-<li>If you haven’t already, implement a <a href="https://rstudio.github.io/shinythemes/">theme</a></li>
-<li>Improve your server code. Make it more efficient.</li>
-<li>Address any errors, bugs, or unexpected outputs</li>
-<li>Add functionality
-<ul>
-<li>can be in the form of widgets</li>
-<li>more options for the user, e.g. filtering options, plot/table customization</li>
-<li>more output, or more specific output</li>
-<li><span class="citation">@Vincenzo</span>, <span class="citation">@Diana</span> feel free to add here</li>
-</ul></li>
-</ul>
-<p><strong>One of the five changes must be <em>added functionality</em>.</strong> The other four are up to you!</p>
-<ol start="3" style="list-style-type: decimal">
-<li>The assignment 5b README is a README for your app. Make sure that it is good quality. This means:</li>
-</ol>
-<ul>
-<li>The README should describe the purpose of the app</li>
-<li>It should briefly describe how the app works (user-interaction and expected output)</li>
-<li>You use proper English, spelling, and grammar, and write concisely. If there’s any uncertainty in determining a grade here, the <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md">UBC MDS writing rubric</a> will be referred to.</li>
-</ul>
-<ol start="4" style="list-style-type: decimal">
-<li><strong>Make sure it is easy for someone to understand how to use your app,</strong> without needing to consult your README, or with help from you. In other words, if someone is given a link to your app, can they understand what your app does, and also how to use it?</li>
-</ol>
+<div id="requirements" class="section level4">
+<h4>Requirements</h4>
+<p>If you are building onto assignment 3-B, after addressing feedback, you should have three working features implemented. If you are starting from scratch, you’ll need to produce the equivalent of Assignment 3-B (i.e. have three working features) before moving on.</p>
+<p>You might find that to satisfy some of these requirements, new features will have to be implemented.</p>
+<p><strong>App design</strong></p>
+<p>This time we will be evaluating the overall app design. Your app should have a clearly defined purpose and function accordingly. The way the user interacts with the app is another important design decision. It should be easy for the user to both understand how the app is supposed to be used and also for the user to use the app.</p>
+<p><strong>Code mastery</strong></p>
+<p>Ensure that your code is of high quality. This means that a minimal amount code and dependencies are used (code efficiency). We will also look for appropriate usage of shiny-specific concepts, such as reactive expressions.</p>
 </div>
 <div id="option-c---rubric" class="section level4">
 <h4>Option C - Rubric</h4>
-<p><strong>Implementing changes (16 points)</strong></p>
+<p><strong>3 features are implemented (5 points)</strong></p>
 <ul>
-<li><p><input type="checkbox" disabled="" />
-(1 points) Did you <strong>implement feedback</strong> from assignment 3b?</p></li>
-<li><p><input type="checkbox" disabled="" />
-(15 points) <strong>Five improvements (3 points/improvement)</strong> are described in README and implemented well. Each improvement will be graded as follows:</p><ul>
 <li><input type="checkbox" disabled="" />
-Are these good improvements?<ul>
-<li>Are they consistent with the app’s purpose?</li>
-<li>Are they substantial? Or are they small things like fixing typos</li>
-<li>Do they fix broken things?</li>
-<li>Is it clear that there is a need for this fix or improvement?</li>
-</ul></li>
+After addressing assignment 3b feedback, you should have 3 functional features</li>
 <li><input type="checkbox" disabled="" />
-Do the implemented changes achieve your goals?<ul>
-<li>e.g. do bug fixes actually fix the bugs, without introducing new errors</li>
-<li>e.g. is new functionality in line with the app’s purpose</li>
-<li>e.g. does improved UI improve user-friendliness</li>
-<li>e.g. does improved UI help better understand how users are supposed to engage with the app</li>
-</ul></li>
-<li>Does your new app feel like an improved version of the existing one, or does it now feel like an entirely different app?</li>
-</ul></li>
+If starting from scratch, you have at least 3 working features</li>
 </ul>
-<p><strong>README, code quality, and tidy’ness (4 points)</strong></p>
+<p><strong>User friendly design (5 points)</strong></p>
 <ul>
-<li><p><input type="checkbox" disabled="" />
-(1 points) The <strong>README</strong> is clear and describes the purpose of the app</p></li>
-<li><p><input type="checkbox" disabled="" />
-(1 points) Code is efficient and good quality</p><ul>
-<li>Is there unnecessary code?</li>
-<li>Did you use <code>tidyverse</code> functions when appropriate?</li>
-<li>Are there unnecessary dependencies?</li>
-<li>Is the code easy to read?</li>
-<li>If the code is not easy to read, did you narrate using code comments?</li>
-<li>Were reactive expressions used appropriately?</li>
-</ul></li>
-<li><p><input type="checkbox" disabled="" />
-(1 points) One point will be reserved for <em>tidy’ness</em>, <em>file organization</em>, and whether the submission <em>instructions were followed</em> correctly</p></li>
+<li><input type="checkbox" disabled="" />
+Is it easy for users to understand how to engage with the app?</li>
+<li><input type="checkbox" disabled="" />
+Were chosen widgets appropriate for each type of input?</li>
+<li><input type="checkbox" disabled="" />
+Is the writing clear?</li>
+<li><input type="checkbox" disabled="" />
+Does the layout make sense?</li>
 </ul>
-<p><strong>Package design (BONUS, 1 mark)</strong></p>
-<p>A bonus point will be awarded to exceptionally well-designed apps. At minimum the app should have these qualities:</p>
+<p><strong>Code quality (5 points)</strong></p>
 <ul>
-<li>It’s clear how the user needs to interact with the app</li>
-<li>The output makes sense and is easy to understand</li>
-<li>The UI is user-friendly</li>
-<li>The app is useful</li>
-<li>The server code is efficient and easy to understand</li>
+<li><input type="checkbox" disabled="" />
+Code is efficient</li>
+<li><input type="checkbox" disabled="" />
+Reactive expressions used appropriately</li>
+<li><input type="checkbox" disabled="" />
+<code>tidyverse</code> used when appropriate</li>
+<li><input type="checkbox" disabled="" />
+Code comments are appropriately used</li>
+<li><input type="checkbox" disabled="" />
+Only essential R packages are loaded</li>
 </ul>
+<p><strong>Design and functionality (5 points)</strong></p>
+<ul>
+<li><input type="checkbox" disabled="" />
+The purpose of the app is clearly indicated</li>
+<li><input type="checkbox" disabled="" />
+The functioning of the app adequately achieves the purpose</li>
+<li><input type="checkbox" disabled="" />
+There’s enough documentation to know how to use the app. Ideally, one doesn’t <em>have</em> to read all that much to use the app at a superficial level.</li>
+</ul>
+</div>
+<div id="submission-1" class="section level4">
+<h4>Submission</h4>
+<p>As usual, when you are ready to submit your work, tag a release in your assignment repository and post this link to canvas.</p>
+<p>Update your assignment repo READMEs with the appropriate <a href="">shinyapp.io</a> links.</p>
 </div>
 </div>
