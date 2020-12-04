@@ -1,6 +1,6 @@
 ---
 title: "Assignment 5-B"
-subtitle: "Version 0.0.0.9000"
+subtitle: "Version 1.0.0"
 output: html_document
 ---
 
@@ -22,7 +22,7 @@ Read all the instructions in this document *thoroughly* before proceeding with y
 
 ## Option A -- Strings in R
 
-Complete the following two exercises. 
+Complete the following two exercises using concepts and tools covered in class (i.e. `stringr`, regex, tidyverse, etc.)
 
 ### Tidy Submission (2 points)
 
