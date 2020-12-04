@@ -11,70 +11,7 @@ source(here::here("content", "dates.R"))
 
 Use this page to navigate your way through STAT 545. 
 
-# STAT 545 B
-
-
-
-## Topics
-
-
-| Week | Day      | Topic           | Date                                | Lecture Notes | Weekly Checklist |
-|------|----------|-----------------|-------------------------------------|---------------|------------------|
-| 1-B  | Tuesday  | Functions       | `r format(dates_545b[1] , "%b %d")` | [Functions](/notes/notes-b01) | [Week 1-B](/guidance/week-b1) |
-| 1-B  | Thursday | Functions       | `r format(dates_545b[2] , "%b %d")` |  |  |
-| 2-B  | Tuesday  | List columns    | `r format(dates_545b[3] , "%b %d")` | [List columns](/notes/notes-b02) | [Week 2-B](/guidance/week-b2) |
-| 2-B  | Thursday | List columns    | `r format(dates_545b[4] , "%b %d")` |  |  |
-| 3-B  | Tuesday  | List columns    | `r format(dates_545b[5] , "%b %d")` |  | [Week 3-B](guidance/week-b3) |
-| 3-B  | Thursday | R packages      | `r format(dates_545b[6] , "%b %d")` | [R packages](/notes/notes-b03) |  |
-| 4-B  | Tuesday  | R packages      | `r format(dates_545b[7] , "%b %d")` |  | [Week 4-B](/guidance/week-b4) |
-| 4-B  | Thursday | Dashboards      | `r format(dates_545b[8] , "%b %d")` | [Dashboards](/notes/notes-b04) |  |
-| 5-B  | Tuesday  | Dashboards      | `r format(dates_545b[9] , "%b %d")` |  | [Week 5-B](/guidance/week-b5) |
-| 5-B  | Thursday | Automation      | `r format(dates_545b[10], "%b %d")` | [Automation](/notes/notes-b05) |  |
-| 6-B  | Tuesday  | Automation      | `r format(dates_545b[11], "%b %d")` |  | [Week 6-B](/guidance/week-b6) |
-| 6-B  | Thursday | Character data  | `r format(dates_545b[12], "%b %d")` | [Character data](/notes/notes-b06) |  |
-| 7-B  |          | _no new topics_ |  | _no notes_ | [Week 7-B](/guidance/week-b7) |
-
-
--------
-
-## Worksheets
-
-- [General Information](/worksheets-about)
-
-| Worksheet | Download | View | # required questions | Deadline |
-|-----------|----------|------|----------------------|----------|
-| Worksheet 1-B | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_01b.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_01b.ipynb) | 4 | Saturday, October 31, 2020 at 23:59 PST |
-| Worksheet 2-B | [.ipynb](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_02b.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_02b.ipynb) | 6 | Wednesday, November 11, 2020 at 23:59 PST |
-| Worksheet 3-B | [.ipynb](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_03b.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_03b.ipynb) | 8 | Saturday, December 5, 2020 at 23:59 PST |
-
--------
-
--------
-
-## Assignments 
-
-| Assignment | Instructions | Launched? | Deadline |
-|------------|--------------|-----------|----------|
-| Assignment 1-B | [view](/assignments/assignment-1B) | Yes | Wednesday, November 11, 2020 at 23:59 PST |
-| Assignment 2-B | [view](/assignments/assignment-2B) | Yes | Wednesday, November 18, 2020 at 23:59 PST |
-| Assignment 3-B | [view](/assignments/assignment-3b/assignment-3B) | Yes | Wednesday, November 25, 2020 at 23:59 PST |
-| Assignment 4-B | [view](/assignments/assignment-4b/assignment-4B) | Yes | **Friday**, December 04, 2020 at 23:59 PST |
-| Assignment 5-B | [view](/assignments/assignment-5B) | Yes | **Saturday**, December 12, 2020 at 23:59 PST |
-
-
--------
-
--------
-
--------
-
--------
-
-
-
-# STAT 545 A
-
-## Topics
+# Topics
 
 | Week | Date                                    | Lecture Notes | Weekly Checklist |
 |------|-----------------------------------------|---------------|------------------|
@@ -92,31 +29,39 @@ Use this page to navigate your way through STAT 545.
 | 6-A  | `r format(dates_545a[11], "%a, %b %d")` | [Tibble joins](/notes/notes-a11) |  |
 | 7-A  | `r format(dates_545a[12], "%a, %b %d")` | [Reading and Writing Data](/notes/notes-a12) | [Week 7-A](/guidance/week-a7) |
 | 7-A  | `r format(dates_545a[13], "%a, %b %d")` | [Choose your Adventure](/notes/notes-a13) |  |
+| 1-B  | `r format(dates_545b[1] , "%a, %b %d")` | [Functions](/notes/notes-b01) | [Week 1-B](/guidance/week-b1) |
+| 1-B  | `r format(dates_545b[2] , "%a, %b %d")` |  |  |
+| 2-B  | `r format(dates_545b[3] , "%a, %b %d")` | [List columns](/notes/notes-b02) | [Week 2-B](/guidance/week-b2) |
+| 2-B  | `r format(dates_545b[4] , "%a, %b %d")` |  |  |
+| 3-B  | `r format(dates_545b[5] , "%a, %b %d")` |  | [Week 3-B](guidance/week-b3) |
+| 3-B  | `r format(dates_545b[6] , "%a, %b %d")` | [R packages](/notes/notes-b03) |  |
+| 4-B  | `r format(dates_545b[7] , "%a, %b %d")` |  | [Week 4-B](/guidance/week-b4) |
+| 4-B  | `r format(dates_545b[8] , "%a, %b %d")` | [Dashboards](/notes/notes-b04) |  |
+| 5-B  | `r format(dates_545b[9] , "%a, %b %d")` |  | [Week 5-B](/guidance/week-b5) |
+| 5-B  | `r format(dates_545b[10], "%a, %b %d")` | [Automation](/notes/notes-b05) |  |
+| 6-B  | `r format(dates_545b[11], "%a, %b %d")` |  | [Week 6-B](/guidance/week-b6) |
+| 6-B  | `r format(dates_545b[12], "%a, %b %d")` | [Character data](/notes/notes-b06) |  |
+| 7-B  |  | _no new topics_ | [Week 7-B](/guidance/week-b7) |
 
 
--------
+# Worksheets
 
--------
+- [General Information](/worksheets-about)
 
-## Worksheets
-
-
-| Worksheet | Download | View | # required questions |
-|-----------|----------|------|----------------------|
+| Worksheet | Download | View | # required questions | Deadline |
+|-----------|----------|------|----------------------|----------|
 | Worksheet 1-A | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_01a.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_01a.ipynb) | 9 |
 | Worksheet 2-A | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_02a.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_02a.ipynb) | 11 |
 | Worksheet 3-A | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_03a.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_03a.ipynb) | 4 |
 | Worksheet 4-A | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_04a.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_04a.ipynb) | 5 | 
 | Worksheet 5-A | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_05a.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_05a.ipynb) | 8 |
 | Worksheet 6-A | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_06a.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_06a.ipynb) | 5 |
+| Worksheet 1-B | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_01b.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_01b.ipynb) | 4 | Saturday, October 31, 2020 at 23:59 PST |
+| Worksheet 2-B | [.ipynb](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_02b.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_02b.ipynb) | 6 | Wednesday, November 11, 2020 at 23:59 PST |
+| Worksheet 3-B | [.ipynb](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_03b.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_03b.ipynb) | 8 | Saturday, December 5, 2020 at 23:59 PST |
 
 
--------
-
--------
-
-
-## Collaborative Project (STAT 545A)
+# Collaborative Project (STAT 545A)
 
 - [General Information](/collaborative-about)
 
@@ -126,11 +71,8 @@ Use this page to navigate your way through STAT 545.
 | Milestone 2 | [view](https://stat545.stat.ubc.ca/collaborative-project/milestone2/readme/) | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/collaborative-project/milestone2/TB2.Rmd) | NA |
 | Milestone 3 | [view](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/collaborative-project/milestone3/README.md) | [.Rmd](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/collaborative-project/milestone3/TB3.Rmd) | [view](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/collaborative-project/milestone3/checklist.md) |
 
--------
 
--------
-
-## Mini-Data Analysis (STAT 545A)
+# Mini-Data Analysis (STAT 545A)
 
 - [General Information](/mini-analysis-about)
 
@@ -140,3 +82,13 @@ Use this page to navigate your way through STAT 545.
 | Milestone 2 | [view](https://stat545.stat.ubc.ca/mini-project/mini-project-2/) | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-2.Rmd) | [view](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/mini-project/mini-project-2-checklist.md) |
 | Milestone 3 | [view](https://stat545.stat.ubc.ca/mini-project/mini-project-3/) | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-3.Rmd) | [view](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/mini-project/mini-project-3-checklist.md) |
 
+
+# Assignments (STAT 545B)
+
+| Assignment | Instructions | Launched? | Deadline |
+|------------|--------------|-----------|----------|
+| Assignment 1-B | [view](/assignments/assignment-1B) | Yes | Wednesday, November 11, 2020 at 23:59 PST |
+| Assignment 2-B | [view](/assignments/assignment-2B) | Yes | Wednesday, November 18, 2020 at 23:59 PST |
+| Assignment 3-B | [view](/assignments/assignment-3b/assignment-3B) | Yes | Wednesday, November 25, 2020 at 23:59 PST |
+| Assignment 4-B | [view](/assignments/assignment-4b/assignment-4B) | Yes | **Friday**, December 04, 2020 at 23:59 PST |
+| Assignment 5-B | [view](/assignments/assignment-5B) | Yes | **Saturday**, December 12, 2020 at 23:59 PST |
