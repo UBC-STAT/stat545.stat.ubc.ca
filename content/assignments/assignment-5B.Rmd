@@ -1,15 +1,193 @@
 ---
 title: "Assignment 5-B"
-subtitle: "**Development Version** 0.9000" 
+subtitle: "Version 1.0.0"
 output: html_document
 ---
 
-__Deadline__: Saturday, December 5, 2020
++ __Leader__: Victor Yuan
++ __Reviewer__: Diana Lin & Vincenzo Coia
++ __Deadline__: Saturday, December 12, 2020 at 23:59 PST
 
-- regex assignment has never been all that inspiring in past years. [hw06 from 2018](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/evaluation/hw06/hw06.md) just asks students to do exercises in R4DS book.
-- maybe this year, since we moved regex to the last week, we can make this part of the choose-your-adventure theme so that students don't have to necessarily do regex outside of the worksheet if they don't want. Ideas listed in Lecture Notes 6-B. 
-- Ideas for choose-your-own-adventure:
-  - add onto something they did in a past assignment -- continue with their R package (perhaps implementing S3 OO), or shiny dashboard, ...
-  - Contribute to an open-source R package. Add a function, documentation, and a test. Maybe propose an update to a vignette. 
-      - Actually submit a pull request to improve the package if they choose. If this is the intent, should ask the developers beforehand to see if this is of interest.
-      - Ideas: a new `geom` to ggplot; add `broom` tidy functions to a currently incompatible model. 
++ __Total Points__: 20 
+
+## Overview
+
+In Assignment 5-B, you will pick one of three options described below. Please indicate which one you choose in your Assignment 5b README.
+
++ **Option A:** Strings Regex
++ **Option B:** R Package 
++ **Option C:** Shiny App
+
+Read all the instructions in this document *thoroughly* before proceeding with your assignment. The grading rubric is detailed at the very end, and *it doubles as a checklist* to keep track of your progress!
+
+## Option A -- Strings in R
+
+Complete the following two exercises using concepts and tools covered in class (i.e. `stringr`, regex, tidyverse, etc.)
+
+### Tidy Submission (2 points)
+
+Two points are set aside for a tidy submission, as per previous assignments. You choose where you want to answer these questions -- just make this clear in your Assignment 5-B README file. You don't need to update your Makefile accordingly for this assignment (but we suggest you give it a try).
+
+### Exercise 1 (9 points)
+
+Take a Jane Austen book contained in the `janeaustenr` package, or another book from some other source. Make a plot of the most common words in the book, removing "stop words" of your choosing (words like "the", "a", etc.) or stopwords from a pre-defined source, like the `stopwords` package or `tidytext::stop_words`.
+
+### Exercise 2 (9 points)
+
+Make a function that converts words to your own version of Pig Latin. 
+
+The specific input and output that you decide upon is up to you. Don't forget to implement good function-making hygiene: we'll be looking for documentation (being sure to describe your Pig Latin conversion), examples of applying the function, 3 non-redundant tests, appropriate use of arguments, and appropriate amount of checking for proper input.
+
+Your Pig Latin should incorporate two components:
+
+**Rearrangement component** 
+
+The default Pig Latin rearrangement rule, [as per Wikipedia](https://en.wikipedia.org/wiki/Pig_Latin#Background), moves beginning letters to the end:
+
+> 1. For words that begin with consonant sounds, all letters before the initial vowel are placed at the end of the word sequence.
+> 2. When words begin with consonant clusters (multiple consonants that form one sound), the whole sound is added to the end
+> 3. For words beginning with vowel sounds, one removes the initial vowel(s) along with the first consonant or consonant cluster.
+
+Modify this somehow. Maybe you move letters from the end to the beginning, or you change the rules altogether, keeping a similar level of complexity.
+
+**Addition component**
+
+The default Pig Latin addition rule is to add "ay" to the end of the word, after rearranging the letters of the word. You should choose some other addition rule.
+
+
+
+## Option B -- R package
+
+For this option, you will be updating your package to a new version, or creating an entirely new R package from scratch. This time, we will be evaluating the *quality and overall design* of your R package, not just that you can create one. That means, not only do you need all of the components of a working R package, the quality of the components themselves will be expected to be of high quality. We will also evaluate the overall cohesiveness and design of the package.
+
+Whereas the previous assignment 2b focused on component additions evaluated by functionality (such as components of an R package being present and functional, or having added 3 functional features), this time we will evaluate how well your product forms a complete whole, satisfying a clearly stated purpose with an effectively designed interface ("interface" being how a user interacts with the product).
+
+If you have decided to build onto assignment 2, this might mean you don't need to add anymore functionality, just improve the existing components of your package!
+
+Feel free to start a new R package if you are not interested in building on assignment 2b. However, keep in mind that most of the requirements for assignment 2b are also required here. 
+
+If you have decided to build onto assignment 2b, then be sure to have a properly tagged release and version number for assignment 2b, so that we can easily see the new changes you've implemented for assignment 5b. If there was a problem with versioning, or you originally had forgotten to do this, just tag a release now before you start, and clearly indicate this in the README or in canvas.
+
+#### How to implement package updates
+
+1. Create changes to your R package that you plan to address in this updated version. If appropriate, describe the improvements using *Github Issues*. Consider also taking advantage of *Git Branches* to group sets of related changes.
+
+  **Any feedback that was given on your assignment 2b needs to be addressed!** If addressing TA feedback, it would be in good practice to *respond to the Github Issue containing the feedback* :) 
+
+2. _**Address each issue**_, while also ensuring that your R package still "works". It should "check" without errors. 
+
+3. _**Create a pull request (or multiple, if appropriate)**_, comment and describe how each issue was addressed. Make sure you reference the issues with the appropriate hashtag, and also reference new files or lines of code when appropriate. 
+
+5. _**Merge pull request(s) and update to an appropriate version number**_. Also ensure that all documentation (including version number in `DESCRIPTION`) is updated. Don't forget to update `NEWS.md`. See [here](https://r-pkgs.org/release.html#release-version) for help on deciding version numbering.
+
+#### Option B - Rubric
+
+**Basic structure and functionality (2.5 points)**
+
+Following assignment 2b instructions and rubric may be helpful for completing this
+
+- [ ] Do you have all essential components for your R package? 
+  - [ ] All functions have tests
+  - [ ] All functions and data have documentation
+  - [ ] If data was included, did you include how the data was sourced?
+  - [ ] DESCRIPTION has correct information
+  - [ ] If your package is a data package, do you have a vignette?
+
+**Code Mastery (5 points)**
+
+- [ ] (3 points) Is your code written efficiently?
+  - [ ] Did you use tidyverse when appropriate?
+  - [ ] Is your code easy to understand? Did you write code comments when appropriate?
+- [ ] (2 points) Are your tests good quality?
+
+**Package design (7.5 points)**
+
+- [ ] (2.5 points) Does your package have a clear and consistent purpose?
+  - [ ] Functions and data make sense to be packaged together
+  - e.g. `ggplot2` is a package all about plotting
+  
+- [ ] (2.5 points) Do package functions and data have user-friendly design?
+  - Function arguments make sense
+  - Data is organized appropriately and can be easily accessed
+  - Documentation is helpful and complete
+  
+- [ ] (2.5) README and vignette is helpful
+  - Purpose of package is clearly described
+  - Functions and datasets are demonstrated
+  - Examples should be easy to be run by users
+  - *If developing a data package*, more weight will be put towards a providing a good quality vignette that showcases the data
+  
+- [Writing is clear](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md).
+
+**Package development (5 points)**
+
+- [ ] Did you develop your R package in a robust way, using `usethis` and `devtools`?
+- [ ] Did you use Github Issues, branches, and pull requests in an appropriate manner? 
+- [ ] Did you address all errors from running `check()`?
+- [ ] Did you tag releases and update version numbers appropriately?
+
+#### Submission
+
+- [ ] Tag a release in your assignment repository. Update README describing that you picked this option for assignment 5b, and also provide a link to your updated package.
+
+- [ ] In canvas, provide the tagged release to your assignment repository.
+
+## Option C -- Shiny App
+
+For this option, you will be implement additional features and improvements to your shiny app that you worked on in Assignment 3b, or creating an entirely new shiny app from scratch. This time, we will be evaluating the *quality and overall design* of your shiny app. 
+
+#### Before you start
+
+**If you are building onto assignment 3b shiny app,**
+
+Ensure that your assignment 3b shiny app is deployed and viewable on [shinyapps.io](). We will use this as a reference to mark your improved version. Start by copying over your app (code and any data files) to an Assignment 5b folder. Complete this assignment by editing this version of your app. When finished deploy this on [shinyapps.io]().
+
+**If you are starting a new app from scratch,** state so in the assignment 5b README.
+
+#### Requirements
+
+If you are building onto assignment 3-B, after addressing feedback, you should have three working features implemented. If you are starting from scratch, you'll need to produce the equivalent of Assignment 3-B (i.e. have three working features) before moving on.
+
+You might find that to satisfy some of these requirements, new features will have to be implemented.
+
+**App design**
+
+This time we will be evaluating the overall app design. Your app should have a clearly defined purpose and function accordingly. The way the user interacts with the app is another important design decision. It should be easy for the user to both understand how the app is supposed to be used and also for the user to use the app. 
+
+**Code mastery**
+
+Ensure that your code is of high quality. This means that a minimal amount code and dependencies are used (code efficiency). We will also look for appropriate usage of shiny-specific concepts, such as reactive expressions. 
+
+#### Option C - Rubric
+
+**3 features are implemented (5 points)**
+
+- [ ] After addressing assignment 3b feedback, you should have 3 functional features
+- [ ] If starting from scratch, you have at least 3 working features
+
+**User friendly design (5 points)**
+
+- [ ] Is it easy for users to understand how to engage with the app?
+- [ ] Were chosen widgets appropriate for each type of input? 
+- [ ] Is the writing clear?
+- [ ] Does the layout make sense?
+
+**Code quality (5 points)**
+
+- [ ] Code is efficient
+- [ ] Reactive expressions used appropriately
+- [ ] `tidyverse` used when appropriate
+- [ ] Code comments are appropriately used
+- [ ] Only essential R packages are loaded
+
+**Design and functionality (5 points)**
+
+- [ ] The purpose of the app is clearly indicated
+- [ ] The functioning of the app adequately achieves the purpose
+- [ ] There's enough documentation to know how to use the app. Ideally, one doesn't *have* to read all that much to use the app at a superficial level.
+
+#### Submission
+
+As usual, when you are ready to submit your work, tag a release in your assignment repository and post this link to canvas.
+
+Update your assignment repo READMEs with the appropriate [shinyapp.io]() links. 
