@@ -1,10 +1,10 @@
 ---
 title: "STAT 545A Course syllabus: 2020/2021"
 output: 
-  pdf_document:
-    toc: true
-    toc_depth: 2
-    number_sections: true
+  # pdf_document:
+  #   toc: true
+  #   toc_depth: 2
+  #   number_sections: true
   html_document:
     toc: true
     toc_depth: 2
@@ -61,22 +61,6 @@ here::here("content", "lecture_schedule-545a.csv") %>%
   knitr::kable()
 ```
 
-**What to expect during class**
-
-Lectures will consist of the following components, in this order:
-
-1. Live demo and questions (20-30 minutes)
-    - Instructor demonstrates techniques; students ask questions and pose challenges.
-    - Discussion in a chat are processed by a TA: answer directly, unless the question is more involved, in which case it enters a queue (managed by that TA).
-2. Quiz
-    - Only graded by your participation, not correctness. You have 24 hours to complete.
-    - We discuss in class.
-3. Break: 5 minutes
-    - We'll try playing [Random Acts of Exercise](https://www.youtube.com/playlist?list=PL6JWPcX0WhHU97aqiRA4P6Jta9f04Nanm) (Each body is different, so make this your practice by modifying the activity based on what your body can do.)
-4. Lab (45 minutes):
-    - Instructor introduces the worksheet exercises for the period
-    - Instructor + 1 TA goes through random groups of 3 or 4 students in turn, coming in with some discussion points, but also allowing a natural conversation to unfold about the worksheet, as well as perhaps how the course is going.
-    - At the same time, a TA remains present to answer questions.
 
 <!-- __Non COVID-19 years__: Keep things similar, except synchronous part to be held in-person. -->
 

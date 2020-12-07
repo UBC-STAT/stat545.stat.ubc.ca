@@ -5,10 +5,10 @@ output:
     toc: true
     toc_depth: 2
     number_sections: true
-  pdf_document:
-    toc: true
-    toc_depth: 2
-    number_sections: true
+  # pdf_document:
+  #   toc: true
+  #   toc_depth: 2
+  #   number_sections: true
 ---
 
 ```{r, echo = FALSE, warning = FALSE, message = FALSE}
@@ -24,13 +24,10 @@ __Website__: https://stat545.stat.ubc.ca/
 
 __Duration__: `r dates_545b[1] - ddays(1)` - `r max(dates_545b) + ddays(1)`
 
-
-* Be the boss of non-numeric data, esp. character and factor
-* Interactive pages, apps, and graphics with [Shiny](http://shiny.rstudio.com)
-* Get data off the web and expose data, code, results on the web
-* Distribute data and code via an R package
-* Automate an analytical pipeline, e.g. via `Make`
-
+* Advanced computation on data: manipulating strings, and functional programming with purrr
+* Orchestrate an analysis at a high level by writing functions and automating scripts.
+* Distribute data and code via an R package.
+* Interactive pages, apps, and graphics with [Shiny](http://shiny.rstudio.com).
 
 # Teaching Team
 
@@ -58,13 +55,6 @@ here::here("content", "lecture_schedule-545b.csv") %>%
   knitr::kable()
 ```
 
-**What to expect during class**
-
-Lectures will consist of:
-
-1. Live coding through the week's deliverable(s)
-2. A brief 2-question quiz mid-class
-3. Occasionally, time set aside to work on projects.
 
 <!-- __Non COVID-19 years__: Keep things similar, except synchronous part to be held in-person. -->
 
