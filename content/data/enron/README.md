@@ -6,9 +6,9 @@ Database of 270,087 Enron emails, taken from the May 7, 2015 version of the data
 
 There are three columns in `enron.csv`:
 
-- `person`: The person associated with the email
-- `mail_num`
-- `email`
+- `person`: The person associated with the email.
+- `mail_num`: Identifier for each person's email.
+- `email`: Each entry is a line in an email, including the email's metadata (like subject, who it was sent to, etc.)
 
 ## Reproducing the dataset
 
