@@ -1,0 +1,447 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={STAT 545A Course syllabus: 2020/2021},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+
+\title{STAT 545A Course syllabus: 2020/2021}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+How to make a clean and modern data analysis, Part I.
+
+\textbf{Website}: \url{https://stat545.stat.ubc.ca/}
+
+\textbf{Duration}: 2020-09-08 - 2020-10-23
+
+\begin{itemize}
+\tightlist
+\item
+  Introduction to \href{http://www.r-project.org}{R} and the
+  \href{http://www.rstudio.com/products/rstudio/}{RStudio IDE}: scripts,
+  the workspace, RStudio Projects, daily workflow
+\item
+  Generate reports from R scripts and
+  \href{http://rmarkdown.rstudio.com}{R Markdown}
+\item
+  Coding style, file and project organization
+\item
+  Data frames or ``tibbles'' are the core data structure for data
+  analysis: care for them with the tidyverse
+\item
+  Data visualization with \href{http://ggplot2.org}{\texttt{ggplot2}}
+\item
+  How to write functions and work with R in a functional style
+\item
+  Version control with Git; collaboration via
+  \href{https://github.com}{GitHub}
+\end{itemize}
+
+\hypertarget{teaching-team}{%
+\section{Teaching Team}\label{teaching-team}}
+
+Instructor: Dr.~Vincenzo Coia
+
+Teaching Assistants:
+
+\begin{itemize}
+\tightlist
+\item
+  Almas Khan
+\item
+  Icíar Fernández Boyano
+\item
+  Diana Lin
+\item
+  Victor Yuan
+\end{itemize}
+
+\hypertarget{lectures}{%
+\section{Lectures}\label{lectures}}
+
+Tuesdays and Thursdays 0930-1100 PST
+
+There will always be two TA's in class to help students with the live
+coding exercises.
+
+\begin{longtable}[]{@{}rlll@{}}
+\toprule
+Lesson & Weekday & Date & Topic\tabularnewline
+\midrule
+\endhead
+1 & Thu & Sep 10 & Introduction to STAT545 and R\tabularnewline
+2 & Tue & Sep 15 & Collaboration and Version Control\tabularnewline
+3 & Thu & Sep 17 & R Markdown and Reproducibility\tabularnewline
+4 & Tue & Sep 22 & Data Wrangling Part I\tabularnewline
+5 & Thu & Sep 24 & Plotting Part I\tabularnewline
+6 & Tue & Sep 29 & Data Wrangling Part II\tabularnewline
+7 & Thu & Oct 1 & Plotting Part II\tabularnewline
+8 & Tue & Oct 6 & Tidy data\tabularnewline
+9 & Thu & Oct 8 & The model-fitting paradigm in R\tabularnewline
+10 & Tue & Oct 13 & Special data types: factors and dates\tabularnewline
+11 & Thu & Oct 15 & Tibble joins\tabularnewline
+12 & Tue & Oct 20 & File input/output\tabularnewline
+13 & Thu & Oct 22 & Choose your own adventure\tabularnewline
+\bottomrule
+\end{longtable}
+
+\textbf{What to expect during class}
+
+Lectures will consist of the following components, in this order:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Live demo and questions (20-30 minutes)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Instructor demonstrates techniques; students ask questions and pose
+    challenges.
+  \item
+    Discussion in a chat are processed by a TA: answer directly, unless
+    the question is more involved, in which case it enters a queue
+    (managed by that TA).
+  \end{itemize}
+\item
+  Quiz
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Only graded by your participation, not correctness. You have 24
+    hours to complete.
+  \item
+    We discuss in class.
+  \end{itemize}
+\item
+  Break: 5 minutes
+
+  \begin{itemize}
+  \tightlist
+  \item
+    We'll try playing
+    \href{https://www.youtube.com/playlist?list=PL6JWPcX0WhHU97aqiRA4P6Jta9f04Nanm}{Random
+    Acts of Exercise} (Each body is different, so make this your
+    practice by modifying the activity based on what your body can do.)
+  \end{itemize}
+\item
+  Lab (45 minutes):
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Instructor introduces the worksheet exercises for the period
+  \item
+    Instructor + 1 TA goes through random groups of 3 or 4 students in
+    turn, coming in with some discussion points, but also allowing a
+    natural conversation to unfold about the worksheet, as well as
+    perhaps how the course is going.
+  \item
+    At the same time, a TA remains present to answer questions.
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{deliverables}{%
+\section{Deliverables}\label{deliverables}}
+
+\begin{longtable}[]{@{}llll@{}}
+\toprule
+\begin{minipage}[b]{0.25\columnwidth}\raggedright
+Deliverable\strut
+\end{minipage} & \begin{minipage}[b]{0.28\columnwidth}\raggedright
+Submission Frequency\strut
+\end{minipage} & \begin{minipage}[b]{0.19\columnwidth}\raggedright
+Percent Grade\strut
+\end{minipage} & \begin{minipage}[b]{0.16\columnwidth}\raggedright
+Description\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.25\columnwidth}\raggedright
+Class worksheets (5)\strut
+\end{minipage} & \begin{minipage}[t]{0.28\columnwidth}\raggedright
+weekly\strut
+\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\raggedright
+10\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright
+Autograded walkthroughs to guide student learning.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.25\columnwidth}\raggedright
+Participation quizzes (13)\strut
+\end{minipage} & \begin{minipage}[t]{0.28\columnwidth}\raggedright
+every class\strut
+\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\raggedright
+5\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright
+Get full marks by answering a few quick questions per class -- doesn't
+matter if you're right or wrong! 24h submission period.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.25\columnwidth}\raggedright
+Mini data analysis\strut
+\end{minipage} & \begin{minipage}[t]{0.28\columnwidth}\raggedright
+three checkpoints\strut
+\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\raggedright
+50\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright
+Students write their own mini data analysis.\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.25\columnwidth}\raggedright
+Collaborative Troubleshooting project\strut
+\end{minipage} & \begin{minipage}[t]{0.28\columnwidth}\raggedright
+three checkpoints\strut
+\end{minipage} & \begin{minipage}[t]{0.19\columnwidth}\raggedright
+35\strut
+\end{minipage} & \begin{minipage}[t]{0.16\columnwidth}\raggedright
+Team project intended for practicing version control and collaboration,
+by answering some debugging problems.\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+More details can be found \href{https://stat545.stat.ubc.ca/course}{on
+the course dashboard}.
+
+\hypertarget{auditing-students}{%
+\section{Auditing Students}\label{auditing-students}}
+
+Auditing students are expected to complete all assessments (assignments,
+peer reviews, and participation). The difference between enrolling for
+credit is that auditing students are graded on each assignment on a
+pass/fail basis.
+
+\hypertarget{privacy}{%
+\section{Privacy}\label{privacy}}
+
+\hypertarget{slack}{%
+\subsection{Slack}\label{slack}}
+
+STAT 545 uses Slack for informal communications. Note that the messages
+sent on Slack are stored on a US server.
+
+\hypertarget{github.com}{%
+\subsection{GitHub.com}\label{github.com}}
+
+STAT 545 asks students to work on github.com. Please produce work
+knowing that the material you put on GitHub will be stored on US
+servers.
+
+\hypertarget{policies}{%
+\section{Policies}\label{policies}}
+
+In addition to
+\href{http://www.calendar.ubc.ca/vancouver/?tree=3,0,0,0}{UBC's
+Campus-wide Policies and Regulations}, STAT 545A and STAT 547M adopt the
+following policies.
+
+\hypertarget{communications}{%
+\subsection{Communications}\label{communications}}
+
+The teaching team can't guarantee that they will be able to respond to
+student messages outside of typical workday hours (0900-1700 PST). So,
+please be mindful of a \textbf{17:00 PST cutoff on Fridays} when asking
+assignment-related questions.
+
+Please read \href{/slack_communication}{this} before messaging the
+teaching team.
+
+\hypertarget{late-policy}{%
+\subsection{Late Policy}\label{late-policy}}
+
+A late submission is defined as any work, including quizzes, submitted
+after the deadline. For a late submission, the student will receive a
+50\% scaling of their grade for the first occurrence, and will receive a
+grade of 0 for subsequent occurrences. In all cases, late submissions
+past 24 hours will receive a zero.
+
+\hypertarget{academic-concession}{%
+\subsection{Academic Concession}\label{academic-concession}}
+
+UBC no longer requires a doctor's note (or supporting documentation) for
+\href{http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,48,0,0}{academic
+concession}. A self-declaration will suffice --
+\href{/concession_template.pdf}{here} is a template you can use. Please
+submit this to the instructor.
+
+For this course, a ``conflicting responsibility'' includes needing to
+travel for a conference or field work.
+
+If you arrange to have an assignment submitted late, you may not be able
+to receive feedback from your peers.
+
+\hypertarget{plagiarism}{%
+\subsection{Plagiarism}\label{plagiarism}}
+
+Plagiarism, which is intellectual theft, occurs where an individual
+submits or presents the oral or written work of another person as his or
+her own and can include:
+
+\begin{itemize}
+\tightlist
+\item
+  multiple students submitting the same response
+\item
+  copying from sources without citing them
+\item
+  copying verbatim (word-for-word) from source and citing, but failing
+  to make it explicit that this is a quotation (quotations should be
+  used only rarely, if at all)
+\end{itemize}
+
+Plagiarism will not be tolerated in the MDS program and may result in
+dismissal from the program. Students are responsible for ensuring that
+any work submitted does not constitute plagiarism. Students who are in
+any doubt as to what constitutes plagiarism should consult their
+Instructor before handing in any assignments.
+
+For more information see the
+\href{http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,54,111,959}{UBC
+Academic Misconduct policies}.
+
+\hypertarget{code-plagiarism}{%
+\subsubsection{Code Plagiarism}\label{code-plagiarism}}
+
+Students must correctly cite any code that has been authored by someone
+else or by the student themselves for other assignments. Cases of code
+plagiarism may include, but are not limited to:
+
+\begin{itemize}
+\tightlist
+\item
+  the reproduction (copying and pasting) of code with none or minimal
+  reformatting (e.g., changing the name of the variables)
+\item
+  the translation of an algorithm or a script from a language to another
+\item
+  the generation of code by automatic code-generations software
+\end{itemize}
+
+An ``adequate acknowledgement'' requires a detailed identification of
+the (parts of the) code reused and a full citation of the original
+source code that has been reused.
+
+\hypertarget{video-conferencing-with-zoom}{%
+\subsection{Video Conferencing with
+Zoom}\label{video-conferencing-with-zoom}}
+
+Students are encouraged to turn their cameras on whenever they are using
+Zoom. However, we understand that this can be an issue for some people.
+As such, you will never be expected to turn your camera on.
+
+\hypertarget{ubcs-policies-and-resources-to-support-student-success}{%
+\subsection{UBC's Policies and Resources to Support Student
+Success}\label{ubcs-policies-and-resources-to-support-student-success}}
+
+UBC provides resources to support student learning and to maintain
+healthy lifestyles but recognizes that sometimes crises arise and so
+there are additional resources to access including those for survivors
+of sexual violence. UBC values respect for the person and ideas of all
+members of the academic community. Harassment and discrimination are not
+tolerated nor is suppression of academic freedom. UBC provides
+appropriate accommodation for students with disabilities and for
+religious, spiritual and cultural observances. UBC values academic
+honesty and students ae expected to acknowledge the ideas generated by
+others and to uphold the highest academic standards in all of their
+actions. Details of the policies and how to access support are available
+\href{https://senate.ubc.ca/policies-resources-support-student-success}{here}.
+
+\hypertarget{potential-restrictions-to-international-students-online-learning-experiences-as-a-result-of-remote-learning}{%
+\subsection{Potential restrictions to international students' online
+learning experiences as a result of remote
+learning}\label{potential-restrictions-to-international-students-online-learning-experiences-as-a-result-of-remote-learning}}
+
+During this pandemic, the shift to online learning has greatly altered
+teaching and studying at UBC, including changes to health and safety
+considerations. Keep in mind that some UBC courses might cover topics
+that are censored or considered illegal by non-Canadian governments.
+This may include, but is not limited to, human rights, representative
+government, defamation, obscenity, gender or sexuality, and historical
+or current geopolitical controversies. If you are a student living
+abroad, you will be subject to the laws of your local jurisdiction, and
+your local authorities might limit your access to course material or
+take punitive action against you. UBC is strongly committed to academic
+freedom, but has no control over foreign authorities (please visit
+\url{http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,33,86,0} for
+an articulation of the values of the University conveyed in the Senate
+Statement on Academic Freedom). Thus, we recognize that students will
+have legitimate reason to exercise caution in studying certain subjects.
+If you have concerns regarding your personal situation, consider
+postponing taking a course with manifest risks, until you are back on
+campus or reach out to your academic advisor to find substitute courses.
+For further information and support, please visit:
+\url{http://academic.ubc.ca/support-resources/freedom-expression}
+
+\end{document}
