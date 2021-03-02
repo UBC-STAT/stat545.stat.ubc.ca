@@ -3,7 +3,6 @@ title: "Team Troubleshooting Deliverable 2"
 output: github_document
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <div id="attributions" class="section level2">
@@ -678,7 +677,7 @@ tribble(
 ##      ^</code></pre>
 <p>Now, for the grand finale!</p>
 <pre class="r"><code>gapminder_almost &lt;- gapminder %&gt;% filter(continent == &quot;Europe&quot;) %&gt;% distinct(year, .keep_all = TRUE)</code></pre>
-<pre><code>## Error in eval(lhs, parent, parent): object &#39;gapminder&#39; not found</code></pre>
+<pre><code>## Error in filter(., continent == &quot;Europe&quot;): object &#39;gapminder&#39; not found</code></pre>
 <ul>
 <li>Rearrange variables from the <code>fakeStarWars</code> dataset to be in the following order: <code>name</code>, <code>birth_year</code>, <code>birth_weight</code>, <code>birth_location</code>.</li>
 <li>Rename <code>birth_year</code> to <code>year</code>.</li>
@@ -703,6 +702,6 @@ fakeStarWars %&gt;%
   drop_na() %&gt;%
   inner_join(&quot;starwars&quot;) %&gt;%
   mutate(bmi = mass / height / 100 ^ 2)</code></pre>
-<pre><code>## Error in eval(lhs, parent, parent): object &#39;fakeStarWars&#39; not found</code></pre>
+<pre><code>## Error in select(., name, starts_with(birth)): object &#39;fakeStarWars&#39; not found</code></pre>
 </div>
 </div>
