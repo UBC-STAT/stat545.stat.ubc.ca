@@ -1,0 +1,45 @@
+---
+title: "STAT 545 Teaching Assistant Job Description"
+output: 
+  html_document:
+    toc: true
+---
+
+STAT 545 offers a dynamic team environment: with content regularly evolving, teaching methods to experiment with, infrastructure to maintain, and the overall STAT 545 community to engage with, delivering these courses is pretty engaging. If this sounds like a good fit for you, please do apply. Applications typically open around the end of April or early May for positions beginning in September, and you can apply through the intake form that gets sent around various mailing lists.
+
+## Eligibility
+
+- Must be a UBC student (not necessarily in Statistics).
+- Must be familiar with much of the STAT 545 content, found at https://stat545.stat.ubc.ca (typically the modern R landscape, git + GitHub).
+- Should want to learn or build your skills in areas that you are less comfortable with.
+- Typically should be part of both STAT 545 A and B.
+- Ideally would be available for a full-time TA position (12 hours/week on average).
+- Knowledge of blogdown is an asset (for maintaining the course website).
+
+## Duties
+
+Duties generally fall into four categories.
+
+_Building course content_:
+
+- Improve the content of assignments and tutorials, as appropriate.
+- Write tests for autograded questions.
+
+_Maintaining course infrastructure_:
+
+- Managing student grades (calculating final grades, implementing special cases, uploading grades, etc.)
+- Manage the STAT 545 website, canvas, and calendar: releasing assignments, correcting assignments, adding quizzes, uploading content, etc.
+- Help arrange who grades what and by when
+- Help run the autograder
+- Help with scheduling, such as office hours.
+
+_Helping students_:
+
+- Presence in the classroom and office hours, helping students with live coding problems (typically one day per week).
+- Handle student concerns regarding their interaction with the course (submitting assignments late, missing class, extension requests, etc.)
+- Address student questions on Slack, and in general, help build the STAT 545 community.
+- Deliver a guest lecture (if you choose).
+
+_Grading_:
+
+- Provide feedback and grades for student projects.
