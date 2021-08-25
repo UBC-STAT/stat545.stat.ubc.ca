@@ -13,35 +13,37 @@ Use this page to navigate your way through STAT 545.
 
 # Topics
 
+**Subject to change for fall 2021**
+
 | Week | Date                                    | Lecture Notes | Weekly Checklist |
 |------|-----------------------------------------|---------------|------------------|
-| 1-A  | `r format(dates_545a[1] , "%a, %b %d")` | _N/A_ | [Week 1-A](/guidance/week-a1) |
-| 1-A  | `r format(dates_545a[1] , "%a, %b %d")` | [Intro to R](/notes/notes-a01) |  |
+| 1-A  | `r format(dates_545a[1] , "%a, %b %d")` | [Intro to R](/notes/notes-a01) | [Week 1-A](/guidance/week-a1) |
 | 2-A  | `r format(dates_545a[2] , "%a, %b %d")` | [Version Control](/notes/notes-a02) | [Week 2-A](/guidance/week-a2) |
 | 2-A  | `r format(dates_545a[3] , "%a, %b %d")` | [Authoring](/notes/notes-a03) |  |
 | 3-A  | `r format(dates_545a[4] , "%a, %b %d")` | [Data Wrangling I](/notes/notes-a04) | [Week 3-A](/guidance/week-a3) |
 | 3-A  | `r format(dates_545a[5] , "%a, %b %d")` | [Plotting I](/notes/notes-a05) |  |
 | 4-A  | `r format(dates_545a[6] , "%a, %b %d")` | [Data Wrangling II](/notes/notes-a06) | [Week 4-A](/guidance/week-a4) |
-| 4-A  | `r format(dates_545a[7] , "%a, %b %d")` | [Plotting II](/notes/notes-a07) |  |
-| 5-A  | `r format(dates_545a[8] , "%a, %b %d")` | [Tidy Data](/notes/notes-a08) | [Week 5-A](/guidance/week-a5) |
-| 5-A  | `r format(dates_545a[9] , "%a, %b %d")` | [Model Fitting](/notes/notes-a09) |  |
-| 6-A  | `r format(dates_545a[10], "%a, %b %d")` | [Factors and Dates](/notes/notes-a10) | [Week 6-A](/guidance/week-a6) |
-| 6-A  | `r format(dates_545a[11], "%a, %b %d")` | [Tibble joins](/notes/notes-a11) |  |
-| 7-A  | `r format(dates_545a[12], "%a, %b %d")` | [Reading and Writing Data](/notes/notes-a12) | [Week 7-A](/guidance/week-a7) |
-| 7-A  | `r format(dates_545a[13], "%a, %b %d")` | [Choose your Adventure](/notes/notes-a13) |  |
+| 4-A  | `r format(dates_545a[7] , "%a, %b %d")` | University closed (National Day for Truth and Reconciliation) | |
+| 5-A  | `r format(dates_545a[8] , "%a, %b %d")` | [Plotting II](/notes/notes-a07) | [Week 5-A](/guidance/week-a5) |
+| 5-A  | `r format(dates_545a[9] , "%a, %b %d")` | [Tidy Data](/notes/notes-a08) |  |
+| 6-A  | `r format(dates_545a[10], "%a, %b %d")` | [Model Fitting](/notes/notes-a09) | [Week 6-A](/guidance/week-a6) |
+| 6-A  | `r format(dates_545a[11], "%a, %b %d")` | [Factors and Dates](/notes/notes-a10) |  |
+| 7-A  | `r format(dates_545a[12], "%a, %b %d")` | [Tibble joins](/notes/notes-a11) | [Week 7-A](/guidance/week-a7) |
+| 7-A  | `r format(dates_545a[13], "%a, %b %d")` | [Reading and Writing Data](/notes/notes-a12) |  |
 | 1-B  | `r format(dates_545b[1] , "%a, %b %d")` | [Functions](/notes/notes-b01) | [Week 1-B](/guidance/week-b1) |
 | 1-B  | `r format(dates_545b[2] , "%a, %b %d")` |  |  |
-| 2-B  | `r format(dates_545b[3] , "%a, %b %d")` | [List columns](/notes/notes-b02) | [Week 2-B](/guidance/week-b2) |
+| 2-B  | `r format(dates_545b[3] , "%a, %b %d")` | [R packages](/notes/notes-b03) | [Week 2-B](/guidance/week-b2) |
 | 2-B  | `r format(dates_545b[4] , "%a, %b %d")` |  |  |
-| 3-B  | `r format(dates_545b[5] , "%a, %b %d")` |  | [Week 3-B](guidance/week-b3) |
-| 3-B  | `r format(dates_545b[6] , "%a, %b %d")` | [R packages](/notes/notes-b03) |  |
-| 4-B  | `r format(dates_545b[7] , "%a, %b %d")` |  | [Week 4-B](/guidance/week-b4) |
-| 4-B  | `r format(dates_545b[8] , "%a, %b %d")` | [Dashboards](/notes/notes-b04) |  |
+| 3-B  | `r format(dates_545b[5] , "%a, %b %d")` | **Optional** lecture: [Automation](/notes/notes-b05) | [Week 3-B](guidance/week-b3) |
+| 3-B  | `r format(dates_545b[6] , "%a, %b %d")` | University closed (mid-term break / Remembrance Day) |  |
+| 4-B  | `r format(dates_545b[7] , "%a, %b %d")` | [List columns](/notes/notes-b02) | [Week 4-B](/guidance/week-b4) |
+| 4-B  | `r format(dates_545b[8] , "%a, %b %d")` |  |  |
 | 5-B  | `r format(dates_545b[9] , "%a, %b %d")` |  | [Week 5-B](/guidance/week-b5) |
-| 5-B  | `r format(dates_545b[10], "%a, %b %d")` | [Automation](/notes/notes-b05) |  |
-| 6-B  | `r format(dates_545b[11], "%a, %b %d")` |  | [Week 6-B](/guidance/week-b6) |
-| 6-B  | `r format(dates_545b[12], "%a, %b %d")` | [Character data](/notes/notes-b06) |  |
-| 7-B  |  | _no new topics_ | [Week 7-B](/guidance/week-b7) |
+| 5-B  | `r format(dates_545b[10], "%a, %b %d")` | [Character data](/notes/notes-b06) |  |
+| 6-B  | `r format(dates_545b[11], "%a, %b %d")` | [Dashboards](/notes/notes-b04) | [Week 6-B](/guidance/week-b6) |
+| 6-B  | `r format(dates_545b[12], "%a, %b %d")` |  |  |
+| 7-B  | `r format(dates_545b[13], "%a, %b %d")` | **Optional** lecture: Data Analysis Miscellania | [Week 7-B](/guidance/week-b7) |
+
 
 
 # Worksheets

@@ -3,6 +3,7 @@ title: "Team Troubleshooting Deliverable 3"
 output: github_document
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <div id="attributions" class="section level2">
@@ -82,14 +83,14 @@ dym(rs) </code></pre>
 <pre class="r"><code># ERROR HERE - 4
 date_landing &lt;- mdy(&quot;July 20, 1969&quot;)
 difftime(today(), date_landing, units = &quot;days&quot;)</code></pre>
-<pre><code>## Time difference of 18852 days</code></pre>
+<pre><code>## Time difference of 19025 days</code></pre>
 </div>
 <div id="exercise-5" class="section level3">
 <h3>Exercise 5</h3>
 <p>Now, how many <em>days</em> will it have been since the landing on the moon, <strong>in a week from now</strong>?</p>
 <pre class="r"><code># ERROR HERE - 5
 difftime(today(), date_landing + weeks(1), units = &quot;days&quot;)</code></pre>
-<pre><code>## Time difference of 18845 days</code></pre>
+<pre><code>## Time difference of 19018 days</code></pre>
 </div>
 <div id="exercise-6" class="section level3">
 <h3>Exercise 6</h3>
@@ -157,15 +158,13 @@ penguins_new &lt;-
                           &quot;Chinstrap penguin (Pygoscelis antarctica)&quot; = &quot;Chinstrap&quot;,
                           &quot;Gentoo penguin (Pygoscelis papua)&quot; = &quot;Gentoo&quot;))</code></pre>
 <pre><code>## Warning: Problem with `mutate()` input `Species`.
-## ℹ `rename_()` is deprecated as of dplyr 0.7.0.
+## ℹ `rename_()` was deprecated in dplyr 0.7.0.
 ## Please use `rename()` instead.
 ## This warning is displayed once every 8 hours.
 ## Call `lifecycle::last_warnings()` to see where this warning was generated.
 ## ℹ Input `Species` is `rename(...)`.</code></pre>
-<pre><code>## Warning: `rename_()` is deprecated as of dplyr 0.7.0.
-## Please use `rename()` instead.
-## This warning is displayed once every 8 hours.
-## Call `lifecycle::last_warnings()` to see where this warning was generated.</code></pre>
+<pre><code>## Warning: `rename_()` was deprecated in dplyr 0.7.0.
+## Please use `rename()` instead.</code></pre>
 <pre><code>## Error: Problem with `mutate()` input `Species`.
 ## x no applicable method for &#39;rename_&#39; applied to an object of class &quot;factor&quot;
 ## ℹ Input `Species` is `rename(...)`.</code></pre>

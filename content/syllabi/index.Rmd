@@ -1,0 +1,8 @@
+---
+title: "Syllabi Archive"
+output: html_document
+---
+
+Course syllabi from past years. Note: STAT 547M was renamed STAT 545B as of Fall 2020.
+
+- 2020: [STAT 545A](545a-2020.html); [STAT 545B](545b-2020.html)

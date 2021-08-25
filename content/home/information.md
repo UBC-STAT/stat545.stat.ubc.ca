@@ -10,7 +10,7 @@ title = "Course Information"
   icon = "scroll"
   icon_pack = "fas"
   name = "Syllabus"
-  description = "[STAT 545A](/syllabus-545a); [STAT 545B](/syllabus-545b)"
+  description = "[STAT 545A](/syllabus-545a); [STAT 545B](/syllabus-545b); [Archive](/syllabi)"
   
 [[feature]]
   icon = "calendar-alt"

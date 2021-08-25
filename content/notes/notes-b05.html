@@ -4,6 +4,7 @@ subtitle: "Version 1.0.1"
 output: html_document
 ---
 
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <div id="learning-objectives" class="section level2">
@@ -193,8 +194,8 @@ Update: add a <code>rm Rplots.pdf</code> line to the histogram creation rule; up
 <li><p><input type="checkbox" disabled="" />
 Make a <code>report.Rmd</code> file – <a href="https://raw.githubusercontent.com/STAT545-UBC/STAT545-UBC.github.io/master/automation10_holding-area/activity/report.rmd">code here</a>.</p></li>
 <li><p><input type="checkbox" disabled="" />
-Add a rule to make the report output:</p><pre><code>report.html: report.rmd histogram.tsv histogram.png
- Rscript -e &#39;rmarkdown::render(&quot;$&lt;&quot;)&#39;</code></pre></li>
+Add a rule to make the report output:
+<code>report.html: report.rmd histogram.tsv histogram.png      Rscript -e 'rmarkdown::render("$&lt;")'</code></p></li>
 </ol>
 </div>
 </div>
