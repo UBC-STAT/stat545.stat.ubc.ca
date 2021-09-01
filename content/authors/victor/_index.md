@@ -38,7 +38,7 @@ email: "vyuan@bcchr.ca"
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.  
 user_groups:
-- Teaching Assistants
+- contributor
 ---
 
 <!-- Put text below here if you want it to appear on your page -->

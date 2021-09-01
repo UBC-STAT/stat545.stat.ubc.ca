@@ -39,6 +39,7 @@ email: ""
 #   Set this to `[]` or comment out if you are not using People widget.  
 user_groups:
 - Teaching Assistants
+- contributor
 ---
 
 <!-- Put text below here if you want it to appear on your page -->
