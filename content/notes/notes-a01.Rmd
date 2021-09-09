@@ -1,6 +1,6 @@
 ---
 title: "Lecture Notes: Intro to R"
-subtitle: "Version 1.0.0"
+subtitle: "Version 2.0.0"
 output: html_document
 ---
 
