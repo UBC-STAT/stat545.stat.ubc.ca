@@ -23,7 +23,7 @@ Today's class is a digest of the following resources:
 - About the course: [STAT 545 Video Series Introduction](https://www.youtube.com/watch?v=6REhJVsbbAM)
 - Installation and setup: "[Happy Git and GitHub for the useR](https://happygitwithr.com/)" by Jenny Bryan et al. (see details below)
 - Overview of coding a data analysis: [STAT 545 Episode 1-A: Coding your Analysis for Success](https://youtu.be/91LmBj29-Sc) (also available on canvas)
-- Practice some R syntax and jupyter: STAT 545 Worksheet A1
+- Practice some R syntax and jupyter: Worksheet A1 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a01.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a01.ipynb))
 
 Some additional resources that you might find useful:
 
@@ -70,4 +70,4 @@ You'll need to install some things and get set up. Most things can be found in J
 
 #### Time permitting: Working with R syntax; working with jupyter
 
-Worksheet A1 covers some R basics. Let's go through some of it. 
+Worksheet A1 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a01.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a01.ipynb)) covers some R basics. Let's go through some of it. _It's completion is not required for the course, but future worksheets will be required_.
