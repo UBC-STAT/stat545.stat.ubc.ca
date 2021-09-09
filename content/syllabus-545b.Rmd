@@ -103,7 +103,7 @@ Please read [this](/slack_communication) before messaging the teaching team.
 
 ## Late Policy
 
-A late submission is defined as any work, including quizzes, submitted after the deadline. For a late submission, the student will receive a 50% scaling of their grade for the first occurrence, and will receive a grade of 0 for subsequent occurrences. In all cases, late submissions past 24 hours will receive a zero.
+A late submission is defined as any work, including quizzes, submitted after the deadline. For a late submission, the student will receive a 50% scaling of their grade for the first occurrence, and will receive a grade of 0 for subsequent occurrences.
 
 ## Academic Concession
 
@@ -141,7 +141,21 @@ UBC provides resources to support student learning and to maintain healthy lifes
 
 ## Covid Safety in the Classroom  
 
-**Masks**: Masks are **required** for all indoor classes, as per the BC Public Health Officer orders. For our in-person meetings in this class, it is important that all of us feel as comfortable as possible engaging in class activities while sharing an indoor space.  For the purposes of this order, the term "masks" refers to medical and non-medical masks that cover our noses and mouths.  Masks are a primary tool to make it harder for Covid-19 to find a new host.  You will need to wear a medical or non-medical mask for the duration of our class meetings, for your own protection, and the safety and comfort of everyone else in the class.  You may be asked to remove your mask briefly for an ID check for an exam, but otherwise, your mask should cover your nose and mouth. Please do not eat in class. If you need to drink water/coffee/tea/etc, please keep your mask on between sips. Please note that there are some people who cannot wear a mask. These individuals are equally welcome in our class. 
+**Masks**: Masks are **required** for all indoor public spaces on campus, including classrooms, as
+per the BC Public Health Officer orders and UBC policy. For our in-person meetings in this
+class, it is important that all of us feel as comfortable as possible engaging in class activities
+while sharing an indoor space. For the purposes of this order, the term "masks" refers to
+medical and non-medical masks that cover our noses and mouths. Masks are a primary tool to
+make it harder for Covid-19 to find a new host. You will need to wear a medical or non-medical
+mask for the duration of our class meetings, for your own protection, and the safety and comfort
+of everyone else in the class. You may be asked to remove your mask briefly for an ID check
+for an exam, but otherwise, your mask should cover your nose and mouth. Please do not eat in
+class. If you need to drink water/coffee/tea/etc, please keep your mask on between sips.
+Students who need to request an exemption to the indoor mask mandate must do so based on
+one of the grounds for exemption detailed in the PHO Order on Face Coverings (COVID-19).
+Such requests must be made through the Center for Accessibility (info.accessibility@ubc.ca).
+Mask wearing protects you as well as others in your environment. Let's do everything we can as
+a community to stop the spread of this virus. 
 
 **Vaccination**: If you have not yet had a chance to get vaccinated against Covid-19, vaccines are available to you, free, and on campus: http://www.vch.ca/covid-19/covid-19-vaccine. The higher the rate of vaccination in our community overall, the lower the chance of spreading this virus.  You are an important part of the UBC community. Please arrange to get vaccinated if you have not already done so. 
 

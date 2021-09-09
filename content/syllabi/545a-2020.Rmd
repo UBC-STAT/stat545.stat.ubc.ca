@@ -11,18 +11,11 @@ output:
     number_sections: true
 ---
 
-```{r, echo = FALSE, warning = FALSE, message = FALSE}
-library(tidyverse)
-library(lubridate)
-source(here::here("content", "dates.R"))
-knitr::opts_chunk$set(echo = FALSE, message = FALSE)
-```
-
 How to make a clean and modern data analysis, Part I. 
 
 __Website__: https://stat545.stat.ubc.ca/
 
-__Duration__: `r lec0` - `r max(dates_545a) + ddays(1)`
+__Session__: First half of Fall 2020 term.
 
 * Introduction to [R](http://www.r-project.org) and the [RStudio IDE](http://www.rstudio.com/products/rstudio/): scripts, the workspace, RStudio Projects, daily workflow
 * Generate reports from R scripts and [R Markdown](http://rmarkdown.rstudio.com)
@@ -51,15 +44,6 @@ Tuesdays and Thursdays 0930-1100 PST
 
 There will always be two TA's in class to help students with the live coding exercises. 
 
-
-```{r, results = "asis"}
-here::here("content", "lecture_schedule-545a.csv") %>% 
-  read_csv() %>% 
-  mutate(Weekday = wday(dates_545a, label = TRUE),
-         Date = dates_545a_pretty_noyear) %>% 
-  select(Lesson, Weekday, Date, Topic) %>% 
-  knitr::kable()
-```
 
 
 <!-- __Non COVID-19 years__: Keep things similar, except synchronous part to be held in-person. -->

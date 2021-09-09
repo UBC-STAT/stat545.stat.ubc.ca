@@ -7,16 +7,16 @@ weight = 80  # Order that this section will appear.
 title = "Connect"
 
 [[feature]]
-  icon = "bullhorn"
-  icon_pack = "fas"
-  name = "[Announcements](https://canvas.ubc.ca/)"
-  description = "Made through canvas"
+  icon = "slack"
+  icon_pack = "fab"
+  name = "[Slack Community](https://join.slack.com/t/stat545ubc-community/shared_invite/zt-vc860ez6-fEx9Qbly8qS~PDrLXUKUlQ)"
+  description = "An open Slack workspace for anyone to join."
   
 [[feature]]
   icon = "slack"
   icon_pack = "fab"
-  name = "[Discussion](/slack_communication)"
-  description = "preferably on the STAT 545 Slack channel!"  
+  name = "[Class Discussion](/slack_communication)"
+  description = "Slack workspace for current STAT 545 students only"  
 
 [[feature]]
   icon = "users"
@@ -24,5 +24,3 @@ title = "Connect"
   name = "[Community](/community)"
   description = "Join different R communities"  
 +++
-
-Want to get in touch? Here are some options.

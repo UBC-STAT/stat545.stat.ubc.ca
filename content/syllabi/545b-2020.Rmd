@@ -11,18 +11,11 @@ output:
   #   number_sections: true
 ---
 
-```{r, echo = FALSE, warning = FALSE, message = FALSE}
-library(tidyverse)
-library(lubridate)
-source(here::here("content", "dates.R"))
-knitr::opts_chunk$set(echo = FALSE, message = FALSE)
-```
-
 How to make a clean and modern data analysis, Part II. 
 
 __Website__: https://stat545.stat.ubc.ca/
 
-__Duration__: `r dates_545b[1] - ddays(1)` - `r max(dates_545b) + ddays(1)`
+__Session__: Fall 2020, second half
 
 * Advanced computation on data: manipulating strings, and functional programming with purrr
 * Orchestrate an analysis at a high level by writing functions and automating scripts.
@@ -45,15 +38,6 @@ Teaching Assistants:
 Tuesdays and Thursdays 0930-1100 PST
 
 There will always be two TA's in class to help students with the live coding exercises. 
-
-```{r, results = "asis"}
-here::here("content", "lecture_schedule-545b.csv") %>% 
-  read_csv() %>% 
-  mutate(Weekday = wday(dates_545b, label = TRUE),
-         Date = dates_545b_pretty_noyear) %>% 
-  select(Lesson, Weekday, Date, Topic) %>% 
-  knitr::kable()
-```
 
 
 <!-- __Non COVID-19 years__: Keep things similar, except synchronous part to be held in-person. -->

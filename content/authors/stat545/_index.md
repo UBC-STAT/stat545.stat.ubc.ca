@@ -2,7 +2,7 @@
 authors:
 - stat545
 name: "STAT 545 @ UBC"
-role: "2020/2021"
+role: "2021/2022"
 social:
 - icon: github
   icon_pack: fab

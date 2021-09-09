@@ -2,7 +2,7 @@
 # Hero widget.
 widget = "hero"  # See https://sourcethemes.com/academic/docs/page-builder/
 headless = true  # This file represents a page section.
-active = true  # Activate this widget? true/false
+active = false  # Activate this widget? true/false
 weight = 30  # Order that this section will appear.
 
 title = "Watch the Series on YouTube"
@@ -36,12 +36,14 @@ hero_media = "logo-youtube.png"
 [cta]
   url = "https://www.youtube.com/channel/UCrB-uourf2vxGeBnGjQrA0w"
   label = "Go to Channel"
-  icon_pack = "fas"
-  icon = "play"
+  icon_pack = "fab"
+  icon = "youtube"
   
 #[cta_alt]
 #  url = "https://sourcethemes.com/academic/"
 #  label = "View Documentation"
+#  icon_pack = "fas"
+#  icon = "play"
 
 # Note. An optional note to show underneath the links.
 [cta_note]
