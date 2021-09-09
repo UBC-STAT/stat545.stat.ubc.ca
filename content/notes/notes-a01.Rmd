@@ -9,35 +9,65 @@ knitr::opts_chunk$set(fig.width = 5, fig.height = 3,
                       fig.align = "center", error = TRUE)
 ```
 
-Reminder: Join the class via Zoom: check out the [canvas](https://canvas.ubc.ca/) announcement "Zoom Class Invitation" for the details. This is private to those registered in the course (including auditors).
 
 ## Learning Objectives
 
 1. Become familiar with the STAT 545 website and syllabus.
-2. Explore the basic R syntax.
-3. Write an R script to perform simple calculations.
+2. Install some key software for use in the course. 
+2. Explore basic R syntax.
 
 ## Parallel Resources
 
-This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:
+Today's class is a digest of the following resources:
 
-- [STAT 545 Episode 1-A: Coding your Analysis for Success](https://youtu.be/91LmBj29-Sc) (also available on canvas)
+- About the course: [STAT 545 Video Series Introduction](https://www.youtube.com/watch?v=6REhJVsbbAM)
+- Installation and setup: "[Happy Git and GitHub for the useR](https://happygitwithr.com/)" by Jenny Bryan et al. (see details below)
+- Overview of coding a data analysis: [STAT 545 Episode 1-A: Coding your Analysis for Success](https://youtu.be/91LmBj29-Sc) (also available on canvas)
+- Practice some R syntax and jupyter: STAT 545 Worksheet A1
 
-We suggest referring to this material when engaging with today's topic.
-
-## Additional Resources
-
-Some useful (but not mandatory) readings are:
+Some additional resources that you might find useful:
 
 - [stat545.com's Intro to R](https://stat545.com/r-basics.html)
 - [Why R?](https://cfss.uchicago.edu/setup/what-is-r/)
 
-## Quiz
-
-_No quiz for this topic_
-
 ## Demonstration
 
-We'll work on Worksheet 1-A (link available on course dashboard, https://stat545.stat.ubc.ca/course)
+#### Introductions
 
-_Today's topic cancelled due to the scholar strike_
+- Vincenzo (instructor): [vincenzocoia.com](https://vincenzocoia.com/)
+- TA's: Yulia, Icíar, Albina, Asfar.
+- New this year: student experience coordinator, Tian Liu.
+
+#### Course Platforms
+
+Platforms for hosting course-related content:
+
+1. Slack
+    - Especially `#announcements` channel
+    - Here's a [photo of what it looks like](https://cdn.vox-cdn.com/thumbor/ljup85YXH0uSunvONPrkkys_1po=/0x0:1980x1320/1820x1213/filters:focal(832x502:1148x818):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/66517684/slacknewdesign.0.jpg) (from Vox) 
+    
+2. Website (https://stat545.stat.ubc.ca/) -- view this as your "launchpad". 
+
+3. A GitHub Organization for you to submit homework to.
+
+4. Canvas??? (perhaps for grade management; want to minimize the number of platforms used by the course)
+
+#### Syllabus
+
+- Lecture topics
+- Deliverables
+- Covid
+
+#### Installation
+
+You'll need to install some things and get set up. Most things can be found in Jenny's "happy git" book. Let's take some class time to struggle through this together. Need extra help? We will have an office hour on Friday, 3-4. 
+
+- Register a github account at github.com. See [Chapter 4](https://happygitwithr.com/github-acct.html).
+- Install or upgrade R and RStudio. See [Chapter 5](https://happygitwithr.com/install-r-rstudio.html).
+- Install git. [Chapter 6](https://happygitwithr.com/install-git.html).
+- Configure git. See [Chapter 7: Introduce yourself to git](https://happygitwithr.com/hello-git.html).
+- Install jupyterlab + IRkernel. See [Rich Pauloo's instructions](https://richpauloo.github.io/2018-05-16-Installing-the-R-kernel-in-Jupyter-Lab/), which seem to be pretty good (let us know if you find something better).
+
+#### Time permitting: Working with R syntax; working with jupyter
+
+Worksheet A1 covers some R basics. Let's go through some of it. 

@@ -24,9 +24,9 @@ Still being updated for fall 2021.
 
 ### Part A
 
-| Date | Topic  | Worksheet |
+| Date | Topic  | Worksheet / to do |
 |------|--------|-----------|
-| `r format(dates_545a[1] , "%a, %b %d")` | [Intro to R](/notes/notes-a01)               | Worksheet 1A: ([.ipynb](); [viewable]()) |
+| `r format(dates_545a[1] , "%a, %b %d")` | [Intro to R](/notes/notes-a01)               | Worksheet 1A: ([.ipynb](); [viewable]()); also, see installation instructions in the notes.  |
 | `r format(dates_545a[2] , "%a, %b %d")` | [Version Control]()          | Worksheet 2A: ([.ipynb](); [viewable])) |
 | `r format(dates_545a[3] , "%a, %b %d")` | [Authoring]()                |  |
 | `r format(dates_545a[4] , "%a, %b %d")` | [Data Wrangling I]()         |  |
