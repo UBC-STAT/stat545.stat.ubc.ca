@@ -72,12 +72,11 @@ here::here("content", "lecture_schedule-545a.csv") %>%
 
 # Deliverables
 
-| Deliverable        | Submission Frequency | Percent Grade | Description |
-|--------------------|----------------------|---------------|-------------|
-| Class worksheets (5) | weekly               | 10            | Autograded walkthroughs to guide student learning. |
-| Participation quizzes (13) | every class | 5  | Get full marks by answering a few quick questions per class -- doesn't matter if you're right or wrong! 24h submission period. |
-| Mini data analysis   | three checkpoints | 50            | Students write their own mini data analysis. |
-| Collaborative Troubleshooting project | three checkpoints | 35            | Team project intended for practicing version control and collaboration, by answering some debugging problems. |
+| Deliverable        | Percent Grade | Description |
+|--------------------|---------------|-------------|
+| Class worksheets   | 15            | Autograded walkthroughs to guide student learning. |
+| Mini data analysis | 50            | Students write their own mini data analysis. |
+| Collaborative project | 35         | Team project intended for practicing version control and collaboration, by answering some debugging problems. |
 
 More details can be found [on the course dashboard](https://stat545.stat.ubc.ca/course). 
 

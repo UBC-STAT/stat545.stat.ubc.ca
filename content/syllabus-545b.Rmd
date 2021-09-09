@@ -69,9 +69,8 @@ here::here("content", "lecture_schedule-545b.csv") %>%
 
 | Deliverable                | Percent Grade | Description |
 |----------------------------|---------------|-------------|
-| Class worksheets (3)       | 10            | Autograded walkthroughs to guide student learning in class. |
-| Participation quizzes (11) |  5            | Two questions per class for critical thinking. Submit on canvas within 24h. Graded for participation, not correctness.  |
-| Assignments (5)            | 85            | Adding to a data analysis, making a small R package, making a Shiny dashboard |
+| Class worksheets           | 15            | Autograded walkthroughs to guide student learning in class. |
+| Assignments                | 85            | e.g., adding to a data analysis, making a small R package, making a Shiny dashboard |
 
 
 More details can be found [on the course dashboard](https://stat545.stat.ubc.ca/course). 
