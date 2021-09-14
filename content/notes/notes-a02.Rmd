@@ -22,7 +22,7 @@ From today's topic, students are anticipated to be able to:
 
 ## Parallel Resources
 
-This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:
+Today's class is a digest of the following resources:
 
 - [STAT 545 Episode 2-A: Git and GitHub for an Organized Project](https://youtu.be/l2ftm-YwJs8) (a copy is also available on Canvas)
 - Read about the basic version control workflow (without branching) at [Happy git w R: Chapter 20](https://happygitwithr.com/git-basics.html).
@@ -30,7 +30,7 @@ This topic parallels the following resources. Take about 30 minutes to get acqua
 
 We suggest referring to this material when engaging with today's topic.
 
-## Additional Resources
+Some additional resources that you might find useful:
 
 - Linking a project between GitHub and local:
     - [From GitHub to local](https://happygitwithr.com/new-github-first.html)

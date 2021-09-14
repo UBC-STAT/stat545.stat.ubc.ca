@@ -23,14 +23,14 @@ From today's class, students are anticipated to be able to:
 
 ## Parallel Resources
 
-This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:
+Today's class is a digest of the following resources:
 
 - [STAT 545 Episode 3-A: Reproducible Reports with R Markdown](https://youtu.be/ZzDSkBgt9xQ)
 - Read the [Official R Markdown Tutorial](https://rmarkdown.rstudio.com/lesson-1.html) from the "Introduction" up to and including the "Inline Code" section.
 
 We suggest referring to this material when engaging with today's topic.
 
-## Additional Resources
+Some additional resources that you might find useful:
 
 Simple cheat sheets:
 
@@ -58,4 +58,4 @@ Interesting reads:
 
 ## Demonstration
 
-Work on Worksheet 1-A (available on course dashboard).
+

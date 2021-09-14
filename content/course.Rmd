@@ -26,19 +26,19 @@ Still being updated for fall 2021.
 
 | Date | Topic  | Worksheet / to do |
 |------|--------|-----------|
-| `r format(dates_545a[1] , "%a, %b %d")` | [Intro to R](/notes/notes-a01)               | Worksheet A1 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a01.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a01.ipynb)); also, see installation instructions in the notes.  |
-| `r format(dates_545a[2] , "%a, %b %d")` | [Version Control]()          |  |
-| `r format(dates_545a[3] , "%a, %b %d")` | [Authoring]()                |  |
-| `r format(dates_545a[4] , "%a, %b %d")` | [Data Wrangling I]()         |  |
-| `r format(dates_545a[5] , "%a, %b %d")` | [Plotting I]()               |  |
-| `r format(dates_545a[6] , "%a, %b %d")` | [Data Wrangling II]()        |  |
+| `r format(dates_545a[1] , "%a, %b %d")` | [Intro to R](/notes/notes-a01)               | Worksheet A1 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a01.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a01.ipynb); [zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a01.ipynb.zip)); also, see installation instructions in the notes.  |
+| `r format(dates_545a[2] , "%a, %b %d")` | [Version Control](/notes/notes-a02)          |  |
+| `r format(dates_545a[3] , "%a, %b %d")` | [Authoring](/notes/notes-a03)                |  |
+| `r format(dates_545a[4] , "%a, %b %d")` | [Data Wrangling I]         | Worksheet A2 (Due Saturday, Sept 25, 2021 at 22:00 PT) |
+| `r format(dates_545a[5] , "%a, %b %d")` | [Plotting I]               | Worksheet A2 (Due Saturday, Sept 25, 2021 at 22:00 PT) |
+| `r format(dates_545a[6] , "%a, %b %d")` | [Data Wrangling II]        |  |
 | `r format(dates_545a[7] , "%a, %b %d")` | University closed (Truth and Reconciliation) |  |
-| `r format(dates_545a[8] , "%a, %b %d")` | [Plotting II]()              |  |
-| `r format(dates_545a[9] , "%a, %b %d")` | [Tidy Data]()                |  |
-| `r format(dates_545a[10], "%a, %b %d")` | [Model Fitting]()            |  |
-| `r format(dates_545a[11], "%a, %b %d")` | [Factors and Dates]()        |  |
-| `r format(dates_545a[12], "%a, %b %d")` | [Tibble joins]()             |  |
-| `r format(dates_545a[13], "%a, %b %d")` | [Reading and Writing Data]() |  |
+| `r format(dates_545a[8] , "%a, %b %d")` | [Plotting II]              |  |
+| `r format(dates_545a[9] , "%a, %b %d")` | [Tidy Data]                |  |
+| `r format(dates_545a[10], "%a, %b %d")` | [Model Fitting]            |  |
+| `r format(dates_545a[11], "%a, %b %d")` | [Factors and Dates]        |  |
+| `r format(dates_545a[12], "%a, %b %d")` | [Tibble joins]             |  |
+| `r format(dates_545a[13], "%a, %b %d")` | [Reading and Writing Data] |  |
 
 ### Part B
 
