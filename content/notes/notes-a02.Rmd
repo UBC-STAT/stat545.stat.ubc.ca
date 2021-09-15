@@ -20,18 +20,22 @@ From today's topic, students are anticipated to be able to:
 - make a branch in git using RStudio or GitHub.
 - use collaborative GitHub features such as Issues and pull requests.
 
-## Parallel Resources
+## Resources
 
 Today's class is a digest of the following resources:
 
+Video lectures:
+
 - [STAT 545 Episode 2-A: Git and GitHub for an Organized Project](https://youtu.be/l2ftm-YwJs8) (a copy is also available on Canvas)
+- [Zoom recording from this class is on canvas](https://canvas.ubc.ca/courses/80816/external_tools/187).
+
+Tutorials:
+
 - The basic version control workflow (without branching): [Happy git w R: Chapter 20](https://happygitwithr.com/git-basics.html).
 - Syncing files on your computer with GitHub:
     - Starting with GitHub: [Chapter 15: New project, GitHub first](https://happygitwithr.com/new-github-first.html)
     - Starting with files on your computer, and didn't set up git: [Chapter 16: Existing project, GitHub first](https://happygitwithr.com/existing-github-first.html)
     - Starting with files on your computer, and _did_ set up git: [Chapter 17: Existing project, GitHub Last](https://happygitwithr.com/existing-github-last.html)
-
-We suggest referring to this material when engaging with today's topic.
 
 Some additional resources that you might find useful:
 
