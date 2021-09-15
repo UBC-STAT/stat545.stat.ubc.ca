@@ -1,6 +1,6 @@
 ---
 title: "Lecture Notes: Version Control"
-subtitle: "Version 1.0.0"
+subtitle: "Version 1.0.1"
 output: html_document
 ---
 
@@ -25,17 +25,17 @@ From today's topic, students are anticipated to be able to:
 Today's class is a digest of the following resources:
 
 - [STAT 545 Episode 2-A: Git and GitHub for an Organized Project](https://youtu.be/l2ftm-YwJs8) (a copy is also available on Canvas)
-- Read about the basic version control workflow (without branching) at [Happy git w R: Chapter 20](https://happygitwithr.com/git-basics.html).
-- Read the [Understanding the GitHub flow](https://guides.github.com/introduction/flow/) to get a sense of branching.
+- The basic version control workflow (without branching): [Happy git w R: Chapter 20](https://happygitwithr.com/git-basics.html).
+- Syncing files on your computer with GitHub:
+    - Starting with GitHub: [Chapter 15: New project, GitHub first](https://happygitwithr.com/new-github-first.html)
+    - Starting with files on your computer, and didn't set up git: [Chapter 16: Existing project, GitHub first](https://happygitwithr.com/existing-github-first.html)
+    - Starting with files on your computer, and _did_ set up git: [Chapter 17: Existing project, GitHub Last](https://happygitwithr.com/existing-github-last.html)
 
 We suggest referring to this material when engaging with today's topic.
 
 Some additional resources that you might find useful:
 
-- Linking a project between GitHub and local:
-    - [From GitHub to local](https://happygitwithr.com/new-github-first.html)
-    - [From local to GitHub](https://happygitwithr.com/existing-github-last.html)
-
+- Read the [Understanding the GitHub flow](https://guides.github.com/introduction/flow/) to get a sense of branching.
 
 ## Quiz
 
@@ -45,12 +45,14 @@ Some additional resources that you might find useful:
 
 ## Demonstration
 
+Here's what we'll aim to accomplish in class. 
+
 ### Get Acquainted with GitHub
 
-- Orgs vs. personal account: Explore some of my personal repos vs. some of my organization repos
+- Orgs vs. personal account: explore these two.
 - Issues: check out course topics Issue in STAT 545 repo.
   - Watching repo
-- Working on GitHub: Change the README on STAT 545 site on GitHub
+- Working on GitHub: Change the README on a GitHub repo
 
 ### Linear Synchronizing: Working between GitHub and Local; Merge Conflicts
 

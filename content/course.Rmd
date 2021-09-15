@@ -20,12 +20,11 @@ Slack channel specifically for students: https://stat545classroom.slack.com/
 
 # Topics
 
-Still being updated for fall 2021.
 
 ### Part A
 
 | Date | Topic  | Worksheet / to do |
-|------|--------|-----------|
+|------|--------|-------------------|
 | `r format(dates_545a[1] , "%a, %b %d")` | [Intro to R](/notes/notes-a01)               | Worksheet A1 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a01.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a01.ipynb); [zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a01.ipynb.zip)); also, see installation instructions in the notes.  |
 | `r format(dates_545a[2] , "%a, %b %d")` | [Version Control](/notes/notes-a02)          |  |
 | `r format(dates_545a[3] , "%a, %b %d")` | [Authoring](/notes/notes-a03)                |  |

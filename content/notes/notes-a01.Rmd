@@ -22,6 +22,7 @@ Today's class is a digest of the following resources:
 
 - About the course: [STAT 545 Video Series Introduction](https://www.youtube.com/watch?v=6REhJVsbbAM)
 - Installation and setup: "[Happy Git and GitHub for the useR](https://happygitwithr.com/)" by Jenny Bryan et al. (see details below)
+    - Also, [create a Personal Access Token for GitHub](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) (so that you can set up a link between your computer and GitHub later).
 - Overview of coding a data analysis: [STAT 545 Episode 1-A: Coding your Analysis for Success](https://youtu.be/91LmBj29-Sc) (also available on canvas)
 - Practice some R syntax and jupyter: Worksheet A1 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a01.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a01.ipynb))
 
