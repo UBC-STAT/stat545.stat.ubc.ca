@@ -143,12 +143,25 @@ Agenda:
 1. Getting setup with a GitHub Personal Access Token (PAT) (so that you can sync GitHub with files on your computer):
     1. Create a PAT: follow the instructions on [GitHub's tutorial]. __Be sure to copy your token!__
     2. In an R console, execute `credentials::set_github_pat()` (you may have to install the credentials package by first running `install.packages("credentials")`). Enter your PAT that you just made. That should be it!
+    
 2. Overview of collaborative project.
+
 3. Demonstrate making the group repository.
+
 4. Work period: contact your group and set up your repository. (~10 minutes).
     1. Find your group number, and contact your teammates through Slack (start a thread amongst the 3-4 of you, ideally). Please do not physically move around the classroom, but you may feel comfortable talking with those beside you, if you're present in-person.
     2. Choose someone to make the team's repository, and to invite the others as collaborators to the repository.
     3. If time remains, work on "Exercise 5: Teamwork Contract" with your teammates, or work by yourself on "Exercise 4: GitHub Issues".
+
+5. Create a branch (together)
+    1. Make sure your project is open in RStudio (you may have to clone it. Remember: "File" -> "New Project" -> "Version Control".)
+    2. Under the "Git" tab, click the "New Branch" button. Give the branch a name. When prompted, say yes to syncing the branch with GitHub (the "remote").
+
+6. Make changes, and merge the branch via a pull request. (My turn)
+    1. I'll make changes to the project files, commit them, and push them.
+    2. I'll explore the remote repository (i.e., GitHub), to show you the changes made on the branch.
+    3. I'll initialize a pull request (on GitHub), and will merge it.
+
 
 ## Attribution
 
