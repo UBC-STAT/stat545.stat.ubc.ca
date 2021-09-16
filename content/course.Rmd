@@ -43,15 +43,15 @@ Slack channel specifically for students: https://stat545classroom.slack.com/
 There are two milestones, each equally weighted:
 
 - [Milestone 1](/collaborative-project/milestone1/): Due __Saturday, September 25, 2021 at 17:00 PT__.
-- [Milestone 2]: Due __Saturday, October 2, 2021 at 17:00 PT__.
+- Milestone 2: Due __Saturday, October 2, 2021 at 17:00 PT__.
 
 ### Mini-Data Analysis
 
 There are three milestones, each equally weighted:
 
-- [Milestone 1]: Due __Saturday, October 9, 2021 at 17:00 PT__. 
-- [Milestone 2]: Due __Saturday, October 16, 2021 at 17:00 PT__. 
-- [Milestone 3]: Due __Saturday, October 23, 2021 at 17:00 PT__. 
+- Milestone 1: Due __Saturday, October 9, 2021 at 17:00 PT__. 
+- Milestone 2: Due __Saturday, October 16, 2021 at 17:00 PT__. 
+- Milestone 3: Due __Saturday, October 23, 2021 at 17:00 PT__. 
 
 ### Worksheets
 
