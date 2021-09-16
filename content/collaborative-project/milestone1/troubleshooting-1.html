@@ -1,0 +1,33 @@
+---
+title: "STAT 545A Troubleshooting Exercise for Milestone 1"
+author: "Attribution: Thanks to Icíar Fernández Boyano for coming up with most of this worksheet."
+output: github_document
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>There are <strong>3 errors</strong> in this Rmd file, marked by <code>## ERROR X ##</code>, where <code>X</code> is the error number.</p>
+<div id="welcome-to-r-and-rmd" class="section level2">
+<h2>Welcome to R and Rmd!</h2>
+<p>This document is written in <strong>R Markdown</strong>. We’ll use this document to explore the <code>mtcars</code> dataset.</p>
+<p>First, let’s store the current date as a variable. We can use the function <code>Sys.Date</code> with no arguments to get the current date:</p>
+<pre class="r"><code>## ERROR 1 ##
+_today_ &lt;- Sys.Date()</code></pre>
+<pre><code>## Error: &lt;text&gt;:2:1: unexpected input
+## 1: ## ERROR 1 ##
+## 2: _
+##    ^</code></pre>
+<p>You may notice that, although an error might appear in these cells, this Rmd file knits just fine. That’s because the <code>error = TRUE</code> <em>chunk option</em> is included in each chunk, allowing the Rmd file to knit, even when an error is encountered.</p>
+<p>Now, let’s load the <code>tidyverse</code> (meta-) package:</p>
+<pre class="r"><code>## ERROR 2 ##
+libraries(tidyverse)</code></pre>
+<pre><code>## Error in libraries(tidyverse): could not find function &quot;libraries&quot;</code></pre>
+<p>By loading the tidyverse, a function called <code>glimpse</code> has been made available. This function is useful for viewing a data set. Let’s take a look at the <code>mtcars</code> dataset by applying the <code>glimpse</code> function to <code>mtcars</code>!</p>
+<pre class="r"><code>## ERROR 3 ##
+glimpse mtcars</code></pre>
+<pre><code>## Error: &lt;text&gt;:2:9: unexpected symbol
+## 1: ## ERROR 3 ##
+## 2: glimpse mtcars
+##            ^</code></pre>
+</div>
