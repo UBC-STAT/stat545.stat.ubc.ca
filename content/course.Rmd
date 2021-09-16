@@ -92,16 +92,16 @@ There are three milestones, each equally weighted:
 
 | Worksheet | Download | View | # required questions | Deadline |
 |-----------|----------|------|----------------------|----------|
-| Worksheet 1-B | [.ipynb]() | [view it on GitHub]() | 4 |  |
-| Worksheet 2-B | [.ipynb]() | [view it on GitHub]() | 6 |  |
-| Worksheet 3-B | [.ipynb]() | [view it on GitHub]() | 8 | |
+| Worksheet 1-B | [.ipynb] | [view it on GitHub] |  |  |
+| Worksheet 2-B | [.ipynb] | [view it on GitHub] |  |  |
+| Worksheet 3-B | [.ipynb] | [view it on GitHub] |  | |
 
 
 # Assignments
 
 | Assignment | Instructions | Launched? | Deadline |
 |------------|--------------|-----------|----------|
-| Assignment 1-B | [view]() |  | |
-| Assignment 2-B | [view]() |  | |
-| Assignment 3-B | [view]() |  | |
-| Assignment 4-B | [view]() |  | |
+| Assignment 1-B | [view] |  | |
+| Assignment 2-B | [view] |  | |
+| Assignment 3-B | [view] |  | |
+| Assignment 4-B | [view] |  | |
