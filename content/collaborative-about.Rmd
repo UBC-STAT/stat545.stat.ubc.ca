@@ -6,8 +6,6 @@ output: html_document
 
 Everything you need to know about the collaborative project can be found here.  
 
-__Note__: This is not for STAT 545B!
-
 By completing this project, students are expected to be able to:
 
 1. Collaborate on a project with a partner using GitHub.

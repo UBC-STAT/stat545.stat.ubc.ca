@@ -18,10 +18,9 @@ Slack channel specifically for students: https://stat545classroom.slack.com/
 - Be sure to be part of the `#announcements` channel to receive official course announcements!
 - Please do not send private questions to individual TA's -- use the `#general` channel instead.
 
-# Topics
+# STAT 545: Part A
 
-
-### Part A
+### Topics
 
 | Date | Topic  | Worksheet / to do | Zoom recording? |
 |------|--------|-------------------|-----------------|
@@ -38,6 +37,14 @@ Slack channel specifically for students: https://stat545classroom.slack.com/
 | `r format(dates_545a[11], "%a, %b %d")` | [Factors and Dates]        |  |
 | `r format(dates_545a[12], "%a, %b %d")` | [Tibble joins]             |  |
 | `r format(dates_545a[13], "%a, %b %d")` | [Reading and Writing Data] |  |
+
+### Collaborative Project
+
+| Milestone | Troubleshooting .Rmd |
+|-----------|----------------------|
+| [Milestone 1](/collaborative-project/milestone1/) | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/collaborative-project/milestone1/troubleshooting-1.Rmd) |
+| [Milestone 2] | [.Rmd] |
+
 
 ### Part B
 
@@ -57,6 +64,10 @@ Slack channel specifically for students: https://stat545classroom.slack.com/
 | `r format(dates_545b[12], "%a, %b %d")` | 2 | NA |
 | `r format(dates_545b[13], "%a, %b %d")` | Overflow lecture. Or, optional "data analysis miscellanea" lecture. | NA |
 
+
+
+
+
 # Worksheets
 
 - [General Information](/worksheets-about)
@@ -74,15 +85,6 @@ Slack channel specifically for students: https://stat545classroom.slack.com/
 | Worksheet 3-B | [.ipynb]() | [view it on GitHub]() | 8 | |
 
 
-# Collaborative Project (STAT 545A)
-
-- [General Information](/collaborative-about)
-
-| Milestone | Instructions | Troubleshooting .Rmd | Checklist |
-|-----------|--------------|----------------------|-----------|
-| Milestone 1 | [view]() | [.Rmd]() | NA |
-| Milestone 2 | [view]() | [.Rmd]() | NA |
-| Milestone 3 | [view]() | [.Rmd]() | [view]() |
 
 
 # Mini-Data Analysis (STAT 545A)
