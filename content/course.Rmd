@@ -40,13 +40,37 @@ Slack channel specifically for students: https://stat545classroom.slack.com/
 
 ### Collaborative Project
 
-| Milestone | Troubleshooting .Rmd |
+| Milestone | Troubleshooting .Rmd file |
 |-----------|----------------------|
 | [Milestone 1](/collaborative-project/milestone1/) | [.Rmd](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/collaborative-project/milestone1/troubleshooting-1.Rmd) |
 | [Milestone 2] | [.Rmd] |
 
+### Mini-Data Analysis
 
-### Part B
+- [General Information]
+
+| Milestone | Instructions | .Rmd |
+|-----------|--------------|------|
+| Milestone 1 | [view] | [.Rmd] |
+| Milestone 2 | [view] | [.Rmd] |
+| Milestone 3 | [view] | [.Rmd] |
+
+
+### Worksheets
+
+- [General Information]
+
+| Worksheet | Download | View | # required questions | Deadline |
+|-----------|----------|------|----------------------|----------|
+| Worksheet 1-A | [.ipynb] | [view it on GitHub] |  |
+| Worksheet 2-A | [.ipynb] | [view it on GitHub] |  |
+| Worksheet 3-A | [.ipynb] | [view it on GitHub] |  |
+| Worksheet 4-A | [.ipynb] | [view it on GitHub] |  | 
+| Worksheet 5-A | [.ipynb] | [view it on GitHub] |  |
+| Worksheet 6-A | [.ipynb] | [view it on GitHub] |  |
+
+
+# STAT 545: Part B
 
 | Date | Topic | Worksheet |
 |------|-------|-----------|
@@ -65,40 +89,18 @@ Slack channel specifically for students: https://stat545classroom.slack.com/
 | `r format(dates_545b[13], "%a, %b %d")` | Overflow lecture. Or, optional "data analysis miscellanea" lecture. | NA |
 
 
-
-
-
 # Worksheets
 
-- [General Information](/worksheets-about)
+- [General Information]
 
 | Worksheet | Download | View | # required questions | Deadline |
 |-----------|----------|------|----------------------|----------|
-| Worksheet 1-A | [.ipynb]() | 9 |
-| Worksheet 2-A | [.ipynb]() | [view it on GitHub]() | 11 |
-| Worksheet 3-A | [.ipynb]() | [view it on GitHub]() | 4 |
-| Worksheet 4-A | [.ipynb]() | [view it on GitHub]() | 5 | 
-| Worksheet 5-A | [.ipynb]() | [view it on GitHub]() | 8 |
-| Worksheet 6-A | [.ipynb]() | [view it on GitHub]() | 5 |
 | Worksheet 1-B | [.ipynb]() | [view it on GitHub]() | 4 |  |
 | Worksheet 2-B | [.ipynb]() | [view it on GitHub]() | 6 |  |
 | Worksheet 3-B | [.ipynb]() | [view it on GitHub]() | 8 | |
 
 
-
-
-# Mini-Data Analysis (STAT 545A)
-
-- [General Information](/mini-analysis-about)
-
-| Milestone | Instructions | .Rmd | Checklist |
-|-----------|--------------|------|-----------|
-| Milestone 1 | [view]() | [.Rmd]() | [view]() |
-| Milestone 2 | [view]() | [.Rmd]() | [view]() |
-| Milestone 3 | [view]() | [.Rmd]() | [view]() |
-
-
-# Assignments (STAT 545B)
+# Assignments
 
 | Assignment | Instructions | Launched? | Deadline |
 |------------|--------------|-----------|----------|
