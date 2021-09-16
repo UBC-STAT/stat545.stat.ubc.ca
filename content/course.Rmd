@@ -55,7 +55,11 @@ There are three milestones, each equally weighted:
 
 ### Worksheets
 
-- [General Information]
+Options for working on these worksheets:
+
+- Edit them with instances of jupyterlab or jupyter notebook that are installed on your own computer. (BEST)
+- Edit them with UBC Syzygy (pronounced sizz-ij-ee): https://ubc.syzygy.ca/
+- Edit them with Google Colab: https://research.google.com/colaboratory/ (LEAST PREFERABLE)
 
 | Worksheet | Download | View | # required questions | Deadline |
 |-----------|----------|------|----------------------|----------|
