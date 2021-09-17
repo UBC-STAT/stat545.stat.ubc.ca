@@ -42,3 +42,7 @@ email: "vincenzo.coia@gmail.com"
 user_groups:
 - Instructor
 ---
+
+Vincenzo is an Assistant Professor of Teaching at the University of British Columbia, Vancouver. His priority there is to develop data science initiatives through the Department of Statistics.
+
+Vincenzo has been teaching STAT 545 since Fall 2017, and is dedicated to helping the wider data science community by making course resources publicly available.
