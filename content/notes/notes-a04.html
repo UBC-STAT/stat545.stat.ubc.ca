@@ -1,6 +1,5 @@
 ---
-title: "Lecture Notes: Data Wrangling Part I"
-subtitle: "Version 1.0.0"
+title: "Lecture Notes: Data Wrangling (Two-Day Topic)"
 output: html_document
 ---
 
@@ -9,29 +8,34 @@ output: html_document
 
 <div id="learning-objectives" class="section level2">
 <h2>Learning Objectives</h2>
-<p>From today’s class, students are anticipated to be able to:</p>
-<ul>
-<li>Recognize the advantages of the tidyverse compared to base R with respect to good coding practice.</li>
-<li>Subset and rearrange data with dplyr.</li>
+<p>From Day 1 and Day 2 of this topic, students are anticipated to be able to:</p>
+<ol style="list-style-type: decimal">
+<li>Use the five core dplyr verbs for data wrangling: <code>select()</code>, <code>filter()</code>, <code>arrange()</code>, <code>mutate()</code>, <code>summarise()</code>.</li>
 <li>Use piping when implementing function chains.</li>
-<li>Explore data in tibbles.</li>
-</ul>
+<li>Use <code>group_by()</code> to operate within groups (of rows) with <code>mutate()</code> and <code>summarise()</code>.</li>
+<li>Use <code>across()</code> to operate on multiple columns with <code>summarise()</code> and <code>mutate()</code>.</li>
+</ol>
 </div>
-<div id="parallel-resources" class="section level2">
-<h2>Parallel Resources</h2>
-<p>This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:</p>
+<div id="resources" class="section level2">
+<h2>Resources</h2>
+<p>Video lectures for Day 1 and Day 2 of this topic (ignore the episode numbering):</p>
 <ul>
-<li><a href="https://youtu.be/Gms3zSPqCk8">STAT 545 Episode 4-A: dplyr Part 1: Basic Data Manipulation</a></li>
-<li>Follow through <a href="https://stat545.com/dplyr-intro.html">Jenny Bryan’s Introduction to dplyr</a> at your own pace; this is optional, but very helpful in getting familiar with dplyr! You will have the chance to practice more in this week’s worksheet.</li>
+<li><a href="https://youtu.be/Gms3zSPqCk8">dplyr Part 1: Basic Data Manipulation</a></li>
+<li><a href="https://youtu.be/38BA_v7BwKk">dplyr Part 2: Calculations on tibbles</a></li>
 </ul>
-<p>We suggest referring to this material when engaging with today’s topic.</p>
-</div>
-<div id="additional-resources" class="section level2">
-<h2>Additional Resources</h2>
+<p>Optional further reading for the dplyr verbs and piping, minus the <code>across()</code> function:</p>
 <ul>
-<li><a href="https://r4ds.had.co.nz/transform.html">R4DS Data Transformation</a></li>
-<li><a href="https://r4ds.had.co.nz/pipes.html">R4DS Pipes</a></li>
-<li><a href="https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html">Intro to dplyr vignette</a></li>
+<li><a href="https://stat545.com/dplyr-intro.html">Chapter 6</a> and <a href="https://stat545.com/dplyr-single.html">Chapter 7</a> of Jenny Bryan’s STAT 545 book follows along with what we will be covering in Day 1 and Day 2 of this topic (although you won’t find the <code>across()</code> function).</li>
+<li>“R for Data Science” is another great resource for learning data wrangling. Take a look at:
+<ul>
+<li><a href="https://r4ds.had.co.nz/transform.html">R4DS Data Transformation</a> for the dplyr verbs (without <code>across()</code>)</li>
+<li><a href="https://r4ds.had.co.nz/pipes.html">R4DS Pipes</a> for more on piping.</li>
+</ul></li>
+<li><a href="https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html">dplyr’s introductory vignette</a> is useful for orienting you to the package.</li>
+</ul>
+<p>Optional further reading to learn about the <code>across()</code> function:</p>
+<ul>
+<li><a href="https://www.tidyverse.org/blog/2020/04/dplyr-1-0-0-colwise/">Hadley Wickham’s blog post on the topic</a>.</li>
 </ul>
 </div>
 <div id="quiz" class="section level2">
@@ -39,9 +43,11 @@ output: html_document
 <ol style="list-style-type: decimal">
 <li>True or False? Running filter or select on your tibble permanently changes your tibble.</li>
 <li>True or False? The pipe operator <code>%&gt;%</code> works for functions outside of the tidyverse, too.</li>
+<li><code>summarise()</code> reduces each group down to one row, and <code>mutate()</code> preserves the number of rows. But, between the two, there’s a way to reduce each group down to <em>two</em> rows.</li>
+<li><code>across()</code> doesn’t allow you to make new column names.</li>
 </ol>
 </div>
 <div id="demonstration" class="section level2">
 <h2>Demonstration</h2>
-<p>We will go through Worksheet 2-A in class.</p>
+<p>We will go through Worksheet A2 (<a href="https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a02.ipynb">.ipynb</a>; <a href="https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a02.ipynb">viewable</a>; <a href="https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a02.ipynb.zip">zip</a>) in class for Day 1 and Day 2 of this topic. (Due Saturday, Sept 25, 2021 at 22:00 PT)</p>
 </div>

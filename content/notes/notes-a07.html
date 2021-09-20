@@ -1,6 +1,5 @@
 ---
 title: "Lecture Notes: Plotting Part II"
-subtitle: "Version 1.0.0"
 output: html_document
 ---
 
@@ -17,37 +16,26 @@ output: html_document
 <li>Understand how to customize and fine-tune ggplot2 graphics to create effective visualizations.</li>
 </ul>
 </div>
-<div id="parallel-resources" class="section level2">
-<h2>Parallel Resources</h2>
-<p>This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:</p>
+<div id="resources" class="section level2">
+<h2>Resources</h2>
+<p>Video lecture for today:</p>
 <ul>
-<li><a href="https://youtu.be/X8b44P5D-5w">STAT 545 Episode 7-A: ggplot2 Part 2: Plotting for Exploratory Data Analysis</a></li>
+<li><a href="https://youtu.be/X8b44P5D-5w">ggplot2 Part 2: Plotting for Exploratory Data Analysis</a></li>
 </ul>
-<p>We suggest referring to this material when engaging with today’s topic.</p>
-</div>
-<div id="additional-resources" class="section level2">
-<h2>Additional Resources</h2>
+<p>Optional further reading:</p>
 <ul>
-<li><a href="https://serialmentor.com/dataviz/introduction.html">Fundamentals of Data Visualization</a> by Claus Wilke.
+<li>Bite-sized resources to help you produce effective visualizations:
 <ul>
-<li>Excellent guide to designing visuals that are appropriate to the data at hand.</li>
+<li>The <a href="https://stat545.com/effective-graphs.html">“do’s and don’ts of effective graphics” in Jenny Bryan’s STAT 545 book</a> provides some rules of thumb for producing effective visuals.</li>
+<li>Vincenzo’s <a href="https://vincenzocoia.com/communicating_data/#1">“Communicating data” slides</a> provide some rules of thumb.</li>
+<li><a href="https://www.callingbull.org/tools/tools_misleading_axes.html">Callingbull.org’s entry on visualizations</a>, by Carl T. Bergstrom and Jevin West, goes over several examples of improving ineffective visuals.</li>
 </ul></li>
-<li><a href="https://stat545.com/effective-graphs.html">STAT545.com</a> - Effective Graphics by Jenny Bryan.</li>
-<li><a href="https://callingbull.org/tools.html">Callingbull.org</a> by Carl T. Bergstrom and Jevin West.
+<li>Books to help you produce effective visualizations:
 <ul>
-<li>Great resource for rethinking the “typical” way we do things.</li>
+<li><a href="https://serialmentor.com/dataviz/introduction.html">Fundamentals of Data Visualization</a> by Claus Wilke is an excellent guide to designing effective visuals.</li>
+<li><a href="https://www-taylorfrancis-com.ezproxy.library.ubc.ca/books/9780429088902">Visualization Analysis and Design</a> by Tamara Munzner is a gold-standard book for designing plots with a focus on human perception.</li>
 </ul></li>
-</ul>
-<p>Here are some resources for you to investigate various aspects of graphing in more detail:</p>
-<ul>
-<li><a href="https://www-taylorfrancis-com.ezproxy.library.ubc.ca/books/9780429088902">Visualization Analysis and Design</a> by Tamara Munzner.
-<ul>
-<li>Gold-standard book for designing plots with a focus on human perception.</li>
-</ul></li>
-<li><a href="https://ggplot2-book.org/">ggplot2 book</a>by Hadley Wickam.
-<ul>
-<li>Goes into detail on how to use ggplot2.</li>
-</ul></li>
+<li>As before, the <a href="https://ggplot2-book.org/">ggplot2 book</a> by Hadley Wickham provides a great overview of ggplot2.</li>
 </ul>
 </div>
 <div id="quiz" class="section level2">
@@ -56,16 +44,18 @@ output: html_document
 <li>True or False: Because the <code>dplyr::group_by()</code> function and ggplot2’s <code>group</code> aesthetic both split a tibble into groups, we can use either one when making a plot.</li>
 <li>True or False: In principle, mapping <code>continent</code> to letters (a, b, c, …) is an aesthetic mapping.</li>
 </ol>
-<pre class="r"><code>gapminder %&gt;% 
+<pre class="r"><code>library(tidyverse)
+library(gapminder)
+gapminder %&gt;% 
   group_by(continent) %&gt;% 
   nrow</code></pre>
-<pre><code>## Error in gapminder %&gt;% group_by(continent) %&gt;% nrow: could not find function &quot;%&gt;%&quot;</code></pre>
+<pre><code>## [1] 1704</code></pre>
 <pre class="r"><code>gapminder %&gt;% 
   ggplot(aes(gdpPercap, lifeExp)) +
   geom_point(aes(shape = continent)) +
   scale_x_log10() +
   scale_shape_manual(values = letters[1:5])</code></pre>
-<pre><code>## Error in gapminder %&gt;% ggplot(aes(gdpPercap, lifeExp)): could not find function &quot;%&gt;%&quot;</code></pre>
+<p><img src="/notes/notes-a07_files/figure-html/unnamed-chunk-2-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="demonstration" class="section level2">
 <h2>Demonstration</h2>

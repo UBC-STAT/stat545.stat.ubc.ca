@@ -1,6 +1,5 @@
 ---
-title: "Lecture Notes: Data Wrangling Part I"
-subtitle: "Version 1.0.0"
+title: "Lecture Notes: Data Wrangling (Two-Day Topic)"
 output: html_document
 ---
 
@@ -12,33 +11,39 @@ knitr::opts_chunk$set(fig.width = 5, fig.height = 3,
 
 ## Learning Objectives
 
-From today's class, students are anticipated to be able to:
+From Day 1 and Day 2 of this topic, students are anticipated to be able to:
 
-+ Recognize the advantages of the tidyverse compared to base R with respect to good coding practice.
-+ Subset and rearrange data with dplyr.
-+ Use piping when implementing function chains.
-+ Explore data in tibbles.
+1. Use the five core dplyr verbs for data wrangling: `select()`, `filter()`, `arrange()`, `mutate()`, `summarise()`.
+2. Use piping when implementing function chains.
+3. Use `group_by()` to operate within groups (of rows) with `mutate()` and `summarise()`. 
+4. Use `across()` to operate on multiple columns with `summarise()` and `mutate()`.
 
-## Parallel Resources
+## Resources
 
-This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:
+Video lectures for Day 1 and Day 2 of this topic (ignore the episode numbering):
 
-- [STAT 545 Episode 4-A: dplyr Part 1: Basic Data Manipulation](https://youtu.be/Gms3zSPqCk8)
-- Follow through [Jenny Bryan's Introduction to dplyr](https://stat545.com/dplyr-intro.html) at your own pace; this is optional, but very helpful in getting familiar with dplyr! You will have the chance to practice more in this week's worksheet.
+- [dplyr Part 1: Basic Data Manipulation](https://youtu.be/Gms3zSPqCk8)
+- [dplyr Part 2: Calculations on tibbles](https://youtu.be/38BA_v7BwKk)
 
-We suggest referring to this material when engaging with today's topic.
+Optional further reading for the dplyr verbs and piping, minus the `across()` function:
 
-## Additional Resources
+- [Chapter 6](https://stat545.com/dplyr-intro.html) and [Chapter 7](https://stat545.com/dplyr-single.html) of Jenny Bryan's STAT 545 book follows along with what we will be covering in Day 1 and Day 2 of this topic (although you won't find the `across()` function).
+- "R for Data Science" is another great resource for learning data wrangling. Take a look at:
+    - [R4DS Data Transformation](https://r4ds.had.co.nz/transform.html) for the dplyr verbs (without `across()`)
+    - [R4DS Pipes](https://r4ds.had.co.nz/pipes.html) for more on piping.
+- [dplyr's introductory vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html) is useful for orienting you to the package. 
 
-- [R4DS Data Transformation](https://r4ds.had.co.nz/transform.html) 
-- [R4DS Pipes](https://r4ds.had.co.nz/pipes.html)
-- [Intro to dplyr vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html)
+Optional further reading to learn about the `across()` function:
+
+- [Hadley Wickham's blog post on the topic](https://www.tidyverse.org/blog/2020/04/dplyr-1-0-0-colwise/).
 
 ## Quiz
 
 1. True or False? Running filter or select on your tibble permanently changes your tibble. 
 2. True or False? The pipe operator `%>%` works for functions outside of the tidyverse, too.
+3. `summarise()` reduces each group down to one row, and `mutate()` preserves the number of rows. But, between the two, there's a way to reduce each group down to _two_ rows.
+4. `across()` doesn't allow you to make new column names. 
 
 ## Demonstration
 
-We will go through Worksheet 2-A in class. 
+We will go through Worksheet A2 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a02.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a02.ipynb); [zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a02.ipynb.zip)) in class for Day 1 and Day 2 of this topic. (Due Saturday, Sept 25, 2021 at 22:00 PT)

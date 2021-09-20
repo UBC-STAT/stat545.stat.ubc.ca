@@ -1,6 +1,5 @@
 ---
-title: "Lecture Notes: Plotting Part I"
-subtitle: "Version 1.0.0"
+title: "Lecture Notes: Data Wrangling Part II"
 output: html_document
 ---
 
@@ -10,39 +9,119 @@ knitr::opts_chunk$set(fig.width = 5, fig.height = 3,
 ```
 
 
-## Learning Objectives
 
-From this topic, students are anticipated to be able to:
 
-+ Identify the seven components of the grammar of graphics underlying ggplot2.
-+ Recognize the advantages of ggplot2 over plotting with base R and lattice.
-+ Use different geometric objects and aesthetics to explore various plot types.
-
-## Parallel Resources
-
-This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:
-
-- [STAT 545 Episode 5-A: ggplot2 Part 1: Introduction to Plotting](https://youtu.be/cqcQT44mJTM)
-- With RStudio handy, follow through sections 3.1 to 3.4 of [R4DS Data Visualization](https://r4ds.had.co.nz/data-visualisation.html#introduction-1) at your own pace. Don't worry if you don't cover it all, we will go through these concepts in class!
-
-We suggest referring to this material when engaging with today's topic.
-
-## Additional Resources
-
-- [ggplot2 cheatsheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf)
-- [R4DS Data Visualization Chapter](https://r4ds.had.co.nz/data-visualisation.html)
-- [Intro to dplyr vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html)
-- [R Cookbook Graphs](http://www.cookbook-r.com/Graphs/) 
-- [ggplot elegant graphics for data analysis](http://webcat2.library.ubc.ca/vwebv/holdingsInfo?bibId=8489511)
-
-## Quiz
-
-1. True or False: You can re-specify global aesthetics by adding an aes() layer to a ggplot object. 
-2. True or False: With ggplot2, we can specify the data in a geom layer, in addition to the initial ggplot() layer.
 
 ## Demonstration
 
-+ In-class demo of creating a scatterplot (~10 minutes)
-+ Why data visualization? Just plot it + The grammar of graphics (~10 minutes)
-  
+We will continue with Worksheet A-2.
+
+```{r, warning = FALSE, message = FALSE}
+library(tidyverse)
+library(gapminder)
+gapminder
+```
+
+
+### Demo 1
+
+Compute a weighted mean of life expectancy for different years, weighting by population.
+
+```{r}
+gapminder %>% 
+  group_by(year) %>% 
+  mutate(wmean = sum(lifeExp * pop) / sum(pop))
+```
+
+What if I wanted those values repeated for each line?
+
+
+### Demo 2
+
+For each continent and year, how many countries have a "low" life expectancy? Let's say life expectancy is "low" if it's less than the median most recent life expectancy for each continent. 
+
+```{r}
+v <- c(4, 7, 2, 4, 5, 9)
+v[v < 6]
+v < 6
+v[1:2]
+
+gapminder %>% 
+  group_by(continent) %>% 
+  mutate(median = median(lifeExp[year == 2007])) %>% 
+  filter(lifeExp < median) %>% 
+  count(continent, year)
+  # group_by(continent, year) %>% 
+  # summarise(n = n())
+
+gapminder %>% 
+  mutate(asia = continent == "Asia")
+```
+
+### Demo 3
+
+Get the maximum and minimum `gdpPercap` for all continents.
+
+```{r}
+gapminder %>% 
+  group_by(continent) %>% 
+  summarise(max_g = max(gdpPercap),
+            min_g = min(gdpPercap)) %>% 
+  group_by(continent == "Asia") %>% 
+  summarise(max2 = max(max_g))
+```
+
+
+### Demo 4
+
+Filter gapminder to all entries that have experienced a drop in life expectancy. Hint: `dplyr::lag()`.
+
+```{r}
+v <- 1:4
+v
+dplyr::lag(v)
+
+gapminder %>% 
+  group_by(country) %>% 
+  arrange(year) %>% 
+  mutate(inc = lifeExp - lag(lifeExp)) %>% 
+  filter(inc < 0)
+```
+
+
+### Demo 5
+
+Filter gapminder to contain six rows: the rows with the three largest GDP per capita, and the rows with the three smallest GDP per capita. Don't make any excerpts.
+
+```{r}
+gap1 <- filter(gapminder, continent == "Europe")
+gap2 <- summarise(gap1, mean_gdp = mean(gdpPercap))
+gap2
+
+nrow(gapminder)
+
+gapminder %>% 
+  arrange(gdpPercap) %>% 
+  slice(c(1   , 2   , 3, 1702, 1703 ,1704)
+    #c(1:3, (n() - 2):n())
+  )
+
+c(1:3, (1704 - 2):1704)
+c(1:3, 1702:1704)
+
+
+gapminder %>% 
+  group_by(continent) %>% 
+  mutate(n_function = n())
+```
+
+
+```{r}
+gapminder %>% 
+  mutate(decade = floor(year / 10)) %>% 
+  group_by(country, continent, decade) %>% 
+  summarise(across(where(is.numeric), mean)) %>% 
+  select(-year)
+```
+
 
