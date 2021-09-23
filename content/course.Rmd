@@ -61,6 +61,8 @@ Options for working on these worksheets:
 - Edit them with UBC Syzygy (pronounced sizz-ij-ee): https://ubc.syzygy.ca/
 - Edit them with Google Colab: https://research.google.com/colaboratory/ (LEAST PREFERABLE)
 
+**Submit the worksheets by uploading your .ipynb file to the corresponding canvas assignment slot**.
+
 | Worksheet | Download | View | Zip file | # required questions | Deadline |
 |-----------|----------|------|----------|----------------------|----------|
 | Worksheet 1-A | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a01.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a01.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a01.ipynb.zip) | NA | not for submission |
