@@ -1,47 +1,328 @@
 ---
-title: "Lecture Notes: Plotting Part I"
+title: "Graphing using the Grammar of Graphics through ggplot2"
 output: html_document
 ---
 
-```{r, echo = FALSE, message = FALSE, warning = FALSE, results = "asis"}
-knitr::opts_chunk$set(fig.width = 5, fig.height = 3, 
-                      fig.align = "center", error = TRUE)
+```{r, warning = FALSE, message = FALSE}
+library(tidyverse)
+library(gapminder)
+library(scales)
 ```
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+knitr::opts_chunk$set(fig.width = 5, fig.height = 2, fig.align = "center")
+```
+
 
 ## Learning Objectives
 
 From this topic, students are anticipated to be able to:
 
 + Identify the seven components of the grammar of graphics underlying ggplot2.
-+ Recognize the advantages of ggplot2 over plotting with base R and lattice.
-+ Use different geometric objects and aesthetics to explore various plot types.
++ Produce plots with ggplot2 by implementing the components of the grammar of graphics.
++ Customize the look of ggplot2 graphs.
++ Choose an appropriate plot type for Exploratory Data Analysis, based on an understanding of what makes a graph effective. 
+
+This tutorial will get you warmed up to plotting with `ggplot2` in R. It covers:
+
+- The plotting framework available in R
+- Why you should learn the `ggplot2` tool
+- The importance of statistical graphics in communicating information
+- The seven components of the grammar of graphics underlying `ggplot2`
+- Geometric objects and aesthetics for exploring various plot types.
+
+
+We will spend roughly two days on this topic. 
 
 ## Resources
 
-Video lecture for today (ignore the episode numbering):
+Video lectures for this topic (ignore the episode numbering):
 
 - [ggplot2 Part 1: Introduction to Plotting](https://youtu.be/cqcQT44mJTM)
+- [ggplot2 Part 2: Plotting for Exploratory Data Analysis](https://youtu.be/X8b44P5D-5w)
 
-Optional further reading:
+Resources to help with producing plots in ggplot2:
 
-- As in last time, the "R for data science" book is a great resource. For today's class, we suggest following through sections 3.1 to 3.4 of the [R4DS Data Visualization](https://r4ds.had.co.nz/data-visualisation.html) chapter.
-- For a comprehensive look into ggplot2, it's worth reading Hadley Wickham's [ggplot2 book](https://ggplot2-book.org/).
+- The [R4DS Data Visualization](https://r4ds.had.co.nz/data-visualisation.html) chapter provides an excellent overview of plotting in ggplot2 and the grammar of graphics. We especially recommend sections 3.1 to 3.4.
+- Hadley Wickham's [ggplot2 book](https://ggplot2-book.org/) is a well-organized, approachable, and comprehensive coverage of ggplot2.
 - If you need a quick lookup, consider:
     - The [ggplot2 cheatsheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf) (Also available through RStudio: "Help" -> "Cheatsheets" -> "Data visualization with ggplot2").
     - [R Cookbook Graphs](http://www.cookbook-r.com/Graphs/) 
 
-## Quiz
+Resources about producing effective visualizations:
 
-1. True or False: You can re-specify global aesthetics by adding an aes() layer to a ggplot object. 
-2. True or False: With ggplot2, we can specify the data in a geom layer, in addition to the initial ggplot() layer.
+- [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/introduction.html) by Claus Wilke is an excellent guide to designing effective visuals. If you only look at one resource, this should be it. 
+- [Visualization Analysis and Design](https://www-taylorfrancis-com.ezproxy.library.ubc.ca/books/9780429088902) by Tamara Munzner is a gold-standard book for the theory of designing plots with a focus on human perception.
+- Bite-sized resources to help you produce effective visualizations:
+    - The ["do's and don'ts of effective graphics" in Jenny Bryan's STAT 545 book](https://stat545.com/effective-graphs.html) provides some rules of thumb for producing effective visuals.
+    - Vincenzo's ["Communicating data" slides](https://vincenzocoia.com/communicating_data/#1) provide some rules of thumb.
+    - [Callingbull.org's entry on visualizations](https://www.callingbull.org/tools/tools_misleading_axes.html), by Carl T. Bergstrom and Jevin West, goes over several examples of improving ineffective visuals. 
 
-## Demonstration
+## Test Your Understanding
 
-+ In-class demo of creating a scatterplot (~10 minutes)
-+ Why data visualization? Just plot it + The grammar of graphics (~10 minutes)
-  
-
-
-
+1. True or False: You can re-specify global aesthetics by adding an `aes()` layer to a ggplot object. 
+2. True or False: With ggplot2, we can specify the data in a geom layer, in addition to the initial `ggplot()` layer.
+3. True or False: Because the `dplyr::group_by()` function and ggplot2's `group` aesthetic both split a tibble into groups, we can use either one when making a plot. 
+4. True or False: In principle, mapping `continent` to letters (a, b, c, ...) is an aesthetic mapping.
 
 
+## The Graphing Landscape in R
+
+Traditionally, plots in R are produced using "base R" methods, the crown function here being `plot()`. This method tends to be quite involved, and requires a lot of "coding by hand".
+
+Then, an R package called `lattice` was created that aimed to make it easier to create multiple "panels" of plots. It seems to have gone to the wayside in the R community. Personally, I found that using this package often involved several lines of code to set up a plot, which then needed to get overriden by "special cases". 
+
+After `lattice` came `ggplot2`, which provides a very powerful and relatively simple framework for making plots. It has a theoretical underpinning, too, based on the Grammar of Graphics, first described by Leland Wilkinson in his ["Grammar of Graphics" book](http://resolve.library.ubc.ca/cgi-bin/catsearch?bid=5507286). With `ggplot2`, you can make a great many type of plots with minimal code. It's been a hit in and outside of the R community.
+
+Check out [this comparison of the three](http://www.jvcasillas.com/base_lattice_ggplot/) by Joseph V. Casillas.
+
+A newer tool is called [plotly](https://plot.ly/), which was actually developed outside of R, but the `plotly` R package accesses the plotly functionality. Plotly graphs allow for interactive exploration of a plot. You can convert ggplot2 graphics to a plotly graph, too.
+
+## Just plot it
+
+The human visual cortex is a powerful thing. If you're wanting to point someone's attention to a bunch of numbers, I can assure you that you won't elicit any "aha" moments by displaying those numbers in a table, either in a report or (especially!) a presentation. Turn those numbers into a plot, and suddenly you can see patterns and relationships.
+
+If you really feel the need to tell your audience exactly what every quantity evaluates to, consider putting your table in an appendix. Because chances are, the reader doesn't care about the exact numeric values. Or, perhaps you just want to point out one or a few numbers, in which case you can put that number directly on a plot.
+
+Case in point: [Challenger example from Jenny Bryan](https://speakerdeck.com/jennybc/ggplot2-tutorial?slide=7).
+
+## The grammar of graphics
+
+As mentioned, `ggplot2` is based on the grammar of graphics. You can think of the grammar of graphics as a systematic approach for describing the components of a graph. It has seven components (the ones in bold are required to be specified explicitly in `ggplot2`):
+
+- __Data__
+  - Exactly as it sounds: the data that you're feeding into a plot.
+- __Aesthetic mappings__
+  - This is a specification of how you will connect variables (columns) from your data to a visual dimension. These visual dimensions are called "aesthetics", and can be (for example) horizontal positioning, vertical positioning, size, colour, shape, etc.
+- __Geometric objects__
+  - This is a specification of what object will actually be drawn on the plot. This could be a point, a line, a bar, etc. 
+- Scales
+  - This is a specification of how a variable is mapped to its aesthetic. Will it be mapped linearly? On a log scale? Something else?
+- Statistical transformations
+  - This is a specification of whether and how the data are combined/transformed before being plotted. For example, in a bar chart, data are transformed into their frequencies; in a box-plot, data are transformed to a five-number summary.
+- Coordinate system
+  - This is a specification of how the position aesthetics (x and y) are depicted on the plot. For example, rectangular/cartesian, or polar coordinates.
+- Facet
+  - This is a specification of data variables that partition the data into smaller "sub plots", or panels. 
+
+These components are like parameters of statistical graphics, defining the "space" of statistical graphics. In theory, there is a one-to-one mapping between a statistical graphic (aside from how it's "decorated") and its grammar components, making the grammar a useful language for building a graph.
+
+### Example: Scatterplot grammar
+
+For example, consider the following plot from the `gapminder` data set. For now, don't focus on the code, just the graph itself.
+
+```{r}
+ggplot(gapminder, aes(gdpPercap, lifeExp)) +
+  geom_point(alpha = 0.1) +
+  scale_x_log10("GDP per capita", labels = scales::dollar_format()) +
+  theme_minimal() +
+  ylab("Life Expectancy")
+```
+
+This scatterplot has the following grammar components: 
+
+| Grammar Component     | Specification |
+|-----------------------|---------------|
+| __data__              | `gapminder`   |
+| __aesthetic mapping__ | __x__: `gdpPercap`, __y:__ `lifeExp` |
+| __geometric object__  | points  |
+| scale                 | x: log10, y: linear |
+| statistical transform | none  |
+| coordinate system     | rectangular  |
+| facetting             | none  |
+
+Note that `x` and `y` aesthetics are required for scatterplots (or "point" geometric objects). In general, each geometric object has its own required set of aesthetics, which you can find by accessing the geometric object's documentation (such as by executing `?geom_point`)
+
+## Working with ggplot2
+
+First, load the ggplot2 package by loading the tidyverse with `library(tidyverse)` (as you can see at the top of this page).
+
+There are two main ways to interact with `ggplot2`:
+
+1. The `qplot()` or `quickplot()` functions (the two are identical): Useful for making a quick plot if you have vectors stored in your workspace that you'd like to plot. Usually not worthwhile using.
+2. The `ggplot()` function: use to access the full power of `ggplot2`.
+
+Let's use the above scatterplot as an example to see how to use the `ggplot()` function.
+
+First, the `ggplot()` function takes two arguments:
+  - `data`: the data frame containing your plotting data.
+  - `mapping`: aesthetic mappings applying to the entire plot. Expecting the output of the `aes()` function.
+
+Notice that the `aes()` function has `x` and `y` as its first two arguments, so we don't need to explicitly name these aesthetics. 
+
+```{r}
+ggplot(gapminder, aes(gdpPercap, lifeExp))
+```
+
+This just _initializes_ the plot. You'll notice that the aesthetic mappings are already in place. Now, we need to add components by adding layers, literally using the `+` sign. These layers are functions that have further specifications. 
+
+For our next layer, let's add a geometric object to the plot, which have the syntax `geom_SOMETHING()`. There's a bit of overplotting, so we can specify some alpha transparency using the `alpha` argument (you can interpret `alpha` as neeing `1/alpha` points overlaid to achieve an opaque point).
+
+```{r}
+ggplot(gapminder, aes(gdpPercap, lifeExp)) +
+  geom_point(alpha = 0.1)
+```
+
+That's the only `geom` that we're wanting to add. Now, let's specify a scale transformation, because the plot would really benefit if the x-axis is on a log scale. These functions take the form `scale_AESTHETIC_TRANSFORM()`. As usual, you can tweak this layer, too, using this function's arguments. In this example, we're re-naming the x-axis (the first argument), and changing the labels to have a dollar format (a handy function thanks to the `scales` package).
+
+```{r}
+ggplot(gapminder, aes(gdpPercap, lifeExp)) +
+  geom_point(alpha = 0.1) +
+  scale_x_log10("GDP per capita", labels = scales::dollar_format())
+```
+
+I'm tired of seeing the gray background, so I'll add a `theme()` layer. I like `theme_minimal()`. Then, I'll re-label the y-axis using the `ylab()` function. Both of these are not part of the grammar of graphics, but are rather like "decorating" the graph. Et voilà!
+
+```{r}
+ggplot(gapminder, aes(gdpPercap, lifeExp)) +
+  geom_point(alpha = 0.1) +
+  scale_x_log10("GDP per capita", labels = scales::dollar_format()) +
+  theme_minimal() +
+  ylab("Life Expectancy")
+```
+
+## A tour of some important `geom`s
+
+Here, we'll explore some common plot types, and how to produce them with `ggplot2`.
+
+### Histograms: `geom_histogram()`
+
+Useful for depicting the distribution of a continuous random variable. Partitions the number line into bins of certain width, counts the number of observations falling into each bin, and erects a bar of that height for each bin.
+
+Required aesthetics:
+
+- `x`: A numeric vector.
+
+By default, a histogram plots the _count_ on the y-axis. If you want to use proportion, specify the `y = ..prop..` aesthetic. 
+
+You can change the smoothness of the plot via two arguments (your choice):
+
+- `bins`: the number of bins/bars shown in the plot.
+- `binwidth`: the with of the bins shown on the plot.
+
+Example:
+
+```{r}
+ggplot(gapminder, aes(lifeExp)) +
+  geom_histogram(bins = 50)
+```
+
+
+### Density: `geom_density()`
+
+Essentially, a "smooth" version of a histogram. Uses [kernels](https://en.wikipedia.org/wiki/Kernel_density_estimation) to produce the curve.
+
+Required aesthetics:
+
+- `x`: A numeric vector.
+
+Good to know:
+
+- `bw` argument controls the smoothness: Smaller = rougher.
+
+Example:
+
+```{r}
+ggplot(gapminder, aes(lifeExp)) +
+  geom_density()
+```
+
+### Jitter plots: `geom_jitter()`
+
+A scatterplot, but with minor random perturbations of each point. Useful for scatterplots where points are overlaying, or when one variable is categorical.
+
+Required aesthetics:
+
+- `x`: any vector
+- `y`: any vector
+
+Example:
+
+```{r}
+ggplot(gapminder, aes(continent, lifeExp)) +
+  geom_jitter()
+```
+
+### Box plots: `geom_boxplot()`
+
+This geom makes a boxplot for a numeric variable in each of a category. Useful for visualizing probability distributions across different categories.
+
+Required aesthetics:
+
+- `x`: A factor (categorical variable)
+- `y`: A numeric variable
+
+Example:
+
+```{r}
+ggplot(gapminder, aes(continent, lifeExp)) +
+  geom_boxplot()
+```
+
+
+### Ridge plots: `ggridges::geom_density_ridges()`
+
+A (superior?) alternative to the boxplot, the ridge plot (also known as the joy plot) places a kernel density for each group, instead of the box. 
+
+You'll need to install the `ggridges` package. You can do lots more with ridges -- check out [the ggridges intro vignette](https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html).
+
+Required aesthetics (reversed from boxplots!)
+
+- `x`: A numeric variable
+- `y`: A factor (categorical variable) 
+
+Example:
+
+```{r}
+ggplot(gapminder, aes(lifeExp, continent)) +
+  ggridges::geom_density_ridges()
+```
+
+### Bar plots: `geom_bar()` or `geom_col()`
+
+These geom's erect a bar over each category.
+
+`geom_bar()` automatically determines the height of the bar according to the count of each category.
+
+`geom_col()` requires a manual specification of the bar heights.
+
+Required aesthetics:
+
+- `x`: A categorical variable
+- `y`: A numeric variable (only required for `geom_col()`!)
+  - To use proportion in `geom_bar()` instead of count, set `y = ..prop..`
+
+Example: number of 4-, 6-, and 8- cylinder cars in the `mtcars` dataset:
+
+```{r}
+ggplot(mtcars, aes(cyl)) +
+  geom_bar()
+```
+
+### Line charts: `geom_line()`
+
+A line plot connects points with straight lines, from left-to-right. Especially useful if time is on the x-axis.
+
+Required aesthetics:
+
+- `x`: a variable having some ordering to it.
+- `y`: a numeric variable.
+
+Although not required, the `group` aesthetic will come in handy here. This aesthetic produces a plot independently for each group, and overlays the results.
+
+```{r}
+tsibble::as_tsibble(co2) %>% 
+  rename(yearmonth = index,
+         conc = value) %>% 
+  mutate(month = lubridate::month(yearmonth, label = TRUE),
+         year  = lubridate::year(yearmonth)) %>% 
+  ggplot(aes(month, conc)) +
+  geom_line(aes(group = year), alpha = 0.5) +
+  ylab("CO2 Concentration")
+```
+
+
+
+### Path plots: `geom_path()`
+
+Like `geom_line()`, except connects points in the order that they appear in the dataset.

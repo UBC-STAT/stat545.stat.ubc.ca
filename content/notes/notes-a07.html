@@ -6,62 +6,6 @@ output: html_document
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<div id="learning-objectives" class="section level2">
-<h2>Learning Objectives</h2>
-<p>From today’s class, students are anticipated to be able to:</p>
-<ul>
-<li>Become familiar with customizing <code>ggplot2</code> graphs.</li>
-<li>Choose an appropriate plot type for Exploratory Data Analysis.</li>
-<li>Understand what makes data visualizations <em>effective</em>.</li>
-<li>Understand how to customize and fine-tune ggplot2 graphics to create effective visualizations.</li>
-</ul>
-</div>
-<div id="resources" class="section level2">
-<h2>Resources</h2>
-<p>Video lecture for today:</p>
-<ul>
-<li><a href="https://youtu.be/X8b44P5D-5w">ggplot2 Part 2: Plotting for Exploratory Data Analysis</a></li>
-</ul>
-<p>Optional further reading:</p>
-<ul>
-<li>Bite-sized resources to help you produce effective visualizations:
-<ul>
-<li>The <a href="https://stat545.com/effective-graphs.html">“do’s and don’ts of effective graphics” in Jenny Bryan’s STAT 545 book</a> provides some rules of thumb for producing effective visuals.</li>
-<li>Vincenzo’s <a href="https://vincenzocoia.com/communicating_data/#1">“Communicating data” slides</a> provide some rules of thumb.</li>
-<li><a href="https://www.callingbull.org/tools/tools_misleading_axes.html">Callingbull.org’s entry on visualizations</a>, by Carl T. Bergstrom and Jevin West, goes over several examples of improving ineffective visuals.</li>
-</ul></li>
-<li>Books to help you produce effective visualizations:
-<ul>
-<li><a href="https://serialmentor.com/dataviz/introduction.html">Fundamentals of Data Visualization</a> by Claus Wilke is an excellent guide to designing effective visuals.</li>
-<li><a href="https://www-taylorfrancis-com.ezproxy.library.ubc.ca/books/9780429088902">Visualization Analysis and Design</a> by Tamara Munzner is a gold-standard book for designing plots with a focus on human perception.</li>
-</ul></li>
-<li>As before, the <a href="https://ggplot2-book.org/">ggplot2 book</a> by Hadley Wickham provides a great overview of ggplot2.</li>
-</ul>
-</div>
-<div id="quiz" class="section level2">
-<h2>Quiz</h2>
-<ol style="list-style-type: decimal">
-<li>True or False: Because the <code>dplyr::group_by()</code> function and ggplot2’s <code>group</code> aesthetic both split a tibble into groups, we can use either one when making a plot.</li>
-<li>True or False: In principle, mapping <code>continent</code> to letters (a, b, c, …) is an aesthetic mapping.</li>
-</ol>
-<pre class="r"><code>library(tidyverse)
-library(gapminder)
-gapminder %&gt;% 
-  group_by(continent) %&gt;% 
-  nrow</code></pre>
-<pre><code>## [1] 1704</code></pre>
-<pre class="r"><code>gapminder %&gt;% 
-  ggplot(aes(gdpPercap, lifeExp)) +
-  geom_point(aes(shape = continent)) +
-  scale_x_log10() +
-  scale_shape_manual(values = letters[1:5])</code></pre>
-<p><img src="/notes/notes-a07_files/figure-html/unnamed-chunk-2-1.png" width="480" style="display: block; margin: auto;" /></p>
-</div>
-<div id="demonstration" class="section level2">
-<h2>Demonstration</h2>
-<pre class="r"><code>library(tidyverse)
-library(gapminder)
-knitr::opts_chunk$set(error = TRUE, fig.width = 5, fig.height = 2)</code></pre>
 <div id="demo-1" class="section level3">
 <h3>Demo 1</h3>
 <p>From last class:</p>
@@ -74,8 +18,7 @@ knitr::opts_chunk$set(error = TRUE, fig.width = 5, fig.height = 2)</code></pre>
   summarise(wmean = sum(lifeExp * pop) / sum(pop)) %&gt;% 
   ggplot(aes(year, wmean)) +
   geom_line()</code></pre>
-<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<p><img src="/notes/notes-a07_files/figure-html/unnamed-chunk-4-1.png" width="480" style="display: block; margin: auto;" /></p>
+<pre><code>## Error in gapminder %&gt;% group_by(year) %&gt;% summarise(wmean = sum(lifeExp * : could not find function &quot;%&gt;%&quot;</code></pre>
 </div>
 <div id="demo-2" class="section level3">
 <h3>Demo 2</h3>
@@ -97,7 +40,7 @@ knitr::opts_chunk$set(error = TRUE, fig.width = 5, fig.height = 2)</code></pre>
   scale_colour_discrete(&quot;&quot;) +
   theme_minimal() +
   theme(panel.grid = element_blank())</code></pre>
-<p><img src="/notes/notes-a07_files/figure-html/unnamed-chunk-5-1.png" width="480" style="display: block; margin: auto;" /></p>
+<pre><code>## Error in gapminder %&gt;% group_by(continent) %&gt;% mutate(median = median(lifeExp[year == : could not find function &quot;%&gt;%&quot;</code></pre>
 </div>
 <div id="demo-3" class="section level3">
 <h3>Demo 3</h3>
@@ -107,9 +50,10 @@ knitr::opts_chunk$set(error = TRUE, fig.width = 5, fig.height = 2)</code></pre>
   geom_line(aes(group = country, colour = continent), alpha = 1/3) +
   facet_wrap(~ continent) +
   scale_y_log10(labels = scales::dollar_format()) +
-  guides(colour = FALSE)
-p3</code></pre>
-<p><img src="/notes/notes-a07_files/figure-html/unnamed-chunk-6-1.png" width="480" style="display: block; margin: auto;" /></p>
+  guides(colour = FALSE)</code></pre>
+<pre><code>## Error in ggplot(gapminder, aes(year, gdpPercap)): could not find function &quot;ggplot&quot;</code></pre>
+<pre class="r"><code>p3</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;p3&#39; not found</code></pre>
 <p><strong>(b)</strong></p>
 <p>From last class Demo 3:</p>
 <blockquote>
@@ -130,7 +74,7 @@ p3</code></pre>
   scale_y_log10(labels = scales::dollar_format()) +
   guides(colour = FALSE) +
   theme_bw()</code></pre>
-<p><img src="/notes/notes-a07_files/figure-html/unnamed-chunk-7-1.png" width="480" style="display: block; margin: auto;" /></p>
+<pre><code>## Error in gapminder %&gt;% group_by(continent, year) %&gt;% mutate(max = max(gdpPercap), : could not find function &quot;%&gt;%&quot;</code></pre>
 </div>
 <div id="demo-4" class="section level3">
 <h3>Demo 4</h3>
@@ -146,7 +90,7 @@ p3</code></pre>
   filter(inc &lt; 0) %&gt;% 
   ggplot(aes(year)) +
   geom_bar()</code></pre>
-<p><img src="/notes/notes-a07_files/figure-html/unnamed-chunk-8-1.png" width="480" style="display: block; margin: auto;" /></p>
+<pre><code>## Error in gapminder %&gt;% group_by(country) %&gt;% arrange(year) %&gt;% mutate(inc = lifeExp - : could not find function &quot;%&gt;%&quot;</code></pre>
 </div>
 <div id="demo-5" class="section level3">
 <h3>Demo 5</h3>
@@ -160,8 +104,7 @@ p3</code></pre>
   ylab(&quot;Year&quot;) +
   theme_minimal() +
   scale_fill_discrete(&quot;&quot;)</code></pre>
-<pre><code>## Picking joint bandwidth of 0.148</code></pre>
-<p><img src="/notes/notes-a07_files/figure-html/unnamed-chunk-9-1.png" width="480" style="display: block; margin: auto;" /></p>
+<pre><code>## Error in gapminder %&gt;% filter(continent != &quot;Oceania&quot;) %&gt;% ggplot(aes(gdpPercap, : could not find function &quot;%&gt;%&quot;</code></pre>
 </div>
 <div id="effective-vis" class="section level3">
 <h3>Effective Vis</h3>
@@ -195,7 +138,7 @@ p3</code></pre>
   geom_path(arrow = arrow()) +
   geom_text(aes(label = time), nudge_x = 0.02) +
   theme_void()</code></pre>
-<p><img src="/notes/notes-a07_files/figure-html/unnamed-chunk-10-1.png" width="480" style="display: block; margin: auto;" /></p>
+<pre><code>## Error in tribble(~time, ~x, ~y, 1, 0.3, 0.3, 2, 0.8, 0.7, 3, 0.5, 0.9, : could not find function &quot;%&gt;%&quot;</code></pre>
 </div>
 <div id="demo-7" class="section level3">
 <h3>Demo 7</h3>
@@ -217,51 +160,27 @@ p3</code></pre>
   scale_fill_discrete(&quot;Transmission&quot;) +
   labs(y = &quot;Proportion&quot;, x = &quot;Cylinders&quot;) +
   theme_minimal()</code></pre>
-<p><img src="/notes/notes-a07_files/figure-html/unnamed-chunk-11-1.png" width="480" style="display: block; margin: auto;" /></p>
+<pre><code>## Error in mtcars %&gt;% mutate(transmission = if_else(am == 0, &quot;automatic&quot;, : could not find function &quot;%&gt;%&quot;</code></pre>
 </div>
 <div id="demo-8" class="section level3">
 <h3>Demo 8</h3>
 <p>Here’s the number of people having a certain hair colour from a sample of 592 people:</p>
 <pre class="r"><code>(hair &lt;- as_tibble(HairEyeColor) %&gt;% 
   count(Hair, wt = n))</code></pre>
-<pre><code>## # A tibble: 4 x 2
-##   Hair      n
-##   &lt;chr&gt; &lt;dbl&gt;
-## 1 Black   108
-## 2 Blond   127
-## 3 Brown   286
-## 4 Red      71</code></pre>
+<pre><code>## Error in as_tibble(HairEyeColor) %&gt;% count(Hair, wt = n): could not find function &quot;%&gt;%&quot;</code></pre>
 <p>Fix the following bar plot so that it shows these counts.</p>
 <pre><code>ggplot(hair, aes(Hair, n)) +
   geom_bar()</code></pre>
 <pre class="r"><code>ggplot(hair, aes(Hair, n)) +
   geom_col()</code></pre>
-<p><img src="/notes/notes-a07_files/figure-html/unnamed-chunk-13-1.png" width="480" style="display: block; margin: auto;" /></p>
+<pre><code>## Error in ggplot(hair, aes(Hair, n)): could not find function &quot;ggplot&quot;</code></pre>
 </div>
 <div id="demo-9" class="section level3">
 <h3>Demo 9</h3>
 <p>Here’s the number of people having a certain hair and eye colour from a sample of 592 people:</p>
 <pre class="r"><code>(hair_eye &lt;- as_tibble(HairEyeColor) %&gt;% 
   count(Hair, Eye, wt = n))</code></pre>
-<pre><code>## # A tibble: 16 x 3
-##    Hair  Eye       n
-##    &lt;chr&gt; &lt;chr&gt; &lt;dbl&gt;
-##  1 Black Blue     20
-##  2 Black Brown    68
-##  3 Black Green     5
-##  4 Black Hazel    15
-##  5 Blond Blue     94
-##  6 Blond Brown     7
-##  7 Blond Green    16
-##  8 Blond Hazel    10
-##  9 Brown Blue     84
-## 10 Brown Brown   119
-## 11 Brown Green    29
-## 12 Brown Hazel    54
-## 13 Red   Blue     17
-## 14 Red   Brown    26
-## 15 Red   Green    14
-## 16 Red   Hazel    14</code></pre>
+<pre><code>## Error in as_tibble(HairEyeColor) %&gt;% count(Hair, Eye, wt = n): could not find function &quot;%&gt;%&quot;</code></pre>
 </div>
 <div id="demo-10" class="section level3">
 <h3>Demo 10</h3>
@@ -271,6 +190,5 @@ p3</code></pre>
 <pre class="r"><code>ggplot(hair_eye, aes(Hair, Eye)) +
   geom_bin2d(aes(fill = n)) +
   theme_minimal()</code></pre>
-<p><img src="/notes/notes-a07_files/figure-html/unnamed-chunk-15-1.png" width="480" style="display: block; margin: auto;" /></p>
-</div>
+<pre><code>## Error in ggplot(hair_eye, aes(Hair, Eye)): could not find function &quot;ggplot&quot;</code></pre>
 </div>

@@ -9,60 +9,6 @@ knitr::opts_chunk$set(fig.width = 5, fig.height = 3,
 ```
 
 
-## Learning Objectives
-
-From today's class, students are anticipated to be able to:
-
-+ Become familiar with customizing `ggplot2` graphs.
-+ Choose an appropriate plot type for Exploratory Data Analysis.
-+ Understand what makes data visualizations *effective*.
-+ Understand how to customize and fine-tune ggplot2 graphics to create effective visualizations.
-
-## Resources
-
-Video lecture for today:
-
-- [ggplot2 Part 2: Plotting for Exploratory Data Analysis](https://youtu.be/X8b44P5D-5w)
-
-Optional further reading:
-
-- Bite-sized resources to help you produce effective visualizations:
-    - The ["do's and don'ts of effective graphics" in Jenny Bryan's STAT 545 book](https://stat545.com/effective-graphs.html) provides some rules of thumb for producing effective visuals.
-    - Vincenzo's ["Communicating data" slides](https://vincenzocoia.com/communicating_data/#1) provide some rules of thumb.
-    - [Callingbull.org's entry on visualizations](https://www.callingbull.org/tools/tools_misleading_axes.html), by Carl T. Bergstrom and Jevin West, goes over several examples of improving ineffective visuals. 
-- Books to help you produce effective visualizations:
-    - [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/introduction.html) by Claus Wilke is an excellent guide to designing effective visuals. 
-    - [Visualization Analysis and Design](https://www-taylorfrancis-com.ezproxy.library.ubc.ca/books/9780429088902) by Tamara Munzner is a gold-standard book for designing plots with a focus on human perception.
-- As before, the [ggplot2 book](https://ggplot2-book.org/) by Hadley Wickham provides a great overview of ggplot2.
-
-## Quiz
-
-1. True or False: Because the `dplyr::group_by()` function and ggplot2's `group` aesthetic both split a tibble into groups, we can use either one when making a plot. 
-2. True or False: In principle, mapping `continent` to letters (a, b, c, ...) is an aesthetic mapping.
-
-```{r, message = FALSE, warning = FALSE}
-library(tidyverse)
-library(gapminder)
-gapminder %>% 
-  group_by(continent) %>% 
-  nrow
-gapminder %>% 
-  ggplot(aes(gdpPercap, lifeExp)) +
-  geom_point(aes(shape = continent)) +
-  scale_x_log10() +
-  scale_shape_manual(values = letters[1:5])
-```
-
-
-
-## Demonstration
-
-
-```{r, message = FALSE, warning = FALSE}
-library(tidyverse)
-library(gapminder)
-knitr::opts_chunk$set(error = TRUE, fig.width = 5, fig.height = 2)
-```
 
 
 ### Demo 1

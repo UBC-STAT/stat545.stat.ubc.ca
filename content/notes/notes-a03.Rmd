@@ -51,7 +51,7 @@ Others:
 
 
 
-## Quiz
+## Test Your Understanding
 
 1. True or False: Since GitHub only displays the code behind an html file, we need to output to pdf if we want to be able to view the rendering on GitHub. 
 2. True or False: It doesn't make sense to output an .Rmd file to markdown, because .Rmd is already markdown. 

@@ -41,7 +41,7 @@ Some additional resources that you might find useful:
 
 - Read the [Understanding the GitHub flow](https://guides.github.com/introduction/flow/) to get a sense of branching.
 
-## Quiz
+## Test Your Understanding
 
 1. You've just successfully pushed your branch to GitHub! True or False: it's still possible for the branch on GitHub to contain work that's not on your computer.
 2. You're ready to push some code you added to `code.R` to GitHub, but just found out that your teammate completely changed `code.R` on GitHub! True or False: If you pull the repository from GitHub, you'll get an error because your `code.R` conflicts with GitHub's `code.R`. 
@@ -75,3 +75,4 @@ Let's organize our participation repo in a branch.
 - Add a new file on the branch.
 - Switch branches to see file appear and disappear.
 - submit and merge a PR.
+
