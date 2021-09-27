@@ -64,7 +64,7 @@ ggplot(penguins, aes(x = flipper_length_mm, y = body_mass_g)) +
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
 <pre><code>## Warning: Removed 2 rows containing non-finite values (stat_smooth).</code></pre>
 <pre><code>## Warning: Removed 2 rows containing missing values (geom_point).</code></pre>
-<p><img src="/collaborative-project/milestone3/TB3_files/figure-html/2.0-error2-1.png" width="672" /></p>
+<p><img src="/collaborative-project/milestone3/troubleshooting-3_files/figure-html/2.0-error2-1.png" width="672" /></p>
 </div>
 <div id="exercise-3" class="section level3">
 <h3>Exercise 3</h3>
@@ -235,5 +235,92 @@ inner_join(movies, distributors)</code></pre>
 ## 2 Pacific Rim               fail           action Warner Bros Pictur…       1923
 ## 3 Hannibal                  good           thril… MGM Distribution C…       1924
 ## 4 Harry Potter and the Dea… pass           fanta… Warner Bros Pictur…       1923</code></pre>
+</div>
+<div id="exercise-9-1" class="section level3">
+<h3>Exercise 9</h3>
+<p>The <code>singer</code> package was created by Joey Bernhardt, and it contains 3 datasets that are excerpts from the Million Songs Dataset. The <code>songs</code> and the <code>locations</code> package will be used here. These two datasets have the columns <code>artist_name</code> and <code>title</code> in common.</p>
+<pre class="r"><code>library(singer)</code></pre>
+<ul>
+<li>The R <code>merge()</code> function automatically joins the frames by common variable names. Merge <code>songs</code> and <code>locations</code> using one of the join family of functions (<code>inner_join()</code>, <code>outer_join()</code>, <code>right_join()</code>, etc…), without specifying the key variable.</li>
+</ul>
+<pre class="r"><code>### ERROR HERE ###
+anti_join(songs, locations)</code></pre>
+<pre><code>## Joining, by = c(&quot;title&quot;, &quot;artist_name&quot;)</code></pre>
+<pre><code>## # A tibble: 9 x 3
+##   title                            artist_name      year
+##   &lt;chr&gt;                            &lt;chr&gt;           &lt;int&gt;
+## 1 Corduroy                         Pearl Jam        1994
+## 2 Martin_ Doom! It&#39;s Seven O&#39;Clock The Boo Radleys  1995
+## 3 Leaves And Sand                  The Boo Radleys  1993
+## 4 Comb Your Hair                   The Boo Radleys  1998
+## 5 Mine Again                       Mariah Carey     2005
+## 6 Don&#39;t Forget About Us            Mariah Carey     2005
+## 7 Babydoll                         Mariah Carey     1997
+## 8 Don&#39;t Forget About Us            Mariah Carey     2005
+## 9 Vision Of Love                   Mariah Carey     1990</code></pre>
+<ul>
+<li>Join <code>songs</code> and <code>locations</code> in a way that drops all observations from <code>songs</code> that <em>do not</em> have a match in <code>locations</code>.</li>
+</ul>
+<pre class="r"><code>### ERROR HERE ###
+inner_join(songs, locations)</code></pre>
+<pre><code>## Joining, by = c(&quot;title&quot;, &quot;artist_name&quot;)</code></pre>
+<pre><code>## # A tibble: 13 x 5
+##    title                      artist_name    year city       release            
+##    &lt;chr&gt;                      &lt;chr&gt;         &lt;int&gt; &lt;chr&gt;      &lt;chr&gt;              
+##  1 &quot;Grievance&quot;                Pearl Jam      2000 Seattle, … Binaural           
+##  2 &quot;Stupidmop&quot;                Pearl Jam      1994 Seattle, … Vitalogy           
+##  3 &quot;Present Tense&quot;            Pearl Jam      1996 Seattle, … No Code            
+##  4 &quot;MFC&quot;                      Pearl Jam      1998 Seattle, … Live On Two Legs   
+##  5 &quot;Lukin&quot;                    Pearl Jam      1996 Seattle, … Seattle Washington…
+##  6 &quot;It&#39;s Lulu&quot;                The Boo Radl…  1995 Liverpool… Best Of            
+##  7 &quot;Sparrow&quot;                  The Boo Radl…  1992 Liverpool… Everything&#39;s Alrig…
+##  8 &quot;High as Monkeys&quot;          The Boo Radl…  1998 Liverpool… Kingsize           
+##  9 &quot;Butterfly McQueen&quot;        The Boo Radl…  1993 Liverpool… Giant Steps        
+## 10 &quot;My One and Only Love&quot;     Carly Simon    2005 New York,… Moonlight Serenade 
+## 11 &quot;It Was So Easy  (LP Vers… Carly Simon    1972 New York,… No Secrets         
+## 12 &quot;I&#39;ve Got A Crush On You&quot;  Carly Simon    1994 New York,… Clouds In My Coffe…
+## 13 &quot;Manha De Carnaval (Theme… Carly Simon    2007 New York,… Into White</code></pre>
+<ul>
+<li>Combine <code>locations</code> and <code>songs</code> to find only the entries that correspond to song titles in the <code>locations</code> dataset.</li>
+</ul>
+<pre class="r"><code>### ERROR HERE ###
+left_join(songs, locations)</code></pre>
+<pre><code>## Joining, by = c(&quot;title&quot;, &quot;artist_name&quot;)</code></pre>
+<pre><code>## # A tibble: 22 x 5
+##    title                 artist_name    year city         release               
+##    &lt;chr&gt;                 &lt;chr&gt;         &lt;int&gt; &lt;chr&gt;        &lt;chr&gt;                 
+##  1 Corduroy              Pearl Jam      1994 &lt;NA&gt;         &lt;NA&gt;                  
+##  2 Grievance             Pearl Jam      2000 Seattle, WA  Binaural              
+##  3 Stupidmop             Pearl Jam      1994 Seattle, WA  Vitalogy              
+##  4 Present Tense         Pearl Jam      1996 Seattle, WA  No Code               
+##  5 MFC                   Pearl Jam      1998 Seattle, WA  Live On Two Legs      
+##  6 Lukin                 Pearl Jam      1996 Seattle, WA  Seattle Washington No…
+##  7 It&#39;s Lulu             The Boo Radl…  1995 Liverpool, … Best Of               
+##  8 Sparrow               The Boo Radl…  1992 Liverpool, … Everything&#39;s Alright …
+##  9 Martin_ Doom! It&#39;s S… The Boo Radl…  1995 &lt;NA&gt;         &lt;NA&gt;                  
+## 10 Leaves And Sand       The Boo Radl…  1993 &lt;NA&gt;         &lt;NA&gt;                  
+## # … with 12 more rows</code></pre>
+<ul>
+<li>Merge <code>songs</code> and <code>locations</code> so that <em>all information</em> from both datasets is combined.</li>
+</ul>
+<pre class="r"><code>### ERROR HERE ###
+semi_join(songs, locations)</code></pre>
+<pre><code>## Joining, by = c(&quot;title&quot;, &quot;artist_name&quot;)</code></pre>
+<pre><code>## # A tibble: 13 x 3
+##    title                                              artist_name      year
+##    &lt;chr&gt;                                              &lt;chr&gt;           &lt;int&gt;
+##  1 &quot;Grievance&quot;                                        Pearl Jam        2000
+##  2 &quot;Stupidmop&quot;                                        Pearl Jam        1994
+##  3 &quot;Present Tense&quot;                                    Pearl Jam        1996
+##  4 &quot;MFC&quot;                                              Pearl Jam        1998
+##  5 &quot;Lukin&quot;                                            Pearl Jam        1996
+##  6 &quot;It&#39;s Lulu&quot;                                        The Boo Radleys  1995
+##  7 &quot;Sparrow&quot;                                          The Boo Radleys  1992
+##  8 &quot;High as Monkeys&quot;                                  The Boo Radleys  1998
+##  9 &quot;Butterfly McQueen&quot;                                The Boo Radleys  1993
+## 10 &quot;My One and Only Love&quot;                             Carly Simon      2005
+## 11 &quot;It Was So Easy  (LP Version)&quot;                     Carly Simon      1972
+## 12 &quot;I&#39;ve Got A Crush On You&quot;                          Carly Simon      1994
+## 13 &quot;Manha De Carnaval (Theme from \&quot;Black Orpheus\&quot;)&quot; Carly Simon      2007</code></pre>
 </div>
 </div>

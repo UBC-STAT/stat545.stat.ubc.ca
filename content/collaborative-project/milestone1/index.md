@@ -41,6 +41,8 @@ __Grading__:
 
 __15 points__
 
+_Read this exercise, but do it last_.
+
 Between your `README.md` and `TEAMWORK.md` files, showcase at least five functionalities of GitHub-flavoured markdown (so, you don't need to consider this exercise until you begin writing these files, as described in other exercises). The [markdown cheatsheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf) might help here, or, the *Help* menu in RStudio will bring up a Markdown Quick Reference at any time.
 
 __Grading__: 
@@ -54,6 +56,8 @@ __Grading__:
 ## Exercise 3: Merge one Pull Request per teammate
 
 __30 points__
+
+_Read this exercise, but do it last_.
 
 Every teammate should submit at least one pull request for this milestone, and have a __different__ teammate merge the pull request after reviewing the contents of the pull request. So, like the previous exercise on Markdown Formatting, this exercise is not stand-alone. You'll need to decide who will work on what (more on this when you make your teamwork document).
 

@@ -6,10 +6,6 @@ output: github_document
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<div id="attributions" class="section level2">
-<h2>Attributions</h2>
-<p>Thanks to Icíar Fernández-Boyano for writing most of this document, and Diana Lin for her edits.</p>
-</div>
 <div id="instructions" class="section level2">
 <h2>Instructions</h2>
 <p>There are <strong>24 errors</strong> in this Rmd. Will you find them all?</p>
@@ -610,5 +606,16 @@ fakeStarWars %&gt;%
   inner_join(&quot;starwars&quot;) %&gt;%
   mutate(bmi = mass / height / 100 ^ 2)</code></pre>
 <pre><code>## Error in select(., name, starts_with(birth)): object &#39;fakeStarWars&#39; not found</code></pre>
+<p>Say I want to create a subset of the <code>penguins_new</code> dataset, that <em>only</em> contains data for <strong>female</strong> penguins from the <strong>Adelie</strong> and <strong>Gentoo</strong> species. Save this subset into <code>penguins_subset</code> and ensure that you <em>drop all unused levels</em> from this new subset. Remember to <em>check the output</em> to ensure that the code is doing what you expect it to do!</p>
+<pre class="r"><code># ERROR HERE - 7
+penguins_subset &lt;-
+  penguins_new %&gt;%
+  filter(Species %in% c(&quot;Adelie&quot;, &quot;Gentoo&quot;) &amp; Sex == &quot;FEMALE&quot;) %&gt;%
+  drop_na() </code></pre>
+<pre><code>## Error in filter(., Species %in% c(&quot;Adelie&quot;, &quot;Gentoo&quot;) &amp; Sex == &quot;FEMALE&quot;): object &#39;penguins_new&#39; not found</code></pre>
 </div>
+</div>
+<div id="attributions" class="section level2">
+<h2>Attributions</h2>
+<p>Thanks to Icíar Fernández-Boyano for writing most of this document, and Diana Lin for her edits.</p>
 </div>

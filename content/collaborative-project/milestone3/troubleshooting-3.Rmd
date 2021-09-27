@@ -144,25 +144,6 @@ penguins_new <-
 levels(penguins_new$Species) # check output
 ```
 
-### Exercise 7
-
-So far, we've converted columns `Sex` and `Species` into factors. It is common practice to convert **all character columns** into factors. Let's try that below; again, saving our changes into the `penguins_new` dataset.
-
-```{r 7.0}
-penguins_new <-
-  penguins_new %>%
-  mutate(across(where(is_character), as_factor))
-```
-
-Say I want to create a subset of the `penguins_new` dataset, that *only* contains data for **female** penguins from the **Adelie** and **Gentoo** species. Save this subset into `penguins_subset` and ensure that you *drop all unused levels* from this new subset. Remember to *check the output* to ensure that the code is doing what you expect it to do!
-
-```{r 7.1-error7}
-# ERROR HERE - 7
-penguins_subset <-
-  penguins_new %>%
-  filter(Species %in% c("Adelie", "Gentoo") & Sex == "FEMALE") %>%
-  drop_na() 
-```
 
 ### Exercise 8
 
@@ -214,3 +195,44 @@ inner_join(movies, distributors)
 ```
 
 
+### Exercise 9
+
+The `singer` package was created by Joey Bernhardt, and it contains 3 datasets that are excerpts from the Million Songs Dataset. The `songs` and the `locations` package will be used here. These two datasets have the columns `artist_name` and `title` in common.
+
+```{r}
+library(singer)
+```
+
+
++ The R `merge()` function automatically joins the frames by common variable names. Merge `songs` and `locations` using one of the join family of functions (`inner_join()`, `outer_join()`, `right_join()`, etc...), without specifying the key variable.
+
+```{r include = FALSE}
+songs <- singer::songs
+locations <- singer::locations 
+```
+
+```{r}
+### ERROR HERE ###
+anti_join(songs, locations)
+```
+
++ Join `songs` and `locations` in a way that drops all observations from `songs` that *do not* have a match in `locations`.
+
+```{r}
+### ERROR HERE ###
+inner_join(songs, locations)
+```
+
++ Combine `locations` and `songs` to find only the entries that correspond to song titles in the `locations` dataset.
+
+```{r}
+### ERROR HERE ###
+left_join(songs, locations)
+```
+
++ Merge `songs` and `locations` so that *all information* from both datasets is combined.
+
+```{r}
+### ERROR HERE ###
+semi_join(songs, locations)
+```

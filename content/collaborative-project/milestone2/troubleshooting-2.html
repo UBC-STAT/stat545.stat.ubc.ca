@@ -1,0 +1,161 @@
+---
+title: "Team Troubleshooting Deliverable 2"
+output: github_document
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>There are <strong>11 code chunks with errors</strong> in this Rmd. Your objective is to fix all of the errors in this worksheet. For the purpose of grading, each erroneous code chunk is equally weighted.</p>
+<p>Note that errors are not all syntactic (i.e., broken code)! Some are logical errors as well (i.e. code that does not do what it was intended to do).</p>
+<div id="exercise-1-exploring-with-select-and-filter" class="section level2">
+<h2>Exercise 1: Exploring with <code>select()</code> and <code>filter()</code></h2>
+<p><a href="https://dl.acm.org/doi/10.1145/2827872">MovieLens</a> are a series of datasets widely used in education, that describe movie ratings from the MovieLens <a href="https://movielens.org/">website</a>. There are several MovieLens datasets, collected by the <a href="https://grouplens.org/datasets/movielens/">GroupLens Research Project</a> at the University of Minnesota. Here, we load the MovieLens 100K dataset from Rafael Irizarry and Amy Gill’s R package, <a href="https://cran.r-project.org/web/packages/dslabs/dslabs.pdf">dslabs</a>, which contains datasets useful for data analysis practice, homework, and projects in data science courses and workshops. We’ll also load other required packages.</p>
+<pre class="r"><code>### ERROR HERE ###
+load.packages(dslabs)</code></pre>
+<pre><code>## Error in load.packages(dslabs): could not find function &quot;load.packages&quot;</code></pre>
+<pre class="r"><code>load.packages(singer)</code></pre>
+<pre><code>## Error in load.packages(singer): could not find function &quot;load.packages&quot;</code></pre>
+<pre class="r"><code>load.packages(tidyverse)</code></pre>
+<pre><code>## Error in load.packages(tidyverse): could not find function &quot;load.packages&quot;</code></pre>
+<pre class="r"><code>load.packages(stringr)</code></pre>
+<pre><code>## Error in load.packages(stringr): could not find function &quot;load.packages&quot;</code></pre>
+<pre class="r"><code>load.packages(gapminder)</code></pre>
+<pre><code>## Error in load.packages(gapminder): could not find function &quot;load.packages&quot;</code></pre>
+<p>Let’s have a look at the dataset! My goal is to:</p>
+<ul>
+<li>Find out the “class” of the dataset.</li>
+<li>If it isn’t a tibble already, coerce it into a tibble and store it in the variable “movieLens”.</li>
+<li>Have a quick look at the tibble, using a <em>dplyr function</em>.</li>
+</ul>
+<pre class="r"><code>### ERROR HERE ###
+class(dslabs::movielens)</code></pre>
+<pre><code>## [1] &quot;data.frame&quot;</code></pre>
+<pre class="r"><code>movieLens &lt;- as_tibble(dslabs::movielens)</code></pre>
+<pre><code>## Error in as_tibble(dslabs::movielens): could not find function &quot;as_tibble&quot;</code></pre>
+<pre class="r"><code>dim(movieLens)</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;movieLens&#39; not found</code></pre>
+<p>Now that we’ve had a quick look at the dataset, it would be interesting to explore the rows (observations) in some more detail. I’d like to consider the movie entries that…</p>
+<ul>
+<li>belong to the genre <em>“Drama”</em>;</li>
+<li>don’t belong to the genre <em>“Drama”</em>;</li>
+<li>were filmed <em>after</em> the year 2000;</li>
+<li>were filmed in 1999 <em>or</em> 2000;</li>
+<li>correspond to the movie <em>“Little Women”</em>;</li>
+<li>have <em>more than</em> 4.5 stars, and were released <em>before</em> 1995.</li>
+</ul>
+<pre class="r"><code>### ERROR HERE ###
+filter(movieLens, genres == &quot;Drama&quot;)</code></pre>
+<pre><code>## Error in as.ts(x): object &#39;movieLens&#39; not found</code></pre>
+<pre class="r"><code>filter(movieLens, !genres == &quot;Drama&quot;)</code></pre>
+<pre><code>## Error in as.ts(x): object &#39;movieLens&#39; not found</code></pre>
+<pre class="r"><code>filter(movieLens, year &gt;= 2000)</code></pre>
+<pre><code>## Error in as.ts(x): object &#39;movieLens&#39; not found</code></pre>
+<pre class="r"><code>filter(movieLens, year == 1999 | month == 2000)</code></pre>
+<pre><code>## Error in as.ts(x): object &#39;movieLens&#39; not found</code></pre>
+<pre class="r"><code>filter(movieLens, title %in% &quot;Little Women&quot;)</code></pre>
+<pre><code>## Error in as.ts(x): object &#39;movieLens&#39; not found</code></pre>
+<pre class="r"><code>filter(movieLens, rating &gt; 4.5, year &lt; 1995)</code></pre>
+<pre><code>## Error in match.arg(method): object &#39;year&#39; not found</code></pre>
+<p>While filtering for <em>all movies that do not belong to the genre drama</em> above, I noticed something interesting. I want to filter for the same thing again, this time selecting variables <strong>title and genres first,</strong> and then <em>everything else</em>. But I want to do this in a robust way, so that (for example) if I end up changing <code>movieLens</code> to contain more or less columns some time in the future, the code will still work. Hint: there is a function to select “everything else”…</p>
+<pre class="r"><code>### ERROR HERE ###
+movieLens %&gt;%
+  filter(!genres == &quot;Drama&quot;) %&gt;%
+  select(title, genres, year, rating, timestamp)</code></pre>
+<pre><code>## Error in movieLens %&gt;% filter(!genres == &quot;Drama&quot;) %&gt;% select(title, genres, : could not find function &quot;%&gt;%&quot;</code></pre>
+</div>
+<div id="exercise-2-calculating-with-mutate-like-functions" class="section level2">
+<h2>Exercise 2: Calculating with <code>mutate()</code>-like functions</h2>
+<p>Some of the variables in the <code>movieLens</code> dataset are in <em>camelCase</em> (in fact, <em>movieLens</em> is in camelCase). Let’s clean these two variables to use <em>snake_case</em> instead, and assign our post-rename object back to “movieLens”.</p>
+<pre class="r"><code>### ERROR HERE ###
+movieLens &lt;- movieLens %&gt;%
+  rename(user_id == userId,
+         movie_id == movieId)</code></pre>
+<pre><code>## Error in movieLens %&gt;% rename(user_id == userId, movie_id == movieId): could not find function &quot;%&gt;%&quot;</code></pre>
+<p>As you already know, <code>mutate()</code> defines and inserts new variables into a tibble. There is <em>another mystery function similar to <code>mutate()</code></em> that adds the new variable, but also drops existing ones. I wanted to create an <code>average_rating</code> column that takes the <code>mean(rating)</code> across all entries, and I only want to see that variable (i.e drop all others!) but I forgot what that mystery function is. Can you remember?</p>
+<pre class="r"><code>### ERROR HERE ### 
+mutate(movieLens,
+       average_rating = mean(rating))</code></pre>
+<pre><code>## Error in mutate(movieLens, average_rating = mean(rating)): could not find function &quot;mutate&quot;</code></pre>
+</div>
+<div id="exercise-3-calculating-with-summarise-like-functions" class="section level2">
+<h2>Exercise 3: Calculating with <code>summarise()</code>-like functions</h2>
+<p>Alone, <code>tally()</code> is a short form of <code>summarise()</code>. <code>count()</code> is short-hand for <code>group_by()</code> and <code>tally()</code>.</p>
+<p>Each entry of the movieLens table corresponds to a movie rating by a user. Therefore, if more than one user rated the same movie, there will be several entries for the same movie. I want to find out how many times each movie has been reviewed, or in other words, how many times each movie title appears in the dataset.</p>
+<pre class="r"><code>movieLens %&gt;%
+  group_by(title) %&gt;%
+  tally()</code></pre>
+<pre><code>## Error in movieLens %&gt;% group_by(title) %&gt;% tally(): could not find function &quot;%&gt;%&quot;</code></pre>
+<p>Without using <code>group_by()</code>, I want to find out how many movie reviews there have been for each year.</p>
+<pre class="r"><code>### ERROR HERE ###
+movieLens %&gt;%
+  tally(year)</code></pre>
+<pre><code>## Error in movieLens %&gt;% tally(year): could not find function &quot;%&gt;%&quot;</code></pre>
+<p>Both <code>count()</code> and <code>tally()</code> can be grouped by multiple columns. Below, I want to count the number of movie reviews by title and rating, and sort the results.</p>
+<pre class="r"><code>### ERROR HERE ###
+movieLens %&gt;%
+  count(c(title, rating), sort = TRUE)</code></pre>
+<pre><code>## Error in movieLens %&gt;% count(c(title, rating), sort = TRUE): could not find function &quot;%&gt;%&quot;</code></pre>
+<p>Not only do <code>count()</code> and <code>tally()</code> quickly allow you to count items within your dataset, <code>add_tally()</code> and <code>add_count()</code> are handy shortcuts that add an additional columns to your tibble, rather than collapsing each group.</p>
+</div>
+<div id="exercise-4-calculating-with-group_by" class="section level2">
+<h2>Exercise 4: Calculating with <code>group_by()</code></h2>
+<p>We can calculate the mean rating by year, and store it in a new column called <code>avg_rating</code>:</p>
+<pre class="r"><code>movieLens %&gt;%
+  group_by(year) %&gt;%
+  summarize(avg_rating = mean(rating))</code></pre>
+<pre><code>## Error in movieLens %&gt;% group_by(year) %&gt;% summarize(avg_rating = mean(rating)): could not find function &quot;%&gt;%&quot;</code></pre>
+<p>Using <code>summarize()</code>, we can find the minimum and the maximum rating by title, stored under columns named <code>min_rating</code>, and <code>max_rating</code>, respectively.</p>
+<pre class="r"><code>### ERROR HERE ###
+movieLens %&gt;%
+  mutate(min_rating = min(rating), 
+         max_rating = max(rating))</code></pre>
+<pre><code>## Error in movieLens %&gt;% mutate(min_rating = min(rating), max_rating = max(rating)): could not find function &quot;%&gt;%&quot;</code></pre>
+</div>
+<div id="exercise-5-scoped-variants-with-across" class="section level2">
+<h2>Exercise 5: Scoped variants with <code>across()</code></h2>
+<p><code>across()</code> is a newer dplyr function (<code>dplyr</code> 1.0.0) that allows you to apply a transformation to multiple variables selected with the <code>select()</code> and <code>rename()</code> syntax. For this section, we will use the <code>starwars</code> dataset, which is built into R. First, let’s transform it into a tibble and store it under the variable <code>starWars</code>.</p>
+<pre class="r"><code>starWars &lt;- as_tibble(starwars)</code></pre>
+<pre><code>## Error in as_tibble(starwars): could not find function &quot;as_tibble&quot;</code></pre>
+<p>We can find the mean for all columns that are numeric:</p>
+<pre class="r"><code>starWars %&gt;%
+  drop_na() %&gt;%
+  summarise(across(where(is.numeric), mean))</code></pre>
+<pre><code>## Error in starWars %&gt;% drop_na() %&gt;% summarise(across(where(is.numeric), : could not find function &quot;%&gt;%&quot;</code></pre>
+<p>We can find the minimum height and weight within each species:</p>
+<pre class="r"><code>### ERROR HERE ###
+starWars %&gt;%
+  group_by(species) %&gt;%
+  summarise(across(&quot;height&quot;, &quot;weight&quot;, min)) %&gt;%
+  drop_na()</code></pre>
+<pre><code>## Error in starWars %&gt;% group_by(species) %&gt;% summarise(across(&quot;height&quot;, : could not find function &quot;%&gt;%&quot;</code></pre>
+</div>
+<div id="exercise-6-making-tibbles" class="section level2">
+<h2>Exercise 6: Making tibbles</h2>
+<p>Manually create a tibble with 4 columns:</p>
+<ul>
+<li><code>birth_year</code> should contain years 1998 to 2005 (inclusive);</li>
+<li><code>birth_weight</code> should take the <code>year</code> column, subtract 1995, and multiply by 0.45;</li>
+<li><code>birth_location</code> should contain 8 locations.</li>
+</ul>
+<pre class="r"><code>### ERROR HERE ###
+fakeStarWars &lt;- tribble(
+  ~name,            ~birth_year,  ~birth_weight, ~location
+  &quot;Luke Skywalker&quot;,  1.35      ,   1998        ,  Liverpool, England,
+  &quot;C-3PO&quot;         ,  1.80      ,   1999        ,  Liverpool, England,
+  &quot;R2-D2&quot;         ,  2.25      ,   2000        ,  Seattle, WA,
+  &quot;Darth Vader&quot;   ,  2,70      ,   2001        ,  Liverpool, England,
+  &quot;Leia Organa&quot;   ,  3.15      ,   2002        ,  New York, NY,
+  &quot;Owen Lars&quot;     ,  3.60      ,   2003        ,  Seattle, WA,
+  &quot;Beru Whitesun Iars&quot;, 4.05   ,   2004        ,  Liverpool, England,
+  &quot;R5-D4&quot;         ,  4.50      ,   2005        ,  New York, NY
+)</code></pre>
+<pre><code>## Error: &lt;text&gt;:4:3: unexpected string constant
+## 3:   ~name,            ~birth_year,  ~birth_weight, ~location
+## 4:   &quot;Luke Skywalker&quot;
+##      ^</code></pre>
+</div>
+<div id="attributions" class="section level2">
+<h2>Attributions</h2>
+<p>Thanks to Icíar Fernández-Boyano for writing most of this document, and Diana Lin and Vincenzo Coia for their edits.</p>
+</div>

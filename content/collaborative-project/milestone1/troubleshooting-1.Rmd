@@ -1,10 +1,9 @@
 ---
 title: "STAT 545A Troubleshooting Exercise for Milestone 1"
-author: "Attribution: Thanks to Icíar Fernández Boyano for coming up with most of this worksheet."
 output: github_document
 ---
 
-There are **3 errors** in this Rmd file, marked by `## ERROR X ##`, where `X` is the error number. 
+There are **3 code chunks with errors** in this Rmd. Your objective is to fix all of the errors in this worksheet. For the purpose of grading, each erroneous code chunk is equally weighted. 
 
 ## Welcome to R and Rmd!
 
@@ -33,3 +32,6 @@ By loading the tidyverse, a function called `glimpse` has been made available. T
 glimpse mtcars
 ```
 
+## Attribution
+
+Thanks to Icíar Fernández Boyano for coming up with most of this worksheet.
