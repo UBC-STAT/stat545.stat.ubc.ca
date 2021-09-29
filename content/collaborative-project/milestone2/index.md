@@ -67,7 +67,7 @@ _How to tag a release_:
 
 _If you want to "re-tag" your release_:
 
-If you want to change your submission _after_ tagging a release, you can still do this if it's before the deadline. Just increase the secondary version number by one -- so, make the tag version `m1.1`, then `m1.2`, etc.
+If you want to change your submission _after_ tagging a release, you can still do this if it's before the deadline. Just increase the secondary version number by one -- so, make the tag version `m2.1`, then `m2.2`, etc.
 
 __Grading__: 2 points awarded for tagging a release.
 
