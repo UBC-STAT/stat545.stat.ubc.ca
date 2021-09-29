@@ -58,7 +58,7 @@ _How to tag a release_:
 1. Navigate to the main page (root) of your collaborative GitHub repository.
 2. There should be a small link on the right-hand-side of your page that says "Create a new release". Click that.
   - You might also be able to get to the same place by clicking on the "tags" link beside where your branches are listed. 
-3. For the tag version, put `m1.0` (for "milestone 1.0").
+3. For the tag version, put `m2.0` (for "milestone 2.0").
 4. Choose a release title and description (this is less important).
 5. Do __not__ check off "This is a pre-release".
 6. Click "Publish Release".
