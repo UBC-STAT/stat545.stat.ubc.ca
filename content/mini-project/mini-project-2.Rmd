@@ -1,11 +1,7 @@
 ---
-title: "mini-project-2"
-author: "Victor Yuan"
-date: "22/09/2020"
+title: "Mini Data-Analysis Deliverable 2"
 output: html_document
 ---
-
-**Version 1.1**
 
 *To complete this milestone, edit this `.rmd` file directly. Fill in the sections that are commented out with `<!--- start your work here--->`. When you are done, make sure to knit to an `.md` file by changing the YAML settings, before submitting a tagged release on canvas.*
 
@@ -132,3 +128,7 @@ Try to choose a version of your data that you think will be appropriate to answe
 <!----------------------------------------------------------------------------->
 
 *When you are done, knit an `md` file. This is what we will mark! Make sure to open it and check that everything has knitted correctly before submitting your tagged release.*
+
+### Attribution
+
+Thanks to Victor Yuan for mostly putting this together. 

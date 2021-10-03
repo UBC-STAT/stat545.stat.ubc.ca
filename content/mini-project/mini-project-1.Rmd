@@ -1,7 +1,5 @@
 ---
 title: "Mini Data-Analysis Deliverable 1"
-author: "Icíar Fernández Boyano"
-date: "18/09/2020"
 output: html_document
 ---
 
@@ -142,4 +140,6 @@ Report the absolute and/or relative abundance of countries with low life expecta
 
 Get the *maximum* and *minimum* of GDP per capita for all continents.
 
+### Attribution
 
+Thanks to Icíar Fernández Boyano for mostly putting this together. 
