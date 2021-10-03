@@ -33,7 +33,7 @@ Slack channel specifically for students: https://stat545classroom.slack.com/
 | `r format(dates_545a[6] , "%a, %b %d")` | [Graphing](/notes/notes-a06)        | Worksheet A3 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a03.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a03.ipynb); [zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a03.ipynb.zip)) (Due Saturday, Oct 9, 2021 at 22:00 PT) |
 | `r format(dates_545a[7] , "%a, %b %d")` | University closed (Truth and Reconciliation) |  |
 | `r format(dates_545a[8] , "%a, %b %d")` | (Graphing, continued)             |  |
-| `r format(dates_545a[9] , "%a, %b %d")` | [Tidy Data]                |  |
+| `r format(dates_545a[9] , "%a, %b %d")` | [Tidy Data](/notes/notes-a08)       | Worksheet A4 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a04.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a04.ipynb); [zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a04.ipynb.zip)) (Due Saturday, Oct 16, 2021 at 22:00 PT) |
 | `r format(dates_545a[10], "%a, %b %d")` | [Model Fitting]            |  |
 | `r format(dates_545a[11], "%a, %b %d")` | [Factors and Dates]        |  |
 | `r format(dates_545a[12], "%a, %b %d")` | [Tibble joins]             |  |
@@ -69,7 +69,7 @@ Options for working on these worksheets:
 | Worksheet A1 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a01.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a01.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a01.ipynb.zip) | NA | not for submission |
 | Worksheet A2 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a02.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a02.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a02.ipynb.zip) | 10 | __Wednesday, Sept 29, 2021 at 22:00 PT__ |
 | Worksheet A3 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a03.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a03.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a03.ipynb.zip) | 10 | __Saturday, Oct 9, 2021 at 22:00 PT__ |
-| Worksheet 4-A | [.ipynb] | [view it on GitHub] |  | 
+| Worksheet A4 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a04.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a04.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a04.ipynb.zip) | 10 | __Saturday, Oct 16, 2021 at 22:00 PT__ |
 | Worksheet 5-A | [.ipynb] | [view it on GitHub] |  |
 | Worksheet 6-A | [.ipynb] | [view it on GitHub] |  |
 

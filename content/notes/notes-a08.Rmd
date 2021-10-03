@@ -1,16 +1,7 @@
 ---
-title: "Lecture Notes: Tidy Data"
-subtitle: "Version 1.0.0"
+title: "Tidy Data"
 output: html_document
 ---
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE, results = "asis"}
-knitr::opts_chunk$set(fig.width = 5, fig.height = 3, 
-                      fig.align = "center", error = TRUE)
-```
-
-
-## Learning Objectives
 
 From today's class, students are anticipated to be able to:
 
@@ -19,170 +10,28 @@ From today's class, students are anticipated to be able to:
 - assess which format is best suited for each type of analysis
 - deal with missing data in a tibble
 
+## Resources
 
-## Parallel Resources
+Video lecture for this topic:
 
-This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:
+- [tidyr for Pivoting and Tidy Data](https://youtu.be/qivE6exNsZI)
 
-- [STAT 545 Episode 8-A: tidyr for Pivoting and Tidy Data](https://youtu.be/qivE6exNsZI) (also available on canvas)
-- Read the [`pivot` vignette](https://tidyr.tidyverse.org/articles/pivot.html) with `tidyr`
+Written resources on tidy data:
 
-We suggest referring to this material when engaging with today's topic.
+- To learn how to use the `pivot_*()` functions, consult tidyr's [pivot vignette](https://tidyr.tidyverse.org/articles/pivot.html).
+- To get a better understanding of the concept of tidy data:
+    - Hadley Wickham's [paper on Tidy Data](https://vita.had.co.nz/papers/tidy-data.pdf) is the gold standard treatment of tidy data.
+    - A "code heavy" version of the tidy data paper is tidyr's ["Tidy Data" vignette](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html).
 
-## Additional Resources
-
-- `tidyr` [vignette](https://cran.r-project.org/web/packages/tidyr/vignettes/tidy-data.html) on tidy data for more depth on tidy data.
-- [Hadley's Paper on Tidy Data](https://vita.had.co.nz/papers/tidy-data.pdf) for a formal journal article on tidy data.
-- Other new [additions](https://www.tidyverse.org/articles/2019/09/tidyr-1-0-0/) in `tidyr` v1.0.0
-
-
-## Quiz
+## Test Your Understanding
 
 1. True or False: it's possible to lengthen a tibble "all the way" so that it can't be lengthened anymore.
 2. True or False: To make a scatterplot viewing the relationship of Africa's GDP per capita vs. Europe's, use `pivot_wider()`. 
 
-```{r}
-dat <- tibble(x = letters)
-dat %>% 
-  pivot_longer(cols = x) %>% 
-  pivot_longer(cols = everything())
+## A note on deprecated functions: `spread()` and `gather()`
 
-gapminder %>% 
-  group_by(continent) %>% 
-  summarise(gdpPercap = mean(gdpPercap))  %>% 
-  pivot_wider(names_from = continent, values_from = gdpPercap)
-```
-
+Pivoting used to be achieved through the tidyr `spread()` and `gather()` functions. These are now deprecated and should not be used. They are only kept along with the tidyr package for backward compatibility. 
 
 ## Demonstration
 
-
-```{r, message = FALSE, warning = FALSE}
-library(tidyverse)
-library(palmerpenguins)
-library(gapminder)
-knitr::opts_chunk$set(error = TRUE)
-guestlist <- read_csv(here::here("content", "data", "wedding", "attend.csv"))
-```
-
-### Review
-
-#### Collaborative Milestone 2
-
-Logical operators: `%in%`, `!=`, `!`
-
-```{r}
-v <- c("foo", "foo", "bar", "baz")
-v %in% c("foo", "baz")
-v == "foo" | v == "baz"
-v == "foo"
-v == c("foo", "baz")
-v == c("foo", "baz", "foo", "baz")
-v != "foo"
-!(v == "foo")
-```
-
-
-- Avoid using deprecated functions: use `across()` instead of scoped variants like `mutate_at()` and `summarise_if()`.
-- Troubleshooting? Check the function's documentation.
-  - Easy to access with `?function`
-  - Typically concise. Not like those old fashioned "User Manuals" [like this WinBUGS manual](https://www.mrc-bsu.cam.ac.uk/wp-content/uploads/manual14.pdf).
-
-#### Worksheet 3-A
-
-Any requests? If not, Question 1.3:
-
-> In a single expression, make a tibble with the following columns for each island in the penguins data set:
-> 
-> - What is the mean of each numeric variable in the penguins dataset in each island? Keep the column names the same.
-> - How many penguins are there in each island? Add this to a column named `n`.
-
-```{r}
-
-```
-
-#### 1.5
-
-```{r}
-mean(c(1, 4, 3, NA), na.rm = TRUE)
-
-penguins %>% 
-  mutate(across(where(is.numeric), mean, na.rm = TRUE, trim = 0.2))
-
-penguins %>% 
-  mutate(across(where(is.numeric), ~ mean(.x, na.rm = TRUE, trim = 0.2)))
-
-(answer1.5 <- penguins %>%
- mutate(across(where(is.numeric), ~ if_else(is.na(.x), mean(.x, na.rm = T), as.numeric(.x)))))
-```
-
-
-### tidyr Demo
-
-Let's work with this guestlist dataset.
-
-```{r}
-guestlist
-```
-
-#### 1. Country relationship
-
-Using the `gapminder` dataset: What's the relationship between Canada's GDP per capita and the United Kingdom's? First, identify the tidy format.
-
-```{r}
-gapminder %>% 
-  filter(country %in% c("Canada", "United Kingdom")) %>% 
-  pivot_wider(id_cols = year, names_from = country, values_from = gdpPercap) %>% 
-  ggplot(aes(x = Canada, y = `United Kingdom`)) +
-  geom_point()
-gapminder %>% 
-  filter(country %in% c("Canada", "United Kingdom")) %>% 
-  ggplot(aes(x = gdpPercap, y = gdpPercap)) +
-  geom_point()
-
-`_x` <- 4
-`this is a variable` <- 5
-```
-
-#### 2. Who's PENDING?
-
-Our task: extract all "PENDING" entries, paired with who it is, and what information is pending.
-
-What is a tidy data format for this question? Do the tidying.
-
-```{r}
-guestlist %>% 
-  pivot_longer(-c(party, name), names_to = "info", values_to = "status") %>% 
-  filter(status == "PENDING")
-```
-
-
-#### 3. Relationship between PENDING
-
-What's the relationship between whether or not a meal is PENDING, and the attendance status? First determine what a tidy format is for this question, then answer the question. 
-
-```{r}
-guestlist
-```
-
-
-```{r}
-guestlist %>% 
-  pivot_longer(-c(party, name), names_to = c(".value", "event"), names_sep = "_")
-```
-
-#### 4. Split name
-
-Split the guest name into first and last name.
-
-```{r}
-guestlist %>% 
-  separate(col = name, into = c("first", "last"), sep = " ")
-```
-
-
-
-
-### Deprecated functions: spread and gather
-
-Pivoting used to be achieved through the tidyr `spread()` and `gather()` functions. These are deprecated and should not be used. 
+We will be going through Worksheet A-4 in class. 

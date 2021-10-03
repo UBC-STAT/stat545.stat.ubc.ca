@@ -17,37 +17,199 @@ output: html_document
 <li>extract information from a model object using <code>broom::tidy()</code>, <code>broom::glance()</code>, and traditional means.</li>
 </ul>
 </div>
-<div id="parallel-resources" class="section level2">
-<h2>Parallel Resources</h2>
-<p>This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:</p>
+<div id="resources" class="section level2">
+<h2>Resources</h2>
+<p>Video lecture:</p>
 <ul>
-<li><a href="https://youtu.be/jQqCDeJYzao">STAT 545 Episode 9-A: The Model-Fitting Paradigm in R</a></li>
-<li>Read <a href="https://stat545.stat.ubc.ca/tutorials/model-fitting/">The Model-Fitting Paradigm in R</a> from the Tutorials section of the website.</li>
+<li><a href="https://youtu.be/jQqCDeJYzao">The Model-Fitting Paradigm in R</a></li>
 </ul>
-<p>We suggest referring to this material when engaging with today’s topic.</p>
-</div>
-<div id="additional-resources" class="section level2">
-<h2>Additional Resources</h2>
+<p>Other resources, in addition to the notes below:</p>
 <ul>
-<li>The <a href="https://cran.r-project.org/web/packages/broom/vignettes/broom.html"><code>broom</code></a> vignette is useful for learning the details of broom.</li>
+<li>The <a href="https://cran.r-project.org/web/packages/broom/vignettes/broom.html">broom vignette</a> is useful for learning the details of broom, a package for tidying the output of models.</li>
 <li>If you want a quick intro to linear regression with R, check out this <a href="https://cfss.uchicago.edu/notes/linear-models/">U Chicago Tutorial</a> on model fitting in R (just the linear regression part).</li>
 <li>If you’re eager to learn more about models in general, <a href="https://www-bcf.usc.edu/~gareth/ISL/">An Introduction to Statistical Learning</a> is an approachable read (the book is freely available online)</li>
 <li><a href="https://www.youtube.com/playlist?list=PLqzoL9-eJTNBlVXxWvJkq0dtVut2sICUW">Mike Marin’s R playlist on YouTube</a> helps you use R to obtain statistical results.</li>
 </ul>
 </div>
-<div id="quiz" class="section level2">
-<h2>Quiz</h2>
-<ul>
+<div id="test-your-understanding" class="section level2">
+<h2>Test Your Understanding</h2>
+<ol style="list-style-type: decimal">
 <li>TRUE or FALSE: the output of <code>glance</code> on the above returns only 1 row because there is only 1 explanatory variable in the model.</li>
 <li>TRUE or FALSE: the output of <code>broom::tidy()</code> package is more “tidy” than <code>coef(summary())</code> because the output is a <code>tibble</code></li>
-</ul>
-<ol style="list-style-type: decimal">
 <li>TRUE or FALSE: We need to use a modelling function, such as <code>lm</code>, before we can graph a fitted line with <code>geom_smooth</code>.</li>
 <li>TRUE or FALSE: If I wanted to find the amount that <code>lifeExp</code> changes per <code>year</code>, then I need to use <code>broom::tidy()</code></li>
 </ol>
 </div>
-<div id="demonstration" class="section level2">
-<h2>Demonstration</h2>
+<div id="vincenzos-notes" class="section level1">
+<h1>Vincenzo’s Notes</h1>
+<p>Data wrangling and plotting can get you pretty far when it comes to drawing insight from your data. But, sometimes you need to go further. For example:</p>
+<ul>
+<li>Investigate the relationship between two or more variables</li>
+<li>Predict the outcome of a variable given information about other variables</li>
+<li>Get evidence towards a hypothesis through a hypothesis test.</li>
+</ul>
+<p>These all involve fitting models – or at least, involve performing more advanced computations than can be done with tidyverse packages like dplyr.</p>
+<p>In this tutorial, we’ll cover:</p>
+<ol style="list-style-type: decimal">
+<li>how a model is typically fit in R;</li>
+<li>how to extract information from the model after fitting it, using the <code>broom</code> package; or,</li>
+<li>extract information by other means if the <code>broom</code> package is not set up for your model.</li>
+</ol>
+<p>This tutorial is <em>not</em> about the specifics of fitting a model. Even though a few references to statistical concepts are made, just take these for face value.</p>
+<div id="example-linear-model" class="section level2">
+<h2>Example: linear model</h2>
+<p>Here are a couple tasks that model-fitting would be useful to address.</p>
+<ol style="list-style-type: decimal">
+<li>A car weighs 4000 lbs. Provide a numerical prediction on its mpg (miles per gallon).</li>
+<li>Does the weight of a car influence its mpg?</li>
+<li>How many more miles per gallon can we expect of a car that weighs 1000 lbs less than another car?</li>
+</ol>
+<p>A simple scatterplot will give us a general idea, but can’t give us specifics. Here, we use the <code>mtcars</code> dataset in the <code>datasets</code> package. A linear model is one example of a model that can attempt to answer all three – the line corresponding to the fitted model has been added to the scatterplot.</p>
+<pre><code>## Error in ggplot(mtcars, aes(wt, mpg)): could not find function &quot;ggplot&quot;</code></pre>
+<p>(By the way, you can plot the model using <code>ggplot2</code>’s <code>geom_smooth()</code> layer – but you can’t interact with the model downstream.)</p>
+<p>We can make a prediction of mpg for a car weighing 3,000 lbs by evaluating the line at X = 3:</p>
+<pre><code>## Error in predict(fit, newdata = tibble(wt = 3)) %&gt;% unname(): could not find function &quot;%&gt;%&quot;</code></pre>
+<p>We can find the p-value testing the null hypothesis that the true slope of the regression line is 0:</p>
+<pre><code>## Error in glance(fit)$p.value %&gt;% unname(): could not find function &quot;%&gt;%&quot;</code></pre>
+<p>And we can calculate how many more miles per gallon a car weighing 1000 less lbs would be expected to have through the slope:</p>
+<pre><code>## Error in tidy(fit): could not find function &quot;tidy&quot;</code></pre>
+</div>
+<div id="fitting-a-model-in-r" class="section level2">
+<h2>Fitting a model in R</h2>
+<p>Fitting a model in R typically involves using a function in the following format:</p>
+<pre><code>method(formula, data, options)</code></pre>
+<p><strong>Method</strong>:</p>
+<p>A function such as:</p>
+<ul>
+<li>Linear Regression: <code>lm</code></li>
+<li>Generalized Linear Regression: <code>glm</code></li>
+<li>Local regression: <code>loess</code></li>
+<li>Quantile regression: <code>quantreg::rq</code></li>
+<li>…</li>
+</ul>
+<p><strong>Formula</strong>:</p>
+<p>In R, takes the form <code>y ~ x1 + x2 + ... + xp</code> (use column names in your data frame), where <code>y</code> here means the outcome variable you’re interested in viewing in relation to other variables <code>x1</code>, <code>x2</code>, …</p>
+<p><strong>Data</strong>: The data frame or tibble.</p>
+<p><strong>Options</strong>: Specific to the method.</p>
+<p>Running the code returns an object that you can then work with to extract results.</p>
+<p>For example, let’s fit a linear regression model on a car’s mileage per gallon (<code>mpg</code>, “Y” variable) from the car’s weight (<code>wt</code>, “X” variable). Notice that no special options are needed for <code>lm()</code>.</p>
+<pre class="r"><code>(my_lm &lt;- lm(mpg ~ wt, data = mtcars))</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ wt, data = mtcars)
+## 
+## Coefficients:
+## (Intercept)           wt  
+##      37.285       -5.344</code></pre>
+<p>Printing the model to the screen might lead you to incorrectly conclude that the model object <code>my_lm</code> only contains the above text. The reality is, <code>my_lm</code> contains a lot more, but special instructions have been given to R to only print out a special digested version of the object. This behaviour tends to be true with model objects in general, not just for <code>lm()</code>.</p>
+</div>
+<div id="probing-the-model-broom" class="section level2">
+<h2>Probing the model: Broom</h2>
+<p>Now that you have the model object, there are typically three ways in which it’s useful to probe and use the model object. The <code>broom</code> package has three crown functions that make it easy to extract each piece of information by converting your model into a tibble.</p>
+<div id="tidy" class="section level3">
+<h3><code>tidy()</code></h3>
+<p>Use the <code>tidy()</code> function for a statistical summary of each component of your model, where each component gets a row in the output tibble. For <code>lm()</code>, <code>tidy()</code> gives one row per regression coefficient (slope and intercept).</p>
+<pre class="r"><code>tidy(my_lm)</code></pre>
+<pre><code>## Error in tidy(my_lm): could not find function &quot;tidy&quot;</code></pre>
+<p><code>tidy()</code> only works if it makes sense to talk about model “components”.</p>
+</div>
+<div id="augment" class="section level3">
+<h3><code>augment()</code></h3>
+<p>Use the <code>augment()</code> function to make predictions on a dataset by augmenting predictions as a new column to your data. By default, <code>augment()</code> uses the dataset that was used to fit the model.</p>
+<pre class="r"><code>augment(my_lm) %&gt;% 
+  print(n = 5)</code></pre>
+<pre><code>## Error in augment(my_lm) %&gt;% print(n = 5): could not find function &quot;%&gt;%&quot;</code></pre>
+<p>We can also predict on new datasets. Here are predictions of <code>mpg</code> for cars weighing 3, 4, and 5 thousand lbs.</p>
+<pre class="r"><code>augment(my_lm, newdata = tibble(wt = 3:5))</code></pre>
+<pre><code>## Error in augment(my_lm, newdata = tibble(wt = 3:5)): could not find function &quot;augment&quot;</code></pre>
+<p>Notice that only the “X” variables are needed in the input tibble (<code>wt</code>), and that since the “Y” variable (<code>mpg</code>) wasn’t provided, <code>augment()</code> couldn’t calculate anything besides a prediction.</p>
+</div>
+<div id="glance" class="section level3">
+<h3><code>glance()</code></h3>
+<p>Use the <code>glance()</code> function to extract a summary of the model as a whole, in the form of a one-row tibble. This will give you information related to the model fit.</p>
+<pre class="r"><code>glance(my_lm)</code></pre>
+<pre><code>## Error in glance(my_lm): could not find function &quot;glance&quot;</code></pre>
+</div>
+</div>
+<div id="probing-the-model-traditional-method" class="section level2">
+<h2>Probing the Model: Traditional Method</h2>
+<p>In order for a model to work with the <code>broom</code> package, someone has to go out of their way to contribute to the <code>broom</code> package for that model. While this has happened for many common models, many others remain without <code>broom</code> compatibility.</p>
+<p>Here’s how to work with these model objects in that case.</p>
+<div id="prediction" class="section level3">
+<h3>Prediction</h3>
+<p>If <code>broom::augment()</code> doesn’t work, then the developer of the model almost surely made it so that the <code>predict()</code> function works (not part of the <code>broom</code> package). The <code>predict()</code> function typically takes the same format of the <code>augment()</code> function, but usually doesn’t return a tibble.</p>
+<p>Here are the first 5 predictions of mpg on the <code>my_lm</code> object, defaulting to predictions made on the original data:</p>
+<pre class="r"><code>predict(my_lm) %&gt;% 
+  unname() %&gt;% 
+  head(5)</code></pre>
+<pre><code>## Error in predict(my_lm) %&gt;% unname() %&gt;% head(5): could not find function &quot;%&gt;%&quot;</code></pre>
+<p>Here are the predictions of mpg made for cars with a weight of 3, 4, and 5 thousand lbs:</p>
+<pre class="r"><code>predict(my_lm, newdata = tibble(wt = 3:5)) %&gt;% 
+  unname()</code></pre>
+<pre><code>## Error in predict(my_lm, newdata = tibble(wt = 3:5)) %&gt;% unname(): could not find function &quot;%&gt;%&quot;</code></pre>
+<p>Checking the documentation of the <code>predict()</code> function <em>for your model</em> isn’t obvious, because the <code>predict()</code> function is a “generic” function. Your best bet is to append the model name after a dot. For example:</p>
+<ul>
+<li>For a model fit with <code>lm()</code>, try <code>?predict.lm</code></li>
+<li>For a model fit with <code>rq()</code>, try <code>?predict.rq</code> (from the <code>quantreg</code> package)</li>
+</ul>
+<p>If that doesn’t work, just google it: <code>"Predict function for rq"</code></p>
+</div>
+<div id="functions-designed-for-the-model" class="section level3">
+<h3>Functions designed for the model</h3>
+<p>The developer of the model probably made a suite of other functions to help you probe the model object. Check the documentation to find these.</p>
+<p>For example, I can find the regression coefficients of a <code>lm()</code> object with <code>coef()</code>:</p>
+<pre class="r"><code>coef(my_lm)</code></pre>
+<pre><code>## (Intercept)          wt 
+##   37.285126   -5.344472</code></pre>
+<p>Standard error of the residuals with <code>sigma()</code>:</p>
+<pre class="r"><code>sigma(my_lm)</code></pre>
+<pre><code>## [1] 3.045882</code></pre>
+<p>Don’t be surprised if there is no function to extract what you want. If that’s the case, read on…</p>
+</div>
+<div id="manually-extracting-information" class="section level3">
+<h3>Manually Extracting Information</h3>
+<p>If you can’t extract model information from built-in functions like <code>coef()</code> or <code>sigma()</code>, you can manually dig in to the model object. In most cases, a model object is just a list in disguise! (Lists are discussed in STAT 545B). You can therefore extract information like you would with any other list.</p>
+<p>To help figure out what’s in the list, use the <code>names()</code> function. Here are all the entries in the <code>lm()</code> object we fit earlier:</p>
+<pre class="r"><code>names(my_lm)</code></pre>
+<pre><code>##  [1] &quot;coefficients&quot;  &quot;residuals&quot;     &quot;effects&quot;       &quot;rank&quot;         
+##  [5] &quot;fitted.values&quot; &quot;assign&quot;        &quot;qr&quot;            &quot;df.residual&quot;  
+##  [9] &quot;xlevels&quot;       &quot;call&quot;          &quot;terms&quot;         &quot;model&quot;</code></pre>
+<p>Want the degrees of freedom of the residuals? Just extract that entry:</p>
+<pre class="r"><code>my_lm$df.residual</code></pre>
+<pre><code>## [1] 30</code></pre>
+<p>To complicate things further this might only be <em>part</em> of the information made available in the model object! More info might be stored in <em>yet another</em> list after applying the <code>summary()</code> function:</p>
+<pre class="r"><code>summary(my_lm)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ wt, data = mtcars)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -4.5432 -2.3647 -0.1252  1.4096  6.8727 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  37.2851     1.8776  19.858  &lt; 2e-16 ***
+## wt           -5.3445     0.5591  -9.559 1.29e-10 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.046 on 30 degrees of freedom
+## Multiple R-squared:  0.7528, Adjusted R-squared:  0.7446 
+## F-statistic: 91.38 on 1 and 30 DF,  p-value: 1.294e-10</code></pre>
+<p>Like the original model object, <code>summary()</code> <em>looks</em> like it returns a bunch of text – but it’s actually another list! Let’s again use <code>names()</code> to get the components of this list:</p>
+<pre class="r"><code>names(summary(my_lm))</code></pre>
+<pre><code>##  [1] &quot;call&quot;          &quot;terms&quot;         &quot;residuals&quot;     &quot;coefficients&quot; 
+##  [5] &quot;aliased&quot;       &quot;sigma&quot;         &quot;df&quot;            &quot;r.squared&quot;    
+##  [9] &quot;adj.r.squared&quot; &quot;fstatistic&quot;    &quot;cov.unscaled&quot;</code></pre>
+<p>Now I can get more pieces of information, like the adjusted R-squared value:</p>
+<pre class="r"><code>summary(my_lm)$adj.r.squared</code></pre>
+<pre><code>## [1] 0.7445939</code></pre>
+</div>
+</div>
+</div>
+<div id="victors-notes" class="section level1">
+<h1>Victor’s Notes</h1>
 <p>Topics for today’s demo:</p>
 <ul>
 <li>fitting a linear regression model using <code>lm</code></li>
@@ -55,11 +217,11 @@ output: html_document
 <li>plotting models using <code>geom_smooth</code></li>
 </ul>
 <pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
-<pre><code>## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
-## ✓ tibble  3.0.3     ✓ dplyr   1.0.2
-## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
-## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+## ✓ tibble  3.1.5     ✓ dplyr   1.0.7
+## ✓ tidyr   1.1.4     ✓ stringr 1.4.0
+## ✓ readr   2.0.2     ✓ forcats 0.5.1</code></pre>
 <pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
 ## x dplyr::filter() masks stats::filter()
 ## x dplyr::lag()    masks stats::lag()</code></pre>
@@ -72,14 +234,14 @@ library(broom)</code></pre>
 <pre class="r"><code>ggplot(mtcars, aes(x = wt, y = mpg)) +
   geom_point() +
   labs(x = &quot;Weight (1000&#39;s of lbs)&quot;)</code></pre>
-<p><img src="/notes/notes-a09_files/figure-html/unnamed-chunk-3-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/notes/notes-a09_files/figure-html/unnamed-chunk-21-1.png" width="480" style="display: block; margin: auto;" /></p>
 <ol style="list-style-type: decimal">
 <li><p>Is there a relationship between <code>wt</code> (car weight) and <code>mpg</code> (fuel efficiency)?</p></li>
 <li><p>Or another way to ask, does car weight have some information that tells us about fuel efficiency?</p></li>
 </ol>
 <p>Modelling is a way to quantify this relationship.</p>
 </div>
-<div id="fitting-a-model-in-r" class="section level3">
+<div id="fitting-a-model-in-r-1" class="section level3">
 <h3>Fitting a model in R</h3>
 <p>Most model fitting functions have a common format:</p>
 <pre><code>function(formula, data, options)</code></pre>
@@ -215,24 +377,24 @@ str(my_model)</code></pre>
 ## Hornet Sportabout           Valiant 
 ##          18.90014          18.79325</code></pre>
 <pre class="r"><code>augment(my_lm)</code></pre>
-<pre><code>## # A tibble: 32 x 9
-##    .rownames          mpg    wt .fitted .resid .std.resid   .hat .sigma  .cooksd
-##    &lt;chr&gt;            &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;
-##  1 Mazda RX4         21    2.62    23.3 -2.28     -0.766  0.0433   3.07  1.33e-2
-##  2 Mazda RX4 Wag     21    2.88    21.9 -0.920    -0.307  0.0352   3.09  1.72e-3
-##  3 Datsun 710        22.8  2.32    24.9 -2.09     -0.706  0.0584   3.07  1.54e-2
-##  4 Hornet 4 Drive    21.4  3.22    20.1  1.30      0.433  0.0313   3.09  3.02e-3
-##  5 Hornet Sportabo…  18.7  3.44    18.9 -0.200    -0.0668 0.0329   3.10  7.60e-5
-##  6 Valiant           18.1  3.46    18.8 -0.693    -0.231  0.0332   3.10  9.21e-4
-##  7 Duster 360        14.3  3.57    18.2 -3.91     -1.31   0.0354   3.01  3.13e-2
-##  8 Merc 240D         24.4  3.19    20.2  4.16      1.39   0.0313   3.00  3.11e-2
-##  9 Merc 230          22.8  3.15    20.5  2.35      0.784  0.0314   3.07  9.96e-3
-## 10 Merc 280          19.2  3.44    18.9  0.300     0.100  0.0329   3.10  1.71e-4
+<pre><code>## # A tibble: 32 × 9
+##    .rownames           mpg    wt .fitted .resid   .hat .sigma   .cooksd .std.resid
+##    &lt;chr&gt;             &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;      &lt;dbl&gt;
+##  1 Mazda RX4          21    2.62    23.3 -2.28  0.0433   3.07 0.0133       -0.766 
+##  2 Mazda RX4 Wag      21    2.88    21.9 -0.920 0.0352   3.09 0.00172      -0.307 
+##  3 Datsun 710         22.8  2.32    24.9 -2.09  0.0584   3.07 0.0154       -0.706 
+##  4 Hornet 4 Drive     21.4  3.22    20.1  1.30  0.0313   3.09 0.00302       0.433 
+##  5 Hornet Sportabout  18.7  3.44    18.9 -0.200 0.0329   3.10 0.0000760    -0.0668
+##  6 Valiant            18.1  3.46    18.8 -0.693 0.0332   3.10 0.000921     -0.231 
+##  7 Duster 360         14.3  3.57    18.2 -3.91  0.0354   3.01 0.0313       -1.31  
+##  8 Merc 240D          24.4  3.19    20.2  4.16  0.0313   3.00 0.0311        1.39  
+##  9 Merc 230           22.8  3.15    20.5  2.35  0.0314   3.07 0.00996       0.784 
+## 10 Merc 280           19.2  3.44    18.9  0.300 0.0329   3.10 0.000171      0.100 
 ## # … with 22 more rows</code></pre>
 <p>Or we can predict on a new dataset:</p>
 <pre class="r"><code>wt1 &lt;- tibble(wt = seq(18:23))
 wt1</code></pre>
-<pre><code>## # A tibble: 6 x 1
+<pre><code>## # A tibble: 6 × 1
 ##      wt
 ##   &lt;int&gt;
 ## 1     1
@@ -246,7 +408,7 @@ wt1</code></pre>
 ## 31.940655 26.596183 21.251711 15.907240 10.562768  5.218297</code></pre>
 <pre class="r"><code>augment(my_lm, newdata = wt1)</code></pre>
 <pre><code>## Warning: &#39;newdata&#39; had 6 rows but variables found have 234 rows</code></pre>
-<pre><code>## # A tibble: 6 x 2
+<pre><code>## # A tibble: 6 × 2
 ##      wt .fitted
 ##   &lt;int&gt;   &lt;dbl&gt;
 ## 1     1   31.9 
@@ -258,7 +420,7 @@ wt1</code></pre>
 <pre class="r"><code>wt1 %&gt;%
   mutate(mpg = c(32, 26, 20, 14, 8, 2)) %&gt;%
   augment(my_lm, newdata = .)</code></pre>
-<pre><code>## # A tibble: 6 x 4
+<pre><code>## # A tibble: 6 × 4
 ##      wt   mpg .fitted  .resid
 ##   &lt;int&gt; &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
 ## 1     1    32   31.9   0.0593
@@ -309,7 +471,7 @@ wt1</code></pre>
 <li>useful for <em>interpretation</em></li>
 </ul>
 <pre class="r"><code>tidy(my_lm)</code></pre>
-<pre><code>## # A tibble: 2 x 5
+<pre><code>## # A tibble: 2 × 5
 ##   term        estimate std.error statistic  p.value
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
 ## 1 (Intercept)    37.3      1.88      19.9  8.24e-19
@@ -326,7 +488,7 @@ wt1</code></pre>
 <li>useful for checking goodness of fit</li>
 </ul>
 <pre class="r"><code>glance(my_lm)</code></pre>
-<pre><code>## # A tibble: 1 x 12
+<pre><code>## # A tibble: 1 × 12
 ##   r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC
 ##       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
 ## 1     0.753         0.745  3.05      91.4 1.29e-10     1  -80.0  166.  170.
@@ -339,7 +501,7 @@ wt1</code></pre>
     #geom_point() +
     geom_smooth(method=&quot;lm&quot;) </code></pre>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="/notes/notes-a09_files/figure-html/unnamed-chunk-12-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/notes/notes-a09_files/figure-html/unnamed-chunk-30-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Let’s visualize some relationships in the <code>gapminder</code> dataset.</p>
 <p>Lets the country “Zimbabwe”, which has a unique behavior in the <code>lifeExp</code> and <code>year</code> relationship.</p>
 <pre class="r"><code>gapminder_Zimbabwe &lt;- gapminder %&gt;% 
@@ -348,20 +510,20 @@ wt1</code></pre>
 gapminder_Zimbabwe %&gt;% 
   ggplot(aes(year, lifeExp)) + 
   geom_point()</code></pre>
-<p><img src="/notes/notes-a09_files/figure-html/unnamed-chunk-13-1.png" width="480" style="display: block; margin: auto;" />
+<p><img src="/notes/notes-a09_files/figure-html/unnamed-chunk-31-1.png" width="480" style="display: block; margin: auto;" />
 Let’s try fitting a linear model to this relationship</p>
 <pre class="r"><code>ggplot(gapminder_Zimbabwe, aes(year,lifeExp)) +
   geom_point() +
   geom_smooth(method = &quot;lm&quot;, se = F)</code></pre>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img src="/notes/notes-a09_files/figure-html/unnamed-chunk-14-1.png" width="480" style="display: block; margin: auto;" />
+<p><img src="/notes/notes-a09_files/figure-html/unnamed-chunk-32-1.png" width="480" style="display: block; margin: auto;" />
 Now we will try to fit a second degree polynomial and see what would that look like.</p>
 <pre class="r"><code>ggplot(gapminder_Zimbabwe, aes(year,lifeExp)) +
   geom_point() +
   geom_smooth(method = &quot;lm&quot;,
               formula = y~poly(x,2), 
               se = F)</code></pre>
-<p><img src="/notes/notes-a09_files/figure-html/unnamed-chunk-15-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/notes/notes-a09_files/figure-html/unnamed-chunk-33-1.png" width="480" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>#?geom_smooth</code></pre>
 </div>
 <div id="summary-1" class="section level3">
@@ -375,9 +537,134 @@ Now we will try to fit a second degree polynomial and see what would that look l
 </ol>
 </div>
 </div>
+<div id="taken-from-the-worksheet" class="section level1">
+<h1>(Taken from the worksheet)</h1>
+<p>So you want to fit a model to your data. How can you achieve this with R?</p>
+<p>Topics:</p>
+<ol style="list-style-type: decimal">
+<li>What <em>is</em> model-fitting?</li>
+<li>How do we fit a model in R?</li>
+<li>How can we obtain tidy results from the model output?</li>
+</ol>
+<div id="what-is-model-fitting-1" class="section level3">
+<h3>What is Model-Fitting?</h3>
+<p>When variables are not independent, then we can gain information about one variable if we know something about the other.</p>
+<p>Examples: Use the scatterplot below:</p>
+<ol style="list-style-type: decimal">
+<li>A car weighs 4000 lbs. What can we say about its mpg?</li>
+<li>A car weights less than 3000 lbs. What can we say about its mpg?</li>
+</ol>
+<p>Run the code cell below to see the <code>mtcars</code> plot.</p>
+<pre class="r"><code># models can fit many data points (using an &#39;averaged&#39; data line is not always helpful)
+ggplot(mtcars, aes(wt, mpg)) +
+  geom_point() +
+  labs(x = &quot;Weight (1000&#39;s of lbs)&quot;)</code></pre>
+<p><img src="/notes/notes-a09_files/figure-html/unnamed-chunk-34-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Example: What can we say about rear axle ratio if we know something about quarter mile time? Run the code cell below!</p>
+<pre class="r"><code>ggplot(mtcars, aes(qsec, drat)) + 
+  geom_point() +
+  labs(x = &quot;Quarter mile time&quot;,
+       y = &quot;Rear axle ratio&quot;)</code></pre>
+<p><img src="/notes/notes-a09_files/figure-html/unnamed-chunk-35-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>If EDA isn’t enough, we can answer these questions by fitting a model: a curve that predicts Y given X. Aka, a <strong>regression curve</strong> or a <strong>machine learning model</strong>.</p>
+<p>(There are more comprehensive models too, such as modelling entire distributions, but that’s not what we’re doing here)</p>
+<p>There are typically two goals of fitting a model:</p>
+<ol style="list-style-type: decimal">
+<li>Make predictions.</li>
+<li>Interpret variable relationships.</li>
+</ol>
+</div>
+<div id="fitting-a-model-in-r-2" class="section level2">
+<h2>Fitting a model in R</h2>
+<p>Model fitting methods tend to use a common format in R:</p>
+<pre><code>method(formula, data, options)</code></pre>
+<p>They also tend to have a common output: a special <em>list</em>.</p>
+<p><strong>Method</strong>:</p>
+<p>A function such as:</p>
+<ul>
+<li>Linear Regression: <code>lm</code></li>
+<li>Generalized Linear Regression: <code>glm</code></li>
+<li>Local regression: <code>loess</code></li>
+<li>Quantile regression: <code>quantreg::rq</code></li>
+<li>…</li>
+</ul>
+<p><strong>Formula</strong>:</p>
+<p>In R, takes the form <code>y ~ x1 + x2 + ... + xp</code> (use column names in your data frame).</p>
+<p><strong>Data</strong>: The data frame.</p>
+<p><strong>Options</strong>: Specific to the method.</p>
+</div>
+</div>
+<div id="more-stuff-from-the-worksheet" class="section level1">
+<h1>More stuff from the worksheet</h1>
+<p>However, to make things more complicated, some info is stored in <em>another</em> list after applying the <code>summary</code> function. Run the code cell below.</p>
+<pre class="r"><code>summary(answer3.3)</code></pre>
+<pre><code>## Error in summary(answer3.3): object &#39;answer3.3&#39; not found</code></pre>
+<p>We can use the <code>predict()</code> function to make predictions from the model (default is to use fitting/training data). Here are the predictions. Run the code cell below. Use <code>predict()</code> to predict for years that are within our year range but do not have explicit data points.</p>
+<pre class="r"><code>(gapminder_France &lt;- data.frame(year = seq(2000, 2005)))</code></pre>
+<pre><code>##   year
+## 1 2000
+## 2 2001
+## 3 2002
+## 4 2003
+## 5 2004
+## 6 2005</code></pre>
+<pre class="r"><code>predict(answer3.3, newdata = gapminder_France) %&gt;%
+  head()</code></pre>
+<pre><code>## Error in predict(answer3.3, newdata = gapminder_France): object &#39;answer3.3&#39; not found</code></pre>
+<p>Or we can predict on a new dataset! Use <code>predict()</code> to predict for years that are beyond the range of our dataset, that is, extrapolate data using the model. Run the code cell below.</p>
+<pre class="r"><code>years1 = data.frame(year = c(3000, 3005))
+predict(answer3.3,years1)</code></pre>
+<pre><code>## Error in predict(answer3.3, years1): object &#39;answer3.3&#39; not found</code></pre>
+<pre class="r"><code>plot(answer3.3)</code></pre>
+<pre><code>## Error in plot(answer3.3): object &#39;answer3.3&#39; not found</code></pre>
+<p>We can plot models (with one predictor/ X variable) using <code>ggplot2</code> through the <code>geom_smooth()</code> layer. Specifying <code>method="lm"</code> gives us the linear regression fit (but only visually!). Run the code cell below.</p>
+<pre class="r"><code>ggplot(gapminder, aes(gdpPercap, lifeExp)) +
+    geom_point() +
+    geom_smooth(method=&quot;lm&quot;) +
+    scale_x_log10()</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="/notes/notes-a09_files/figure-html/unnamed-chunk-39-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Let’s consider another country “Zimbabwe”, which has a unique behavior in the <code>lifeExp</code> and <code>year</code> relationship. Run the code cell below.</p>
+<pre class="r"><code>gapminder_Zimbabwe &lt;- gapminder %&gt;%
+  filter(country == &quot;Zimbabwe&quot;)
+
+gapminder_Zimbabwe %&gt;% 
+  ggplot(aes(year, lifeExp)) +
+  geom_point()</code></pre>
+<p><img src="/notes/notes-a09_files/figure-html/unnamed-chunk-40-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Let’s try fitting a linear model to this relationship. <code>se</code> option allows us to show or hide the confidence interval. Run the code cell below.</p>
+<pre class="r"><code>ggplot(gapminder_Zimbabwe, aes(year,lifeExp)) +
+  geom_point() +
+  geom_smooth(method = &quot;lm&quot;, se = F)</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="/notes/notes-a09_files/figure-html/unnamed-chunk-41-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>Now we will try to fit a second degree polynomial (<code>degree = 2</code>) and see what would that look like. Run the code cell below.</p>
+<pre class="r"><code>ggplot(gapminder_Zimbabwe, aes(year, lifeExp)) + 
+  geom_point()+
+  geom_smooth(method = &quot;lm&quot;, formula = y ~ poly(I(x - 1952), degree = 2))</code></pre>
+<p><img src="/notes/notes-a09_files/figure-html/unnamed-chunk-42-1.png" width="480" style="display: block; margin: auto;" /></p>
+<div id="broom" class="section level2">
+<h2>Broom</h2>
+<p>Let’s make it easier to extract info, using the <code>broom</code> package. There are three crown functions in this package, all of which input a fitted model, and outputs a tidy data frame.</p>
+<ol style="list-style-type: decimal">
+<li><code>tidy</code>: extract statistical summaries about each component of the model.
+<ul>
+<li>Useful for <em>interpretation</em> task.</li>
+</ul></li>
+<li><code>augment</code>: add columns to the original data frame, giving information corresponding to each row.
+<ul>
+<li>Useful for <em>prediction</em> task.</li>
+</ul></li>
+<li><code>glance</code>: extract statistical summaries about the model as a whole (1-row tibble).
+<ul>
+<li>Useful for checking goodness of fit.</li>
+</ul></li>
+</ol>
+</div>
 <div id="attribution" class="section level2">
 <h2>Attribution</h2>
 <ul>
 <li>Fall 2020: Victor Yuan put this demonstration together.</li>
 </ul>
+</div>
 </div>
