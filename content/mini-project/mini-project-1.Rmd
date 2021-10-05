@@ -71,10 +71,10 @@ And that is exactly the first thing that you will do!
 
 **Note**: We encourage you to use the ones in the `datateachr` package, but if you have a dataset that you'd really like to use, you can include it here. But, please check with a member of the teaching team to see whether the dataset is of appropriate complexity. Also, include a **brief** description of the dataset here to help the teaching team understand your data.
 
-1: CHOICE_1_HERE
-2: CHOICE_2_HERE
-3: CHOICE_3_HERE
-4: CHOICE_4_HERE
+1: CHOICE_1_HERE    
+2: CHOICE_2_HERE    
+3: CHOICE_3_HERE    
+4: CHOICE_4_HERE    
 
 1.2 One way to narrowing down your selection is to *explore* the datasets. Use your knowledge of dplyr to find out at least *3* attributes about each of these datasets (an attribute is something such as number of rows, variables, class type...). The goal here is to have an idea of *what the data looks like*. 
 
@@ -99,7 +99,7 @@ This project is semi-guided, but meant to be *independent*. For this reason, you
 
 If we rewind and go back to the learning objectives, you'll see that by the end of this deliverable, you should have formulated *4* research questions about your data that you may want to answer during your project. However, it may be handy to do some more exploration on your dataset of choice before creating these questions - by looking at the data, you may get more ideas. **Before you start this task, read all instructions carefully until you reach START HERE**.
 
-2.1 Complete *4 out of the following 8 exercises* to dive deeper into your data. All datasets are different and therefore, not all of these tasks may make sense for your data - which is why you should only answer *5*. Use *dplyr* and *ggplot*.
+2.1 Complete *4 out of the following 8 exercises* to dive deeper into your data. All datasets are different and therefore, not all of these tasks may make sense for your data - which is why you should only answer *4*. Use *dplyr* and *ggplot*.
 
 1. Plot the distribution of a numeric variable.
 2. Create a new variable based on other variables in your data (only if it makes sense)
@@ -119,31 +119,6 @@ So far, you have chosen a dataset and gotten familiar with it through exploring 
 <!--- *****START HERE***** --->
 
 
-# Taken from Worksheet A-2 from last year (may be useful for the MDA).
-
-### 1.2 Explore a dataset with dplyr and ggplot II
-
-*This section of the worksheet is not autograded, but answers will be uploaded after the deadline for submission of this worksheet.* 
-
-For each of the tasks below, produce: 
-
-- a tibble, using `dplyr` as your data manipulation tool;
-- an accompanying plot of data from the tibble, using `ggplot2` as your visualization tool; and
-- some dialogue about what your tables/figures show (doesn't have to be much).
-
-**Tip:** Treat this worksheet as a "cheat sheet" for future-you / for working on your mini data analysis project! Don't assume that you'll remember the lessons you learned while working on this worksheet. Write things down:
-
-- Add notes on difficulties/oddities you encountered. For example, which figures are easy/hard to make, which data formats make better inputs for plotting functions vs. for human-friendly tables.
-- Provide attribution whenever you take code or an idea from somewhere else, whether a blog post, a colleague, a vignette, etc. Putting those pointers in your "cheat sheet" will be useful for future-you -- and it's just good practice to indicate where you got things from.
-
-### Task 1
-
-Report the absolute and/or relative abundance of countries with low life expectancy over time by continent: Compute some measure of worldwide life expectancy – you decide – a mean or median or some other quantile or perhaps your current age. Then determine how many countries on each continent have a life expectancy less than this benchmark, for each year.
-
-### Task 2
-
-Get the *maximum* and *minimum* of GDP per capita for all continents.
-
 ### Attribution
 
-Thanks to Icíar Fernández Boyano for mostly putting this together. 
+Thanks to Icíar Fernández Boyano for mostly putting this together, and Vincenzo Coia for launching.
