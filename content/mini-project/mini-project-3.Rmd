@@ -14,10 +14,11 @@ In this (3rd) milestone, you'll be sharpening some of the results you obtained f
 + Fitting a model object to your data, and extract a result.
 + Reading and writing data as separate files.
 
+**NOTE**: The main purpose of the mini data analysis is to integrate what you learn in class in an analysis. Although each milestone provides a framework for you to conduct your analysis, it's possible that you might find the instructions too rigid for your data set. If this is the case, you may deviate from the instructions -- just make sure you're demonstrating a wide range of tools and techniques taught in this class.
 
 ## Instructions
 
-**To complete this milestone**, edit this very `.Rmd` file directly. Fill in the sections that are tagged with `<!--- start your work here--->`. 
+**To complete this milestone**, edit [this very `.Rmd` file](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-3.Rmd) directly. Fill in the sections that are tagged with `<!--- start your work here--->`. 
 
 **To submit this milestone**, make sure to knit this `.Rmd` file to an `.md` file by changing the YAML output settings from `output: html_document` to `output: github_document`. Commit and push all of your work to your mini-analysis GitHub repository, and tag a release on GitHub. Then, submit a link to your tagged release on canvas. 
 
@@ -31,7 +32,7 @@ In this (3rd) milestone, you'll be sharpening some of the results you obtained f
 Begin by loading your data and the tidyverse package below: 
 
 ```{r, message = FALSE}
-library(datateachr) # <- contains the data you picked!
+library(datateachr) # <- might contain the data you picked!
 library(tidyverse)
 ```
 

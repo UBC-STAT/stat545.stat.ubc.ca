@@ -1,18 +1,20 @@
 ---
-title: "Mini Data-Analysis Deliverable 2"
+title: "Mini Data Analysis Milestone 2"
 output: html_document
 ---
 
-*To complete this milestone, edit this `.rmd` file directly. Fill in the sections that are commented out with `<!--- start your work here--->`. When you are done, make sure to knit to an `.md` file by changing the YAML settings, before submitting a tagged release on canvas.*
+*To complete this milestone, you can either edit [this `.rmd` file](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-2.Rmd) directly. Fill in the sections that are commented out with `<!--- start your work here--->`. When you are done, make sure to knit to an `.md` file by changing the output in the YAML header to `github_document`, before submitting a tagged release on canvas.*
 
 # Welcome back to your mini data analysis project!
 
 This time, we will explore more in depth the concept of *tidy data*, and hopefully investigate further into your research questions that you defined in milestone 1.
 
+**NOTE**: The main purpose of the mini data analysis is to integrate what you learn in class in an analysis. Although each milestone provides a framework for you to conduct your analysis, it's possible that you might find the instructions too rigid for your data set. If this is the case, you may deviate from the instructions -- just make sure you're demonstrating a wide range of tools and techniques taught in this class.
+
 Begin by loading your data and the tidyverse package below: 
 
 ```{r, message = FALSE}
-library(datateachr) # <- contains the data you picked!
+library(datateachr) # <- might contain the data you picked!
 library(tidyverse)
 ```
 
@@ -20,10 +22,10 @@ library(tidyverse)
 
 By the end of this milestone, you should:
 
-+ Become familiar with manipulating and summarizing your data in tibbles using `dplyr`, with a research question in mind
-+ Understand what *tidy* data is, and how to create it. In milestone 3, we will explore when this might be useful
-+ Generate a reproducible and clear report using R Markdown
-+ Gain a greater understanding of how to use R to answer research questions about your data
++ Become familiar with manipulating and summarizing your data in tibbles using `dplyr` and `tidyr`, with a research question in mind.
++ Understand what *tidy* data is, and how to create it. In milestone 3, we will explore when this might be useful.
++ Generate a reproducible and clear report using R Markdown.
++ Gain a greater understanding of how to use R to answer research questions about your data.
 
 **Things to keep in mind**
 
@@ -33,7 +35,7 @@ By the end of this milestone, you should:
 
 # Task 1: Process and summarize your data (15 points)
 
-From milestone 1, you should have an idea of the basic structure of your dataset (e.g. number of rows and columns, class types, etc.). Here, we will start investigating your data more in-depth using various `dplyr` functions. 
+From milestone 1, you should have an idea of the basic structure of your dataset (e.g. number of rows and columns, class types, etc.). Here, we will start investigating your data more in-depth using various data manipulation functions. 
 
 ### 1.1 (2.5 points) 
 
@@ -120,7 +122,7 @@ Be sure to explain your reasoning for this task. Show us the "before" and "after
 
 Now, you should be more familiar with your data, and also have made progress in answering your research questions. Based on your interest, and your analyses, pick 2 of the 4 research questions to continue your analysis in milestone 3, and explain your decision. 
 
-Try to choose a version of your data that you think will be appropriate to answer these 2 questions in milestone 3. Use between 4 and 8 functions that we've covered so far (i.e. by filtering, cleaning, tidy'ing, dropping irrelvant columns, etc.). Save this tibble as an `.RDS` object with the function `saveRDS()`. 
+Try to choose a version of your data that you think will be appropriate to answer these 2 questions in milestone 3. Use between 4 and 8 functions that we've covered so far (i.e. by filtering, cleaning, tidy'ing, dropping irrelvant columns, etc.). 
 
 <!--------------------------- Start your work below --------------------------->
 
