@@ -3,7 +3,7 @@
 .RData
 *.Rproj
 .Rprofile
-public/
+/public/
 *.ipynb_checkpoints
 #*.html
 2020-materials/team-troubleshooting/.DS_Store
@@ -12,3 +12,4 @@ public/
 static/rmarkdown-libs/header-attrs/*
 README.html
 static/tutorials/ggplot2/
+Thumbs.db
