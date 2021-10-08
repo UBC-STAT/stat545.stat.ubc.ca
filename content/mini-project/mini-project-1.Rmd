@@ -22,8 +22,9 @@ library(tidyverse)
 ```
 
 3. Make a repository in the https://github.com/stat545ubc-2021 Organization. You will be working with this repository for the entire data analysis project. You can either make it public, or make it private and add the TA's and Vincenzo as collaborators. 
+    - UPDATE: There is now a link that will help you make a repo. It's [on canvas](https://canvas.ubc.ca/courses/80816/pages/mini-data-analysis-create-a-repository) (and on a Slack announcement).
 
-4. When you go to submit, submit a URL to your repository to canvas. 
+4. When you go to submit, submit a URL to your repository to canvas.  
 
 # Instructions
 

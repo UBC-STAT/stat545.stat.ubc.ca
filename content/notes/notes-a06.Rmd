@@ -48,6 +48,7 @@ Resources to help with producing plots in ggplot2:
 - If you need a quick lookup, consider:
     - The [ggplot2 cheatsheet](https://github.com/rstudio/cheatsheets/blob/master/data-visualization-2.1.pdf) (Also available through RStudio: "Help" -> "Cheatsheets" -> "Data visualization with ggplot2").
     - [R Cookbook Graphs](http://www.cookbook-r.com/Graphs/) 
+- Craig Hutton [wrote a comprehensive blog post](https://craig.rbind.io/post/2021-05-17-asgr-3-1-data-visualization/) adopting a similar structure to our course notes, but with more explorations.
 
 Resources about producing effective visualizations:
 
