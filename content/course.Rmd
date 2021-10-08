@@ -51,8 +51,8 @@ There are two milestones, each equally weighted:
 There are three milestones, each equally weighted:
 
 - [Milestone 1](/mini-project/mini-project-1/): Due __Saturday, October 9, 2021 at 22:00 PT__. 
-- Milestone 2: Due __Saturday, October 16, 2021 at 22:00 PT__. 
-- Milestone 3: Due __Saturday, October 23, 2021 at 22:00 PT__. 
+- [Milestone 2](/mini-project/mini-project-2/): Due __Saturday, October 16, 2021 at 22:00 PT__. 
+- [Milestone 3](/mini-project/mini-project-3/): Due __Saturday, October 23, 2021 at 22:00 PT__. 
 
 ### Worksheets
 
