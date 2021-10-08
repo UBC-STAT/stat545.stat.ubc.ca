@@ -13,7 +13,7 @@ baseurl = "https://stat545.stat.ubc.ca/"
 
 # Enter a copyright notice to display in the site footer.
 # To display a copyright symbol, type `&copy;`. For current year, type `{year}`.
-copyright = ""ˆ
+copyright = ""
 
 # Enable analytics by entering your Google Analytics tracking ID
 googleAnalytics = "UA-147022704-1"
@@ -69,16 +69,6 @@ ignoreFiles = ["\\.ipynb$", ".ipynb_checkpoints$", "\\.Rmd$", "\\.Rmarkdown$", "
   category = "categories"
   publication_type = "publication_types"
   author = "authors"
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
-
-[markup]
-  [markup.goldmark]
-    [markup.goldmark.renderer]
-      unsafe = true
-
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
