@@ -1,6 +1,5 @@
 ---
-title: "Lecture Notes: The Model-Fitting Paradigm in R"
-subtitle: "Version 1.0.0"
+title: "The Model-Fitting Paradigm in R"
 output: html_document
 ---
 
@@ -9,9 +8,6 @@ knitr::opts_chunk$set(fig.width = 5, fig.height = 3,
                       fig.align = "center", error = TRUE)
 ```
 
-
-## Learning Objectives
-
 From today's class, students are anticipated to be able to:
 
 - make a model object in R, using `lm()` as an example.
@@ -19,6 +15,7 @@ From today's class, students are anticipated to be able to:
 - predict on a model object with the `broom::augment()` and `predict()` functions.
 - extract information from a model object using `broom::tidy()`, `broom::glance()`, and traditional means.
 
+Note that there is a new tidyverse-like framework of packages to help with modelling. It's called [tidymodels](https://www.tidymodels.org/). Tidymodels has come a long way since it first started, and I can see it taking the place of this lecture in the future (or at least becoming a part of the lecture). 
 
 ## Resources
 
@@ -40,21 +37,14 @@ Other resources, in addition to the notes below:
 3. TRUE or FALSE: We need to use a modelling function, such as `lm`, before we can graph a fitted line with `geom_smooth`.
 4. TRUE or FALSE: If I wanted to find the amount that `lifeExp` changes per `year`, then I need to use `broom::tidy()`
 
-# Vincenzo's Notes
+# Model-fitting in R
 
 Data wrangling and plotting can get you pretty far when it comes to drawing insight from your data. But, sometimes you need to go further. For example:
 
 - Investigate the relationship between two or more variables
 - Predict the outcome of a variable given information about other variables
-- Get evidence towards a hypothesis through a hypothesis test.
 
-These all involve fitting models -- or at least, involve performing more advanced computations than can be done with tidyverse packages like dplyr.
-
-In this tutorial, we'll cover:
-
-1. how a model is typically fit in R;
-2. how to extract information from the model after fitting it, using the `broom` package; or,
-3. extract information by other means if the `broom` package is not set up for your model. 
+These typically involve fitting models, as opposed to simple computations than can be done with tidyverse packages like dplyr.
 
 This tutorial is _not_ about the specifics of fitting a model. Even though a few references to statistical concepts are made, just take these for face value. 
 
@@ -122,11 +112,12 @@ __Formula__:
 
 In R, takes the form `y ~ x1 + x2 + ... + xp` (use column names in your data frame), where `y` here means the outcome variable you're interested in viewing in relation to other variables `x1`, `x2`, ...
 
-__Data__: The data frame or tibble.
+__Data__: The data frame or tibble. Can omit, if variables in the formula are defined in environment
 
-__Options__: Specific to the method.
+__Options__: Specific to the method, and include ways to customize the model.
 
-Running the code returns an object that you can then work with to extract results. 
+
+Running the code returns an object -- usually a special type of list -- that you can then work with to extract results. 
 
 For example, let's fit a linear regression model on a car's mileage per gallon (`mpg`, "Y" variable) from the car's weight (`wt`, "X" variable). Notice that no special options are needed for `lm()`.
 
@@ -138,7 +129,11 @@ Printing the model to the screen might lead you to incorrectly conclude that the
 
 ## Probing the model: Broom
 
-Now that you have the model object, there are typically three ways in which it's useful to probe and use the model object. The `broom` package has three crown functions that make it easy to extract each piece of information by converting your model into a tibble. 
+Now that you have the model object, there are typically three ways in which it's useful to probe and use the model object. The `broom` package has three crown functions that make it easy to extract each piece of information by converting your model into a tibble:
+
+1. `tidy`: extract statistical summaries about each "component" of the model.
+2. `augment`: add columns to the original data frame containing predictions.
+3. `glance`: extract statistical summaries about the model as a whole (a 1-row tibble).
 
 ### `tidy()`
 
@@ -261,183 +256,19 @@ summary(my_lm)$adj.r.squared
 ```
 
 
+## Plotting models with `geom_smooth`
 
-# Victor's Notes
-
-Topics for today's demo:
-
-- fitting a linear regression model using `lm`
-- how to extract modelling information using the package `broom`
-- plotting models using `geom_smooth`
-
-```{r}
-library(tidyverse)
-library(gapminder)
-library(broom)
-```
-
-### What is Model-Fitting? 
-
-A way to test if there is a "relationship" between two or more variables
-
-Let's look at dataset `mtcars` as an example:
+We can plot models (with one predictor/ X variable) using `ggplot2` through the `geom_smooth()` layer. Specifying `method="lm"` gives us the linear regression fit (but only visually -- very difficult to extract model components!):
 
 ```{r}
 ggplot(mtcars, aes(x = wt, y = mpg)) +
-  geom_point() +
-  labs(x = "Weight (1000's of lbs)")
-```
-
-1. Is there a relationship between `wt` (car weight) and `mpg` (fuel efficiency)?
-
-2. Or another way to ask, does car weight have some information that tells us about fuel efficiency?
-
-Modelling is a way to quantify this relationship. 
-
-### Fitting a model in R
-
-Most model fitting functions have a common format:
-
-```
-function(formula, data, options)
-```
-
-1. **Formula** 
-
-- describes the relationship you want to test (e.g. `wt ~ mpg`)
-- Formulas look like this: `y ~ x1 + x2 + ...`
-
-2. **data** 
-
-- the `data.frame`/`tibble` that contains your variables
-- can omit, if variables in formula are defined in environment
-
-e.g. 
-```{r}
-y1 <- c(1,2,3)
-x1 <- c(0.1, 0.2, 0.3)
-lm(y1~x1)
-
-# same as
-d1 <- tibble(y1 = y1, x1 = x1) # store y1 and x2 into tibble
-rm(y1, x1)                     # remove y1 and x2 from environment
-lm(y1~x1, data = d1)           
-```
-
-
-3. **options** 
-
-- ways to customize the model
-- specific to each type of model
-
-The output of these is usually a **special _list_** object.
-
-```{r}
-my_model <- lm(y1~x1, data = d1) 
-str(my_model)
-```
-
-Some model functions in R:
-
-- Linear Regression: `lm`
-- Generalized Linear Regression: `glm`
-- Local regression: `loess`
-- Quantile regression: `quantreg::rq`
-- ...
-
-Let's fit a linear model with between `wt` and `mpg` in the `mtcars` dataset:
-
-```{r}
-(my_lm <- lm(mpg ~ wt, data = mtcars))
-```
-
-
-### `predict()`
-
-**Functions:** `broom::augment()` and `predict()`
-
-We can use the `predict()` or `broom::augment()` to make predictions from the model (default is to use fitting/training data). 
-
-```{r predict-training}
-predict(my_lm) %>% 
-  head()
-```
-
-
-```{r augment-training}
-augment(my_lm)
-```
-
-
-Or we can predict on a new dataset:
-
-```{r predict-newdata}
-wt1 <- tibble(wt = seq(18:23))
-wt1
-
-predict(my_lm,wt1)
-```
-
-```{r augment-newdata}
-augment(my_lm, newdata = wt1)
-
-wt1 %>%
-  mutate(mpg = c(32, 26, 20, 14, 8, 2)) %>%
-  augment(my_lm, newdata = .)
-```
-### `summary()`
-
-`lm` output lacks information:
-
-```{r}
-my_lm
-```
-
-To get more information, we can use `summary`:
-
-```{r}
-summary(my_lm)
-```
-
-`summary` is useful for reading, but it's not easy to work with this output
-
-### Introduce `broom::tidy`
-
-- extracts statistical summaries for each component of the model
-- returns in tabular format
-- useful for _interpretation_
-
-```{r}
-tidy(my_lm)
-```
-
-```{r}
-coef(summary(my_lm)) 
-```
-
-### `broom::glance`
-
-- gives statistical summary on model as a whole
-- useful for checking goodness of fit
-
-```{r}
-glance(my_lm)
-```
-
-
-### Plotting linear models with `geom_smooth`
-
-We can plot models (with one predictor/ X variable) using `ggplot2` through the `geom_smooth()` layer. Specifying `method="lm"` gives us the linear regression fit (but only visually!):
-
-```{r}
-ggplot(mtcars, aes(x = wt, y = mpg)) +
-    #geom_point() +
-    geom_smooth(method="lm") 
+    geom_point() +
+    geom_smooth(method = "lm") 
 ```
 
 Let's visualize some relationships in the `gapminder` dataset.
 
-Lets the country "Zimbabwe", which has a unique behavior in the `lifeExp` and `year` relationship.
+Let's inspect Zimbabwe, which has a unique behavior in the `lifeExp` and `year` relationship.
 
 ```{r}
 gapminder_Zimbabwe <- gapminder %>% 
@@ -459,12 +290,11 @@ Now we will try to fit a second degree polynomial and see what would that look l
 ggplot(gapminder_Zimbabwe, aes(year,lifeExp)) +
   geom_point() +
   geom_smooth(method = "lm",
-              formula = y~poly(x,2), 
+              formula = y ~ poly(x,2), 
               se = F)
-#?geom_smooth
 ```
 
-### Summary
+## Summary
 
 1. `function(formula, data, options)` - most models in R follow this structure.
 
@@ -476,150 +306,7 @@ ggplot(gapminder_Zimbabwe, aes(year,lifeExp)) +
 
 5. `geom_smooth()` - used to add geom_layer that shows a fitted line to the data. `method` and `formula` arguments can be used to customize model.
 
-# (Taken from the worksheet)
 
-So you want to fit a model to your data. How can you achieve this with R?
+### Attribution
 
-Topics:
-
-1. What _is_ model-fitting?
-2. How do we fit a model in R?
-3. How can we obtain tidy results from the model output?
-
-### What is Model-Fitting?
-When variables are not independent, then we can gain information about one variable if we know something about the other.
-
-Examples: Use the scatterplot below:
-
-1. A car weighs 4000 lbs. What can we say about its mpg?
-2. A car weights less than 3000 lbs. What can we say about its mpg?
-
-Run the code cell below to see the `mtcars` plot.
-
-```{r}
-# models can fit many data points (using an 'averaged' data line is not always helpful)
-ggplot(mtcars, aes(wt, mpg)) +
-  geom_point() +
-  labs(x = "Weight (1000's of lbs)")
-```
-
-Example: What can we say about rear axle ratio if we know something about quarter mile time? Run the code cell below!
-
-```{r}
-ggplot(mtcars, aes(qsec, drat)) + 
-  geom_point() +
-  labs(x = "Quarter mile time",
-       y = "Rear axle ratio")
-```
-
-If EDA isn't enough, we can answer these questions by fitting a model: a curve that predicts Y given X. Aka, a __regression curve__ or a __machine learning model__. 
-
-(There are more comprehensive models too, such as modelling entire distributions, but that's not what we're doing here)
-
-There are typically two goals of fitting a model:
-
-1. Make predictions.
-2. Interpret variable relationships.
-
-## Fitting a model in R
-
-Model fitting methods tend to use a common format in R:
-
-```
-method(formula, data, options)
-```
-
-They also tend to have a common output: a special _list_. 
-
-__Method__:
-
-A function such as:
-
-- Linear Regression: `lm`
-- Generalized Linear Regression: `glm`
-- Local regression: `loess`
-- Quantile regression: `quantreg::rq`
-- ...
-
-__Formula__:
-
-In R, takes the form `y ~ x1 + x2 + ... + xp` (use column names in your data frame).
-
-__Data__: The data frame.
-
-__Options__: Specific to the method.
-
-# More stuff from the worksheet
-
-However, to make things more complicated, some info is stored in _another_ list after applying the `summary` function. Run the code cell below.
-
-```{r}
-summary(answer3.3)
-```
-
-We can use the `predict()` function to make predictions from the model (default is to use fitting/training data). Here are the predictions. Run the code cell below. Use `predict()` to predict for years that are within our year range but do not have explicit data points.
-
-```{r}
-(gapminder_France <- data.frame(year = seq(2000, 2005)))
-predict(answer3.3, newdata = gapminder_France) %>%
-  head()
-```
-
-Or we can predict on a new dataset! Use `predict()` to predict for years that are beyond the range of our dataset, that is, extrapolate data using the model. Run the code cell below.
-
-```{r}
-years1 = data.frame(year = c(3000, 3005))
-predict(answer3.3,years1)
-plot(answer3.3)
-```
-
-We can plot models (with one predictor/ X variable) using `ggplot2` through the `geom_smooth()` layer. Specifying `method="lm"` gives us the linear regression fit (but only visually!). Run the code cell below.
-
-```{r}
-ggplot(gapminder, aes(gdpPercap, lifeExp)) +
-    geom_point() +
-    geom_smooth(method="lm") +
-    scale_x_log10()
-```
-
-Let's consider another country "Zimbabwe", which has a unique behavior in the `lifeExp` and `year` relationship. Run the code cell below.
-
-```{r}
-gapminder_Zimbabwe <- gapminder %>%
-  filter(country == "Zimbabwe")
-
-gapminder_Zimbabwe %>% 
-  ggplot(aes(year, lifeExp)) +
-  geom_point()
-```
-
-Let's try fitting a linear model to this relationship. `se` option allows us to show or hide the confidence interval. Run the code cell below.
-
-```{r}
-ggplot(gapminder_Zimbabwe, aes(year,lifeExp)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = F)
-```
-
-Now we will try to fit a second degree polynomial (`degree = 2`) and see what would that look like. Run the code cell below.
-
-```{r}
-ggplot(gapminder_Zimbabwe, aes(year, lifeExp)) + 
-  geom_point()+
-  geom_smooth(method = "lm", formula = y ~ poly(I(x - 1952), degree = 2))
-```
-
-## Broom
-Let's make it easier to extract info, using the `broom` package. There are three crown functions in this package, all of which input a fitted model, and outputs a tidy data frame.
-
-1. `tidy`: extract statistical summaries about each component of the model.
-    - Useful for _interpretation_ task.
-2. `augment`: add columns to the original data frame, giving information corresponding to each row.
-    - Useful for _prediction_ task.
-3. `glance`: extract statistical summaries about the model as a whole (1-row tibble).
-    - Useful for checking goodness of fit.
-    
-
-## Attribution
-
-- Fall 2020: Victor Yuan put this demonstration together. 
+Written by Vincenzo Coia with input from Victor Yuan.

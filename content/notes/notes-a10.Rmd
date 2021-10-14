@@ -1,6 +1,5 @@
 ---
-title: "Lecture Notes: Special objects in R: Dates, Times, and Factors"
-subtitle: "Version 1.0.0"
+title: "Special objects in R: Dates, Times, and Factors"
 output: html_document
 ---
 
@@ -9,34 +8,29 @@ knitr::opts_chunk$set(fig.width = 5, fig.height = 3,
                       fig.align = "center", error = TRUE)
 ```
 
-
-## Learning Objectives
-
 From today's class, students are anticipated to be able to:
 
-- Recognize what the factor class is 
-- Convert data in a dataframe to factors
-- Use the tsibble package to convert to various date formats
-- Plot with factors
-- Reorder levels within factors
+- Reorder levels within factors according to various principles.
+- Make a date and datetime object and extract components from these objects, using the lubridate package.
 
-## Parallel Resources
+## Resources
 
-This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:
+Video lecture:
 
-- [STAT 545 Episode 10-A: Special Data Types in R: Dates, Times, and Factors](https://youtu.be/TTNfLtEUFDQ)
+- [Special Data Types in R: Dates, Times, and Factors](https://youtu.be/TTNfLtEUFDQ)
 
-We suggest referring to this material when engaging with today's topic.
+Other resources, in addition to the notes below:
 
-## Additional Resources
-
-- The [stat545.com](https://stat545.com/factors-boss.html) chapter on Factors
-- The [R4DS](https://r4ds.had.co.nz/dates-and-times.html) chapter on Dates and Times
-- The `tsibble` [vignette](https://cran.rstudio.com/web/packages/tsibble/vignettes/intro-tsibble.html)
-- The [forcats](https://forcats.tidyverse.org) package page and reference guide on page. 
+- For factors:
+    - The [stat545.com](https://stat545.com/factors-boss.html) chapter on Factors
+    - The [forcats](https://forcats.tidyverse.org) package page and reference guide on page. 
+- For dates and times:
+    - The [R4DS](https://r4ds.had.co.nz/dates-and-times.html) chapter on Dates and Times
+    - The `tsibble` [vignette](https://cran.rstudio.com/web/packages/tsibble/vignettes/intro-tsibble.html) to learn more about embedding a time series within a tibble. 
 
 
-## Quiz
+
+## Test Your Understanding
 
 1. The output of the following code is equivalent to a factor with the letters "a" to "f".
 
@@ -66,23 +60,7 @@ c(date, dt)
 
 ## Demonstration
 
-
-```{r, message = FALSE, warning = FALSE}
-library(tidyverse)
-library(palmerpenguins)
-library(gapminder)
-```
-
-Factors: demonstrate:
-
-- "Canada" and "Other" with `fct_other()`
-- Re-ordering of levels in plots:
-  - Legend matches line plots
-  - Categories with counts are ordered
-  - Categories with distributions are ordered by something of your choosing.
-- Bar plot of the total number of penguins surveyed from each species -- noting that 5 species are missing.
-
-
-Tsibbles (did not cover)
-
-
+- Demonstrate lubridate (not on worksheet): 
+    - `ymd()` family of functions to convert text to a date (not in worksheet).
+    - Getting components of a date object with things like `yday()`, `year()`, and `wday()`.
+- Work on Worksheet A5 (factors and dates portion)

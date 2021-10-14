@@ -1,42 +1,38 @@
 ---
-title: "Lecture Notes: Special objects in R: Dates, Times, and Factors"
-subtitle: "Version 1.0.0"
+title: "Special objects in R: Dates, Times, and Factors"
 output: html_document
 ---
 
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<div id="learning-objectives" class="section level2">
-<h2>Learning Objectives</h2>
 <p>From today’s class, students are anticipated to be able to:</p>
 <ul>
-<li>Recognize what the factor class is</li>
-<li>Convert data in a dataframe to factors</li>
-<li>Use the tsibble package to convert to various date formats</li>
-<li>Plot with factors</li>
-<li>Reorder levels within factors</li>
+<li>Reorder levels within factors according to various principles.</li>
+<li>Make a date and datetime object and extract components from these objects, using the lubridate package.</li>
 </ul>
-</div>
-<div id="parallel-resources" class="section level2">
-<h2>Parallel Resources</h2>
-<p>This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:</p>
+<div id="resources" class="section level2">
+<h2>Resources</h2>
+<p>Video lecture:</p>
 <ul>
-<li><a href="https://youtu.be/TTNfLtEUFDQ">STAT 545 Episode 10-A: Special Data Types in R: Dates, Times, and Factors</a></li>
+<li><a href="https://youtu.be/TTNfLtEUFDQ">Special Data Types in R: Dates, Times, and Factors</a></li>
 </ul>
-<p>We suggest referring to this material when engaging with today’s topic.</p>
-</div>
-<div id="additional-resources" class="section level2">
-<h2>Additional Resources</h2>
+<p>Other resources, in addition to the notes below:</p>
+<ul>
+<li>For factors:
 <ul>
 <li>The <a href="https://stat545.com/factors-boss.html">stat545.com</a> chapter on Factors</li>
-<li>The <a href="https://r4ds.had.co.nz/dates-and-times.html">R4DS</a> chapter on Dates and Times</li>
-<li>The <code>tsibble</code> <a href="https://cran.rstudio.com/web/packages/tsibble/vignettes/intro-tsibble.html">vignette</a></li>
 <li>The <a href="https://forcats.tidyverse.org">forcats</a> package page and reference guide on page.</li>
+</ul></li>
+<li>For dates and times:
+<ul>
+<li>The <a href="https://r4ds.had.co.nz/dates-and-times.html">R4DS</a> chapter on Dates and Times</li>
+<li>The <code>tsibble</code> <a href="https://cran.rstudio.com/web/packages/tsibble/vignettes/intro-tsibble.html">vignette</a> to learn more about embedding a time series within a tibble.</li>
+</ul></li>
 </ul>
 </div>
-<div id="quiz" class="section level2">
-<h2>Quiz</h2>
+<div id="test-your-understanding" class="section level2">
+<h2>Test Your Understanding</h2>
 <ol style="list-style-type: decimal">
 <li>The output of the following code is equivalent to a factor with the letters “a” to “f”.</li>
 </ol>
@@ -62,19 +58,12 @@ c(date, dt)
 </div>
 <div id="demonstration" class="section level2">
 <h2>Demonstration</h2>
-<pre class="r"><code>library(tidyverse)
-library(palmerpenguins)
-library(gapminder)</code></pre>
-<p>Factors: demonstrate:</p>
 <ul>
-<li>“Canada” and “Other” with <code>fct_other()</code></li>
-<li>Re-ordering of levels in plots:
+<li>Demonstrate lubridate (not on worksheet):
 <ul>
-<li>Legend matches line plots</li>
-<li>Categories with counts are ordered</li>
-<li>Categories with distributions are ordered by something of your choosing.</li>
+<li><code>ymd()</code> family of functions to convert text to a date (not in worksheet).</li>
+<li>Getting components of a date object with things like <code>yday()</code>, <code>year()</code>, and <code>wday()</code>.</li>
 </ul></li>
-<li>Bar plot of the total number of penguins surveyed from each species – noting that 5 species are missing.</li>
+<li>Work on Worksheet A5 (factors and dates portion)</li>
 </ul>
-<p>Tsibbles (did not cover)</p>
 </div>
