@@ -47,13 +47,13 @@ df2 <- data.frame(ID = 2:4,
                   Age = c(20,50,31))
 ```
 
-<img src="https://stat545.stat.ubc.ca/tutorials/tibble_join/images/df.png" id="id" class="class" style="width:35.0%" style="height:35.0%" />
+<img src="https://stat545.stat.ubc.ca/tutorials/tibble_join/images/df.png" id="id" class="class" style="width:50.0%" style="height:50.0%" />
 
 ## Mutating joins
 
 ### Join matching rows from df2 to df1
 
-<img src="images/left_join.png" id="id" class="class" style="width:50.0%" style="height:50.0%" />
+<img src="images/left_join.png" id="id" class="class" style="width:70.0%" style="height:70.0%" />
 
 ``` r
 left_join(df1, df2, by = "ID")
@@ -66,7 +66,7 @@ left_join(df1, df2, by = "ID")
 
 ### Join matching rows from df1 to df2
 
-<img src="images/right_join.png" id="id" class="class" style="width:50.0%" style="height:50.0%" />
+<img src="images/right_join.png" id="id" class="class" style="width:70.0%" style="height:70.0%" />
 
 ``` r
 right_join(df1, df2, by = "ID")
@@ -79,7 +79,7 @@ right_join(df1, df2, by = "ID")
 
 ### Retain only rows present in both sets
 
-<img src="images/inner_join.png" id="id" class="class" style="width:50.0%" style="height:50.0%" />
+<img src="images/inner_join.png" id="id" class="class" style="width:70.0%" style="height:70.0%" />
 
 ``` r
 inner_join(df1, df2, by = "ID")
@@ -91,7 +91,7 @@ inner_join(df1, df2, by = "ID")
 
 ### Retain all values, all rows
 
-<img src="images/full_join.png" id="id" class="class" style="width:50.0%" style="height:50.0%" />
+<img src="images/full_join.png" id="id" class="class" style="width:70.0%" style="height:70.0%" />
 
 ``` r
 full_join(df1, df2, by = "ID")
@@ -107,7 +107,7 @@ full_join(df1, df2, by = "ID")
 
 ### Retain all rows in df1 that have a match in df2
 
-<img src="images/semi_join.png" id="id" class="class" style="width:50.0%" style="height:50.0%" />
+<img src="images/semi_join.png" id="id" class="class" style="width:70.0%" style="height:70.0%" />
 
 ``` r
 semi_join(df1, df2, by = "ID")
@@ -119,7 +119,7 @@ semi_join(df1, df2, by = "ID")
 
 ### Retain all rows in df1 that do not have a match in df2
 
-<img src="images/anti_join.png" id="id" class="class" style="width:50.0%" style="height:50.0%" />
+<img src="images/anti_join.png" id="id" class="class" style="width:70.0%" style="height:70.0%" />
 
 ``` r
 anti_join(df1, df2, by = "ID")
@@ -132,7 +132,7 @@ anti_join(df1, df2, by = "ID")
 
 ### Append df2 to df1 as new rows
 
-<img src="images/bind_rows.png" id="id" class="class" style="width:50.0%" style="height:50.0%" />
+<img src="images/bind_rows.png" id="id" class="class" style="width:70.0%" style="height:70.0%" />
 
 ``` r
 bind_rows(df1, df2)
@@ -148,7 +148,7 @@ bind_rows(df1, df2)
 
 ### Append df2 to df1 as new columns
 
-<img src="images/bind_cols.png" id="id" class="class" style="width:50.0%" style="height:50.0%" />
+<img src="images/bind_cols.png" id="id" class="class" style="width:70.0%" style="height:70.0%" />
 
 ``` r
 bind_cols(df1, df2)
@@ -172,7 +172,7 @@ df3 <- data.frame(ID = 1:5,
                   Height = c(175,167,190,155,160))
 ```
 
-<img src="images/three_tibbles.png" id="id" class="class" style="width:60.0%" style="height:60.0%" />
+<img src="images/three_tibbles.png" id="id" class="class" style="width:80.0%" style="height:80.0%" />
 
 Use piping operator (%&gt;%) to layer multiple join functions
 
@@ -190,7 +190,7 @@ full_join(df1, df2, by = "ID") %>%
 
 ## Joining tibbles on multiple conditions
 
-<img src="images/new_df.png" id="id" class="class" style="width:60.0%" style="height:60.0%" />
+<img src="images/new_df.png" id="id" class="class" style="width:80.0%" style="height:80.0%" />
 
 Create two new tibbles df4 and df5
 
@@ -204,7 +204,7 @@ df5 <- data.frame(First_name = c("Josh","Alex","Sophie"),
                   Height = c(167,190,155))
 ```
 
-<img src="images/multiple_conditions.png" id="id" class="class" style="width:60.0%" style="height:60.0%" />
+<img src="images/multiple_conditions.png" id="id" class="class" style="width:80.0%" style="height:80.0%" />
 
 ``` r
 full_join(df4, df5, by = c("FirstName" = "First_name", "LastName" = "Last_name"))
@@ -220,7 +220,7 @@ full_join(df4, df5, by = c("FirstName" = "First_name", "LastName" = "Last_name")
 
 Create sample data frames
 
-<img src="images/new_df2.png" id="id" class="class" style="width:35.0%" style="height:35.0%" />
+<img src="images/new_df2.png" id="id" class="class" style="width:50.0%" style="height:50.0%" />
 
 ``` r
 # First data frame
@@ -234,7 +234,7 @@ df7 <- data.frame(Number = 2:4,
 
 ### Include rows that appear in both data frames
 
-<img src="images/intersect.png" id="id" class="class" style="width:40.0%" style="height:50.0%" />
+<img src="images/intersect.png" id="id" class="class" style="width:60.0%" style="height:70.0%" />
 
 ``` r
 intersect(df6, df7)
@@ -246,7 +246,7 @@ intersect(df6, df7)
 
 ### Include rows that appear in either or both data frames
 
-<img src="images/union.png" id="id" class="class" style="width:40.0%" style="height:50.0%" />
+<img src="images/union.png" id="id" class="class" style="width:60.0%" style="height:70.0%" />
 
 ``` r
 union(df6, df7)
@@ -260,7 +260,7 @@ union(df6, df7)
 
 ### Include rows that appear in one df but not another
 
-<img src="images/setdiff.png" id="id" class="class" style="width:40.0%" style="height:50.0%" />
+<img src="images/setdiff.png" id="id" class="class" style="width:60.0%" style="height:70.0%" />
 
 Include rows that appear in df6 but not in df7
 
