@@ -260,7 +260,7 @@ df7 <- data.frame(Number = 2:4,
 
 ### Include rows that appear in both data frames
 
-<img src="images/intersect.png" id="id" class="class" style="width:70.0%" style="height:70.0%" />
+<img src="images/intersect.png" id="id" class="class" style="width:60.0%" style="height:60.0%" />
 
 ``` r
 intersect(df6, df7)
@@ -272,7 +272,7 @@ intersect(df6, df7)
 
 ### Include rows that appear in either or both data frames
 
-<img src="images/union.png" id="id" class="class" style="width:70.0%" style="height:70.0%" />
+<img src="images/union.png" id="id" class="class" style="width:60.0%" style="height:60.0%" />
 
 ``` r
 union(df6, df7)
@@ -286,7 +286,7 @@ union(df6, df7)
 
 ### Include rows that appear in one df but not another
 
-<img src="images/setdiff.png" id="id" class="class" style="width:70.0%" style="height:70.0%" />
+<img src="images/setdiff.png" id="id" class="class" style="width:60.0%" style="height:60.0%" />
 
 Include rows that appear in df6 but not in df7
 
