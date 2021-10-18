@@ -26,7 +26,7 @@ Video lecture:
 
 Demonstration .Rmd file:
 
-- [Tibble demonstration with gapminder](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/tutorials/tibble_join/join_demonstration.Rmd)
+- [Tibble demonstration with gapminder](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/tutorials/tibble_join/join_demonstration.Rmd)
 
 
 Other resources, in addition to the notes below:
