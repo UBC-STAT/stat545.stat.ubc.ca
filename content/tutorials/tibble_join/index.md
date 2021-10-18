@@ -47,7 +47,7 @@ df2 <- data.frame(ID = 2:4,
                   Age = c(20,50,31))
 ```
 
-<img src="master/content/tutorials/tibble_join/images/df.png" id="id" class="class" style="width:35.0%" style="height:35.0%" />
+<img src="/master/content/tutorials/tibble_join/images/df.png" id="id" class="class" style="width:35.0%" style="height:35.0%" />
 
 ## Mutating joins
 
