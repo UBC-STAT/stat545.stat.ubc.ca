@@ -237,7 +237,7 @@ full_join(df4, df5, by = c("FirstName" = "First_name", "LastName" = "Last_name")
     ## 3 Alex      Smith       50    190
     ## 4 Sophie    Jones       NA    155
 
-What if you did not realize that multiple shared the same Last Name?
+What if you did not realize that multiple people shared the same Last Name?
 
 ``` r
 full_join(df4, df5, by = c("LastName" = "Last_name"))
@@ -253,7 +253,7 @@ full_join(df4, df5, by = c("LastName" = "Last_name"))
     ## 5 Alex      Smith       50 Alex          190
     ## 6 <NA>      Jones       NA Sophie        155
 
-What if you did not realize that multiple shared the same First Name?
+What if you did not realize that multiple people shared the same First Name?
 
 ``` r
 full_join(df4, df5, by = c("FirstName" = "First_name"))
