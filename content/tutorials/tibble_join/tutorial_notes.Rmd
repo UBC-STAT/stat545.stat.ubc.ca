@@ -183,12 +183,12 @@ full_join(df4, df5, by = c("FirstName" = "First_name", "LastName" = "Last_name")
 ```
 
 
-What if you did not realize that multiple shared the same Last Name?
+What if you did not realize that multiple people shared the same Last Name?
 ```{r}
 full_join(df4, df5, by = c("LastName" = "Last_name"))
 ```
 
-What if you did not realize that multiple shared the same First Name?
+What if you did not realize that multiple people shared the same First Name?
 ```{r}
 full_join(df4, df5, by = c("FirstName" = "First_name"))
 ```
