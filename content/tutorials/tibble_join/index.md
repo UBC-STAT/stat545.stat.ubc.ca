@@ -453,7 +453,7 @@ gapminder_extended %>%
     labs(x="Country group")
 ```
 
-<img src="notes-a11_Albina_files/figure-markdown_github/unnamed-chunk-28-1.png" style="display: block; margin: auto;" />
+<img src="tutorial_notes_files/figure-markdown_github/unnamed-chunk-28-1.png" style="display: block; margin: auto;" />
 
 Compare lifeExp for OECD, G77, and other countries by most common religion
 
@@ -467,7 +467,7 @@ gapminder_extended %>%
     facet_wrap(~main_religion_2008)
 ```
 
-<img src="notes-a11_Albina_files/figure-markdown_github/unnamed-chunk-29-1.png" style="display: block; margin: auto;" />
+<img src="tutorial_notes_files/figure-markdown_github/unnamed-chunk-29-1.png" style="display: block; margin: auto;" />
 
 ### Part 2
 
@@ -555,4 +555,4 @@ gapminder_pop %>%
 
     ## `summarise()` has grouped output by 'continent'. You can override using the `.groups` argument.
 
-<img src="notes-a11_Albina_files/figure-markdown_github/unnamed-chunk-35-1.png" style="display: block; margin: auto;" />
+<img src="tutorial_notes_files/figure-markdown_github/unnamed-chunk-35-1.png" style="display: block; margin: auto;" />
