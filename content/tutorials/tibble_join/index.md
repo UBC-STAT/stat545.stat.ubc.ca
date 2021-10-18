@@ -49,8 +49,6 @@ df2 <- data.frame(ID = 2:4,
 
 <img src="https://stat545.stat.ubc.ca/tutorials/tibble_join/images/df.png" id="id" class="class" style="width:35.0%" style="height:35.0%" />
 
-<img src="http://www.google.com.au/images/nav_logo7.png">
-
 ## Mutating joins
 
 ### Join matching rows from df2 to df1
