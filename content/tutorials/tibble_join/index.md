@@ -1,5 +1,7 @@
-Tibble Joins
-================
+---
+title: "Tibble Joins"
+subtitle: "Albina Gibadullina"
+date: "October 2021"
 
 ## Learning Objectives
 
