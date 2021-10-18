@@ -23,6 +23,12 @@ Video lecture:
 
 -   [STAT 545 Episode 11-A: Tibble Joins with dplyr](https://youtu.be/YAdX9MVRY1c)
 
+
+Demonstration .Rmd file:
+
+- [Tiible demonstration with gapminder](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/tutorials/tibble_join/join_demonstration.Rmd)
+
+
 Other resources, in addition to the notes below:
 
 -   [Two-table verbs vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/two-table.html)
