@@ -53,7 +53,7 @@ df2 <- data.frame(ID = 2:4,
 
 ### Join matching rows from df2 to df1
 
-<img src="tutorials/tibble_join/images/left_join.png" id="id" class="class" style="width:50.0%" style="height:50.0%" />
+<img src="images/left_join.png" id="id" class="class" style="width:50.0%" style="height:50.0%" />
 
 ``` r
 left_join(df1, df2, by = "ID")
