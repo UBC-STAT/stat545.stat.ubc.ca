@@ -5,7 +5,7 @@ date: "October 2021"
 ---
 
 ## Learning Objectives
-edits
+
 From today's class, students are anticipated to be able to:
 
 -   Recognize how to manipulate data through a variety of tibble joins such as:
