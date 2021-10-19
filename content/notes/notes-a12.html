@@ -1,14 +1,11 @@
 ---
 title: "Lecture Notes: Reading and Writing Data"
-subtitle: "Version 1.0.0"
 output: html_document
 ---
 
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<div id="learning-objectives" class="section level2">
-<h2>Learning Objectives</h2>
 <p>From today’s class, students are anticipated to be able to:</p>
 <ul>
 <li>Read and write a delimited file, like a csv, from R using the <code>readr</code> package.</li>
@@ -16,27 +13,31 @@ output: html_document
 <li>Read data from a spreadsheet</li>
 <li>Read and write R binary files (rds files) from R.</li>
 </ul>
-</div>
-<div id="parallel-resources" class="section level2">
-<h2>Parallel Resources</h2>
-<p>This topic parallels the following resources. Take about 30 minutes to get acquainted with the following before coming to class:</p>
+<div id="resources" class="section level2">
+<h2>Resources</h2>
+<p>Video lecture:</p>
 <ul>
-<li><a href="https://youtu.be/2nHuNu6Zaqk">STAT 545 Episode 12-A: Reading and Writing Data</a></li>
-<li>Read the <a href="https://stat545.com/import-export.html">“Writing and Reading files”</a> chapter of stat545.com.</li>
+<li><a href="https://youtu.be/2nHuNu6Zaqk">Reading and Writing Data</a></li>
 </ul>
-<p>We suggest referring to this material when engaging with today’s topic.</p>
+<p>Tutorial:</p>
+<ul>
+<li>The <a href="https://stat545.com/import-export.html">“Writing and Reading files”</a> chapter of stat545.com.</li>
+</ul>
 </div>
-<div id="additional-resources" class="section level2">
-<h2>Additional Resources</h2>
-</div>
-<div id="quiz" class="section level2">
-<h2>Quiz</h2>
+<div id="test-your-understanding" class="section level2">
+<h2>Test your Understanding</h2>
 <ol style="list-style-type: decimal">
 <li>True or False: if you want to be deliberate about where <code>here::here()</code> points to on your computer, you need to ensure you have an .Rproj file.</li>
 <li>True or False: Suppose you have an .Rproj file in the same folder as your R script. Running <code>here::here()</code> from that R script will always point to that folder.</li>
 </ol>
 </div>
-<div id="demonstration" class="section level2">
-<h2>Demonstration</h2>
-<p>In-class coverage of Worksheet 6-A.</p>
+<div id="main-idea-behind-herehere" class="section level2">
+<h2>Main Idea behind <code>here::here()</code></h2>
+<p>Up until now, we always wrote and read files to our current directory. If we wanted to use a different folder on our computer, we could specify something like:</p>
+<ul>
+<li><code>Documents/STAT545/exported_file.csv</code> - Mac uses forward slashes</li>
+<li><code>Documents\STAT545\exported_file.csv</code> - Windows uses backward slashes</li>
+</ul>
+<p>However, if you wanted to make your Rproj more portable and accessible to more users in a cross-platform (between Mac, Unix, Windows users), rather than specifying every path explicitly, <code>here::here()</code> allows you to set relative paths much more easily.</p>
+<p>We won’t elaborate here. For a tutorial, read the above noted STAT 545 chapter on <a href="https://stat545.com/import-export.html">“Writing and Reading files”</a>. Let’s dive into Worksheet A-6 to see the <code>here</code> package in use.</p>
 </div>
