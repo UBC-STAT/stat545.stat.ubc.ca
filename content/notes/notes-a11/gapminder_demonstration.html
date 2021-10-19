@@ -1,0 +1,177 @@
+---
+title: "Tibble Join Demonstration"
+author: "Albina Gibadullina"
+date: "October 18, 2021"
+output: html_document
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="demonstration-with-gapminder" class="section level1">
+<h1>Demonstration with <code>gapminder</code></h1>
+<p>Load necessary packages</p>
+<pre class="r"><code>library(tidyverse)
+library(gapminder)
+library(gsheet) # make sure to install this package if you don&#39;t have it</code></pre>
+<p>Get an overview of <code>gapminder</code> data</p>
+<pre class="r"><code>glimpse(gapminder)</code></pre>
+<pre><code>## Rows: 1,704
+## Columns: 6
+## $ country   &lt;fct&gt; &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, …
+## $ continent &lt;fct&gt; Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, …
+## $ year      &lt;int&gt; 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, 1997, …
+## $ lifeExp   &lt;dbl&gt; 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 40.8…
+## $ pop       &lt;int&gt; 8425333, 9240934, 10267083, 11537966, 13079460, 14880372, 12…
+## $ gdpPercap &lt;dbl&gt; 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.1134, …</code></pre>
+<div id="part-1" class="section level2">
+<h2>Part 1</h2>
+<p>Obtain additional information on countries from other open data sources</p>
+<pre class="r"><code>country_data &lt;- read.csv(file = &quot;https://raw.githubusercontent.com/open-numbers/ddf--gapminder--geo_entity_domain/master/ddf--entities--geo--country.csv&quot;)
+glimpse(country_data)</code></pre>
+<pre><code>## Rows: 273
+## Columns: 33
+## $ country                &lt;chr&gt; &quot;abkh&quot;, &quot;afg&quot;, &quot;akr_a_dhe&quot;, &quot;ala&quot;, &quot;alb&quot;, &quot;dza&quot;…
+## $ gwid                   &lt;chr&gt; &quot;i0&quot;, &quot;i1&quot;, &quot;i2&quot;, &quot;i258&quot;, &quot;i3&quot;, &quot;i4&quot;, &quot;i5&quot;, &quot;i6…
+## $ name                   &lt;chr&gt; &quot;Abkhazia&quot;, &quot;Afghanistan&quot;, &quot;Akrotiri and Dhekel…
+## $ world_6region          &lt;chr&gt; &quot;europe_central_asia&quot;, &quot;south_asia&quot;, &quot;europe_ce…
+## $ income_groups          &lt;chr&gt; &quot;&quot;, &quot;low_income&quot;, &quot;&quot;, &quot;&quot;, &quot;upper_middle_income&quot;…
+## $ landlocked             &lt;chr&gt; &quot;&quot;, &quot;landlocked&quot;, &quot;coastline&quot;, &quot;coastline&quot;, &quot;co…
+## $ g77_and_oecd_countries &lt;chr&gt; &quot;others&quot;, &quot;g77&quot;, &quot;others&quot;, &quot;others&quot;, &quot;others&quot;, …
+## $ main_religion_2008     &lt;chr&gt; &quot;&quot;, &quot;muslim&quot;, &quot;&quot;, &quot;&quot;, &quot;muslim&quot;, &quot;muslim&quot;, &quot;chri…
+## $ gapminder_list         &lt;chr&gt; &quot;Abkhazia&quot;, &quot;Afghanistan&quot;, &quot;Akrotiri and Dhekel…
+## $ alternative_1          &lt;chr&gt; &quot;&quot;, &quot;Islamic Republic of Afghanistan&quot;, &quot;&quot;, &quot;√Öl…
+## $ alternative_2          &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;,…
+## $ alternative_3          &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;,…
+## $ alternative_4_cdiac    &lt;chr&gt; &quot;&quot;, &quot;Afghanistan&quot;, &quot;&quot;, &quot;&quot;, &quot;Albania&quot;, &quot;Algeria&quot;…
+## $ pandg                  &lt;chr&gt; &quot;&quot;, &quot;AFGHANISTAN&quot;, &quot;&quot;, &quot;&quot;, &quot;ALBANIA&quot;, &quot;ALGERIA&quot;…
+## $ god_id                 &lt;chr&gt; &quot;GE-AB&quot;, &quot;AF&quot;, &quot;Akrotiri_Dhekelia&quot;, &quot;AX&quot;, &quot;AL&quot;,…
+## $ alt_5                  &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;,…
+## $ upper_case_name        &lt;chr&gt; &quot;&quot;, &quot;AFGHANISTAN&quot;, &quot;&quot;, &quot;AALAND ISLANDS&quot;, &quot;ALBAN…
+## $ iso3166_1_alpha2       &lt;chr&gt; &quot;&quot;, &quot;AF&quot;, &quot;&quot;, &quot;AX&quot;, &quot;AL&quot;, &quot;DZ&quot;, &quot;AS&quot;, &quot;AD&quot;, &quot;AO…
+## $ iso3166_1_alpha3       &lt;chr&gt; &quot;&quot;, &quot;AFG&quot;, &quot;&quot;, &quot;ALA&quot;, &quot;ALB&quot;, &quot;DZA&quot;, &quot;ASM&quot;, &quot;AND…
+## $ iso3166_1_numeric      &lt;int&gt; NA, 4, NA, 248, 8, 12, 16, 20, 24, 660, 10, 28,…
+## $ iso3166_2              &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;,…
+## $ unicode_region_subtag  &lt;chr&gt; &quot;&quot;, &quot;AF&quot;, &quot;&quot;, &quot;AX&quot;, &quot;AL&quot;, &quot;DZ&quot;, &quot;AS&quot;, &quot;AD&quot;, &quot;AO…
+## $ arb1                   &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;,…
+## $ arb2                   &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;,…
+## $ arb3                   &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;,…
+## $ arb4                   &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;,…
+## $ arb5                   &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;,…
+## $ arb6                   &lt;chr&gt; &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;, &quot;&quot;,…
+## $ is..country            &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE,…
+## $ un_state               &lt;lgl&gt; FALSE, TRUE, FALSE, FALSE, TRUE, TRUE, FALSE, T…
+## $ world_4region          &lt;chr&gt; &quot;europe&quot;, &quot;asia&quot;, &quot;europe&quot;, &quot;europe&quot;, &quot;europe&quot;,…
+## $ latitude               &lt;dbl&gt; NA, 33.00000, NA, 60.25000, 41.00000, 28.00000,…
+## $ longitude              &lt;dbl&gt; NA, 66.00000, NA, 20.00000, 20.00000, 3.00000, …</code></pre>
+<p>Narrow down information to income groups, OECD status, and religion</p>
+<pre class="r"><code>country_data &lt;- country_data %&gt;% 
+  select(name, income_groups, g77_and_oecd_countries, main_religion_2008)
+# Check data structure
+glimpse(country_data)</code></pre>
+<pre><code>## Rows: 273
+## Columns: 4
+## $ name                   &lt;chr&gt; &quot;Abkhazia&quot;, &quot;Afghanistan&quot;, &quot;Akrotiri and Dhekel…
+## $ income_groups          &lt;chr&gt; &quot;&quot;, &quot;low_income&quot;, &quot;&quot;, &quot;&quot;, &quot;upper_middle_income&quot;…
+## $ g77_and_oecd_countries &lt;chr&gt; &quot;others&quot;, &quot;g77&quot;, &quot;others&quot;, &quot;others&quot;, &quot;others&quot;, …
+## $ main_religion_2008     &lt;chr&gt; &quot;&quot;, &quot;muslim&quot;, &quot;&quot;, &quot;&quot;, &quot;muslim&quot;, &quot;muslim&quot;, &quot;chri…</code></pre>
+<p>Count how many unique country names are in <code>gapminder</code> and <code>country_data</code></p>
+<pre class="r"><code>nlevels(gapminder$country)</code></pre>
+<pre><code>## [1] 142</code></pre>
+<pre class="r"><code>nlevels(as.factor(country_data$name))</code></pre>
+<pre><code>## [1] 273</code></pre>
+<p>Merge <code>gapminder</code> and <code>country_data</code> using <code>left_join()</code></p>
+<pre class="r"><code>gapminder_extended &lt;- left_join(gapminder, country_data, by=c(&quot;country&quot;=&quot;name&quot;))
+head(gapminder_extended)</code></pre>
+<pre><code>## # A tibble: 6 × 9
+##   country     continent  year lifeExp      pop gdpPercap income_groups
+##   &lt;chr&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt; &lt;chr&gt;        
+## 1 Afghanistan Asia       1952    28.8  8425333      779. low_income   
+## 2 Afghanistan Asia       1957    30.3  9240934      821. low_income   
+## 3 Afghanistan Asia       1962    32.0 10267083      853. low_income   
+## 4 Afghanistan Asia       1967    34.0 11537966      836. low_income   
+## 5 Afghanistan Asia       1972    36.1 13079460      740. low_income   
+## 6 Afghanistan Asia       1977    38.4 14880372      786. low_income   
+## # … with 2 more variables: g77_and_oecd_countries &lt;chr&gt;,
+## #   main_religion_2008 &lt;chr&gt;</code></pre>
+<p><strong>Note:</strong>: <code>left_join()</code> is probably the most useful and the most used join. It is often used when you want to expand your existing dataset with new variables from other sources.</p>
+<p>Compare lifeExp for OECD, G77, and other countries</p>
+<pre class="r"><code>gapminder_extended %&gt;% 
+  ggplot(aes(x=g77_and_oecd_countries,y=lifeExp))+
+    geom_boxplot()+
+    geom_jitter(aes(color=continent), alpha=0.3)+
+    labs(x=&quot;Country group&quot;)</code></pre>
+<p><img src="/notes/notes-a11/gapminder_demonstration_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Compare lifeExp for OECD, G77, and other countries by most common religion</p>
+<pre class="r"><code>gapminder_extended %&gt;% 
+  filter(main_religion_2008 %in% c(&quot;christian&quot;,&quot;eastern_religions&quot;,&quot;muslim&quot;)) %&gt;% 
+  ggplot(aes(x=g77_and_oecd_countries,y=lifeExp))+
+    geom_boxplot()+
+    geom_jitter(aes(color=continent), alpha=0.3)+
+    labs(x=&quot;Country group&quot;)+
+    facet_wrap(~main_religion_2008)</code></pre>
+<p><img src="/notes/notes-a11/gapminder_demonstration_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+</div>
+<div id="part-2" class="section level2">
+<h2>Part 2</h2>
+<p>Gapminder data is only available from 1952 to 2007. What if we wanted to examine data after 2007 as well as population projections?</p>
+<p>Download population size estimates by country from 1800 to 2100</p>
+<pre class="r"><code>population &lt;- gsheet2tbl(&quot;https://docs.google.com/spreadsheets/d/14_suWY8fCPEXV0MH7ZQMZ-KndzMVsSsA5HdR-7WqAC0/edit#gid=176703676&quot;)</code></pre>
+<p>See what population data looks like</p>
+<pre class="r"><code>glimpse(population)</code></pre>
+<pre><code>## Rows: 59,297
+## Columns: 4
+## $ geo        &lt;chr&gt; &quot;afg&quot;, &quot;afg&quot;, &quot;afg&quot;, &quot;afg&quot;, &quot;afg&quot;, &quot;afg&quot;, &quot;afg&quot;, &quot;afg&quot;, &quot;af…
+## $ name       &lt;chr&gt; &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, &quot;Afghanistan&quot;, &quot;Afghanistan&quot;,…
+## $ time       &lt;dbl&gt; 1800, 1801, 1802, 1803, 1804, 1805, 1806, 1807, 1808, 1809,…
+## $ Population &lt;dbl&gt; 3280000, 3280000, 3280000, 3280000, 3280000, 3280000, 32800…</code></pre>
+<p>Only retain population estimates after 2007, rename variables to match gapminder variable names</p>
+<pre class="r"><code>population &lt;- population %&gt;% 
+  filter(time&gt;2007) %&gt;% 
+  rename(year=time, country=name, pop=Population) %&gt;% 
+  select(-geo)</code></pre>
+<p>Add continent data to <code>population</code> from <code>gapminder</code></p>
+<pre class="r"><code># create a data frame listing continent for every country
+continent &lt;- gapminder %&gt;%
+  select(country, continent) %&gt;% 
+  distinct()
+# add continent data to population data frame
+population &lt;- left_join(population, continent, by = &quot;country&quot;)
+# see how many countries are missing continent data by continent
+population %&gt;% 
+  group_by(year) %&gt;% 
+  summarise(missing_continent = sum(is.na(continent)))</code></pre>
+<pre><code>## # A tibble: 93 × 2
+##     year missing_continent
+##    &lt;dbl&gt;             &lt;int&gt;
+##  1  2008                61
+##  2  2009                61
+##  3  2010                61
+##  4  2011                61
+##  5  2012                61
+##  6  2013                61
+##  7  2014                61
+##  8  2015                61
+##  9  2016                61
+## 10  2017                61
+## # … with 83 more rows</code></pre>
+<p>Use <code>bind_rows()</code> to stack <code>population</code> below <code>gapminder</code></p>
+<pre class="r"><code>gapminder_pop &lt;- bind_rows(gapminder, population) %&gt;% 
+  arrange(country,year)</code></pre>
+<p>Visualize trends in population growth by continent</p>
+<pre class="r"><code>gapminder_pop %&gt;% 
+  filter(!is.na(continent)) %&gt;% 
+  group_by(continent, year) %&gt;%
+  summarise(pop=sum(pop)/1000000) %&gt;%
+  ggplot(aes(x=year, y=pop, fill=continent))+
+  geom_area()+
+  labs(title=&quot;Population projections by continent&quot;, 
+               y=&quot;Population (in mil)&quot;)</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;continent&#39;. You can override using the `.groups` argument.</code></pre>
+<p><img src="/notes/notes-a11/gapminder_demonstration_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<div id="attributions" class="section level3">
+<h3>Attributions</h3>
+<p>Written by Albina Gibadullina, reviewed by Vincenzo Coia.</p>
+</div>
+</div>
+</div>
