@@ -36,8 +36,8 @@ Slack channel specifically for students: https://stat545classroom.slack.com/
 | `r format(dates_545a[9] , "%a, %b %d")` | [Tidy Data](/notes/notes-a08)       | Worksheet A4 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a04.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a04.ipynb); [zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a04.ipynb.zip)) (Due Saturday, Oct 16, 2021 at 22:00 PT) | Panopto or in-person  |
 | `r format(dates_545a[10], "%a, %b %d")` | [Model Fitting](/notes/notes-a09)            | Worksheet A4 | Panopto or in-person |
 | `r format(dates_545a[11], "%a, %b %d")` | [Factors and Dates](/notes/notes-a10)        | Worksheet A5 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a05.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a05.ipynb); [zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a05.ipynb.zip)) (Due Saturday, Oct 23, 2021 at 22:00 PT) | Panopto or in-person |
-| `r format(dates_545a[12], "%a, %b %d")` | [Tibble joins]             | Worksheet A5 | Zoom |
-| `r format(dates_545a[13], "%a, %b %d")` | [Reading and Writing Data] | Worksheet A6 | Panopto or in-person |
+| `r format(dates_545a[12], "%a, %b %d")` | [Tibble joins](/notes/notes-a11)             | Worksheet A5 | Zoom |
+| `r format(dates_545a[13], "%a, %b %d")` | [Reading and Writing Data](/notes/notes-a12) | Worksheet A6 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a06.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a06.ipynb); [zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a06.ipynb.zip)) (Due Monday, Oct 25, 2021 at 22:00 PT) | Panopto or in-person |
 
 ### Collaborative Project
 
@@ -71,8 +71,7 @@ Options for working on these worksheets:
 | Worksheet A3 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a03.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a03.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a03.ipynb.zip) | 10 | __Saturday, Oct 9, 2021 at 22:00 PT__ |
 | Worksheet A4 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a04.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a04.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a04.ipynb.zip) | 10 | __Saturday, Oct 16, 2021 at 22:00 PT__ |
 | Worksheet A5 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a05.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a05.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a05.ipynb.zip) | 10 | __Saturday, Oct 23, 2021 at 22:00 PT__ |
-| Worksheet A6 | [.ipynb] | [view it on GitHub] | __Monday, Oct 25, 2021 at 22:00 PT__ |
-
+| Worksheet A6 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a06.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a06.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a06.ipynb.zip) | 10 | __Monday, Oct 25, 2021 at 22:00 PT__ |
 
 # STAT 545: Part B
 
