@@ -1,6 +1,5 @@
 ---
-title: "Lecture Notes: R Functions for Data Analysis"
-subtitle: "Version 1.0.1"
+title: "R Functions for Data Analysis"
 output: html_document
 ---
 
@@ -9,10 +8,7 @@ knitr::opts_chunk$set(fig.width = 5, fig.height = 3,
                       fig.align = "center", error = TRUE)
 ```
 
-
-## Learning Objectives
-
-Key topics this week:
+From this topic, students are expected to be able to:
 
 - Start getting a sense of when to make a function in a data analysis (we will build on this next week).
 - Workflow for building a function: start interactively, wrap it as a function. `return()`. Argument names. 
@@ -23,38 +19,29 @@ Key topics this week:
 - Data masking in a function.
 - Documenting a function
 
-Possible topics this week:
+Possible topics this week, time permitting:
 
 - `try()` and `withTimeout()`.
 - environments and scoping. Perhaps `search()`; `with()`.
 
 What we're _not_ covering (this week):
 
-- Documenting functions with roxygen2 (Week 3)
-- S3 objects (and other object oriented styles) (Week 3)
+- Documenting functions with roxygen2 (R packages)
+- S3 objects (and other object oriented styles) (R packages)
 
-### Testing functions
 
-`testthat` is a collection of functions developed by Hadley Wickham that makes unit testing easy for developers. You can read more about the structure of tests [here](https://r-pkgs.org/tests.html#test-structure). In a nutshell, tests are organized hierarchically: **expectations** are grouped into **tests**. Functions that start with `expect_` describe the expected result of a computation (e.g. Does it have the right class?) - these are expectations. Tests are created with `test_that()` and they group together multiple *expectations* to test the output of a function (at their simplest level). 
+## Resources
 
-## Using functions with dplyr scoped variants
+Video lecture: 
 
-Sometimes we need to specify a function on-the-fly. We explore making functions in STAT 545B, but we encourage you to try this challenge. With `across()`, specify your homemade function starting with `~` and using `.x` or `.` as the function argument. So, `~ sum(is.na(.x))` calculates how many NA values there are in each column.
+- [R Functions for Data Analysis](https://youtu.be/3nDgR7l5Tps)
 
-## Parallel Resources
-
-This topic parallels these resources:
+Written resources:
 
 - [stat545.com Functions, Parts 1-3](https://stat545.com/functions-part1.html)
-- [STAT 545 Episode 1-B: R Functions for Data Analysis](https://youtu.be/3nDgR7l5Tps)
-
-I suggest digesting this material before class, or at least throughout our discussion of the topic. 
-
-## Additional Resources
-
 - [R4DS functions chapter](https://r-pkgs.org/setup.html#setup-tools)
 
-## Quiz
+## Test Your Understanding
 
 Consider the following code:
 
@@ -71,11 +58,11 @@ f(1)
 
 1. True or False: the output of `f(1)` is `-1`. 
 2. True or False: after running the above code, `x` is `-1`. 
-1. True or False: Curly-curly `{{}}` can be used whenever we want to refer to column names outright, such as when subsetting in base R with `[[`.
-2. You've made a function `quick_scatter()` that you can pipe a tibble into, and outputs a scatterplot of two variables. So far, you're only using the function to explore the data for your own eyes (perhaps even putting your code directly in the console). True or False: at this point, you should stop and make sure your function is documented and has formal unit tests. 
+3. True or False: Curly-curly `{{}}` can be used whenever we want to refer to column names outright, such as when subsetting in base R with `[[`.
+4. You've made a function `quick_scatter()` that you can pipe a tibble into, and outputs a scatterplot of two variables. So far, you're only using the function to explore the data for your own eyes (perhaps even putting your code directly in the console). True or False: at this point, you should stop and make sure your function is documented and has formal unit tests. 
 
 
-## Demonstration
+## Functions: an example
 
 ```{r, message = FALSE, warning = FALSE}
 library(tidyverse)
@@ -95,6 +82,7 @@ cowplot::plot_grid(
     theme_minimal()
 )
 ```
+
 And, it's sometimes useful to scale a variable to have mean 0 and variance 1. We'll do both:
 
 ```{r}
@@ -103,7 +91,9 @@ gapminder %>%
          pop_scaled = (log(pop) - mean(log(pop))) / sd(log(pop)))
 
 gapminder %>% 
-  mutate(across(c("gdpPercap", "pop"), ~ (log(.) - mean(log(.))) / sd(log(.)) ))
+  mutate(gdpPercap = (log(gdpPercap) - mean(log(gdpPercap))) / 
+           sd(log(gdpPercap)),
+         pop = (log(pop) - mean(log(pop))) / sd(log(pop)))
 ```
 
 Where might there be repetition in this analysis? Where __is__ there repetition?
@@ -114,8 +104,7 @@ Where might there be repetition in this analysis? Where __is__ there repetition?
 
 Solve the problem of repetition by writing _functions_.
 
-
-1. Turn the above into a function.
+Turn the above into a function.
 
 ```{r}
 my_scale <- function(x, remove_na = TRUE, verbose = FALSE, ...) {
@@ -125,41 +114,34 @@ my_scale <- function(x, remove_na = TRUE, verbose = FALSE, ...) {
   (logx - mean(logx, na.rm = remove_na, ...)) / sd(logx, na.rm = remove_na)
 }
 my_scale(1:10)
-
-my_scale_informative <- function(x, remove_na = TRUE, verbose = FALSE, ...) {
-  if (verbose) cat("Taking the log...\n")
-  logx <- log(x)
-  if (verbose) cat("Done taking the log!\n")
-  mu <- mean(logx, na.rm = remove_na, ...)
-  sd <- sd(logx, na.rm = remove_na)
-  list(result = (logx - mu) / sd,
-       mean = mu,
-       sd = sd)
-}
-my_scale_informative(1:10)
 ```
 
-2. Try `across()` for multiple variables.
-
+Now we can use the function in our previous dplyr workflow:
 
 ```{r}
 gapminder %>% 
   mutate(gdpPercap = my_scale(gdpPercap),
          pop = my_scale(pop))
-gapminder %>% 
-  mutate(across(c("gdpPercap", "pop"), my_scale))
 ```
 
+Each function you create shouldn't do too much, but rather should do one thing well. Don't be like me during my PhD and [make a gigantic `cnqr()` function](https://github.com/vincenzocoia/cnqr/blob/master/R/cnqr.R) that tries to do everything. Modularizing computation into smaller functions makes troubleshooting much easier.
 
+## Testing your functions
 
-3. Test the function: first informally, then formally
+`testthat` is a collection of functions developed by Hadley Wickham that makes unit testing easy for developers. You can read more about the structure of tests [here](https://r-pkgs.org/tests.html#test-structure). In a nutshell, tests are organized hierarchically: **expectations** are grouped into **tests**. Functions that start with `expect_` describe the expected result of a computation (e.g. Does it have the right class?) - these are expectations. Tests are created with `test_that()` and they group together multiple *expectations* to test the output of a function (at their simplest level). 
+
+Let's test the `my_scale()` function we made earlier, first informally.
 
 ```{r}
-t <- my_scale(exp(c(1, 3)), verbose = TRUE)
-t
+my_scale(exp(c(1, 3)), verbose = TRUE)
 my_scale(exp(c(1, 3, NA)))
 my_scale(1:10)
 my_scale(1:10, trim = 0.1, foobar = 3)
+```
+
+Now, write a formal test that doesn't require eyeballs on the code:
+
+```{r}
 test_that("Basic testing", {
   expect_equal(my_scale(exp(c(1, 3))), (c(1, 3) - 2) / sqrt(2))
   expect_equal(my_scale(exp(c(1, 3, NA))), (c(1, 3, NA) - 2) / sqrt(2))
@@ -167,60 +149,84 @@ test_that("Basic testing", {
 })
 ```
 
-4. Sidebar: assertions
-5. Fortify: `NA` handling, ellipses, error messages and `if` statements, verbose option.
+Testing your functions is a way of recognizing that your data analysis will evolve, and is a way of knowing which of your functions need updating if you make a breaking change in your analysis. 
 
-Other exercises:
+## A return to dplyr scoped variants with `across()`
 
-- Ellipsis by making a strict `mean()` function that only accepts numeric.
-- Curly-Curly with ggplot2: scatterplot of x vs. y (this is called a "data mask")
+Let's try our function applied to multiple columns of the `gapminder` dataset using dplyr's `across()` function. 
 
-```{r, fig.width = 3, fig.height = 2}
+```{r}
 gapminder %>% 
-  ggplot(aes(gdpPercap, lifeExp)) +
-  geom_point()
+  mutate(across(c("gdpPercap", "pop"), my_scale))
+```
+
+## Function arguments without quotation marks: curly-curly
+
+Sometimes your function needs to take variable names without quotation marks. For example, `select(gapminder, lifeExp)` does not put quotation marks around `lifeExp` (the reason being that `lifeExp` is like a variable in our workspace, if we were to include column names in our R Environment).
+
+Making your own functions having this capability involves a workaround. For example, consider making a function to produce a quick scatterplot between two columns in a dataset:
+
+```{r}
+quick_scatter <- function(data, x, y) {
+  ggplot(data, aes(x, y)) +
+    geom_point()
+}
+```
+
+The function won't work:
+
+```{r, error = TRUE}
+quick_scatter(gapminder, x = gdpPercap, y = lifeExp)
+```
+
+The reason is that R is looking for variables named `gdpPercap` and `lifeExp` in the workspace, and cannot find them. To fix the problem, we can change the function definition so that `x` and `y` are embraced within two curly brackets -- an operator called "curly curly": 
+
+```{r}
 quick_scatter <- function(data, x, y) {
   ggplot(data, aes({{ x }}, {{ y }})) +
     geom_point()
 }
-gapminder %>% 
-  quick_scatter(gdpPercap, lifeExp)
 ```
 
-Demonstrate use of a data mask when no such functionality exists: here's an example of subsetting the `wt` column from the `mtcars` data frame in base R:
+Now the function will work:
+
+```{r, fig.width = 3, fig.height = 2}
+quick_scatter(gapminder, x = gdpPercap, y = lifeExp)
+```
+
+But, you can only use curly-curly when passing your function's argument to another function _that's anticipating a variable name without brackets_. For example, consider subsetting a data frame by a column name using `[[`, where quotation marks are needed:
 
 ```{r}
 mtcars[["wt"]]
 ```
 
-
-Make a function that does this subsetting, not using curly-curly:
+Here's a function that subsets a data frame using `[[`, not using curly-curly:
 
 ```{r}
 my_subset <- function(data, variable) {
     data[[variable]]
 }
+```
+
+The function is anticipating quotation marks, and will fail without them:
+
+```{r, error = TRUE}
 my_subset(mtcars, "wt") 
 my_subset(mtcars, wt)
 ```
 
-Using curly-curly doesn't grant the `[[` subsetting any data masking powers -- data masking must already be in place, as they are in `dplyr` and `ggplot2` functions.
+Using curly-curly doesn't grant the `[[` subsetting any data masking powers -- data masking must already be in place, as they are in `dplyr` and `ggplot2` functions:
 
 ```{r}
 my_subset <- function(data, variable) {
     data[[{{ variable }}]]
 }
-my_subset(mtcars, "wt") 
+```
+
+We get an error if we don't include quotation marks:
+
+```{r, error = TRUE}
 my_subset(mtcars, wt)
 ```
 
-
-
-## Other Topics Not Covered
-
-- A function shouldn't do too much. Should do one thing well.
-  - Example of a function that does too much: [my `cnqr()` function from my PhD](https://github.com/vincenzocoia/cnqr/blob/master/R/cnqr.R).
-  - Does the scaling function above do too much?
-- `as.formula` with `lm()`; polynomial.
-- `try()` and `withTimeout()`.
 
