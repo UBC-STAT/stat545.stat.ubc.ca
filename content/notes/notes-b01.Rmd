@@ -33,6 +33,14 @@ What we're _not_ covering (this week):
 - Documenting functions with roxygen2 (Week 3)
 - S3 objects (and other object oriented styles) (Week 3)
 
+### Testing functions
+
+`testthat` is a collection of functions developed by Hadley Wickham that makes unit testing easy for developers. You can read more about the structure of tests [here](https://r-pkgs.org/tests.html#test-structure). In a nutshell, tests are organized hierarchically: **expectations** are grouped into **tests**. Functions that start with `expect_` describe the expected result of a computation (e.g. Does it have the right class?) - these are expectations. Tests are created with `test_that()` and they group together multiple *expectations* to test the output of a function (at their simplest level). 
+
+## Using functions with dplyr scoped variants
+
+Sometimes we need to specify a function on-the-fly. We explore making functions in STAT 545B, but we encourage you to try this challenge. With `across()`, specify your homemade function starting with `~` and using `.x` or `.` as the function argument. So, `~ sum(is.na(.x))` calculates how many NA values there are in each column.
+
 ## Parallel Resources
 
 This topic parallels these resources:
