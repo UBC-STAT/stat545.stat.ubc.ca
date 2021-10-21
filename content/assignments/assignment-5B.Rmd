@@ -1,14 +1,7 @@
 ---
 title: "Assignment 5-B"
-subtitle: "Version 1.0.0"
 output: html_document
 ---
-
-+ __Leader__: Victor Yuan
-+ __Reviewer__: Diana Lin & Vincenzo Coia
-+ __Deadline__: Saturday, December 12, 2020 at 23:59 PST
-
-+ __Total Points__: 20 
 
 ## Overview
 
@@ -22,7 +15,7 @@ Read all the instructions in this document *thoroughly* before proceeding with y
 
 ## Option A -- Strings in R
 
-Complete the following two exercises using concepts and tools covered in class (i.e. `stringr`, regex, tidyverse, etc.)
+Complete **2 of the 3** following exercises using concepts and tools covered in class (i.e. `stringr`, regex, tidyverse, etc.)
 
 ### Tidy Submission (2 points)
 
@@ -31,6 +24,7 @@ Two points are set aside for a tidy submission, as per previous assignments. You
 ### Exercise 1 (9 points)
 
 Take a Jane Austen book contained in the `janeaustenr` package, or another book from some other source. Make a plot of the most common words in the book, removing "stop words" of your choosing (words like "the", "a", etc.) or stopwords from a pre-defined source, like the `stopwords` package or `tidytext::stop_words`.
+
 
 ### Exercise 2 (9 points)
 
@@ -53,6 +47,31 @@ Modify this somehow. Maybe you move letters from the end to the beginning, or yo
 **Addition component**
 
 The default Pig Latin addition rule is to add "ay" to the end of the word, after rearranging the letters of the word. You should choose some other addition rule.
+
+### Exercise 3
+
+| Rubric | Description | Points |
+|--------|-------------|--------|
+| First map | First `purrr` mapping function was used correctly | 2 |
+| Second map | Second `purrr` mapping function was used correctly | 2 |
+| (Un)nesting | Was done appropriately | 2 |
+| Explanation | What was claimed to be calculated was indeed calculated | 2 |
+
+For this exercise, you'll be evaluating a model that's fit separately for each group in some dataset.
+
+Examples:
+
+- Maybe your model is a linear model (using `lm()`) for each continent in the `gapminder::gapminder` dataset.
+- Maybe your model is a distribution of a single variable (using the [`distplyr` package](https://distplyr.netlify.app/)) for each penguin in the `palmerpenguins::penguins` dataset.
+
+Your tasks are as follows.
+
+1. [ ] Make a column of model objects. Do this using the appropriate mapping function from the `purrr` package.  Note: it's possible you'll have to make use of nesting, here. 
+    - For `distplyr`, use a `distplyr::dst_*()` function of your choosing, like `dst_norm()` or `dst_step()`. Note that there aren't that many `dst_*()` functions yet, sorry -- `distplyr` is still quite young.
+2. [ ] Evaluate the model in a way that interests you. But, you should evaluate something other than a single number for each group. Hint: you'll need to use another `purrr` mapping function again.
+    - For `distplyr`, use a distributional representation of your choosing, such as quantiles, using the appropriate `distplyr::enframe_*()` function.
+3. [ ] Print out the tibble so far. 
+4. [ ] Unnest the resulting calculations, and print your final tibble to screen. Make sure your tibble makes sense: column names are appropriate, and you've gotten rid of columns that no longer make sense. 
 
 
 
@@ -185,6 +204,10 @@ Ensure that your code is of high quality. This means that a minimal amount code 
 - [ ] The purpose of the app is clearly indicated
 - [ ] The functioning of the app adequately achieves the purpose
 - [ ] There's enough documentation to know how to use the app. Ideally, one doesn't *have* to read all that much to use the app at a superficial level.
+
+
+
+
 
 #### Submission
 

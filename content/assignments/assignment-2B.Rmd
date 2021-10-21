@@ -1,30 +1,17 @@
 ---
-title: "Assignment 2-B"
-subtitle: "**Version:** 1.0" 
+title: "Assignment B-2: Making an R package"
 output: html_document
 ---
-
-__Leader__: Diana Lin
-__Reviewer__: Iciar Fernandez & Vincenzo Coia
-
-----
-
-__Deadline__: ~~Saturday, November 14~~ Wed. Nov. 18, 2020 at 23:59 PST
 
 __Total Points__: 20
 
 In Assignment 1-B, you practiced writing a function. This time, we'll be evaluating your ability to wrap an object, such as that function (but not necessarily), in an R package.
 
-This assignment covers building an R package (covered in Week 3).
-
-- [ ] For your convenience, we've indicated all action items with a checkbox, like so.
-
-Need some help? Checkout [chapter 2](https://r-pkgs.org/whole-game.html) of this book.
-
+Need some help? Checkout [chapter 2](https://r-pkgs.org/whole-game.html) of the "R packages" book.
 
 ### Note
 
-For Assignment 5-B, you will have the option to expand on your R package and develop it further. Once you finish the requirements for Assignment 2-B, tag a semantic versioning release (see Tidy Submission below for details) _first_. Any additional work after the first Assignment 2-B release can then count towards Assignment 5-B.
+For Assignment B-4 you will have the option to expand on your R package and develop it further. Once you finish the requirements for Assignment 2-B, tag a semantic versioning release (see Tidy Submission below for details) _first_. Any additional work after the first Assignment 2-B release can then count towards Assignment 5-B.
 
 
 ## Setup
@@ -94,47 +81,38 @@ To clarify, you will be making _two_ tagged releases for this assignment:
 - You use proper English, spelling, and grammar, and write concisely. If there's any uncertainty in determining a grade here, the [UBC MDS writing rubric](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md) will be referred to.
 - If there's any further uncertainty in determining a grade for this tidy submission portion, the [UBC MDS mechanics rubric](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_mech.md) will be referred to.
 
-## Exercise 1: Create an R Package (3 points)
 
-- [ ] Create an R package that wraps _at least 1_ object. You _can_ wrap more than one object if you wish. To start, use the `create_package()` and `use_git()` functions to create your R package GitHub repository (if you haven't made yet). Make sure that your repository is _public_ so that we can mark it.
+## Exercise
 
-Suggested R packages:
-
-- Turn your function(s) from `assignment-1b` into an R package
-- Make a data package, like `palmerpenguins` or `gapminder`
-  - This task is recommended if there is a dataset you are passionate or invested in.
-
-## Exercise 1.1: Explain Your Development (2 points)
-
-In your `README`, please:
-
-- [ ] Briefly explain how you made each part of your R package. This doesn't need to be very detailed, but rather at a high-level
-  - [ ] Show the exact code you used from `usethis` or `devtools` to implement the package component
-  - [ ] Describe any manual work you did with your files
-
-## Exercise 1.2: Tests (3 points)
-
-- [ ] Create tests for your package, in the appropriate files and folders, using `usethis` and `testthat`. You can use the tests you wrote in Assignment 1-B, if relevant.
-  - [ ] Make sure your tests are also well-documented, meaning that the description/test name is informative, and that any necessary code commenting is present
-
-## Exercise 1.3: Documentation of your R package (10 points)
-
-- [ ] Create documentation for your R package.
-
-Specifically:
+Document _all_ functions and datasets
 
 - [ ] Use `roxygen2` comment style `#'` and tags like `@param` to document your function(s) or dataset(s)
   - [ ] Use `devtools::document()` to update documentation, so that the `?your_object` command is able to fetch your documentation
   - [ ] Make sure that all objects are `@export`ed unless there is a valid reason for them to be internal
       - [ ] Remember to justify your decisions
-- [ ] Document _all_ functions and datasets
+
+## Exercise 1.1: Tests (3 points)
+
+- [ ] Create tests for your package, in the appropriate files and folders, using `usethis` and `testthat`. You can use the tests you wrote in Assignment 1-B, if relevant.
+  - [ ] Make sure your tests are also well-documented, meaning that the description/test name is informative, and that any necessary code commenting is present
+
+## Exercise 1.2: Documentation of your R package (10 points)
+
+Create documentation for your R package.
+
+Specifically:
+
 - [ ] List all package dependencies in their `DESCRIPTION` file using `usethis`
 - [ ] `DESCRIPTION` file is otherwise up-to-date and informative
+- [ ] Update your README with a demonstrated use case, and build it with `devtools::build_....`
+
+
+## Exercise: internals
+
 - [ ] If applicable, modify the source code of your function so that functions from other packages are called appropriately (e.g. using `::`)
 - [ ] Add a license, using `usethis`
-- [ ] Make a _short_ vignette for your package (using the `usethis` and `devtools` package)
 
-**Optional**
+## Exercise: Optional add-ons
 
 __+1 bonus point__ if you can successfully do _all four_ of these things:
 

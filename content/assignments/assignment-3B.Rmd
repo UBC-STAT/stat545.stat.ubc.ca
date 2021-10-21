@@ -1,13 +1,7 @@
 ---
-title: "Assignment 3-B"
-subtitle: "Version 1.0" 
+title: "Assignment B-3: making a shiny app"
 output: html_document
 ---
-
-+ __Leader__: Iciar Fernandez
-+ __Reviewer__: Almas Khan & Vincenzo Coia
-+ __Deadline__: ~~Saturday, November 21, 2020 at 23:59 PST~~ Wednesday, November 25, 2020 at 23:59 PST
-
 
 + __Total Points__: 20 
 

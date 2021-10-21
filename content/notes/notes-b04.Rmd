@@ -1,10 +1,7 @@
 ---
-title: "Lecture Notes: Shiny Dashboards"
-subtitle: "Version 1.0.0"
+title: "Shiny Apps"
 output: html_document
 ---
-
-## Learning Objectives
 
 This week aims to provide you with a foundation for making a shiny app. From today's class, students are anticipated to be able to:
 
@@ -18,25 +15,19 @@ And possibly:
 - Make an interactive plot with plotly
 - Make an interactive data table with the DT package
 
+## Resources
 
-## Parallel Resources
+Video lecture:
 
-This topic parallels these resources:
+- [How to Make a Shiny App in R](https://www.youtube.com/watch?v=rB4SJGyaGls)
 
-- STAT 545 Episode 4-B (launched later)
-- [Dean Attali's shiny tutorial](https://deanattali.com/blog/building-shiny-apps-tutorial/)
+Written material:
 
-I suggest digesting this material before class, or at least throughout our discussion of the topic.
-
-## Additional Resources
-
-General:
-
-- ["Mastering Shiny"](https://mastering-shiny.org/) by Hadley Wickham
-  - A new (Fall 2020) book about shiny
+- [Dean Attali's shiny tutorial](https://deanattali.com/blog/building-shiny-apps-tutorial/) (which forms the basis from which our STAT 545 tutorial was created).
+- ["Mastering Shiny"](https://mastering-shiny.org/) by Hadley Wickham gives a more comprehensive treatment.  
 - The [official shiny site](https://shiny.rstudio.com/) has tutorials, a gallery, and other goodies.
 
-Specific tasks:
+Regarding specific tasks:
 
 - For deploying shiny apps, check out [https://www.shinyapps.io/](https://www.shinyapps.io/)
 - For shiny documents (= R Markdown + shiny), see [Chapter 19 of Yihui’s R Markdown book](https://bookdown.org/yihui/rmarkdown/shiny-documents.html).
@@ -47,23 +38,17 @@ Other dashboard tools besides shiny (but not in R):
 - With python: plotly dash. Check out the [main website](https://plotly.com/dash/), or [this Medium post](https://medium.com/plotly/introducing-dash-5ecf7191b503) introducing the tool.
 - With javascript: [D3](https://d3js.org/), a tremendously powerful tool with a steep learning curve (esp. if you don't know javascript).
 
-## Quiz
-
-**Quiz 8B**
+## Test Your Understanding
 
 1. True or False: A shiny app, as a website, still requires an instance of R running in the background. The stat545.stat.ubc.ca website is static: it doesn't require an active session to be running in the background.
 2. True or False: Although it's important to document both a shiny app and an R package, documentation is more important in R packages compared to shiny apps.
-
-
-**Quiz 9B**
-
-1. True or False: The following code ordinarily has `y` as 15, but using `shiny::reactive()` in a shiny app can have `y` equal `11`.
+3. True or False: The following code ordinarily has `y` as 15, but using `shiny::reactive()` in a shiny app can have `y` equal `11`.
    ```
    x <- 10
    y <- x + 5
    x <- 1
    ```
-2. True or False: Since shiny's UI is html, we can manually write the UI by writing HTML in the `HTML()` function. 
+4. True or False: Since shiny's UI is html, we can manually write the UI by writing HTML in the `HTML()` function. 
 
 ## Demonstration
 

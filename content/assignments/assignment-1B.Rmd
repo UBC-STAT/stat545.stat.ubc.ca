@@ -1,14 +1,11 @@
 ---
-title: "Assignment 1-B"
-subtitle: "Version 1.0" 
+title: "Assignment B-1: Making a function"
 output: html_document
 ---
 
-__Deadline__: ~~Saturday, November 7,~~ **Wed Nov 4**, 2020 at 23:59 PST
-
 __Total Points__: 20
 
-This assignment first covers making a function (Exercise 1, covered in Week 1), then using list columns (Exercise 2, covered in Week 2) to explore a data set. 
+This assignment first covers making a function, then using list columns (Exercise 2, covered in Week 2) to explore a data set. 
 
 - [ ] For your convenience, we've indicated all action items with a checkbox, like so.
 
@@ -27,7 +24,8 @@ Follow these steps to submit your work. Be sure to familiarize yourself with the
     - You could also use GitHub pages. But, the assignment needs to correspond to the tagged release, and we still need to be able to navigate to your repository somehow.
 4. [ ] Tag a release in your GitHub repository corresponding to your submission before the deadline.
     - Forgotten how to tag a release? We have instructions at the bottom of the [Collaborative Milestone 1 repo](https://stat545.stat.ubc.ca/collaborative-project/milestone1/readme/) from STAT 545A.
-5. [ ] Grab the URL corresponding to your viewable output from Step 3, and submit that to canvas. Also, please let us know what you thought of this assignment -- any feedback would be appreciated. 
+5. [ ] Grab the URL corresponding to your tagged release, and submit that to canvas. 
+
 
 **Rubric**:
 
@@ -67,7 +65,6 @@ __Caveats__
 The first three caveats are prone to a penalty of -1 point.
 
 - __Other sources__: We need to see your own work here. You _can_ use someone's function as inspiration for your function, just be sure to (1) reference the source of inspiration for your function, and (2) you should be able to answer the questions in this Exercise for your own work.
-- __Too simple__: Your function should involve more than just a calculation that you can do with operations like `+`, `-`, `*`, `/`, `&`, `<`, etc. -- even with simple functions like `sqrt()` that have one argument only. But, add a feature like `trim` (as in the `mean()` function, if it makes sense to do so), and you have something that's no longer simple. So, `function(x) x ^ 2` is too simple. But, `function(x) max(x) - min(x)` isn't too simple, because the `max()` and `min()` functions have another option (`na.rm`).
 - __Nonsense__: The function should be sensible. Example of a nonsense function: `function(x, y) x ^ (x + y) + x / y ^ x - 1`. 
 - __Making more than one function__: You might encounter this situation if a task is too big for one function, and you just wouldn't be satisfied with yourself if you only made one function. If so, it sounds like you're well on your way to making an R package in Week 3 (Assignment 2-B), so definitely keep the idea. We'll only be grading one function for this assignment though, so if you make more than one, please let us know which one you'd like to be graded.
 
@@ -82,6 +79,8 @@ The first three caveats are prone to a penalty of -1 point.
 | Format        | _See below_ | 1 |
 
 In the space below, document your function:
+
+Use roxygen2 tags.
 
 - [ ] **Description**: In 1-2 brief sentences, describe what the function does. 
     - As a model answer, check out the "Description" section (the very first section) in the documentation of an R function that you know and love.
@@ -197,60 +196,3 @@ Example of redundant inputs:
 <!---------------------------------------------------------->
 
 
-### 1.4 (**Optional**, 1 bonus point)
-
-Contribute to an open-source R package on GitHub by making an improvement to one of their functions, or perhaps even adding your function to their package. If you're nervous, maybe ask the developers first via a GitHub Issue or email (check their `CONTRIBUTING` file for more details, if they have one).
-
-Note: You can't get above 100% on this assignment.
-
-If you choose to do this, just put a link to the pull request that you made on the R package's GitHub repository. Your pull request doesn't need to be accepted by the developers, but your pull request _should_ be realistic in order to get this bonus point. 
-
-__You can even do this after you submit the assignment__. For example, you might want to wait until we learn about R packages before you do this. If this is the case, just make sure to let your grader know once you submit your pull request, via a GitHub Issue in your homework repository (don't forget to `@tag` them!), also including a link to your pull request. But, you have until the deadline of Assignment 5-B to do this, and you only get one attempt!
-
-
-
-
-## Exercise 2: List Columns (8 points)
-
-### 2.1 (8 points)
-
-| Rubric | Description | Points |
-|--------|-------------|--------|
-| First map | First `purrr` mapping function was used correctly | 2 |
-| Second map | Second `purrr` mapping function was used correctly | 2 |
-| (Un)nesting | Was done appropriately | 2 |
-| Explanation | What was claimed to be calculated was indeed calculated | 2 |
-
-For this exercise, you'll be evaluating a model that's fit separately for each group in some dataset.
-
-Examples:
-
-- Maybe your model is a linear model (using `lm()`) for each continent in the `gapminder::gapminder` dataset.
-- Maybe your model is a distribution of a single variable (using the [`distplyr` package](https://distplyr.netlify.app/)) for each penguin in the `palmerpenguins::penguins` dataset.
-
-Your tasks are as follows.
-
-1. [ ] Make a column of model objects. Do this using the appropriate mapping function from the `purrr` package.  Note: it's possible you'll have to make use of nesting, here. 
-    - For `distplyr`, use a `distplyr::dst_*()` function of your choosing, like `dst_norm()` or `dst_step()`. Note that there aren't that many `dst_*()` functions yet, sorry -- `distplyr` is still quite young.
-2. [ ] Evaluate the model in a way that interests you. But, you should evaluate something other than a single number for each group. Hint: you'll need to use another `purrr` mapping function again.
-    - For `distplyr`, use a distributional representation of your choosing, such as quantiles, using the appropriate `distplyr::enframe_*()` function.
-3. [ ] Print out the tibble so far. 
-4. [ ] Unnest the resulting calculations, and print your final tibble to screen. Make sure your tibble makes sense: column names are appropriate, and you've gotten rid of columns that no longer make sense. 
-5. [ ] Don't just blindly do this exercise: in 1-2 brief sentences, tell us what you've just calculated, and in what column. 
-
-
-
-<!------------ Put your work here -------------------------->
-
-
-
-<!---------------------------------------------------------->
-
-
-### 2.2 (**Optional**, 1 bonus point)
-
-Choose one of the following. Following a linear model fit to groups on the gapminder dataset, either:
-
-- Find countries with interesting stories. Sudden, substantial departures from the temporal trend is interesting. How could you operationalize this notion of "interesting"?
-- Use the residuals to detect countries where your model is a terrible fit. Examples: Are there 1 or more freakishly large residuals, in an absolute sense or relative to some estimate of background variability? Are there strong patterns in the sign of the residuals? E.g., all positive, then all negative, then positive again.
-- Fit a regression using ordinary least squares and a robust technique. Determine the difference in estimated parameters under the two approaches. If it is large, consider that country "interesting".

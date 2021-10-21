@@ -1,11 +1,7 @@
 ---
-title: "Lecture Notes: Character Data"
-subtitle: "Version 0.1.1"
+title: "Character Data"
 output: html_document
 ---
-
-
-## Learning Objectives
 
 From today's class, students are anticipated to be able to:
 
@@ -13,38 +9,28 @@ From today's class, students are anticipated to be able to:
 - Write simple regular expressions (regex).
 - Apply stringr and regular expressions to manipulate data in tibbles.
 
-## Parallel Resources
+## Resources
 
-This topic parallels these resources:
+Video lecture:
 
-- STAT 545 Episode (future resource)
-- Similar overview tutorials:
+- [Regular Expressions and stringr for Text Data](https://www.youtube.com/watch?v=I0dJ1zpxAtU) (only labelled as "age restricted" because it looks at real emails within the Enron company.)
+
+Written material:
+
+- Overview tutorials similar to our worksheet:
     - [stat545.com Chapter 11: character vectors](https://stat545.com/character-vectors.html)
     - [R4DS Chapter 14: strings](https://r4ds.had.co.nz/strings.html).
+- The stat545.com Chapter 11 on character vectors [has an elaborate discussion on useful resources](https://stat545.com/character-vectors.html#resources-3) for learning more about strings. 
 
-I suggest digesting this material before class, or at least throughout our discussion of the topic.
-
-## Additional Resources
-
-The stat545.com Chapter 11 on character vectors [has an elaborate discussion on useful resources](https://stat545.com/character-vectors.html#resources-3) for learning more about strings. 
-
-## Quiz
+## Test Your Understanding
 
 Use these questions to check your understanding of the material.
-
-**NOTE**: No canvas submission is required for Class 12-B.
 
 1. True or False: The regular expression `[ab][ab]` will match "ab", "aa", and "bb" as possibilities, whereas `[ab]{2}` will only match "aa" or "bb".
 2. True or False: The regular expression `[ab][ab]` will match "ab", "aa", and "bb" as possibilities, whereas `(ab)(ab)` will only match "aa" or "bb".
 3. True or False: The regular expression `^ab` will match "ab" as the first characters to a string, whereas `[^ab]` will match "a" or "b" as being the first character to a string.
 
 ## Demonstration
-
-Today:
-
-1. Work on Worksheet 3-B, "Part 1: Manipulating strings"
-2. Explore regex in the demo below.
-3. Continue Worksheet 3-B, "Part 2: Regex"
 
 __Note that re*g*ex is different from re*pr*ex!__ They sound the same, but are very different things:
 
@@ -67,3 +53,5 @@ regex:
 ```
 "STAT 545[A|B].*"
 ```
+
+For this topic, we'll jump directly to the worksheet. 

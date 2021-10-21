@@ -1,11 +1,7 @@
 ---
-title: "Lecture Notes: Automation"
-subtitle: "Version 1.0.1"
+title: "Automation"
 output: html_document
 ---
-
-
-## Learning Objectives
 
 From today's class, students are anticipated to be able to:
 
@@ -20,23 +16,18 @@ From today's class, students are anticipated to be able to:
 * Interact with `make` in RStudio.
 * Use `make` from the shell.
 
-## Parallel Resources
+## Resources
 
-This topic parallels these resources:
+No video lecture for this optional topic. Written material:
 
-- STAT 545 Episode 5-B (will be up late).
 - [Shaun Jackman and Jenny Bryan's automation notes](https://github.com/STAT545-UBC/STAT545-UBC-original-website/blob/master/automation01_slides/slides.md) for getting familiar with the command line.
 - [stat545.com's make activity](https://stat545.com/automating-pipeline.html)
-
-We suggest digesting this material throughout our discussion of the topic.
+- The entire [Part IX: All the Automation Things](https://stat545.com/automation-overview.html) from the stat545.com book contains further elaborations on this topic.
 
 **NOTE**: `make` should already be installed for MacOS and Linux users. Windows users might have to specially install `make`: info can be found [in the stat545.com Chapter 34](https://stat545.com/make-windows.html).
 
-## Additional Resources
 
-The entire [Part IX: All the Automation Things](https://stat545.com/automation-overview.html) from the stat545.com book contains further elaborations on this topic.
-
-## Quiz
+## Test Your Understanding
 
 Use these questions to check your understanding of the material. 
 
@@ -47,8 +38,6 @@ Use these questions to check your understanding of the material.
 5. True or false: If a dependency file is not present on your computer, you can still call `make` error-free if the dependency is the target of another rule. This is true even if the dependency never gets made.
 6. True or false: The rules to `make` a target file will be run if either the target file or the dependencies are modified.
 7. True or false: Dependencies in `make` are accessed "lazily", so that if the dependencies are never actually used when executing a rule, they don't actually have any impact on the Makefile.
-
-
 
 ## Demonstration
 
