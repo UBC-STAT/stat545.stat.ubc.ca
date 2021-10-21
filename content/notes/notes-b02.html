@@ -1,326 +1,111 @@
 ---
-title: "Lecture Notes: List Columns"
-subtitle: "Version 1.0.0.9000"
+title: "R Packages for Data Analysis"
 output: html_document
 ---
 
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<div id="learning-objectives" class="section level2">
-<h2>Learning Objectives</h2>
-<p>Did you know that a column of a tibble can contain a list – not just a vector? This week explores when such a thing would come in handy, and how to work with list columns.</p>
-<p>From this week, students are anticipated to be able to:</p>
+<p>From today’s class, students are anticipated to be able to build a basic R package, especially using the <code>devtools</code> package.</p>
 <ul>
-<li>Use the <code>map</code> family of functions from the purrr package to iteratively apply a function.</li>
-<li>Create and operate on list columns in a tibble using <code>nest()</code>, <code>unnest()</code>, and the <code>map()</code> family of functions.</li>
-<li>Define functions on-the-fly within a <code>map</code> function using shortcuts.</li>
-<li>Apply list columns to cases in data analysis: columns of models, columns of nested lists (JSON-style data), and operating on entire groups within a tibble.</li>
+<li>Write a DESCRIPTION file</li>
+<li>Carefully curate package dependencies</li>
+<li>Document functions and data using roxygen2 comments and tags</li>
+<li>Include tests with testthat in accordance with the R package infrastructure.</li>
+<li>Add a license</li>
+<li>Update an R package via semantic versioning, NEWS, changelog.</li>
+<li>Develop and build informative vignettes and a package README.</li>
+<li>Add a code of conduct</li>
 </ul>
-</div>
-<div id="parallel-resources" class="section level2">
-<h2>Parallel Resources</h2>
-<p>This topic parallels these resources:</p>
+<p>And possibly:</p>
 <ul>
-<li>STAT 545 Episode 2-B (released later)</li>
-<li><a href="https://r4ds.had.co.nz/iteration.html">R4DS Chapter 21: Iteration</a> for purrr
+<li>Make a package website with pkgdown.</li>
+<li>Make a code coverage report and page with covr.</li>
+<li>Add badges to the README.</li>
+<li>Build an S3 object oriented package</li>
+</ul>
+<div id="resources" class="section level2">
+<h2>Resources</h2>
+<p>Video Lecture:</p>
 <ul>
-<li>21.1 for an intro</li>
-<li>21.5 for the <code>map</code> family of functions</li>
-<li>The intro of 21.7 for the <code>map2</code> and <code>pmap</code> families.</li>
+<li><a href="https://www.youtube.com/watch?v=SGh_t7zlC7U">How to Make an R Package</a></li>
+</ul>
+<p>Written material:</p>
+<ul>
+<li>See <a href="https://r-pkgs.org/whole-game.html">“The Whole Game” Chapter of “R packages”</a> for a concise overview of the entire process of making an R package.
+<ul>
+<li>The entire <a href="https://r-pkgs.org/index.html">“R packages” book</a> is overall a great resource to read if you’re wanting to learn more.</li>
 </ul></li>
-<li><a href="https://jennybc.github.io/purrr-tutorial/ls13_list-columns.html">“List Columns”</a> from <a href="https://jennybc.github.io/purrr-tutorial/index.html">Jenny’s purrr tutorial</a></li>
-<li><a href="https://tidyr.tidyverse.org/articles/nest.html">“Nested data” article</a> on tidyr’s website.</li>
-</ul>
-<p>I suggest digesting this material before class, or at least throughout our discussion of the topic.</p>
-</div>
-<div id="additional-resources" class="section level2">
-<h2>Additional Resources</h2>
-<p>Want to dig deeper? These resources can help.</p>
-<ul>
-<li><a href="https://adv-r.hadley.nz/functionals.html">Advanced R Chapter 9: Functionals</a> – looking at purrr and <code>map()</code> from a programming perspective.</li>
-<li><a href="https://tidyr.tidyverse.org/articles/rectangle.html">tidyr’s rectangling vignette</a> – for handling deeply nested lists (JSON-style data), similar to tidyr’s <code>pivot</code> functions.</li>
+<li>See <a href="https://cran.r-project.org/doc/manuals/R-exts.html">Writing R Extensions</a>, the authoritative and comprehensive (but dry) resource for writing R packages.</li>
+<li><a href="https://rawgit.com/rstudio/cheatsheets/master/package-development.pdf">Package development cheat sheet</a></li>
+<li>To learn more about using S3 object oriented functions in your package, see <a href="https://adv-r.hadley.nz/s3.html">“Advanced R” Chapter 13: S3</a>.</li>
 </ul>
 </div>
-<div id="quiz" class="section level2">
-<h2>Quiz</h2>
+<div id="test-your-understanding" class="section level2">
+<h2>Test Your Understanding</h2>
+<p>It might help to browse a completed package directory to answer these questions, like the <a href="https://github.com/vincenzocoia/powers">powers package</a>.</p>
 <ol style="list-style-type: decimal">
-<li>True or False: <code>map(1:3, ~ function(x) x ^ 2)</code> returns the list <code>list(1, 4, 9)</code>.</li>
-<li>You write a function <code>square()</code> that squares its input – but the first thing it does is print a message to the screen! True or False: <code>map_dbl(1:10, square)</code> will throw an error, because the output is not a <code>dbl</code> (a number) – it contains the message, too.</li>
-<li>True or False: purrr-style functions, starting with <code>~</code>, can be used in dplyr’s <code>across()</code> function, such as <code>mutate(across(where(is.numeric), ~ .x ^ 2))</code>, and this function can only take one argument (<code>.x</code>)</li>
-<li>True or False: If I have 10 tibbles I want to save to file, and they’re all stored in a list, the best purrr function to use for saving these to file is <code>map()</code>.</li>
-<li>True or False: Just as <code>c(c(1, 2), c(3, 4))</code> returns the vector of numbers from 1 to 4, <code>list(list(1, 2), list(3, 4))</code> returns the list of numbers from 1 to 4.</li>
-<li>True or False: <code>tibble(model = lm(mpg ~ wt, data = mtcars))</code> doesn’t work because it doesn’t use a <code>map</code> function.</li>
+<li>True or False: The mandatory files in an R package are a DESCRIPTION file, a NAMESPACE file, and functions in the R/ directory – everything else is just helpful.</li>
+<li>So far we’ve been using devtools functions in the console (instead of saved in a script). True or False: if you’re making a bigger R package, you should start putting those devtools functions in one or more R scripts.</li>
+<li>True or False: Add any package name to the <code>Imports</code> field in the DESCRIPTION file, and we can now use functions from that package using <code>::</code>.</li>
+<li>True or False: We can’t <em>both</em> add exports to the NAMESPACE file manually and by using <code>devtools::document()</code>.</li>
 </ol>
 </div>
 <div id="demonstration" class="section level2">
 <h2>Demonstration</h2>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──</code></pre>
-<pre><code>## ✓ ggplot2 3.3.2     ✓ purrr   0.3.4
-## ✓ tibble  3.0.3     ✓ dplyr   1.0.2
-## ✓ tidyr   1.1.2     ✓ stringr 1.4.0
-## ✓ readr   1.3.1     ✓ forcats 0.5.0</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>library(palmerpenguins)
-library(distplyr)
-library(repurrrsive)</code></pre>
-<p>Here are some additional exercises that we may cover in class.</p>
-<p>By the way, why use the <code>map</code> functions over <code>for</code> loops? Aside from the what’s said at <a href="https://r4ds.had.co.nz/iteration.html#for-loops-vs.-functionals">R4DS’s Section 21.4</a>, the <code>map</code> family encourages the input vector(s) and function to be carefully defined first, whereas a <code>for</code> loop is more of a free-for-all. Using <code>map()</code> is also more readable, is pipe-friendly, and jibes well with list columns in tibbles.</p>
-<div id="demo-1-map2" class="section level3">
-<h3>Demo 1: <code>map2</code></h3>
-<p>Using the <code>palmerpenguins::penguins</code> tibble:</p>
-<ol style="list-style-type: decimal">
-<li>Make a Normal distribution using <code>distplyr::dst_norm()</code> for the body mass of each species, using estimates taken from <code>mean()</code> and <code>var()</code>. Title the column <code>distribution</code>.</li>
-<li>Calculate the 0.975-quantile from each distribution using <code>distplyr::eval_quantile()</code>. Try this by making a new column of distributions, and by not.</li>
-</ol>
-<p>Starter code:</p>
-<pre><code>(demo1 &lt;- penguins %&gt;% 
-  group_by(species) %&gt;% 
-  summarise(mean = mean(body_mass_g, na.rm = TRUE),
-            var  = var(body_mass_g, na.rm = TRUE)))</code></pre>
-<p>Answer:</p>
-<pre class="r"><code>(demo1a &lt;- penguins %&gt;% 
-  group_by(species) %&gt;% 
-  summarise(mean = mean(body_mass_g, na.rm = TRUE),
-            var  = var(body_mass_g, na.rm = TRUE)) %&gt;% 
-   mutate(distribution = map2(mean, var, dst_norm),
-          quantile = map_dbl(distribution, eval_quantile, at = 0.975)))</code></pre>
-<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<pre><code>## # A tibble: 3 x 5
-##   species    mean     var distribution quantile
-##   &lt;fct&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;list&gt;          &lt;dbl&gt;
-## 1 Adelie    3701. 210283. &lt;norm&gt;          4599.
-## 2 Chinstrap 3733. 147713. &lt;norm&gt;          4486.
-## 3 Gentoo    5076. 254133. &lt;norm&gt;          6064.</code></pre>
-<pre class="r"><code>(demo1b &lt;- penguins %&gt;% 
-  group_by(species) %&gt;% 
-  summarise(mean = mean(body_mass_g, na.rm = TRUE),
-            var  = var(body_mass_g, na.rm = TRUE)) %&gt;% 
-    mutate(quantile = map2(mean, var, dst_norm) %&gt;% 
-             map_dbl(eval_quantile, at = 0.975)))</code></pre>
-<pre><code>## `summarise()` ungrouping output (override with `.groups` argument)</code></pre>
-<pre><code>## # A tibble: 3 x 4
-##   species    mean     var quantile
-##   &lt;fct&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
-## 1 Adelie    3701. 210283.    4599.
-## 2 Chinstrap 3733. 147713.    4486.
-## 3 Gentoo    5076. 254133.    6064.</code></pre>
-<p>Explore distplyr more:</p>
-<pre class="r"><code>chin &lt;- demo1a$distribution[[2]]
-print(chin)</code></pre>
-<pre><code>## norm parametric dst
-## 
-##  parameters :
-## $mean
-## [1] 3733.088
-## 
-## $variance
-## [1] 147713.5
-## 
-## $sd
-## [1] 384.3351</code></pre>
-<pre class="r"><code>plot(chin, &quot;density&quot;)</code></pre>
-<p><img src="/notes/notes-b02_files/figure-html/unnamed-chunk-3-1.png" width="288" /></p>
-<pre class="r"><code>eval_density(chin, at = 3000:3010)</code></pre>
-<pre><code>##  [1] 0.0001683311 0.0001691680 0.0001700079 0.0001708508 0.0001716968
-##  [6] 0.0001725458 0.0001733978 0.0001742528 0.0001751109 0.0001759720
-## [11] 0.0001768361</code></pre>
-<pre class="r"><code>eval_quantile(chin, at = c(0.25, 0.5, 0.75))</code></pre>
-<pre><code>## [1] 3473.858 3733.088 3992.318</code></pre>
-<pre class="r"><code>enframe_quantile(chin, at = c(0.25, 0.5, 0.75))</code></pre>
-<pre><code>## # A tibble: 3 x 2
-##    .arg .quantile
-##   &lt;dbl&gt;     &lt;dbl&gt;
-## 1  0.25     3474.
-## 2  0.5      3733.
-## 3  0.75     3992.</code></pre>
-<pre class="r"><code>(x &lt;- c(chinstrap = 3, gentoo = 7, adelie = 5))</code></pre>
-<pre><code>## chinstrap    gentoo    adelie 
-##         3         7         5</code></pre>
-<pre class="r"><code>enframe(x)</code></pre>
-<pre><code>## # A tibble: 3 x 2
-##   name      value
-##   &lt;chr&gt;     &lt;dbl&gt;
-## 1 chinstrap     3
-## 2 gentoo        7
-## 3 adelie        5</code></pre>
-</div>
-<div id="demo-2-unnest" class="section level3">
-<h3>Demo 2: <code>unnest()</code></h3>
-<p><code>unnest()</code> need not always be paired with <code>nest()</code>. For the above distributions, evaluate the 0.25, 0.50, and 0.75 quantiles using the <code>distplyr::enframe_quantile()</code> function.</p>
-<p>Starter code:</p>
-<pre><code>demo1a %&gt;% 
-  mutate(quantile = FILL_THIS_IN)</code></pre>
-<p>Answer</p>
-<pre class="r"><code>demo1a %&gt;% 
-  mutate(quantile = map(distribution, enframe_quantile, at = c(0.25, 0.5, 0.75))) %&gt;% 
-  unnest(quantile)</code></pre>
-<pre><code>## # A tibble: 9 x 6
-##   species    mean     var distribution  .arg .quantile
-##   &lt;fct&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;list&gt;       &lt;dbl&gt;     &lt;dbl&gt;
-## 1 Adelie    3701. 210283. &lt;norm&gt;        0.25     3391.
-## 2 Adelie    3701. 210283. &lt;norm&gt;        0.5      3701.
-## 3 Adelie    3701. 210283. &lt;norm&gt;        0.75     4010.
-## 4 Chinstrap 3733. 147713. &lt;norm&gt;        0.25     3474.
-## 5 Chinstrap 3733. 147713. &lt;norm&gt;        0.5      3733.
-## 6 Chinstrap 3733. 147713. &lt;norm&gt;        0.75     3992.
-## 7 Gentoo    5076. 254133. &lt;norm&gt;        0.25     4736.
-## 8 Gentoo    5076. 254133. &lt;norm&gt;        0.5      5076.
-## 9 Gentoo    5076. 254133. &lt;norm&gt;        0.75     5416.</code></pre>
-<p>Nesting the penguins tibble</p>
-<pre class="r"><code>penguins %&gt;% 
-  nest(data = body_mass_g)</code></pre>
-<pre><code>## # A tibble: 344 x 8
-##    species island bill_length_mm bill_depth_mm flipper_length_… sex    year
-##    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt; &lt;fct&gt; &lt;int&gt;
-##  1 Adelie  Torge…           39.1          18.7              181 male   2007
-##  2 Adelie  Torge…           39.5          17.4              186 fema…  2007
-##  3 Adelie  Torge…           40.3          18                195 fema…  2007
-##  4 Adelie  Torge…           NA            NA                 NA &lt;NA&gt;   2007
-##  5 Adelie  Torge…           36.7          19.3              193 fema…  2007
-##  6 Adelie  Torge…           39.3          20.6              190 male   2007
-##  7 Adelie  Torge…           38.9          17.8              181 fema…  2007
-##  8 Adelie  Torge…           39.2          19.6              195 male   2007
-##  9 Adelie  Torge…           34.1          18.1              193 &lt;NA&gt;   2007
-## 10 Adelie  Torge…           42            20.2              190 &lt;NA&gt;   2007
-## # … with 334 more rows, and 1 more variable: data &lt;list&gt;</code></pre>
-<pre class="r"><code>penguins %&gt;% 
-  nest(data = body_mass_g) %&gt;% 
-  mutate(s = map_dbl(data, ~ sqrt(.x$body_mass_g)))</code></pre>
-<pre><code>## # A tibble: 344 x 9
-##    species island bill_length_mm bill_depth_mm flipper_length_… sex    year
-##    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;int&gt; &lt;fct&gt; &lt;int&gt;
-##  1 Adelie  Torge…           39.1          18.7              181 male   2007
-##  2 Adelie  Torge…           39.5          17.4              186 fema…  2007
-##  3 Adelie  Torge…           40.3          18                195 fema…  2007
-##  4 Adelie  Torge…           NA            NA                 NA &lt;NA&gt;   2007
-##  5 Adelie  Torge…           36.7          19.3              193 fema…  2007
-##  6 Adelie  Torge…           39.3          20.6              190 male   2007
-##  7 Adelie  Torge…           38.9          17.8              181 fema…  2007
-##  8 Adelie  Torge…           39.2          19.6              195 male   2007
-##  9 Adelie  Torge…           34.1          18.1              193 &lt;NA&gt;   2007
-## 10 Adelie  Torge…           42            20.2              190 &lt;NA&gt;   2007
-## # … with 334 more rows, and 2 more variables: data &lt;list&gt;, s &lt;dbl&gt;</code></pre>
-<pre class="r"><code>penguins %&gt;% 
-  mutate(across(where(is.numeric), ~ sqrt(.x - 10)))</code></pre>
-<pre><code>## # A tibble: 344 x 8
-##    species island bill_length_mm bill_depth_mm flipper_length_… body_mass_g
-##    &lt;fct&gt;   &lt;fct&gt;           &lt;dbl&gt;         &lt;dbl&gt;            &lt;dbl&gt;       &lt;dbl&gt;
-##  1 Adelie  Torge…           5.39          2.95             13.1        61.2
-##  2 Adelie  Torge…           5.43          2.72             13.3        61.6
-##  3 Adelie  Torge…           5.50          2.83             13.6        56.9
-##  4 Adelie  Torge…          NA            NA                NA          NA  
-##  5 Adelie  Torge…           5.17          3.05             13.5        58.7
-##  6 Adelie  Torge…           5.41          3.26             13.4        60.3
-##  7 Adelie  Torge…           5.38          2.79             13.1        60.1
-##  8 Adelie  Torge…           5.40          3.10             13.6        68.3
-##  9 Adelie  Torge…           4.91          2.85             13.5        58.9
-## 10 Adelie  Torge…           5.66          3.19             13.4        65.1
-## # … with 334 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;dbl&gt;</code></pre>
-</div>
-<div id="demo-3-i-for-accessing-index" class="section level3">
-<h3>Demo 3: <code>i</code> for accessing index</h3>
-<p><em>Time permitting</em></p>
-<p>Sometimes the vector/list we’re iterating over has names, and it’s useful to use those names. To access these names, use the <code>imap</code> family.</p>
-<p>Below is a named list of tibbles. Save them to file using the appropriate purrr function, using the names as the file names.</p>
-<pre class="r"><code>data &lt;- list(mtcars   = mtcars, 
-             chickwts = chickwts, 
-             pressure = pressure)
-iwalk(data, ~ print(.y))</code></pre>
-<pre><code>## [1] &quot;mtcars&quot;
-## [1] &quot;chickwts&quot;
-## [1] &quot;pressure&quot;</code></pre>
-<pre class="r"><code>#iwalk(data, ~ write_csv(.x, glue::glue(.y, &quot;.csv&quot;)))</code></pre>
-</div>
-<div id="demo-4-unnest_wider-and-unnest_longer" class="section level3">
-<h3>Demo 4: <code>unnest_wider()</code> and <code>unnest_longer()</code></h3>
-<p><em>Time permitting</em></p>
-<ol style="list-style-type: decimal">
-<li>Explore the <code>repurrrsive::got_chars</code> nested list. It contains information about Game of Thrones characters.</li>
-<li>Put the list in a tibble.</li>
-<li>Would widening the list column work best, or lengthening? Do it.</li>
-</ol>
-<p>Explore:</p>
-<pre class="r"><code>str(got_chars, list.len = 4)</code></pre>
-<pre><code>## List of 30
-##  $ :List of 18
-##   ..$ url        : chr &quot;https://www.anapioficeandfire.com/api/characters/1022&quot;
-##   ..$ id         : int 1022
-##   ..$ name       : chr &quot;Theon Greyjoy&quot;
-##   ..$ gender     : chr &quot;Male&quot;
-##   .. [list output truncated]
-##  $ :List of 18
-##   ..$ url        : chr &quot;https://www.anapioficeandfire.com/api/characters/1052&quot;
-##   ..$ id         : int 1052
-##   ..$ name       : chr &quot;Tyrion Lannister&quot;
-##   ..$ gender     : chr &quot;Male&quot;
-##   .. [list output truncated]
-##  $ :List of 18
-##   ..$ url        : chr &quot;https://www.anapioficeandfire.com/api/characters/1074&quot;
-##   ..$ id         : int 1074
-##   ..$ name       : chr &quot;Victarion Greyjoy&quot;
-##   ..$ gender     : chr &quot;Male&quot;
-##   .. [list output truncated]
-##  $ :List of 18
-##   ..$ url        : chr &quot;https://www.anapioficeandfire.com/api/characters/1109&quot;
-##   ..$ id         : int 1109
-##   ..$ name       : chr &quot;Will&quot;
-##   ..$ gender     : chr &quot;Male&quot;
-##   .. [list output truncated]
-##   [list output truncated]</code></pre>
-<p>Make tibble:</p>
-<pre class="r"><code>(dat &lt;- tibble(character = got_chars))</code></pre>
-<pre><code>## # A tibble: 30 x 1
-##    character        
-##    &lt;list&gt;           
-##  1 &lt;named list [18]&gt;
-##  2 &lt;named list [18]&gt;
-##  3 &lt;named list [18]&gt;
-##  4 &lt;named list [18]&gt;
-##  5 &lt;named list [18]&gt;
-##  6 &lt;named list [18]&gt;
-##  7 &lt;named list [18]&gt;
-##  8 &lt;named list [18]&gt;
-##  9 &lt;named list [18]&gt;
-## 10 &lt;named list [18]&gt;
-## # … with 20 more rows</code></pre>
-<p><code>unnest_wider()</code> is what we want, not <code>unnest_longer()</code>:</p>
-<pre class="r"><code>dat %&gt;% 
-  unnest_wider(character)</code></pre>
-<pre><code>## # A tibble: 30 x 18
-##    url      id name  gender culture born  died  alive titles aliases father
-##    &lt;chr&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt; &lt;chr&gt; &lt;lgl&gt; &lt;list&gt; &lt;list&gt;  &lt;chr&gt; 
-##  1 http…  1022 Theo… Male   &quot;Ironb… &quot;In … &quot;&quot;    TRUE  &lt;chr … &lt;chr [… &quot;&quot;    
-##  2 http…  1052 Tyri… Male   &quot;&quot;      &quot;In … &quot;&quot;    TRUE  &lt;chr … &lt;chr [… &quot;&quot;    
-##  3 http…  1074 Vict… Male   &quot;Ironb… &quot;In … &quot;&quot;    TRUE  &lt;chr … &lt;chr [… &quot;&quot;    
-##  4 http…  1109 Will  Male   &quot;&quot;      &quot;&quot;    &quot;In … FALSE &lt;chr … &lt;chr [… &quot;&quot;    
-##  5 http…  1166 Areo… Male   &quot;Norvo… &quot;In … &quot;&quot;    TRUE  &lt;chr … &lt;chr [… &quot;&quot;    
-##  6 http…  1267 Chett Male   &quot;&quot;      &quot;At … &quot;In … FALSE &lt;chr … &lt;chr [… &quot;&quot;    
-##  7 http…  1295 Cres… Male   &quot;&quot;      &quot;In … &quot;In … FALSE &lt;chr … &lt;chr [… &quot;&quot;    
-##  8 http…   130 Aria… Female &quot;Dorni… &quot;In … &quot;&quot;    TRUE  &lt;chr … &lt;chr [… &quot;&quot;    
-##  9 http…  1303 Daen… Female &quot;Valyr… &quot;In … &quot;&quot;    TRUE  &lt;chr … &lt;chr [… &quot;&quot;    
-## 10 http…  1319 Davo… Male   &quot;Weste… &quot;In … &quot;&quot;    TRUE  &lt;chr … &lt;chr [… &quot;&quot;    
-## # … with 20 more rows, and 7 more variables: mother &lt;chr&gt;, spouse &lt;chr&gt;,
-## #   allegiances &lt;list&gt;, books &lt;list&gt;, povBooks &lt;list&gt;, tvSeries &lt;list&gt;,
-## #   playedBy &lt;list&gt;</code></pre>
-<pre class="r"><code>dat %&gt;% 
-  unnest_longer(character)</code></pre>
-<pre><code>## # A tibble: 540 x 2
-##    character    character_id
-##    &lt;named list&gt; &lt;chr&gt;       
-##  1 &lt;chr [1]&gt;    url         
-##  2 &lt;int [1]&gt;    id          
-##  3 &lt;chr [1]&gt;    name        
-##  4 &lt;chr [1]&gt;    gender      
-##  5 &lt;chr [1]&gt;    culture     
-##  6 &lt;chr [1]&gt;    born        
-##  7 &lt;chr [1]&gt;    died        
-##  8 &lt;lgl [1]&gt;    alive       
-##  9 &lt;chr [3]&gt;    titles      
-## 10 &lt;chr [4]&gt;    aliases     
-## # … with 530 more rows</code></pre>
-</div>
+<p>Why make an R package? As mentioned in the “functions” topic, your analysis will probably benefit from homemade functions: making functions forces you to think about your analysis in terms of its key computational parts, and makes for robust and readable code. Here are a few benefits that result by bundling these functions into an R package:</p>
+<ul>
+<li>Easily access function documentation</li>
+<li>Easy to share</li>
+<li>Built-in checks to ensure your package is working</li>
+<li>Provides a template for organizing your work</li>
+</ul>
+<p>The alternative is keeping the functions stored in separate files, and <code>source()</code>ing them into your analysis scripts, but this can become unwieldy.</p>
+<p>For this topic, we’ll be making an R package similar to the toy <a href="https://github.com/vincenzocoia/powers">powers package</a>. We’ll mostly be following along with <a href="https://r-pkgs.org/whole-game.html">“The Whole Game” Chapter of “R packages”</a>. Here are the actions digested from that chapter, with the corresponding section number for more info.</p>
+<p>First, make a minimal viable product:</p>
+<ul>
+<li>Load the <code>devtools</code> package in the console (do this every time you go to work on your package).</li>
+<li>2.4: Run <code>create_package()</code> in the console (all devtools functions should be written in the console).
+<ul>
+<li>Better defaults than going through the File menu.</li>
+</ul></li>
+<li>2.5: <code>use_git()</code>
+<ul>
+<li>Prefer to start your project on GitHub? Or locally? Either way, useful instructions for what to do can be found <a href="https://happygitwithr.com/usage-intro.html">in “Happy Git with R” Part III</a>.</li>
+</ul></li>
+<li>2.6 and 2.7: Make a new R script using <code>use_r()</code>, and write a function there: start with <code>square()</code>.</li>
+<li>2.8: Test drive after using <code>load_all()</code>.</li>
+<li>2.9: Check that the package is intact: either run <code>check()</code> or click “Check”.</li>
+<li>2.10 and 2.11: Edit the DESCRIPTION file. For the license, <code>use_mit_license("Your Name")</code>.</li>
+<li>2.12: Document the function: “Code &gt; Insert roxygen skeleton”, then run <code>document()</code>.</li>
+<li>2.14: Install and Restart, or run <code>install()</code>. Try loading the package and using it!</li>
+</ul>
+<p>Now, expand:</p>
+<ul>
+<li>2.15: <code>use_testthat()</code> for your package, and make an R script containing tests
+<ul>
+<li>Check all tests with <code>test()</code>. This also happens with <code>check()</code> or the “Check” button.</li>
+</ul></li>
+<li>2.16: Expand <code>square()</code> so that it can take either a vector or list, using purrr’s <code>map_dbl()</code> function. Indicate dependency with <code>use_package()</code>. Types of dependencies:
+<ul>
+<li><code>Imports</code>: almost always use this; access functions with <code>::</code>. Can also <a href="https://r-pkgs.org/namespace.html#import-r">import specific functions</a>, like <code>%&gt;%</code>.</li>
+<li><code>Suggests</code>: these packages make your package better, but are not needed (eg. outputting a tibble vs. a data frame)</li>
+<li>Others, like <code>Depends</code>, <a href="https://r-pkgs.org/namespace.html#search-path">should rarely be used</a>.</li>
+</ul></li>
+<li>2.17: Add a package README with <code>use_readme_rmd()</code>, and render it every time with <code>build_readme()</code>.
+<ul>
+<li>Once you successfully sync your package to GitHub, other people can install the package with <code>devtools::install_github("your_username/package_name")</code> – this should go in the README.</li>
+</ul></li>
+<li>11.1: Make a vignette with <code>use_vignette()</code>. Build all vignettes with <code>build_vignettes()</code>.</li>
+<li>14.1: Include data with the R package with <code>use_data(R_OBJECT_HERE)</code>. Then document <em>a string of its name</em> in a new R script using <a href="https://r-pkgs.org/data.html#documenting-data">a different collection of roxygen tags</a>.</li>
+</ul>
+<p>Release your package (Chapter 20):</p>
+<ul>
+<li>20.5.3: Make a NEWS.md file with <code>use_news_md()</code> and add the main development notes.<br />
+</li>
+<li>20.1: Choose a version number; put in description file, and tag a release on GitHub.
+<ul>
+<li>20.7: You should also prepare your package for the next version – I suggest doing this on a new branch.</li>
+</ul></li>
+</ul>
 </div>
