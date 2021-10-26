@@ -25,7 +25,7 @@ Slack channel specifically for students: https://stat545classroom.slack.com/
 | Date | Topic | Worksheet | How to participate |
 |------|-------|-----------|--------------------|
 | `r format(dates_545b[1] , "%a, %b %d")` | [Functions](/notes/notes-b01)           | Worksheet B1 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_b01.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_b01.ipynb); [zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_b01.ipynb.zip)) (Due Saturday, Oct 31 at 22:00 PT) | Panopto or in-person |
-| `r format(dates_545b[2] , "%a, %b %d")` | Functions (cont'd)  | Worksheet 1B | Panopto or in-person |
+| `r format(dates_545b[2] , "%a, %b %d")` | Functions (cont'd)  | Worksheet B1 | Panopto or in-person |
 | `r format(dates_545b[3] , "%a, %b %d")` | [R packages](/notes/notes-b02)          | NA | Panopto or in-person |
 | `r format(dates_545b[4] , "%a, %b %d")` | R Packages (cont'd) | NA | Panopto or in-person |
 | `r format(dates_545b[5] , "%a, %b %d")` | [Automation](/notes/notes-b03) (**Optional** lecture) | NA | Panopto or in-person |
@@ -72,8 +72,8 @@ Options for working on these worksheets:
 | Worksheet | Download | View | Zip file | # required questions | Deadline |
 |-----------|----------|------|----------|----------------------|----------|
 | Worksheet B1 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_b01.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_b01.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_b01.ipynb.zip) | 10 | __Saturday, October 30, 2021 at 22:00 PT__ |
-| Worksheet B2 |  |  |  |  | __Saturday, October 30, 2021 at 22:00 PT__ |
-| Worksheet B2 |  |  |  |  | __Saturday, October 30, 2021 at 22:00 PT__ |
+| Worksheet B2 |  |  |  | 10 | __Saturday, November 27, 2021 at 22:00 PT__ |
+| Worksheet B3 |  |  |  | 10 | __Saturday, December 04, 2021 at 22:00 PT__ |
 
 ### Part A
 
