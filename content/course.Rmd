@@ -28,7 +28,7 @@ Slack channel specifically for students: https://stat545classroom.slack.com/
 | `r format(dates_545b[2] , "%a, %b %d")` | Functions (cont'd)  | Worksheet B1 | Panopto or in-person |
 | `r format(dates_545b[3] , "%a, %b %d")` | [R packages](/notes/notes-b02)          | NA | Panopto or in-person |
 | `r format(dates_545b[4] , "%a, %b %d")` | R Packages (cont'd) | NA | Panopto or in-person |
-| `r format(dates_545b[5] , "%a, %b %d")` | [Automation](/notes/notes-b03) (**Optional** lecture) | NA | Panopto or in-person |
+| `r format(dates_545b[5] , "%a, %b %d")` | [Automation](/notes/notes-b03) (**Optional** lecture) | NA | Zoom |
 | `r format(dates_545b[6] , "%a, %b %d")` | University closed (mid-term break / Remembrance Day) | NA | NA |
 | `r format(dates_545b[7] , "%a, %b %d")` | [Dashboards](/notes/notes-b04) | NA | Panopto or in-person |
 | `r format(dates_545b[8] , "%a, %b %d")` | Dashboards, Part 2 | NA | Panopto or in-person |
