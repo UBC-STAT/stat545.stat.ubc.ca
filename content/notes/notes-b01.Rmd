@@ -143,6 +143,15 @@ Some common function argument additions:
 - `na.rm`, an indication of whether you should remove NA values or not.
 - `verbose`, useful if you have either a potentially long computation, or a computation where you may want to see more details (such as function inversion or optimization).
 
+## Documenting your function
+
+Documentation should include, at a minimum:
+
+1. A description of what the function does, at a high level. 
+2. A description of the arguments (input). What type of objects are they?
+3. A description of the output. Describe the object that the function returns.
+
+You should use [roxygen2 tags](https://roxygen2.r-lib.org/articles/rd-formatting.html) to document your function, placed immediately above the function definition. Although roxygen2 tags are designed for use when creating R packages, they provide a standardized way to document a function -- and make it easy for you to migrate your function to an R package if need be!
 
 ## Testing your functions
 

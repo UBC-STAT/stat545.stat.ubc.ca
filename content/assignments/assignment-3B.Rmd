@@ -3,7 +3,7 @@ title: "Assignment B-3: making a shiny app"
 output: html_document
 ---
 
-+ __Total Points__: 20 
++ __Total Points__: 100
 
 ## Overview
 
@@ -19,6 +19,8 @@ Read all the instructions in this document *thoroughly* before proceeding with y
 This homework was originally developed by Dean Attali, with modifications by Giulio Valentino Dalla Riva, and has been further modified for 2020.
 
 ## Setup 
+
+Go to canvas to get your invitation to make a new GitHub repo for this assignment. You can find this in the description of Assignment B-3. Name your repo as you wish.
 
 *An important note before you start* - it's easy to get carried away adding lots of design features to a Shiny app, but we're only expecting simplicity. Design choice is undoubtedly important, but we are mostly focusing on your ability to make these apps. This will be reflected accordingly in the grading rubric, but we encourage you to keep it in mind as you work through the assignment.
 
@@ -92,6 +94,8 @@ Follow these steps to submit your work. Be sure to familiarize yourself with the
 - [ ] Submit a link to your tagged release in your assignment repository to canvas. 
 - [ ] (Optional) When you submit to canvas, we would appreciate hearing about your experience with this assignment: what was hard/easy, problems you solved, helpful tutorials you read, things you liked or would have preferred to see, etc. No need to write lots here, this just allows us to make improvements for next year.
 
+Code should adopt a consistent and easy-to-read style -- ideally, the [tidyverse style](https://style.tidyverse.org/), although we're certainly not looking for strict adherence. 
+
 ### Shiny app development (15 points)
 
 - There are three features in your Shiny app. Clearly state which three features you are modifying or creating in your code, with comments. Specifically, *write a sentence per feature explaining how it is useful*. (12 pts, 4 per feature)
@@ -110,6 +114,10 @@ Follow these steps to submit your work. Be sure to familiarize yourself with the
 - RRR (3 pts):
   - [ ] Code runs without errors and it is appropriately annotated, legible, and easy to follow. (1.5 pts)
   - [ ] Your app should be deployed online on shinyapps.io (or on another server if you'd like). Make sure your app actually works online (sometimes your app will work in RStudio but will have errors on shinyapps.io - make sure you deploy early and often to make debugging easier). (1.5 pts) 
+
+
+Proper English, spelling, and grammar. 
+
 
 **Submit the link to your tagged release in Canvas when you have finished all of the above and your assignment.**
 

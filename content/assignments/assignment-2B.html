@@ -6,7 +6,7 @@ output: html_document
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<p><strong>Total Points</strong>: 20</p>
+<p><strong>Total Points</strong>: 100</p>
 <p>In Assignment 1-B, you practiced writing a function. This time, we’ll be evaluating your ability to wrap an object, such as that function (but not necessarily), in an R package.</p>
 <p>Need some help? Checkout <a href="https://r-pkgs.org/whole-game.html">chapter 2</a> of the “R packages” book.</p>
 <div id="note" class="section level3">
@@ -15,7 +15,7 @@ output: html_document
 </div>
 <div id="setup" class="section level2">
 <h2>Setup</h2>
-<p>While you used your assignment repository (i.e. <code>stat-545b-assignments-GitHub-Username</code>) for <code>assignment-1b</code>, just putting your work in the <code>assignment-1b</code> directory, we will <em>not</em> be using this repository for this assignment.</p>
+<p>No setup required – just modify the same GitHub repository you used in Assignment B-1.</p>
 <p>For this assignment, you will be developing an R package, ideally open source. Because of this, it is ideal for you to have a <em>separate</em> repository for this assignment. You will be creating a <em>new, separate</em> repository under your own personal GitHub. Here is a <a href="https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/create-a-repo">guide</a> on how to create your very own repository. Using your own personal GitHub will give you more control over the future of this assignment, should you want to develop your R package any further. It will also allow others to install your package more easily using the <code>devtools::install_github()</code> command. If you are creating a data package, and concerned about having your data available to the public, please reach out to the teaching team.</p>
 <ul class="task-list">
 <li><input type="checkbox" disabled="" />
@@ -64,6 +64,9 @@ Tag a release in your R package repository <em>corresponding to the version rele
 <li><input type="checkbox" disabled="" />
 Tag a release for your <em>assignment</em> repository, e.g. <code>stat-545b-assignments-GitHub-Username</code> for your assignment 2-B tagged release to Canvas</li>
 </ul>
+<p>Code should adopt a consistent and easy-to-read style – ideally, the <a href="https://style.tidyverse.org/">tidyverse style</a>, although we’re certainly not looking for strict adherence.</p>
+<p>RRR: Code runs without errors and it is appropriately annotated, legible, and easy to follow.</p>
+<p>Proper English, spelling, and grammar.</p>
 <p>To clarify, you will be making <em>two</em> tagged releases for this assignment:</p>
 <ol style="list-style-type: decimal">
 <li>A semantic versioning tagged release for your <em>R package repository</em> (most likely <code>0.1.0</code>)</li>
@@ -132,6 +135,7 @@ List all package dependencies in their <code>DESCRIPTION</code> file using <code
 <li><input type="checkbox" disabled="" />
 Update your README with a demonstrated use case, and build it with <code>devtools::build_....</code></li>
 </ul>
+<p>Say how to install the package. Say how to install the package corresponding to Assignment B-2: <code>install_github("org/repo", build_vignettes = TRUE, ref = "0.1.0")</code> will ensure vignettes are copied over, and</p>
 </div>
 <div id="exercise-internals" class="section level2">
 <h2>Exercise: internals</h2>

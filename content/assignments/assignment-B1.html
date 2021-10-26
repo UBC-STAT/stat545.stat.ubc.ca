@@ -1,0 +1,97 @@
+---
+title: "Assignment B-1: Making a function"
+output: html_document
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p><strong>Total Points</strong>: 100</p>
+<p>This assignment covers making a function in R, documenting it, and testing it.</p>
+<div id="setup" class="section level2">
+<h2>Setup</h2>
+<ol style="list-style-type: decimal">
+<li><p>Go to canvas to get your invitation to create a GitHub repository for this project. You can find this in the description of Assignment B-1. Name your repo as you wish – keeping in mind that you’ll be using this repo for Assignment B-2, where you’ll be bundling your work from Assignment B-1 into an R package.</p></li>
+<li><p>Make a new Rmd file containing all of your code. Be sure to use some dialogue between code chunks.</p></li>
+</ol>
+</div>
+<div id="tidy-submission-15-points" class="section level2">
+<h2>Tidy Submission (15 points)</h2>
+<p>Follow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.</p>
+<ol style="list-style-type: decimal">
+<li>Make a README file for your repository. It should be a brief document letting a visitor know what’s in this repository (at a high level) and some key things they should know about how to use the files in the repository.</li>
+<li>Tag a release in your GitHub repository corresponding to your submission before the deadline.</li>
+<li>Grab the URL corresponding to your tagged release, and submit that to canvas.</li>
+</ol>
+<p><strong>Rubric</strong>:</p>
+<ul>
+<li>The above steps were followed.</li>
+<li>Your work must be reproducible from beginning to end, error-free.</li>
+<li>Code should adopt a consistent and easy-to-read style – ideally, the <a href="https://style.tidyverse.org/">tidyverse style</a>, although we’re certainly not looking for strict adherence.</li>
+<li>You use proper English, spelling, and grammar, and write concisely. If there’s any uncertainty in determining a grade here, the <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md">UBC MDS writing rubric</a> will be referred to.</li>
+<li>If there’s any further uncertainty in determining a grade for this tidy submission portion, the <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_mech.md">UBC MDS mechanics rubric</a> will be referred to.</li>
+</ul>
+</div>
+<div id="exercise-1-make-a-function-25-points" class="section level2">
+<h2>Exercise 1: Make a Function (25 points)</h2>
+<p>In this exercise, you’ll be making a function and fortifying it. The function need not be complicated. The function need not be “serious”, but shouldn’t be nonsense.</p>
+<p><strong>Function Ideas</strong></p>
+<ul>
+<li>Did you repeat any code for a data analysis in STAT 545A? If so, consider making a function for this action.</li>
+<li>Consider bundling a specific <code>group_by() %&gt;% summarise()</code> workflow.</li>
+<li>Write a <em>wrapper</em> around an existing function.
+<ul>
+<li>For example, perhaps accepting a narrower range of inputs (like not allowing logical vectors), or providing a different output.</li>
+<li>A specific example: my <a href="https://github.com/vincenzocoia/rqdist/blob/master/R/rqdist.R#L1"><code>rqdist()</code> function</a> is a wrapper around <code>quantreg::rq()</code>, narrowing its functionality.</li>
+<li>It’s usually better to narrow a function’s focus than to broaden, so that a function doesn’t end up doing too much.</li>
+</ul></li>
+<li>Make a function extracting parts of an <code>"lm"</code> object that you can’t easily access (<code>broom</code> aside), or measuring the “difference” between a linear and quadratic fit.</li>
+<li>Make a special plot that you’d want to repeat when exploring your data.</li>
+<li>…</li>
+</ul>
+<p><strong>Guidelines</strong></p>
+<ul>
+<li>Your function should not rely on anything from your working environment.</li>
+<li>Your function should not rely on “magic numbers” – pre-selected numbers (or options) that appear inside the function that can’t be accessed by a user of the function.
+<ul>
+<li>For example, maybe <code>quantile(x, type = 1, ...)</code> appears in your function. The choice of 1 is arbitrary – unless you’re making a function like <code>quantile_type_1()</code>.</li>
+</ul></li>
+<li>Input should not take a rigid form. An example that’s too rigid is a data frame that’s expected to have special types of columns.</li>
+<li>The output is consistent – for example, always gives a list. An example of inconsistent output: <code>sapply(1:3, seq_len)</code> gives a list, and <code>sapply(1:3, sqrt)</code> gives an (atomic) vector.</li>
+<li>Your function includes appropriate arguments. (Do you handle NA’s appropriately? Are you using the ellipsis properly? etc.)</li>
+</ul>
+</div>
+<div id="exercise-2-document-your-function-20-points" class="section level2">
+<h2>Exercise 2: Document your Function (20 points)</h2>
+<p>In the same code chunk where you made your function, document the function using <a href="https://roxygen2.r-lib.org/articles/rd-formatting.html">roxygen2 tags</a>. Be sure to include:</p>
+<ol style="list-style-type: decimal">
+<li>Title.</li>
+<li>Function description: In 1-2 brief sentences, describe what the function does.</li>
+<li>Document each argument with the <code>@param</code> tag, <em>making sure to justify why you named the parameter as you did</em>.
+<ul>
+<li>(Justification for naming is not often needed, but we want to hear your reasoning.)</li>
+</ul></li>
+<li>What the function returns, using the <code>@return</code> tag.</li>
+</ol>
+</div>
+<div id="exercise-3-include-examples-15-points" class="section level2">
+<h2>Exercise 3: Include examples (15 points)</h2>
+<p>Demonstrate the usage of your function with a few examples. Use one or more new code chunks, describing what you’re doing.</p>
+<p>Note: If you want to deliberately show an error, you can use <code>error = TRUE</code> in your code chunk option.</p>
+</div>
+<div id="exercise-4-test-the-function-25-points" class="section level2">
+<h2>Exercise 4: Test the Function (25 points)</h2>
+<p>Running examples is a good way of checking by-eye whether your function is working as expected. But, having a formal “yes or no” check is useful when you move on to other parts of your analysis.</p>
+<p>Write formal tests for your function. You should use at least three non-redundant uses of an <code>expect_()</code> function from the <code>testthat</code> package, and they should be contained in a <code>test_that()</code> function (or more than one). They should all pass.</p>
+<p>Example of non-redundant inputs:</p>
+<ul>
+<li>Vector with no NA’s</li>
+<li>Vector that has NA’s</li>
+<li>Vector of a different type (if relevant)</li>
+<li>Vector of length 0, like <code>numeric(0)</code>.</li>
+</ul>
+<p>Example of redundant inputs:</p>
+<ul>
+<li>Providing a different number (unless one of these numbers have some significance, like a limit point – just tell us if that’s the case)</li>
+</ul>
+</div>

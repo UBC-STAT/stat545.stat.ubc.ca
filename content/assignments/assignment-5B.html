@@ -1,31 +1,41 @@
 ---
-title: "Assignment 5-B"
+title: "Assignment B-4"
 output: html_document
 ---
 
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<div id="overview" class="section level2">
-<h2>Overview</h2>
-<p>In Assignment 5-B, you will pick one of three options described below. Please indicate which one you choose in your Assignment 5b README.</p>
+<p><strong>Total Points</strong>: 100</p>
+<p>For this assignment, you will pick one of three options described below.</p>
 <ul>
-<li><strong>Option A:</strong> Strings Regex</li>
+<li><strong>Option A:</strong> Strings and/or Functional Programming</li>
 <li><strong>Option B:</strong> R Package</li>
 <li><strong>Option C:</strong> Shiny App</li>
 </ul>
-<p>Read all the instructions in this document <em>thoroughly</em> before proceeding with your assignment. The grading rubric is detailed at the very end, and <em>it doubles as a checklist</em> to keep track of your progress!</p>
+<div id="submission-instructions" class="section level2">
+<h2>Submission Instructions</h2>
+<p>It is <strong>very important</strong> that you submit a link to your work on canvas. If not, we won’t be able to find your work, because each option involves working in a different repository.</p>
+<p>The link you provide should link to a tagged release in your assignment repository, corresponding to the point in time of your repository’s life that we should be grading.</p>
 </div>
-<div id="option-a-strings-in-r" class="section level2">
-<h2>Option A – Strings in R</h2>
-<p>Complete <strong>2 of the 3</strong> following exercises using concepts and tools covered in class (i.e. <code>stringr</code>, regex, tidyverse, etc.)</p>
+<div id="tidy-submission" class="section level2">
+<h2>Tidy Submission</h2>
+<p>RRR: Code runs without errors and it is appropriately annotated, legible, and easy to follow.</p>
+<p>Proper English, spelling, and grammar.</p>
+</div>
+<div id="option-a-strings-and-functional-programming-in-r" class="section level2">
+<h2>Option A – Strings and functional programming in R</h2>
+<p>Complete <strong>2 of the following 3</strong> exercises using concepts and tools covered in class (i.e. <code>stringr</code>, <code>purrr</code>, regex, tidyverse, etc.)</p>
+<p><strong>Setup</strong>: Make a new repository if you’re going with this option, by clicking the link provided to you on canvas. Name the repository as you wish.</p>
 <div id="tidy-submission-2-points" class="section level3">
 <h3>Tidy Submission (2 points)</h3>
 <p>Two points are set aside for a tidy submission, as per previous assignments. You choose where you want to answer these questions – just make this clear in your Assignment 5-B README file. You don’t need to update your Makefile accordingly for this assignment (but we suggest you give it a try).</p>
+<p>Code should adopt a consistent and easy-to-read style – ideally, the <a href="https://style.tidyverse.org/">tidyverse style</a>, although we’re certainly not looking for strict adherence.</p>
 </div>
 <div id="exercise-1-9-points" class="section level3">
 <h3>Exercise 1 (9 points)</h3>
-<p>Take a Jane Austen book contained in the <code>janeaustenr</code> package, or another book from some other source. Make a plot of the most common words in the book, removing “stop words” of your choosing (words like “the”, “a”, etc.) or stopwords from a pre-defined source, like the <code>stopwords</code> package or <code>tidytext::stop_words</code>.</p>
+<p>Take a Jane Austen book contained in the <code>janeaustenr</code> package, or another book from some other source, such as one of the many freely available books from <a href="https://dev.gutenberg.org/">Project Gutenberg</a> (be sure to indicate where you got the book from). Make a plot of the most common words in the book, removing “stop words” of your choosing (words like “the”, “a”, etc.) or stopwords from a pre-defined source, like the <code>stopwords</code> package or <code>tidytext::stop_words</code>.</p>
+<p>If you use any resources for helping you remove stopwords, or some other resource besides the <code>janeaustenr</code> R package for accessing your book, please indicate the source. We aren’t requiring any formal citation styles, just make sure you name the source and link to it.</p>
 </div>
 <div id="exercise-2-9-points" class="section level3">
 <h3>Exercise 2 (9 points)</h3>
@@ -103,7 +113,9 @@ Unnest the resulting calculations, and print your final tibble to screen. Make s
 </div>
 <div id="option-b-r-package" class="section level2">
 <h2>Option B – R package</h2>
-<p>For this option, you will be updating your package to a new version, or creating an entirely new R package from scratch. This time, we will be evaluating the <em>quality and overall design</em> of your R package, not just that you can create one. That means, not only do you need all of the components of a working R package, the quality of the components themselves will be expected to be of high quality. We will also evaluate the overall cohesiveness and design of the package.</p>
+<p>For this option, you will be updating your package to a new version, or creating an entirely new R package from scratch if you prefer.</p>
+<p><strong>Setup</strong>: No setup required; just use the same repo you used for your R Package.</p>
+<p>This time, we will be evaluating the <em>quality and overall design</em> of your R package, not just that you can create one. That means, not only do you need all of the components of a working R package, the quality of the components themselves will be expected to be of high quality. We will also evaluate the overall cohesiveness and design of the package.</p>
 <p>Whereas the previous assignment 2b focused on component additions evaluated by functionality (such as components of an R package being present and functional, or having added 3 functional features), this time we will evaluate how well your product forms a complete whole, satisfying a clearly stated purpose with an effectively designed interface (“interface” being how a user interacts with the product).</p>
 <p>If you have decided to build onto assignment 2, this might mean you don’t need to add anymore functionality, just improve the existing components of your package!</p>
 <p>Feel free to start a new R package if you are not interested in building on assignment 2b. However, keep in mind that most of the requirements for assignment 2b are also required here.</p>
@@ -188,9 +200,8 @@ Did you tag releases and update version numbers appropriately?</li>
 </div>
 <div id="submission" class="section level4">
 <h4>Submission</h4>
-<ul class="task-list">
-<li><p><input type="checkbox" disabled="" />
-Tag a release in your assignment repository. Update README describing that you picked this option for assignment 5b, and also provide a link to your updated package.</p></li>
+<ul>
+<li><p>[ ]</p></li>
 <li><p><input type="checkbox" disabled="" />
 In canvas, provide the tagged release to your assignment repository.</p></li>
 </ul>
@@ -199,6 +210,7 @@ In canvas, provide the tagged release to your assignment repository.</p></li>
 <div id="option-c-shiny-app" class="section level2">
 <h2>Option C – Shiny App</h2>
 <p>For this option, you will be implement additional features and improvements to your shiny app that you worked on in Assignment 3b, or creating an entirely new shiny app from scratch. This time, we will be evaluating the <em>quality and overall design</em> of your shiny app.</p>
+<p><strong>Setup</strong>: No setup required. Just use the same repo you used for your shiny app.</p>
 <div id="before-you-start" class="section level4">
 <h4>Before you start</h4>
 <p><strong>If you are building onto assignment 3b shiny app,</strong></p>
@@ -259,7 +271,6 @@ There’s enough documentation to know how to use the app. Ideally, one doesn’
 </div>
 <div id="submission-1" class="section level4">
 <h4>Submission</h4>
-<p>As usual, when you are ready to submit your work, tag a release in your assignment repository and post this link to canvas.</p>
 <p>Update your assignment repo READMEs with the appropriate <a href="">shinyapp.io</a> links.</p>
 </div>
 </div>

@@ -1,29 +1,45 @@
 ---
-title: "Assignment 5-B"
+title: "Assignment B-4"
 output: html_document
 ---
 
-## Overview
+__Total Points__: 100
 
-In Assignment 5-B, you will pick one of three options described below. Please indicate which one you choose in your Assignment 5b README.
+For this assignment, you will pick one of three options described below.
 
-+ **Option A:** Strings Regex
++ **Option A:** Strings and/or Functional Programming
 + **Option B:** R Package 
 + **Option C:** Shiny App
 
-Read all the instructions in this document *thoroughly* before proceeding with your assignment. The grading rubric is detailed at the very end, and *it doubles as a checklist* to keep track of your progress!
+## Submission Instructions
 
-## Option A -- Strings in R
+It is **very important** that you submit a link to your work on canvas. If not, we won't be able to find your work, because each option involves working in a different repository.
 
-Complete **2 of the 3** following exercises using concepts and tools covered in class (i.e. `stringr`, regex, tidyverse, etc.)
+The link you provide should link to a tagged release in your assignment repository, corresponding to the point in time of your repository's life that we should be grading. 
+
+## Tidy Submission
+
+RRR: Code runs without errors and it is appropriately annotated, legible, and easy to follow.
+
+Proper English, spelling, and grammar. 
+
+## Option A -- Strings and functional programming in R
+
+Complete **2 of the following 3** exercises using concepts and tools covered in class (i.e. `stringr`, `purrr`, regex, tidyverse, etc.)
+
+**Setup**: Make a new repository if you're going with this option, by clicking the link provided to you on canvas. Name the repository as you wish. 
 
 ### Tidy Submission (2 points)
 
 Two points are set aside for a tidy submission, as per previous assignments. You choose where you want to answer these questions -- just make this clear in your Assignment 5-B README file. You don't need to update your Makefile accordingly for this assignment (but we suggest you give it a try).
 
+Code should adopt a consistent and easy-to-read style -- ideally, the [tidyverse style](https://style.tidyverse.org/), although we're certainly not looking for strict adherence. 
+
 ### Exercise 1 (9 points)
 
-Take a Jane Austen book contained in the `janeaustenr` package, or another book from some other source. Make a plot of the most common words in the book, removing "stop words" of your choosing (words like "the", "a", etc.) or stopwords from a pre-defined source, like the `stopwords` package or `tidytext::stop_words`.
+Take a Jane Austen book contained in the `janeaustenr` package, or another book from some other source, such as one of the many freely available books from [Project Gutenberg](https://dev.gutenberg.org/) (be sure to indicate where you got the book from). Make a plot of the most common words in the book, removing "stop words" of your choosing (words like "the", "a", etc.) or stopwords from a pre-defined source, like the `stopwords` package or `tidytext::stop_words`. 
+
+If you use any resources for helping you remove stopwords, or some other resource besides the `janeaustenr` R package for accessing your book, please indicate the source. We aren't requiring any formal citation styles, just make sure you name the source and link to it. 
 
 
 ### Exercise 2 (9 points)
@@ -77,7 +93,11 @@ Your tasks are as follows.
 
 ## Option B -- R package
 
-For this option, you will be updating your package to a new version, or creating an entirely new R package from scratch. This time, we will be evaluating the *quality and overall design* of your R package, not just that you can create one. That means, not only do you need all of the components of a working R package, the quality of the components themselves will be expected to be of high quality. We will also evaluate the overall cohesiveness and design of the package.
+For this option, you will be updating your package to a new version, or creating an entirely new R package from scratch if you prefer. 
+
+**Setup**: No setup required; just use the same repo you used for your R Package. 
+
+This time, we will be evaluating the *quality and overall design* of your R package, not just that you can create one. That means, not only do you need all of the components of a working R package, the quality of the components themselves will be expected to be of high quality. We will also evaluate the overall cohesiveness and design of the package.
 
 Whereas the previous assignment 2b focused on component additions evaluated by functionality (such as components of an R package being present and functional, or having added 3 functional features), this time we will evaluate how well your product forms a complete whole, satisfying a clearly stated purpose with an effectively designed interface ("interface" being how a user interacts with the product).
 
@@ -147,13 +167,15 @@ Following assignment 2b instructions and rubric may be helpful for completing th
 
 #### Submission
 
-- [ ] Tag a release in your assignment repository. Update README describing that you picked this option for assignment 5b, and also provide a link to your updated package.
+- [ ] 
 
 - [ ] In canvas, provide the tagged release to your assignment repository.
 
 ## Option C -- Shiny App
 
 For this option, you will be implement additional features and improvements to your shiny app that you worked on in Assignment 3b, or creating an entirely new shiny app from scratch. This time, we will be evaluating the *quality and overall design* of your shiny app. 
+
+**Setup**: No setup required. Just use the same repo you used for your shiny app. 
 
 #### Before you start
 
@@ -211,6 +233,6 @@ Ensure that your code is of high quality. This means that a minimal amount code 
 
 #### Submission
 
-As usual, when you are ready to submit your work, tag a release in your assignment repository and post this link to canvas.
+
 
 Update your assignment repo READMEs with the appropriate [shinyapp.io]() links. 

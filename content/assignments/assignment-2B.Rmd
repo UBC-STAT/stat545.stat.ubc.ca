@@ -3,7 +3,7 @@ title: "Assignment B-2: Making an R package"
 output: html_document
 ---
 
-__Total Points__: 20
+__Total Points__: 100
 
 In Assignment 1-B, you practiced writing a function. This time, we'll be evaluating your ability to wrap an object, such as that function (but not necessarily), in an R package.
 
@@ -16,7 +16,7 @@ For Assignment B-4 you will have the option to expand on your R package and deve
 
 ## Setup
 
-While you used your assignment repository (i.e. `stat-545b-assignments-GitHub-Username`) for `assignment-1b`, just putting your work in the `assignment-1b` directory, we will _not_ be using this repository for this assignment.
+No setup required -- just modify the same GitHub repository you used in Assignment B-1. 
 
 For this assignment, you will be developing an R package, ideally open source. Because of this, it is ideal for you to have a _separate_ repository for this assignment. You will be creating a _new, separate_ repository under your own personal GitHub. Here is a [guide](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/create-a-repo) on how to create your very own repository. Using your own personal GitHub will give you more control over the future of this assignment, should you want to develop your R package any further. It will also allow others to install your package more easily using the `devtools::install_github()` command. If you are creating a data package, and concerned about having your data available to the public, please reach out to the teaching team.
 
@@ -49,6 +49,12 @@ Follow these steps to submit your work. Be sure to familiarize yourself with the
     - e.g. `0.1.0` :arrow_right: `0.1.1` :arrow_right: `0.1.X` :arrow_right: `1.0.0` :arrow_right: `1.0.1` :arrow_right: `1.0.X` :arrow_right: `1.1.0`
   - Your release versioning is especially important if you will be choosing to develop your package further in Assignment 5-B
 - [ ] Tag a release for your _assignment_ repository, e.g. `stat-545b-assignments-GitHub-Username` for your assignment 2-B tagged release to Canvas
+
+Code should adopt a consistent and easy-to-read style -- ideally, the [tidyverse style](https://style.tidyverse.org/), although we're certainly not looking for strict adherence. 
+
+RRR: Code runs without errors and it is appropriately annotated, legible, and easy to follow.
+
+Proper English, spelling, and grammar. 
 
 To clarify, you will be making _two_ tagged releases for this assignment:
 
@@ -106,6 +112,7 @@ Specifically:
 - [ ] `DESCRIPTION` file is otherwise up-to-date and informative
 - [ ] Update your README with a demonstrated use case, and build it with `devtools::build_....`
 
+Say how to install the package. Say how to install the package corresponding to Assignment B-2: `install_github("org/repo", build_vignettes = TRUE, ref = "0.1.0")` will ensure vignettes are copied over, and 
 
 ## Exercise: internals
 
