@@ -37,8 +37,12 @@ output: html_document
 </ul>
 <p>Written resources:</p>
 <ul>
+<li>Basic function syntax in R: <a href="https://swcarpentry.github.io/r-novice-inflammation/02-func-R/" class="uri">https://swcarpentry.github.io/r-novice-inflammation/02-func-R/</a></li>
+<li>When to use functions in your data analysis:
+<ul>
 <li><a href="https://stat545.com/functions-part1.html">stat545.com Functions, Parts 1-3</a></li>
-<li><a href="https://r-pkgs.org/setup.html#setup-tools">R4DS functions chapter</a></li>
+<li><a href="https://r4ds.had.co.nz/functions.html">R4DS functions chapter</a></li>
+</ul></li>
 </ul>
 </div>
 <div id="test-your-understanding" class="section level2">
@@ -56,8 +60,17 @@ f(1)</code></pre>
 <li>True or False: the output of <code>f(1)</code> is <code>-1</code>.</li>
 <li>True or False: after running the above code, <code>x</code> is <code>-1</code>.</li>
 <li>True or False: Curly-curly <code>{{}}</code> can be used whenever we want to refer to column names outright, such as when subsetting in base R with <code>[[</code>.</li>
-<li>You’ve made a function <code>quick_scatter()</code> that you can pipe a tibble into, and outputs a scatterplot of two variables. So far, you’re only using the function to explore the data for your own eyes (perhaps even putting your code directly in the console). True or False: at this point, you should stop and make sure your function is documented and has formal unit tests.</li>
+<li>You’ve made a function <code>quick_scatter()</code> that you can pipe a tibble into, and outputs a scatterplot of two variables. So far, you’re only using the function to explore the data for your own eyes (perhaps even putting your code directly in the console). True or False: at this point, you should stop and make sure your function is documented and has formal unit tests.
+## Functions: basics</li>
 </ol>
+<p>We will check out the <a href="https://swcarpentry.github.io/r-novice-inflammation/02-func-R/">Software Carpentry resource above</a> for syntax.</p>
+<p>Some topics:</p>
+<ul>
+<li>Curly brackets vs. no curly brackets.</li>
+<li><code>return()</code> vs. no <code>return()</code>.</li>
+<li>Argument defaults vs. no argument defaults.</li>
+<li>Argument names as “dummy variables”, independent of what’s named in your workspace.</li>
+</ul>
 </div>
 <div id="functions-an-example" class="section level2">
 <h2>Functions: an example</h2>
@@ -120,10 +133,8 @@ library(testthat)</code></pre>
 </ul>
 <p>Solve the problem of repetition by writing <em>functions</em>.</p>
 <p>Turn the above into a function.</p>
-<pre class="r"><code>my_scale &lt;- function(x, remove_na = TRUE, verbose = FALSE, ...) {
-  if (verbose) cat(&quot;Taking the log...\n&quot;)
+<pre class="r"><code>my_scale &lt;- function(x, remove_na = TRUE, ...) {
   logx &lt;- log(x)
-  if (verbose) cat(&quot;Done taking the log!\n&quot;)
   (logx - mean(logx, na.rm = remove_na, ...)) / sd(logx, na.rm = remove_na)
 }
 my_scale(1:10)</code></pre>
@@ -149,13 +160,19 @@ my_scale(1:10)</code></pre>
 ## # … with 1,694 more rows</code></pre>
 <p>Each function you create shouldn’t do too much, but rather should do one thing well. Don’t be like me during my PhD and <a href="https://github.com/vincenzocoia/cnqr/blob/master/R/cnqr.R">make a gigantic <code>cnqr()</code> function</a> that tries to do everything. Modularizing computation into smaller functions makes troubleshooting much easier.</p>
 </div>
+<div id="function-arguments" class="section level2">
+<h2>Function arguments</h2>
+<p>Some common function argument additions:</p>
+<ul>
+<li><code>na.rm</code>, an indication of whether you should remove NA values or not.</li>
+<li><code>verbose</code>, useful if you have either a potentially long computation, or a computation where you may want to see more details (such as function inversion or optimization).</li>
+</ul>
+</div>
 <div id="testing-your-functions" class="section level2">
 <h2>Testing your functions</h2>
 <p><code>testthat</code> is a collection of functions developed by Hadley Wickham that makes unit testing easy for developers. You can read more about the structure of tests <a href="https://r-pkgs.org/tests.html#test-structure">here</a>. In a nutshell, tests are organized hierarchically: <strong>expectations</strong> are grouped into <strong>tests</strong>. Functions that start with <code>expect_</code> describe the expected result of a computation (e.g. Does it have the right class?) - these are expectations. Tests are created with <code>test_that()</code> and they group together multiple <em>expectations</em> to test the output of a function (at their simplest level).</p>
 <p>Let’s test the <code>my_scale()</code> function we made earlier, first informally.</p>
 <pre class="r"><code>my_scale(exp(c(1, 3)), verbose = TRUE)</code></pre>
-<pre><code>## Taking the log...
-## Done taking the log!</code></pre>
 <pre><code>## [1] -0.7071068  0.7071068</code></pre>
 <pre class="r"><code>my_scale(exp(c(1, 3, NA)))</code></pre>
 <pre><code>## [1] -0.7071068  0.7071068         NA</code></pre>

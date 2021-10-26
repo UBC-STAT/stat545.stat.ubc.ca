@@ -3,7 +3,7 @@ title: "R Packages for Data Analysis"
 output: html_document
 ---
 
-From today's class, students are anticipated to be able to build a basic R package, especially using the `devtools` package. 
+From this topic, students are anticipated to be able to build a basic R package, especially using the `devtools` package. 
 
 - Write a DESCRIPTION file
 - Carefully curate package dependencies

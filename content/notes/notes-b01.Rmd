@@ -38,8 +38,10 @@ Video lecture:
 
 Written resources:
 
-- [stat545.com Functions, Parts 1-3](https://stat545.com/functions-part1.html)
-- [R4DS functions chapter](https://r-pkgs.org/setup.html#setup-tools)
+- Basic function syntax in R: https://swcarpentry.github.io/r-novice-inflammation/02-func-R/
+- When to use functions in your data analysis:
+    - [stat545.com Functions, Parts 1-3](https://stat545.com/functions-part1.html)
+    - [R4DS functions chapter](https://r4ds.had.co.nz/functions.html)
 
 ## Test Your Understanding
 
@@ -61,6 +63,16 @@ f(1)
 3. True or False: Curly-curly `{{}}` can be used whenever we want to refer to column names outright, such as when subsetting in base R with `[[`.
 4. You've made a function `quick_scatter()` that you can pipe a tibble into, and outputs a scatterplot of two variables. So far, you're only using the function to explore the data for your own eyes (perhaps even putting your code directly in the console). True or False: at this point, you should stop and make sure your function is documented and has formal unit tests. 
 
+## Functions: basics
+
+We will check out the [Software Carpentry resource above](https://swcarpentry.github.io/r-novice-inflammation/02-func-R/) for syntax.
+
+Some topics:
+
+- Curly brackets vs. no curly brackets.
+- `return()` vs. no `return()`.
+- Argument defaults vs. no argument defaults.
+- Argument names as "dummy variables", independent of what's named in your workspace. 
 
 ## Functions: an example
 
@@ -107,10 +119,8 @@ Solve the problem of repetition by writing _functions_.
 Turn the above into a function.
 
 ```{r}
-my_scale <- function(x, remove_na = TRUE, verbose = FALSE, ...) {
-  if (verbose) cat("Taking the log...\n")
+my_scale <- function(x, remove_na = TRUE, ...) {
   logx <- log(x)
-  if (verbose) cat("Done taking the log!\n")
   (logx - mean(logx, na.rm = remove_na, ...)) / sd(logx, na.rm = remove_na)
 }
 my_scale(1:10)
@@ -125,6 +135,14 @@ gapminder %>%
 ```
 
 Each function you create shouldn't do too much, but rather should do one thing well. Don't be like me during my PhD and [make a gigantic `cnqr()` function](https://github.com/vincenzocoia/cnqr/blob/master/R/cnqr.R) that tries to do everything. Modularizing computation into smaller functions makes troubleshooting much easier.
+
+## Function arguments
+
+Some common function argument additions:
+
+- `na.rm`, an indication of whether you should remove NA values or not.
+- `verbose`, useful if you have either a potentially long computation, or a computation where you may want to see more details (such as function inversion or optimization).
+
 
 ## Testing your functions
 
@@ -153,7 +171,7 @@ Testing your functions is a way of recognizing that your data analysis will evol
 
 ## A return to dplyr scoped variants with `across()`
 
-Let's try our function applied to multiple columns of the `gapminder` dataset using dplyr's `across()` function. 
+Let's try our function applied to multiple columns of the `gapminder` dataset using dplyr's `across()` function, reducing even more repeated code.
 
 ```{r}
 gapminder %>% 
