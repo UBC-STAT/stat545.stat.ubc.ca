@@ -18,7 +18,6 @@ Slack channel specifically for students: https://stat545classroom.slack.com/
 - Be sure to be part of the `#announcements` channel to receive official course announcements!
 - Please do not send private questions to individual TA's -- use the `#general` channel instead.
 
-
 # Topics
 
 ### Part B
@@ -30,7 +29,7 @@ Slack channel specifically for students: https://stat545classroom.slack.com/
 | `r format(dates_545b[3] , "%a, %b %d")` | [R packages](/notes/notes-b02)          | NA | Panopto or in-person |
 | `r format(dates_545b[4] , "%a, %b %d")` | R Packages (cont'd) | NA | Panopto or in-person |
 | `r format(dates_545b[5] , "%a, %b %d")` | [Automation](/notes/notes-b03) (**Optional** lecture) | NA | Panopto or in-person |
-| `r format(dates_545b[6] , "%a, %b %d")` | University closed (mid-term break / Remembrance Day) | NA | Panopto or in-person |
+| `r format(dates_545b[6] , "%a, %b %d")` | University closed (mid-term break / Remembrance Day) | NA | NA |
 | `r format(dates_545b[7] , "%a, %b %d")` | [Dashboards](/notes/notes-b04) | NA | Panopto or in-person |
 | `r format(dates_545b[8] , "%a, %b %d")` | Dashboards, Part 2 | NA | Panopto or in-person |
 | `r format(dates_545b[9] , "%a, %b %d")` | [Character data](/notes/notes-b05) | Worksheet 2B | Panopto or in-person |
@@ -38,7 +37,6 @@ Slack channel specifically for students: https://stat545classroom.slack.com/
 | `r format(dates_545b[11], "%a, %b %d")` | List columns, cont'd | Worksheet 3B | Panopto or in-person |
 | `r format(dates_545b[12], "%a, %b %d")` | List columns, cont'd | Worksheet 3B | Panopto or in-person |
 | `r format(dates_545b[13], "%a, %b %d")` | Overflow lecture. Or, optional lecture on authoring with bookdown and blogdown | NA | Panopto or in-person |
-
 
 ### Part A
 
@@ -74,6 +72,7 @@ Options for working on these worksheets:
 | Worksheet | Download | View | Zip file | # required questions | Deadline |
 |-----------|----------|------|----------|----------------------|----------|
 | Worksheet B1 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_b01.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_b01.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_b01.ipynb.zip) | 10 | __Saturday, October 30, 2021 at 22:00 PT__ |
+| Worksheet B2 |  |  |  |  | __Saturday, October 30, 2021 at 22:00 PT__ |
 | Worksheet B2 |  |  |  |  | __Saturday, October 30, 2021 at 22:00 PT__ |
 
 ### Part A
