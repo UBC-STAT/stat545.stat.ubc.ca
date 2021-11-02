@@ -5,132 +5,101 @@ output: html_document
 
 __Total Points__: 100
 
-In Assignment 1-B, you practiced writing a function. This time, we'll be evaluating your ability to wrap an object, such as that function (but not necessarily), in an R package.
+In Assignment B-1, you practiced writing a function. This time, we'll be evaluating your ability to wrap that function (or something else!) in an R package.
 
 Need some help? Checkout [chapter 2](https://r-pkgs.org/whole-game.html) of the "R packages" book.
 
-### Note
-
-For Assignment B-4 you will have the option to expand on your R package and develop it further. Once you finish the requirements for Assignment 2-B, tag a semantic versioning release (see Tidy Submission below for details) _first_. Any additional work after the first Assignment 2-B release can then count towards Assignment 5-B.
+__Note__: For Assignment B-4, you will have the option to expand on your R package and develop it further (amongst other options). Be sure to tag a release of your work corresponding to your Assignment B-2 submission, so that you can continue working on the package if you'd like without confusing what will be graded as part of the assignment.
 
 
 ## Setup
 
-No setup required -- just modify the same GitHub repository you used in Assignment B-1. 
+No setup required -- just modify the same GitHub repository you used in Assignment B-1. (You tagged a release for Assignment B-1, right? If so, you can proceed to modify your repository's contents without having to worry about your Assignment B-1 submission. If you didn't, please tag a release before working on this assignment, and update your Assignment B-1 submission on canvas.)
 
-For this assignment, you will be developing an R package, ideally open source. Because of this, it is ideal for you to have a _separate_ repository for this assignment. You will be creating a _new, separate_ repository under your own personal GitHub. Here is a [guide](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/create-a-repo) on how to create your very own repository. Using your own personal GitHub will give you more control over the future of this assignment, should you want to develop your R package any further. It will also allow others to install your package more easily using the `devtools::install_github()` command. If you are creating a data package, and concerned about having your data available to the public, please reach out to the teaching team.
+## Tidy Submission (20 points)
 
-- [ ] Create a _new_, _public_ repository under your own personal GitHub account, naming it after your R package
+Follow these steps to submit your work. 
 
-For more information on these two tasks, see details on Exercise 1.
-
-### Note
-
-Throughout this document, we will refer to _two_ separate and different GitHub repositories:
-
-1. Your _assignment_ repository: `stat545ubc-2020/stat-545b-assignments-GitHub-Username`
-  - `README` in this repository should link to your _R package_ repository (see Tidy Submission below)
-  - Tag a release that you will submit to Canvas (see Tidy Submission below)
-2. Your _R package_ repository: `Your-GitHub-Username/Your-Package-Name`
-  - Contains all your R package files (should almost entirely be generated via `devtools` and `usethis`)
-  - Has its own `README` (see Tidy Submission below)
-  - Tag a _package version release_ using semantic versioning (see Tidy Submission below)
-
-## Tidy Submission (2 points)
-
-Follow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.
-
-- [ ] Update your main `README` for your _assignment_ (i.e. `stat-545b-assignments-GitHub-Username`) repository **with a link to your new R package repository.** Your new repository _should not_ be named `assignment-2b`. In fact, it should be named whatever you decide to name your package!
-- [ ] Make a `README` for your new package repository, using `usethis` to kickstart the `README`, and `devtools` to render it. Your `README` should describe what the package is, how to install it, and include an example usage of the package. The `datateachr` [repository](https://github.com/UBC-MDS/datateachr/blob/master/README.md) is a good example for a R dataset package. The `distplyr` [repository](https://github.com/vincenzocoia/distplyr/blob/master/README.md) is a good example for an R function(s) package.
-  - Your `README` must also include your explanations for Exercise 1.1 (see below)
-- [ ] Tag a release in your R package repository _corresponding to the version release of your package_. Use [semantic versioning conventions](https://semver.org). This is a release _for your package_.
-  - Semantic versioning conventions: `MAJOR.MINOR.PATCH`, where initial development starts at `0.1.0`, and then increment the minor version for each subsequent release
-    - Only release `1.0.0` if your package is being used in production and ready for public use
+1. Increase the version number in the `DESCRIPTION` file, using [semantic versioning conventions](https://semver.org). You should not have a trailing `.9000`.
+  - Summary of convention: `MAJOR.MINOR.PATCH`, where initial development starts at `0.1.0`, and then increment the minor version for each subsequent release
+    - Only release `1.0.0` if your package is being used in production and ready for public use.
     - e.g. `0.1.0` :arrow_right: `0.1.1` :arrow_right: `0.1.X` :arrow_right: `1.0.0` :arrow_right: `1.0.1` :arrow_right: `1.0.X` :arrow_right: `1.1.0`
-  - Your release versioning is especially important if you will be choosing to develop your package further in Assignment 5-B
-- [ ] Tag a release for your _assignment_ repository, e.g. `stat-545b-assignments-GitHub-Username` for your assignment 2-B tagged release to Canvas
+  - Your release versioning is especially important if you will be choosing to develop your package further.
+2. Tag a release in your GitHub repository corresponding to your submission before the deadline, using the package version as your tag.
+3. Grab the URL corresponding to your tagged release, and submit that to canvas. 
 
-Code should adopt a consistent and easy-to-read style -- ideally, the [tidyverse style](https://style.tidyverse.org/), although we're certainly not looking for strict adherence. 
-
-RRR: Code runs without errors and it is appropriately annotated, legible, and easy to follow.
-
-Proper English, spelling, and grammar. 
-
-To clarify, you will be making _two_ tagged releases for this assignment:
-
-1. A semantic versioning tagged release for your _R package repository_ (most likely `0.1.0`)
-1. A tagged release for your _assignment_ repository (i.e. `stat-545b-assignments-GitHub-Username`) that you will be _submitting to Canvas_ (most likely `hw2.0` or `a2.0`, or whichever is consistent with your assignment 1-B tagged release)
-
-**Rubric**:
+Tidy submission rubric:
 
 - The above steps were followed.
-- Your work is self-contained in your new R package repository
-  - Here is an _example_ structure of a typical R package repository. Note that these are _typical_ of an R package repository-- not every single item is _required_ for yours. Look through the criteria and use your judgment. Most of this directory structure will be created when you make the package using `usethis` and `devtools`.
-  
-  ```
-  ├── CODE_OF_CONDUCT.md
-  ├── DESCRIPTION
-  ├── LICENSE.md
-  ├── R
-  │   └── function.R
-  ├── README.md
-  ├── data
-  │   ├── data.rds
-  │   └── data.tsv
-  ├── tests
-  │   └── testthat.R
-  └── vignettes
-      └── vignette.Rmd
-    ```
-    
-- Your work must be reproducible from beginning to end. That is, a member of the teaching team should be able to run all code error-free and reproduce the output files.
+- Your work must be reproducible from beginning to end, error-free.
+- Your work is self-contained in a GitHub repository.
+- Code should adopt a consistent and easy-to-read style -- ideally, the [tidyverse style](https://style.tidyverse.org/), although we're certainly not looking for strict adherence. 
 - You use proper English, spelling, and grammar, and write concisely. If there's any uncertainty in determining a grade here, the [UBC MDS writing rubric](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md) will be referred to.
 - If there's any further uncertainty in determining a grade for this tidy submission portion, the [UBC MDS mechanics rubric](https://github.com/UBC-MDS/public/blob/master/rubric/rubric_mech.md) will be referred to.
 
+Specific to this assignment:
 
-## Exercise
+- Extra emphasis is placed on English, spelling, and grammar, because package documentation is a big part of producing an R package.
+- All files necessary for a tidy R package are present, in working form, and up-to-date. This includes, at a minimum:
+    - NAMESPACE
+    - DESCRIPTION
+    - README.Rmd (and README.md)
+    - R/ directory
+    - tests/ directory
+    - man/ directory
+- Your package can be installed using `devtools::install_github(...)`, or at least, from source, without a fuss. 
+- After clicking `Check` on your package, there are no "warnings" and no "errors" (errors are worse). "Notes" are allowed, although you should try to get rid of them, too.
+- Your R package works, is effectively designed, and has orderly components.
 
-Document _all_ functions and datasets
+## Exercise 1: Function(s) (20 points)
 
-- [ ] Use `roxygen2` comment style `#'` and tags like `@param` to document your function(s) or dataset(s)
-  - [ ] Use `devtools::document()` to update documentation, so that the `?your_object` command is able to fetch your documentation
-  - [ ] Make sure that all objects are `@export`ed unless there is a valid reason for them to be internal
-      - [ ] Remember to justify your decisions
+Render the documentation for all of the functions / objects in your package. You should include documentation as requested in Assignment B-1 (title, description, parameter description, and output description), but also (1) include examples under the `@examples` tag, and (2) be sure to include the `@export` tag to make functions available to users (unless you want the function to be strictly internal)
 
-## Exercise 1.1: Tests (3 points)
+**Hint**: if you're using the same function as in Assignment B-1, you should only need to put your function in an R script in the `R/` folder with the specified additions to your roxygen2 documentation. Then, run `document()` after loading the devtools package.
 
-- [ ] Create tests for your package, in the appropriate files and folders, using `usethis` and `testthat`. You can use the tests you wrote in Assignment 1-B, if relevant.
-  - [ ] Make sure your tests are also well-documented, meaning that the description/test name is informative, and that any necessary code commenting is present
+**What we're looking for**: 
 
-## Exercise 1.2: Documentation of your R package (10 points)
+- You followed the above instructions.
+- You should have `.Rd` files automatically generated in your `man/` folder. Don't touch these files. 
+- Functions intended to be used by a package user are deliberately listed under "exports" in the NAMESPACE file (this should happen automatically after running `document()` and having `@export` tags with your functions).
+- Documentation for each function should load after executing `?function` after loading your package. 
 
-Create documentation for your R package.
+## Exercise 2: High-level documentation (20 points)
 
-Specifically:
+Create documentation for your R package at a high level.
 
-- [ ] List all package dependencies in their `DESCRIPTION` file using `usethis`
-- [ ] `DESCRIPTION` file is otherwise up-to-date and informative
-- [ ] Update your README with a demonstrated use case, and build it with `devtools::build_....`
+1. Fill out a `README.Rmd` file, being sure to include the package description, installation instructions, and demonstrated usage. Knit to `README.md` using `devtools::build_readme()`, and don't ever touch the `README.md` file.
+2. In the `DESCRIPTION` file, update the package title and description fields (you can use the same description as you did in your README).
 
-Say how to install the package. Say how to install the package corresponding to Assignment B-2: `install_github("org/repo", build_vignettes = TRUE, ref = "0.1.0")` will ensure vignettes are copied over, and 
+**Hints**: 
 
-## Exercise: internals
+- When writing your description, imagine coming across the package on CRAN, and evaluating whether the package is relevant to you based solely on this description. It should be concise and informative.
+- Use the README boilerplate that comes with running `usethis::use_readme_rmd()`.
+- Installation instructions: should be as simple as running, for example, `install_github("org/repo", build_vignettes = TRUE, ref = "0.1.0")` (don't include `build_vignettes` if you have no vignettes; change the version number to your own).
 
-- [ ] If applicable, modify the source code of your function so that functions from other packages are called appropriately (e.g. using `::`)
-- [ ] Add a license, using `usethis`
+**What we're looking for**:
 
-## Exercise: Optional add-ons
+- The above instructions were followed.
+- The documentation is clear, simple, and effective. 
 
-__+1 bonus point__ if you can successfully do _all four_ of these things:
+## Exercise 3: DESCRIPTION file (20 points)
 
-- [ ] Add a code of conduct, using `usethis::use_code_of_conduct()`
-- [ ] Make a package website, and activate it with GitHub Pages.
-  - [ ] use the `pkgdown` package, using `usethis::use_pkgdown()`, and then `pkgdown::build_site()`
-- [ ] Add to the Changelog or add a News article for the 'release' of your package (e.g. `NEWS.md` in the root of the repo, see [example](https://github.com/vincenzocoia/distplyr/blob/master/NEWS.md) in `distplyr`)
-- [ ] Add ["badges"](https://cran.r-project.org/web/packages/badgecreatr/vignettes/all_badges.html) to your `README`
+Aside from the description field in the DESCRIPTION file, ensure everything else in the DESCRIPTION file (and its related parts) are in place. 
 
-**Rubric**: 
+1. Ensure a license is in place, and found in the DESCRIPTION file. We suggest `usethis::use_mit_license()` as an open-source-friendly license.
+2. Ensure package dependencies are listed in the DESCRIPTION file, and are effectively chosen (probably listed under "Imports"). Packages that come pre-loaded upon opening R are candidates to be listed here, too, such as the datasets and stats packages (but not the base package).
+3. Ensure all calls to functions from external packages are called using the form `package::function()` (only in very rare situations will you not need to use `::`).
+4. Ensure all other mechanical structure of the DESCRIPTION file is in place, i.e., passes a `Check`.
 
-1. Are all the components of an R package present and high quality, complete with documentation and tests?
-1. Is your R package made using a modern and robust way, using `usethis` and `devtools` packages? You should explain your development process in Exercise 1.2.
-1. Your package passes the `check()` without errors (warnings and notes are OK).
+## Exercise 4: Tests (20 points)
+
+Properly install unit tests in your package.
+
+**Hint**: if you're using the same function as in Assignment B-1, you should only need to copy and paste your `test_that` calls after creating a test file using `usethis::use_test(...)`.
+
+**What we're looking for**: 
+
+- The extent of testing should match that of Assignment B-1. So, you may not need to add any more tests if your tests were sufficient, but this is an important note if you plan on adding more functions / objects to your R package. 
+- Your tests should all pass after running `devtools::test()`. 
+- You should use testthat for writing unit tests, and nothing else.
+- If you create an object in a test script, you clean up after yourself using `rm('name_of_object')` (not needed if the objects are created _within_ a `test_that()` function.)

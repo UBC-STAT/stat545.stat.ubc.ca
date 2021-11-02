@@ -165,6 +165,17 @@ Following assignment 2b instructions and rubric may be helpful for completing th
 - [ ] Did you address all errors from running `check()`?
 - [ ] Did you tag releases and update version numbers appropriately?
 
+#### Exercise: Optional add-ons
+
+__+1 bonus point__ if you can successfully do _all four_ of these things:
+
+- [ ] Add a code of conduct, using `usethis::use_code_of_conduct()`
+- [ ] Make a package website, and activate it with GitHub Pages.
+  - [ ] use the `pkgdown` package, using `usethis::use_pkgdown()`, and then `pkgdown::build_site()`
+- [ ] Add to the Changelog or add a News article for the 'release' of your package (e.g. `NEWS.md` in the root of the repo, see [example](https://github.com/vincenzocoia/distplyr/blob/master/NEWS.md) in `distplyr`)
+- [ ] Add ["badges"](https://cran.r-project.org/web/packages/badgecreatr/vignettes/all_badges.html) to your `README`
+
+
 #### Submission
 
 - [ ] 

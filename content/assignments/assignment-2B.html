@@ -7,165 +7,107 @@ output: html_document
 
 
 <p><strong>Total Points</strong>: 100</p>
-<p>In Assignment 1-B, you practiced writing a function. This time, we’ll be evaluating your ability to wrap an object, such as that function (but not necessarily), in an R package.</p>
+<p>In Assignment B-1, you practiced writing a function. This time, we’ll be evaluating your ability to wrap that function (or something else!) in an R package.</p>
 <p>Need some help? Checkout <a href="https://r-pkgs.org/whole-game.html">chapter 2</a> of the “R packages” book.</p>
-<div id="note" class="section level3">
-<h3>Note</h3>
-<p>For Assignment B-4 you will have the option to expand on your R package and develop it further. Once you finish the requirements for Assignment 2-B, tag a semantic versioning release (see Tidy Submission below for details) <em>first</em>. Any additional work after the first Assignment 2-B release can then count towards Assignment 5-B.</p>
-</div>
+<p><strong>Note</strong>: For Assignment B-4, you will have the option to expand on your R package and develop it further (amongst other options). Be sure to tag a release of your work corresponding to your Assignment B-2 submission, so that you can continue working on the package if you’d like without confusing what will be graded as part of the assignment.</p>
 <div id="setup" class="section level2">
 <h2>Setup</h2>
-<p>No setup required – just modify the same GitHub repository you used in Assignment B-1.</p>
-<p>For this assignment, you will be developing an R package, ideally open source. Because of this, it is ideal for you to have a <em>separate</em> repository for this assignment. You will be creating a <em>new, separate</em> repository under your own personal GitHub. Here is a <a href="https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/create-a-repo">guide</a> on how to create your very own repository. Using your own personal GitHub will give you more control over the future of this assignment, should you want to develop your R package any further. It will also allow others to install your package more easily using the <code>devtools::install_github()</code> command. If you are creating a data package, and concerned about having your data available to the public, please reach out to the teaching team.</p>
-<ul class="task-list">
-<li><input type="checkbox" disabled="" />
-Create a <em>new</em>, <em>public</em> repository under your own personal GitHub account, naming it after your R package</li>
-</ul>
-<p>For more information on these two tasks, see details on Exercise 1.</p>
-<div id="note-1" class="section level3">
-<h3>Note</h3>
-<p>Throughout this document, we will refer to <em>two</em> separate and different GitHub repositories:</p>
+<p>No setup required – just modify the same GitHub repository you used in Assignment B-1. (You tagged a release for Assignment B-1, right? If so, you can proceed to modify your repository’s contents without having to worry about your Assignment B-1 submission. If you didn’t, please tag a release before working on this assignment, and update your Assignment B-1 submission on canvas.)</p>
+</div>
+<div id="tidy-submission-20-points" class="section level2">
+<h2>Tidy Submission (20 points)</h2>
+<p>Follow these steps to submit your work.</p>
 <ol style="list-style-type: decimal">
-<li>Your <em>assignment</em> repository: <code>stat545ubc-2020/stat-545b-assignments-GitHub-Username</code></li>
+<li>Increase the version number in the <code>DESCRIPTION</code> file, using <a href="https://semver.org">semantic versioning conventions</a>. You should not have a trailing <code>.9000</code>.</li>
 </ol>
 <ul>
-<li><code>README</code> in this repository should link to your <em>R package</em> repository (see Tidy Submission below)</li>
-<li>Tag a release that you will submit to Canvas (see Tidy Submission below)</li>
-</ul>
-<ol start="2" style="list-style-type: decimal">
-<li>Your <em>R package</em> repository: <code>Your-GitHub-Username/Your-Package-Name</code></li>
-</ol>
+<li>Summary of convention: <code>MAJOR.MINOR.PATCH</code>, where initial development starts at <code>0.1.0</code>, and then increment the minor version for each subsequent release
 <ul>
-<li>Contains all your R package files (should almost entirely be generated via <code>devtools</code> and <code>usethis</code>)</li>
-<li>Has its own <code>README</code> (see Tidy Submission below)</li>
-<li>Tag a <em>package version release</em> using semantic versioning (see Tidy Submission below)</li>
-</ul>
-</div>
-</div>
-<div id="tidy-submission-2-points" class="section level2">
-<h2>Tidy Submission (2 points)</h2>
-<p>Follow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.</p>
-<ul class="task-list">
-<li><input type="checkbox" disabled="" />
-Update your main <code>README</code> for your <em>assignment</em> (i.e. <code>stat-545b-assignments-GitHub-Username</code>) repository <strong>with a link to your new R package repository.</strong> Your new repository <em>should not</em> be named <code>assignment-2b</code>. In fact, it should be named whatever you decide to name your package!</li>
-<li><input type="checkbox" disabled="" />
-Make a <code>README</code> for your new package repository, using <code>usethis</code> to kickstart the <code>README</code>, and <code>devtools</code> to render it. Your <code>README</code> should describe what the package is, how to install it, and include an example usage of the package. The <code>datateachr</code> <a href="https://github.com/UBC-MDS/datateachr/blob/master/README.md">repository</a> is a good example for a R dataset package. The <code>distplyr</code> <a href="https://github.com/vincenzocoia/distplyr/blob/master/README.md">repository</a> is a good example for an R function(s) package.<ul>
-<li>Your <code>README</code> must also include your explanations for Exercise 1.1 (see below)</li>
-</ul></li>
-<li><input type="checkbox" disabled="" />
-Tag a release in your R package repository <em>corresponding to the version release of your package</em>. Use <a href="https://semver.org">semantic versioning conventions</a>. This is a release <em>for your package</em>.<ul>
-<li>Semantic versioning conventions: <code>MAJOR.MINOR.PATCH</code>, where initial development starts at <code>0.1.0</code>, and then increment the minor version for each subsequent release
-<ul>
-<li>Only release <code>1.0.0</code> if your package is being used in production and ready for public use</li>
+<li>Only release <code>1.0.0</code> if your package is being used in production and ready for public use.</li>
 <li>e.g. <code>0.1.0</code> :arrow_right: <code>0.1.1</code> :arrow_right: <code>0.1.X</code> :arrow_right: <code>1.0.0</code> :arrow_right: <code>1.0.1</code> :arrow_right: <code>1.0.X</code> :arrow_right: <code>1.1.0</code></li>
 </ul></li>
-<li>Your release versioning is especially important if you will be choosing to develop your package further in Assignment 5-B</li>
-</ul></li>
-<li><input type="checkbox" disabled="" />
-Tag a release for your <em>assignment</em> repository, e.g. <code>stat-545b-assignments-GitHub-Username</code> for your assignment 2-B tagged release to Canvas</li>
+<li>Your release versioning is especially important if you will be choosing to develop your package further.</li>
 </ul>
-<p>Code should adopt a consistent and easy-to-read style – ideally, the <a href="https://style.tidyverse.org/">tidyverse style</a>, although we’re certainly not looking for strict adherence.</p>
-<p>RRR: Code runs without errors and it is appropriately annotated, legible, and easy to follow.</p>
-<p>Proper English, spelling, and grammar.</p>
-<p>To clarify, you will be making <em>two</em> tagged releases for this assignment:</p>
-<ol style="list-style-type: decimal">
-<li>A semantic versioning tagged release for your <em>R package repository</em> (most likely <code>0.1.0</code>)</li>
-<li>A tagged release for your <em>assignment</em> repository (i.e. <code>stat-545b-assignments-GitHub-Username</code>) that you will be <em>submitting to Canvas</em> (most likely <code>hw2.0</code> or <code>a2.0</code>, or whichever is consistent with your assignment 1-B tagged release)</li>
+<ol start="2" style="list-style-type: decimal">
+<li>Tag a release in your GitHub repository corresponding to your submission before the deadline, using the package version as your tag.</li>
+<li>Grab the URL corresponding to your tagged release, and submit that to canvas.</li>
 </ol>
-<p><strong>Rubric</strong>:</p>
+<p>Tidy submission rubric:</p>
 <ul>
 <li>The above steps were followed.</li>
-<li>Your work is self-contained in your new R package repository
-<ul>
-<li>Here is an <em>example</em> structure of a typical R package repository. Note that these are <em>typical</em> of an R package repository– not every single item is <em>required</em> for yours. Look through the criteria and use your judgment. Most of this directory structure will be created when you make the package using <code>usethis</code> and <code>devtools</code>.</li>
-</ul>
-<pre><code>├── CODE_OF_CONDUCT.md
-├── DESCRIPTION
-├── LICENSE.md
-├── R
-│   └── function.R
-├── README.md
-├── data
-│   ├── data.rds
-│   └── data.tsv
-├── tests
-│   └── testthat.R
-└── vignettes
-    └── vignette.Rmd</code></pre></li>
-<li>Your work must be reproducible from beginning to end. That is, a member of the teaching team should be able to run all code error-free and reproduce the output files.</li>
+<li>Your work must be reproducible from beginning to end, error-free.</li>
+<li>Your work is self-contained in a GitHub repository.</li>
+<li>Code should adopt a consistent and easy-to-read style – ideally, the <a href="https://style.tidyverse.org/">tidyverse style</a>, although we’re certainly not looking for strict adherence.</li>
 <li>You use proper English, spelling, and grammar, and write concisely. If there’s any uncertainty in determining a grade here, the <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_writing.md">UBC MDS writing rubric</a> will be referred to.</li>
 <li>If there’s any further uncertainty in determining a grade for this tidy submission portion, the <a href="https://github.com/UBC-MDS/public/blob/master/rubric/rubric_mech.md">UBC MDS mechanics rubric</a> will be referred to.</li>
 </ul>
-</div>
-<div id="exercise" class="section level2">
-<h2>Exercise</h2>
-<p>Document <em>all</em> functions and datasets</p>
-<ul class="task-list">
-<li><input type="checkbox" disabled="" />
-Use <code>roxygen2</code> comment style <code>#'</code> and tags like <code>@param</code> to document your function(s) or dataset(s)<ul class="task-list">
-<li><input type="checkbox" disabled="" />
-Use <code>devtools::document()</code> to update documentation, so that the <code>?your_object</code> command is able to fetch your documentation</li>
-<li><input type="checkbox" disabled="" />
-Make sure that all objects are <code>@export</code>ed unless there is a valid reason for them to be internal<ul class="task-list">
-<li><input type="checkbox" disabled="" />
-Remember to justify your decisions</li>
+<p>Specific to this assignment:</p>
+<ul>
+<li>Extra emphasis is placed on English, spelling, and grammar, because package documentation is a big part of producing an R package.</li>
+<li>All files necessary for a tidy R package are present, in working form, and up-to-date. This includes, at a minimum:
+<ul>
+<li>NAMESPACE</li>
+<li>DESCRIPTION</li>
+<li>README.Rmd (and README.md)</li>
+<li>R/ directory</li>
+<li>tests/ directory</li>
+<li>man/ directory</li>
 </ul></li>
-</ul></li>
+<li>Your package can be installed using <code>devtools::install_github(...)</code>, or at least, from source, without a fuss.</li>
+<li>After clicking <code>Check</code> on your package, there are no “warnings” and no “errors” (errors are worse). “Notes” are allowed, although you should try to get rid of them, too.</li>
+<li>Your R package works, is effectively designed, and has orderly components.</li>
 </ul>
 </div>
-<div id="exercise-1.1-tests-3-points" class="section level2">
-<h2>Exercise 1.1: Tests (3 points)</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="" />
-Create tests for your package, in the appropriate files and folders, using <code>usethis</code> and <code>testthat</code>. You can use the tests you wrote in Assignment 1-B, if relevant.<ul class="task-list">
-<li><input type="checkbox" disabled="" />
-Make sure your tests are also well-documented, meaning that the description/test name is informative, and that any necessary code commenting is present</li>
-</ul></li>
+<div id="exercise-1-functions-20-points" class="section level2">
+<h2>Exercise 1: Function(s) (20 points)</h2>
+<p>Render the documentation for all of the functions / objects in your package. You should include documentation as requested in Assignment B-1 (title, description, parameter description, and output description), but also (1) include examples under the <code>@examples</code> tag, and (2) be sure to include the <code>@export</code> tag to make functions available to users (unless you want the function to be strictly internal)</p>
+<p><strong>Hint</strong>: if you’re using the same function as in Assignment B-1, you should only need to put your function in an R script in the <code>R/</code> folder with the specified additions to your roxygen2 documentation. Then, run <code>document()</code> after loading the devtools package.</p>
+<p><strong>What we’re looking for</strong>:</p>
+<ul>
+<li>You followed the above instructions.</li>
+<li>You should have <code>.Rd</code> files automatically generated in your <code>man/</code> folder. Don’t touch these files.</li>
+<li>Functions intended to be used by a package user are deliberately listed under “exports” in the NAMESPACE file (this should happen automatically after running <code>document()</code> and having <code>@export</code> tags with your functions).</li>
+<li>Documentation for each function should load after executing <code>?function</code> after loading your package.</li>
 </ul>
 </div>
-<div id="exercise-1.2-documentation-of-your-r-package-10-points" class="section level2">
-<h2>Exercise 1.2: Documentation of your R package (10 points)</h2>
-<p>Create documentation for your R package.</p>
-<p>Specifically:</p>
-<ul class="task-list">
-<li><input type="checkbox" disabled="" />
-List all package dependencies in their <code>DESCRIPTION</code> file using <code>usethis</code></li>
-<li><input type="checkbox" disabled="" />
-<code>DESCRIPTION</code> file is otherwise up-to-date and informative</li>
-<li><input type="checkbox" disabled="" />
-Update your README with a demonstrated use case, and build it with <code>devtools::build_....</code></li>
-</ul>
-<p>Say how to install the package. Say how to install the package corresponding to Assignment B-2: <code>install_github("org/repo", build_vignettes = TRUE, ref = "0.1.0")</code> will ensure vignettes are copied over, and</p>
-</div>
-<div id="exercise-internals" class="section level2">
-<h2>Exercise: internals</h2>
-<ul class="task-list">
-<li><input type="checkbox" disabled="" />
-If applicable, modify the source code of your function so that functions from other packages are called appropriately (e.g. using <code>::</code>)</li>
-<li><input type="checkbox" disabled="" />
-Add a license, using <code>usethis</code></li>
-</ul>
-</div>
-<div id="exercise-optional-add-ons" class="section level2">
-<h2>Exercise: Optional add-ons</h2>
-<p><strong>+1 bonus point</strong> if you can successfully do <em>all four</em> of these things:</p>
-<ul class="task-list">
-<li><input type="checkbox" disabled="" />
-Add a code of conduct, using <code>usethis::use_code_of_conduct()</code></li>
-<li><input type="checkbox" disabled="" />
-Make a package website, and activate it with GitHub Pages.<ul class="task-list">
-<li><input type="checkbox" disabled="" />
-use the <code>pkgdown</code> package, using <code>usethis::use_pkgdown()</code>, and then <code>pkgdown::build_site()</code></li>
-</ul></li>
-<li><input type="checkbox" disabled="" />
-Add to the Changelog or add a News article for the ‘release’ of your package (e.g. <code>NEWS.md</code> in the root of the repo, see <a href="https://github.com/vincenzocoia/distplyr/blob/master/NEWS.md">example</a> in <code>distplyr</code>)</li>
-<li><input type="checkbox" disabled="" />
-Add <a href="https://cran.r-project.org/web/packages/badgecreatr/vignettes/all_badges.html">“badges”</a> to your <code>README</code></li>
-</ul>
-<p><strong>Rubric</strong>:</p>
+<div id="exercise-2-high-level-documentation-20-points" class="section level2">
+<h2>Exercise 2: High-level documentation (20 points)</h2>
+<p>Create documentation for your R package at a high level.</p>
 <ol style="list-style-type: decimal">
-<li>Are all the components of an R package present and high quality, complete with documentation and tests?</li>
-<li>Is your R package made using a modern and robust way, using <code>usethis</code> and <code>devtools</code> packages? You should explain your development process in Exercise 1.2.</li>
-<li>Your package passes the <code>check()</code> without errors (warnings and notes are OK).</li>
+<li>Fill out a <code>README.Rmd</code> file, being sure to include the package description, installation instructions, and demonstrated usage. Knit to <code>README.md</code> using <code>devtools::build_readme()</code>, and don’t ever touch the <code>README.md</code> file.</li>
+<li>In the <code>DESCRIPTION</code> file, update the package title and description fields (you can use the same description as you did in your README).</li>
 </ol>
+<p><strong>Hints</strong>:</p>
+<ul>
+<li>When writing your description, imagine coming across the package on CRAN, and evaluating whether the package is relevant to you based solely on this description. It should be concise and informative.</li>
+<li>Use the README boilerplate that comes with running <code>usethis::use_readme_rmd()</code>.</li>
+<li>Installation instructions: should be as simple as running, for example, <code>install_github("org/repo", build_vignettes = TRUE, ref = "0.1.0")</code> (don’t include <code>build_vignettes</code> if you have no vignettes; change the version number to your own).</li>
+</ul>
+<p><strong>What we’re looking for</strong>:</p>
+<ul>
+<li>The above instructions were followed.</li>
+<li>The documentation is clear, simple, and effective.</li>
+</ul>
+</div>
+<div id="exercise-3-description-file-20-points" class="section level2">
+<h2>Exercise 3: DESCRIPTION file (20 points)</h2>
+<p>Aside from the description field in the DESCRIPTION file, ensure everything else in the DESCRIPTION file (and its related parts) are in place.</p>
+<ol style="list-style-type: decimal">
+<li>Ensure a license is in place, and found in the DESCRIPTION file. We suggest <code>usethis::use_mit_license()</code> as an open-source-friendly license.</li>
+<li>Ensure package dependencies are listed in the DESCRIPTION file, and are effectively chosen (probably listed under “Imports”). Packages that come pre-loaded upon opening R are candidates to be listed here, too, such as the datasets and stats packages (but not the base package).</li>
+<li>Ensure all calls to functions from external packages are called using the form <code>package::function()</code> (only in very rare situations will you not need to use <code>::</code>).</li>
+<li>Ensure all other mechanical structure of the DESCRIPTION file is in place, i.e., passes a <code>Check</code>.</li>
+</ol>
+</div>
+<div id="exercise-4-tests-20-points" class="section level2">
+<h2>Exercise 4: Tests (20 points)</h2>
+<p>Properly install unit tests in your package.</p>
+<p><strong>Hint</strong>: if you’re using the same function as in Assignment B-1, you should only need to copy and paste your <code>test_that</code> calls after creating a test file using <code>usethis::use_test(...)</code>.</p>
+<p><strong>What we’re looking for</strong>:</p>
+<ul>
+<li>The extent of testing should match that of Assignment B-1. So, you may not need to add any more tests if your tests were sufficient, but this is an important note if you plan on adding more functions / objects to your R package.</li>
+<li>Your tests should all pass after running <code>devtools::test()</code>.</li>
+<li>You should use testthat for writing unit tests, and nothing else.</li>
+<li>If you create an object in a test script, you clean up after yourself using <code>rm('name_of_object')</code> (not needed if the objects are created <em>within</em> a <code>test_that()</code> function.)</li>
+</ul>
 </div>
