@@ -1,313 +1,216 @@
 ---
-title: "List Columns"
+title: "Automation"
 output: html_document
 ---
 
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<p>Did you know that a column of a tibble can contain a list – not just a vector? This week explores when such a thing would come in handy, and how to work with list columns.</p>
-<p>From this week, students are anticipated to be able to:</p>
+<p><strong>Note</strong>: This is an <strong>optional lecture</strong>. You are encouraged to take the full 5 days off this week, not just the 3 scheduled by UBC.</p>
+<p>From today’s class, students are anticipated to be able to:</p>
 <ul>
-<li>Use the <code>map</code> family of functions from the purrr package to iteratively apply a function.</li>
-<li>Create and operate on list columns in a tibble using <code>nest()</code>, <code>unnest()</code>, and the <code>map()</code> family of functions.</li>
-<li>Define functions on-the-fly within a <code>map</code> function using shortcuts.</li>
-<li>Apply list columns to cases in data analysis: columns of models, columns of nested lists (JSON-style data), and operating on entire groups within a tibble.</li>
+<li>Run an R script non-interactively</li>
+<li>Use <code>make</code>
+<ul>
+<li>to record which files are inputs vs. intermediates vs. outputs</li>
+<li>to capture how scripts and commands convert inputs to outputs</li>
+<li>to re-run parts of an analysis that are out-of-date</li>
+</ul></li>
+<li>Render R code (.R or .Rmd) in batch mode using <code>Rscript</code>, either entire scripts or snippets of code.</li>
+<li>Render R code (.R or .Rmd) from within R.</li>
+<li>Write a Makefile.</li>
+<li>Interact with <code>make</code> in RStudio.</li>
+<li>Use <code>make</code> from the shell.</li>
+</ul>
+<p>Other tools aside from make:</p>
+<ul>
+<li>ProjectTemplate (we will cover this if we have time)</li>
+<li>remake for R</li>
 </ul>
 <div id="resources" class="section level2">
 <h2>Resources</h2>
-<p>Video lectures:</p>
+<p>No video lecture for this optional topic. Written material:</p>
 <ul>
-<li><a href="https://www.youtube.com/watch?v=nJgrDoCENBI">Vectors and Lists in R</a></li>
-<li><a href="https://www.youtube.com/watch?v=_731PZ8I9m0">R List Columns: purrr map and nesting</a></li>
+<li><a href="https://github.com/STAT545-UBC/STAT545-UBC-original-website/blob/master/automation01_slides/slides.md">Shaun Jackman and Jenny Bryan’s automation notes</a> for getting familiar with the command line.</li>
+<li><a href="https://stat545.com/automating-pipeline.html">stat545.com’s make activity</a></li>
+<li>The entire <a href="https://stat545.com/automation-overview.html">Part IX: All the Automation Things</a> from the stat545.com book contains further elaborations on this topic.</li>
 </ul>
-<p>Written material:</p>
-<ul>
-<li><a href="https://r4ds.had.co.nz/iteration.html">R4DS Chapter 21: Iteration</a> for purrr
-<ul>
-<li>21.1 for an intro</li>
-<li>21.5 for the <code>map</code> family of functions</li>
-<li>The intro of 21.7 for the <code>map2</code> and <code>pmap</code> families.</li>
-</ul></li>
-<li><a href="https://jennybc.github.io/purrr-tutorial/ls13_list-columns.html">“List Columns”</a> from <a href="https://jennybc.github.io/purrr-tutorial/index.html">Jenny’s purrr tutorial</a></li>
-<li><a href="https://tidyr.tidyverse.org/articles/nest.html">“Nested data” article</a> on tidyr’s website.</li>
-</ul>
-<p>Want to dig deeper? These resources can help.</p>
-<ul>
-<li><a href="https://adv-r.hadley.nz/functionals.html">Advanced R Chapter 9: Functionals</a> – looking at purrr and <code>map()</code> from a programming perspective.</li>
-<li><a href="https://tidyr.tidyverse.org/articles/rectangle.html">tidyr’s rectangling vignette</a> – for handling deeply nested lists (JSON-style data), similar to tidyr’s <code>pivot_</code> functions.</li>
-</ul>
+<p><strong>NOTE</strong>: <code>make</code> should already be installed for MacOS and Linux users. Windows users might have to specially install <code>make</code>: info can be found <a href="https://stat545.com/make-windows.html">in the stat545.com Chapter 34</a>.</p>
 </div>
 <div id="test-your-understanding" class="section level2">
 <h2>Test Your Understanding</h2>
+<p>Use these questions to check your understanding of the material.</p>
 <ol style="list-style-type: decimal">
-<li>True or False: <code>map(1:3, ~ function(x) x ^ 2)</code> returns the list <code>list(1, 4, 9)</code>.</li>
-<li>You write a function <code>square()</code> that squares its input – but the first thing it does is print a message to the screen! True or False: <code>map_dbl(1:10, square)</code> will throw an error, because the output is not a <code>dbl</code> (a number) – it contains the message, too.</li>
-<li>True or False: purrr-style functions, starting with <code>~</code>, can be used in dplyr’s <code>across()</code> function, such as <code>mutate(across(where(is.numeric), ~ .x ^ 2))</code>, and this function can only take one argument (<code>.x</code>)</li>
-<li>True or False: If I have 10 tibbles I want to save to file, and they’re all stored in a list, the best purrr function to use for saving these to file is <code>map()</code>.</li>
-<li>True or False: Just as <code>c(c(1, 2), c(3, 4))</code> returns the vector of numbers from 1 to 4, <code>list(list(1, 2), list(3, 4))</code> returns the list of numbers from 1 to 4.</li>
-<li>True or False: <code>tibble(model = lm(mpg ~ wt, data = mtcars))</code> doesn’t work because it doesn’t use a <code>map</code> function.</li>
+<li>True or False: You’ve opened Terminal, and are now about to run <code>Rscript</code> for a second time. Because you haven’t restarted the Terminal, the code will continue to build in the same session as before.</li>
+<li>You have information in <code>script1.R</code> that you’d like to pass to <code>scipt2.R</code>. True or false: the best way to pass the info to <code>script2.R</code> is by saving the final workspace from <code>script1.R</code> in an <code>.RData</code> or <code>.rds</code> file, and loading that it into <code>script2.R</code>.</li>
+<li>True or False: It’s almost always better to write an <code>.Rmd</code> file over an <code>.R</code> file, because you’re able to interlace markdown.</li>
+<li>True or false: <code>make</code>ing a <em>phony</em> target will always run its rules, whereas <code>make</code>ing a target <em>file</em> will only run its rules if the output needs updating.</li>
+<li>True or false: If a dependency file is not present on your computer, you can still call <code>make</code> error-free if the dependency is the target of another rule. This is true even if the dependency never gets made.</li>
+<li>True or false: The rules to <code>make</code> a target file will be run if either the target file or the dependencies are modified.</li>
+<li>True or false: Dependencies in <code>make</code> are accessed “lazily”, so that if the dependencies are never actually used when executing a rule, they don’t actually have any impact on the Makefile.</li>
 </ol>
 </div>
 <div id="demonstration" class="section level2">
 <h2>Demonstration</h2>
-<pre class="r"><code>library(tidyverse)</code></pre>
-<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
-<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-## ✓ tibble  3.1.5     ✓ dplyr   1.0.7
-## ✓ tidyr   1.1.4     ✓ stringr 1.4.0
-## ✓ readr   2.0.2     ✓ forcats 0.5.1</code></pre>
-<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
-<pre class="r"><code>library(palmerpenguins)
-library(distplyr)
-library(repurrrsive)</code></pre>
-<p>We will practice by jumping right into the worksheet. Here are some additional exercises that we may cover in class.</p>
-<p>By the way, why use the <code>map</code> functions over <code>for</code> loops? Aside from what’s said at <a href="https://r4ds.had.co.nz/iteration.html#for-loops-vs.-functionals">R4DS’s Section 21.4</a>, the <code>map</code> family encourages the input vector(s) and function to be carefully defined first, whereas a <code>for</code> loop is more of a free-for-all. Using <code>map()</code> is also more readable, is pipe-friendly, and jibes well with list columns in tibbles.</p>
-<div id="demo-1-map2" class="section level3">
-<h3>Demo 1: <code>map2</code></h3>
-<p>Using the <code>palmerpenguins::penguins</code> tibble:</p>
+<div id="multi-file-analyses" class="section level3">
+<h3>Multi-file analyses</h3>
+<p>It’s often not a good idea to write an analysis in a single R/Rmd script, especially if the analysis has multiple steps to it (what analysis doesn’t?). Here are a few benefits:</p>
+<ul>
+<li>You won’t have to run upstream calculations (like data processing / cleaning) every time you run the script. Instead, write a script to process the data, and write the output to file.</li>
+<li>If your analysis branches into different explorations, you’ll have to run irrelevant computations each time (and those computations may be a source of error).</li>
+<li>You’re less likely to end up with an overloaded workspace.</li>
+<li>People can mentally compartmentalize the analysis into several tasks, making the analysis more understandable and easier to debug.</li>
+</ul>
+<p>There is no single ideal way to organize your files. But you might want to include folders like these:</p>
+<ul>
+<li><code>data</code>: Usually holds the raw data, which is not meant to be modified ever.</li>
+<li><code>src</code>: Holds files containing R code to do the analysis.</li>
+<li><code>output</code> or <code>img</code>: Folder containing outputs of the analysis, sometimes just images.</li>
+</ul>
+<p>Always include a README explaining:</p>
+<ul>
+<li>what the analysis is about (orient a visitor),</li>
+<li>how to engage with the analysis (explore files and run code), and</li>
+<li>what dependencies are required to run the analysis (a list of R packages, and the version of R you’re running – use <code>R.version</code>).
+<ul>
+<li>Useful to use a package manager or Docker – not explored in this course.</li>
+</ul></li>
+</ul>
+</div>
+<div id="non-interactive-programming-batch-processing" class="section level3">
+<h3>Non-interactive programming (batch processing)</h3>
+<p>When we write R code, we usually do so <em>interactively</em>: we run bits and pieces as we write it. But, when you’re done adding code to a script (for now), it’s useful to run that script <em>non-interactively</em>, or in “batch mode”. You can think of this as running a script from top-to-bottom from a clean slate.</p>
+<p>You’ve done this before: when you click “knit” in RStudio to knit an .Rmd file, you’re running that .Rmd file non-interactively. But if you want to orchestrate and run multiple files, it gets tiresome to click “knit” on the files, and in the correct order. Instead, run a file from the Terminal / command line using the <code>Rscript</code> command.</p>
+<p>Here’s a summary of the commands you’ll need to run a file non-interactively, comparing both from R and from Terminal:</p>
+<table>
+<colgroup>
+<col width="37%" />
+<col width="21%" />
+<col width="40%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>file</th>
+<th>From R</th>
+<th>From Terminal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>script.R</code></td>
+<td><code>source("script.R")</code> or “source” button in RStudio</td>
+<td><code>Rscript script.R</code></td>
+</tr>
+<tr class="even">
+<td><code>report.Rmd</code></td>
+<td><code>rmarkdown::render("report.Rmd")</code> or “knit” button in RStudio</td>
+<td><code>Rscript -e 'rmarkdown::render("report.Rmd")'</code></td>
+</tr>
+</tbody>
+</table>
+<p>Notice that there isn’t actually a way to build an .Rmd file from the Terminal directly, so we have to use the <code>-e</code> tag, which executes R code that follows within quotation marks.</p>
+<p>Benefits of running code non-interactively:</p>
+<ul>
+<li>The only real way to ensure your work is reproducible.</li>
+<li>Like a conductor, focus on higher-level computation of different tasks without having to go into each script and manually run the code.</li>
+<li>Gain access to cloud computing services like Amazon AWS.</li>
+</ul>
+<p>Note that opening RStudio starts a <em>session</em> of R, a single “brain” that you send commands to – even across files. But, each non-interactive run of a script is self-contained – except the <code>source()</code> function, which runs code in the active R session.</p>
+</div>
+<div id="command-line" class="section level3">
+<h3>Command line</h3>
+<p>We’ll review the following bash commands/features:</p>
+<ul>
+<li><code>rm</code></li>
+<li><code>cd</code></li>
+<li><code>ls</code></li>
+<li>tags with <code>-</code></li>
+<li>help with <code>--help</code></li>
+</ul>
+</div>
+<div id="makefiles" class="section level3">
+<h3>Makefiles</h3>
+<p>With multiple files, how can you keep track of running the files in the right order? Or, running only the parts of your analysis that needs updating? That’s where Makefiles come in handy. The software <code>make</code> reads this and executes parts of the analysis that needs executing.</p>
+<p>Each block of code in a Makefile is called a rule, it looks something like this:</p>
+<pre><code>file_to_create: files.it depends.on like_this.R
+    code to be run in the command line
+    that can have multiple lines of code
+    Rscript like_this.R</code></pre>
+<ul>
+<li><code>file_to_create</code> is a target, a file to be created, or built.</li>
+<li><code>files.it</code>, <code>depends.on</code>, and <code>like_this.R</code> are dependencies, files which are needed to build or update the target. Targets can have zero or more dependencies.</li>
+<li><code>:</code> separates targets from dependencies.</li>
+<li><code>code to be run in the command line</code>, …, <code>Rscript like_this.R</code> are actions, commands to run to build or update the target using the dependencies. Targets can have zero or more actions. Actions are indented using the TAB character, not spaces.</li>
+<li>Together, the target, dependencies, and actions form a rule.</li>
+</ul>
+<p>When will a rule be run?</p>
+<ul>
+<li>If the target is not present in your folder, or</li>
+<li>If a dependency is newer than the target file.</li>
+</ul>
+<div id="makefile-activity" class="section level4">
+<h4>Makefile activity</h4>
+<p>We’ll now run through the <a href="https://stat545.com/automating-pipeline.html">makefile activity</a> included in the stat545.com book. Here is a digested version of the activity, with slight modifications.</p>
 <ol style="list-style-type: decimal">
-<li>Make a Normal distribution using <code>distplyr::dst_norm()</code> for the body mass of each species, using estimates taken from <code>mean()</code> and <code>var()</code>. Title the column <code>distribution</code>.</li>
-<li>Calculate the 0.975-quantile from each distribution using <code>distplyr::eval_quantile()</code>. Try this by making a new column of distributions, and by not.</li>
+<li><p><input type="checkbox" disabled="" />
+Start a new RStudio project.</p></li>
+<li><p><input type="checkbox" disabled="" />
+Create a Makefile: File &gt; New File &gt; Text File. Name it <code>Makefile</code>. Restart RStudio so that it recognizes <code>make</code>.</p></li>
+<li><p><input type="checkbox" disabled="" />
+Add the creation of <code>words.txt</code> to the Makefile:</p><pre><code>words.txt:
+  Rscript -e &#39;download.file(&quot;https://svnweb.freebsd.org/base/head/share/dict/web2?view=co&quot;, destfile = &quot;words.txt&quot;, quiet = TRUE)&#39;</code></pre>
+<ul>
+<li>Try running <code>make words.txt</code> in the Terminal.</li>
+</ul></li>
+<li><p><input type="checkbox" disabled="" />
+Make a new R script that makes a table of word lengths – <a href="https://raw.githubusercontent.com/STAT545-UBC/STAT545-UBC.github.io/master/automation10_holding-area/activity/histogram.r">code here</a>.</p></li>
+<li><p><input type="checkbox" disabled="" />
+Add the tsv output to the makefile:</p><pre><code>histogram.tsv: histogram.R words.txt
+ Rscript $&lt;</code></pre>
+<ul>
+<li>Shortcuts:
+<ul>
+<li><code>$&lt;</code> refers to <code>histogram.r</code></li>
+<li><code>$@</code> refers to <code>histogram.tsv</code></li>
+</ul></li>
+<li>What happens if a dependency is not present? Try deleting <code>histogram.R</code>. Try deleting <code>words.txt</code>.</li>
+</ul></li>
+<li><p><input type="checkbox" disabled="" />
+Create rules for <code>all</code> and <code>clean</code>:</p><pre><code>all: words.txt histogram.tsv
+
+clean:
+  rm words.txt histogram.tsv</code></pre>
+<ul>
+<li>Try running <code>make</code>; <code>make all</code>; <code>make clean</code>; or, use the Build tab in RStudio.</li>
+</ul></li>
+<li><p><input type="checkbox" disabled="" />
+Plot a histogram of word lengths, direct in the Makefile.</p><pre><code>histogram.png: histogram.tsv
+  Rscript -e &#39;library(ggplot2); qplot(Length, Freq, data=read.delim(&quot;$&lt;&quot;)); ggsave(&quot;$@&quot;)&#39;</code></pre></li>
+<li><p><input type="checkbox" disabled="" />
+Update: add a <code>rm Rplots.pdf</code> line to the histogram creation rule; update <code>all</code> and <code>clean</code>.</p></li>
+<li><p><input type="checkbox" disabled="" />
+Make a <code>report.Rmd</code> file – <a href="https://raw.githubusercontent.com/STAT545-UBC/STAT545-UBC.github.io/master/automation10_holding-area/activity/report.rmd">code here</a>.</p></li>
+<li><p><input type="checkbox" disabled="" />
+Add a rule to make the report output:
+<code>report.html: report.rmd histogram.tsv histogram.png      Rscript -e 'rmarkdown::render("$&lt;")'</code></p></li>
 </ol>
-<p>Starter code:</p>
-<pre><code>(demo1 &lt;- penguins %&gt;% 
-  group_by(species) %&gt;% 
-  summarise(mean = mean(body_mass_g, na.rm = TRUE),
-            var  = var(body_mass_g, na.rm = TRUE)))</code></pre>
-<p>Answer:</p>
-<pre class="r"><code>(demo1a &lt;- penguins %&gt;% 
-  group_by(species) %&gt;% 
-  summarise(mean = mean(body_mass_g, na.rm = TRUE),
-            var  = var(body_mass_g, na.rm = TRUE)) %&gt;% 
-   mutate(distribution = map2(mean, var, dst_norm),
-          quantile = map_dbl(distribution, eval_quantile, at = 0.975)))</code></pre>
-<pre><code>## # A tibble: 3 × 5
-##   species    mean     var distribution quantile
-##   &lt;fct&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;list&gt;          &lt;dbl&gt;
-## 1 Adelie    3701. 210283. &lt;norm&gt;          4599.
-## 2 Chinstrap 3733. 147713. &lt;norm&gt;          4486.
-## 3 Gentoo    5076. 254133. &lt;norm&gt;          6064.</code></pre>
-<pre class="r"><code>(demo1b &lt;- penguins %&gt;% 
-  group_by(species) %&gt;% 
-  summarise(mean = mean(body_mass_g, na.rm = TRUE),
-            var  = var(body_mass_g, na.rm = TRUE)) %&gt;% 
-    mutate(quantile = map2(mean, var, dst_norm) %&gt;% 
-             map_dbl(eval_quantile, at = 0.975)))</code></pre>
-<pre><code>## # A tibble: 3 × 4
-##   species    mean     var quantile
-##   &lt;fct&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
-## 1 Adelie    3701. 210283.    4599.
-## 2 Chinstrap 3733. 147713.    4486.
-## 3 Gentoo    5076. 254133.    6064.</code></pre>
-<p>Explore distplyr more:</p>
-<pre class="r"><code>chin &lt;- demo1a$distribution[[2]]
-print(chin)</code></pre>
-<pre><code>## norm parametric dst
-## 
-##  name :
-## [1] &quot;norm&quot;</code></pre>
-<pre class="r"><code>plot(chin, &quot;density&quot;)</code></pre>
-<p><img src="/notes/notes-b03_files/figure-html/unnamed-chunk-3-1.png" width="288" /></p>
-<pre class="r"><code>eval_density(chin, at = 3000:3010)</code></pre>
-<pre><code>##  [1] 0.0001683311 0.0001691680 0.0001700079 0.0001708508 0.0001716968
-##  [6] 0.0001725458 0.0001733978 0.0001742528 0.0001751109 0.0001759720
-## [11] 0.0001768361</code></pre>
-<pre class="r"><code>eval_quantile(chin, at = c(0.25, 0.5, 0.75))</code></pre>
-<pre><code>## [1] 3473.858 3733.088 3992.318</code></pre>
-<pre class="r"><code>enframe_quantile(chin, at = c(0.25, 0.5, 0.75))</code></pre>
-<pre><code>## # A tibble: 3 × 2
-##    .arg quantile
-##   &lt;dbl&gt;    &lt;dbl&gt;
-## 1  0.25    3474.
-## 2  0.5     3733.
-## 3  0.75    3992.</code></pre>
-<pre class="r"><code>(x &lt;- c(chinstrap = 3, gentoo = 7, adelie = 5))</code></pre>
-<pre><code>## chinstrap    gentoo    adelie 
-##         3         7         5</code></pre>
-<pre class="r"><code>enframe(x)</code></pre>
-<pre><code>## # A tibble: 3 × 2
-##   name      value
-##   &lt;chr&gt;     &lt;dbl&gt;
-## 1 chinstrap     3
-## 2 gentoo        7
-## 3 adelie        5</code></pre>
 </div>
-<div id="demo-2-unnest" class="section level3">
-<h3>Demo 2: <code>unnest()</code></h3>
-<p><code>unnest()</code> need not always be paired with <code>nest()</code>. For the above distributions, evaluate the 0.25, 0.50, and 0.75 quantiles using the <code>distplyr::enframe_quantile()</code> function.</p>
-<p>Starter code:</p>
-<pre><code>demo1a %&gt;% 
-  mutate(quantile = FILL_THIS_IN)</code></pre>
-<p>Answer</p>
-<pre class="r"><code>demo1a %&gt;% 
-  mutate(quantile = map(distribution, enframe_quantile, at = c(0.25, 0.5, 0.75))) %&gt;% 
-  unnest(quantile)</code></pre>
-<pre><code>## # A tibble: 9 × 6
-##   species    mean     var distribution  .arg quantile
-##   &lt;fct&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;list&gt;       &lt;dbl&gt;    &lt;dbl&gt;
-## 1 Adelie    3701. 210283. &lt;norm&gt;        0.25    3391.
-## 2 Adelie    3701. 210283. &lt;norm&gt;        0.5     3701.
-## 3 Adelie    3701. 210283. &lt;norm&gt;        0.75    4010.
-## 4 Chinstrap 3733. 147713. &lt;norm&gt;        0.25    3474.
-## 5 Chinstrap 3733. 147713. &lt;norm&gt;        0.5     3733.
-## 6 Chinstrap 3733. 147713. &lt;norm&gt;        0.75    3992.
-## 7 Gentoo    5076. 254133. &lt;norm&gt;        0.25    4736.
-## 8 Gentoo    5076. 254133. &lt;norm&gt;        0.5     5076.
-## 9 Gentoo    5076. 254133. &lt;norm&gt;        0.75    5416.</code></pre>
-<p>Nesting the penguins tibble</p>
-<pre class="r"><code>penguins %&gt;% 
-  nest(data = body_mass_g)</code></pre>
-<pre><code>## # A tibble: 344 × 8
-##    species island    bill_length_mm bill_depth_mm flipper_length_mm sex     year
-##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt; &lt;fct&gt;  &lt;int&gt;
-##  1 Adelie  Torgersen           39.1          18.7               181 male    2007
-##  2 Adelie  Torgersen           39.5          17.4               186 female  2007
-##  3 Adelie  Torgersen           40.3          18                 195 female  2007
-##  4 Adelie  Torgersen           NA            NA                  NA &lt;NA&gt;    2007
-##  5 Adelie  Torgersen           36.7          19.3               193 female  2007
-##  6 Adelie  Torgersen           39.3          20.6               190 male    2007
-##  7 Adelie  Torgersen           38.9          17.8               181 female  2007
-##  8 Adelie  Torgersen           39.2          19.6               195 male    2007
-##  9 Adelie  Torgersen           34.1          18.1               193 &lt;NA&gt;    2007
-## 10 Adelie  Torgersen           42            20.2               190 &lt;NA&gt;    2007
-## # … with 334 more rows, and 1 more variable: data &lt;list&gt;</code></pre>
-<pre class="r"><code>penguins %&gt;% 
-  nest(data = body_mass_g) %&gt;% 
-  mutate(s = map_dbl(data, ~ sqrt(.x$body_mass_g)))</code></pre>
-<pre><code>## # A tibble: 344 × 9
-##    species island    bill_length_mm bill_depth_mm flipper_length_mm sex     year
-##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt; &lt;fct&gt;  &lt;int&gt;
-##  1 Adelie  Torgersen           39.1          18.7               181 male    2007
-##  2 Adelie  Torgersen           39.5          17.4               186 female  2007
-##  3 Adelie  Torgersen           40.3          18                 195 female  2007
-##  4 Adelie  Torgersen           NA            NA                  NA &lt;NA&gt;    2007
-##  5 Adelie  Torgersen           36.7          19.3               193 female  2007
-##  6 Adelie  Torgersen           39.3          20.6               190 male    2007
-##  7 Adelie  Torgersen           38.9          17.8               181 female  2007
-##  8 Adelie  Torgersen           39.2          19.6               195 male    2007
-##  9 Adelie  Torgersen           34.1          18.1               193 &lt;NA&gt;    2007
-## 10 Adelie  Torgersen           42            20.2               190 &lt;NA&gt;    2007
-## # … with 334 more rows, and 2 more variables: data &lt;list&gt;, s &lt;dbl&gt;</code></pre>
-<pre class="r"><code>penguins %&gt;% 
-  mutate(across(where(is.numeric), ~ sqrt(.x - 10)))</code></pre>
-<pre><code>## # A tibble: 344 × 8
-##    species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
-##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;dbl&gt;       &lt;dbl&gt;
-##  1 Adelie  Torgersen           5.39          2.95              13.1        61.2
-##  2 Adelie  Torgersen           5.43          2.72              13.3        61.6
-##  3 Adelie  Torgersen           5.50          2.83              13.6        56.9
-##  4 Adelie  Torgersen          NA            NA                 NA          NA  
-##  5 Adelie  Torgersen           5.17          3.05              13.5        58.7
-##  6 Adelie  Torgersen           5.41          3.26              13.4        60.3
-##  7 Adelie  Torgersen           5.38          2.79              13.1        60.1
-##  8 Adelie  Torgersen           5.40          3.10              13.6        68.3
-##  9 Adelie  Torgersen           4.91          2.85              13.5        58.9
-## 10 Adelie  Torgersen           5.66          3.19              13.4        65.1
-## # … with 334 more rows, and 2 more variables: sex &lt;fct&gt;, year &lt;dbl&gt;</code></pre>
 </div>
-<div id="demo-3-i-for-accessing-index" class="section level3">
-<h3>Demo 3: <code>i</code> for accessing index</h3>
-<p><em>Time permitting</em></p>
-<p>Sometimes the vector/list we’re iterating over has names, and it’s useful to use those names. To access these names, use the <code>imap</code> family.</p>
-<p>Below is a named list of tibbles. Save them to file using the appropriate purrr function, using the names as the file names.</p>
-<pre class="r"><code>data &lt;- list(mtcars   = mtcars, 
-             chickwts = chickwts, 
-             pressure = pressure)
-iwalk(data, ~ print(.y))</code></pre>
-<pre><code>## [1] &quot;mtcars&quot;
-## [1] &quot;chickwts&quot;
-## [1] &quot;pressure&quot;</code></pre>
-<pre class="r"><code>#iwalk(data, ~ write_csv(.x, glue::glue(.y, &quot;.csv&quot;)))</code></pre>
+<div id="running-r-in-the-background" class="section level3">
+<h3>Running R in the background</h3>
+<p>Sometimes you’ll write an R script that takes a long time to run. You’d like to start the execution of the code, turn off your computer, go to bed, and wake up to freshly computed output. To run <code>script.R</code> and record a log of the things you’d normally see when you run code interactively in a file called <code>log.out</code>, run this code:</p>
+<pre><code>nohup Rscript script.R &gt; log.out 2&gt;&amp;1 &amp;</code></pre>
+<p><a href="https://www.r-bloggers.com/2012/01/long-running-r-commands-unix-screen-nohup-and-r/">This R-Bloggers post</a> explains this command well, but here’s a breakdown:</p>
+<ul>
+<li><code>nohup</code> sends the code execution to the background.</li>
+<li><code>&gt; log.out 2&gt;&amp;1</code> directs output and messages to <code>log.out</code>.</li>
+<li>The final <code>&amp;</code> frees up your terminal</li>
+</ul>
+<p>Just be careful to get the directory of the files right.</p>
+<p>Alternatively, you can <a href="https://blog.rstudio.com/2019/03/14/rstudio-1-2-jobs/">use RStudio to submit a job</a>.</p>
+<div id="attribution" class="section level4">
+<h4>Attribution</h4>
+<p>Written by Vincenzo Coia, with inspiration from Tiffany Timbers for the explanation of Makefiles. Learning outcomes are from Jenny Bryan and Shaun Jackman’s iteration of this topic prior to 2017.</p>
 </div>
-<div id="demo-4-unnest_wider-and-unnest_longer" class="section level3">
-<h3>Demo 4: <code>unnest_wider()</code> and <code>unnest_longer()</code></h3>
-<p><em>Time permitting</em></p>
-<ol style="list-style-type: decimal">
-<li>Explore the <code>repurrrsive::got_chars</code> nested list. It contains information about Game of Thrones characters.</li>
-<li>Put the list in a tibble.</li>
-<li>Would widening the list column work best, or lengthening? Do it.</li>
-</ol>
-<p>Explore:</p>
-<pre class="r"><code>str(got_chars, list.len = 4)</code></pre>
-<pre><code>## List of 30
-##  $ :List of 18
-##   ..$ url        : chr &quot;https://www.anapioficeandfire.com/api/characters/1022&quot;
-##   ..$ id         : int 1022
-##   ..$ name       : chr &quot;Theon Greyjoy&quot;
-##   ..$ gender     : chr &quot;Male&quot;
-##   .. [list output truncated]
-##  $ :List of 18
-##   ..$ url        : chr &quot;https://www.anapioficeandfire.com/api/characters/1052&quot;
-##   ..$ id         : int 1052
-##   ..$ name       : chr &quot;Tyrion Lannister&quot;
-##   ..$ gender     : chr &quot;Male&quot;
-##   .. [list output truncated]
-##  $ :List of 18
-##   ..$ url        : chr &quot;https://www.anapioficeandfire.com/api/characters/1074&quot;
-##   ..$ id         : int 1074
-##   ..$ name       : chr &quot;Victarion Greyjoy&quot;
-##   ..$ gender     : chr &quot;Male&quot;
-##   .. [list output truncated]
-##  $ :List of 18
-##   ..$ url        : chr &quot;https://www.anapioficeandfire.com/api/characters/1109&quot;
-##   ..$ id         : int 1109
-##   ..$ name       : chr &quot;Will&quot;
-##   ..$ gender     : chr &quot;Male&quot;
-##   .. [list output truncated]
-##   [list output truncated]</code></pre>
-<p>Make tibble:</p>
-<pre class="r"><code>(dat &lt;- tibble(character = got_chars))</code></pre>
-<pre><code>## # A tibble: 30 × 1
-##    character        
-##    &lt;list&gt;           
-##  1 &lt;named list [18]&gt;
-##  2 &lt;named list [18]&gt;
-##  3 &lt;named list [18]&gt;
-##  4 &lt;named list [18]&gt;
-##  5 &lt;named list [18]&gt;
-##  6 &lt;named list [18]&gt;
-##  7 &lt;named list [18]&gt;
-##  8 &lt;named list [18]&gt;
-##  9 &lt;named list [18]&gt;
-## 10 &lt;named list [18]&gt;
-## # … with 20 more rows</code></pre>
-<p><code>unnest_wider()</code> is what we want, not <code>unnest_longer()</code>:</p>
-<pre class="r"><code>dat %&gt;% 
-  unnest_wider(character)</code></pre>
-<pre><code>## # A tibble: 30 × 18
-##    url        id name   gender culture born   died   alive titles aliases father
-##    &lt;chr&gt;   &lt;int&gt; &lt;chr&gt;  &lt;chr&gt;  &lt;chr&gt;   &lt;chr&gt;  &lt;chr&gt;  &lt;lgl&gt; &lt;list&gt; &lt;list&gt;  &lt;chr&gt; 
-##  1 https:…  1022 Theon… Male   &quot;Ironb… &quot;In 2… &quot;&quot;     TRUE  &lt;chr … &lt;chr [… &quot;&quot;    
-##  2 https:…  1052 Tyrio… Male   &quot;&quot;      &quot;In 2… &quot;&quot;     TRUE  &lt;chr … &lt;chr [… &quot;&quot;    
-##  3 https:…  1074 Victa… Male   &quot;Ironb… &quot;In 2… &quot;&quot;     TRUE  &lt;chr … &lt;chr [… &quot;&quot;    
-##  4 https:…  1109 Will   Male   &quot;&quot;      &quot;&quot;     &quot;In 2… FALSE &lt;chr … &lt;chr [… &quot;&quot;    
-##  5 https:…  1166 Areo … Male   &quot;Norvo… &quot;In 2… &quot;&quot;     TRUE  &lt;chr … &lt;chr [… &quot;&quot;    
-##  6 https:…  1267 Chett  Male   &quot;&quot;      &quot;At H… &quot;In 2… FALSE &lt;chr … &lt;chr [… &quot;&quot;    
-##  7 https:…  1295 Cress… Male   &quot;&quot;      &quot;In 2… &quot;In 2… FALSE &lt;chr … &lt;chr [… &quot;&quot;    
-##  8 https:…   130 Arian… Female &quot;Dorni… &quot;In 2… &quot;&quot;     TRUE  &lt;chr … &lt;chr [… &quot;&quot;    
-##  9 https:…  1303 Daene… Female &quot;Valyr… &quot;In 2… &quot;&quot;     TRUE  &lt;chr … &lt;chr [… &quot;&quot;    
-## 10 https:…  1319 Davos… Male   &quot;Weste… &quot;In 2… &quot;&quot;     TRUE  &lt;chr … &lt;chr [… &quot;&quot;    
-## # … with 20 more rows, and 7 more variables: mother &lt;chr&gt;, spouse &lt;chr&gt;,
-## #   allegiances &lt;list&gt;, books &lt;list&gt;, povBooks &lt;list&gt;, tvSeries &lt;list&gt;,
-## #   playedBy &lt;list&gt;</code></pre>
-<pre class="r"><code>dat %&gt;% 
-  unnest_longer(character)</code></pre>
-<pre><code>## # A tibble: 540 × 2
-##    character    character_id
-##    &lt;named list&gt; &lt;chr&gt;       
-##  1 &lt;chr [1]&gt;    url         
-##  2 &lt;int [1]&gt;    id          
-##  3 &lt;chr [1]&gt;    name        
-##  4 &lt;chr [1]&gt;    gender      
-##  5 &lt;chr [1]&gt;    culture     
-##  6 &lt;chr [1]&gt;    born        
-##  7 &lt;chr [1]&gt;    died        
-##  8 &lt;lgl [1]&gt;    alive       
-##  9 &lt;chr [3]&gt;    titles      
-## 10 &lt;chr [4]&gt;    aliases     
-## # … with 530 more rows</code></pre>
 </div>
 </div>
