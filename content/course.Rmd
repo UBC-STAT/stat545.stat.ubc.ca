@@ -120,5 +120,5 @@ There are four assignments, each equally weighted:
 
 - [Assignment B-1](/assignments/assignment-b1): Due __Tuesday, November 02, 2021 at 22:00 PT__.
 - [Assignment B-2](/assignments/assignment-b2): Due __Saturday, November 20, 2021 at 22:00 PT__.
-- Assignment B-3: Due __Saturday, November 27, 2021 at 22:00 PT__.
+- [Assignment B-3](/assignments/assignment-b3): Due __Saturday, November 27, 2021 at 22:00 PT__.
 - Assignment B-4: Due __Wednesday, December 08, 2021 at 22:00 PT__.
