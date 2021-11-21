@@ -5,11 +5,12 @@ output: html_document
 
 __Total Points__: 100
 
+
 This assignment covers making a function in R, documenting it, and testing it. 
 
 ## Setup
 
-1. Go to canvas to get your invitation to create a GitHub repository for this project. You can find this in the description of Assignment B-1. Name your repo as you wish -- keeping in mind that you'll be using this repo for Assignment B-2, where you'll be bundling your work from Assignment B-1 into an R package.
+1. Go to canvas to get your invitation to create a GitHub repository for this project. You can find this in the description of Assignment B-1. Name your repo as you wish -- ~~keeping in mind that you'll be using this repo for Assignment B-2, where you'll be bundling your work from Assignment B-1 into an R package.~~ 
 
 2. Make a new Rmd file containing all of your code. Be sure to use some dialogue between code chunks.
 
