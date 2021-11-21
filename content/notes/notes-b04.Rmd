@@ -52,7 +52,7 @@ Other dashboard tools besides shiny (but not in R):
 
 ## Demonstration
 
-For an elaboration of this demonstration, see [Dean Attali's tutorial](https://deanattali.com/blog/building-shiny-apps-tutorial/).
+Before we begin, know that __this resource is a bare-bones checklist__ optimized for instructional purposes, and is not designed as a step-by-step walkthrough for learning shiny. For that, you should see the more detailed [stat545.com shiny chapter](https://stat545.com/shiny-tutorial.html) or [Dean Attali's tutorial](https://deanattali.com/blog/building-shiny-apps-tutorial/) -- both are very similar. 
 
 ### Introducing shiny
 
