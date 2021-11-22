@@ -72,8 +72,8 @@ Options for working on these worksheets:
 | Worksheet | Download | View | Zip file | # required questions | Deadline |
 |-----------|----------|------|----------|----------------------|----------|
 | Worksheet B1 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_b01.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_b01.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_b01.ipynb.zip) | 10 | __Saturday, October 30, 2021 at 22:00 PT__ |
-| Worksheet B2 |  |  |  | 10 | __Saturday, November 27, 2021 at 22:00 PT__ |
-| Worksheet B3 |  |  |  | 10 | __Saturday, December 04, 2021 at 22:00 PT__ |
+| Worksheet B2 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_b02.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_b02.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_b02.ipynb.zip) | 10 | __Saturday, November 27, 2021 at 22:00 PT__ |
+| Worksheet B3 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_b03.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_b03.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_b03.ipynb.zip) | 10 | __Saturday, December 04, 2021 at 22:00 PT__ |
 
 ### Part A
 
