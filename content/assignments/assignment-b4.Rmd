@@ -34,14 +34,14 @@ Complete **2 of the following 3** exercises using concepts and tools covered in 
 
 **Setup**: Make a new repository if you're going with this option, by clicking the link provided to you on canvas. Name the repository as you wish. 
 
-### Exercise 1 (25 points)
+### Exercise 1 (37.5 points)
 
 Take a Jane Austen book contained in the `janeaustenr` package, or another book from some other source, such as one of the many freely available books from [Project Gutenberg](https://dev.gutenberg.org/) (be sure to indicate where you got the book from). Make a plot of the most common words in the book, removing "stop words" of your choosing (words like "the", "a", etc.) or stopwords from a pre-defined source, like the `stopwords` package or `tidytext::stop_words`. 
 
 If you use any resources for helping you remove stopwords, or some other resource besides the `janeaustenr` R package for accessing your book, please indicate the source. We aren't requiring any formal citation styles, just make sure you name the source and link to it. 
 
 
-### Exercise 2 (25 points)
+### Exercise 2 (37.5 points)
 
 Make a function that converts words to your own version of Pig Latin. 
 
@@ -63,7 +63,7 @@ Modify this somehow. Maybe you move letters from the end to the beginning, or yo
 
 The default Pig Latin addition rule is to add "ay" to the end of the word, after rearranging the letters of the word. You should choose some other addition rule.
 
-### Exercise 3 (25 points)
+### Exercise 3 (37.5 points)
 
 For this exercise, you'll be evaluating a model that's fit separately for each group in some dataset. You should fit these models with some question in mind.
 
@@ -93,7 +93,7 @@ For this option, you will be updating your package to a new version, or creating
 
 This time, we will be evaluating the *quality and overall design* of your R package. Whereas the previous R package assignment focused on component additions evaluated by functionality (such as components of an R package being present and functional), this time we will evaluate how well your product forms a complete whole, satisfying a clearly stated purpose with an effectively designed interface ("interface" being how a user interacts with the R package). See the rubric in the below section for details.
 
-In short, you will need to:
+In short, you will need to: 
 
 - Make more functions and tests, and update relevant documentation. 
 - Make a vignette.
