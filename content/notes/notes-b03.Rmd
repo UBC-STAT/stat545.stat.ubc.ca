@@ -51,7 +51,7 @@ Use these questions to check your understanding of the material.
 
 ### Multi-file analyses
 
-It's often not a good idea to write an analysis in a single R/Rmd script, especially if the analysis has multiple steps to it (what analysis doesn't?). Here are a few benefits:
+It's often not a good idea to write an analysis in a single R/Rmd script, especially if the analysis has multiple steps to it. Here are a few benefits:
 
 - You won't have to run upstream calculations (like data processing / cleaning) every time you run the script. Instead, write a script to process the data, and write the output to file.
 - If your analysis branches into different explorations, you'll have to run irrelevant computations each time (and those computations may be a source of error).
@@ -140,6 +140,11 @@ We'll now run through the [makefile activity](https://stat545.com/automating-pip
    words.txt:
      Rscript -e 'download.file("https://svnweb.freebsd.org/base/head/share/dict/web2?view=co", destfile = "words.txt", quiet = TRUE)'
    ```
+   Or, if this is too slow, mac users already have this file on their computer and can get it by copying the file over, like so:
+   ```
+   words.txt: /usr/share/dict/words
+     cp /usr/share/dict/words words.txt
+   ```
       - Try running `make words.txt` in the Terminal.
 4. [ ] Make a new R script that makes a table of word lengths -- [code here](https://raw.githubusercontent.com/STAT545-UBC/STAT545-UBC.github.io/master/automation10_holding-area/activity/histogram.r).
 5. [ ] Add the tsv output to the makefile:
@@ -148,12 +153,12 @@ We'll now run through the [makefile activity](https://stat545.com/automating-pip
     Rscript $<
    ```
       - Shortcuts:
-         - `$<` refers to `histogram.r`
+         - `$<` refers to `histogram.R`
          - `$@` refers to `histogram.tsv`
-      - What happens if a dependency is not present? Try deleting `histogram.R`. Try deleting `words.txt`.
-6. [ ] Create rules for `all` and `clean`:
+      - What happens if a dependency is not present? Try deleting `words.txt`.
+6. [ ] Create rules for `all` and `clean` (why don't we need `words.txt` listed for `all`?)
    ```
-   all: words.txt histogram.tsv
+   all: histogram.tsv
 
    clean:
      rm words.txt histogram.tsv
@@ -168,13 +173,13 @@ We'll now run through the [makefile activity](https://stat545.com/automating-pip
 9. [ ] Make a `report.Rmd` file -- [code here](https://raw.githubusercontent.com/STAT545-UBC/STAT545-UBC.github.io/master/automation10_holding-area/activity/report.rmd).
 10. [ ] Add a rule to make the report output:
     ```
-    report.html: report.rmd histogram.tsv histogram.png
-     Rscript -e 'rmarkdown::render("$<")'
+    report.html: report.Rmd histogram.tsv histogram.png
+      Rscript -e 'rmarkdown::render("$<")'
     ```
 
 ### Running R in the background
 
-Sometimes you'll write an R script that takes a long time to run. You'd like to start the execution of the code, turn off your computer, go to bed, and wake up to freshly computed output. To run `script.R` and record a log of the things you'd normally see when you run code interactively in a file called `log.out`, run this code:
+Sometimes you'll write an R script that takes a long time to run. You'd like to start the execution of the code, go to bed, and wake up to freshly computed output. To run `script.R` and record a log of the things you'd normally see when you run code interactively in a file called `log.out`, run this code:
 
 ```
 nohup Rscript script.R > log.out 2>&1 &
@@ -193,4 +198,4 @@ Alternatively, you can [use RStudio to submit a job](https://blog.rstudio.com/20
 
 #### Attribution
 
-Written by Vincenzo Coia, with inspiration from Tiffany Timbers for the explanation of Makefiles. Learning outcomes are from Jenny Bryan and Shaun Jackman's iteration of this topic prior to 2017.
+Written by Vincenzo Coia, with inspiration from Tiffany Timbers for the explanation of Makefiles, as well as the make activity from Shaun Jackman and Jenny Bryan created for this course prior to 2017.

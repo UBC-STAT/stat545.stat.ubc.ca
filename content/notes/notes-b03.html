@@ -54,7 +54,7 @@ output: html_document
 <h2>Demonstration</h2>
 <div id="multi-file-analyses" class="section level3">
 <h3>Multi-file analyses</h3>
-<p>It’s often not a good idea to write an analysis in a single R/Rmd script, especially if the analysis has multiple steps to it (what analysis doesn’t?). Here are a few benefits:</p>
+<p>It’s often not a good idea to write an analysis in a single R/Rmd script, especially if the analysis has multiple steps to it. Here are a few benefits:</p>
 <ul>
 <li>You won’t have to run upstream calculations (like data processing / cleaning) every time you run the script. Instead, write a script to process the data, and write the output to file.</li>
 <li>If your analysis branches into different explorations, you’ll have to run irrelevant computations each time (and those computations may be a source of error).</li>
@@ -159,6 +159,9 @@ Create a Makefile: File &gt; New File &gt; Text File. Name it <code>Makefile</co
 <li><p><input type="checkbox" disabled="" />
 Add the creation of <code>words.txt</code> to the Makefile:</p><pre><code>words.txt:
   Rscript -e &#39;download.file(&quot;https://svnweb.freebsd.org/base/head/share/dict/web2?view=co&quot;, destfile = &quot;words.txt&quot;, quiet = TRUE)&#39;</code></pre>
+<p>Or, if this is too slow, mac users already have this file on their computer and can get it by copying the file over, like so:</p>
+<pre><code>words.txt: /usr/share/dict/words
+  cp /usr/share/dict/words words.txt</code></pre>
 <ul>
 <li>Try running <code>make words.txt</code> in the Terminal.</li>
 </ul></li>
@@ -170,13 +173,13 @@ Add the tsv output to the makefile:</p><pre><code>histogram.tsv: histogram.R wor
 <ul>
 <li>Shortcuts:
 <ul>
-<li><code>$&lt;</code> refers to <code>histogram.r</code></li>
+<li><code>$&lt;</code> refers to <code>histogram.R</code></li>
 <li><code>$@</code> refers to <code>histogram.tsv</code></li>
 </ul></li>
-<li>What happens if a dependency is not present? Try deleting <code>histogram.R</code>. Try deleting <code>words.txt</code>.</li>
+<li>What happens if a dependency is not present? Try deleting <code>words.txt</code>.</li>
 </ul></li>
 <li><p><input type="checkbox" disabled="" />
-Create rules for <code>all</code> and <code>clean</code>:</p><pre><code>all: words.txt histogram.tsv
+Create rules for <code>all</code> and <code>clean</code> (why don’t we need <code>words.txt</code> listed for <code>all</code>?)</p><pre><code>all: histogram.tsv
 
 clean:
   rm words.txt histogram.tsv</code></pre>
@@ -192,13 +195,13 @@ Update: add a <code>rm Rplots.pdf</code> line to the histogram creation rule; up
 Make a <code>report.Rmd</code> file – <a href="https://raw.githubusercontent.com/STAT545-UBC/STAT545-UBC.github.io/master/automation10_holding-area/activity/report.rmd">code here</a>.</p></li>
 <li><p><input type="checkbox" disabled="" />
 Add a rule to make the report output:
-<code>report.html: report.rmd histogram.tsv histogram.png      Rscript -e 'rmarkdown::render("$&lt;")'</code></p></li>
+<code>report.html: report.Rmd histogram.tsv histogram.png       Rscript -e 'rmarkdown::render("$&lt;")'</code></p></li>
 </ol>
 </div>
 </div>
 <div id="running-r-in-the-background" class="section level3">
 <h3>Running R in the background</h3>
-<p>Sometimes you’ll write an R script that takes a long time to run. You’d like to start the execution of the code, turn off your computer, go to bed, and wake up to freshly computed output. To run <code>script.R</code> and record a log of the things you’d normally see when you run code interactively in a file called <code>log.out</code>, run this code:</p>
+<p>Sometimes you’ll write an R script that takes a long time to run. You’d like to start the execution of the code, go to bed, and wake up to freshly computed output. To run <code>script.R</code> and record a log of the things you’d normally see when you run code interactively in a file called <code>log.out</code>, run this code:</p>
 <pre><code>nohup Rscript script.R &gt; log.out 2&gt;&amp;1 &amp;</code></pre>
 <p><a href="https://www.r-bloggers.com/2012/01/long-running-r-commands-unix-screen-nohup-and-r/">This R-Bloggers post</a> explains this command well, but here’s a breakdown:</p>
 <ul>
@@ -210,7 +213,7 @@ Add a rule to make the report output:
 <p>Alternatively, you can <a href="https://blog.rstudio.com/2019/03/14/rstudio-1-2-jobs/">use RStudio to submit a job</a>.</p>
 <div id="attribution" class="section level4">
 <h4>Attribution</h4>
-<p>Written by Vincenzo Coia, with inspiration from Tiffany Timbers for the explanation of Makefiles. Learning outcomes are from Jenny Bryan and Shaun Jackman’s iteration of this topic prior to 2017.</p>
+<p>Written by Vincenzo Coia, with inspiration from Tiffany Timbers for the explanation of Makefiles, as well as the make activity from Shaun Jackman and Jenny Bryan created for this course prior to 2017.</p>
 </div>
 </div>
 </div>
