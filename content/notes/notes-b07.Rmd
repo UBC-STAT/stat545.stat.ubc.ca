@@ -1,0 +1,53 @@
+---
+title: "Blogdown"
+output: html_document
+---
+
+One great thing about having html files output from Rmd? We can use Rmd as a framework for creating websites, because websites are often just html.
+
+From this topic, students are anticipated to be able to:
+
+- Use the blogdown R package to create a template website.
+- Explore themes; particularly, hugo academic (now called wowchemy).
+- Host your website using GitHub Pages.
+
+This topic is optional, and very short. 
+
+## Demonstration
+
+1. Install blogdown.
+
+You'll first need to install blogdown with `install.packages("blogdown")`.
+
+2. Make a new project.
+
+In RStudio:
+
+_File -> New Project ... -> New Directory -> Website using blogdown:_
+
+_Under the "Hugo theme", we'll use the theme `wowchemy/starter-hugo-academic`_
+
+What's "Hugo"? What's this "theme" all about?
+
+- Hugo is the website generator. Blogdown doesn't actually make websites, Hugo does. Blogdown is just a wrapper that helps us use Hugo.
+- Hugo is theme-specific. Once you learn how to make a website using a theme, if you want to switch to another theme, you'll have to re-learn how to make the website (although some concepts are transferable).
+    - See the [documentation for Hugo Academic / Wowchemy](https://wowchemy.com/docs/)
+
+3. Check out the website.
+
+In your console, run `blogdown::serve_site()`.
+
+4. Try modifying things.
+
+- Check out the "widgets" on the homepage (see a list of widgets [on the documentation here](https://wowchemy.com/docs/getting-started/page-builder/).)
+- Modify the TOML files (which are like YAML).
+- Modify some content.
+
+
+## More Information
+
+There's a definitive [book called "blogdown: Creating Websites with R Markdown"](https://bookdown.org/yihui/blogdown/).
+
+- Use their [quick example](https://bookdown.org/yihui/blogdown/a-quick-example.html) as an alternative quick-start guide to the one we provide above -- this time using Yihui Xie's "Hugo Lithium" theme (which is simpler than wowchemy).
+
+- Use the entire book to learn more about the details of blogdown.

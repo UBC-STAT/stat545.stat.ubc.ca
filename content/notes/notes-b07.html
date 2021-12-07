@@ -1,0 +1,57 @@
+---
+title: "Blogdown"
+output: html_document
+---
+
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<p>One great thing about having html files output from Rmd? We can use Rmd as a framework for creating websites, because websites are often just html.</p>
+<p>From this topic, students are anticipated to be able to:</p>
+<ul>
+<li>Use the blogdown R package to create a template website.</li>
+<li>Explore themes; particularly, hugo academic (now called wowchemy).</li>
+<li>Host your website using GitHub Pages.</li>
+</ul>
+<p>This topic is optional, and very short.</p>
+<div id="demonstration" class="section level2">
+<h2>Demonstration</h2>
+<ol style="list-style-type: decimal">
+<li>Install blogdown.</li>
+</ol>
+<p>You’ll first need to install blogdown with <code>install.packages("blogdown")</code>.</p>
+<ol start="2" style="list-style-type: decimal">
+<li>Make a new project.</li>
+</ol>
+<p>In RStudio:</p>
+<p><em>File -&gt; New Project … -&gt; New Directory -&gt; Website using blogdown:</em></p>
+<p><em>Under the “Hugo theme”, we’ll use the theme <code>wowchemy/starter-hugo-academic</code></em></p>
+<p>What’s “Hugo”? What’s this “theme” all about?</p>
+<ul>
+<li>Hugo is the website generator. Blogdown doesn’t actually make websites, Hugo does. Blogdown is just a wrapper that helps us use Hugo.</li>
+<li>Hugo is theme-specific. Once you learn how to make a website using a theme, if you want to switch to another theme, you’ll have to re-learn how to make the website (although some concepts are transferable).
+<ul>
+<li>See the <a href="https://wowchemy.com/docs/">documentation for Hugo Academic / Wowchemy</a></li>
+</ul></li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Check out the website.</li>
+</ol>
+<p>In your console, run <code>blogdown::serve_site()</code>.</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Try modifying things.</li>
+</ol>
+<ul>
+<li>Check out the “widgets” on the homepage (see a list of widgets <a href="https://wowchemy.com/docs/getting-started/page-builder/">on the documentation here</a>.)</li>
+<li>Modify the TOML files (which are like YAML).</li>
+<li>Modify some content.</li>
+</ul>
+</div>
+<div id="more-information" class="section level2">
+<h2>More Information</h2>
+<p>There’s a definitive <a href="https://bookdown.org/yihui/blogdown/">book called “blogdown: Creating Websites with R Markdown”</a>.</p>
+<ul>
+<li><p>Use their <a href="https://bookdown.org/yihui/blogdown/a-quick-example.html">quick example</a> as an alternative quick-start guide to the one we provide above – this time using Yihui Xie’s “Hugo Lithium” theme (which is simpler than wowchemy).</p></li>
+<li><p>Use the entire book to learn more about the details of blogdown.</p></li>
+</ul>
+</div>
