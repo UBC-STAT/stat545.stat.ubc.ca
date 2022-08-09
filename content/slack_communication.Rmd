@@ -9,11 +9,11 @@ Slack is the main forum for STAT 545 for discussion between students, TAs, and t
 
 We prefer Slack for all communications but in some cases you can email us instead. Find emails on the [teaching team](https://stat545.stat.ubc.ca/#team) section.
 
-The teaching team can’t guarantee that they will be able to respond to student messages outside of typical workday hours (0900-1700 PST). So, please be mindful of a 17:00 PST cutoff on Fridays when asking assignment-related questions.
+The teaching team can’t guarantee that they will be able to respond to student messages outside of typical workday hours (0900-1700 PT). So, please be mindful of a 17:00 PT cutoff on Fridays when asking assignment-related questions.
 
 ### Use the _#general_ channel for most communications
 
-TAs, Vincenzo and other students can participate and benefit from these conversations. Examples of appropriate topics for _#general_ are described below:
+TAs, instructor, and other students can participate and benefit from these conversations. Examples of appropriate topics for _#general_ are described below:
 
 #### Clarifying concepts from lectures
 
@@ -37,7 +37,7 @@ Examples:
 
 #### Clarifying instructions in assignments and other deliverables
 
-Ping the TA or instructor if you know which person developed the instructions (`@Name-of-TA-or-instructor`).
+Ping the instructor or a TA (`@Name-of-TA-or-instructor`).
 
 Examples:
 
@@ -64,7 +64,7 @@ Examples:
 
 Post an appropriate amount of details to get the help you want. Ideally use [`reprex`](https://www.tidyverse.org/help/), but at minimum provide your code, and any error messages.
 
-### When to message a TA or Vincenzo privately
+### When to message a TA or instructor privately
 
 If you are still stuck **after** trying _#general_, then you can message a TA for more help. Instead messaging just one TA, please consider making a group chat and message all of the TAs, so that the most available TA can help.
 
@@ -78,11 +78,11 @@ If a TA feels that your message is inappropriate for a private conversation (e.g
 
 Either post an issue on your homework repo (preferred), or contact the marking TA on slack.
 
-*Only message Vincenzo if you are still unsatistified with your grade, after talking with your TA*
+*Only message instructor if you are still unsatistified with your grade, after talking with your TA*
 
-#### When you have need a deadline extension
+#### When you need a deadline extension
 
-Contact your TA if it's only for one upcoming deadline. If you need multiple deadline extensions for an extenuating circumstance, consider contacting Vincenzo
+Read the Academic Concession section of the [STAT 545A syllabus](/syllabus-545a), then email instructor with a self-declaration to hash out the details. 
 
 #### When there is conflict with another student in a group project
 
