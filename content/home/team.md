@@ -11,6 +11,6 @@ subtitle = ""
 # List user groups to display.
 #   Edit each user's `user_groups` to add them to one or more of these groups.
 user_groups = ["Instructor",
-               "Teaching Assistants",
-               "Student Experience Coordinator"]
+               "Teaching Assistants"]
+#               "Student Experience Coordinator"]
 +++

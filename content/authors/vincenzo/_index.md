@@ -40,7 +40,7 @@ email: "vincenzo.coia@gmail.com"
 # Organizational groups that you belong to (for People widget)
 #   Set this to `[]` or comment out if you are not using People widget.  
 user_groups:
-- Instructor
+# - Instructor
 ---
 
 Vincenzo is an Assistant Professor of Teaching at the University of British Columbia, Vancouver. His priority there is to develop data science initiatives through the Department of Statistics.
