@@ -8,100 +8,97 @@ knitr::opts_chunk$set(fig.width = 5, fig.height = 3,
                       fig.align = "center", error = TRUE)
 ```
 
-
 ## Learning Objectives
 
-1. Become familiar with the STAT 545 website and syllabus.
-2. Install some key software for use in the course. 
-2. Explore basic R syntax.
+1.  Become familiar with the STAT 545 website and syllabus.
+2.  Install some key software for use in the course.
+3.  Explore basic R syntax.
 
 ## Parallel Resources
 
 Today's class is a digest of the following resources:
 
-- About the course: [STAT 545 Video Series Introduction](https://www.youtube.com/watch?v=6REhJVsbbAM)
-- Installation and setup: "[Happy Git and GitHub for the useR](https://happygitwithr.com/)" by Jenny Bryan et al. (see details below)
-    - Also, [create a Personal Access Token for GitHub](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) (so that you can set up a link between your computer and GitHub later).
-- Overview of coding a data analysis: [STAT 545 Episode 1-A: Coding your Analysis for Success](https://youtu.be/91LmBj29-Sc) (also available on canvas)
-- Practice some R syntax and jupyter: Worksheet A1 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a01.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a01.ipynb))
+-   About the course: [STAT 545 Video Series Introduction](https://www.youtube.com/watch?v=6REhJVsbbAM)
+-   Installation and setup: "[Happy Git and GitHub for the useR](https://happygitwithr.com/)" by Jenny Bryan et al. (see details below)
+-   Overview of coding a data analysis: [STAT 545 Episode 1-A: Coding your Analysis for Success](https://youtu.be/91LmBj29-Sc) (also available on canvas)
+-   Practice some R syntax and jupyter: Worksheet A1 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a01.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a01.ipynb))
 
 Some additional resources that you might find useful:
 
-- [stat545.com's Intro to R](https://stat545.com/r-basics.html)
-- [Why R?](https://cfss.uchicago.edu/setup/what-is-r/)
+-   [stat545.com's Intro to R](https://stat545.com/r-basics.html)
+-   [Why R?](https://cfss.uchicago.edu/setup/what-is-r/)
 
 ## Demonstration
 
 #### Introductions
 
-- Vincenzo (instructor): [vincenzocoia.com](https://vincenzocoia.com/)
-- TA's: Yulia, Icíar, Albina, Asfar.
-- New this year: student experience coordinator, Tian Liu.
+-   Lucy (instructor): [lucylgao.com](https://lucylgao.com)
+-   TA's: Andrew, Asfar, Erick.
 
 #### Course Platforms
 
 Platforms for hosting course-related content:
 
-1. Slack
-    - Especially `#announcements` channel
-    - Here's a [photo of what it looks like](https://cdn.vox-cdn.com/thumbor/ljup85YXH0uSunvONPrkkys_1po=/0x0:1980x1320/1820x1213/filters:focal(832x502:1148x818):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/66517684/slacknewdesign.0.jpg) (from Vox) 
-    
-2. Website (https://stat545.stat.ubc.ca/) -- view this as your "launchpad". 
+1.  Slack
 
-3. A GitHub Organization for you to submit homework to.
+    -   Especially `#announcements` channel
+    -   Here's a [photo of what it looks like](https://cdn.vox-cdn.com/thumbor/ljup85YXH0uSunvONPrkkys_1po=/0x0:1980x1320/1820x1213/filters:focal(832x502:1148x818):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/66517684/slacknewdesign.0.jpg) (from Vox)
 
-4. Canvas??? (perhaps for grade management; want to minimize the number of platforms used by the course)
+2.  Website (<https://stat545.stat.ubc.ca/>) -- view this as your "launchpad".
+
+3.  A GitHub Organization for you to submit homework and projects to.
+
+4.  Canvas (for grade management and worksheet submission)
 
 #### Syllabus
 
-- Lecture topics
-- Deliverables
-- Covid
+-   Lecture topics
+-   Deliverables
 
 #### Installation
 
-You'll need to install some things and get set up. Most things can be found in Jenny's "happy git" book. Let's take some class time to struggle through this together. Need extra help? We will have an office hour on Friday, 3-4. 
+You'll need to install some things and get set up. Most things can be found in Jenny's "happy git" book. Let's take some extra class time to struggle through this together. Need extra help? Come to office hours this week.
 
-- Register a github account at github.com. See [Chapter 4](https://happygitwithr.com/github-acct.html).
-- Install or upgrade R and RStudio. See [Chapter 5](https://happygitwithr.com/install-r-rstudio.html).
-- Install git. [Chapter 6](https://happygitwithr.com/install-git.html).
-- Configure git. See [Chapter 7: Introduce yourself to git](https://happygitwithr.com/hello-git.html).
-- Install jupyterlab + IRkernel. See [Rich Pauloo's instructions](https://richpauloo.github.io/2018-05-16-Installing-the-R-kernel-in-Jupyter-Lab/), which seem to be pretty good (let us know if you find something better).
+-   Register a github account at github.com. See [Chapter 4](https://happygitwithr.com/github-acct.html).
+-   Install or upgrade R and RStudio. See [Chapter 5](https://happygitwithr.com/install-r-rstudio.html).
+-   Install git. [Chapter 6](https://happygitwithr.com/install-git.html).
+-   Configure git. See [Chapter 7: Introduce yourself to git](https://happygitwithr.com/hello-git.html).
+-   Install jupyterlab + IRkernel. See [Rich Pauloo's instructions](https://richpauloo.github.io/2018-05-16-Installing-the-R-kernel-in-Jupyter-Lab/), which seem to be pretty good (let us know if you find something better).
 
-#### Time permitting: Working with R syntax; working with jupyter
+#### Time permitting: Working with jupyter; working with R syntax.
 
-Worksheet A1 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a01.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a01.ipynb)) covers some R basics. Let's go through some of it. _It's completion is not required for the course, but future worksheets will be required_.
+Worksheet A1 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a01.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a01.ipynb)) is an \*autograded!) worksheet covering some R basics. Let's go through some of it. *It's completion is not required for the course, but future worksheets will be required*.
 
 #### What to do when you are stuck
 
-Help yourself or, __maybe__, ~~drag others into your hell~~ ask for help. The links below contain excellent self-help advice.
+Help yourself or, **maybe**, ~~drag others into your hell~~ ask for help. The links below contain excellent self-help advice.
 
 While you are getting started, I recommend you seek help within the STAT545 community first (try [Slack](https://stat545ubc.slack.com/)), before, e.g. posting to external forums. We are more cuddly.
 
 Here are some good resources to get your head in the right place.
 
-  * [Google is your friend](http://xkcd.com/627/). Google is your friend. Google is your friend.
-  
-    - E.g. copy the error message, maybe strip out anything highly specific, such the name of your R objects, surround with quotes and Google it!
+-   [Google is your friend](http://xkcd.com/627/). Google is your friend. Google is your friend.
 
-  * This stackoverflow thread [How to make a great R reproducible example?](http://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example/5963610#5963610) is fantastic. I find that, in the process of preparing my great reproducible example, I [answer my own question](http://htmlpreview.github.io/?https://gist.githubusercontent.com/jennybc/58466fd018823302f398/raw/4c7059558e1525b482f1ee794a5828ca8999bf98/2014-07-25_wrapper-graphics-dev-open-close.html) 90% of the time. YMMV. So it is a useful exercise even if you aren't ready to call in the experts yet. The process of stripping your problem down to its bare essence often reveals where the root issue lies. __Highly recommended!__
-  
-  * Search [stackoverflow](http://stackoverflow.com) and include the `[r]` tag. Or the `[ggplot2]` tag. Or the `[plyr]` tag. You get the idea.
+    -   E.g. copy the error message, maybe strip out anything highly specific, such the name of your R objects, surround with quotes and Google it!
 
-  * Check out [The R Inferno](http://www.burns-stat.com/documents/books/the-r-inferno/) (see the 9th circle: "Unhelpfully seeking help").
-  
-  > If someone has the wit and knowledge to answer your question, they probably have other things they would like to do. Making your message clear, concise and user-friendly gives you the best hope of at least one of those strangers diverting their attention away from their life towards your problem.
-  
-  * Read [How To Ask Questions The Smart Way](http://www.catb.org/~esr/faqs/smart-questions.html) by Eric Raymond and Rick Moen. You'll need a slightly thick skin, but they speak truth.
-  
-  > ... demonstrate the kind of attitude that leads to competence: alert, thoughtful, observant, willing to be an active partner in developing a solution
-  
-  * Read the [R-help posting guide](http://www.r-project.org/posting-guide.html). *But don't rush to post any questions there!*
+-   This stackoverflow thread [How to make a great R reproducible example?](http://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example/5963610#5963610) is fantastic. I find that, in the process of preparing my great reproducible example, I [answer my own question](http://htmlpreview.github.io/?https://gist.githubusercontent.com/jennybc/58466fd018823302f398/raw/4c7059558e1525b482f1ee794a5828ca8999bf98/2014-07-25_wrapper-graphics-dev-open-close.html) 90% of the time. YMMV. So it is a useful exercise even if you aren't ready to call in the experts yet. The process of stripping your problem down to its bare essence often reveals where the root issue lies. **Highly recommended!**
 
-  * More links via [How to Ask Questions](https://github.com/ireapps/scraping-class/blob/master/notes/how-to-ask-questions.md) from a web-scraping class
-  
-    - [How to Ask for Programming Help](http://codingkilledthecat.wordpress.com/2012/06/26/how-to-ask-for-programming-help/)
-    - [Stack Exchange's 'How to ask'](https://codereview.stackexchange.com/help/how-to-ask)
-    - [Matt Gemmell's 'What have you tried?'](http://mattgemmell.com/what-have-you-tried/)
+-   Search [stackoverflow](http://stackoverflow.com) and include the `[r]` tag. Or the `[ggplot2]` tag. Or the `[plyr]` tag. You get the idea.
 
-_(Thanks to Jenny Bryan and her team for writing the majority of this)_
+-   Check out [The R Inferno](http://www.burns-stat.com/documents/books/the-r-inferno/) (see the 9th circle: "Unhelpfully seeking help").
+
+> If someone has the wit and knowledge to answer your question, they probably have other things they would like to do. Making your message clear, concise and user-friendly gives you the best hope of at least one of those strangers diverting their attention away from their life towards your problem.
+
+-   Read [How To Ask Questions The Smart Way](http://www.catb.org/~esr/faqs/smart-questions.html) by Eric Raymond and Rick Moen. You'll need a slightly thick skin, but they speak truth.
+
+> ... demonstrate the kind of attitude that leads to competence: alert, thoughtful, observant, willing to be an active partner in developing a solution
+
+-   Read the [R-help posting guide](http://www.r-project.org/posting-guide.html). *But don't rush to post any questions there!*
+
+-   More links via [How to Ask Questions](https://github.com/ireapps/scraping-class/blob/master/notes/how-to-ask-questions.md) from a web-scraping class
+
+    -   [How to Ask for Programming Help](http://codingkilledthecat.wordpress.com/2012/06/26/how-to-ask-for-programming-help/)
+    -   [Stack Exchange's 'How to ask'](https://codereview.stackexchange.com/help/how-to-ask)
+    -   [Matt Gemmell's 'What have you tried?'](http://mattgemmell.com/what-have-you-tried/)
+
+*(Thanks to Jenny Bryan and her team for writing the majority of this)*

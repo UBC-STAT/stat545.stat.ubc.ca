@@ -9,16 +9,15 @@ knitr::opts_chunk$set(fig.width = 5, fig.height = 3,
                       fig.align = "center", error = TRUE)
 ```
 
-
 ## Learning Objectives
 
 From today's topic, students are anticipated to be able to:
 
-- use git on their own computer (locally).
-- connect between a local git repository and that repository on GitHub, using RStudio.
-- make commits in git using RStudio.
-- make a branch in git using RStudio or GitHub.
-- use collaborative GitHub features such as Issues and pull requests.
+-   use git on their own computer (locally).
+-   connect between a local git repository and that repository on GitHub, using RStudio.
+-   make commits in git using RStudio.
+-   make a branch in git using RStudio or GitHub.
+-   use collaborative GitHub features such as Issues and pull requests.
 
 ## Resources
 
@@ -26,53 +25,60 @@ Today's class is a digest of the following resources:
 
 Video lectures:
 
-- [STAT 545 Episode 2-A: Git and GitHub for an Organized Project](https://youtu.be/l2ftm-YwJs8) (a copy is also available on Canvas)
-- [Zoom recording from this class is on canvas](https://canvas.ubc.ca/courses/80816/external_tools/187).
+-   [STAT 545 Episode 2-A: Git and GitHub for an Organized Project](https://youtu.be/l2ftm-YwJs8)
 
 Tutorials:
 
-- The basic version control workflow (without branching): [Happy git w R: Chapter 20](https://happygitwithr.com/git-basics.html).
-- Syncing files on your computer with GitHub:
-    - Starting with GitHub: [Chapter 15: New project, GitHub first](https://happygitwithr.com/new-github-first.html)
-    - Starting with files on your computer, and didn't set up git: [Chapter 16: Existing project, GitHub first](https://happygitwithr.com/existing-github-first.html)
-    - Starting with files on your computer, and _did_ set up git: [Chapter 17: Existing project, GitHub Last](https://happygitwithr.com/existing-github-last.html)
+-   The basic version control workflow (without branching): [Happy git w R: Chapter 20](https://happygitwithr.com/git-basics.html).
+
+-   Syncing files on your computer with GitHub:
+
+    -   Starting with GitHub: [Chapter 15: New project, GitHub first](https://happygitwithr.com/new-github-first.html)
+    -   Starting with files on your computer, and didn't set up git: [Chapter 16: Existing project, GitHub first](https://happygitwithr.com/existing-github-first.html)
+    -   Starting with files on your computer, and *did* set up git: [Chapter 17: Existing project, GitHub Last](https://happygitwithr.com/existing-github-last.html)
 
 Some additional resources that you might find useful:
 
-- Read the [Understanding the GitHub flow](https://guides.github.com/introduction/flow/) to get a sense of branching.
+-   Read the [Understanding the GitHub flow](https://guides.github.com/introduction/flow/) to get a sense of branching.
 
 ## Test Your Understanding
 
-1. You've just successfully pushed your branch to GitHub! True or False: it's still possible for the branch on GitHub to contain work that's not on your computer.
-2. You're ready to push some code you added to `code.R` to GitHub, but just found out that your teammate completely changed `code.R` on GitHub! True or False: If you pull the repository from GitHub, you'll get an error because your `code.R` conflicts with GitHub's `code.R`. 
-3. True or False: If you've just changed a file on your computer, in order to push it to GitHub, you'll first need to commit the file. 
+1.  You've just successfully pushed your branch to GitHub! True or False: it's still possible for the branch on GitHub to contain work that's not on your computer.
+2.  You're ready to push some code you added to `code.R` to GitHub, but just found out that your teammate completely changed `code.R` on GitHub! True or False: If you pull the repository from GitHub, you'll get an error because your `code.R` conflicts with GitHub's `code.R`.
+3.  True or False: If you've just changed a file on your computer, in order to push it to GitHub, you'll first need to commit the file.
 
 ## Demonstration
 
-Here's what we'll aim to accomplish in class. 
+Here's what we'll aim to accomplish in class.
 
 ### Get Acquainted with GitHub
 
-- Orgs vs. personal account: explore these two.
-- Issues: check out course topics Issue in STAT 545 repo.
-  - Watching repo
-- Working on GitHub: Change the README on a GitHub repo
+-   Orgs vs. personal account: explore these two.
+
+-   Issues: check out course topics Issue in STAT 545 repo.
+
+    -   Watching repo
+
+-   Working on GitHub: Change the README on a GitHub repo
 
 ### Linear Synchronizing: Working between GitHub and Local; Merge Conflicts
 
-- clone stat 545 repo
-- make a local change -> commit, push, check GitHub.
-- make a GitHub change, then a local NON CONFLICTING change -> sync.
-- make a GitHub change, then a local CONFLICTING change -> sync.
+-   clone stat 545 repo
+-   make a local change -> commit, push, check GitHub.
+-   make a GitHub change, then a local NON CONFLICTING change -> sync.
+-   make a GitHub change, then a local CONFLICTING change -> sync.
 
 ### Branching and PR
 
 Let's organize our participation repo in a branch.
 
-- Make a branch.
-  - GitHub first, local second
-  - Local first, GitHub second
-- Add a new file on the branch.
-- Switch branches to see file appear and disappear.
-- submit and merge a PR.
+-   Make a branch.
 
+    -   GitHub first, local second
+    -   Local first, GitHub second
+
+-   Add a new file on the branch.
+
+-   Switch branches to see file appear and disappear.
+
+-   submit and merge a PR.

@@ -42,8 +42,8 @@ output: html_document
 <p>Note that many cheat sheets can be found from RStudio: go to <code>Help</code> -&gt; <code>Cheatsheets</code>.</p>
 <p>Others:</p>
 <ul>
-<li>Jenny Bryan’s <a href="https://happygitwithr.com/rmd-test-drive.html#rmd-troubleshooting">troubleshooting</a> for R Markdown page in Happy Git that guides you through common fixes.</li>
-<li><a href="https://medium.com/@ayman/wysiwyg-is-dead-d225276ed53">WYSIWYG is dead</a>
+<li><p>Jenny Bryan’s <a href="https://happygitwithr.com/rmd-test-drive.html#rmd-troubleshooting">troubleshooting</a> for R Markdown page in Happy Git that guides you through common fixes.</p></li>
+<li><p><a href="https://medium.com/@ayman/wysiwyg-is-dead-d225276ed53">WYSIWYG is dead</a></p>
 <ul>
 <li>An entertaining and concise argument against using “WYSIWYG” editors like Microsoft Word.</li>
 </ul></li>
@@ -141,10 +141,20 @@ install.packages(&#39;DT&#39;)</code></pre></li>
 <p>Agenda:</p>
 <ol style="list-style-type: decimal">
 <li><p>Getting setup with a GitHub Personal Access Token (PAT) (so that you can sync GitHub with files on your computer):</p>
-<ol style="list-style-type: decimal">
-<li>Create a PAT: follow the instructions on [GitHub’s tutorial]. <strong>Be sure to copy your token!</strong></li>
-<li>In an R console, execute <code>credentials::set_github_pat()</code> (you may have to install the credentials package by first running <code>install.packages("credentials")</code>). Enter your PAT that you just made. That should be it!</li>
-</ol></li>
+<ul>
+<li><p>Quick start:</p>
+<ul>
+<li><p><u>Step 1:</u> Create a PAT</p>
+<ul>
+<li><p>Option 1: Go to to <a href="https://github.com/settings/tokens" class="uri">https://github.com/settings/tokens</a> and click “Generate token”.</p></li>
+<li><p>Option 2: From R, execute <code>usethis::create_github_token()</code> (you may have to install the usethis package first by first running <code>install.packages("usethis")</code>).</p></li>
+</ul>
+<p><strong>BE SURE TO COPY YOUR TOKEN!</strong></p></li>
+<li><p><u>Step 2:</u> From R, execute <code>gitcreds::gitcreds_set()</code> and enter the PAT that you just made when prompted. That should be it!</p></li>
+<li><p><u>Step 3 (recommended)</u>: Also save the PAT that you just made somewhere secure, like a password manager.</p></li>
+</ul></li>
+<li><p>More detailed instructions and troubleshooting: <a href="https://happygitwithr.com/https-pat.html">HappyGit</a></p></li>
+</ul></li>
 <li><p>Overview of collaborative project.</p></li>
 <li><p>Demonstrate making the group repository.</p></li>
 <li><p>Work period: contact your group and set up your repository. (~10 minutes).</p>
