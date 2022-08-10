@@ -40,4 +40,6 @@ user_groups:
 - Instructor
 ---
 
-Lucy is an Assistant Professor at the University of British Columbia, Vancouver. 
+Lucy is an Assistant Professor at the University of British Columbia, Vancouver. Prior to joining UBC, she was an Assistant Professor at the University of Waterloo. 
+
+In her research, she develops statistical methods/theory in the areas of statistical machine learning and the design of experiments. Her application area tends to be in the biomedical sciences, with a special emphasis on genomics. 
