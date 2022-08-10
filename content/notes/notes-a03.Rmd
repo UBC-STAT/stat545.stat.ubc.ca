@@ -32,7 +32,7 @@ Some additional resources that you might find useful:
 
 Simple cheat sheets:
 
--   [Simple markdown cheat sheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
+-   [Simple markdown cheat sheet](https://enterprise.github.com/downloads/en/markdown-cheatsheet.pdf)
 -   [YAML headers options](https://bookdown.org/yihui/rmarkdown/html-document.html)
 
 Fully loaded cheat sheets:
