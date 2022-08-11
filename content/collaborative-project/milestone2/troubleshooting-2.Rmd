@@ -38,12 +38,11 @@ dim(movieLens)
 
 Now that we've had a quick look at the dataset, it would be interesting to explore the rows (observations) in some more detail. I'd like to consider the movie entries that...
 
--   belong to the genre *"Drama"*;
--   don't belong to the genre *"Drama"* (i.e. we would exclude an entry belonging to "Drama" but keep an entry belonging to *"Drama\|Sci-Fi"*);
+-   belong *exclusively* to the genre *"Drama"*;
+-   don't belong *exclusively* to the genre *"Drama"*;
 -   were filmed *after* the year 2000;
 -   were filmed in 1999 *or* 2000;
--   correspond to the movie *"Little Women"*;
--   have *more than* 4.5 stars, and were released *before* 1995.
+-   have *more than* 4.5 stars, and were filmed *before* 1995.
 
 ```{r}
 ### ERROR HERE ###
@@ -51,7 +50,6 @@ filter(movieLens, genres == "Drama")
 filter(movieLens, !genres == "Drama")
 filter(movieLens, year >= 2000)
 filter(movieLens, year == 1999 | month == 2000)
-filter(movieLens, title %in% "Little Women")
 filter(movieLens, rating > 4.5, year < 1995)
 ```
 
@@ -169,18 +167,18 @@ Manually create a tibble with 4 columns:
 ```{r}
 ### ERROR HERE ###
 fakeStarWars <- tribble(
-  ~name,            ~birth_year,  ~birth_weight, ~location
-  "Luke Skywalker",  1.35      ,   1998        ,  Liverpool, England,
-  "C-3PO"         ,  1.80      ,   1999        ,  Liverpool, England,
-  "R2-D2"         ,  2.25      ,   2000        ,  Seattle, WA,
-  "Darth Vader"   ,  2,70      ,   2001        ,  Liverpool, England,
-  "Leia Organa"   ,  3.15      ,   2002        ,  New York, NY,
-  "Owen Lars"     ,  3.60      ,   2003        ,  Seattle, WA,
-  "Beru Whitesun Iars", 4.05   ,   2004        ,  Liverpool, England,
-  "R5-D4"         ,  4.50      ,   2005        ,  New York, NY
+  ~name,            ~birth_weight,  ~birth_year, ~birth_location
+  "Luke Skywalker",  1.35      ,   1998        ,  "Liverpool, England",
+  "C-3PO"         ,  1.80      ,   1999        ,  "Liverpool, England",
+  "R2-D2"         ,  2.25      ,   2000        ,  "Seattle, WA",
+  "Darth Vader"   ,  2.70      ,   2001        ,  "Liverpool, England",
+  "Leia Organa"   ,  3.15      ,   2002        ,  New "York, NY",
+  "Owen Lars"     ,  3.60      ,   2003        ,  "Seattle, WA",
+  "Beru Whitesun Iars", 4.05   ,   2004        ,  "Liverpool, England",
+  "R5-D4"         ,  4.50      ,   2005        ,  New "York, NY"
 )
 ```
 
 ## Attributions
 
-Thanks to Icíar Fernández-Boyano for writing most of this document, and Diana Lin and Vincenzo Coia for their edits.
+Thanks to Icíar Fernández-Boyano for writing most of this document, and Albina Gibadullina, Diana Lin Yulia Egorova, and Vincenzo Coia for their edits.

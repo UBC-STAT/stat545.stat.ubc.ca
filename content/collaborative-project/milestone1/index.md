@@ -1,3 +1,7 @@
+---
+---
+---
+
 # STAT 545A Collaborative Project: Milestone 1
 
 **Deadline**: Saturday, September 24, 2022 at 18:00 PT.

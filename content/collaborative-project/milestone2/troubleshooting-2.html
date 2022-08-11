@@ -14,8 +14,6 @@ output: github_document
 <pre class="r"><code>### ERROR HERE ###
 load.packages(dslabs)</code></pre>
 <pre><code>## Error in load.packages(dslabs): could not find function &quot;load.packages&quot;</code></pre>
-<pre class="r"><code>load.packages(singer)</code></pre>
-<pre><code>## Error in load.packages(singer): could not find function &quot;load.packages&quot;</code></pre>
 <pre class="r"><code>load.packages(tidyverse)</code></pre>
 <pre><code>## Error in load.packages(tidyverse): could not find function &quot;load.packages&quot;</code></pre>
 <pre class="r"><code>load.packages(stringr)</code></pre>
@@ -37,12 +35,11 @@ class(dslabs::movielens)</code></pre>
 <pre><code>## Error in eval(expr, envir, enclos): object &#39;movieLens&#39; not found</code></pre>
 <p>Now that we’ve had a quick look at the dataset, it would be interesting to explore the rows (observations) in some more detail. I’d like to consider the movie entries that…</p>
 <ul>
-<li>belong to the genre <em>“Drama”</em>;</li>
-<li>don’t belong to the genre <em>“Drama”</em>;</li>
+<li>belong <em>exclusively</em> to the genre <em>“Drama”</em>;</li>
+<li>don’t belong <em>exclusively</em> to the genre <em>“Drama”</em>;</li>
 <li>were filmed <em>after</em> the year 2000;</li>
 <li>were filmed in 1999 <em>or</em> 2000;</li>
-<li>correspond to the movie <em>“Little Women”</em>;</li>
-<li>have <em>more than</em> 4.5 stars, and were released <em>before</em> 1995.</li>
+<li>have <em>more than</em> 4.5 stars, and were filmed <em>before</em> 1995.</li>
 </ul>
 <pre class="r"><code>### ERROR HERE ###
 filter(movieLens, genres == &quot;Drama&quot;)</code></pre>
@@ -52,8 +49,6 @@ filter(movieLens, genres == &quot;Drama&quot;)</code></pre>
 <pre class="r"><code>filter(movieLens, year &gt;= 2000)</code></pre>
 <pre><code>## Error in as.ts(x): object &#39;movieLens&#39; not found</code></pre>
 <pre class="r"><code>filter(movieLens, year == 1999 | month == 2000)</code></pre>
-<pre><code>## Error in as.ts(x): object &#39;movieLens&#39; not found</code></pre>
-<pre class="r"><code>filter(movieLens, title %in% &quot;Little Women&quot;)</code></pre>
 <pre><code>## Error in as.ts(x): object &#39;movieLens&#39; not found</code></pre>
 <pre class="r"><code>filter(movieLens, rating &gt; 4.5, year &lt; 1995)</code></pre>
 <pre><code>## Error in match.arg(method): object &#39;year&#39; not found</code></pre>
@@ -120,13 +115,13 @@ movieLens %&gt;%
 <p>We can find the mean for all columns that are numeric:</p>
 <pre class="r"><code>starWars %&gt;%
   drop_na() %&gt;%
-  summarise(across(where(is.numeric), mean))</code></pre>
+  summarise(across(where(is.numeric), function(x) mean(x, na.rm=TRUE)))</code></pre>
 <pre><code>## Error in starWars %&gt;% drop_na() %&gt;% summarise(across(where(is.numeric), : could not find function &quot;%&gt;%&quot;</code></pre>
-<p>We can find the minimum height and weight within each species:</p>
+<p>We can find the minimum height and mass within each species:</p>
 <pre class="r"><code>### ERROR HERE ###
 starWars %&gt;%
   group_by(species) %&gt;%
-  summarise(across(&quot;height&quot;, &quot;weight&quot;, min)) %&gt;%
+  summarise(across(&quot;height&quot;, &quot;mass&quot;, min)) %&gt;%
   drop_na()</code></pre>
 <pre><code>## Error in starWars %&gt;% group_by(species) %&gt;% summarise(across(&quot;height&quot;, : could not find function &quot;%&gt;%&quot;</code></pre>
 </div>
@@ -135,27 +130,27 @@ starWars %&gt;%
 <p>Manually create a tibble with 4 columns:</p>
 <ul>
 <li><code>birth_year</code> should contain years 1998 to 2005 (inclusive);</li>
-<li><code>birth_weight</code> should take the <code>year</code> column, subtract 1995, and multiply by 0.45;</li>
+<li><code>birth_weight</code> should take the <code>birth_year</code> column, subtract 1995, and multiply by 0.45;</li>
 <li><code>birth_location</code> should contain 8 locations.</li>
 </ul>
 <pre class="r"><code>### ERROR HERE ###
 fakeStarWars &lt;- tribble(
-  ~name,            ~birth_year,  ~birth_weight, ~location
-  &quot;Luke Skywalker&quot;,  1.35      ,   1998        ,  Liverpool, England,
-  &quot;C-3PO&quot;         ,  1.80      ,   1999        ,  Liverpool, England,
-  &quot;R2-D2&quot;         ,  2.25      ,   2000        ,  Seattle, WA,
-  &quot;Darth Vader&quot;   ,  2,70      ,   2001        ,  Liverpool, England,
-  &quot;Leia Organa&quot;   ,  3.15      ,   2002        ,  New York, NY,
-  &quot;Owen Lars&quot;     ,  3.60      ,   2003        ,  Seattle, WA,
-  &quot;Beru Whitesun Iars&quot;, 4.05   ,   2004        ,  Liverpool, England,
-  &quot;R5-D4&quot;         ,  4.50      ,   2005        ,  New York, NY
+  ~name,            ~birth_weight,  ~birth_year, ~birth_location
+  &quot;Luke Skywalker&quot;,  1.35      ,   1998        ,  &quot;Liverpool, England&quot;,
+  &quot;C-3PO&quot;         ,  1.80      ,   1999        ,  &quot;Liverpool, England&quot;,
+  &quot;R2-D2&quot;         ,  2.25      ,   2000        ,  &quot;Seattle, WA&quot;,
+  &quot;Darth Vader&quot;   ,  2.70      ,   2001        ,  &quot;Liverpool, England&quot;,
+  &quot;Leia Organa&quot;   ,  3.15      ,   2002        ,  New &quot;York, NY&quot;,
+  &quot;Owen Lars&quot;     ,  3.60      ,   2003        ,  &quot;Seattle, WA&quot;,
+  &quot;Beru Whitesun Iars&quot;, 4.05   ,   2004        ,  &quot;Liverpool, England&quot;,
+  &quot;R5-D4&quot;         ,  4.50      ,   2005        ,  New &quot;York, NY&quot;
 )</code></pre>
 <pre><code>## Error: &lt;text&gt;:4:3: unexpected string constant
-## 3:   ~name,            ~birth_year,  ~birth_weight, ~location
+## 3:   ~name,            ~birth_weight,  ~birth_year, ~birth_location
 ## 4:   &quot;Luke Skywalker&quot;
 ##      ^</code></pre>
 </div>
 <div id="attributions" class="section level2">
 <h2>Attributions</h2>
-<p>Thanks to Icíar Fernández-Boyano for writing most of this document, and Diana Lin and Vincenzo Coia for their edits.</p>
+<p>Thanks to Icíar Fernández-Boyano for writing most of this document, and Albina Gibadullina, Diana Lin Yulia Egorova, and Vincenzo Coia for their edits.</p>
 </div>
