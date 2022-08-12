@@ -1,6 +1,6 @@
 # STAT 545A Collaborative Project: Milestone 2
 
-**Deadline**: Saturday, October 1, 2022 at 18:00 PT
+**Deadline**: Friday, September 30, 2022 at 17:00 PT
 
 **Points**: 100
 
