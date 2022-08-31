@@ -3,7 +3,9 @@ title: "STAT 545A Troubleshooting Exercise for Milestone 1"
 output: github_document
 ---
 
-There are **3 code chunks with errors** in this Rmd. Your objective is to fix all of the errors in this worksheet. For the purpose of grading, each erroneous code chunk is equally weighted. 
+There are **3 code chunks with errors** in this Rmd. Your objective is to fix all of the errors in this worksheet. Make sure to indicate what lines you changed and why (by commenting \# in the code).
+
+For the purpose of grading, each erroneous code chunk is equally weighted.
 
 ## Welcome to R and Rmd!
 
@@ -16,7 +18,7 @@ First, let's store the current date as a variable. We can use the function `Sys.
 _today_ <- Sys.Date()
 ```
 
-You may notice that, although an error might appear in these cells, this Rmd file knits just fine. That's because the `error = TRUE` _chunk option_ is included in each chunk, allowing the Rmd file to knit, even when an error is encountered.
+You may notice that, although an error might appear in these cells, this Rmd file knits just fine. That's because the `error = TRUE` *chunk option* is included in each chunk, allowing the Rmd file to knit, even when an error is encountered.
 
 Now, let's load the `tidyverse` (meta-) package:
 

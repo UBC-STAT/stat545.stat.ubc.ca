@@ -1,6 +1,6 @@
 ---
 title: "Lecture Notes: Authoring and Reproducibility"
-subtitle: "Version 1.0.0"
+subtitle: "Version 1.0.1"
 output: html_document
 ---
 
@@ -9,54 +9,52 @@ knitr::opts_chunk$set(fig.width = 5, fig.height = 3,
                       fig.align = "center", error = TRUE)
 ```
 
-
 ## Learning Objectives
 
 From today's class, students are anticipated to be able to:
 
-- Use basic markdown features.
-- Write documents in markdown on GitHub and RStudio.
-- Choose whether html or pdf is an appropriate output.
-- Style an Rmd document by editing the YAML header.
-- Demonstrate at least two Rmd code chunk options.
-- Render your finalized document to HTML & PDF.
+-   Use basic markdown features.
+-   Write documents in markdown on GitHub and RStudio.
+-   Choose whether html or pdf is an appropriate output.
+-   Style an Rmd document by editing the YAML header.
+-   Demonstrate at least two Rmd code chunk options.
+-   Render your finalized document to HTML & PDF.
 
 ## Resources
 
 High-level video lecture for today:
 
-- [STAT 545 Episode 3-A: Reproducible Reports with R Markdown](https://youtu.be/ZzDSkBgt9xQ)
+-   [STAT 545 Episode 3-A: Reproducible Reports with R Markdown](https://youtu.be/ZzDSkBgt9xQ)
 
 Some additional resources that you might find useful:
 
-- The [Official R Markdown Tutorial](https://rmarkdown.rstudio.com/lesson-1.html) from the "Introduction" up to and including the "Inline Code" section.
+-   The [Official R Markdown Tutorial](https://rmarkdown.rstudio.com/lesson-1.html) from the "Introduction" up to and including the "Inline Code" section.
 
 Simple cheat sheets:
 
-- [Simple markdown cheat sheet](https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf)
-- [YAML headers options](https://bookdown.org/yihui/rmarkdown/html-document.html)
+-   [Simple markdown cheat sheet](https://enterprise.github.com/downloads/en/markdown-cheatsheet.pdf)
+-   [YAML headers options](https://bookdown.org/yihui/rmarkdown/html-document.html)
 
 Fully loaded cheat sheets:
 
-- [R Markdown cheat sheet](https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
-- [R Markdown reference guide](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.177968037.1059384083.1597196687-1784159993.1567907747)
+-   [R Markdown cheat sheet](https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
+-   [R Markdown reference guide](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.177968037.1059384083.1597196687-1784159993.1567907747)
 
 Note that many cheat sheets can be found from RStudio: go to `Help` -> `Cheatsheets`.
 
 Others:
 
-- Jenny Bryan's [troubleshooting](https://happygitwithr.com/rmd-test-drive.html#rmd-troubleshooting) for R Markdown page in Happy Git that guides you through common fixes.
-- [WYSIWYG is dead](https://medium.com/@ayman/wysiwyg-is-dead-d225276ed53)
-    - An entertaining and concise argument against using "WYSIWYG" editors like Microsoft Word.
+-   Jenny Bryan's [troubleshooting](https://happygitwithr.com/rmd-test-drive.html#rmd-troubleshooting) for R Markdown page in Happy Git that guides you through common fixes.
 
+-   [WYSIWYG is dead](https://medium.com/@ayman/wysiwyg-is-dead-d225276ed53)
 
+    -   An entertaining and concise argument against using "WYSIWYG" editors like Microsoft Word.
 
 ## Test Your Understanding
 
-1. True or False: Since GitHub only displays the code behind an html file, we need to output to pdf if we want to be able to view the rendering on GitHub. 
-2. True or False: It doesn't make sense to output an .Rmd file to markdown, because .Rmd is already markdown. 
-3. Which of these file formats are proprietary? (a) `.docx`; (b) `.html`; (c) `.txt`; (d) `.Rmd`; (e) `.xlsx`
-
+1.  True or False: Since GitHub only displays the code behind an html file, we need to output to pdf if we want to be able to view the rendering on GitHub.
+2.  True or False: It doesn't make sense to output an .Rmd file to markdown, because .Rmd is already markdown.
+3.  Which of these file formats are proprietary? (a) `.docx`; (b) `.html`; (c) `.txt`; (d) `.Rmd`; (e) `.xlsx`
 
 ## Introduction to (R) Markdown and knitr
 
@@ -64,104 +62,106 @@ Using an editor like MS Word (or WYSIWYG editors) is like painting: you decorate
 
 ### Getting started with markdown
 
-1. In RStudio, go to "File" -> "New File" -> "Markdown File".
+1.  In RStudio, go to "File" -> "New File" -> "Markdown File".
 
-2. Explore various markdown features. In other words, "instructions" as to how to render the document. For example:
-    - Headers
-    - Bold, italics
-    - "Code format" using backticks.
-    - Lists
+2.  Explore various markdown features. In other words, "instructions" as to how to render the document. For example:
 
-3. Render the document to html. Render it to pdf. Ignore the "YAML header" that's automatically added to the top of your file, for now. Notice that an _output_ file was generated from the _source_ file.
-    - Never edit the output file. It will only be overwritten when you re-render the file.
+    -   Headers
+    -   Bold, italics
+    -   "Code format" using backticks.
+    -   Lists
 
-4. Open the `.md` file using a different editor. 
-    - Notice that the file does not depend on a _program_ to view it -- unlike MS Word, for example, where a word file can only be opened by MS Word. 
-    - You may notice different colours showing up in the text, depending on which program we're using. This is called _syntax highlighting_, and it's a program's way of helping you write plain text without it all blurring together. But, ultimately, it's still just plain text that can't be bolded, increased in size, etc. -- such features do not come with plain text.
+3.  Render the document to html. Render it to pdf. Ignore the "YAML header" that's automatically added to the top of your file, for now. Notice that an *output* file was generated from the *source* file.
 
+    -   Never edit the output file. It will only be overwritten when you re-render the file.
+
+4.  Open the `.md` file using a different editor.
+
+    -   Notice that the file does not depend on a *program* to view it -- unlike MS Word, for example, where a word file can only be opened by MS Word.
+    -   You may notice different colours showing up in the text, depending on which program we're using. This is called *syntax highlighting*, and it's a program's way of helping you write plain text without it all blurring together. But, ultimately, it's still just plain text that can't be bolded, increased in size, etc. -- such features do not come with plain text.
 
 ### Getting started with R Markdown
 
-1. Open a new .Rmd file in RStudio.
+1.  Open a new .Rmd file in RStudio.
 
-2. To get started with using R Markdown, you'll need to install the **rmarkdown** R package. You might automatically be prompted to do this; accept, if so. If not, you will have to manually install the package. Also, the activity we have also depends on the **DT** package:
-   ```
-   install.packages('rmarkdown')
-   install.packages('DT')
-   ```
+2.  To get started with using R Markdown, you'll need to install the **rmarkdown** R package. You might automatically be prompted to do this; accept, if so. If not, you will have to manually install the package. Also, the activity we have also depends on the **DT** package:
 
-3. Click "knit". 
-    - Notice that R code is executed in _chunks_, and the output is displayed in the output file.
+        install.packages('rmarkdown')
+        install.packages('DT')
+
+3.  Click "knit".
+
+    -   Notice that R code is executed in *chunks*, and the output is displayed in the output file.
 
 ### Exploring the YAML header
 
-*(__Got lost in the demonstration?__ No problem, just open a new `.Rmd` file in RStudio via "File" -> "New File" -> "R Markdown...", and just press "OK", and resume!)*
+*(**Got lost in the demonstration?** No problem, just open a new `.Rmd` file in RStudio via "File" -> "New File" -> "R Markdown...", and just press "OK", and resume!)*
 
-1. Go to the top of the .Rmd document, and explore the _YAML header_. 
-    - The YAML header is contained between two `---`, and contains metadata on the document.
+1.  Go to the top of the .Rmd document, and explore the *YAML header*.
 
-2. Add some other data to the YAML header. Explore the options in [Yihui Xie's RMarkdown book](https://bookdown.org/yihui/rmarkdown/html-document.html). Some options to consider:
-    - Keep the "md" intermediate file with `keep_md: true`
-    - Add a theme. My favorite is cerulean: `theme: cerulean`
-    - Add a table of contents with `toc: true`
-    - Make the toc float: `toc_float: true`
+    -   The YAML header is contained between two `---`, and contains metadata on the document.
 
-3. Knit the document to see how the file changes. 
+2.  Add some other data to the YAML header. Explore the options in [Yihui Xie's RMarkdown book](https://bookdown.org/yihui/rmarkdown/html-document.html). Some options to consider:
 
-4. Try knitting to different outputs. This is a tremendously useful feature of Rmd! (and plain text in general).
+    -   Keep the "md" intermediate file with `keep_md: true`
+    -   Add a theme. My favorite is cerulean: `theme: cerulean`
+    -   Add a table of contents with `toc: true`
+    -   Make the toc float: `toc_float: true`
+
+3.  Knit the document to see how the file changes.
+
+4.  Try knitting to different outputs. This is a tremendously useful feature of Rmd! (and plain text in general).
 
 ### Exploring code chunks
 
-*(__Got lost in the demonstration?__ No problem, just open a new `.Rmd` file in RStudio via "File" -> "New File" -> "R Markdown...", and just press "OK", and resume!)*
+*(**Got lost in the demonstration?** No problem, just open a new `.Rmd` file in RStudio via "File" -> "New File" -> "R Markdown...", and just press "OK", and resume!)*
 
-1. Add a code chunk at the bottom of the `.Rmd` file. Either select "Insert" -> "R", or use a keyboard shortcut: `cmd + option + I` (MAC) / `ctrl + alt + i` (WINDOWS).
+1.  Add a code chunk at the bottom of the `.Rmd` file. Either select "Insert" -> "R", or use a keyboard shortcut: `cmd + option + I` (MAC) / `ctrl + alt + i` (WINDOWS).
 
-2. Print out the `mtcars` data frame to explore the output. (Yes, this object comes shipped with R.)
+2.  Print out the `mtcars` data frame to explore the output. (Yes, this object comes shipped with R.)
 
-3. Try out the `DT::datatable()` function on `mtcars`, and knit the file (to html, ideally).  
+3.  Try out the `DT::datatable()` function on `mtcars`, and knit the file (to html, ideally).
 
-4. Continue the markdown commentary! If you were to give this document to someone to read through your "analysis", a few notes would make it more readable. 
+4.  Continue the markdown commentary! If you were to give this document to someone to read through your "analysis", a few notes would make it more readable.
 
-5. Add an [in-line code chunk](https://rmarkdown.rstudio.com/lesson-4.html) specifying the number of rows of the mtcars dataset. Hint: `nrow()`.
+5.  Add an [in-line code chunk](https://rmarkdown.rstudio.com/lesson-4.html) specifying the number of rows of the mtcars dataset. Hint: `nrow()`.
 
 ### Last touches! Exploring chunk options
 
-*(__Got lost in the demonstration?__ No problem, just open a new `.Rmd` file in RStudio via "File" -> "New File" -> "R Markdown...", and just press "OK", and resume!)*
+*(**Got lost in the demonstration?** No problem, just open a new `.Rmd` file in RStudio via "File" -> "New File" -> "R Markdown...", and just press "OK", and resume!)*
 
 Just like YAML is metadata for the Rmd document, *code chunk options* are metadata for the code chunk. Specify them within the `{r}` at the top of a code chunk, separated by commas. For a list of chunk options, check out [Yihui Xie's knitr book](https://yihui.org/knitr/options/). Let's try some:
 
-1. In any of the code chunks that you have created above, hide the code from the output with `echo = FALSE`. It would look like this `{r echo = FALSE}`.
+1.  In any of the code chunks that you have created above, hide the code from the output with `echo = FALSE`. It would look like this `{r echo = FALSE}`.
 
-2. Change the figure width and height with `fig.width = 5` and `fig.height = 3`.
+2.  Change the figure width and height with `fig.width = 5` and `fig.height = 3`.
 
-3. Knit the results. Can you spot the differences?
+3.  Knit the results. Can you spot the differences?
 
 ## Work on Collaborative Project
 
 Agenda:
 
-1. Getting setup with a GitHub Personal Access Token (PAT) (so that you can sync GitHub with files on your computer):
-    1. Create a PAT: follow the instructions on [GitHub's tutorial]. __Be sure to copy your token!__
-    2. In an R console, execute `credentials::set_github_pat()` (you may have to install the credentials package by first running `install.packages("credentials")`). Enter your PAT that you just made. That should be it!
-    
-2. Overview of collaborative project.
+1.  Overview of collaborative project.
 
-3. Demonstrate making the group repository.
+2.  Demonstrate making the group repository.
 
-4. Work period: contact your group and set up your repository. (~10 minutes).
-    1. Find your group number, and contact your teammates through Slack (start a thread amongst the 3-4 of you, ideally). Please do not physically move around the classroom, but you may feel comfortable talking with those beside you, if you're present in-person.
-    2. Choose someone to make the team's repository, and to invite the others as collaborators to the repository.
-    3. If time remains, work on "Exercise 5: Teamwork Contract" with your teammates, or work by yourself on "Exercise 4: GitHub Issues".
+3.  Work period: contact your group and set up your repository. (\~10 minutes).
 
-5. Create a branch (together)
-    1. Make sure your project is open in RStudio (you may have to clone it. Remember: "File" -> "New Project" -> "Version Control".)
-    2. Under the "Git" tab, click the "New Branch" button. Give the branch a name. When prompted, say yes to syncing the branch with GitHub (the "remote").
+    1.  Find your group number, and contact your teammates.
+    2.  Choose someone to make the team's repository, and to invite the others as collaborators to the repository.
+    3.  If time remains, work on "Exercise 5: Teamwork Contract" with your teammates, or work by yourself on "Exercise 4: GitHub Issues".
 
-6. Make changes, and merge the branch via a pull request. (My turn)
-    1. I'll make changes to the project files, commit them, and push them.
-    2. I'll explore the remote repository (i.e., GitHub), to show you the changes made on the branch.
-    3. I'll initialize a pull request (on GitHub), and will merge it.
+4.  Create a branch (together)
 
+    1.  Make sure your project is open in RStudio (you may have to clone it. Remember: "File" -> "New Project" -> "Version Control".)
+    2.  Under the "Git" tab, click the "New Branch" button. Give the branch a name. When prompted, say yes to syncing the branch with GitHub (the "remote").
+
+5.  Make changes, and merge the branch via a pull request. (My turn)
+
+    1.  I'll make changes to the project files, commit them, and push them.
+    2.  I'll explore the remote repository (i.e., GitHub), to show you the changes made on the branch.
+    3.  I'll initialize a pull request (on GitHub), and will merge it.
 
 ## Attribution
 

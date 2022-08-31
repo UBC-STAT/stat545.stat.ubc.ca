@@ -23,13 +23,12 @@ output: html_document
 <p>Today’s class is a digest of the following resources:</p>
 <p>Video lectures:</p>
 <ul>
-<li><a href="https://youtu.be/l2ftm-YwJs8">STAT 545 Episode 2-A: Git and GitHub for an Organized Project</a> (a copy is also available on Canvas)</li>
-<li><a href="https://canvas.ubc.ca/courses/80816/external_tools/187">Zoom recording from this class is on canvas</a>.</li>
+<li><a href="https://youtu.be/l2ftm-YwJs8">STAT 545 Episode 2-A: Git and GitHub for an Organized Project</a></li>
 </ul>
 <p>Tutorials:</p>
 <ul>
-<li>The basic version control workflow (without branching): <a href="https://happygitwithr.com/git-basics.html">Happy git w R: Chapter 20</a>.</li>
-<li>Syncing files on your computer with GitHub:
+<li><p>The basic version control workflow (without branching): <a href="https://happygitwithr.com/git-basics.html">Happy git w R: Chapter 20</a>.</p></li>
+<li><p>Syncing files on your computer with GitHub:</p>
 <ul>
 <li>Starting with GitHub: <a href="https://happygitwithr.com/new-github-first.html">Chapter 15: New project, GitHub first</a></li>
 <li>Starting with files on your computer, and didn’t set up git: <a href="https://happygitwithr.com/existing-github-first.html">Chapter 16: Existing project, GitHub first</a></li>
@@ -55,12 +54,28 @@ output: html_document
 <div id="get-acquainted-with-github" class="section level3">
 <h3>Get Acquainted with GitHub</h3>
 <ul>
-<li>Orgs vs. personal account: explore these two.</li>
-<li>Issues: check out course topics Issue in STAT 545 repo.
+<li><p>Orgs vs. personal account: explore these two.</p></li>
+<li><p>Issues: check out course topics Issue in STAT 545 repo.</p>
 <ul>
 <li>Watching repo</li>
 </ul></li>
-<li>Working on GitHub: Change the README on a GitHub repo</li>
+<li><p>Working on GitHub: Change the README on a GitHub repo</p></li>
+</ul>
+</div>
+<div id="getting-setup-with-a-github-personal-access-token-pat" class="section level3">
+<h3>Getting setup with a GitHub Personal Access Token (PAT)</h3>
+<p>This will allow you to sync GitHub with files on your computer.</p>
+<ul>
+<li><p>Quick start:</p>
+<ul>
+<li><p><u>Step 1:</u> Create a PAT</p>
+<ul>
+<li><p>Option 1: Go to to <a href="https://github.com/settings/tokens" class="uri">&lt;https://github.com/settings/tokens&gt;</a> and click “Generate token”. Describe the token’s purpose in the Note field, e.g. “personal-macbook” or “vm-for-project-xyz”. Select “repo”, “user”, and “workflow” for scopes.</p></li>
+<li><p>Option 2: From R, execute <code>usethis::create_github_token()</code> (you may have to install the usethis package first by first running <code>install.packages("usethis")</code>). Describe the token’s purpose in the Note field, e.g. “personal-macbook” or “vm-for-project-xyz”.</p></li>
+</ul></li>
+<li><p><u>Step 2:</u> From R, execute `gitcreds::gitcreds_set()` and enter the PAT that you just made when prompted. That should be it!</p></li>
+<li><p><u>Step 3</u> (<strong>optional but recommended</strong>) Also save the PAT that you just made somewhere secure, like a password manager.</p></li>
+</ul></li>
 </ul>
 </div>
 <div id="linear-synchronizing-working-between-github-and-local-merge-conflicts" class="section level3">
@@ -76,14 +91,14 @@ output: html_document
 <h3>Branching and PR</h3>
 <p>Let’s organize our participation repo in a branch.</p>
 <ul>
-<li>Make a branch.
+<li><p>Make a branch.</p>
 <ul>
 <li>GitHub first, local second</li>
 <li>Local first, GitHub second</li>
 </ul></li>
-<li>Add a new file on the branch.</li>
-<li>Switch branches to see file appear and disappear.</li>
-<li>submit and merge a PR.</li>
+<li><p>Add a new file on the branch.</p></li>
+<li><p>Switch branches to see file appear and disappear.</p></li>
+<li><p>submit and merge a PR.</p></li>
 </ul>
 </div>
 </div>

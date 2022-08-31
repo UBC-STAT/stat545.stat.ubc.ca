@@ -7,64 +7,70 @@ output: html_document
 
 And hopefully the first of many. Let's get started:
 
-1. Install the [`datateachr`](https://github.com/UBC-MDS/datateachr) package by typing the following into your **R terminal**:
+1.  Install the [`datateachr`](https://github.com/UBC-MDS/datateachr) package by typing the following into your **R terminal**:
 
-```
-install.packages("devtools")
-devtools::install_github("UBC-MDS/datateachr")
-```
+<!-- -->
 
-2. Load the packages below.
+    install.packages("devtools")
+    devtools::install_github("UBC-MDS/datateachr")
+
+2.  Load the packages below.
 
 ```{r}
 library(datateachr)
 library(tidyverse)
 ```
 
-3. Make a repository in the https://github.com/stat545ubc-2021 Organization. You will be working with this repository for the entire data analysis project. You can either make it public, or make it private and add the TA's and Vincenzo as collaborators. 
-    - UPDATE: There is now a link that will help you make a repo. It's [on canvas](https://canvas.ubc.ca/courses/80816/pages/mini-data-analysis-create-a-repository) (and on a Slack announcement).
-
-4. When you go to submit, submit a URL to your repository to canvas.  
+3.  Make a repository in the <https://github.com/stat545ubc-2022> Organization. You will be working with this repository for the entire data analysis project. You can either make it public, or make it private and add the TA's and Lucy as collaborators.
 
 # Instructions
 
-More details regarding the instructions and points allocated to each task can be found below. Briefly,
+## For Both Milestones
 
-+ Each milestone is worth 30 points. The number of points allocated to each task will be annotated within each deliverable. Tasks that are more challenging will often be allocated more points.
+-   Each milestone is worth 45 points. The number of points allocated to each task will be annotated within each deliverable. Tasks that are more challenging will often be allocated more points.
 
-+ 10 points will be allocated to the reproducibility, cleanliness, and coherence of the analysis. While the three milestones will be submitted as independent deliverables, the analysis itself is a continuum - think of it as 3 chapters to a story. Each chapter, or in this case, portion of your analysis, should be easily followed through by someone unfamiliar with the content. [Here](https://swcarpentry.github.io/r-novice-inflammation/06-best-practices-R/) is a good resource for what constitutes "good code". Learning good coding practices early in your career will save you hassle later on!
+-   10 points will be allocated to the reproducibility, cleanliness, and coherence of the overall analysis. While the two milestones will be submitted as independent deliverables, the analysis itself is a continuum - think of it as two chapters to a story. Each chapter, or in this case, portion of your analysis, should be easily followed through by someone unfamiliar with the content. [Here](https://swcarpentry.github.io/r-novice-inflammation/06-best-practices-R/) is a good resource for what constitutes "good code". Learning good coding practices early in your career will save you hassle later on!
+
+## For Milestone 1
+
+**To complete this milestone**, edit [this very `.Rmd` file](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-1.Rmd) directly. Fill in the sections that are tagged with `<!--- start your work below --->`.
+
+**To submit this milestone**, make sure to knit this `.Rmd` file to an `.md` file by changing the YAML output settings from `output: html_document` to `output: github_document`. Commit and push all of your work to the mini-analysis GitHub repository you made earlier, and tag a release on GitHub. Then, submit a link to your tagged release on canvas.
+
+**Points**: This milestone is worth 45 points: 43 for your analysis, 1 point for having your Milestone 1 document knit error-free, and 1 point for tagging your release on Github.
 
 # Learning Objectives
 
 By the end of this milestone, you should:
 
-+ Become familiar with your dataset of choosing
-+ Think of 4 questions that you would like to answer with your data
-+ Generate a reproducible and clear report using R Markdown
+-   Become familiar with your dataset of choosing
+-   Select 4 questions that you would like to answer with your data
+-   Generate a reproducible and clear report using R Markdown
+-   Become familiar with manipulating and summarizing your data in tibbles using `dplyr`, with a research question in mind.
 
 # Task 1: Choose your favorite dataset (10 points)
 
 The `datateachr` package by Hayley Boyce and Jordan Bourak currently composed of 7 semi-tidy datasets for educational purposes. Here is a brief description of each dataset:
 
-+ *apt_buildings*: Acquired courtesy of The City of Toronto’s Open Data Portal. It currently has 3455 rows and 37 columns.
+-   *apt_buildings*: Acquired courtesy of The City of Toronto's Open Data Portal. It currently has 3455 rows and 37 columns.
 
-+ *building_permits*: Acquired courtesy of The City of Vancouver’s Open Data Portal. It currently has 20680 rows and 14 columns.
+-   *building_permits*: Acquired courtesy of The City of Vancouver's Open Data Portal. It currently has 20680 rows and 14 columns.
 
-+ *cancer_sample*: Acquired courtesy of UCI Machine Learning Repository. It currently has 569 rows and 32 columns.
+-   *cancer_sample*: Acquired courtesy of UCI Machine Learning Repository. It currently has 569 rows and 32 columns.
 
-+ *flow_sample*: Acquired courtesy of The Government of Canada’s Historical Hydrometric Database. It currently has 218 rows and 7 columns.
+-   *flow_sample*: Acquired courtesy of The Government of Canada's Historical Hydrometric Database. It currently has 218 rows and 7 columns.
 
-+ *parking_meters*: Acquired courtesy of The City of Vancouver’s Open Data Portal. It currently has 10032 rows and 22 columns.
+-   *parking_meters*: Acquired courtesy of The City of Vancouver's Open Data Portal. It currently has 10032 rows and 22 columns.
 
-+ *steam_games*: Acquired courtesy of Kaggle. It currently has 40833 rows and 21 columns.
+-   *steam_games*: Acquired courtesy of Kaggle. It currently has 40833 rows and 21 columns.
 
-+ *vancouver_trees*: Acquired courtesy of The City of Vancouver’s Open Data Portal. It currently has 146611 rows and 20 columns.
+-   *vancouver_trees*: Acquired courtesy of The City of Vancouver's Open Data Portal. It currently has 146611 rows and 20 columns.
 
 **Things to keep in mind**
 
-+ We hope that this project will serve as practice for carrying our your own *independent* data analysis. Remember to comment your code, be explicit about what you are doing, and write notes in this markdown document when you feel that context is required. As you advance in the project, prompts and hints to do this will be diminished - it'll be up to you!
+-   We hope that this project will serve as practice for carrying our your own *independent* data analysis. Remember to comment your code, be explicit about what you are doing, and write notes in this markdown document when you feel that context is required. As you advance in the project, prompts and hints to do this will be diminished - it'll be up to you!
 
-+ Before choosing a dataset, you should always keep in mind **your goal**, or in other ways, *what you wish to achieve with this data*. This mini data-analysis project focuses on *data wrangling*, *tidying*, and *visualization*. In short, it's a way for you to get your feet wet with exploring data on your own.
+-   Before choosing a dataset, you should always keep in mind **your goal**, or in other ways, *what you wish to achieve with this data*. This mini data-analysis project focuses on *data wrangling*, *tidying*, and *visualization*. In short, it's a way for you to get your feet wet with exploring data on your own.
 
 And that is exactly the first thing that you will do!
 
@@ -72,23 +78,39 @@ And that is exactly the first thing that you will do!
 
 **Note**: We encourage you to use the ones in the `datateachr` package, but if you have a dataset that you'd really like to use, you can include it here. But, please check with a member of the teaching team to see whether the dataset is of appropriate complexity. Also, include a **brief** description of the dataset here to help the teaching team understand your data.
 
-1: CHOICE_1_HERE    
-2: CHOICE_2_HERE    
-3: CHOICE_3_HERE    
-4: CHOICE_4_HERE    
+<!-------------------------- Start your work below ---------------------------->
 
-1.2 One way to narrowing down your selection is to *explore* the datasets. Use your knowledge of dplyr to find out at least *3* attributes about each of these datasets (an attribute is something such as number of rows, variables, class type...). The goal here is to have an idea of *what the data looks like*. 
+1: CHOICE_1\_HERE\
+2: CHOICE_2\_HERE\
+3: CHOICE_3\_HERE\
+4: CHOICE_4\_HERE
 
-*Hint:* This is one of those times when you should think about the cleanliness of your analysis. I added a single code chunk for you, but do you want to use more than one? Would you like to write more comments outside of the code chunk?
+<!----------------------------------------------------------------------------->
+
+1.2 One way to narrowing down your selection is to *explore* the datasets. Use your knowledge of dplyr to find out at least *3* attributes about each of these datasets (an attribute is something such as number of rows, variables, class type...). The goal here is to have an idea of *what the data looks like*.
+
+*Hint:* This is one of those times when you should think about the cleanliness of your analysis. I added a single code chunk for you below, but do you want to use more than one? Would you like to write more comments outside of the code chunk?
+
+<!-------------------------- Start your work below ---------------------------->
 
 ```{r}
 ### EXPLORE HERE ###
 steam_games
 ```
 
-1.3 Now that you've explored the 4 datasets that you were initially most interested in, let's narrow it down to 2. What lead you to choose these 2? Briefly explain your choices below, and feel free to include any code in your explanation. 
+<!----------------------------------------------------------------------------->
+
+1.3 Now that you've explored the 4 datasets that you were initially most interested in, let's narrow it down to 2. What lead you to choose these 2? Briefly explain your choices below, and feel free to include any code in your explanation.
+
+<!-------------------------- Start your work below ---------------------------->
+
+<!----------------------------------------------------------------------------->
 
 1.4 Time for the final decision! Going back to the beginning, it's important to have an *end goal* in mind. For example, if I had chosen the `titanic` dataset for my project, I might've wanted to explore the relationship between survival and other variables. Try to think of 1 research question that you would want to answer with each dataset. Note them down below, and make your final choice based on what seems more interesting to you!
+
+<!-------------------------- Start your work below ---------------------------->
+
+<!----------------------------------------------------------------------------->
 
 # Important note
 
@@ -98,20 +120,24 @@ This project is semi-guided, but meant to be *independent*. For this reason, you
 
 # Task 2: Exploring your dataset (15 points)
 
-If we rewind and go back to the learning objectives, you'll see that by the end of this deliverable, you should have formulated *4* research questions about your data that you may want to answer during your project. However, it may be handy to do some more exploration on your dataset of choice before creating these questions - by looking at the data, you may get more ideas. **Before you start this task, read all instructions carefully until you reach START HERE**.
+If we rewind and go back to the learning objectives, you'll see that by the end of this deliverable, you should have formulated *4* research questions about your data that you may want to answer during your project. However, it may be handy to do some more exploration on your dataset of choice before creating these questions - by looking at the data, you may get more ideas. **Before you start this task, read all instructions carefully until you reach START HERE under Task 3**.
 
 2.1 Complete *4 out of the following 8 exercises* to dive deeper into your data. All datasets are different and therefore, not all of these tasks may make sense for your data - which is why you should only answer *4*. Use *dplyr* and *ggplot*.
 
-1. Plot the distribution of a numeric variable.
-2. Create a new variable based on other variables in your data (only if it makes sense)
-3. Investigate how many missing values there are per variable. Can you find a way to plot this?
-4. Explore the relationship between 2 variables in a plot.
-5. Filter observations in your data according to your own criteria. Think of what you'd like to explore - again, if this was the `titanic` dataset, I may want to narrow my search down to passengers born in a particular year...
-6. Use a boxplot to look at the frequency of different observations within a single variable. You can do this for more than one variable if you wish!
-7. Make a new tibble with a subset of your data, with variables and observations that you are interested in exploring.
-8. Use a density plot to explore any of your variables (that are suitable for this type of plot).
+1.  Plot the distribution of a numeric variable.
+2.  Create a new variable based on other variables in your data (only if it makes sense)
+3.  Investigate how many missing values there are per variable. Can you find a way to plot this?
+4.  Explore the relationship between 2 variables in a plot.
+5.  Filter observations in your data according to your own criteria. Think of what you'd like to explore - again, if this was the `titanic` dataset, I may want to narrow my search down to passengers born in a particular year...
+6.  Use a boxplot to look at the frequency of different observations within a single variable. You can do this for more than one variable if you wish!
+7.  Make a new tibble with a subset of your data, with variables and observations that you are interested in exploring.
+8.  Use a density plot to explore any of your variables (that are suitable for this type of plot).
 
 2.2 For each of the 4 exercises that you complete, provide a *brief explanation* of why you chose that exercise in relation to your data (in other words, why does it make sense to do that?), and sufficient comments for a reader to understand your reasoning and code.
+
+<!-------------------------- Start your work below ---------------------------->
+
+<!----------------------------------------------------------------------------->
 
 # Task 3: Write your research questions (5 points)
 
@@ -119,6 +145,43 @@ So far, you have chosen a dataset and gotten familiar with it through exploring 
 
 <!--- *****START HERE***** --->
 
+# Task 4: Process and summarize your data (12 points)
+
+From Task 2, you should have an idea of the basic structure of your dataset (e.g. number of rows and columns, class types, etc.). Here, we will start investigating your data more in-depth using various data manipulation functions.
+
+### 1.1 (10 points)
+
+Now, for each of your four research questions, choose one task from options 1-4 (summarizing), and one other task from 4-8 (graphing). You should have 2 tasks done for each research question (8 total). Make sure it makes sense to do them! (e.g. don't use a numerical variables for a task that needs a categorical variable.). Comment on why each task helps (or doesn't!) answer the corresponding research question.
+
+Ensure that the output of each operation is printed!
+
+**Summarizing:**
+
+1.  Compute the *range*, *mean*, and *two other summary statistics* of **one numerical variable** across the groups of **one categorical variable** from your data.
+2.  Compute the number of observations for at least one of your categorical variables. Do not use the function `table()`!
+3.  Create a categorical variable with 3 or more groups from an existing numerical variable. You can use this new variable in the other tasks! *An example: age in years into "child, teen, adult, senior".*
+4.  Based on two categorical variables, calculate two summary statistics of your choosing.
+
+**Graphing:**
+
+5.  Create a graph out of summarized variables that has at least two geom layers.
+6.  Create a graph of your choosing, make one of the axes logarithmic, and format the axes labels so that they are "pretty" or easier to read.
+7.  Make a graph where it makes sense to customize the alpha transparency.
+8.  Create 3 histograms out of summarized variables, with each histogram having different sized bins. Pick the "best" one and explain why it is the best.
+
+Make sure it's clear what research question you are doing each operation for!
+
+<!------------------------- Start your work below ----------------------------->
+
+<!----------------------------------------------------------------------------->
+
+### 1.2 (2 points)
+
+Based on the operations that you've completed, how much closer are you to answering your research questions? Think about what aspects of your research questions remain unclear. Can your research questions be refined, now that you've investigated your data a bit more? Which research questions are yielding interesting results?
+
+<!-------------------------- Start your work below ---------------------------->
+
+<!----------------------------------------------------------------------------->
 
 ### Attribution
 

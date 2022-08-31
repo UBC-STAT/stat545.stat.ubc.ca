@@ -52,4 +52,4 @@ align = "center"
 
 [Jenny Bryan](https://jennybryan.org/) deserves a huge amount of credit for founding and developing STAT 545 over many years, along with her TA's, until 2017. Thank you!
 
-Many more people have contributed over the years since then. The aim is to have this section reflect that at some point in the not-too-distant future.
+[Vincenzo Coia](https://vincenzocoia.com/) deserves a huge amount of credit too for developing STAT 545, along with his TA's, between 2017 and 2021. Thank you!
