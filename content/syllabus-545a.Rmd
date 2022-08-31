@@ -78,21 +78,20 @@ here::here("content", "lecture_schedule-545a-2022.csv") %>%
 
 # Deliverables
 
-| De liverable           | Percent Grade | Description                                                                                                   |
+| Deliverable            | Percent Grade | Description                                                                                                   |
 |------------------------|---------------|---------------------------------------------------------------------------------------------------------------|
-| Class w orksheets      | 15            | Autograded walkthroughs to guide student learning.                                                            |
+| Class worksheets       | 15            | Autograded walkthroughs to guide student learning.                                                            |
 | Mini data analysis     | 50            | Students write their own mini data analysis.                                                                  |
-| Coll aborative project | 35            | Team project intended for practicing version control and collaboration, by answering some debugging problems. |
+| Co llaborative project | 35            | Team project intended for practicing version control and collaboration, by answering some debugging problems. |
 
 More details can be found [on the course
 dashboard](https://stat545.stat.ubc.ca/course).
 
 # Auditing Students
 
-Auditing students are expected to complete all assessments (assignments,
-peer reviews, and participation). The difference between enrolling for
-credit is that auditing students are graded on each assignment on a
-pass/fail basis.
+Auditing students are expected to complete all assessments (i.e. the
+deliverables above). The difference between enrolling for credit is that
+auditing students are graded on each assessment on a pass/fail basis.
 
 # Privacy
 
@@ -250,13 +249,12 @@ policy here:
 or test positive for Covid, then I will not come to class. If that
 happens, here's what you can expect:
 
--   If I am well enough to teach (most likely), I will conduct virtual
-    lectures through Zoom until I am well. If this happens, you will be
-    tagged in an announcement via Slack with information. You can
-    anticipate that this would very likely be a last minute
-    announcement. Our classroom will still be available for you to sit
-    and attend an online session, although it is recommended that you
-    bring headphones.
+-   If I am well enough to teach, I will conduct virtual lectures
+    through Zoom until I am well. If this happens, you will be tagged in
+    an announcement via Slack with information. You can anticipate that
+    this would very likely be a last minute announcement. Our classroom
+    will still be available for you to sit and attend an online session,
+    although it is recommended that you bring headphones.
 -   If I am not well enough to teach, it is possible that one or more
     teaching assistants will take my place. But if not, we will either
     try to make up for lost time, make new resources to aid in your

@@ -6,76 +6,43 @@ output: html_document
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<p><em>To complete this milestone, you can either edit <a href="https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-2.Rmd">this <code>.rmd</code> file</a> directly. Fill in the sections that are commented out with <code>&lt;!--- start your work here---&gt;</code>. When you are done, make sure to knit to an <code>.md</code> file by changing the output in the YAML header to <code>github_document</code>, before submitting a tagged release on canvas.</em></p>
-<div id="welcome-back-to-your-mini-data-analysis-project" class="section level1">
-<h1>Welcome back to your mini data analysis project!</h1>
-<p>This time, we will explore more in depth the concept of <em>tidy data</em>, and hopefully investigate further into your research questions that you defined in milestone 1.</p>
+<p><em>To complete this milestone, you can edit <a href="https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-2.Rmd">this <code>.rmd</code> file</a> directly. Fill in the sections that are commented out with <code>&lt;!--- start your work here---&gt;</code>. When you are done, make sure to knit to an <code>.md</code> file by changing the output in the YAML header to <code>github_document</code>, before submitting a tagged release on canvas.</em></p>
+<div id="welcome-to-your-second-and-last-milestone-in-your-mini-data-analysis-project" class="section level1">
+<h1>Welcome to your second (and last) milestone in your mini data analysis project!</h1>
+<p>In Milestone 1, you explored your data, came up with research questions, and obtained some results by making summary tables and graphs. This time, we will first explore more in depth the concept of <em>tidy data.</em> Then, you’ll be sharpening some of the results you obtained from your previous milestone by:</p>
+<ul>
+<li>Manipulating special data types in R: factors and/or dates and times.</li>
+<li>Fitting a model object to your data, and extract a result.</li>
+<li>Reading and writing data as separate files.</li>
+</ul>
 <p><strong>NOTE</strong>: The main purpose of the mini data analysis is to integrate what you learn in class in an analysis. Although each milestone provides a framework for you to conduct your analysis, it’s possible that you might find the instructions too rigid for your data set. If this is the case, you may deviate from the instructions – just make sure you’re demonstrating a wide range of tools and techniques taught in this class.</p>
-<p>Begin by loading your data and the tidyverse package below:</p>
-<pre class="r"><code>library(datateachr) # &lt;- might contain the data you picked!
-library(tidyverse)</code></pre>
+</div>
+<div id="instructions" class="section level1">
+<h1>Instructions</h1>
+<p><strong>To complete this milestone</strong>, edit <a href="https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-2.Rmd">this very <code>.Rmd</code> file</a> directly. Fill in the sections that are tagged with <code>&lt;!--- start your work here---&gt;</code>.</p>
+<p><strong>To submit this milestone</strong>, make sure to knit this <code>.Rmd</code> file to an <code>.md</code> file by changing the YAML output settings from <code>output: html_document</code> to <code>output: github_document</code>. Commit and push all of your work to your mini-analysis GitHub repository, and tag a release on GitHub. Then, submit a link to your tagged release on canvas.</p>
+<p><strong>Points</strong>: This milestone is worth 55 points (compared to the 45 points of the Milestone 1): 45 for your analysis, and 10 for your entire mini-analysis GitHub repository. Details follow.</p>
+<p><strong>Research Questions</strong>: In Milestone 1, you chose two research questions to focus on. Wherever realistic, your work in this milestone should relate to these research questions whenever we ask for justification behind your work. In the case that some tasks in this milestone don’t align well with one of your research questions, feel free to discuss your results in the context of a different research question.</p>
 </div>
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
 <p>By the end of this milestone, you should:</p>
 <ul>
-<li>Become familiar with manipulating and summarizing your data in tibbles using <code>dplyr</code> and <code>tidyr</code>, with a research question in mind.</li>
-<li>Understand what <em>tidy</em> data is, and how to create it. In milestone 3, we will explore when this might be useful.</li>
+<li>Understand what <em>tidy</em> data is, and how to create it using <code>tidyr</code>.</li>
 <li>Generate a reproducible and clear report using R Markdown.</li>
-<li>Gain a greater understanding of how to use R to answer research questions about your data.</li>
-</ul>
-<p><strong>Things to keep in mind</strong></p>
-<ul>
-<li><p>Remember to document your code, be explicit about what you are doing, and write notes in this markdown document when you feel that context is required. Create your analysis as if someone else will be reading it! <strong>There will be 2.5 points reserved for reproducibility, readability, and repo organization.</strong></p></li>
-<li><p>Before working on each task, you should always keep in mind the specific <strong>research question</strong> that you’re trying to answer.</p></li>
+<li>Manipulating special data types in R: factors and/or dates and times.</li>
+<li>Fitting a model object to your data, and extract a result.</li>
+<li>Reading and writing data as separate files.</li>
 </ul>
 </div>
-<div id="task-1-process-and-summarize-your-data-15-points" class="section level1">
-<h1>Task 1: Process and summarize your data (15 points)</h1>
-<p>From milestone 1, you should have an idea of the basic structure of your dataset (e.g. number of rows and columns, class types, etc.). Here, we will start investigating your data more in-depth using various data manipulation functions.</p>
-<div id="points" class="section level3">
-<h3>1.1 (2.5 points)</h3>
-<p>First, write out the 4 research questions you defined in milestone 1 were. This will guide your work through milestone 2:</p>
-<!-------------------------- Start your work below ---------------------------->
-<ol style="list-style-type: decimal">
-<li><em>FILL_THIS_IN</em></li>
-<li><em>FILL_THIS_IN</em></li>
-<li><em>FILL_THIS_IN</em></li>
-<li><em>FILL_THIS_IN</em>
-<!-----------------------------------------------------------------------------></li>
-</ol>
+<div id="setup" class="section level1">
+<h1>Setup</h1>
+<p>Begin by loading your data and the tidyverse package below:</p>
+<pre class="r"><code>library(datateachr) # &lt;- might contain the data you picked!
+library(tidyverse)</code></pre>
 </div>
-<div id="points-1" class="section level3">
-<h3>1.2 (10 points)</h3>
-<p>Now, for each of your four research questions, choose one task from options 1-4 (summarizing), and one other task from 4-8 (graphing). You should have 2 tasks done for each research question (8 total). Make sure it makes sense to do them! (e.g. don’t use a numerical variables for a task that needs a categorical variable.). Comment on why each task helps (or doesn’t!) answer the corresponding research question.</p>
-<p>Ensure that the output of each operation is printed!</p>
-<p><strong>Summarizing:</strong></p>
-<ol style="list-style-type: decimal">
-<li>Compute the <em>range</em>, <em>mean</em>, and <em>two other summary statistics</em> of <strong>one numerical variable</strong> across the groups of <strong>one categorical variable</strong> from your data.</li>
-<li>Compute the number of observations for at least one of your categorical variables. Do not use the function <code>table()</code>!</li>
-<li>Create a categorical variable with 3 or more groups from an existing numerical variable. You can use this new variable in the other tasks! <em>An example: age in years into “child, teen, adult, senior”.</em></li>
-<li>Based on two categorical variables, calculate two summary statistics of your choosing.</li>
-</ol>
-<p><strong>Graphing:</strong></p>
-<ol start="5" style="list-style-type: decimal">
-<li>Create a graph out of summarized variables that has at least two geom layers.</li>
-<li>Create a graph of your choosing, make one of the axes logarithmic, and format the axes labels so that they are “pretty” or easier to read.</li>
-<li>Make a graph where it makes sense to customize the alpha transparency.</li>
-<li>Create 3 histograms out of summarized variables, with each histogram having different sized bins. Pick the “best” one and explain why it is the best.</li>
-</ol>
-<p>Make sure it’s clear what research question you are doing each operation for!</p>
-<!------------------------- Start your work below ----------------------------->
-<!----------------------------------------------------------------------------->
-</div>
-<div id="points-2" class="section level3">
-<h3>1.3 (2.5 points)</h3>
-<p>Based on the operations that you’ve completed, how much closer are you to answering your research questions? Think about what aspects of your research questions remain unclear. Can your research questions be refined, now that you’ve investigated your data a bit more? Which research questions are yielding interesting results?</p>
-<!------------------------- Write your answer here ---------------------------->
-<!----------------------------------------------------------------------------->
-</div>
-</div>
-<div id="task-2-tidy-your-data-12.5-points" class="section level1">
-<h1>Task 2: Tidy your data (12.5 points)</h1>
+<div id="task-1-tidy-your-data-15-points" class="section level1">
+<h1>Task 1: Tidy your data (15 points)</h1>
 <p>In this task, we will do several exercises to reshape our data. The goal here is to understand how to do this reshaping with the <code>tidyr</code> package.</p>
 <p>A reminder of the definition of <em>tidy</em> data:</p>
 <ul>
@@ -84,13 +51,13 @@ library(tidyverse)</code></pre>
 <li>Each cell is a <strong>value</strong></li>
 </ul>
 <p><em>Tidy’ing</em> data is sometimes necessary because it can simplify computation. Other times it can be nice to organize data so that it can be easier to understand when read manually.</p>
-<div id="points-3" class="section level3">
+<div id="points" class="section level3">
 <h3>2.1 (2.5 points)</h3>
 <p>Based on the definition above, can you identify if your data is tidy or untidy? Go through all your columns, or if you have &gt;8 variables, just pick 8, and explain whether the data is untidy or tidy.</p>
 <!--------------------------- Start your work below --------------------------->
 <!----------------------------------------------------------------------------->
 </div>
-<div id="points-4" class="section level3">
+<div id="points-1" class="section level3">
 <h3>2.2 (5 points)</h3>
 <p>Now, if your data is tidy, untidy it! Then, tidy it back to it’s original state.</p>
 <p>If your data is untidy, then tidy it! Then, untidy it back to it’s original state.</p>
@@ -98,16 +65,152 @@ library(tidyverse)</code></pre>
 <!--------------------------- Start your work below --------------------------->
 <!----------------------------------------------------------------------------->
 </div>
-<div id="points-5" class="section level3">
-<h3>2.3 (5 points)</h3>
-<p>Now, you should be more familiar with your data, and also have made progress in answering your research questions. Based on your interest, and your analyses, pick 2 of the 4 research questions to continue your analysis in milestone 3, and explain your decision.</p>
-<p>Try to choose a version of your data that you think will be appropriate to answer these 2 questions in milestone 3. Use between 4 and 8 functions that we’ve covered so far (i.e. by filtering, cleaning, tidy’ing, dropping irrelvant columns, etc.).</p>
+<div id="points-2" class="section level3">
+<h3>2.3 (7.5 points)</h3>
+<p>Now, you should be more familiar with your data, and also have made progress in answering your research questions. Based on your interest, and your analyses, pick 2 of the 4 research questions to continue your analysis in the next four tasks:</p>
+<!-------------------------- Start your work below ---------------------------->
+<ol style="list-style-type: decimal">
+<li><em>FILL_THIS_IN</em></li>
+<li><em>FILL_THIS_IN</em></li>
+</ol>
+<!----------------------------------------------------------------------------->
+<p>Explain your decision for choosing the above two research questions.</p>
 <!--------------------------- Start your work below --------------------------->
 <!----------------------------------------------------------------------------->
-<p><em>When you are done, knit an <code>md</code> file. This is what we will mark! Make sure to open it and check that everything has knitted correctly before submitting your tagged release.</em></p>
+<p>Now, try to choose a version of your data that you think will be appropriate to answer these 2 questions. Use between 4 and 8 functions that we’ve covered so far (i.e. by filtering, cleaning, tidy’ing, dropping irrelevant columns, etc.).</p>
+<!--------------------------- Start your work below --------------------------->
+<!----------------------------------------------------------------------------->
 </div>
+</div>
+<div id="task-2-special-data-types-10" class="section level1">
+<h1>Task 2: Special Data Types (10)</h1>
+<p>For this exercise, you’ll be choosing two of the three tasks below – both tasks that you choose are worth 5 points each.</p>
+<p>But first, tasks 1 and 2 below ask you to modify a plot you made in a previous milestone. The plot you choose should involve plotting across at least three groups (whether by facetting, or using an aesthetic like colour). Place this plot below (you’re allowed to modify the plot if you’d like). If you don’t have such a plot, you’ll need to make one. Place the code for your plot below.</p>
+<!-------------------------- Start your work below ---------------------------->
+<!----------------------------------------------------------------------------->
+<p>Now, choose two of the following tasks.</p>
+<ol style="list-style-type: decimal">
+<li><p>Produce a new plot that reorders a factor in your original plot, using the <code>forcats</code> package (3 points). Then, in a sentence or two, briefly explain why you chose this ordering (1 point here for demonstrating understanding of the reordering, and 1 point for demonstrating some justification for the reordering, which could be subtle or speculative.)</p></li>
+<li><p>Produce a new plot that groups some factor levels together into an “other” category (or something similar), using the <code>forcats</code> package (3 points). Then, in a sentence or two, briefly explain why you chose this grouping (1 point here for demonstrating understanding of the grouping, and 1 point for demonstrating some justification for the grouping, which could be subtle or speculative.)</p></li>
+<li><p>If your data has some sort of time-based column like a date (but something more granular than just a year):</p>
+<ol style="list-style-type: decimal">
+<li><p>Make a new column that uses a function from the <code>lubridate</code> or <code>tsibble</code> package to modify your original time-based column. (3 points)</p>
+<ul>
+<li>Note that you might first have to <em>make</em> a time-based column using a function like <code>ymd()</code>, but this doesn’t count.</li>
+<li>Examples of something you might do here: extract the day of the year from a date, or extract the weekday, or let 24 hours elapse on your dates.</li>
+</ul></li>
+<li><p>Then, in a sentence or two, explain how your new column might be useful in exploring a research question. (1 point for demonstrating understanding of the function you used, and 1 point for your justification, which could be subtle or speculative).</p>
+<ul>
+<li>For example, you could say something like “Investigating the day of the week might be insightful because penguins don’t work on weekends, and so may respond differently”.</li>
+</ul></li>
+</ol></li>
+</ol>
+<!-------------------------- Start your work below ---------------------------->
+<p><strong>Task Number</strong>: FILL_THIS_IN</p>
+<!----------------------------------------------------------------------------->
+<!-------------------------- Start your work below ---------------------------->
+<p><strong>Task Number</strong>: FILL_THIS_IN</p>
+<!----------------------------------------------------------------------------->
+</div>
+<div id="task-3-modelling" class="section level1">
+<h1>Task 3: Modelling</h1>
+<div id="no-points" class="section level2">
+<h2>2.0 (no points)</h2>
+<p>Pick a research question, and pick a variable of interest (we’ll call it “Y”) that’s relevant to the research question. Indicate these.</p>
+<!-------------------------- Start your work below ---------------------------->
+<p><strong>Research Question</strong>: FILL_THIS_IN</p>
+<p><strong>Variable of interest</strong>: FILL_THIS_IN</p>
+<!----------------------------------------------------------------------------->
+</div>
+<div id="points-3" class="section level2">
+<h2>2.1 (5 points)</h2>
+<p>Fit a model or run a hypothesis test that provides insight on this variable with respect to the research question. Store the model object as a variable, and print its output to screen. We’ll omit having to justify your choice, because we don’t expect you to know about model specifics in STAT 545.</p>
+<ul>
+<li><p><strong>Note</strong>: It’s OK if you don’t know how these models/tests work. Here are some examples of things you can do here, but the sky’s the limit.</p>
+<ul>
+<li>You could fit a model that makes predictions on Y using another variable, by using the <code>lm()</code> function.</li>
+<li>You could test whether the mean of Y equals 0 using <code>t.test()</code>, or maybe the mean across two groups are different using <code>t.test()</code>, or maybe the mean across multiple groups are different using <code>anova()</code> (you may have to pivot your data for the latter two).</li>
+<li>You could use <code>lm()</code> to test for significance of regression.</li>
+</ul></li>
+</ul>
+<!-------------------------- Start your work below ---------------------------->
+<!----------------------------------------------------------------------------->
+</div>
+<div id="points-4" class="section level2">
+<h2>2.2 (5 points)</h2>
+<p>Produce something relevant from your fitted model: either predictions on Y, or a single value like a regression coefficient or a p-value.</p>
+<ul>
+<li>Be sure to indicate in writing what you chose to produce.</li>
+<li>Your code should either output a tibble (in which case you should indicate the column that contains the thing you’re looking for), or the thing you’re looking for itself.</li>
+<li>Obtain your results using the <code>broom</code> package if possible. If your model is not compatible with the broom function you’re needing, then you can obtain your results by some other means, but first indicate which broom function is not compatible.</li>
+</ul>
+<!-------------------------- Start your work below ---------------------------->
+<!----------------------------------------------------------------------------->
+</div>
+</div>
+<div id="task-4-reading-and-writing-data" class="section level1">
+<h1>Task 4: Reading and writing data</h1>
+<p>Get set up for this exercise by making a folder called <code>output</code> in the top level of your project folder / repository. You’ll be saving things there.</p>
+<div id="points-5" class="section level2">
+<h2>3.1 (5 points)</h2>
+<p>Take a summary table that you made from Milestone 1 (Task 4.2), and write it as a csv file in your <code>output</code> folder. Use the <code>here::here()</code> function.</p>
+<ul>
+<li><strong>Robustness criteria</strong>: You should be able to move your Mini Project repository / project folder to some other location on your computer, or move this very Rmd file to another location within your project repository / folder, and your code should still work.</li>
+<li><strong>Reproducibility criteria</strong>: You should be able to delete the csv file, and remake it simply by knitting this Rmd file.</li>
+</ul>
+<!-------------------------- Start your work below ---------------------------->
+<!----------------------------------------------------------------------------->
+</div>
+<div id="points-6" class="section level2">
+<h2>3.2 (5 points)</h2>
+<p>Write your model object from Task 3 to an R binary file (an RDS), and load it again. Be sure to save the binary file in your <code>output</code> folder. Use the functions <code>saveRDS()</code> and <code>readRDS()</code>.</p>
+<ul>
+<li>The same robustness and reproducibility criteria as in 3.1 apply here.</li>
+</ul>
+<!-------------------------- Start your work below ---------------------------->
+<!----------------------------------------------------------------------------->
+</div>
+</div>
+<div id="tidy-repository" class="section level1">
+<h1>Tidy Repository</h1>
+<p>Now that this is your last milestone, your entire project repository should be organized. Here are the criteria we’re looking for.</p>
+<div id="main-readme-3-points" class="section level2">
+<h2>Main README (3 points)</h2>
+<p>There should be a file named <code>README.md</code> at the top level of your repository. Its contents should automatically appear when you visit the repository on GitHub.</p>
+<p>Minimum contents of the README file:</p>
+<ul>
+<li>In a sentence or two, explains what this repository is, so that future-you or someone else stumbling on your repository can be oriented to the repository.</li>
+<li>In a sentence or two (or more??), briefly explains how to engage with the repository. You can assume the person reading knows the material from STAT 545A. Basically, if a visitor to your repository wants to explore your project, what should they know?</li>
+</ul>
+<p>Once you get in the habit of making README files, and seeing more README files in other projects, you’ll wonder how you ever got by without them! They are tremendously helpful.</p>
+</div>
+<div id="file-and-folder-structure-3-points" class="section level2">
+<h2>File and Folder structure (3 points)</h2>
+<p>You should have at least four folders in the top level of your repository: one for each milestone, and one output folder. If there are any other folders, these are explained in the main README.</p>
+<p>Each milestone document is contained in its respective folder, and nowhere else.</p>
+<p>Every level-1 folder (that is, the ones stored in the top level, like “Milestone1” and “output”) has a <code>README</code> file, explaining in a sentence or two what is in the folder, in plain language (it’s enough to say something like “This folder contains the source for Milestone 1”).</p>
+</div>
+<div id="output-2-points" class="section level2">
+<h2>Output (2 points)</h2>
+<p>All output is recent and relevant:</p>
+<ul>
+<li>All Rmd files have been <code>knit</code>ted to their output, and all data files saved from Task 4 above appear in the <code>output</code> folder.</li>
+<li>All of these output files are up-to-date – that is, they haven’t fallen behind after the source (Rmd) files have been updated.</li>
+<li>There should be no relic output files. For example, if you were knitting an Rmd to html, but then changed the output to be only a markdown file, then the html file is a relic and should be deleted.</li>
+</ul>
+<p>Our recommendation: delete all output files, and re-knit each milestone’s Rmd file, so that everything is up to date and relevant.</p>
+<p>PS: there’s a way where you can run all project code using a single command, instead of clicking “knit” three times. More on this in STAT 545B!</p>
+</div>
+<div id="error-free-code-1-point" class="section level2">
+<h2>Error-free code (1 point)</h2>
+<p>This Milestone 1 document knits error-free, and the Milestone 2 document knits error-free.</p>
+</div>
+<div id="tagged-release-1-point" class="section level2">
+<h2>Tagged release (1 point)</h2>
+<p>You’ve tagged a release for Milestone 1, and you’ve tagged a release for Milestone 2.</p>
 <div id="attribution" class="section level3">
 <h3>Attribution</h3>
 <p>Thanks to Victor Yuan for mostly putting this together.</p>
+</div>
 </div>
 </div>

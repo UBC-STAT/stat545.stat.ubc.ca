@@ -60,9 +60,13 @@ Platforms for hosting course-related content:
 You'll need to install some things and get set up. Most things can be found in Jenny's "happy git" book. Let's take some extra class time to struggle through this together. Need extra help? Come to office hours this week.
 
 -   Register a github account at github.com. See [Chapter 4](https://happygitwithr.com/github-acct.html).
+
 -   Install or upgrade R and RStudio. See [Chapter 5](https://happygitwithr.com/install-r-rstudio.html).
+
 -   Install git. [Chapter 6](https://happygitwithr.com/install-git.html).
+
 -   Configure git. See [Chapter 7: Introduce yourself to git](https://happygitwithr.com/hello-git.html).
+
 -   Install jupyterlab + IRkernel. See [Rich Pauloo's instructions](https://richpauloo.github.io/2018-05-16-Installing-the-R-kernel-in-Jupyter-Lab/), which seem to be pretty good (let us know if you find something better).
 
 #### Time permitting: Working with jupyter; working with R syntax.

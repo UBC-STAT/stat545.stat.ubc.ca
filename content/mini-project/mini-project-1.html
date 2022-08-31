@@ -12,6 +12,7 @@ output: html_document
 <ol style="list-style-type: decimal">
 <li>Install the <a href="https://github.com/UBC-MDS/datateachr"><code>datateachr</code></a> package by typing the following into your <strong>R terminal</strong>:</li>
 </ol>
+<!-- -->
 <pre><code>install.packages(&quot;devtools&quot;)
 devtools::install_github(&quot;UBC-MDS/datateachr&quot;)</code></pre>
 <ol start="2" style="list-style-type: decimal">
@@ -20,36 +21,41 @@ devtools::install_github(&quot;UBC-MDS/datateachr&quot;)</code></pre>
 <pre class="r"><code>library(datateachr)
 library(tidyverse)</code></pre>
 <pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
-<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
-## ✓ tibble  3.1.5     ✓ dplyr   1.0.7
-## ✓ tidyr   1.1.4     ✓ stringr 1.4.0
-## ✓ readr   2.0.2     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ✔ ggplot2 3.3.6     ✔ purrr   0.3.4
+## ✔ tibble  3.1.7     ✔ dplyr   1.0.9
+## ✔ tidyr   1.2.0     ✔ stringr 1.4.0
+## ✔ readr   2.1.2     ✔ forcats 0.5.1</code></pre>
 <pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## x dplyr::filter() masks stats::filter()
-## x dplyr::lag()    masks stats::lag()</code></pre>
+## ✖ dplyr::filter() masks stats::filter()
+## ✖ dplyr::lag()    masks stats::lag()</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li>Make a repository in the <a href="https://github.com/stat545ubc-2021" class="uri">https://github.com/stat545ubc-2021</a> Organization. You will be working with this repository for the entire data analysis project. You can either make it public, or make it private and add the TA’s and Vincenzo as collaborators.
-<ul>
-<li>UPDATE: There is now a link that will help you make a repo. It’s <a href="https://canvas.ubc.ca/courses/80816/pages/mini-data-analysis-create-a-repository">on canvas</a> (and on a Slack announcement).</li>
-</ul></li>
-<li>When you go to submit, submit a URL to your repository to canvas.</li>
+<li>Make a repository in the <a href="https://github.com/stat545ubc-2022" class="uri">https://github.com/stat545ubc-2022</a> Organization. You will be working with this repository for the entire data analysis project. You can either make it public, or make it private and add the TA’s and Lucy as collaborators.</li>
 </ol>
 </div>
 <div id="instructions" class="section level1">
 <h1>Instructions</h1>
-<p>More details regarding the instructions and points allocated to each task can be found below. Briefly,</p>
+<div id="for-both-milestones" class="section level2">
+<h2>For Both Milestones</h2>
 <ul>
-<li><p>Each milestone is worth 30 points. The number of points allocated to each task will be annotated within each deliverable. Tasks that are more challenging will often be allocated more points.</p></li>
-<li><p>10 points will be allocated to the reproducibility, cleanliness, and coherence of the analysis. While the three milestones will be submitted as independent deliverables, the analysis itself is a continuum - think of it as 3 chapters to a story. Each chapter, or in this case, portion of your analysis, should be easily followed through by someone unfamiliar with the content. <a href="https://swcarpentry.github.io/r-novice-inflammation/06-best-practices-R/">Here</a> is a good resource for what constitutes “good code”. Learning good coding practices early in your career will save you hassle later on!</p></li>
+<li><p>Each milestone is worth 45 points. The number of points allocated to each task will be annotated within each deliverable. Tasks that are more challenging will often be allocated more points.</p></li>
+<li><p>10 points will be allocated to the reproducibility, cleanliness, and coherence of the overall analysis. While the two milestones will be submitted as independent deliverables, the analysis itself is a continuum - think of it as two chapters to a story. Each chapter, or in this case, portion of your analysis, should be easily followed through by someone unfamiliar with the content. <a href="https://swcarpentry.github.io/r-novice-inflammation/06-best-practices-R/">Here</a> is a good resource for what constitutes “good code”. Learning good coding practices early in your career will save you hassle later on!</p></li>
 </ul>
+</div>
+<div id="for-milestone-1" class="section level2">
+<h2>For Milestone 1</h2>
+<p><strong>To complete this milestone</strong>, edit <a href="https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-1.Rmd">this very <code>.Rmd</code> file</a> directly. Fill in the sections that are tagged with <code>&lt;!--- start your work below ---&gt;</code>.</p>
+<p><strong>To submit this milestone</strong>, make sure to knit this <code>.Rmd</code> file to an <code>.md</code> file by changing the YAML output settings from <code>output: html_document</code> to <code>output: github_document</code>. Commit and push all of your work to the mini-analysis GitHub repository you made earlier, and tag a release on GitHub. Then, submit a link to your tagged release on canvas.</p>
+<p><strong>Points</strong>: This milestone is worth 45 points: 43 for your analysis, 1 point for having your Milestone 1 document knit error-free, and 1 point for tagging your release on Github.</p>
+</div>
 </div>
 <div id="learning-objectives" class="section level1">
 <h1>Learning Objectives</h1>
 <p>By the end of this milestone, you should:</p>
 <ul>
 <li>Become familiar with your dataset of choosing</li>
-<li>Think of 4 questions that you would like to answer with your data</li>
+<li>Select 4 questions that you would like to answer with your data</li>
 <li>Generate a reproducible and clear report using R Markdown</li>
+<li>Become familiar with manipulating and summarizing your data in tibbles using <code>dplyr</code>, with a research question in mind.</li>
 </ul>
 </div>
 <div id="task-1-choose-your-favorite-dataset-10-points" class="section level1">
@@ -72,34 +78,44 @@ library(tidyverse)</code></pre>
 <p>And that is exactly the first thing that you will do!</p>
 <p>1.1 Out of the 7 datasets available in the <code>datateachr</code> package, choose <strong>4</strong> that appeal to you based on their description. Write your choices below:</p>
 <p><strong>Note</strong>: We encourage you to use the ones in the <code>datateachr</code> package, but if you have a dataset that you’d really like to use, you can include it here. But, please check with a member of the teaching team to see whether the dataset is of appropriate complexity. Also, include a <strong>brief</strong> description of the dataset here to help the teaching team understand your data.</p>
+<!-------------------------- Start your work below ---------------------------->
 <p>1: CHOICE_1_HERE<br />
 2: CHOICE_2_HERE<br />
 3: CHOICE_3_HERE<br />
 4: CHOICE_4_HERE</p>
+<!----------------------------------------------------------------------------->
 <p>1.2 One way to narrowing down your selection is to <em>explore</em> the datasets. Use your knowledge of dplyr to find out at least <em>3</em> attributes about each of these datasets (an attribute is something such as number of rows, variables, class type…). The goal here is to have an idea of <em>what the data looks like</em>.</p>
-<p><em>Hint:</em> This is one of those times when you should think about the cleanliness of your analysis. I added a single code chunk for you, but do you want to use more than one? Would you like to write more comments outside of the code chunk?</p>
+<p><em>Hint:</em> This is one of those times when you should think about the cleanliness of your analysis. I added a single code chunk for you below, but do you want to use more than one? Would you like to write more comments outside of the code chunk?</p>
+<!-------------------------- Start your work below ---------------------------->
 <pre class="r"><code>### EXPLORE HERE ###
 steam_games</code></pre>
 <pre><code>## # A tibble: 40,833 × 21
-##       id url    types name  desc_snippet recent_reviews all_reviews release_date
-##    &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;        &lt;chr&gt;          &lt;chr&gt;       &lt;chr&gt;       
-##  1     1 https… app   DOOM  Now include… Very Positive… Very Posit… May 12, 2016
-##  2     2 https… app   PLAY… PLAYERUNKNO… Mixed,(6,214)… Mixed,(836… Dec 21, 2017
-##  3     3 https… app   BATT… Take comman… Mixed,(166),-… Mostly Pos… Apr 24, 2018
-##  4     4 https… app   DayZ  The post-so… Mixed,(932),-… Mixed,(167… Dec 13, 2018
-##  5     5 https… app   EVE … EVE Online … Mixed,(287),-… Mostly Pos… May 6, 2003 
-##  6     6 https… bund… Gran… Grand Theft… NaN            NaN         NaN         
-##  7     7 https… app   Devi… The ultimat… Very Positive… Very Posit… Mar 7, 2019 
-##  8     8 https… app   Huma… Human: Fall… Very Positive… Very Posit… Jul 22, 2016
-##  9     9 https… app   They… They Are Bi… Very Positive… Very Posit… Dec 12, 2017
-## 10    10 https… app   Warh… In a world … &lt;NA&gt;           Mixed,(904… May 31, 2019
-## # … with 40,823 more rows, and 13 more variables: developer &lt;chr&gt;,
-## #   publisher &lt;chr&gt;, popular_tags &lt;chr&gt;, game_details &lt;chr&gt;, languages &lt;chr&gt;,
-## #   achievements &lt;dbl&gt;, genre &lt;chr&gt;, game_description &lt;chr&gt;,
-## #   mature_content &lt;chr&gt;, minimum_requirements &lt;chr&gt;,
-## #   recommended_requirements &lt;chr&gt;, original_price &lt;dbl&gt;, discount_price &lt;dbl&gt;</code></pre>
+##       id url         types name  desc_…¹ recen…² all_r…³ relea…⁴ devel…⁵ publi…⁶
+##    &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt; &lt;chr&gt; &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;   &lt;chr&gt;  
+##  1     1 https://st… app   DOOM  Now in… Very P… Very P… May 12… id Sof… Bethes…
+##  2     2 https://st… app   PLAY… PLAYER… Mixed,… Mixed,… Dec 21… PUBG C… PUBG C…
+##  3     3 https://st… app   BATT… Take c… Mixed,… Mostly… Apr 24… Harebr… Parado…
+##  4     4 https://st… app   DayZ  The po… Mixed,… Mixed,… Dec 13… Bohemi… Bohemi…
+##  5     5 https://st… app   EVE … EVE On… Mixed,… Mostly… May 6,… CCP     CCP,CCP
+##  6     6 https://st… bund… Gran… Grand … NaN     NaN     NaN     Rockst… Rockst…
+##  7     7 https://st… app   Devi… The ul… Very P… Very P… Mar 7,… CAPCOM… CAPCOM…
+##  8     8 https://st… app   Huma… Human:… Very P… Very P… Jul 22… No Bra… Curve …
+##  9     9 https://st… app   They… They A… Very P… Very P… Dec 12… Numant… Numant…
+## 10    10 https://st… app   Warh… In a w… &lt;NA&gt;    Mixed,… May 31… Eko So… Bigben…
+## # … with 40,823 more rows, 11 more variables: popular_tags &lt;chr&gt;,
+## #   game_details &lt;chr&gt;, languages &lt;chr&gt;, achievements &lt;dbl&gt;, genre &lt;chr&gt;,
+## #   game_description &lt;chr&gt;, mature_content &lt;chr&gt;, minimum_requirements &lt;chr&gt;,
+## #   recommended_requirements &lt;chr&gt;, original_price &lt;dbl&gt;, discount_price &lt;dbl&gt;,
+## #   and abbreviated variable names ¹​desc_snippet, ²​recent_reviews,
+## #   ³​all_reviews, ⁴​release_date, ⁵​developer, ⁶​publisher
+## # ℹ Use `print(n = ...)` to see more rows, and `colnames()` to see all variable names</code></pre>
+<!----------------------------------------------------------------------------->
 <p>1.3 Now that you’ve explored the 4 datasets that you were initially most interested in, let’s narrow it down to 2. What lead you to choose these 2? Briefly explain your choices below, and feel free to include any code in your explanation.</p>
+<!-------------------------- Start your work below ---------------------------->
+<!----------------------------------------------------------------------------->
 <p>1.4 Time for the final decision! Going back to the beginning, it’s important to have an <em>end goal</em> in mind. For example, if I had chosen the <code>titanic</code> dataset for my project, I might’ve wanted to explore the relationship between survival and other variables. Try to think of 1 research question that you would want to answer with each dataset. Note them down below, and make your final choice based on what seems more interesting to you!</p>
+<!-------------------------- Start your work below ---------------------------->
+<!----------------------------------------------------------------------------->
 </div>
 <div id="important-note" class="section level1">
 <h1>Important note</h1>
@@ -108,7 +124,7 @@ steam_games</code></pre>
 </div>
 <div id="task-2-exploring-your-dataset-15-points" class="section level1">
 <h1>Task 2: Exploring your dataset (15 points)</h1>
-<p>If we rewind and go back to the learning objectives, you’ll see that by the end of this deliverable, you should have formulated <em>4</em> research questions about your data that you may want to answer during your project. However, it may be handy to do some more exploration on your dataset of choice before creating these questions - by looking at the data, you may get more ideas. <strong>Before you start this task, read all instructions carefully until you reach START HERE</strong>.</p>
+<p>If we rewind and go back to the learning objectives, you’ll see that by the end of this deliverable, you should have formulated <em>4</em> research questions about your data that you may want to answer during your project. However, it may be handy to do some more exploration on your dataset of choice before creating these questions - by looking at the data, you may get more ideas. <strong>Before you start this task, read all instructions carefully until you reach START HERE under Task 3</strong>.</p>
 <p>2.1 Complete <em>4 out of the following 8 exercises</em> to dive deeper into your data. All datasets are different and therefore, not all of these tasks may make sense for your data - which is why you should only answer <em>4</em>. Use <em>dplyr</em> and <em>ggplot</em>.</p>
 <ol style="list-style-type: decimal">
 <li>Plot the distribution of a numeric variable.</li>
@@ -121,11 +137,45 @@ steam_games</code></pre>
 <li>Use a density plot to explore any of your variables (that are suitable for this type of plot).</li>
 </ol>
 <p>2.2 For each of the 4 exercises that you complete, provide a <em>brief explanation</em> of why you chose that exercise in relation to your data (in other words, why does it make sense to do that?), and sufficient comments for a reader to understand your reasoning and code.</p>
+<!-------------------------- Start your work below ---------------------------->
+<!----------------------------------------------------------------------------->
 </div>
 <div id="task-3-write-your-research-questions-5-points" class="section level1">
 <h1>Task 3: Write your research questions (5 points)</h1>
 <p>So far, you have chosen a dataset and gotten familiar with it through exploring the data. Now it’s time to figure out 4 research questions that you would like to answer with your data! Write the 4 questions and any additional comments at the end of this deliverable. These questions are not necessarily set in stone - TAs will review them and give you feedback; therefore, you may choose to pursue them as they are for the rest of the project, or make modifications!</p>
 <!--- *****START HERE***** --->
+</div>
+<div id="task-4-process-and-summarize-your-data-12-points" class="section level1">
+<h1>Task 4: Process and summarize your data (12 points)</h1>
+<p>From Task 2, you should have an idea of the basic structure of your dataset (e.g. number of rows and columns, class types, etc.). Here, we will start investigating your data more in-depth using various data manipulation functions.</p>
+<div id="points" class="section level3">
+<h3>1.1 (10 points)</h3>
+<p>Now, for each of your four research questions, choose one task from options 1-4 (summarizing), and one other task from 4-8 (graphing). You should have 2 tasks done for each research question (8 total). Make sure it makes sense to do them! (e.g. don’t use a numerical variables for a task that needs a categorical variable.). Comment on why each task helps (or doesn’t!) answer the corresponding research question.</p>
+<p>Ensure that the output of each operation is printed!</p>
+<p><strong>Summarizing:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Compute the <em>range</em>, <em>mean</em>, and <em>two other summary statistics</em> of <strong>one numerical variable</strong> across the groups of <strong>one categorical variable</strong> from your data.</li>
+<li>Compute the number of observations for at least one of your categorical variables. Do not use the function <code>table()</code>!</li>
+<li>Create a categorical variable with 3 or more groups from an existing numerical variable. You can use this new variable in the other tasks! <em>An example: age in years into “child, teen, adult, senior”.</em></li>
+<li>Based on two categorical variables, calculate two summary statistics of your choosing.</li>
+</ol>
+<p><strong>Graphing:</strong></p>
+<ol start="5" style="list-style-type: decimal">
+<li>Create a graph out of summarized variables that has at least two geom layers.</li>
+<li>Create a graph of your choosing, make one of the axes logarithmic, and format the axes labels so that they are “pretty” or easier to read.</li>
+<li>Make a graph where it makes sense to customize the alpha transparency.</li>
+<li>Create 3 histograms out of summarized variables, with each histogram having different sized bins. Pick the “best” one and explain why it is the best.</li>
+</ol>
+<p>Make sure it’s clear what research question you are doing each operation for!</p>
+<!------------------------- Start your work below ----------------------------->
+<!----------------------------------------------------------------------------->
+</div>
+<div id="points-1" class="section level3">
+<h3>1.2 (2 points)</h3>
+<p>Based on the operations that you’ve completed, how much closer are you to answering your research questions? Think about what aspects of your research questions remain unclear. Can your research questions be refined, now that you’ve investigated your data a bit more? Which research questions are yielding interesting results?</p>
+<!-------------------------- Start your work below ---------------------------->
+<!----------------------------------------------------------------------------->
+</div>
 <div id="attribution" class="section level3">
 <h3>Attribution</h3>
 <p>Thanks to Icíar Fernández Boyano for mostly putting this together, and Vincenzo Coia for launching.</p>
