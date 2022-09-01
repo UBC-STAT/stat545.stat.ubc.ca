@@ -145,7 +145,7 @@ So far, you have chosen a dataset and gotten familiar with it through exploring 
 
 <!--- *****START HERE***** --->
 
-# Task 4: Process and summarize your data (12 points)
+# Task 4: Process and summarize your data (13 points)
 
 From Task 2, you should have an idea of the basic structure of your dataset (e.g. number of rows and columns, class types, etc.). Here, we will start investigating your data more in-depth using various data manipulation functions.
 
@@ -175,7 +175,7 @@ Make sure it's clear what research question you are doing each operation for!
 
 <!----------------------------------------------------------------------------->
 
-### 1.2 (2 points)
+### 1.2 (3 points)
 
 Based on the operations that you've completed, how much closer are you to answering your research questions? Think about what aspects of your research questions remain unclear. Can your research questions be refined, now that you've investigated your data a bit more? Which research questions are yielding interesting results?
 
