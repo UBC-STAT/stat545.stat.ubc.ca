@@ -41,6 +41,29 @@ Slack channel specifically for students: <https://stat545classroom2022.slack.com
 | `r format(dates_545a[12+1], "%a, %b %d")` | [Reading and Writing Data](/notes/notes-a12)     | Worksheet A6 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a06.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a06.ipynb); [zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a06.ipynb.zip)) (Due Wednesday, Oct 26, 2022 at 17:00 PT)                                              |
 | `r format(dates_545a[13+1], "%a, %b %d")` | Overflow or TBA                                  | NA                                                                                                                                                                                                                                                                                                                                                                                                                                                         |
 
+# Worksheets
+
+Options for working on these worksheets:
+
+-   Edit them with instances of jupyterlab or jupyter notebook that are installed on your own computer. (BEST)
+-   Edit them with UBC Syzygy (pronounced sizz-ij-ee): <https://ubc.syzygy.ca/>
+-   Edit them with Google Colab: <https://research.google.com/colaboratory/> (LEAST PREFERABLE)
+
+*Submit the worksheets by uploading your .ipynb file to the corresponding canvas assignment slot*.
+
+*To get full marks for each participation worksheet, you must successfully answer at least 50% of all autograded questions.*
+
+### Part A
+
+| Worksheet    | Download                                                                                                               | View                                                                                                                    | Zip file                                                                                                              | \# required questions | Deadline                                  |
+|--------------|------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|-----------------------|-------------------------------------------|
+| Worksheet A1 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a01.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a01.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a01.ipynb.zip) | NA                    | not for submission                        |
+| Worksheet A2 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a02.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a02.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a02.ipynb.zip) | 10                    | **Saturday, October 1, 2022 at 18:00 PT** |
+| Worksheet A3 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a03.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a03.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a03.ipynb.zip) | 10                    | **Saturday, Oct 8, 2022 at 18:00 PT**     |
+| Worksheet A4 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a04.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a04.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a04.ipynb.zip) | 10                    | **Saturday, Oct 15, 2022 at 18:00 PT**    |
+| Worksheet A5 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a05.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a05.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a05.ipynb.zip) | 10                    | **Saturday, Oct 22, 2022 at 18:00 PT**    |
+| Worksheet A6 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a06.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a06.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a06.ipynb.zip) | 10                    | **Wednesday, Oct 26, 2022 at 18:00 PT**   |
+
 ```{=html}
 <!--
 ### Part B
@@ -61,29 +84,6 @@ Slack channel specifically for students: <https://stat545classroom2022.slack.com
 | `r format(dates_545b[12], "%a, %b %d")` | List columns, cont'd                                                 | Worksheet B3                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `r format(dates_545b[13], "%a, %b %d")` | [Blogdown](/notes/notes-b07) (**Optional** lecture); plus automation | NA                                                                                                                                                                                                                                                                                                                                                                                                           
 ```
-# Worksheets
-
-Options for working on these worksheets:
-
--   Edit them with instances of jupyterlab or jupyter notebook that are installed on your own computer. (BEST)
-
--   Edit them with UBC Syzygy (pronounced sizz-ij-ee): <https://ubc.syzygy.ca/>
-
--   Edit them with Google Colab: <https://research.google.com/colaboratory/> (LEAST PREFERABLE)
-
-*Submit the worksheets by uploading your .ipynb file to the corresponding canvas assignment slot*.
-
-### Part A
-
-| Worksheet    | Download                                                                                                               | View                                                                                                                    | Zip file                                                                                                              | \# required questions | Deadline                                    |
-|--------------|------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------|-----------------------|---------------------------------------------|
-| Worksheet A1 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a01.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a01.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a01.ipynb.zip) | NA                    | not for submission                          |
-| Worksheet A2 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a02.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a02.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a02.ipynb.zip) | 10                    | **Wednesday, October 28, 2022 at 17:00 PT** |
-| Worksheet A3 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a03.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a03.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a03.ipynb.zip) | 10                    | **Friday, Oct 7, 2022 at 17:00 PT**         |
-| Worksheet A4 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a04.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a04.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a04.ipynb.zip) | 10                    | **Friday, Oct 14, 2022 at 17:00 PT**        |
-| Worksheet A5 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a05.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a05.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a05.ipynb.zip) | 10                    | **Friday, Oct 21, 2022 at 17:00 PT**        |
-| Worksheet A6 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a06.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a06.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_a06.ipynb.zip) | 10                    | **Wednesday, Oct 26, 2022 at 17:00 PT**     |
-
 ```{=html}
 <!--
 ### Part B
