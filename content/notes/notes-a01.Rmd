@@ -32,7 +32,7 @@ Some additional resources that you might find useful:
 
 #### Introductions
 
--   Lucy (instructor): [lucylgao.com](https://lucylgao.com)
+-   Lucy (instructor): [www.lucylgao.com](https://www.lucylgao.com)
 -   TA's: Andrew, Asfar, Erick.
 
 #### Course Platforms
@@ -58,7 +58,7 @@ Platforms for hosting course-related content:
 
 #### Installation
 
-You'll need to install some things and get set up. Most things can be found in Jenny's "happy git" book. Let's take some extra class time to struggle through this together. Need extra help? Come to office hours this week.
+You'll need to install some things and get set up. Most things can be found in Jenny's "happy git" book. Let's take some extra class time to struggle through this together. Need extra help? Come to office hours this afternoon.
 
 -   Register a github account at github.com. See [Chapter 4](https://happygitwithr.com/github-acct.html).
 
@@ -72,13 +72,13 @@ You'll need to install some things and get set up. Most things can be found in J
 
 #### Time permitting: Working with jupyter; working with R syntax.
 
-Worksheet A1 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a01.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a01.ipynb)) is an \*autograded!) worksheet covering some R basics. Let's go through some of it. *It's completion is not required for the course, but future worksheets will be required*.
+Worksheet A1 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a01.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a01.ipynb)) is an \*autograded!) worksheet covering some R basics. Let's go through some of it. *Its completion is not required for the course, but future worksheets will be required*.
 
 #### What to do when you are stuck
 
 Help yourself or, **maybe**, ~~drag others into your hell~~ ask for help. The links below contain excellent self-help advice.
 
-While you are getting started, I recommend you seek help within the STAT545 community first (try [Slack](https://stat545ubc.slack.com/)), before, e.g. posting to external forums. We are more cuddly.
+While you are getting started, I recommend you seek help within the STAT545 community first (try [Slack](https://stat545classroom2022.slack.com/)), before, e.g. posting to external forums. We are more cuddly.
 
 Here are some good resources to get your head in the right place.
 

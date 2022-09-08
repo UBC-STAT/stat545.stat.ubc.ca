@@ -73,17 +73,17 @@ here::here("content", "lecture_schedule-545b-2022.csv") %>%
 
 # Deliverables
 
-+-----------+-----------+---------------------------------------------+
-| De        | Percent   | Description                                 |
-| liverable | Grade     |                                             |
-+===========+===========+=============================================+
-| Class     | 15        | Autograded walkthroughs to guide student    |
-| w         |           | learning in class.                          |
-| orksheets |           |                                             |
-+-----------+-----------+---------------------------------------------+
-| As        | 85        | e.g., adding to a data analysis, making a   |
-| signments |           | small R package, making a Shiny dashboard   |
-+-----------+-----------+---------------------------------------------+
++------------+------------+----------------------------------------+
+| De         | Percent    | Description                            |
+| liverable  | Grade      |                                        |
++============+============+========================================+
+| Class w    | 15         | Autograded walkthroughs to guide       |
+| orksheets  |            | student learning in class.             |
++------------+------------+----------------------------------------+
+| As         | 85         | e.g., adding to a data analysis,       |
+| signments  |            | making a small R package, making a     |
+|            |            | Shiny dashboard                        |
++------------+------------+----------------------------------------+
 
 More details can be found [on the course
 dashboard](https://stat545.stat.ubc.ca/course).
@@ -234,6 +234,7 @@ you think you may be sick with (e.g., cold, flu, other).**
 
 -   Consult the class resources on the course website,
     <https://stat545.stat.ubc.ca/>.
+-   Come to office hours on Zoom.
 -   Use Slack to carry out discussions.
 
 For additional information about academic concessions, see the UBC

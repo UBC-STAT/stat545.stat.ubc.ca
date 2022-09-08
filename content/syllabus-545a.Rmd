@@ -78,11 +78,11 @@ here::here("content", "lecture_schedule-545a-2022.csv") %>%
 
 # Deliverables
 
-| Deliverable            | Percent Grade | Description                                                                                                   |
-|------------------------|---------------|---------------------------------------------------------------------------------------------------------------|
-| Class worksheets       | 15            | Autograded walkthroughs to guide student learning.                                                            |
-| Mini data analysis     | 50            | Students write their own mini data analysis.                                                                  |
-| Co llaborative project | 35            | Team project intended for practicing version control and collaboration, by answering some debugging problems. |
+| De liverable            | Percent Grade | Description                                                                                                   |
+|-------------------------|---------------|---------------------------------------------------------------------------------------------------------------|
+| Class w orksheets       | 15            | Autograded walkthroughs to guide student learning.                                                            |
+| Mini data analysis      | 50            | Students write their own mini data analysis.                                                                  |
+| Co ll aborative project | 35            | Team project intended for practicing version control and collaboration, by answering some debugging problems. |
 
 More details can be found [on the course
 dashboard](https://stat545.stat.ubc.ca/course).
@@ -237,6 +237,7 @@ you think you may be sick with (e.g., cold, flu, other).**
 
 -   Consult the class resources on the course website,
     <https://stat545.stat.ubc.ca/>.
+-   Come to office hours on Zoom.
 -   Use Slack to carry out discussions.
 
 For additional information about academic concessions, see the UBC
