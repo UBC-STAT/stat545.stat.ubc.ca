@@ -22,9 +22,9 @@ This is the first of two milestones for completing this project.
 
 **5 points**
 
-1.  Contact your teammates, probably through Slack. Go to canvas to find out who your teammates are, on the entry called [Collaborative Project: Groups](https://canvas.ubc.ca/courses/104736/files/21928586?module_item_id=4730787&fd_cookie_set=1).
+1.  Contact your teammates, probably in the classroom or on Slack. Go to Canvas to find out who your teammates are. Students are listed alphabetically with their team assignments on [this page](https://canvas.ubc.ca/courses/104736/modules/items/4957635) and groups are listed by group number on [this page](https://canvas.ubc.ca/courses/104736/modules/items/4957636).
 
-For all three collaborative project milestones, you'll be working with your teammate(s) on the same GitHub repository (or "repo"). One person in the team will need to make the repository; the other(s) can then join that repo.
+For both collaborative project milestones, you'll be working with your teammate(s) on the same GitHub repository (or "repo"). One person in the team will need to make the repository; the other(s) can then join that repo.
 
 1.  Have one group member make a repository on GitHub, by following the steps found on canvas in the entry called [Collaborative Project: Create a repository for your team](https://canvas.ubc.ca/courses/104736/pages/collaborative-project-create-a-repository-for-your-team). One completed, your repository should automatically be listed as part of the [stat545ubc-2022 Organization](https://github.com/stat545ubc-2022).
 
