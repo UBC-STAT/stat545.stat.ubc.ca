@@ -37,7 +37,7 @@ Simple cheat sheets:
 
 Fully loaded cheat sheets:
 
--   [R Markdown cheat sheet](https://rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf)
+-   [R Markdown cheat sheet](https://github.com/rstudio/cheatsheets/blob/main/rmarkdown-2.0.pdf)
 -   [R Markdown reference guide](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.177968037.1059384083.1597196687-1784159993.1567907747)
 
 Note that many cheat sheets can be found from RStudio: go to `Help` -> `Cheatsheets`.
