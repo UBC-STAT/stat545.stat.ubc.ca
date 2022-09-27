@@ -113,7 +113,7 @@ You'll be given feedback as an Issue in your project repository, sometimes befor
 There are two milestones, each equally weighted:
 
 -   [Milestone 1](/collaborative-project/milestone1/): Due **Friday, September 23, 2022 at 17:00 PT**.
--   [Milestone 2](/collaborative-project/milestone2/): Due **Friday, September 30, 2022 at 17:00 PT**.
+-   [Milestone 2](/collaborative-project/milestone2/): Due **Saturday, October 1, 2022 at 17:00 PT**.
 
 ## Mini-Data Analysis (Part A)
 
