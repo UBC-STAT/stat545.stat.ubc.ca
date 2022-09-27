@@ -131,19 +131,19 @@ starWars %&gt;%
 <ul>
 <li><code>birth_year</code> should contain years 1998 to 2005 (inclusive);</li>
 <li><code>birth_weight</code> should take the <code>birth_year</code> column, subtract 1995, and multiply by 0.45;</li>
-<li><code>birth_location</code> should contain 8 locations.</li>
+<li><code>birth_location</code> should contain four locations.</li>
 </ul>
 <pre class="r"><code>### ERROR HERE ###
 fakeStarWars &lt;- tribble(
   ~name,            ~birth_weight,  ~birth_year, ~birth_location
-  &quot;Luke Skywalker&quot;,  1.35      ,   1998        ,  &quot;Liverpool, England&quot;,
-  &quot;C-3PO&quot;         ,  1.80      ,   1999        ,  &quot;Liverpool, England&quot;,
-  &quot;R2-D2&quot;         ,  2.25      ,   2000        ,  &quot;Seattle, WA&quot;,
-  &quot;Darth Vader&quot;   ,  2.70      ,   2001        ,  &quot;Liverpool, England&quot;,
-  &quot;Leia Organa&quot;   ,  3.15      ,   2002        ,  New &quot;York, NY&quot;,
-  &quot;Owen Lars&quot;     ,  3.60      ,   2003        ,  &quot;Seattle, WA&quot;,
-  &quot;Beru Whitesun Iars&quot;, 4.05   ,   2004        ,  &quot;Liverpool, England&quot;,
-  &quot;R5-D4&quot;         ,  4.50      ,   2005        ,  New &quot;York, NY&quot;
+  &quot;Luke Skywalker&quot;,  1.35      ,   1998        ,  Liverpool, England,
+  &quot;C-3PO&quot;         ,  1.80      ,   1999        ,  Liverpool, England,
+  &quot;R2-D2&quot;         ,  2.25      ,   2000        ,  Seattle, WA,
+  &quot;Darth Vader&quot;   ,  2.70      ,   2001        ,  Liverpool, England,
+  &quot;Leia Organa&quot;   ,  3.15      ,   2002        ,  New York, NY,
+  &quot;Owen Lars&quot;     ,  3.60      ,   2003        ,  Seattle, WA,
+  &quot;Beru Whitesun Iars&quot;, 4.05   ,   2004        ,  Liverpool, England,
+  &quot;R5-D4&quot;         ,  4.50      ,   2005        ,  New York, NY,
 )</code></pre>
 <pre><code>## Error: &lt;text&gt;:4:3: unexpected string constant
 ## 3:   ~name,            ~birth_weight,  ~birth_year, ~birth_location
@@ -152,5 +152,5 @@ fakeStarWars &lt;- tribble(
 </div>
 <div id="attributions" class="section level2">
 <h2>Attributions</h2>
-<p>Thanks to Icíar Fernández-Boyano for writing most of this document, and Albina Gibadullina, Diana Lin Yulia Egorova, and Vincenzo Coia for their edits.</p>
+<p>Thanks to Icíar Fernández-Boyano for writing most of this document, and Albina Gibadullina, Diana Lin, Yulia Egorova, and Vincenzo Coia for their edits.</p>
 </div>

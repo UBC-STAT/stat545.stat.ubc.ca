@@ -162,7 +162,7 @@ Manually create a tibble with 4 columns:
 
 -   `birth_year` should contain years 1998 to 2005 (inclusive);
 -   `birth_weight` should take the `birth_year` column, subtract 1995, and multiply by 0.45;
--   `birth_location` should contain 8 locations.
+-   `birth_location` should contain four locations.
 
 ```{r}
 ### ERROR HERE ###
