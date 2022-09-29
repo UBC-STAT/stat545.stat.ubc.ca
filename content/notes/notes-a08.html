@@ -95,13 +95,9 @@ table4a </code></pre>
 <div id="in-class-exercise" class="section level3">
 <h3>In-class exercise</h3>
 <p>The <code>fivethirtyeight</code> R package contains a dataset called <code>drinks</code>. This dataset was compiled as part of a <a href="https://fivethirtyeight.com/features/dear-mona-followup-where-do-people-drink-the-most-beer-wine-and-spirits/">FiveThirtyEight article</a> that explored (among other things) which countries consumes the most alcohol.</p>
-<pre class="r"><code>library(fivethirtyeight)</code></pre>
-<pre><code>## Some larger datasets need to be installed separately, like senators and
-## house_district_forecast. To install these, we recommend you install the
-## fivethirtyeightdata package by running:
-## install.packages(&#39;fivethirtyeightdata&#39;, repos =
-## &#39;https://fivethirtyeightdata.github.io/drat/&#39;, type = &#39;source&#39;)</code></pre>
-<pre class="r"><code>drinks_tbl1 &lt;- as_tibble(drinks)
+<pre class="r"><code>library(fivethirtyeight)
+
+drinks_tbl1 &lt;- as_tibble(drinks)
 head(drinks_tbl1)</code></pre>
 <pre><code>## # A tibble: 6 × 5
 ##   country           beer_servings spirit_servings wine_servings total_litres_o…¹
@@ -132,7 +128,7 @@ head(drinks_tbl1)</code></pre>
 </div>
 <div id="what-is-tidy-data" class="section level2">
 <h2>What is tidy data?</h2>
-<p>The tidy data illustrations in the rest of this document are from the <a href="https://www.openscapes.org/">Openscapes</a> blog “<a href="https://www.openscapes.org/blog/2020/10/12/tidy-data/">Tidy Data for reproducibility, efficiency, and collaboration</a>” by <a href="https://jules32.github.io/">Julia Lowndes</a> and <a href="https://www.allisonhorst.com/">Allison Horst</a>.</p>
+<p>The tidy data illustrations that follow are from the <a href="https://www.openscapes.org/">Openscapes</a> blog “<a href="https://www.openscapes.org/blog/2020/10/12/tidy-data/">Tidy Data for reproducibility, efficiency, and collaboration</a>” by <a href="https://jules32.github.io/">Julia Lowndes</a> and <a href="https://www.allisonhorst.com/">Allison Horst</a>.</p>
 <p><img src="https://www.openscapes.org/img/blog/tidydata/tidydata_1.jpg" title="Stylized text providing an overview of Tidy Data. The top reads &quot;Tidy data is a standard way of mapping the meaning of a dataset to its structure. - Hadley Wickham.&quot; On the left reads &quot;In tidy data: each variable forms a column; each observation forms a row; each cell is a single measurement.&quot; There is an example table on the lower right with columns 'id', 'name' and 'color' with observations for different cats, illustrating tidy data structure." alt="Stylized text providing an overview of Tidy Data. The top reads &quot;Tidy data is a standard way of mapping the meaning of a dataset to its structure. - Hadley Wickham.&quot; On the left reads &quot;In tidy data: each variable forms a column; each observation forms a row; each cell is a single measurement.&quot; There is an example table on the lower right with columns 'id', 'name' and 'color' with observations for different cats, illustrating tidy data structure." width="90%" /></p>
 <p><img src="https://www.openscapes.org/img/blog/tidydata/tidydata_2.jpg" title="There are two sets of anthropomorphized data tables. The top group of three tables are all rectangular and smiling, with a shared speech bubble reading &quot;our columns are variables and our rows are observations!&quot;. Text to the left of that group reads “The standard structure of tidy data means that &quot;tidy datasets are all alike...&quot; The lower group of four tables are all different shapes, look ragged and concerned, and have different speech bubbles reading (from left to right) &quot;my column are values and my rows are variables&quot;, &quot;I have variables in columns AND in rows&quot;, &quot;I have multiple variables in a single column”, and “I don’t even KNOW what my deal is.&quot; Next to the frazzled data tables is text “...but every messy dataset is messy in its own way. -Hadley Wickham.&quot;" alt="There are two sets of anthropomorphized data tables. The top group of three tables are all rectangular and smiling, with a shared speech bubble reading &quot;our columns are variables and our rows are observations!&quot;. Text to the left of that group reads “The standard structure of tidy data means that &quot;tidy datasets are all alike...&quot; The lower group of four tables are all different shapes, look ragged and concerned, and have different speech bubbles reading (from left to right) &quot;my column are values and my rows are variables&quot;, &quot;I have variables in columns AND in rows&quot;, &quot;I have multiple variables in a single column”, and “I don’t even KNOW what my deal is.&quot; Next to the frazzled data tables is text “...but every messy dataset is messy in its own way. -Hadley Wickham.&quot;" width="90%" /></p>
 </div>
@@ -145,21 +141,27 @@ head(drinks_tbl1)</code></pre>
 </div>
 <div id="tidy-data-for-collaboration" class="section level3">
 <h3>Tidy data for collaboration</h3>
+<p>Tidy data makes it easier for us to collaborate with others (or with our future selves!) because we organize and share data in a consistent and predictable way.</p>
 <p><img src="https://www.openscapes.org/img/blog/tidydata/tidydata_4.jpg" title="Two happy looking round fuzzy monsters, each holding a similarly shaped wrench with the word &quot;wrangle&quot; on it. Between their tools is held up a rectangular data table labeled &quot;TIDY.&quot;" alt="Two happy looking round fuzzy monsters, each holding a similarly shaped wrench with the word &quot;wrangle&quot; on it. Between their tools is held up a rectangular data table labeled &quot;TIDY.&quot;" width="90%" /></p>
 </div>
 <div id="tidy-data-for-reproducibility-and-reuse" class="section level3">
 <h3>Tidy data for reproducibility and reuse</h3>
+<p>Working within the framework of tidy data naturally guides you to construct meaningful and readable code. This makes analyses easier to understand, update, and reuse.</p>
 <p><img src="https://www.openscapes.org/img/blog/tidydata/tidydata_5.jpg" title="Cute fuzzy monsters putting rectangular data tables onto a conveyor belt. Along the conveyor belt line are different automated &quot;stations&quot; that update the data, reading &quot;WRANGLE&quot;, &quot;VISUALIZE&quot;, and &quot;MODEL&quot;. A monster at the end of the conveyor belt is carrying away a table that reads &quot;Complete analysis.&quot;" alt="Cute fuzzy monsters putting rectangular data tables onto a conveyor belt. Along the conveyor belt line are different automated &quot;stations&quot; that update the data, reading &quot;WRANGLE&quot;, &quot;VISUALIZE&quot;, and &quot;MODEL&quot;. A monster at the end of the conveyor belt is carrying away a table that reads &quot;Complete analysis.&quot;" width="90%" /></p>
 </div>
 <div id="in-class-exercise-1" class="section level3">
 <h3>In class exercise</h3>
 <p>I made the <code>drinks</code> plots from our last exercise by 1. “tidying” <code>drinks_tbl1</code> 2. storing it in a tibble called <code>drinks_tbl2</code> and 3. running the following code snippet:</p>
-<pre class="r"><code>drinks_tbl2 %&gt;% ggplot(aes(x=Servings)) + geom_histogram() + facet_wrap(vars(Alcohol)) + ylab(&quot;Number of countries in each alcohol consumption group&quot;) + 
+<pre class="r"><code>drinks_tbl2 %&gt;% 
+  ggplot(aes(x=Servings)) + 
+  geom_histogram() + 
+  facet_wrap(vars(Alcohol)) + 
+  ylab(&quot;Number of countries in each alcohol consumption group&quot;) + 
   xlab(&quot;Number of servings of alcohol consumed in 2010&quot;)</code></pre>
 <p>Your task:</p>
 <ol style="list-style-type: decimal">
 <li>Return to your small groups.</li>
-<li>As a group, mentally (or with pen and paper) sketch out the format of the tidy tibble <code>drinks_tbl2</code>.</li>
+<li>As a group, mentally (or with pen and paper, or even with a spreadsheet editor like Excel or Google Sheets) sketch out the format of the tidy tibble <code>drinks_tbl2</code>.</li>
 </ol>
 </div>
 </div>
@@ -170,7 +172,7 @@ head(drinks_tbl1)</code></pre>
 <p>Step 1 is to figure out what the underlying variables and observations are. This might seem straightforward, but it can be surprisingly hard because it <strong>depends on the (statistical) question being asked</strong>.</p>
 <div id="example-great-british-bakeoff" class="section level4">
 <h4>Example: Great British Bakeoff</h4>
-<p>We will demonstrate using data from “The Great British Bake Off” compiled by <a href="https://www.apreshill.com/">Allison Hill</a> in the R package <code>bakeoff</code>. (Note that this package is not hosted on CRAN, so if you would like to install it, you will need to run <code>install.packages("remotes")</code> then type <code>remotes::install_github("apreshill/bakeoff")</code> into R.) The code that follows was lightly adapted from Allison’s <a href="https://www.apreshill.com/talk/2019-rladies-sydney/">Plot Twist talk</a>.</p>
+<p>We will demonstrate using data from “The Great British Bake Off” compiled by <a href="https://www.apreshill.com/">Allison Hill</a> in the R package <code>bakeoff</code>. (Note that this package is not hosted on CRAN, so if you would like to install it, you will need to run <code>install.packages("remotes")</code> then type <code>remotes::install_github("apreshill/bakeoff")</code> into R.) The graphics that follow (and the code to produce the graphics) were lightly adapted from Allison’s <a href="https://www.apreshill.com/talk/2019-rladies-sydney/">Plot Twist talk</a>.</p>
 <p>Here is a bar plot of the number of viewers in millions within a 7-day window per episode, coloured by series.</p>
 <p><img src="/notes/notes-a08_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
 <p>This bar plot was constructed with the following tidy data representation:</p>
@@ -186,7 +188,8 @@ head(drinks_tbl1)</code></pre>
 <p>Every row is an observation (a unique episode), and the columns are variables (a continuous episode number across series, 7-day viewership, series, and episode number within series).</p>
 <p>Here is another bar plot displaying percentage increase in the number of viewers in millions within a 7-day window from the premiere episode to finale episode for the first 10 series.</p>
 <p><img src="/notes/notes-a08_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
-<p>Notice that our observations and variables have changed! Our observations are now <em>series</em>, and our relevant <em>variables</em> are now the number of viewers in millions within a 7-day window for the first and last episode of each series. Given these variables, we could calculate the variable we display in the bar plot (the percentage increase in viewers from the premiere to finale) with the logic <code>(last-first)/first</code>. In other words, the tidy data representation is this wider format:</p>
+<p>Notice that our observations and variables are not the same as before! Here, our observations are <em>series</em>, and our variables are <em>the number of viewers in millions within a 7-day window for the first and last episode of each series</em>. Given these two variables, we could calculate the variable displayed in the bar plot (the percentage increase in viewers from the premiere to finale) with the logic <code>(last-first)/first</code>.</p>
+<p>In other words, the tidy data representation is this wider format:</p>
 <pre><code>## # A tibble: 6 × 3
 ##   series first  last
 ##   &lt;fct&gt;  &lt;dbl&gt; &lt;dbl&gt;
@@ -196,7 +199,8 @@ head(drinks_tbl1)</code></pre>
 ## 4 4       6.6   9.45
 ## 5 5       8.51 13.5 
 ## 6 6      11.6  15.0</code></pre>
-<p>The moral of the story: what is “tidy” can differ for <strong>the exact same data set</strong>. This is because what is an observation and what is a variable depends on the statistical question being asked! Once again, we return to the words of the great philosopher Aretha Franklin …</p>
+<p>The moral of the story: what is “tidy” can differ within <strong>the exact same data set</strong>. This is because what is an observation and what is a variable depends on the statistical question being asked!</p>
+<p>Once again, we return to the words of the great philosopher Aretha Franklin …</p>
 <blockquote>
 <p>“You better think (think) about what you’re trying to do …” - Aretha Franklin, “Think”</p>
 </blockquote>
@@ -227,7 +231,7 @@ head(drinks_tbl1)</code></pre>
 <div id="coda-tidy-data-and-data-ethics" class="section level2">
 <h2>Coda: Tidy data and data ethics</h2>
 <blockquote>
-<p>“Of course, it is very easy to disregard people you have never met, and who are certainly not your friends or family members. After all, in the eyes of an outsider, who is in no danger whatsoever, the people caught up in the situation are nothing more than simply statistics.” - Andrew James Pritchard</p>
+<p>“Of course, it is very easy to disregard people you have never met, and who are certainly not your friends or family members. After all, in the eyes of an outsider, who is in no danger whatsoever, the people caught up in the situation are nothing more than simply statistics.” - Andrew James Pritchard, “Not Collateral Damage”</p>
 </blockquote>
 <p>The book <a href="https://data-feminism.mitpress.mit.edu/">“Data Feminism”</a> by Catherine D’Ignazio and Lauren F. Klein “presents a new way of thinking about data science and data ethics that is informed by the ideas of intersectional feminism”. Power is an important theme throughout the book: they point out that “data collection has long been employed as a technique of consolidating knowledge about the people whose data are collected, and therefore consolidating power over their lives.”</p>
 <p>In Chapter 5, the authors make several points about cleaning and tidying data:</p>

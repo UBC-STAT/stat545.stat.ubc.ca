@@ -18,7 +18,7 @@ From this topic, students are anticipated to be able to:
 -   convert a dataset between the 'long' and 'wide' format, using `tidyr::pivot_longer()` and `tidyr::pivot_wider()`
 -   deal with missing data in a tibble
 
-We will spend 1-2 days on this topic.
+We will spend 1-2 days on this topic. (2 days is more likely.) 
 
 ## Resources
 
@@ -57,7 +57,7 @@ In other words: the four tables above are not equally easy to use for this data 
 
 The `fivethirtyeight` R package contains a dataset called `drinks`. This dataset was compiled as part of a [FiveThirtyEight article](https://fivethirtyeight.com/features/dear-mona-followup-where-do-people-drink-the-most-beer-wine-and-spirits/) that explored (among other things) which countries consumes the most alcohol.
 
-```{r}
+```{r, message=FALSE}
 library(fivethirtyeight)
 
 drinks_tbl1 <- as_tibble(drinks)
@@ -88,7 +88,7 @@ It is well worth your time to think about what you're trying to do with your dat
 
 ## What is tidy data? 
 
-The tidy data illustrations in the rest of this document are from the [Openscapes](https://www.openscapes.org/) blog "[Tidy Data for reproducibility, efficiency, and collaboration](https://www.openscapes.org/blog/2020/10/12/tidy-data/)" by [Julia Lowndes](https://jules32.github.io/) and [Allison Horst](https://www.allisonhorst.com/). 
+The tidy data illustrations that follow are from the [Openscapes](https://www.openscapes.org/) blog "[Tidy Data for reproducibility, efficiency, and collaboration](https://www.openscapes.org/blog/2020/10/12/tidy-data/)" by [Julia Lowndes](https://jules32.github.io/) and [Allison Horst](https://www.allisonhorst.com/). 
 
 ```{r, fig.alt="Stylized text providing an overview of Tidy Data. The top reads \"Tidy data is a standard way of mapping the meaning of a dataset to its structure. - Hadley Wickham.\" On the left reads \"In tidy data: each variable forms a column; each observation forms a row; each cell is a single measurement.\" There is an example table on the lower right with columns \'id\', \'name\' and 'color' with observations for different cats, illustrating tidy data structure.", out.width="90%", echo=FALSE}
 
@@ -112,12 +112,16 @@ knitr::include_graphics("https://www.openscapes.org/img/blog/tidydata/tidydata_3
 
 ### Tidy data for collaboration 
 
+Tidy data makes it easier for us to collaborate with others (or with our future selves!) because we organize and share data in a consistent and predictable way. 
+
 ```{r, fig.alt="Two happy looking round fuzzy monsters, each holding a similarly shaped wrench with the word \"wrangle\" on it. Between their tools is held up a rectangular data table labeled \"TIDY.\"", out.width="90%", echo=FALSE}
 
 knitr::include_graphics("https://www.openscapes.org/img/blog/tidydata/tidydata_4.jpg")
 ```
 
 ### Tidy data for reproducibility and reuse 
+
+Working within the framework of tidy data naturally guides you to construct meaningful and readable code. This makes analyses easier to understand, update, and reuse. 
 
 ```{r, fig.alt="Cute fuzzy monsters putting rectangular data tables onto a conveyor belt. Along the conveyor belt line are different automated \"stations\" that update the data, reading \"WRANGLE\", \"VISUALIZE\", and \"MODEL\". A monster at the end of the conveyor belt is carrying away a table that reads \"Complete analysis.\"", out.width="90%", echo=FALSE}
 
@@ -129,7 +133,11 @@ knitr::include_graphics("https://www.openscapes.org/img/blog/tidydata/tidydata_5
 I made the `drinks` plots from our last exercise by 1. "tidying" `drinks_tbl1` 2. storing it in a tibble called `drinks_tbl2` and 3. running the following code snippet: 
 
 ```{r, eval=FALSE} 
-drinks_tbl2 %>% ggplot(aes(x=Servings)) + geom_histogram() + facet_wrap(vars(Alcohol)) + ylab("Number of countries in each alcohol consumption group") + 
+drinks_tbl2 %>% 
+  ggplot(aes(x=Servings)) + 
+  geom_histogram() + 
+  facet_wrap(vars(Alcohol)) + 
+  ylab("Number of countries in each alcohol consumption group") + 
   xlab("Number of servings of alcohol consumed in 2010")
 ```
 
@@ -137,16 +145,16 @@ drinks_tbl2 %>% ggplot(aes(x=Servings)) + geom_histogram() + facet_wrap(vars(Alc
 Your task: 
 
 1. Return to your small groups. 
-2. As a group, mentally (or with pen and paper) sketch out the format of the tidy tibble `drinks_tbl2`. 
+2. As a group, mentally (or with pen and paper, or even with a spreadsheet editor like Excel or Google Sheets) sketch out the format of the tidy tibble `drinks_tbl2`. 
 
 ## How to tidy your data 
 
 ### Step 1: What are the underlying variables and observations? 
-Step 1 is to figure out what the underlying variables and observations are. This might seem straightforward, but it can be surprisingly hard because it **depends on the (statistical) question being asked**. 
+Step 1 is to figure out what the underlying variables and observations are. This might seem straightforward, but it can be surprisingly hard because it **depends on the (scientific and statistical) question being asked**. 
 
 #### Example: Great British Bakeoff
 
-We will demonstrate using data from "The Great British Bake Off" compiled by [Allison Hill](https://www.apreshill.com/) in the R package `bakeoff`. (Note that this package is not hosted on CRAN, so if you would like to install it, you will need to run `install.packages("remotes")` then type `remotes::install_github("apreshill/bakeoff")` into R.) The code that follows was lightly adapted from Allison's [Plot Twist talk](https://www.apreshill.com/talk/2019-rladies-sydney/). 
+We will demonstrate using data from "The Great British Bake Off" compiled by [Allison Hill](https://www.apreshill.com/) in the R package `bakeoff`. (Note that this package is not hosted on CRAN, so if you would like to install it, you will need to run `install.packages("remotes")` then type `remotes::install_github("apreshill/bakeoff")` into R.) The graphics that follow (and the code to produce the graphics) were lightly adapted from Allison's [Plot Twist talk](https://www.apreshill.com/talk/2019-rladies-sydney/). 
 
 Here is a bar plot of the number of viewers in millions within a 7-day window per episode, coloured by series. 
 
@@ -199,13 +207,17 @@ ratings_tbl2 %>% mutate(pct_change = (last - first)/first) %>%
   coord_flip() 
 ```
 
-Notice that our observations and variables have changed! Our observations are now *series*, and our relevant *variables* are now the number of viewers in millions within a 7-day window for the first and last episode of each series. Given these variables, we could calculate the variable we display in the bar plot (the percentage increase in viewers from the premiere to finale) with the logic `(last-first)/first`. In other words, the tidy data representation is this wider format: 
+Notice that our observations and variables are not the same as before! Here, our observations are *series*, and our variables are *the number of viewers in millions within a 7-day window for the first and last episode of each series*. Given these two variables, we could calculate the variable displayed in the bar plot (the percentage increase in viewers from the premiere to finale) with the logic `(last-first)/first`. 
+
+In other words, the tidy data representation is this wider format: 
 
 ```{r, echo=FALSE}
 head(ratings_tbl2) 
 ```
 
-The moral of the story: what is "tidy" can differ for **the exact same data set**. This is because what is an observation and what is a variable depends on the statistical question being asked! Once again, we return to the words of the great philosopher Aretha Franklin ...
+The moral of the story: what is "tidy" can differ within **the exact same data set**. This is because what is an observation and what is a variable depends on the scientific/statistical question being asked!
+
+Once again, we return to the words of the great philosopher Aretha Franklin ...
 
 > "You better think (think) about what you're trying to do ..." - Aretha Franklin, "Think"
 
@@ -231,7 +243,7 @@ We will learn go through Worksheet A-4 in class.
 
 ## Coda: Tidy data and data ethics
 
-> "Of course, it is very easy to disregard people you have never met, and who are certainly not your friends or family members. After all, in the eyes of an outsider, who is in no danger whatsoever, the people caught up in the situation are nothing more than simply statistics." - Andrew James Pritchard
+> "Of course, it is very easy to disregard people you have never met, and who are certainly not your friends or family members. After all, in the eyes of an outsider, who is in no danger whatsoever, the people caught up in the situation are nothing more than simply statistics." - Andrew James Pritchard, "Not Collateral Damage"
 
 The book ["Data Feminism"](https://data-feminism.mitpress.mit.edu/) by Catherine D'Ignazio and Lauren F. Klein "presents a new way of thinking about data science and data ethics that is informed by the ideas of intersectional feminism". Power is an important theme throughout the book: they point out that "data collection has long been employed as a technique of consolidating knowledge about the people whose data are collected, and therefore consolidating power over their lives." 
 
@@ -245,7 +257,7 @@ In Chapter 5, the authors make several points about cleaning and tidying data:
 
 - Untidy data is not inherently "bad", and tidy data is not inherently "good": "The ideas expressed by Wickham, and by the press, carry the assumption that all data scientists, in all contexts, value cleanliness and control over messiness and complexity ... these are not the requirements, nor the goals, of all data projects." 
 
-These are important conversations for us as a data science community to have. 
+These are important conversations for us to have as a data science community. 
 
 ## Attribution 
 
