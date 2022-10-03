@@ -385,7 +385,7 @@ Think back to our WHO Tuberculosis example from the very beginning again. This w
 ## 5 China        1999 212258 1272915272
 ## 6 China        2000 213766 1280428583</code></pre>
 <p>The <code>col</code> argument specifies the column we want to separate,
-and the <code>into</code> argument specifies the names of the new columns. The <code>sep</code> argument (not specified here) specifies where we want to cut. The default is pretty clever - it separates at any non-alphanumeric value.</p>
+and the <code>into</code> argument specifies the names of the new columns. The <code>sep</code> argument (not specified here) specifies where we want to cut. The default is pretty clever - it separates at any non-alphanumeric value. (How this is accomplished involves <em>regular expressions</em>, which are very useful when working with character data. We will learn more about regular expressions in STAT 545B. )</p>
 <p>We need the inverse operation <code>unite</code> far less frequently. For completeness, we will “untidy” <code>table5</code> by transforming it back to <code>table3</code>.</p>
 <pre class="r"><code>table5 %&gt;% unite(col=new, 
                  cases, population, 
@@ -403,8 +403,8 @@ and the <code>into</code> argument specifies the names of the new columns. The <
 </div>
 </div>
 </div>
-<div id="demonstration-pivoting-with-tidyr" class="section level2">
-<h2>Demonstration: Pivoting with tidyr</h2>
+<div id="demonstration-pivoting-and-separatinguniting-with-tidyr" class="section level2">
+<h2>Demonstration: Pivoting and Separating/Uniting with tidyr</h2>
 <p>We will go through Parts 1 and 2 of Worksheet A-4 in class.</p>
 <!-- ## Test Your Understanding
 
@@ -424,7 +424,7 @@ and the <code>into</code> argument specifies the names of the new columns. The <
 <li><p>Further riffing on that point: “the process of cleaning and tidying data … at times, can be a destructive rather than constructive act. One way to think of it is like chopping off the roots of a tree that connects it to the ground from which it grew. <strong>It’s an act that irreversibly separates the data from their context.</strong>”</p></li>
 <li><p>Untidy data is not inherently “bad”, and tidy data is not inherently “good”: “The ideas expressed by Wickham, and by the press, carry the assumption that all data scientists, in all contexts, value cleanliness and control over messiness and complexity … these are not the requirements, nor the goals, of all data projects.”</p></li>
 </ul>
-<p>These are important conversations for us to have as a data science community.</p>
+<p>These are important points for us to reflect on as a data science community.</p>
 </div>
 <div id="attribution" class="section level2">
 <h2>Attribution</h2>
