@@ -15,7 +15,7 @@ From this topic, students are anticipated to be able to:
 
 -   recognize whether a given dataset is 'tidy' or 'untidy'
 -   understand why 'tidy' data is useful
--   convert a dataset between the 'long' and 'wide' format, using `tidyr::pivot_longer()` and `tidyr::pivot_wider()`
+-   reshape a dataset between a 'long' and 'wide' format, using `tidyr::pivot_longer()` and `tidyr::pivot_wider()`
 -   deal with missing data in a tibble
 
 We will spend 1-2 days on this topic. (2 days is more likely.) 
@@ -49,7 +49,7 @@ table4a
 table4b
 ```
 
-Suppose we want to visualize changes in cases over time. The difficulty of this task varies depending on which of the four representations you use.
+Suppose that we want to visualize changes in the turbuculosis disease rate over time. The difficulty of this task varies depending on which of the four representations you use.
 
 In other words: the four tables above are not equally easy to use for this data analysis task! 
 
@@ -80,13 +80,62 @@ Your task:
 2.  As a group, spend about five minutes brainstorming how to reproduce the plots above, *using only what we have learned so far* about `dplyr` and `ggplot2`. 
 3.  Did you hit a wall? Discuss as a group and see if you can put your finger on *why* bullet point #2 was hard.
 
+### Another example 
+
+Let us return to the WHO tuberculosis data, where we decided that we wanted to visualize changes in the turbuculosis disease rate over time. We will first tackle this with `table1`: 
+
+```{r} 
+table1 %>% mutate(rate=cases/population) %>% 
+  ggplot(aes(x=year, y=rate, colour=country)) + 
+  geom_line() + geom_point() + xlab("Year") + ylab("TB Rate")
+```
+
+We will now tackle this with `table2`: 
+
+```{r} 
+# Extract number of cases per country per year 
+# and population per country per year
+table2_cases_only <- table2 %>% filter(type == "cases")
+table2_pop_only <- table2 %>% filter(type == "population")
+
+# Make sure that the tables match!! 
+table2_cases_only$country == table2_pop_only$country
+table2_cases_only$year == table2_pop_only$year
+
+# For each country and year, divide the cases by population
+# to compute rate 
+tb_rate_table <- table2_cases_only %>% 
+  mutate(rate=count/table2_pop_only$count)
+
+tb_rate_table %>% ggplot(aes(x=year, y=rate, colour=country)) + geom_line() + geom_point() + xlab("Year") + ylab("TB Rate")
+```
+
+The `table2` approach is more involved than the `table1` approach. 
+
+We can make this difference in effort even more pronounced by introducing missing data. The following code modifies `table1` and `table2` so that the the population count for the year 1999 in Afghanistan is missing: 
+
+```{r} 
+(table1_missing <- table1 %>% 
+   mutate(population = case_when(
+     (country=="Afghanistan" & year == 1999) ~ NA_integer_,
+     TRUE ~ as.integer(population))
+     )
+ )
+
+(table2_missing <- table2 %>% 
+    filter(!(country=="Afghanistan" & year == 1999))
+  )
+```
+
+Could we use the same strategy as before to work with `table1_missing`? How about `table2_missing`? 
+
 ### A take home message 
 
 > "You better think (think) about what you're trying to do ..." - Aretha Franklin, "Think"
 
 It is well worth your time to think about what you're trying to do with your data, and then organize your data accordingly!
 
-## What is tidy data? 
+## Tidy data: a principle for organizing data
 
 The tidy data illustrations that follow are from the [Openscapes](https://www.openscapes.org/) blog "[Tidy Data for reproducibility, efficiency, and collaboration](https://www.openscapes.org/blog/2020/10/12/tidy-data/)" by [Julia Lowndes](https://jules32.github.io/) and [Allison Horst](https://www.allisonhorst.com/). 
 
@@ -109,6 +158,8 @@ Tidy data lets us design and use tools built for performing the same task on dif
 
 knitr::include_graphics("https://www.openscapes.org/img/blog/tidydata/tidydata_3.jpg")
 ```
+
+In our in-class exercise and in our example above, it was easy to work with the tidy representation and hard to work with the untidy representation! 
 
 ### Tidy data for collaboration 
 
@@ -221,25 +272,109 @@ Once again, we return to the words of the great philosopher Aretha Franklin ...
 
 > "You better think (think) about what you're trying to do ..." - Aretha Franklin, "Think"
 
-### Step 2: Pivot
- 
-In Step 1, we decided what the underlying variables and observations are. In Step 2, we will produce the corresponding tidy representation by **pivoting** your data. 
+A general rule of thumb: 
 
-The `tidyr` package is loaded with the `tidyverse` and provides functions for pivoting data. It has two main functions: 
+- It feels more natural to think about functional relationships between variables (e.g. `pct_change` is `(last-first)/first`) than between observations.  
+- It feels more natural to compare groups of observations (e.g. average viewership across all episodes in series 1 vs average viewership across all episodes in series 2) than between groups of variables. 
+
+### Step 2: Pivot or Separate/Unite
+ 
+In Step 1, we decided what the underlying variables and observations are. In Step 2, we will produce the corresponding tidy representation. This will virtually always involve **pivoting** and/or **separating/uniting** your data. 
+
+#### Pivoting 
+
+The `tidyr` package is loaded with the `tidyverse` and provides functions for pivoting data. It has two main "pivoting" type functions: 
 
 1. `pivot_longer()` makes datasets *longer* by increasing the number of rows and decreasing the number of columns. 
 2.  `pivot_wider()` makes datasets *wider* by decreasing the number of rows and increasing the number of columns.
 
 Note that pivoting used to be achieved through the tidyr `spread()` and `gather()` functions. These are now deprecated and should not be used. They are only kept along with the tidyr package for backward compatibility.
 
-## Test Your Understanding
+Think back to our WHO Tuberculosis example from the very beginning. This was our tidy representation: 
+```{r} 
+table1
+```
 
-1.  True or False: it's possible to lengthen a tibble "all the way" so that it can't be lengthened anymore.
-2.  True or False: To make a scatterplot viewing the relationship of Africa's GDP per capita vs. Europe's, use `pivot_wider()`.
+This was one of our untidy representations: 
+
+```{r} 
+table2
+```
+
+Compared to `table1`, `table2` is too long - `table2` has spread a single observation (case counts and population counts for a single country in a single year) across multiple rows. 
+
+We can solve this problem using `pivot_wider`, which needs two pieces of information. We are going to increase the number of columns, so ... 
+
+-  What should the new columns be named? Put the name of the column you want to take the new variable names from in the `names_from` argument. 
+
+- What values should the new columns contain? Put the name of the  column you want to take the values from to `values_from` in the `values_from` argument. 
+
+```{r} 
+table2 %>% pivot_wider(names_from=type, 
+                       values_from = count)
+```
+
+This was another (part of) one of our untidy representations:
+
+```{r} 
+table4a
+```
+
+Compared to `table1`, `table4a` is too wide. One way to see this is to identify our observational unit (a single country in a single year) and observe that there are fewer rows than there are observational units. Perhaps a more direct way to see it is to notice that we want `year` to be a variable, and the column names actually contain *values* of that variable! 
+
+We can solve this problem using `pivot_longer`, which needs three pieces of information. We are going to decrease the number of columns, so ... 
+
+- Which are the offending columns that we want to combine? Put their names in the `cols` argument. 
+
+- These column names are often important though - so we should save them as values in a column of our new data set. What should the name of that column be? Put it in the `names_to` argument. 
+
+- What should we name the column in our new data set that contains the values in the offending columns of the old data set? Put it in the `values_to` argument. 
+
+```{r} 
+table4a %>% pivot_longer(c(`1999`, `2000`), 
+                         names_to = "year", 
+                         values_to = "cases")
+```
+
+Note that to fully recreate `table1`, we will need to pivot `table4b` too, and then combine the pivoted version of `table4b` with the pivoted version of `table4a`. We will talk about how to do that when we cover [Tibble Joins](/notes-a10).
+
+#### Separating and Uniting 
+
+The `tidyr` package has a function for gluing columns together (`unite`) and for cutting columns apart (`separate`. 
+Think back to our WHO Tuberculosis example from the very beginning again. This was one of our untidy representations:
+
+```{r} 
+table3
+```
+
+The `rate` column contains the values of two variables: case counts and population counts. We would like to snip it apart at the "/" character to create two columns: 
+
+```{r} 
+(table5 <- table3 %>% separate(col = rate, 
+                    into = c("cases", "population")))
+```
+
+The `col` argument specifies the column we want to separate, 
+and the `into` argument specifies the names of the new columns. The `sep` argument (not specified here) specifies where we want to cut. The default is pretty clever - it separates at any non-alphanumeric value. 
+
+We need the inverse operation `unite` far less frequently. For completeness, we will "untidy" `table5` by transforming it back to `table3`. 
+
+```{r} 
+table5 %>% unite(col=new, 
+                 cases, population, 
+                 sep="/")
+```
+
+Useful note: we can also specify which columns we wanted to glue together using `tidyselect` helpers. 
 
 ## Demonstration: Pivoting with tidyr
 
-We will learn go through Worksheet A-4 in class.
+We will go through Parts 1 and 2 of Worksheet A-4 in class.
+
+<!-- ## Test Your Understanding
+
+1.  True or False: it's possible to lengthen a tibble "all the way" so that it can't be lengthened anymore.
+2.  True or False: To make a scatterplot viewing the relationship of Africa's GDP per capita vs. Europe's, use `pivot_wider()`. -->
 
 ## Coda: Tidy data and data ethics
 
