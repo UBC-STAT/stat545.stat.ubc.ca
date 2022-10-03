@@ -18,7 +18,7 @@ From this topic, students are anticipated to be able to:
 -   reshape a dataset between a 'long' and 'wide' format, using `tidyr::pivot_longer()` and `tidyr::pivot_wider()`
 -   deal with missing data in a tibble
 
-We will spend 1-2 days on this topic. (2 days is more likely.) 
+We will spend two days on this topic.
 
 ## Resources
 
