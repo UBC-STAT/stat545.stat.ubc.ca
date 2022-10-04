@@ -6,6 +6,9 @@ output: html_document
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
+<pre class="r"><code>library(tidyverse)
+library(tidymodels)
+library(gapminder)</code></pre>
 <p>From today’s class, students are anticipated to be able to:</p>
 <ul>
 <li>make a model object in R, using <code>lm()</code> as an example.</li>
@@ -55,14 +58,14 @@ output: html_document
 <li>How many more miles per gallon can we expect of a car that weighs 1000 lbs less than another car?</li>
 </ol>
 <p>A simple scatterplot will give us a general idea, but can’t give us specifics. Here, we use the <code>mtcars</code> dataset in the <code>datasets</code> package. A linear model is one example of a model that can attempt to answer all three – the line corresponding to the fitted model has been added to the scatterplot.</p>
-<pre><code>## Error in ggplot(mtcars, aes(wt, mpg)): could not find function &quot;ggplot&quot;</code></pre>
+<p><img src="/notes/notes-a09_files/figure-html/unnamed-chunk-3-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>(By the way, you can plot the model using <code>ggplot2</code>’s <code>geom_smooth()</code> layer – but you can’t interact with the model downstream.)</p>
 <p>We can make a prediction of mpg for a car weighing 3,000 lbs by evaluating the line at X = 3:</p>
-<pre><code>## Error in predict(fit, newdata = tibble(wt = 3)) %&gt;% unname(): could not find function &quot;%&gt;%&quot;</code></pre>
+<pre><code>## [1] 21.25171</code></pre>
 <p>We can find the p-value testing the null hypothesis that the true slope of the regression line is 0:</p>
-<pre><code>## Error in glance(fit)$p.value %&gt;% unname(): could not find function &quot;%&gt;%&quot;</code></pre>
+<pre><code>## [1] 1.293959e-10</code></pre>
 <p>And we can calculate how many more miles per gallon a car weighing 1000 less lbs would be expected to have through the slope:</p>
-<pre><code>## Error in tidy(fit): could not find function &quot;tidy&quot;</code></pre>
+<pre><code>## [1] 5.344472</code></pre>
 </div>
 <div id="fitting-a-model-in-r" class="section level2">
 <h2>Fitting a model in R</h2>
@@ -105,7 +108,11 @@ output: html_document
 <h3><code>tidy()</code></h3>
 <p>Use the <code>tidy()</code> function for a statistical summary of each component of your model, where each component gets a row in the output tibble. For <code>lm()</code>, <code>tidy()</code> gives one row per regression coefficient (slope and intercept).</p>
 <pre class="r"><code>tidy(my_lm)</code></pre>
-<pre><code>## Error in tidy(my_lm): could not find function &quot;tidy&quot;</code></pre>
+<pre><code>## # A tibble: 2 × 5
+##   term        estimate std.error statistic  p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)    37.3      1.88      19.9  8.24e-19
+## 2 wt             -5.34     0.559     -9.56 1.29e-10</code></pre>
 <p><code>tidy()</code> only works if it makes sense to talk about model “components”.</p>
 </div>
 <div id="augment" class="section level3">
@@ -113,17 +120,37 @@ output: html_document
 <p>Use the <code>augment()</code> function to make predictions on a dataset by augmenting predictions as a new column to your data. By default, <code>augment()</code> uses the dataset that was used to fit the model.</p>
 <pre class="r"><code>augment(my_lm) %&gt;% 
   print(n = 5)</code></pre>
-<pre><code>## Error in augment(my_lm) %&gt;% print(n = 5): could not find function &quot;%&gt;%&quot;</code></pre>
+<pre><code>## # A tibble: 32 × 9
+##   .rownames           mpg    wt .fitted .resid   .hat .sigma   .cooksd .std.re…¹
+##   &lt;chr&gt;             &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1 Mazda RX4          21    2.62    23.3 -2.28  0.0433   3.07 0.0133      -0.766 
+## 2 Mazda RX4 Wag      21    2.88    21.9 -0.920 0.0352   3.09 0.00172     -0.307 
+## 3 Datsun 710         22.8  2.32    24.9 -2.09  0.0584   3.07 0.0154      -0.706 
+## 4 Hornet 4 Drive     21.4  3.22    20.1  1.30  0.0313   3.09 0.00302      0.433 
+## 5 Hornet Sportabout  18.7  3.44    18.9 -0.200 0.0329   3.10 0.0000760   -0.0668
+## # … with 27 more rows, and abbreviated variable name ¹​.std.resid
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <p>We can also predict on new datasets. Here are predictions of <code>mpg</code> for cars weighing 3, 4, and 5 thousand lbs.</p>
 <pre class="r"><code>augment(my_lm, newdata = tibble(wt = 3:5))</code></pre>
-<pre><code>## Error in augment(my_lm, newdata = tibble(wt = 3:5)): could not find function &quot;augment&quot;</code></pre>
+<pre><code>## # A tibble: 3 × 2
+##      wt .fitted
+##   &lt;int&gt;   &lt;dbl&gt;
+## 1     3    21.3
+## 2     4    15.9
+## 3     5    10.6</code></pre>
 <p>Notice that only the “X” variables are needed in the input tibble (<code>wt</code>), and that since the “Y” variable (<code>mpg</code>) wasn’t provided, <code>augment()</code> couldn’t calculate anything besides a prediction.</p>
 </div>
 <div id="glance" class="section level3">
 <h3><code>glance()</code></h3>
 <p>Use the <code>glance()</code> function to extract a summary of the model as a whole, in the form of a one-row tibble. This will give you information related to the model fit.</p>
 <pre class="r"><code>glance(my_lm)</code></pre>
-<pre><code>## Error in glance(my_lm): could not find function &quot;glance&quot;</code></pre>
+<pre><code>## # A tibble: 1 × 12
+##   r.squared adj.r.squa…¹ sigma stati…²  p.value    df logLik   AIC   BIC devia…³
+##       &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
+## 1     0.753        0.745  3.05    91.4 1.29e-10     1  -80.0  166.  170.    278.
+## # … with 2 more variables: df.residual &lt;int&gt;, nobs &lt;int&gt;, and abbreviated
+## #   variable names ¹​adj.r.squared, ²​statistic, ³​deviance
+## # ℹ Use `colnames()` to see all variable names</code></pre>
 </div>
 </div>
 <div id="probing-the-model-traditional-method" class="section level2">
@@ -137,11 +164,11 @@ output: html_document
 <pre class="r"><code>predict(my_lm) %&gt;% 
   unname() %&gt;% 
   head(5)</code></pre>
-<pre><code>## Error in predict(my_lm) %&gt;% unname() %&gt;% head(5): could not find function &quot;%&gt;%&quot;</code></pre>
+<pre><code>## [1] 23.28261 21.91977 24.88595 20.10265 18.90014</code></pre>
 <p>Here are the predictions of mpg made for cars with a weight of 3, 4, and 5 thousand lbs:</p>
 <pre class="r"><code>predict(my_lm, newdata = tibble(wt = 3:5)) %&gt;% 
   unname()</code></pre>
-<pre><code>## Error in predict(my_lm, newdata = tibble(wt = 3:5)) %&gt;% unname(): could not find function &quot;%&gt;%&quot;</code></pre>
+<pre><code>## [1] 21.25171 15.90724 10.56277</code></pre>
 <p>Checking the documentation of the <code>predict()</code> function <em>for your model</em> isn’t obvious, because the <code>predict()</code> function is a “generic” function. Your best bet is to append the model name after a dot. For example:</p>
 <ul>
 <li>For a model fit with <code>lm()</code>, try <code>?predict.lm</code></li>
@@ -208,28 +235,30 @@ output: html_document
 <pre class="r"><code>ggplot(mtcars, aes(x = wt, y = mpg)) +
     geom_point() +
     geom_smooth(method = &quot;lm&quot;) </code></pre>
-<pre><code>## Error in ggplot(mtcars, aes(x = wt, y = mpg)): could not find function &quot;ggplot&quot;</code></pre>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="/notes/notes-a09_files/figure-html/unnamed-chunk-21-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Let’s visualize some relationships in the <code>gapminder</code> dataset.</p>
 <p>Let’s inspect Zimbabwe, which has a unique behavior in the <code>lifeExp</code> and <code>year</code> relationship.</p>
 <pre class="r"><code>gapminder_Zimbabwe &lt;- gapminder %&gt;% 
-  filter(country == &quot;Zimbabwe&quot;)</code></pre>
-<pre><code>## Error in gapminder %&gt;% filter(country == &quot;Zimbabwe&quot;): could not find function &quot;%&gt;%&quot;</code></pre>
-<pre class="r"><code>gapminder_Zimbabwe %&gt;% 
+  filter(country == &quot;Zimbabwe&quot;)
+
+gapminder_Zimbabwe %&gt;% 
   ggplot(aes(year, lifeExp)) + 
   geom_point()</code></pre>
-<pre><code>## Error in gapminder_Zimbabwe %&gt;% ggplot(aes(year, lifeExp)): could not find function &quot;%&gt;%&quot;</code></pre>
-<p>Let’s try fitting a linear model to this relationship</p>
+<p><img src="/notes/notes-a09_files/figure-html/unnamed-chunk-22-1.png" width="480" style="display: block; margin: auto;" />
+Let’s try fitting a linear model to this relationship</p>
 <pre class="r"><code>ggplot(gapminder_Zimbabwe, aes(year,lifeExp)) +
   geom_point() +
   geom_smooth(method = &quot;lm&quot;, se = F)</code></pre>
-<pre><code>## Error in ggplot(gapminder_Zimbabwe, aes(year, lifeExp)): could not find function &quot;ggplot&quot;</code></pre>
-<p>Now we will try to fit a second degree polynomial and see what would that look like.</p>
+<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<p><img src="/notes/notes-a09_files/figure-html/unnamed-chunk-23-1.png" width="480" style="display: block; margin: auto;" />
+Now we will try to fit a second degree polynomial and see what would that look like.</p>
 <pre class="r"><code>ggplot(gapminder_Zimbabwe, aes(year,lifeExp)) +
   geom_point() +
   geom_smooth(method = &quot;lm&quot;,
               formula = y ~ poly(x,2), 
               se = F)</code></pre>
-<pre><code>## Error in ggplot(gapminder_Zimbabwe, aes(year, lifeExp)): could not find function &quot;ggplot&quot;</code></pre>
+<p><img src="/notes/notes-a09_files/figure-html/unnamed-chunk-24-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 <div id="summary" class="section level2">
 <h2>Summary</h2>

@@ -8,6 +8,12 @@ knitr::opts_chunk$set(fig.width = 5, fig.height = 3,
                       fig.align = "center", error = TRUE)
 ```
 
+```{r, message=FALSE}
+library(tidyverse)
+library(tidymodels)
+library(gapminder)
+```
+
 From today's class, students are anticipated to be able to:
 
 - make a model object in R, using `lm()` as an example.
