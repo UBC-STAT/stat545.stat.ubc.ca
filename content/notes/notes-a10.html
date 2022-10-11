@@ -31,6 +31,89 @@ output: html_document
 </ul></li>
 </ul>
 </div>
+<div id="dates-andor-times" class="section level2">
+<h2>Dates and/or Times</h2>
+<div id="datetime-objects-in-r" class="section level3">
+<h3>Date/Time Objects in R</h3>
+<div id="exercise" class="section level4">
+<h4>Exercise</h4>
+<ul>
+<li><p>Write down today’s date. (Don’t peek at your neighbours!)</p></li>
+<li><p>Copy what you wrote down into the Google Sheets link I posted to the #lectures channel on Slack.</p></li>
+</ul>
+<p>We’ll look at the results together - I think they will speak for themselves …</p>
+</div>
+<div id="code-demo" class="section level4">
+<h4>Code Demo</h4>
+<p>Let’s say you want to convert a string into a date object.</p>
+<p>The <code>lubridate</code> package in the <code>tidyverse</code> has your back with a family of functions named as permutations of “y”, “m”, and “d”.</p>
+<pre class="r"><code>library(lubridate)
+ymd(&quot;2020-10-06&quot;) </code></pre>
+<pre><code>## [1] &quot;2020-10-06&quot;</code></pre>
+<pre class="r"><code>mdy(&quot;October 6th, 2020&quot;)</code></pre>
+<pre><code>## [1] &quot;2020-10-06&quot;</code></pre>
+<pre class="r"><code>dmy(&quot;06-10-2020&quot;)</code></pre>
+<pre><code>## [1] &quot;2020-10-06&quot;</code></pre>
+<p>We can also convert strings into date-time objects using <code>lubridate</code> functions. The family of functions you’re looking for is named with a “y”/“m”/“d” permutation followed by an “_” and one or more of “h”, “m”, and “s”.</p>
+<pre class="r"><code>ymd_hms(&quot;2020-10-06 14:20:39&quot;)</code></pre>
+<pre><code>## [1] &quot;2020-10-06 14:20:39 UTC&quot;</code></pre>
+<pre class="r"><code>ymd_hm(&quot;2020-10-06 14:20&quot;)</code></pre>
+<pre><code>## [1] &quot;2020-10-06 14:20:00 UTC&quot;</code></pre>
+<p>Note that there are also time objects, though we don’t cover them here.</p>
+<p>Once you’ve acquired a date or date/time object, you can use <code>lubridate</code> functions to extract individual components of the data or date/time.</p>
+<pre class="r"><code>today_date &lt;- today()
+year(today_date)</code></pre>
+<pre><code>## [1] 2022</code></pre>
+<pre class="r"><code>wday(today_date, label=TRUE)</code></pre>
+<pre><code>## [1] Tue
+## Levels: Sun &lt; Mon &lt; Tue &lt; Wed &lt; Thu &lt; Fri &lt; Sat</code></pre>
+<pre class="r"><code>yday(today_date)</code></pre>
+<pre><code>## [1] 284</code></pre>
+</div>
+</div>
+<div id="datetime-math" class="section level3">
+<h3>Date/Time Math</h3>
+<p>An incredible advantage of working with date and date-time objects in R is that you can make R do pesky time arithmetic for you.</p>
+<pre class="r"><code>today_date &lt;- today()
+christmas_this_year &lt;- mdy(paste(&quot;December 25&quot;, year(today_date)))
+
+christmas_this_year - today_date</code></pre>
+<pre><code>## Time difference of 75 days</code></pre>
+<p>If you want to make sure your difference comes out as seconds (or want to convert between different units) you can use <code>as.duration</code>:</p>
+<pre class="r"><code>as.duration(christmas_this_year - today_date)</code></pre>
+<pre><code>## [1] &quot;6480000s (~10.71 weeks)&quot;</code></pre>
+</div>
+</div>
+<div id="factors" class="section level2">
+<h2>Factors</h2>
+<blockquote>
+<p>“There is no other object that creates as much trouble as factors.” - Patrick Burns, “The R Inferno”.</p>
+</blockquote>
+<p>In R, we use <em>factors</em> to represent <em>categorical variables</em>: variables that take on a fixed number of known values (i.e. <em>levels</em>). For example, in the <code>penguins</code> data set, <code>species</code> is a factor with three levels: “Adelie”, “Chinstrap”, and “Gentoo”.</p>
+<pre class="r"><code>glimpse(penguins)</code></pre>
+<pre><code>## Rows: 344
+## Columns: 8
+## $ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+## $ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+## $ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+## $ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+## $ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+## $ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+## $ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…
+## $ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…</code></pre>
+<p><strong>Under the hood</strong>, R stores a factor with (say) 3 levels as a numeric vector containing integers between 1 and 3, paired with a character vector of length 3 that identifies the mapping between the numbers 1, 2, and 3 and the levels.</p>
+<p>This is not immediately obvious, because R will print factors using the character string levels rather than the numbers that it stores:</p>
+<pre class="r"><code>penguins %&gt;% slice_sample(n=10) %&gt;% pull(species)</code></pre>
+<pre><code>##  [1] Adelie Gentoo Adelie Gentoo Adelie Gentoo Adelie Gentoo Gentoo Gentoo
+## Levels: Adelie Chinstrap Gentoo</code></pre>
+<p>This dual nature of factors creates a whole slew of hidden traps and headaches, especially for new useRs!</p>
+<p>Nevertheless, factors are important and worth the pain. Many functions throughout the R landscape expect categorical variables to be coded as factors. For example, when making plots in either <code>ggplot2</code> or in base R, we need factors in order to map categorical variables to aesthetic elements like colour.</p>
+<p>To make our lives easier, we will work with factors through the <code>forcats</code> package loaded as part of the <code>tidyverse</code>.</p>
+<div id="demonstration" class="section level3">
+<h3>Demonstration</h3>
+<p>We will work on Worksheet A5 (factors and dates portion).</p>
+</div>
+</div>
 <div id="test-your-understanding" class="section level2">
 <h2>Test Your Understanding</h2>
 <ol style="list-style-type: decimal">
@@ -55,15 +138,4 @@ dt &lt;- ymd_hms(&quot;2020-10-13 09:30:00&quot;)
 
 c(date, dt)
 </code></pre>
-</div>
-<div id="demonstration" class="section level2">
-<h2>Demonstration</h2>
-<ul>
-<li>Demonstrate lubridate (not on worksheet):
-<ul>
-<li><code>ymd()</code> family of functions to convert text to a date (not in worksheet).</li>
-<li>Getting components of a date object with things like <code>yday()</code>, <code>year()</code>, and <code>wday()</code>.</li>
-</ul></li>
-<li>Work on Worksheet A5 (factors and dates portion)</li>
-</ul>
 </div>

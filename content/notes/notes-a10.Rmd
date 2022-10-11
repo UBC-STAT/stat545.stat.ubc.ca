@@ -8,6 +8,11 @@ knitr::opts_chunk$set(fig.width = 5, fig.height = 3,
                       fig.align = "center", error = TRUE)
 ```
 
+```{r, echo=FALSE, message=FALSE} 
+library(tidyverse)
+library(palmerpenguins)
+```
+
 From today's class, students are anticipated to be able to:
 
 - Reorder levels within factors according to various principles.
@@ -28,7 +33,93 @@ Other resources, in addition to the notes below:
     - The [R4DS](https://r4ds.had.co.nz/dates-and-times.html) chapter on Dates and Times
     - The `tsibble` [vignette](https://cran.rstudio.com/web/packages/tsibble/vignettes/intro-tsibble.html) to learn more about embedding a time series within a tibble. 
 
+## Dates and/or Times 
+### Date/Time Objects in R 
 
+#### Exercise 
+
+- Write down today's date. (Don't peek at your neighbours!)
+
+- Copy what you wrote down into the Google Sheets link I posted to the #lectures channel on Slack. 
+
+We'll look at the results together - I think they will speak for themselves ... 
+
+#### Code Demo
+
+Let's say you want to convert a string into a date object. 
+
+The `lubridate` package in the `tidyverse` has your back with a family of functions named as permutations of "y", "m", and "d". 
+
+```{r, message=FALSE} 
+library(lubridate)
+ymd("2020-10-06") 
+mdy("October 6th, 2020")
+dmy("06-10-2020")
+```
+
+We can also convert strings into date-time objects using `lubridate` functions. The family of functions you're looking for is named with a "y"/"m"/"d" permutation followed by an "_" and one or more of "h", "m", and "s". 
+
+```{r} 
+ymd_hms("2020-10-06 14:20:39")
+ymd_hm("2020-10-06 14:20")
+```
+
+Note that there are also time objects, though we don't cover them here. 
+
+Once you've acquired a date or date/time object, you can use `lubridate` functions to extract individual components of the data or date/time. 
+
+```{r} 
+today_date <- today()
+year(today_date)
+wday(today_date, label=TRUE)
+yday(today_date)
+```
+
+### Date/Time Math 
+
+An incredible advantage of working with date and date-time objects in R is that you can make R do pesky time arithmetic for you. 
+
+```{r} 
+today_date <- today()
+christmas_this_year <- mdy(paste("December 25", year(today_date)))
+
+christmas_this_year - today_date
+```
+
+If you want to make sure your difference comes out as seconds (or want to convert between different units) you can use `as.duration`: 
+
+```{r}
+as.duration(christmas_this_year - today_date)
+```
+
+
+## Factors
+
+> "There is no other object that creates as much trouble as factors." - Patrick Burns, "The R Inferno". 
+
+In R, we use *factors* to represent *categorical variables*: variables that take on a fixed number of known values (i.e. *levels*). For example, in the `penguins` data set, `species` is a factor with three levels: "Adelie", "Chinstrap", and "Gentoo".
+
+```{r} 
+glimpse(penguins)
+```
+
+**Under the hood**, R stores a factor with (say) 3 levels as a numeric vector containing integers between 1 and 3, paired with a character vector of length 3 that identifies the mapping between the numbers 1, 2, and 3 and the levels. 
+
+This is not immediately obvious, because R will print factors using the character string levels rather than the numbers that it stores: 
+
+```{r} 
+penguins %>% slice_sample(n=10) %>% pull(species)
+```
+
+This dual nature of factors creates a whole slew of hidden traps and headaches, especially for new useRs! 
+
+Nevertheless, factors are important and worth the pain. Many functions throughout the R landscape expect categorical variables to be coded as factors. For example, when making plots in either `ggplot2` or in base R, we need factors in order to map categorical variables to aesthetic elements like colour. 
+
+To make our lives easier, we will work with factors through the `forcats` package loaded as part of the `tidyverse`.  
+
+### Demonstration 
+
+We will work on Worksheet A5 (factors and dates portion).
 
 ## Test Your Understanding
 
@@ -57,10 +148,3 @@ dt <- ymd_hms("2020-10-13 09:30:00")
 c(date, dt)
 
 ```
-
-## Demonstration
-
-- Demonstrate lubridate (not on worksheet): 
-    - `ymd()` family of functions to convert text to a date (not in worksheet).
-    - Getting components of a date object with things like `yday()`, `year()`, and `wday()`.
-- Work on Worksheet A5 (factors and dates portion)
