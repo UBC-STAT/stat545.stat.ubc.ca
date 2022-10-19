@@ -13,7 +13,7 @@ For this assignment, you will pick one of three options described below.
 
 ## Setup
 
-**If you choose Option A**, make a new repository in our homework Organization for this assignment. The link to do to [can be found on canvas](https://canvas.ubc.ca/courses/80817/pages/assignment-b-4-option-a-create-a-repository).
+**If you choose Option A**, make a new repository in our homework Organization for this assignment. The link to do so can be found on Canvas in the description of Assignment B-4. 
 
 **If you choose Option B or C**, just continue your work on your R package / shiny app repository. (You tagged a release corresponding to the original assignment submission, right? If so, you can proceed to modify your repository's contents without having to worry about your previous assignment submission. If you didn't, please tag a release before working on this assignment, and update your previous assignment submission on canvas.)
 
