@@ -19,11 +19,6 @@ From this topic, students are expected to be able to:
 - Data masking in a function.
 - Documenting a function
 
-Possible topics this week, time permitting:
-
-- `try()` and `withTimeout()`.
-- environments and scoping. Perhaps `search()`; `with()`.
-
 What we're _not_ covering (this week):
 
 - Documenting functions with roxygen2 (R packages)
@@ -43,29 +38,34 @@ Written resources:
     - [stat545.com Functions, Parts 1-3](https://stat545.com/functions-part1.html)
     - [R4DS functions chapter](https://r4ds.had.co.nz/functions.html)
 
-## Test Your Understanding
-
-Consider the following code:
-
-```
-x <- 1
-f <- function(t) {
-  x <- -1
-  if (x > 0) return(t)
-  x * t + 1
-  x * t
-}
-f(1)
-```
-
-1. True or False: the output of `f(1)` is `-1`. 
-2. True or False: after running the above code, `x` is `-1`. 
-3. True or False: Curly-curly `{{}}` can be used whenever we want to refer to column names outright, such as when subsetting in base R with `[[`.
-4. You've made a function `quick_scatter()` that you can pipe a tibble into, and outputs a scatterplot of two variables. So far, you're only using the function to explore the data for your own eyes (perhaps even putting your code directly in the console). True or False: at this point, you should stop and make sure your function is documented and has formal unit tests. 
 
 ## Functions: basics
 
-We will check out the [Software Carpentry resource above](https://swcarpentry.github.io/r-novice-inflammation/02-func-R/) for syntax.
+A user-defined function needs three things: 
+
+1. A name. 
+2. Arguments. 
+3. 
+
+```{r, eval=FALSE}
+name <- function(arguments) { 
+  body  
+}
+```
+
+Once defined, you can call the function using the following syntax: 
+```{r, eval=FALSE}
+name(new_arguments)
+```
+
+Here is an example of a user-defined function in action: 
+```{r}
+roll_d10 <- function(num_dice) { 
+    sum(sample(1:10, num_dice, replace=TRUE))
+}
+
+roll_d10(2)
+```
 
 Some topics:
 
@@ -80,19 +80,23 @@ Some topics:
 library(tidyverse)
 library(gapminder)
 library(testthat)
+library(patchwork)
 ```
 
 Sometimes it's useful to work with the _log_ of a variable with a positive skew, such as `gapminder`'s GDP per capita:
 
 ```{r}
-cowplot::plot_grid(
+gdpPercap_plot <- 
   ggplot(gapminder, aes(gdpPercap)) +
     geom_histogram() +
-    theme_minimal(),
+    theme_minimal()
+
+log_gdpPercap_plot <- 
   ggplot(gapminder, aes(log(gdpPercap))) +
     geom_histogram() +
     theme_minimal()
-)
+
+gdpPercap_plot + log_gdpPercap_plot
 ```
 
 And, it's sometimes useful to scale a variable to have mean 0 and variance 1. We'll do both:
@@ -134,7 +138,11 @@ gapminder %>%
          pop = my_scale(pop))
 ```
 
-Each function you create shouldn't do too much, but rather should do one thing well. Don't be like me during my PhD and [make a gigantic `cnqr()` function](https://github.com/vincenzocoia/cnqr/blob/master/R/cnqr.R) that tries to do everything. Modularizing computation into smaller functions makes troubleshooting much easier.
+Each function you create shouldn't do too much, but rather should do one thing well. Don't [make a gigantic `tablestat()` function](https://github.com/statdivlab/rigr/blob/1a6f6984a3f1fd4d3cc6a7dba8a213c041cde33f/R/tableStat.R) that attempts to do everything. Modularizing computation into smaller functions makes troubleshooting much easier. (Sorry, Scott!! It had to be said!!!!)
+
+Let's take a moment to talk about the "..." argument before we move on. In short, it lets the user of your function pass in any number of additional arguments. Above, we used "..." to allow the user flexibility to take advantage of secret undocumented features of the `mean()` function. 
+
+However, that exact same flexibility can cause you headaches down the road. The [tidyverse design guide](https://design.tidyverse.org/dots-position.html) goes over details and best practices of "..." usage that help keep you happy and the user safe. 
 
 ## Function arguments
 
@@ -152,6 +160,20 @@ Documentation should include, at a minimum:
 3. A description of the output. Describe the object that the function returns.
 
 You should use [roxygen2 tags](https://roxygen2.r-lib.org/articles/rd-formatting.html) to document your function, placed immediately above the function definition. Although roxygen2 tags are designed for use when creating R packages, they provide a standardized way to document a function -- and make it easy for you to migrate your function to an R package if need be!
+
+Here's an example of a custom function I use a lot, with roxygen2 documentation. 
+```{r} 
+#' Takes the l2-norm of a vector.
+#'
+#' @keywords internal
+#'
+#' @param x the vector to be normed
+#'
+#' @return Returns the l2-norm of x.
+norm_vec <- function(x) {
+  sqrt(sum(x^2))
+}
+```
 
 ## Testing your functions
 
@@ -242,7 +264,7 @@ my_subset(mtcars, "wt")
 my_subset(mtcars, wt)
 ```
 
-Using curly-curly doesn't grant the `[[` subsetting any data masking powers -- data masking must already be in place, as they are in `dplyr` and `ggplot2` functions:
+Using curly-curly doesn't grant the `[[` subsetting any data masking powers -- data masking (i.e. the practice of allowing you to refer to variables in the "current" data frame without quotation marks or other frills) must already be in place, as they are in `dplyr` and `ggplot2` functions:
 
 ```{r}
 my_subset <- function(data, variable) {
@@ -256,4 +278,28 @@ We get an error if we don't include quotation marks:
 my_subset(mtcars, wt)
 ```
 
+Useful hint: in the `dplyr` documentation, if you spy the words "data masking" or "tidy selection", then you will need to curly-curly your arguments when using those functions within your custom function.
 
+## Test Your Understanding
+
+Consider the following code:
+
+```
+x <- 1
+f <- function(t) {
+  x <- -1
+  if (x > 0) return(t)
+  x * t + 1
+  x * t
+}
+f(1)
+```
+
+1. True or False: the output of `f(1)` is `-1`. 
+2. True or False: after running the above code, `x` is `-1`. 
+3. True or False: Curly-curly `{{}}` can be used whenever we want to refer to column names outright, such as when subsetting in base R with `[[`.
+4. You've made a function `quick_scatter()` that you can pipe a tibble into, and outputs a scatterplot of two variables. So far, you're only using the function to explore the data for your own eyes (perhaps even putting your code directly in the console). True or False: at this point, you should stop and make sure your function is documented and has formal unit tests. 
+
+## Attribution 
+
+Most of these notes were originally compiled by previous iterations of the instructional staff, including Vincenzo Coia. 

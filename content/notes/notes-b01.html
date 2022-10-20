@@ -19,11 +19,6 @@ output: html_document
 <li>Data masking in a function.</li>
 <li>Documenting a function</li>
 </ul>
-<p>Possible topics this week, time permitting:</p>
-<ul>
-<li><code>try()</code> and <code>withTimeout()</code>.</li>
-<li>environments and scoping. Perhaps <code>search()</code>; <code>with()</code>.</li>
-</ul>
 <p>What we’re <em>not</em> covering (this week):</p>
 <ul>
 <li>Documenting functions with roxygen2 (R packages)</li>
@@ -45,27 +40,26 @@ output: html_document
 </ul></li>
 </ul>
 </div>
-<div id="test-your-understanding" class="section level2">
-<h2>Test Your Understanding</h2>
-<p>Consider the following code:</p>
-<pre><code>x &lt;- 1
-f &lt;- function(t) {
-  x &lt;- -1
-  if (x &gt; 0) return(t)
-  x * t + 1
-  x * t
-}
-f(1)</code></pre>
-<ol style="list-style-type: decimal">
-<li>True or False: the output of <code>f(1)</code> is <code>-1</code>.</li>
-<li>True or False: after running the above code, <code>x</code> is <code>-1</code>.</li>
-<li>True or False: Curly-curly <code>{{}}</code> can be used whenever we want to refer to column names outright, such as when subsetting in base R with <code>[[</code>.</li>
-<li>You’ve made a function <code>quick_scatter()</code> that you can pipe a tibble into, and outputs a scatterplot of two variables. So far, you’re only using the function to explore the data for your own eyes (perhaps even putting your code directly in the console). True or False: at this point, you should stop and make sure your function is documented and has formal unit tests.</li>
-</ol>
-</div>
 <div id="functions-basics" class="section level2">
 <h2>Functions: basics</h2>
-<p>We will check out the <a href="https://swcarpentry.github.io/r-novice-inflammation/02-func-R/">Software Carpentry resource above</a> for syntax.</p>
+<p>A user-defined function needs three things:</p>
+<ol style="list-style-type: decimal">
+<li>A name.</li>
+<li>Arguments.</li>
+<li></li>
+</ol>
+<pre class="r"><code>name &lt;- function(arguments) { 
+  body  
+}</code></pre>
+<p>Once defined, you can call the function using the following syntax:</p>
+<pre class="r"><code>name(new_arguments)</code></pre>
+<p>Here is an example of a user-defined function in action:</p>
+<pre class="r"><code>roll_d10 &lt;- function(num_dice) { 
+    sum(sample(1:10, num_dice, replace=TRUE))
+}
+
+roll_d10(2)</code></pre>
+<pre><code>## [1] 8</code></pre>
 <p>Some topics:</p>
 <ul>
 <li>Curly brackets vs. no curly brackets.</li>
@@ -78,37 +72,43 @@ f(1)</code></pre>
 <h2>Functions: an example</h2>
 <pre class="r"><code>library(tidyverse)
 library(gapminder)
-library(testthat)</code></pre>
+library(testthat)
+library(patchwork)</code></pre>
 <p>Sometimes it’s useful to work with the <em>log</em> of a variable with a positive skew, such as <code>gapminder</code>’s GDP per capita:</p>
-<pre class="r"><code>cowplot::plot_grid(
+<pre class="r"><code>gdpPercap_plot &lt;- 
   ggplot(gapminder, aes(gdpPercap)) +
     geom_histogram() +
-    theme_minimal(),
+    theme_minimal()
+
+log_gdpPercap_plot &lt;- 
   ggplot(gapminder, aes(log(gdpPercap))) +
     geom_histogram() +
     theme_minimal()
-)</code></pre>
+
+gdpPercap_plot + log_gdpPercap_plot</code></pre>
 <pre><code>## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
 ## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
-<p><img src="/notes/notes-b01_files/figure-html/unnamed-chunk-3-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/notes/notes-b01_files/figure-html/unnamed-chunk-6-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>And, it’s sometimes useful to scale a variable to have mean 0 and variance 1. We’ll do both:</p>
 <pre class="r"><code>gapminder %&gt;% 
   mutate(gdpPercap_scaled = (log(gdpPercap) - mean(log(gdpPercap))) / sd(log(gdpPercap)),
          pop_scaled = (log(pop) - mean(log(pop))) / sd(log(pop)))</code></pre>
 <pre><code>## # A tibble: 1,704 × 8
-##    country     continent  year lifeExp    pop gdpPercap gdpPercap_scaled pop_scaled
-##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;  &lt;int&gt;     &lt;dbl&gt;            &lt;dbl&gt;      &lt;dbl&gt;
-##  1 Afghanistan Asia       1952    28.8 8.43e6      779.            -1.21      0.113
-##  2 Afghanistan Asia       1957    30.3 9.24e6      821.            -1.17      0.170
-##  3 Afghanistan Asia       1962    32.0 1.03e7      853.            -1.14      0.236
-##  4 Afghanistan Asia       1967    34.0 1.15e7      836.            -1.15      0.309
-##  5 Afghanistan Asia       1972    36.1 1.31e7      740.            -1.25      0.387
-##  6 Afghanistan Asia       1977    38.4 1.49e7      786.            -1.20      0.467
-##  7 Afghanistan Asia       1982    39.9 1.29e7      978.            -1.03      0.377
-##  8 Afghanistan Asia       1987    40.8 1.39e7      852.            -1.14      0.423
-##  9 Afghanistan Asia       1992    41.7 1.63e7      649.            -1.36      0.525
-## 10 Afghanistan Asia       1997    41.8 2.22e7      635.            -1.37      0.717
-## # … with 1,694 more rows</code></pre>
+##    country     continent  year lifeExp      pop gdpPercap gdpPercap_sc…¹ pop_s…²
+##    &lt;fct&gt;       &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;          &lt;dbl&gt;   &lt;dbl&gt;
+##  1 Afghanistan Asia       1952    28.8  8425333      779.          -1.21   0.113
+##  2 Afghanistan Asia       1957    30.3  9240934      821.          -1.17   0.170
+##  3 Afghanistan Asia       1962    32.0 10267083      853.          -1.14   0.236
+##  4 Afghanistan Asia       1967    34.0 11537966      836.          -1.15   0.309
+##  5 Afghanistan Asia       1972    36.1 13079460      740.          -1.25   0.387
+##  6 Afghanistan Asia       1977    38.4 14880372      786.          -1.20   0.467
+##  7 Afghanistan Asia       1982    39.9 12881816      978.          -1.03   0.377
+##  8 Afghanistan Asia       1987    40.8 13867957      852.          -1.14   0.423
+##  9 Afghanistan Asia       1992    41.7 16317921      649.          -1.36   0.525
+## 10 Afghanistan Asia       1997    41.8 22227415      635.          -1.37   0.717
+## # … with 1,694 more rows, and abbreviated variable names ¹​gdpPercap_scaled,
+## #   ²​pop_scaled
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <pre class="r"><code>gapminder %&gt;% 
   mutate(gdpPercap = (log(gdpPercap) - mean(log(gdpPercap))) / 
            sd(log(gdpPercap)),
@@ -126,7 +126,8 @@ library(testthat)</code></pre>
 ##  8 Afghanistan Asia       1987    40.8 0.423     -1.14
 ##  9 Afghanistan Asia       1992    41.7 0.525     -1.36
 ## 10 Afghanistan Asia       1997    41.8 0.717     -1.37
-## # … with 1,694 more rows</code></pre>
+## # … with 1,694 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 <p>Where might there be repetition in this analysis? Where <strong>is</strong> there repetition?</p>
 <ul>
 <li>Doing this scaling over and over again throughout the analysis.</li>
@@ -159,8 +160,11 @@ my_scale(1:10)</code></pre>
 ##  8 Afghanistan Asia       1987    40.8 0.423     -1.14
 ##  9 Afghanistan Asia       1992    41.7 0.525     -1.36
 ## 10 Afghanistan Asia       1997    41.8 0.717     -1.37
-## # … with 1,694 more rows</code></pre>
-<p>Each function you create shouldn’t do too much, but rather should do one thing well. Don’t be like me during my PhD and <a href="https://github.com/vincenzocoia/cnqr/blob/master/R/cnqr.R">make a gigantic <code>cnqr()</code> function</a> that tries to do everything. Modularizing computation into smaller functions makes troubleshooting much easier.</p>
+## # … with 1,694 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
+<p>Each function you create shouldn’t do too much, but rather should do one thing well. Don’t <a href="https://github.com/statdivlab/rigr/blob/1a6f6984a3f1fd4d3cc6a7dba8a213c041cde33f/R/tableStat.R">make a gigantic <code>tablestat()</code> function</a> that attempts to do everything. Modularizing computation into smaller functions makes troubleshooting much easier. (Sorry, Scott!! It had to be said!!!!)</p>
+<p>Let’s take a moment to talk about the “…” argument before we move on. In short, it lets the user of your function pass in any number of additional arguments. Above, we used “…” to allow the user flexibility to take advantage of secret undocumented features of the <code>mean()</code> function.</p>
+<p>However, that exact same flexibility can cause you headaches down the road. The <a href="https://design.tidyverse.org/dots-position.html">tidyverse design guide</a> goes over details and best practices of “…” usage that help keep you happy and the user safe.</p>
 </div>
 <div id="function-arguments" class="section level2">
 <h2>Function arguments</h2>
@@ -179,6 +183,17 @@ my_scale(1:10)</code></pre>
 <li>A description of the output. Describe the object that the function returns.</li>
 </ol>
 <p>You should use <a href="https://roxygen2.r-lib.org/articles/rd-formatting.html">roxygen2 tags</a> to document your function, placed immediately above the function definition. Although roxygen2 tags are designed for use when creating R packages, they provide a standardized way to document a function – and make it easy for you to migrate your function to an R package if need be!</p>
+<p>Here’s an example of a custom function I use a lot, with roxygen2 documentation.</p>
+<pre class="r"><code>#&#39; Takes the l2-norm of a vector.
+#&#39;
+#&#39; @keywords internal
+#&#39;
+#&#39; @param x the vector to be normed
+#&#39;
+#&#39; @return Returns the l2-norm of x.
+norm_vec &lt;- function(x) {
+  sqrt(sum(x^2))
+}</code></pre>
 </div>
 <div id="testing-your-functions" class="section level2">
 <h2>Testing your functions</h2>
@@ -200,7 +215,7 @@ my_scale(1:10)</code></pre>
   expect_equal(my_scale(exp(c(1, 3, NA))), (c(1, 3, NA) - 2) / sqrt(2))
   expect_error(my_scale(letters))
 })</code></pre>
-<pre><code>## Test passed 🎉</code></pre>
+<pre><code>## Test passed 😀</code></pre>
 <p>Testing your functions is a way of recognizing that your data analysis will evolve, and is a way of knowing which of your functions need updating if you make a breaking change in your analysis.</p>
 </div>
 <div id="a-return-to-dplyr-scoped-variants-with-across" class="section level2">
@@ -221,7 +236,8 @@ my_scale(1:10)</code></pre>
 ##  8 Afghanistan Asia       1987    40.8 0.423     -1.14
 ##  9 Afghanistan Asia       1992    41.7 0.525     -1.36
 ## 10 Afghanistan Asia       1997    41.8 0.717     -1.37
-## # … with 1,694 more rows</code></pre>
+## # … with 1,694 more rows
+## # ℹ Use `print(n = ...)` to see more rows</code></pre>
 </div>
 <div id="function-arguments-without-quotation-marks-curly-curly" class="section level2">
 <h2>Function arguments without quotation marks: curly-curly</h2>
@@ -234,7 +250,7 @@ my_scale(1:10)</code></pre>
 <p>The function won’t work:</p>
 <pre class="r"><code>quick_scatter(gapminder, x = gdpPercap, y = lifeExp)</code></pre>
 <pre><code>## Error in FUN(X[[i]], ...): object &#39;gdpPercap&#39; not found</code></pre>
-<p><img src="/notes/notes-b01_files/figure-html/unnamed-chunk-11-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p><img src="/notes/notes-b01_files/figure-html/unnamed-chunk-15-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>The reason is that R is looking for variables named <code>gdpPercap</code> and <code>lifeExp</code> in the workspace, and cannot find them. To fix the problem, we can change the function definition so that <code>x</code> and <code>y</code> are embraced within two curly brackets – an operator called “curly curly”:</p>
 <pre class="r"><code>quick_scatter &lt;- function(data, x, y) {
   ggplot(data, aes({{ x }}, {{ y }})) +
@@ -242,7 +258,7 @@ my_scale(1:10)</code></pre>
 }</code></pre>
 <p>Now the function will work:</p>
 <pre class="r"><code>quick_scatter(gapminder, x = gdpPercap, y = lifeExp)</code></pre>
-<p><img src="/notes/notes-b01_files/figure-html/unnamed-chunk-13-1.png" width="288" style="display: block; margin: auto;" /></p>
+<p><img src="/notes/notes-b01_files/figure-html/unnamed-chunk-17-1.png" width="288" style="display: block; margin: auto;" /></p>
 <p>But, you can only use curly-curly when passing your function’s argument to another function <em>that’s anticipating a variable name without brackets</em>. For example, consider subsetting a data frame by a column name using <code>[[</code>, where quotation marks are needed:</p>
 <pre class="r"><code>mtcars[[&quot;wt&quot;]]</code></pre>
 <pre><code>##  [1] 2.620 2.875 2.320 3.215 3.440 3.460 3.570 3.190 3.150 3.440 3.440 4.070
@@ -259,11 +275,34 @@ my_scale(1:10)</code></pre>
 ## [25] 3.845 1.935 2.140 1.513 3.170 2.770 3.570 2.780</code></pre>
 <pre class="r"><code>my_subset(mtcars, wt)</code></pre>
 <pre><code>## Error in (function(x, i, exact) if (is.matrix(i)) as.matrix(x)[[i]] else .subset2(x, : object &#39;wt&#39; not found</code></pre>
-<p>Using curly-curly doesn’t grant the <code>[[</code> subsetting any data masking powers – data masking must already be in place, as they are in <code>dplyr</code> and <code>ggplot2</code> functions:</p>
+<p>Using curly-curly doesn’t grant the <code>[[</code> subsetting any data masking powers – data masking (i.e. the practice of allowing you to refer to variables in the “current” data frame without quotation marks or other frills) must already be in place, as they are in <code>dplyr</code> and <code>ggplot2</code> functions:</p>
 <pre class="r"><code>my_subset &lt;- function(data, variable) {
     data[[{{ variable }}]]
 }</code></pre>
 <p>We get an error if we don’t include quotation marks:</p>
 <pre class="r"><code>my_subset(mtcars, wt)</code></pre>
 <pre><code>## Error in (function(x, i, exact) if (is.matrix(i)) as.matrix(x)[[i]] else .subset2(x, : object &#39;wt&#39; not found</code></pre>
+<p>Useful hint: in the <code>dplyr</code> documentation, if you spy the words “data masking” or “tidy selection”, then you will need to curly-curly your arguments when using those functions within your custom function.</p>
+</div>
+<div id="test-your-understanding" class="section level2">
+<h2>Test Your Understanding</h2>
+<p>Consider the following code:</p>
+<pre><code>x &lt;- 1
+f &lt;- function(t) {
+  x &lt;- -1
+  if (x &gt; 0) return(t)
+  x * t + 1
+  x * t
+}
+f(1)</code></pre>
+<ol style="list-style-type: decimal">
+<li>True or False: the output of <code>f(1)</code> is <code>-1</code>.</li>
+<li>True or False: after running the above code, <code>x</code> is <code>-1</code>.</li>
+<li>True or False: Curly-curly <code>{{}}</code> can be used whenever we want to refer to column names outright, such as when subsetting in base R with <code>[[</code>.</li>
+<li>You’ve made a function <code>quick_scatter()</code> that you can pipe a tibble into, and outputs a scatterplot of two variables. So far, you’re only using the function to explore the data for your own eyes (perhaps even putting your code directly in the console). True or False: at this point, you should stop and make sure your function is documented and has formal unit tests.</li>
+</ol>
+</div>
+<div id="attribution" class="section level2">
+<h2>Attribution</h2>
+<p>Most of these notes were originally compiled by previous iterations of the instructional staff, including Vincenzo Coia.</p>
 </div>
