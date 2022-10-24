@@ -43,7 +43,7 @@ Written resources:
 
 A user-defined function needs three things: 
 
-1. A name. 
+1. A name - self explanatory.
 2. Arguments, to take in values from the user. 
 3. Body, to define what code is executed when the function is run. 
 

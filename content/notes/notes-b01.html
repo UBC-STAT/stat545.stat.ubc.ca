@@ -44,7 +44,7 @@ output: html_document
 <h2>Functions: basics</h2>
 <p>A user-defined function needs three things:</p>
 <ol style="list-style-type: decimal">
-<li>A name.</li>
+<li>A name - self explanatory.</li>
 <li>Arguments, to take in values from the user.</li>
 <li>Body, to define what code is executed when the function is run.</li>
 </ol>
@@ -59,7 +59,7 @@ output: html_document
 }
 
 roll_d10(2)</code></pre>
-<pre><code>## [1] 16</code></pre>
+<pre><code>## [1] 10</code></pre>
 <p>Some topics:</p>
 <ul>
 <li>Curly brackets vs. no curly brackets.</li>
@@ -215,7 +215,7 @@ norm_vec &lt;- function(x) {
   expect_equal(my_scale(exp(c(1, 3, NA))), (c(1, 3, NA) - 2) / sqrt(2))
   expect_error(my_scale(letters))
 })</code></pre>
-<pre><code>## Test passed 🎊</code></pre>
+<pre><code>## Test passed 😀</code></pre>
 <p>Testing your functions is a way of recognizing that your data analysis will evolve, and is a way of knowing which of your functions need updating if you make a breaking change in your analysis.</p>
 </div>
 <div id="a-return-to-dplyr-scoped-variants-with-across" class="section level2">
