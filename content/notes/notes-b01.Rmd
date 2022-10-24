@@ -44,8 +44,8 @@ Written resources:
 A user-defined function needs three things: 
 
 1. A name. 
-2. Arguments. 
-3. 
+2. Arguments, to take in values from the user. 
+3. Body, to define what code is executed when the function is run. 
 
 ```{r, eval=FALSE}
 name <- function(arguments) { 
@@ -177,7 +177,7 @@ norm_vec <- function(x) {
 
 ## Testing your functions
 
-`testthat` is a collection of functions developed by Hadley Wickham that makes unit testing easy for developers. You can read more about the structure of tests [here](https://r-pkgs.org/tests.html#test-structure). In a nutshell, tests are organized hierarchically: **expectations** are grouped into **tests**. Functions that start with `expect_` describe the expected result of a computation (e.g. Does it have the right class?) - these are expectations. Tests are created with `test_that()` and they group together multiple *expectations* to test the output of a function (at their simplest level). 
+`testthat` is a collection of functions developed by Hadley Wickham that makes unit testing easy for developers. You can read more about the structure of tests [here](https://r-pkgs.org/testing-basics.html#test-organisation). In a nutshell, tests are organized hierarchically: **expectations** are grouped into **tests**. Functions that start with `expect_` describe the expected result of a computation (e.g. Does it have the right class?) - these are expectations. Tests are created with `test_that()` and they group together multiple *expectations* to test the output of a function (at their simplest level). 
 
 Let's test the `my_scale()` function we made earlier, first informally.
 
