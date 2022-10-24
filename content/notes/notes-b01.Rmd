@@ -138,7 +138,7 @@ gapminder %>%
          pop = my_scale(pop))
 ```
 
-Each function you create shouldn't do too much, but rather should do one thing well. Don't [make a gigantic `tablestat()` function](https://github.com/statdivlab/rigr/blob/1a6f6984a3f1fd4d3cc6a7dba8a213c041cde33f/R/tableStat.R) that attempts to do everything. Modularizing computation into smaller functions makes troubleshooting much easier. (Sorry, Scott!! It had to be said!!!!)
+Each function you create shouldn't do too much, but rather should do one thing well. Don't [make a gigantic `descrip()` function](https://github.com/statdivlab/rigr/blob/1a6f6984a3f1fd4d3cc6a7dba8a213c041cde33f/R/descrip.R) that attempts to do everything. Modularizing computation into smaller functions makes troubleshooting much easier. (Sorry, Scott!! It had to be said!!!!)
 
 Let's take a moment to talk about the "..." argument before we move on. In short, it lets the user of your function pass in any number of additional arguments. Above, we used "..." to allow the user flexibility to take advantage of secret undocumented features of the `mean()` function. 
 
