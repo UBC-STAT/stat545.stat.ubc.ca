@@ -220,7 +220,7 @@ Once you get in the habit of making README files, and seeing more README files i
 
 ## File and Folder structure (3 points)
 
-You should have at least four folders in the top level of your repository: one for each milestone, and one output folder. If there are any other folders, these are explained in the main README.
+You should have at least three folders in the top level of your repository: one for each milestone, and one output folder. If there are any other folders, these are explained in the main README.
 
 Each milestone document is contained in its respective folder, and nowhere else.
 
@@ -241,6 +241,8 @@ PS: there's a way where you can run all project code using a single command, ins
 ## Error-free code (1 point)
 
 This Milestone 1 document knits error-free, and the Milestone 2 document knits error-free.
+
+Plots failing to show up on Github in the .md counts as an error here. So does the entire .md failing to show up on Github in the .md ("Sorry about that, but we can't show files that are this big right now").
 
 ## Tagged release (1 point)
 
