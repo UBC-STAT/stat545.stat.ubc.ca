@@ -12,14 +12,19 @@ From this topic, students are anticipated to be able to build a basic R package,
 - Add a license
 - Update an R package via semantic versioning, NEWS, changelog.
 - Develop and build informative vignettes and a package README.
-- Add a code of conduct
 
+<!--
+- Add a code of conduct
+-->
+
+<!--
 And possibly:
 
 - Make a package website with pkgdown.
 - Make a code coverage report and page with covr.
 - Add badges to the README.
 - Build an S3 object oriented package
+-->
 
 
 ## Resources
@@ -57,37 +62,37 @@ Why make an R package? As mentioned in the "functions" topic, your analysis will
 
 The alternative is keeping the functions stored in separate files, and `source()`ing them into your analysis scripts, but this can become unwieldy. 
 
-For this topic, we'll be making an R package similar to the toy [powers package](https://github.com/vincenzocoia/powers). We'll mostly be following along with ["The Whole Game" Chapter of "R packages"](https://r-pkgs.org/whole-game.html). Here are the actions digested from that chapter, with the corresponding section number for more info. 
+For this topic, we'll be making an R package similar to the toy [powers package](https://github.com/vincenzocoia/powers). We'll mostly be following along with ["The Whole Game" Chapter of "R packages"](https://r-pkgs.org/whole-game.html). Here are the actions digested from that chapter.
 
 First, make a minimal viable product:
 
 - Load the `devtools` package in the console (do this every time you go to work on your package).
-- 2.4: Run `create_package()` in the console (all devtools functions should be written in the console).
+- Run `create_package()` in the console (all devtools functions should be written in the console).
   - Better defaults than going through the File menu.
-- 2.5: `use_git()`
+- `use_git()`
   - Prefer to start your project on GitHub? Or locally? Either way, useful instructions for what to do can be found [in "Happy Git with R" Part III](https://happygitwithr.com/usage-intro.html).
-- 2.6 and 2.7: Make a new R script using `use_r()`, and write a function there: start with `square()`.
-- 2.8: Test drive after using `load_all()`.
-- 2.9: Check that the package is intact: either run `check()` or click "Check".
-- 2.10 and 2.11: Edit the DESCRIPTION file. For the license, `use_mit_license("Your Name")`. 
-- 2.12: Document the function: "Code > Insert roxygen skeleton", then run `document()`.
-- 2.14: Install and Restart, or run `install()`. Try loading the package and using it!
+- Make a new R script using `use_r()`, and write a function there: start with `square()`.
+- Test drive after using `load_all()`.
+- Check that the package is intact: run `check()`.
+- Edit the DESCRIPTION file. For the license, `use_mit_license("Your Name")`. 
+- Document the function: "Code > Insert roxygen skeleton", then run `document()`.
+- Install and Restart, or run `install()`. Try loading the package and using it!
 
 Now, expand:
 
-- 2.15: `use_testthat()` for your package, and make an R script containing tests 
-  - Check all tests with `test()`. This also happens with `check()` or the "Check" button.
-- 2.16: Expand `square()` so that it can take either a vector or list, using purrr's `map_dbl()` function. Indicate dependency with `use_package()`. Types of dependencies:
-  - `Imports`: almost always use this; access functions with `::`. Can also [import specific functions](https://r-pkgs.org/namespace.html#import-r), like `%>%`.
+- `use_testthat()` for your package, and make an R script containing tests 
+  - Check all tests with `test()`. This also happens with `check()`.
+-  Expand `square()` so that it can take either a vector or list, using purrr's `map_dbl()` function. Indicate dependency with `use_package()`. Types of dependencies:
+  - `Imports`: almost always use this; access functions with `::`. Can also [import specific functions](https://r-pkgs.org/Metadata.html#sec-metadata-namespace), like `%>%`.
   - `Suggests`: these packages make your package better, but are not needed (eg. outputting a tibble vs. a data frame)
-  - Others, like `Depends`, [should rarely be used](https://r-pkgs.org/namespace.html#search-path).
-- 2.17: Add a package README with `use_readme_rmd()`, and render it every time with `build_readme()`.
+  - Others, like `Depends`, should rarely be used.
+-Add a package README with `use_readme_rmd()`, and render it every time with `build_readme()`.
   - Once you successfully sync your package to GitHub, other people can install the package with `devtools::install_github("your_username/package_name")` -- this should go in the README.
-- 11.1: Make a vignette with `use_vignette()`. Build all vignettes with `build_vignettes()`.
-- 14.1: Include data with the R package with `use_data(R_OBJECT_HERE)`. Then document _a string of its name_ in a new R script using [a different collection of roxygen tags](https://r-pkgs.org/data.html#documenting-data).
+-  Make a vignette with `use_vignette()`. Build all vignettes with `build_vignettes()`.
+- Include data with the R package with `use_data(R_OBJECT_HERE)`. Then document _a string of its name_ in a new R script using [a different collection of roxygen tags](https://r-pkgs.org/data.html#documenting-data).
 
-Release your package (Chapter 20):
+Release your package:
 
-- 20.5.3: Make a NEWS.md file with `use_news_md()` and add the main development notes.  
-- 20.1: Choose a version number; put in description file, and tag a release on GitHub.
-  - 20.7: You should also prepare your package for the next version -- I suggest doing this on a new branch.
+- Make a NEWS.md file with `use_news_md()` and add the main development notes.  
+- Choose a version number; put in description file, and tag a release on GitHub.
+  - You should also prepare your package for the next version -- I suggest doing this on a new branch.

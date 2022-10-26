@@ -6,7 +6,7 @@ output: html_document
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<p>From today’s class, students are anticipated to be able to build a basic R package, especially using the <code>devtools</code> package.</p>
+<p>From this topic, students are anticipated to be able to build a basic R package, especially using the <code>devtools</code> package.</p>
 <ul>
 <li>Write a DESCRIPTION file</li>
 <li>Carefully curate package dependencies</li>
@@ -15,15 +15,18 @@ output: html_document
 <li>Add a license</li>
 <li>Update an R package via semantic versioning, NEWS, changelog.</li>
 <li>Develop and build informative vignettes and a package README.</li>
-<li>Add a code of conduct</li>
 </ul>
-<p>And possibly:</p>
-<ul>
-<li>Make a package website with pkgdown.</li>
-<li>Make a code coverage report and page with covr.</li>
-<li>Add badges to the README.</li>
-<li>Build an S3 object oriented package</li>
-</ul>
+<!--
+- Add a code of conduct
+-->
+<!--
+And possibly:
+
+- Make a package website with pkgdown.
+- Make a code coverage report and page with covr.
+- Add badges to the README.
+- Build an S3 object oriented package
+-->
 <div id="resources" class="section level2">
 <h2>Resources</h2>
 <p>Video Lecture:</p>
@@ -61,51 +64,47 @@ output: html_document
 <li>Provides a template for organizing your work</li>
 </ul>
 <p>The alternative is keeping the functions stored in separate files, and <code>source()</code>ing them into your analysis scripts, but this can become unwieldy.</p>
-<p>For this topic, we’ll be making an R package similar to the toy <a href="https://github.com/vincenzocoia/powers">powers package</a>. We’ll mostly be following along with <a href="https://r-pkgs.org/whole-game.html">“The Whole Game” Chapter of “R packages”</a>. Here are the actions digested from that chapter, with the corresponding section number for more info.</p>
+<p>For this topic, we’ll be making an R package similar to the toy <a href="https://github.com/vincenzocoia/powers">powers package</a>. We’ll mostly be following along with <a href="https://r-pkgs.org/whole-game.html">“The Whole Game” Chapter of “R packages”</a>. Here are the actions digested from that chapter.</p>
 <p>First, make a minimal viable product:</p>
 <ul>
 <li>Load the <code>devtools</code> package in the console (do this every time you go to work on your package).</li>
-<li>2.4: Run <code>create_package()</code> in the console (all devtools functions should be written in the console).
+<li>Run <code>create_package()</code> in the console (all devtools functions should be written in the console).
 <ul>
 <li>Better defaults than going through the File menu.</li>
 </ul></li>
-<li>2.5: <code>use_git()</code>
+<li><code>use_git()</code>
 <ul>
 <li>Prefer to start your project on GitHub? Or locally? Either way, useful instructions for what to do can be found <a href="https://happygitwithr.com/usage-intro.html">in “Happy Git with R” Part III</a>.</li>
 </ul></li>
-<li>2.6 and 2.7: Make a new R script using <code>use_r()</code>, and write a function there: start with <code>square()</code>.</li>
-<li>2.8: Test drive after using <code>load_all()</code>.</li>
-<li>2.9: Check that the package is intact: either run <code>check()</code> or click “Check”.</li>
-<li>2.10 and 2.11: Edit the DESCRIPTION file. For the license, <code>use_mit_license("Your Name")</code>.</li>
-<li>2.12: Document the function: “Code &gt; Insert roxygen skeleton”, then run <code>document()</code>.</li>
-<li>2.14: Install and Restart, or run <code>install()</code>. Try loading the package and using it!</li>
+<li>Make a new R script using <code>use_r()</code>, and write a function there: start with <code>square()</code>.</li>
+<li>Test drive after using <code>load_all()</code>.</li>
+<li>Check that the package is intact: run <code>check()</code>.</li>
+<li>Edit the DESCRIPTION file. For the license, <code>use_mit_license("Your Name")</code>.</li>
+<li>Document the function: “Code &gt; Insert roxygen skeleton”, then run <code>document()</code>.</li>
+<li>Install and Restart, or run <code>install()</code>. Try loading the package and using it!</li>
 </ul>
 <p>Now, expand:</p>
 <ul>
-<li>2.15: <code>use_testthat()</code> for your package, and make an R script containing tests
+<li><code>use_testthat()</code> for your package, and make an R script containing tests
 <ul>
-<li>Check all tests with <code>test()</code>. This also happens with <code>check()</code> or the “Check” button.</li>
+<li>Check all tests with <code>test()</code>. This also happens with <code>check()</code>.</li>
 </ul></li>
-<li>2.16: Expand <code>square()</code> so that it can take either a vector or list, using purrr’s <code>map_dbl()</code> function. Indicate dependency with <code>use_package()</code>. Types of dependencies:
-<ul>
-<li><code>Imports</code>: almost always use this; access functions with <code>::</code>. Can also <a href="https://r-pkgs.org/namespace.html#import-r">import specific functions</a>, like <code>%&gt;%</code>.</li>
+<li>Expand <code>square()</code> so that it can take either a vector or list, using purrr’s <code>map_dbl()</code> function. Indicate dependency with <code>use_package()</code>. Types of dependencies:</li>
+<li><code>Imports</code>: almost always use this; access functions with <code>::</code>. Can also <a href="https://r-pkgs.org/Metadata.html#sec-metadata-namespace">import specific functions</a>, like <code>%&gt;%</code>.</li>
 <li><code>Suggests</code>: these packages make your package better, but are not needed (eg. outputting a tibble vs. a data frame)</li>
-<li>Others, like <code>Depends</code>, <a href="https://r-pkgs.org/namespace.html#search-path">should rarely be used</a>.</li>
-</ul></li>
-<li>2.17: Add a package README with <code>use_readme_rmd()</code>, and render it every time with <code>build_readme()</code>.
-<ul>
+<li>Others, like <code>Depends</code>, should rarely be used.
+-Add a package README with <code>use_readme_rmd()</code>, and render it every time with <code>build_readme()</code>.</li>
 <li>Once you successfully sync your package to GitHub, other people can install the package with <code>devtools::install_github("your_username/package_name")</code> – this should go in the README.</li>
-</ul></li>
-<li>11.1: Make a vignette with <code>use_vignette()</code>. Build all vignettes with <code>build_vignettes()</code>.</li>
-<li>14.1: Include data with the R package with <code>use_data(R_OBJECT_HERE)</code>. Then document <em>a string of its name</em> in a new R script using <a href="https://r-pkgs.org/data.html#documenting-data">a different collection of roxygen tags</a>.</li>
+<li>Make a vignette with <code>use_vignette()</code>. Build all vignettes with <code>build_vignettes()</code>.</li>
+<li>Include data with the R package with <code>use_data(R_OBJECT_HERE)</code>. Then document <em>a string of its name</em> in a new R script using <a href="https://r-pkgs.org/data.html#documenting-data">a different collection of roxygen tags</a>.</li>
 </ul>
-<p>Release your package (Chapter 20):</p>
+<p>Release your package:</p>
 <ul>
-<li>20.5.3: Make a NEWS.md file with <code>use_news_md()</code> and add the main development notes.<br />
+<li>Make a NEWS.md file with <code>use_news_md()</code> and add the main development notes.<br />
 </li>
-<li>20.1: Choose a version number; put in description file, and tag a release on GitHub.
+<li>Choose a version number; put in description file, and tag a release on GitHub.
 <ul>
-<li>20.7: You should also prepare your package for the next version – I suggest doing this on a new branch.</li>
+<li>You should also prepare your package for the next version – I suggest doing this on a new branch.</li>
 </ul></li>
 </ul>
 </div>
