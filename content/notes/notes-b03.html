@@ -22,9 +22,9 @@ output: html_document
 <li>Interact with <code>make</code> in RStudio.</li>
 <li>Use <code>make</code> from the shell.</li>
 </ul>
-<p>Other tools aside from make:</p>
+<p>Other tools aside from make (We won’t be covering these):</p>
 <ul>
-<li>ProjectTemplate (we will cover this if we have time)</li>
+<li>ProjectTemplate</li>
 <li>remake for R</li>
 </ul>
 <div id="resources" class="section level2">
@@ -150,53 +150,8 @@ output: html_document
 </ul>
 <div id="makefile-activity" class="section level4">
 <h4>Makefile activity</h4>
-<p>We’ll now run through the <a href="https://stat545.com/automating-pipeline.html">makefile activity</a> included in the stat545.com book. Here is a digested version of the activity, with slight modifications.</p>
-<ol style="list-style-type: decimal">
-<li><p><input type="checkbox" disabled="" />
-Start a new RStudio project.</p></li>
-<li><p><input type="checkbox" disabled="" />
-Create a Makefile: File &gt; New File &gt; Text File. Name it <code>Makefile</code>. Restart RStudio so that it recognizes <code>make</code>.</p></li>
-<li><p><input type="checkbox" disabled="" />
-Add the creation of <code>words.txt</code> to the Makefile:</p><pre><code>words.txt:
-  Rscript -e &#39;download.file(&quot;https://svnweb.freebsd.org/base/head/share/dict/web2?view=co&quot;, destfile = &quot;words.txt&quot;, quiet = TRUE)&#39;</code></pre>
-<p>Or, if this is too slow, mac users already have this file on their computer and can get it by copying the file over, like so:</p>
-<pre><code>words.txt: /usr/share/dict/words
-  cp /usr/share/dict/words words.txt</code></pre>
-<ul>
-<li>Try running <code>make words.txt</code> in the Terminal.</li>
-</ul></li>
-<li><p><input type="checkbox" disabled="" />
-Make a new R script that makes a table of word lengths – <a href="https://raw.githubusercontent.com/STAT545-UBC/STAT545-UBC.github.io/master/automation10_holding-area/activity/histogram.r">code here</a>.</p></li>
-<li><p><input type="checkbox" disabled="" />
-Add the tsv output to the makefile:</p><pre><code>histogram.tsv: histogram.R words.txt
- Rscript $&lt;</code></pre>
-<ul>
-<li>Shortcuts:
-<ul>
-<li><code>$&lt;</code> refers to <code>histogram.R</code></li>
-<li><code>$@</code> refers to <code>histogram.tsv</code></li>
-</ul></li>
-<li>What happens if a dependency is not present? Try deleting <code>words.txt</code>.</li>
-</ul></li>
-<li><p><input type="checkbox" disabled="" />
-Create rules for <code>all</code> and <code>clean</code> (why don’t we need <code>words.txt</code> listed for <code>all</code>?)</p><pre><code>all: histogram.tsv
-
-clean:
-  rm words.txt histogram.tsv</code></pre>
-<ul>
-<li>Try running <code>make</code>; <code>make all</code>; <code>make clean</code>; or, use the Build tab in RStudio.</li>
-</ul></li>
-<li><p><input type="checkbox" disabled="" />
-Plot a histogram of word lengths, direct in the Makefile.</p><pre><code>histogram.png: histogram.tsv
-  Rscript -e &#39;library(ggplot2); qplot(Length, Freq, data=read.delim(&quot;$&lt;&quot;)); ggsave(&quot;$@&quot;)&#39;</code></pre></li>
-<li><p><input type="checkbox" disabled="" />
-Update: add a <code>rm Rplots.pdf</code> line to the histogram creation rule; update <code>all</code> and <code>clean</code>.</p></li>
-<li><p><input type="checkbox" disabled="" />
-Make a <code>report.Rmd</code> file – <a href="https://raw.githubusercontent.com/STAT545-UBC/STAT545-UBC.github.io/master/automation10_holding-area/activity/report.rmd">code here</a>.</p></li>
-<li><p><input type="checkbox" disabled="" />
-Add a rule to make the report output:
-<code>report.html: report.Rmd histogram.tsv histogram.png       Rscript -e 'rmarkdown::render("$&lt;")'</code></p></li>
-</ol>
+<p>We’ll demo the process of building up to makefile for a simple directory structure that involves processing raw data and making some plots out of the raw data.</p>
+<p>Another good resource is the <a href="https://stat545.com/automating-pipeline.html">makefile activity</a> included in the stat545.com book.</p>
 </div>
 </div>
 <div id="running-r-in-the-background" class="section level3">

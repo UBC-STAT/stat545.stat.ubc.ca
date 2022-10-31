@@ -18,9 +18,9 @@ From today's class, students are anticipated to be able to:
 * Interact with `make` in RStudio.
 * Use `make` from the shell.
 
-Other tools aside from make:
+Other tools aside from make (We won't be covering these):
 
-- ProjectTemplate (we will cover this if we have time)
+- ProjectTemplate 
 - remake for R
 
 ## Resources
@@ -131,51 +131,9 @@ When will a rule be run?
 
 #### Makefile activity
 
-We'll now run through the [makefile activity](https://stat545.com/automating-pipeline.html) included in the stat545.com book. Here is a digested version of the activity, with slight modifications.
+We'll demo the process of building up to makefile for a simple directory structure that involves processing raw data and making some plots out of the raw data. 
 
-1. [ ] Start a new RStudio project.
-2. [ ] Create a Makefile: File > New File > Text File. Name it `Makefile`. Restart RStudio so that it recognizes `make`.
-3. [ ] Add the creation of `words.txt` to the Makefile:
-   ```
-   words.txt:
-     Rscript -e 'download.file("https://svnweb.freebsd.org/base/head/share/dict/web2?view=co", destfile = "words.txt", quiet = TRUE)'
-   ```
-   Or, if this is too slow, mac users already have this file on their computer and can get it by copying the file over, like so:
-   ```
-   words.txt: /usr/share/dict/words
-     cp /usr/share/dict/words words.txt
-   ```
-      - Try running `make words.txt` in the Terminal.
-4. [ ] Make a new R script that makes a table of word lengths -- [code here](https://raw.githubusercontent.com/STAT545-UBC/STAT545-UBC.github.io/master/automation10_holding-area/activity/histogram.r).
-5. [ ] Add the tsv output to the makefile:
-   ```
-   histogram.tsv: histogram.R words.txt
-    Rscript $<
-   ```
-      - Shortcuts:
-         - `$<` refers to `histogram.R`
-         - `$@` refers to `histogram.tsv`
-      - What happens if a dependency is not present? Try deleting `words.txt`.
-6. [ ] Create rules for `all` and `clean` (why don't we need `words.txt` listed for `all`?)
-   ```
-   all: histogram.tsv
-
-   clean:
-     rm words.txt histogram.tsv
-   ```
-      - Try running `make`; `make all`; `make clean`; or, use the Build tab in RStudio.
-7. [ ] Plot a histogram of word lengths, direct in the Makefile.
-   ```
-   histogram.png: histogram.tsv
-     Rscript -e 'library(ggplot2); qplot(Length, Freq, data=read.delim("$<")); ggsave("$@")'
-   ```
-8. [ ] Update: add a `rm Rplots.pdf` line to the histogram creation rule; update `all` and `clean`.
-9. [ ] Make a `report.Rmd` file -- [code here](https://raw.githubusercontent.com/STAT545-UBC/STAT545-UBC.github.io/master/automation10_holding-area/activity/report.rmd).
-10. [ ] Add a rule to make the report output:
-    ```
-    report.html: report.Rmd histogram.tsv histogram.png
-      Rscript -e 'rmarkdown::render("$<")'
-    ```
+Another good resource is the [makefile activity](https://stat545.com/automating-pipeline.html) included in the stat545.com book. 
 
 ### Running R in the background
 
@@ -194,7 +152,6 @@ nohup Rscript script.R > log.out 2>&1 &
 Just be careful to get the directory of the files right. 
 
 Alternatively, you can [use RStudio to submit a job](https://blog.rstudio.com/2019/03/14/rstudio-1-2-jobs/).
-
 
 #### Attribution
 
