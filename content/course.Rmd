@@ -115,7 +115,7 @@ There are four assignments, each equally weighted:
 -   [Assignment B-1](/assignments/assignment-b1): Due **Friday, November 04, 2022 at 17:00 PT**.
 -   [Assignment B-2](/assignments/assignment-b2): Due **Friday, November 18, 2022 at 17:00 PT**.
 -   [Assignment B-3](/assignments/assignment-b3): Due **Friday, November 25, 2022 at 17:00 PT**.
--   [Assignment B-4](/assignments/assignment-b4): Due **Friday, December 2, 2022 at 17:00 PT**.
+-   [Assignment B-4](/assignments/assignment-b4): Due **Friday, December 9, 2022 at 17:00 PT**.
 
 ## Collaborative Project (Part A)
 
