@@ -131,7 +131,7 @@ When will a rule be run?
 
 #### Makefile activity
 
-We'll demo the process of building up to makefile for a simple directory structure that involves processing raw data and making some plots out of the raw data. 
+We'll demo the process of building up to a makefile for a simple directory structure that involves processing raw data and making some plots out of the raw data. Example final product here: https://github.com/lucylgao/penguins-toy-analysis Intermediate steps are included as commits. 
 
 Another good resource is the [makefile activity](https://stat545.com/automating-pipeline.html) included in the stat545.com book. 
 
