@@ -18,15 +18,14 @@ Here are some examples of apps built with Shiny. We don't expect you to achieve 
 + [Biodiversity of National Parks](https://abenedetti.shinyapps.io/bioNPS/?_ga=2.2513072.1250661063.1604984182-1784159993.1567907747)
 + [Fuel economy of cars in the US](https://jgassen.shinyapps.io/expand_fuel_economy/?_ga=2.232610335.1250661063.1604984182-1784159993.1567907747)
 + [Tidy Tuesday Tweet Catalogue](https://nsgrantham.shinyapps.io/tidytuesdayrocks/?_ga=2.224403354.1250661063.1604984182-1784159993.1567907747)
-+ [Movie Explorer](http://shiny.rstudio-staging.com/gallery/movie-explorer.html)
 
 ## Setup 
 
-Make a new repository in our homework Organization for this assignment. The link to do to [can be found on canvas](https://canvas.ubc.ca/courses/80817/pages/assignment-b-3-create-a-repository).
+Make a new repository in our homework Organization for this assignment. The link to do this [can be found on canvas](https://canvas.ubc.ca/courses/104737/assignments/1391195).
 
 ## Feature ideas 
 
-There are countless possibilities for features, but here are just a few ideas. You can choose any 3 or more ideas from this list or do anything else! Note that many of the examples in this list refer to the BC Liquor app, but they are all still applicable to creating your own Shiny app if that is your chosen option for the assignment. Want more ideas than what's below? Check [this](https://rstudio.github.io/shiny/tutorial/#welcome) out.
+There are countless possibilities for features, but here are just a few ideas. You can choose any 3 or more ideas from this list or do anything else! Note that many of the examples in this list refer to the BC Liquor app, but they are all still applicable to creating your own Shiny app if that is your chosen option for the assignment. Want more ideas than what's below? Check [this](https://shiny.rstudio.com/tutorial/) out.
 
 #### If you have a table in your app...
 
@@ -95,7 +94,7 @@ Follow these steps to submit your work. Be sure to familiarize yourself with the
   - A description of your app. In the case of Option A, write about what makes your app different from the "basic" version after implementing your chosen features.
   - Whatever dataset you will use, acknowledge its source clearly. Remember that we value open, reproducible science: this means that the user of your app should have direct access to the data, or know where to go to access it.
 - [ ] (5 pts) Tag a release in your assignment repository.
-- [ ] Submit a link to your tagged release in your assignment repository to canvas. 
+- [ ] Submit a link to your tagged release in your assignment repository to canvas. Make sure the TAs and Lucy can see your repository! Either it should be public or private with TAs and Lucy added as collaborators. 
 
 ## Acknowledgements
 
