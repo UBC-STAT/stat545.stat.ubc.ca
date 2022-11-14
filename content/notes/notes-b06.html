@@ -6,7 +6,7 @@ output: html_document
 <script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<p>Did you know that a column of a tibble can contain a list – not just a vector? This week explores when such a thing would come in handy, and how to work with list columns.</p>
+<p>Did you know that a column of a tibble can contain a list – not just a vector? This topic explores when such a thing would come in handy, and how to work with list columns.</p>
 <p>From this topic, students are anticipated to be able to:</p>
 <ul>
 <li>Use the <code>map</code> family of functions from the purrr package to iteratively apply a function.</li>
@@ -38,6 +38,180 @@ output: html_document
 <li><a href="https://tidyr.tidyverse.org/articles/rectangle.html">tidyr’s rectangling vignette</a> – for handling deeply nested lists (JSON-style data), similar to tidyr’s <code>pivot_</code> functions.</li>
 </ul>
 </div>
+<div id="vectors-and-lists-and-data-framestibbles" class="section level2">
+<h2>Vectors and Lists and Data Frames/Tibbles</h2>
+<p>In R, <em>vectors</em> hold multiple items/elements of the same atomic type:</p>
+<pre class="r"><code>(v1 &lt;- c(1, 5, 10)) # this is a vector holding items of type &quot;double&quot; </code></pre>
+<pre><code>## [1]  1  5 10</code></pre>
+<pre class="r"><code>(v2 &lt;- c(&quot;abc&quot;, &quot;def&quot;, &quot;ghi&quot;)) # this is a vector holding items of type &quot;character&quot;</code></pre>
+<pre><code>## [1] &quot;abc&quot; &quot;def&quot; &quot;ghi&quot;</code></pre>
+<p>Here, atomic means “smallest unit”: a single integer or double, a single character string, a single true/false statement, etc.</p>
+<p>We access elements of a vector with square brackets:</p>
+<pre class="r"><code>v1[1]</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code>v2[2]</code></pre>
+<pre><code>## [1] &quot;def&quot;</code></pre>
+<p>We can find out how many elements are in a vector with the <code>length()</code> function:</p>
+<pre class="r"><code>length(v1)</code></pre>
+<pre><code>## [1] 3</code></pre>
+<p>In R, <em>lists</em> also hold multiple items/elements, but each element can be <em>any</em> type. In fact, the elements don’t even have to be atomic!</p>
+<pre class="r"><code>(l1 &lt;- list(1, TRUE))</code></pre>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] TRUE</code></pre>
+<pre class="r"><code>(l2 &lt;- list(palmerpenguins::penguins, 1:3, list(1:3, &quot;blah&quot;)))</code></pre>
+<pre><code>## [[1]]
+## # A tibble: 344 × 8
+##    species island    bill_length_mm bill_depth_mm flipper_…¹ body_…² sex    year
+##    &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;      &lt;int&gt;   &lt;int&gt; &lt;fct&gt; &lt;int&gt;
+##  1 Adelie  Torgersen           39.1          18.7        181    3750 male   2007
+##  2 Adelie  Torgersen           39.5          17.4        186    3800 fema…  2007
+##  3 Adelie  Torgersen           40.3          18          195    3250 fema…  2007
+##  4 Adelie  Torgersen           NA            NA           NA      NA &lt;NA&gt;   2007
+##  5 Adelie  Torgersen           36.7          19.3        193    3450 fema…  2007
+##  6 Adelie  Torgersen           39.3          20.6        190    3650 male   2007
+##  7 Adelie  Torgersen           38.9          17.8        181    3625 fema…  2007
+##  8 Adelie  Torgersen           39.2          19.6        195    4675 male   2007
+##  9 Adelie  Torgersen           34.1          18.1        193    3475 &lt;NA&gt;   2007
+## 10 Adelie  Torgersen           42            20.2        190    4250 &lt;NA&gt;   2007
+## # … with 334 more rows, and abbreviated variable names ¹​flipper_length_mm,
+## #   ²​body_mass_g
+## # ℹ Use `print(n = ...)` to see more rows
+## 
+## [[2]]
+## [1] 1 2 3
+## 
+## [[3]]
+## [[3]][[1]]
+## [1] 1 2 3
+## 
+## [[3]][[2]]
+## [1] &quot;blah&quot;</code></pre>
+<p>We access elements of a list with double square brackets:</p>
+<pre class="r"><code>l1[[2]]</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="r"><code>l2[[3]]</code></pre>
+<pre><code>## [[1]]
+## [1] 1 2 3
+## 
+## [[2]]
+## [1] &quot;blah&quot;</code></pre>
+<p>We can also find out how many elements are in a list with the <code>length()</code> function:</p>
+<pre class="r"><code>length(l2)</code></pre>
+<pre><code>## [1] 3</code></pre>
+<p>As it turns out, data frames are actually a special type of list. This is true for tibbles too, since they’re simply slightly fancier versions of data frames.</p>
+<pre class="r"><code>typeof(mtcars)</code></pre>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<pre class="r"><code>typeof(palmerpenguins::penguins)</code></pre>
+<pre><code>## [1] &quot;list&quot;</code></pre>
+<p>This is why we can access columns using double square brackets - the data frame/tibble is actually a <em>list</em>, where each element is required to have the same length.</p>
+<pre class="r"><code>mtcars[[1]]</code></pre>
+<pre><code>##  [1] 21.0 21.0 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 17.8 16.4 17.3 15.2 10.4
+## [16] 10.4 14.7 32.4 30.4 33.9 21.5 15.5 15.2 13.3 19.2 27.3 26.0 30.4 15.8 19.7
+## [31] 15.0 21.4</code></pre>
+<pre class="r"><code>palmerpenguins::penguins[[&quot;year&quot;]]</code></pre>
+<pre><code>##   [1] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007
+##  [16] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007
+##  [31] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007
+##  [46] 2007 2007 2007 2007 2007 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008
+##  [61] 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008
+##  [76] 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008
+##  [91] 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 2009 2009 2009 2009 2009
+## [106] 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009
+## [121] 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009
+## [136] 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009
+## [151] 2009 2009 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007
+## [166] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007
+## [181] 2007 2007 2007 2007 2007 2007 2008 2008 2008 2008 2008 2008 2008 2008 2008
+## [196] 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008
+## [211] 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008
+## [226] 2008 2008 2008 2008 2008 2008 2008 2009 2009 2009 2009 2009 2009 2009 2009
+## [241] 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009
+## [256] 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009
+## [271] 2009 2009 2009 2009 2009 2009 2007 2007 2007 2007 2007 2007 2007 2007 2007
+## [286] 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007 2007
+## [301] 2007 2007 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008 2008
+## [316] 2008 2008 2008 2008 2008 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009
+## [331] 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009 2009</code></pre>
+<pre class="r"><code>length(mtcars[[1]])</code></pre>
+<pre><code>## [1] 32</code></pre>
+<pre class="r"><code>length(mtcars[[2]])</code></pre>
+<pre><code>## [1] 32</code></pre>
+</div>
+<div id="for-loops-and-functionals" class="section level2">
+<h2>For loops and functionals</h2>
+<p>You may be familiar with <code>for</code> loops from prior experience with base R or with other programming languages. Here’s an example of a for loop in R that iterates over the entries of a numeric vector <code>x</code>, squares each entry, and stores the result in a numeric vector <code>output</code>:</p>
+<pre class="r"><code>x &lt;- 1:10 
+output &lt;- vector(&quot;double&quot;, length(x))
+
+for(i in seq_along(x)) { 
+    output[i] &lt;- x[i]^2  
+}
+
+output</code></pre>
+<pre><code>##  [1]   1   4   9  16  25  36  49  64  81 100</code></pre>
+<p>For loops can often be replaced with a single call to a <em>functional</em> - a function that takes a function as an argument. To illustrate what I’m talking about, let’s rewrite our example by defining a custom functional.</p>
+<pre class="r"><code>square &lt;- function(x) x^2 
+
+my_map &lt;- function(x, fun) { 
+  output &lt;- vector(&quot;double&quot;, length(x))
+  for(i in seq_along(x)) { 
+      output[i] &lt;- fun(x[i])
+  }
+  
+  output
+}
+
+my_map(1:10, square)</code></pre>
+<pre><code>##  [1]   1   4   9  16  25  36  49  64  81 100</code></pre>
+</div>
+<div id="purrr-fundamentals-demonstration" class="section level2">
+<h2><code>purrr</code> fundamentals demonstration</h2>
+<p>There’s no need to write your own functionals for this purpose though - you can use the <code>map</code> family of functionals in the <code>purrr</code> package!</p>
+<pre class="r"><code>library(purrr)
+map_dbl(1:10, square)</code></pre>
+<pre><code>##  [1]   1   4   9  16  25  36  49  64  81 100</code></pre>
+<p>Why use the <code>map</code> functions over <code>for</code> loops? The <code>map</code> family encourages the input vector(s) and function to be carefully defined first, whereas a <code>for</code> loop is more of a free-for-all. Using <code>map()</code> is also more readable, is pipe-friendly, and jibes well with list columns in tibbles.</p>
+<p>Fun trivia: <a href="https://github.com/tidyverse/purrr/issues/35#issuecomment-71395551">the story behind the name <code>purrr</code></a></p>
+<p>Let’s jump into the worksheet to learn the basics of how to use <code>map</code> functions.</p>
+</div>
+<div id="list-columns" class="section level2">
+<h2>List columns</h2>
+<p>We now know that data frames and tibbles are just lists, where each element/column has the same length. We also know that an element of a list need not be an atomic - it could be an atomic vector or even a list!</p>
+<p>This means that an “entry” of a rectangular data frame or tibble could be <em>multiple</em> atomics, like so:</p>
+<pre class="r"><code>list_column &lt;- list(1:2, 3:4, 5:6)
+regular_column &lt;- c(&quot;a&quot;, &quot;b&quot;, &quot;c&quot;)
+
+(my_df &lt;- data.frame(col1 = I(list_column), col2=regular_column))</code></pre>
+<pre><code>##   col1 col2
+## 1 1, 2    a
+## 2 3, 4    b
+## 3 5, 6    c</code></pre>
+<pre class="r"><code>my_df[[&quot;col1&quot;]]</code></pre>
+<pre><code>## [[1]]
+## [1] 1 2
+## 
+## [[2]]
+## [1] 3 4
+## 
+## [[3]]
+## [1] 5 6</code></pre>
+<pre class="r"><code>my_df[1, 1]</code></pre>
+<pre><code>## [[1]]
+## [1] 1 2</code></pre>
+<pre class="r"><code>library(tibble)
+(my_tbl &lt;- tibble(col1=list_column, col2=regular_column))</code></pre>
+<pre><code>## # A tibble: 3 × 2
+##   col1      col2 
+##   &lt;list&gt;    &lt;chr&gt;
+## 1 &lt;int [2]&gt; a    
+## 2 &lt;int [2]&gt; b    
+## 3 &lt;int [2]&gt; c</code></pre>
+<p>Base R data frames don’t make it especially easy to make or work with list columns, so if you are planning to use list columns then tibbles are strongly recommended over data frames.</p>
+<p>Let’s explore when list columns might be useful and how to manipulate list columns by jumping back into the worksheet.</p>
+</div>
 <div id="test-your-understanding" class="section level2">
 <h2>Test Your Understanding</h2>
 <ol style="list-style-type: decimal">
@@ -48,9 +222,4 @@ output: html_document
 <li>True or False: Just as <code>c(c(1, 2), c(3, 4))</code> returns the vector of numbers from 1 to 4, <code>list(list(1, 2), list(3, 4))</code> returns the list of numbers from 1 to 4.</li>
 <li>True or False: <code>tibble(model = lm(mpg ~ wt, data = mtcars))</code> doesn’t work because it doesn’t use a <code>map</code> function.</li>
 </ol>
-</div>
-<div id="demonstration" class="section level2">
-<h2>Demonstration</h2>
-<p>Why use the <code>map</code> functions over <code>for</code> loops? Aside from what’s said at <a href="https://r4ds.had.co.nz/iteration.html#for-loops-vs.-functionals">R4DS’s Section 21.4</a>, the <code>map</code> family encourages the input vector(s) and function to be carefully defined first, whereas a <code>for</code> loop is more of a free-for-all. Using <code>map()</code> is also more readable, is pipe-friendly, and jibes well with list columns in tibbles.</p>
-<p>Let’s jump right into the worksheet for this topic.</p>
 </div>
