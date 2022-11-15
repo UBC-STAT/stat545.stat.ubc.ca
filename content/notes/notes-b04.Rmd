@@ -32,6 +32,7 @@ Regarding specific tasks:
 - For deploying shiny apps, check out [https://www.shinyapps.io/](https://www.shinyapps.io/)
 - For shiny documents (= R Markdown + shiny), see [Chapter 19 of Yihui’s R Markdown book](https://bookdown.org/yihui/rmarkdown/shiny-documents.html).
 - For testing your shiny app, check out the [shinytest](https://rstudio.github.io/shinytest/) and [reactlog](https://github.com/rstudio/reactlog) packages. 
+- For further cutting down on code repetition by "functionizing" your shiny app, check out [Emily Riederer's beginner's guide to Shiny modules](https://emilyriederer.netlify.app/post/shiny-modules/) for a gentle introduction and [Chapter 19 of the "Mastering Shiny" book](https://mastering-shiny.org/scaling-modules.html) for a full treatment.
 
 Other dashboard tools besides shiny (but not in R):
 

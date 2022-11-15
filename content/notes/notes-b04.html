@@ -36,6 +36,7 @@ output: html_document
 <li>For deploying shiny apps, check out <a href="https://www.shinyapps.io/">https://www.shinyapps.io/</a></li>
 <li>For shiny documents (= R Markdown + shiny), see <a href="https://bookdown.org/yihui/rmarkdown/shiny-documents.html">Chapter 19 of Yihui’s R Markdown book</a>.</li>
 <li>For testing your shiny app, check out the <a href="https://rstudio.github.io/shinytest/">shinytest</a> and <a href="https://github.com/rstudio/reactlog">reactlog</a> packages.</li>
+<li>For further cutting down on code repetition by “functionizing” your shiny app, check out <a href="https://emilyriederer.netlify.app/post/shiny-modules/">Emily Riederer’s beginner’s guide to Shiny modules</a> for a gentle introduction and <a href="https://mastering-shiny.org/scaling-modules.html">Chapter 19 of the “Mastering Shiny” book</a> for a full treatment.</li>
 </ul>
 <p>Other dashboard tools besides shiny (but not in R):</p>
 <ul>
@@ -62,10 +63,8 @@ x &lt;- 1</code></pre></li>
 <h3>Introducing shiny</h3>
 <p>Motivation for shiny: explore the <a href="https://shiny.rstudio.com/gallery/#user-showcase">shiny user showcase</a>:</p>
 <ul class="task-list">
-<li><input type="checkbox" disabled="" />
-First, let’s find a “shiny demo”</li>
-<li><input type="checkbox" disabled="" />
-Then, a “shiny user showcase”.</li>
+<li><input type="checkbox" disabled="" />First, let’s find a “shiny demo”</li>
+<li><input type="checkbox" disabled="" />Then, a “shiny user showcase”.</li>
 </ul>
 <p>The code behind a shiny app has the following layout in a file called <code>app.R</code> – development involves filling in the <code>FILL_THIS_IN</code> parts:</p>
 <pre><code>library(shiny)
@@ -83,10 +82,8 @@ shinyApp(ui = ui, server = server)</code></pre>
 <h3>Exploring the RStudio Boilerplate</h3>
 <p>Open the boilerplate:</p>
 <ol style="list-style-type: decimal">
-<li><input type="checkbox" disabled="" />
-File &gt; New File &gt; Shiny Web App…</li>
-<li><input type="checkbox" disabled="" />
-Ensure “Single File” is selected, and choose a directory.</li>
+<li><input type="checkbox" disabled="" />File &gt; New File &gt; Shiny Web App…</li>
+<li><input type="checkbox" disabled="" />Ensure “Single File” is selected, and choose a directory.</li>
 </ol>
 <p>What R objects are <code>ui</code> and <code>server</code>? What are they meant for?</p>
 <ul>
@@ -106,94 +103,67 @@ Ensure “Single File” is selected, and choose a directory.</li>
 <h3>Making the BCL Shiny App</h3>
 <p>Get set up:</p>
 <ol style="list-style-type: decimal">
-<li><input type="checkbox" disabled="" />
-Start from scratch – try the above template containing the <code>FILL_THIS_IN</code> fields.</li>
-<li><input type="checkbox" disabled="" />
-BCL Data:<ol style="list-style-type: lower-alpha">
-<li><input type="checkbox" disabled="" />
-Download the <a href="https://deanattali.com/files/bcl-data.csv">data</a>; place alongside <code>app.R</code>.</li>
-<li><input type="checkbox" disabled="" />
-Load the tidyverse.</li>
-<li><input type="checkbox" disabled="" />
-Read in the data above <code>ui</code> with <code>bcl &lt;- read_csv("bcl-data.csv")</code></li>
+<li><input type="checkbox" disabled="" />Start from scratch – try the above template containing the <code>FILL_THIS_IN</code> fields.</li>
+<li><input type="checkbox" disabled="" />BCL Data:<ol style="list-style-type: lower-alpha">
+<li><input type="checkbox" disabled="" />Download the <a href="https://deanattali.com/files/bcl-data.csv">data</a>; place alongside <code>app.R</code>.</li>
+<li><input type="checkbox" disabled="" />Load the tidyverse.</li>
+<li><input type="checkbox" disabled="" />Read in the data above <code>ui</code> with <code>bcl &lt;- read_csv("bcl-data.csv")</code></li>
 </ol></li>
-<li><input type="checkbox" disabled="" />
-Include <code>options(shiny.autoreload = TRUE)</code> so that I can see the changes appear instantly.</li>
+<li><input type="checkbox" disabled="" />Include <code>options(shiny.autoreload = TRUE)</code> so that I can see the changes appear instantly.</li>
 </ol>
 <p>Add a plot to the app:</p>
 <ol style="list-style-type: decimal">
-<li><input type="checkbox" disabled="" />
-Verify that calling ggplot2 in the <code>ui</code> won’t work. Why not? Think coercion.</li>
-<li><input type="checkbox" disabled="" />
-Instead of trying to place the plot directly in <code>ui</code>, make a <em>placeholder</em> for the plot: <code>plotOutput()</code>.<ul>
+<li><input type="checkbox" disabled="" />Verify that calling ggplot2 in the <code>ui</code> won’t work. Why not? Think coercion.</li>
+<li><input type="checkbox" disabled="" />Instead of trying to place the plot directly in <code>ui</code>, make a <em>placeholder</em> for the plot: <code>plotOutput()</code>.<ul>
 <li>Always needs an ID (first argument): this will be the link between <code>server</code> and <code>ui</code>.</li>
 </ul></li>
-<li><input type="checkbox" disabled="" />
-Render the plot in the <code>server</code>, and link it to the placeholder:<ol style="list-style-type: lower-alpha">
-<li><input type="checkbox" disabled="" />
-As if <code>output</code> is a list, make an entry named by the plot ID. Try setting this to the plot itself – doesn’t work. Plot code:</li>
+<li><input type="checkbox" disabled="" />Render the plot in the <code>server</code>, and link it to the placeholder:<ol style="list-style-type: lower-alpha">
+<li><input type="checkbox" disabled="" />As if <code>output</code> is a list, make an entry named by the plot ID. Try setting this to the plot itself – doesn’t work. Plot code:</li>
 </ol>
 <pre><code>ggplot(bcl, aes(Alcohol_Content)) +
   geom_histogram()</code></pre>
 <ol start="2" style="list-style-type: lower-alpha">
-<li><input type="checkbox" disabled="" />
-Wrap plot in <code>renderPlot()</code> function.</li>
-<li><input type="checkbox" disabled="" />
-Improve formatting: allow for the possibility of multiple lines with <code>{}</code>.</li>
+<li><input type="checkbox" disabled="" />Wrap plot in <code>renderPlot()</code> function.</li>
+<li><input type="checkbox" disabled="" />Improve formatting: allow for the possibility of multiple lines with <code>{}</code>.</li>
 </ol></li>
 </ol>
 <p>Add interactivity to the plot via a slider:</p>
 <ol style="list-style-type: decimal">
-<li><input type="checkbox" disabled="" />
-Add a slider to the <code>ui</code> with <code>sliderInput()</code>.<ol style="list-style-type: lower-alpha">
-<li><input type="checkbox" disabled="" />
-Add arguments to allow a user select a price range between 0 and 100. All <code>*Input()</code> functions require:<ul>
+<li><input type="checkbox" disabled="" />Add a slider to the <code>ui</code> with <code>sliderInput()</code>.<ol style="list-style-type: lower-alpha">
+<li><input type="checkbox" disabled="" />Add arguments to allow a user select a price range between 0 and 100. All <code>*Input()</code> functions require:<ul>
 <li>an ID (to communicate between <code>ui</code> and <code>server</code>)</li>
 <li>a label (text to appear with the widget)</li>
 <li>All other arguments are specific to the widget. Hint: <code>value</code> should be a vector; use <code>pre = "$"</code>.</li>
 </ul></li>
-<li><input type="checkbox" disabled="" />
-Check out <a href="https://shiny.rstudio.com/tutorial/written-tutorial/lesson3/">other widgets</a> (from the official Shiny tutorial)</li>
+<li><input type="checkbox" disabled="" />Check out <a href="https://shiny.rstudio.com/tutorial/written-tutorial/lesson3/">other widgets</a> (from the official Shiny tutorial)</li>
 </ol></li>
 <li>The (list-like) <code>input</code> argument in <code>server</code> now has an entry named by the widget ID:
 <ol style="list-style-type: lower-alpha">
-<li><input type="checkbox" disabled="" />
-Investigate the contents of this list entry using this trick: <code>print()</code> it to screen in your <code>renderPlot()</code> function. Where does it print to screen? Less hacky method: use the <code>observe()</code> function instead, top level of function.</li>
-<li><input type="checkbox" disabled="" />
-Use this list entry to filter the <code>bcl</code> data.</li>
+<li><input type="checkbox" disabled="" />Investigate the contents of this list entry using this trick: <code>print()</code> it to screen in your <code>renderPlot()</code> function. Where does it print to screen? Less hacky method: use the <code>observe()</code> function instead, top level of function.</li>
+<li><input type="checkbox" disabled="" />Use this list entry to filter the <code>bcl</code> data.</li>
 </ol></li>
-<li><input type="checkbox" disabled="" />
-Try adding another widget to further filter the data: <code>radioButtons()</code>.<ul>
+<li><input type="checkbox" disabled="" />Try adding another widget to further filter the data: <code>radioButtons()</code>.<ul>
 <li>Use <code>choices = c("BEER", "REFRESHMENT", "SPIRITS", "WINE")</code></li>
 </ul></li>
 </ol>
 <p>Improve the user interface:</p>
 <ol style="list-style-type: decimal">
-<li><input type="checkbox" disabled="" />
-Add a <code>titlePanel()</code>. What’s the output of <code>titlePanel()</code>?</li>
-<li><input type="checkbox" disabled="" />
-Add a <code>sidebarLayout()</code> with a <code>sidebarPanel()</code> and <code>mainPanel()</code>. What should go where?</li>
-<li><input type="checkbox" disabled="" />
-Add some description to the app – maybe some welcome text.<ol style="list-style-type: lower-alpha">
-<li><input type="checkbox" disabled="" />
-Try raw text</li>
-<li><input type="checkbox" disabled="" />
-Try headers with <code>h1()</code>, <code>h2()</code>, etc; bold with <code>b()</code> from the <code>tags</code> object; and a link to Dean’s original BCL app with <code>a(href = "https://github.com/daattali/shiny-server/tree/master/bcl", "TEXT_HERE")</code></li>
+<li><input type="checkbox" disabled="" />Add a <code>titlePanel()</code>. What’s the output of <code>titlePanel()</code>?</li>
+<li><input type="checkbox" disabled="" />Add a <code>sidebarLayout()</code> with a <code>sidebarPanel()</code> and <code>mainPanel()</code>. What should go where?</li>
+<li><input type="checkbox" disabled="" />Add some description to the app – maybe some welcome text.<ol style="list-style-type: lower-alpha">
+<li><input type="checkbox" disabled="" />Try raw text</li>
+<li><input type="checkbox" disabled="" />Try headers with <code>h1()</code>, <code>h2()</code>, etc; bold with <code>b()</code> from the <code>tags</code> object; and a link to Dean’s original BCL app with <code>a(href = "https://github.com/daattali/shiny-server/tree/master/bcl", "TEXT_HERE")</code></li>
 </ol></li>
 </ol>
 <p>Display a table of the BC Liquor data below the plot:</p>
 <ol style="list-style-type: decimal">
-<li><input type="checkbox" disabled="" />
-Use <code>renderTable()</code> and <code>tableOutput()</code>.</li>
+<li><input type="checkbox" disabled="" />Use <code>renderTable()</code> and <code>tableOutput()</code>.</li>
 </ol>
 <p>Data filtering happens twice. Use reactive programming to prevent duplicated code:</p>
 <ol style="list-style-type: decimal">
-<li><input type="checkbox" disabled="" />
-Gotcha #1: Try saving the filtered data in the <code>server()</code> function as a new variable. Does it work?</li>
-<li><input type="checkbox" disabled="" />
-Make it work by wrapping the <code>reactive()</code> function.</li>
-<li><input type="checkbox" disabled="" />
-Gotcha #2: Can you refer to the variable you made by name? No. Treat it as a function with no arguments by appending <code>()</code>.</li>
+<li><input type="checkbox" disabled="" />Gotcha #1: Try saving the filtered data in the <code>server()</code> function as a new variable. Does it work?</li>
+<li><input type="checkbox" disabled="" />Make it work by wrapping the <code>reactive()</code> function.</li>
+<li><input type="checkbox" disabled="" />Gotcha #2: Can you refer to the variable you made by name? No. Treat it as a function with no arguments by appending <code>()</code>.</li>
 </ol>
 </div>
 <div id="taking-shiny-further" class="section level3">
