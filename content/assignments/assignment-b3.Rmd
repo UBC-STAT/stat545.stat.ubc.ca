@@ -7,8 +7,8 @@ __Total Points__: 100
 
 For this assignment, you'll be creating or modifying a Shiny app. You may complete Option A or Option B of this assignment (*not both*), detailed as follows:
 
-+ **Option A:** Add three features to an already-existing BC Liquor shiny app ([Dean Attali's app](https://deanattali.com/blog/building-shiny-apps-tutorial/), or the similar one we made in lecture), and deploy it.
-    - Features that we included in lecture, or that's included in Dean Attali's BC Liquor shiny app, don't count towards the total. 
++ **Option A:** Add three features to the BC Liquor shiny app we made in lecture, and deploy it.
+    - Features that we included in lecture don't count towards the total. 
 + **Option B:** Create your own shiny app with three features, and deploy it.
 
 The grading rubric is detailed at the very end. Note that we aren't expecting a complex app for this assignment -- a simple one is all we're expecting.
