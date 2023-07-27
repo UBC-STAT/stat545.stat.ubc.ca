@@ -1,5 +1,5 @@
 ---
-title: "STAT 545B Course syllabus: 2022/2023"
+title: "STAT 545B Course syllabus: 2023/2024"
 output: 
   html_document:
     toc: true
@@ -17,7 +17,7 @@ editor_options:
 ```{r, echo = FALSE, warning = FALSE, message = FALSE}
 library(tidyverse)
 library(lubridate)
-source(here::here("content", "dates-2022.R"))
+source(here::here("content", "dates.R"))
 knitr::opts_chunk$set(echo = FALSE, message = FALSE)
 ```
 
@@ -41,13 +41,13 @@ Instructor: Dr. Lucy Gao
 
 Teaching Assistants:
 
--   Andrew Li
 -   Asfar Lathif
 -   Erick Isaac Navarro Delgado
+-   Emily Brown
 
 # Lectures
 
-Tuesdays and Thursdays 0930-1100 PT in Earth Sciences Building 2012
+Tuesdays and Thursdays 0930-1100 PT in Mathematics Annex 1100
 
 **Be sure to bring a laptop to every class!**
 
@@ -55,11 +55,11 @@ There will always be two TA's available during class to help students
 with the live coding exercises.
 
 ```{r, results = "asis"}
-here::here("content", "lecture_schedule-545b-2022.csv") %>% 
+here::here("content", "lecture_schedule-545b.csv") %>% 
   read_csv() %>% 
   mutate(Weekday = wday(dates_545b[-c(6, 14)], label = TRUE),
          Date = dates_545b_pretty_noyear[-c(6, 14)]) %>% 
-  select(Lesson, Weekday, Date, Topic) %>% 
+  select(Class, Weekday, Date, Topic) %>% 
   knitr::kable()
 ```
 
@@ -73,17 +73,11 @@ here::here("content", "lecture_schedule-545b-2022.csv") %>%
 
 # Deliverables
 
-+------------+------------+----------------------------------------+
-| De         | Percent    | Description                            |
-| liverable  | Grade      |                                        |
-+============+============+========================================+
-| Class w    | 15         | Autograded walkthroughs to guide       |
-| orksheets  |            | student learning in class.             |
-+------------+------------+----------------------------------------+
-| As         | 85         | e.g., adding to a data analysis,       |
-| signments  |            | making a small R package, making a     |
-|            |            | Shiny dashboard                        |
-+------------+------------+----------------------------------------+
+| Deliverable    | Percent Grade | Description |
+|----------------|---------------|-------------------------|
+| Class worksheets | 15 | Autograded walkthroughs to guide student learning. |
+| Assignments | 85 | e.g. adding to a data analysis, making a small R package, making a Shiny dadshboard | 
+
 
 More details can be found [on the course
 dashboard](https://stat545.stat.ubc.ca/course).
@@ -125,9 +119,9 @@ team.
 
 ## Late Policy
 
-A late submission is defined as any work, including quizzes, submitted
+A late submission is defined as any work submitted
 after the deadline. For a late submission, the student will receive a
-50% scaling of their grade for the first occurrence, and will receive a
+warning for the first occurrence, and will receive a
 grade of 0 for subsequent occurrences.
 
 ## Academic Concession
@@ -156,11 +150,10 @@ her own and can include:
     to make it explicit that this is a quotation (quotations should be
     used only rarely, if at all)
 
-Plagiarism will not be tolerated in the MDS program and may result in
-dismissal from the program. Students are responsible for ensuring that
+Students are responsible for ensuring that
 any work submitted does not constitute plagiarism. Students who are in
 any doubt as to what constitutes plagiarism should consult their
-Instructor before handing in any assignments.
+instructor before handing in any assignments.
 
 For more information see the [UBC Academic Misconduct
 policies](http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,54,111,959).
@@ -196,39 +189,15 @@ others and to uphold the highest academic standards in all of their
 actions. Details of the policies and how to access support are available
 [here](https://senate.ubc.ca/policies-resources-support-student-success).
 
-## Covid Safety in the Classroom
-
-**Masks**: Masks are **no longer required** for all indoor public spaces
-on campus, including classrooms, as per the UBC policy. (For the
-purposes of this policy, the term "masks" refers to medical and
-non-medical masks that cover our noses and mouths.) You are welcome to
-wear a mask if you wish.
-
-**Vaccination**: If you have not yet had a chance to get vaccinated
-against Covid-19, vaccines are available to you, free, and on campus:
-[\<http://www.vch.ca/covid-19/covid-19-vaccine>](http://www.vch.ca/covid-19/covid-19-vaccine){.uri}.
-The higher the rate of vaccination in our community overall, the lower
-the chance of spreading this virus. You are an important part of the UBC
-community. Please arrange to get vaccinated if you have not already done
-so.
-
 ## Your personal health
 
-**If you're sick, it's important that you stay home -- no matter what
-you think you may be sick with (e.g., cold, flu, other).**
+If you have not yet had a chance to get vaccinated
+against COVID-19 or the flu, vaccines are available to you, free, and on campus. The higher the rate of
+vaccination in our community overall, the lower the chance of spreading disease. You are an important part of the UBC community. Please
+arrange to get vaccinated if you have not already done so.
 
--   A daily self-health assessment is required before attending campus.
-    Every day, before coming to class, complete the self-assessment for
-    Covid symptoms using this tool:
-    <https://bc.thrive.health/covid19/en>
--   Do not come to class if you have Covid symptoms, have recently
-    tested positive for Covid, or are required to quarantine. You can
-    check this website to find out if you should self-isolate or
-    self-monitor:
-    <http://www.bccdc.ca/health-info/diseases-conditions/covid-19/self-isolation#Who>.
--   Your precautions will help reduce risk and keep everyone safer. In
-    this class, the marking scheme is intended to provide flexibility so
-    that you can prioritize your health and still be able to succeed.
+**If you're sick, it's important that you stay home -- no matter what
+you think you may be sick with (e.g., cold, flu, other).** Your precautions will help reduce risk and keep everyone safer. The structure of this class is intended to provide flexibility so that you can prioritize your health and still be able to succeed. 
 
 **If you do miss class because of illness:**
 
@@ -243,17 +212,15 @@ policy here:
 
 ## Instructor health
 
-**If I (the instructor) am sick:** If I am ill, develop Covid symptoms,
-or test positive for Covid, then I will not come to class. If that
+**If I (the instructor) am sick:** If I am ill, then I will not come to class. If that
 happens, here's what you can expect:
 
--   If I am well enough to teach (most likely), I will conduct virtual
-    lectures through Zoom until I am well. If this happens, you will be
-    tagged in an announcement via Slack with information. You can
-    anticipate that this would very likely be a last minute
-    announcement. Our classroom will still be available for you to sit
-    and attend an online session, although it is recommended that you
-    bring headphones.
+-   If I am well enough to teach, I will conduct virtual lectures
+    through Zoom until I am well. If this happens, you will be tagged in
+    an announcement via Slack with information. You can anticipate that
+    this would very likely be a last minute announcement. Our classroom
+    will still be available for you to sit and attend an online session,
+    although it is recommended that you bring headphones.
 -   If I am not well enough to teach, it is possible that one or more
     teaching assistants will take my place. But if not, we will either
     try to make up for lost time, make new resources to aid in your

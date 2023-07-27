@@ -5,6 +5,6 @@ output: html_document
 
 Important dates and times related to STAT 545 A & B.
 
-<iframe src="https://calendar.google.com/calendar/embed?src=f1cqab5u7j9gpf5c9v762c1n2o%40group.calendar.google.com&ctz=America%2FVancouver&amp;src=YnExNDk3b2xtNWg2ZzFnbHVwYmhtNWkxNWtAZ3JvdXAuY2FsZW5kYXIuZ29vZ2xlLmNvbQ&amp;color=%23009688" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+<iframe src="https://calendar.google.com/calendar/embed?src=94f28661e0087c4a9ed5f23b9bec2c2f45929daa4e347177324631bd1e35b203%40group.calendar.google.com&ctz=America%2FLos_Angeles" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
 
 Any changes to this calendar will be announced.
