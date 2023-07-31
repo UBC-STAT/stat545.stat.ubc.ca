@@ -1,0 +1,144 @@
+---
+title: "Lecture Notes: Authoring and Reproducibility"
+subtitle: "Version 1.0.1"
+output: html_document
+---
+
+
+
+<div id="learning-objectives" class="section level2">
+<h2>Learning Objectives</h2>
+<p>From today’s class, students are anticipated to be able to:</p>
+<ul>
+<li>Use basic markdown features.</li>
+<li>Write documents in markdown.</li>
+<li>Choose whether html or pdf is an appropriate output.</li>
+<li>Style an Rmd document by editing the YAML header.</li>
+<li>Customize code chunk output using Rmd code chunk.</li>
+<li>Render your finalized document to HTML &amp; PDF.</li>
+</ul>
+</div>
+<div id="resources" class="section level2">
+<h2>Resources</h2>
+<p>High-level video lecture for today:</p>
+<ul>
+<li><a href="https://youtu.be/ZzDSkBgt9xQ">STAT 545 Episode 3-A: Reproducible Reports with R Markdown</a></li>
+</ul>
+<p>Some additional resources that you might find useful:</p>
+<ul>
+<li>The <a href="https://rmarkdown.rstudio.com/lesson-1.html">Official R Markdown Tutorial</a> from the “Introduction” up to and including the “Inline Code” section.</li>
+</ul>
+<p>Simple cheat sheets:</p>
+<ul>
+<li><a href="https://enterprise.github.com/downloads/en/markdown-cheatsheet.pdf">Simple markdown cheat sheet</a></li>
+<li><a href="https://bookdown.org/yihui/rmarkdown/html-document.html">YAML headers options</a></li>
+</ul>
+<p>Fully loaded cheat sheets:</p>
+<ul>
+<li><a href="https://github.com/rstudio/cheatsheets/blob/main/rmarkdown-2.0.pdf">R Markdown cheat sheet</a></li>
+<li><a href="https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf?_ga=2.177968037.1059384083.1597196687-1784159993.1567907747">R Markdown reference guide</a></li>
+</ul>
+<p>Note that many cheat sheets can be found from RStudio: go to <code>Help</code> -&gt; <code>Cheatsheets</code>.</p>
+<p>Others:</p>
+<ul>
+<li><p>Jenny Bryan’s <a href="https://happygitwithr.com/rmd-test-drive.html#rmd-troubleshooting">troubleshooting</a> for R Markdown page in Happy Git that guides you through common fixes.</p></li>
+<li><p><a href="https://medium.com/@ayman/wysiwyg-is-dead-d225276ed53">WYSIWYG is dead</a></p>
+<ul>
+<li>An entertaining and concise argument against using “WYSIWYG” editors like Microsoft Word.</li>
+</ul></li>
+</ul>
+</div>
+<div id="test-your-understanding" class="section level2">
+<h2>Test Your Understanding</h2>
+<ol style="list-style-type: decimal">
+<li>True or False: It doesn’t make sense to output an .Rmd file to markdown, because .Rmd is already markdown.</li>
+<li>Which of these file formats are proprietary? (a) <code>.docx</code>; (b) <code>.html</code>; (c) <code>.txt</code>; (d) <code>.Rmd</code>; (e) <code>.xlsx</code></li>
+</ol>
+</div>
+<div id="introduction-to-r-markdown" class="section level2">
+<h2>Introduction to R Markdown</h2>
+<p>Using an editor like MS Word (or WYSIWYG editors) is like painting: you decorate the page with text, graphs, and tables, making sure things are positioned, sized, and coloured appropriately.</p>
+<p>This is great for a letter to a friend, but is less great for scientific work, because it <a href="https://www.youtube.com/watch?v=s3JldKoA0zw&amp;pp=ygUXYSByZXByb2R1Y2libGUgd29ya2Zsb3c%3D">hampers reproducibility</a> and shareability.</p>
+<p>R Markdown lets you write a single “blueprint” for your analysis that includes everything - positioning/sizing/colouring/formatting, analysis/graph/table code and results, and text – and then “knit” all of those components together into a complete report with a single button press.</p>
+<hr />
+<div id="your-turn-getting-started-with-markdown" class="section level3">
+<h3>Your turn: getting started with Markdown</h3>
+<p>In small groups:</p>
+<ol start="0" style="list-style-type: decimal">
+<li>Work through this <a href="https://www.markdowntutorial.com/">online Markdown tutorial</a> together.</li>
+</ol>
+<p>Then:</p>
+<ol style="list-style-type: decimal">
+<li><p>In RStudio, go to “File” -&gt; “New File” -&gt; “Markdown File”.</p></li>
+<li><p>Write a Markdown document using some of the features you learned in the tutorial, then save it.</p></li>
+<li><p>Click the “Preview” button to generate an <em>output</em> <code>.html</code> file from the <em>source</em> <code>.md</code> file.</p></li>
+</ol>
+<hr />
+</div>
+<div id="getting-started-with-r-markdown" class="section level3">
+<h3>Getting started with R Markdown</h3>
+<ol style="list-style-type: decimal">
+<li><p>Open a new .Rmd file in RStudio.</p></li>
+<li><p>To get started with using R Markdown, you’ll need to install the <strong>rmarkdown</strong> R package. You might automatically be prompted to do this; accept, if so. If not, you will have to manually install the package. Also, the activity we have depends on the <strong>DT</strong> package:</p>
+<pre><code>install.packages(&#39;rmarkdown&#39;)
+install.packages(&#39;DT&#39;)</code></pre></li>
+<li><p>Click “knit”.</p></li>
+</ol>
+<p><strong>Things to notice</strong>:</p>
+<ul>
+<li>The YAML header is contained between two <code>---</code> at the top of the <code>.Rmd</code> source, and contains metadata on the document. This is where you specify the output type to be HTML.</li>
+<li>Text is formatted using Markdown.</li>
+<li>There are three <em>chunks</em> of R code, and knitting executes the R code and displays the output in the output file.</li>
+</ul>
+<p><strong>How does it all work?</strong></p>
+<p>The key drivers under the hood are <code>knitr</code> and Pandoc! When you press “Knit”, R Markdown passes the <code>.Rmd</code> file to <code>knitr</code>, which executes all of the code and creates a new <code>.md</code> file including the code and output. Then, that <code>.md</code> file is processed into the final output format (e.g. <code>.html</code>) by pandoc.</p>
+<hr />
+</div>
+<div id="your-turn-edit-your-yaml" class="section level3">
+<h3>Your turn: edit your YAML</h3>
+<p>In small groups:</p>
+<p>Use <code>?html_document</code> from your R console and/or <a href="https://bookdown.org/yihui/rmarkdown/html-document.html">Yihui Xie’s RMarkdown book</a> to:</p>
+<ol style="list-style-type: decimal">
+<li><p>Add a floating table of contents</p></li>
+<li><p>Add a theme.</p></li>
+</ol>
+<p>If this was easy, then try to figure out how to knit to a pdf document!</p>
+<hr />
+</div>
+<div id="instructor-demo-mtcars-report" class="section level3">
+<h3>Instructor demo: <code>mtcars</code> report</h3>
+<p>To follow along, download <a href="https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/notes/notes-a03/mtcars_demonstration.Rmd">demonstration .Rmd file</a>.</p>
+<div id="exploring-code-chunks" class="section level4">
+<h4>Exploring code chunks</h4>
+<ol style="list-style-type: decimal">
+<li><p>Add a code chunk at the bottom of the <code>.Rmd</code> file. Either select “Insert” -&gt; “R”, or use a keyboard shortcut: <code>cmd + option + I</code> (MAC) / <code>ctrl + alt + i</code> (WINDOWS).</p></li>
+<li><p>Print out the <code>mtcars</code> data frame to explore the output. (Yes, this object comes shipped with R.)</p></li>
+<li><p>Run a chunk interactively using the green ‘play’ button</p></li>
+<li><p>Try out the <code>DT::datatable()</code> function on <code>mtcars</code>, and knit the file (to html, ideally).</p></li>
+<li><p>Add an <a href="https://rmarkdown.rstudio.com/lesson-4.html">in-line code chunk</a> specifying the number of rows of the mtcars dataset. Hint: <code>nrow()</code>.</p></li>
+<li><p>Continue the markdown commentary! If you were to give this document to someone to read through your “analysis”, a few notes would make it more readable.</p></li>
+</ol>
+</div>
+<div id="exploring-chunk-options" class="section level4">
+<h4>Exploring chunk options</h4>
+<p><strong>Got lost in the demonstration?</strong> No problem, just open a new <code>.Rmd</code> file in RStudio via “File” -&gt; “New File” -&gt; “R Markdown…”, and just press “OK”, and resume!)*</p>
+<p>Just like YAML is metadata for the Rmd document, <em>code chunk options</em> are metadata for the code chunk. Specify them within the <code>{r}</code> at the top of a code chunk, separated by commas. For a list of chunk options, check out <a href="https://yihui.org/knitr/options/">Yihui Xie’s knitr book</a>. Let’s try some:</p>
+<ol style="list-style-type: decimal">
+<li><p>Hide the code from the output with <code>echo = FALSE</code>.</p></li>
+<li><p>Change the figure width and height with <code>fig.width = 5</code> and <code>fig.height = 3</code>.</p></li>
+<li><p>Knit the results. Can you spot the differences?</p></li>
+</ol>
+<hr />
+</div>
+</div>
+<div id="your-turn-data-update" class="section level3">
+<h3>Your turn: data update!</h3>
+<p>In the instructor demo, we prettied up a nice report about <code>mtcars</code> together. But suddenly, you receive an email from your collaborator who collected the <code>mtcars</code> data, who says that the data on Mazda RX4, the Valiant, and the Volvo 142E were transcribed wrong from the magazine! They’re going to work on correcting them, but in the mean time, they’d like to re-run the analysis with those three cars excluded.</p>
+<p>In small groups, prepare an updated report. Then, discuss: how would this request have been more annoying/challenging, had we instead written the report in MS Word by copying the R code output to the document manually? Do you have reproducibility concerns about the MS Word workflow? What about the R Markdown workflow?</p>
+<hr />
+</div>
+</div>
+<div id="attribution" class="section level2">
+<h2>Attribution</h2>
+<p>Thanks to Icíar Fernández Boyano’s help in putting this demonstration together. Inspiration for activity ideas drawn from Nicholas Tierney’s <a href="https://rmd4sci.njtierney.com/">R Markdown for Scientists</a> book and the <a href="https://rmd4medicine.netlify.app/">R Markdown for Medicine</a> workshop materials.</p>
+</div>

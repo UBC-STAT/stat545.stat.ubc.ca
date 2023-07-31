@@ -1,0 +1,50 @@
+---
+title: "MTCars Report"
+author: "Lucy Gao"
+date: "2023-08-02"
+output: 
+  html_document:
+    toc: yes
+    toc_float: yes
+    theme: cerulean
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Motor Trend Car Road Tests data
+
+The Motor Trend Car Road Tests (`mtcars`) data was extracted from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 aspects of automobile design and performance for 32 automobiles (1973–74 models).
+
+For now, we need to remove three erroneous data points: the Mazda RX4, the Valiant, and the Volvo 142E.
+
+We print out the data below. 
+
+```{r}
+mtcars
+```
+
+## Number of gears vs. transmission 
+
+Let's find out how many cars have different numbers of gears. 
+
+```{r}
+table(mtcars$gear)
+```
+
+Now let's explore the relationship between the number of gears and transmission. 
+
+```{r} 
+table(mtcars$am, mtcars$gear)
+```
+
+We see that no automatic cars have 5 gears, and no manual cars have 3 gears. 
+
+## Horsepower vs. Mileage
+
+Let's find out if there's a relationship between car horsepower vs. mileage. 
+
+```{r} 
+plot(mtcars$mpg, mtcars$hp)
+```

@@ -11,15 +11,13 @@ knitr::opts_chunk$set(fig.width = 5, fig.height = 3,
 ## Learning Objectives
 
 1.  Become familiar with the STAT 545 website and syllabus.
-2.  Install some key software for use in the course.
-3.  Explore basic R syntax.
+2.  Explore basic R syntax.
 
 ## Parallel Resources
 
 Today's class is a digest of the following resources:
 
 -   About the course: [STAT 545 Video Series Introduction](https://www.youtube.com/watch?v=6REhJVsbbAM)
--   Installation and setup: "[Happy Git and GitHub for the useR](https://happygitwithr.com/)" by Jenny Bryan et al. (see details below)
 -   Overview of coding a data analysis: [STAT 545 Episode 1-A: Coding your Analysis for Success](https://youtu.be/91LmBj29-Sc) (also available on canvas)
 -   Practice some R syntax and jupyter: Worksheet A1 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a01.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a01.ipynb))
 
@@ -33,13 +31,13 @@ Some additional resources that you might find useful:
 #### Introductions
 
 -   Lucy (instructor): [www.lucylgao.com](https://www.lucylgao.com)
--   TA's: Andrew, Asfar, Erick.
+-   TA's: Asfar, Erick, Emily.
 
 #### Course Platforms
 
 Platforms for hosting course-related content:
 
-1.  Slack (<https://stat545classroom2022.slack.com/>)
+1.  Slack (<https://stat545classroom2023.slack.com/>)
 
     -   Especially `#announcements` channel
     -   Here's a [photo of what it looks like](https://cdn.vox-cdn.com/thumbor/ljup85YXH0uSunvONPrkkys_1po=/0x0:1980x1320/1820x1213/filters:focal(832x502:1148x818):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/66517684/slacknewdesign.0.jpg) (from Vox)
@@ -56,23 +54,9 @@ Platforms for hosting course-related content:
 -   Lecture topics
 -   Deliverables
 
-#### Installation
+#### Working with jupyter; working with R syntax.
 
-You'll need to install some things and get set up. Most things can be found in Jenny's "happy git" book. Let's take some extra class time to struggle through this together. Need extra help? Come to office hours this afternoon.
-
--   Register a github account at github.com. See [Chapter 4](https://happygitwithr.com/github-acct.html).
-
--   Install or upgrade R and RStudio. See [Chapter 5](https://happygitwithr.com/install-r-rstudio.html).
-
--   Install git. [Chapter 6](https://happygitwithr.com/install-git.html).
-
--   Configure git. See [Chapter 7: Introduce yourself to git](https://happygitwithr.com/hello-git.html).
-
--   Install jupyterlab + IRkernel. See [Rich Pauloo's instructions](https://richpauloo.github.io/2018-05-16-Installing-the-R-kernel-in-Jupyter-Lab/), which seem to be pretty good (let us know if you find something better).
-
-#### Time permitting: Working with jupyter; working with R syntax.
-
-Worksheet A1 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a01.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a01.ipynb)) is an \*autograded!) worksheet covering some R basics. Let's go through some of it. *Its completion is not required for the course, but future worksheets will be required*.
+Worksheet A1 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_a01.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_a01.ipynb)) is an \*autograded!) worksheet covering some R basics. Let's go through some of it. *Its submission is not required for the course, but future worksheets will be required*.
 
 #### What to do when you are stuck
 
