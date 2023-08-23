@@ -42,17 +42,16 @@ Instructor: Dr. Lucy Gao
 Teaching Assistants:
 
 -   Asfar Lathif
--   Erick Isaac Navarro Delgado
 -   Emily Brown
+-   Erick Isaac Navarro Delgado
 
-# Lectures
+# Meeting Schedule
 
 Tuesdays and Thursdays 0930-1100 PT in Mathematics Annex 1100
 
 **Be sure to bring a laptop to every class!**
 
-There will always be two TA's available during class to help students
-with the live coding exercises.
+There will always be TA's available during class to help students with the live coding exercises.
 
 ```{r, results = "asis"}
 here::here("content", "lecture_schedule-545b.csv") %>% 
@@ -132,8 +131,7 @@ concession](http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,48,0,0).
 A self-declaration will suffice -- [here](/concession_template.pdf) is a
 template you can use. Please submit this to the instructor.
 
-For this course, a "conflicting responsibility" includes needing to
-travel for a conference or field work.
+Examples of "conflicting responsibility" are conference travel and time-sensitive field work.
 
 If you arrange to have an assignment submitted late, you may not be able
 to receive feedback from your peers.
