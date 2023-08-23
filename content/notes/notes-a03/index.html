@@ -55,6 +55,26 @@ output: html_document
 <li>Which of these file formats are proprietary? (a) <code>.docx</code>; (b) <code>.html</code>; (c) <code>.txt</code>; (d) <code>.Rmd</code>; (e) <code>.xlsx</code></li>
 </ol>
 </div>
+<div id="reproducible-data-analysis" class="section level2">
+<h2>Reproducible data analysis</h2>
+<p>Let’s say we have some data analysis results, like a figure or a table. We would say these results are <em>reproducible</em> if we could produce the same results by using the same data and code.</p>
+<p>Let’s say someone else tries to reproduce those data analysis results and fails. They are then less likely to trust your data analysis results, because:</p>
+<ol style="list-style-type: decimal">
+<li>They don’t know if the results could be recreated at all. For all they know, even <em>you</em> couldn’t recreate those results.</li>
+<li>They realize that they don’t know enough details about how your results were created, and those details might be important.</li>
+</ol>
+<p>We want our data analysis results to be trustworthy, so we should do our level best to make sure our data analysis results are reproducible!</p>
+<div id="in-class-exercise" class="section level3">
+<h3>In-class exercise</h3>
+<p>The vast majority of us have used a workflow that led to reproducibility challenges at some point in our lives.</p>
+<p>Think and write down a non-reproducible, or non-auditable, workflow you have used before at work, on a personal project, or in course work, that negatively impacted your work somehow (make sure to include this in the story). Here’s an example:</p>
+<p>Here’s my story:</p>
+<blockquote>
+<p>In the first year of my PhD, I used R to do statistical analysis for my Research Assistantship on a project characterizing liver donor offers to pediatric patients. I obtained the results by running my code in the R console and copying the results into a Word document that became the manuscript. Months later, we were working on revisions requested by the reviewers and I wasn’t sure which version of the code I ran to get the results in the submitted manuscript! I eventually figured it out, but it took long enough to be frustrating and I was very stressed out.</p>
+</blockquote>
+<p>When prompted, paste your story in the Google doc (link to be shared in class).</p>
+</div>
+</div>
 <div id="introduction-to-r-markdown" class="section level2">
 <h2>Introduction to R Markdown</h2>
 <p>Using an editor like MS Word (or WYSIWYG editors) is like painting: you decorate the page with text, graphs, and tables, making sure things are positioned, sized, and coloured appropriately.</p>
@@ -134,11 +154,11 @@ install.packages(&#39;DT&#39;)</code></pre></li>
 <div id="your-turn-data-update" class="section level3">
 <h3>Your turn: data update!</h3>
 <p>In the instructor demo, we prettied up a nice report about <code>mtcars</code> together. But suddenly, you receive an email from your collaborator who collected the <code>mtcars</code> data, who says that the data on Mazda RX4, the Valiant, and the Volvo 142E were transcribed wrong from the magazine! They’re going to work on correcting them, but in the mean time, they’d like to re-run the analysis with those three cars excluded.</p>
-<p>In small groups, prepare an updated report. Then, discuss: how would this request have been more annoying/challenging, had we instead written the report in MS Word by copying the R code output to the document manually? Do you have reproducibility concerns about the MS Word workflow? What about the R Markdown workflow?</p>
+<p>In small groups, prepare an updated report by updating your .Rmd appropriately, then re-knitting it. Then discuss: in this case, how did using the RMarkdown workflow rather than copying and pasting R output to MS Word help prevent the creation of non-reproducible results?</p>
 <hr />
 </div>
 </div>
 <div id="attribution" class="section level2">
 <h2>Attribution</h2>
-<p>Thanks to Icíar Fernández Boyano’s help in putting this demonstration together. Inspiration for activity ideas drawn from Nicholas Tierney’s <a href="https://rmd4sci.njtierney.com/">R Markdown for Scientists</a> book and the <a href="https://rmd4medicine.netlify.app/">R Markdown for Medicine</a> workshop materials.</p>
+<p>Thanks to Icíar Fernández Boyano’s help in putting this demonstration together. Inspiration for activity ideas drawn from Nicholas Tierney’s <a href="https://rmd4sci.njtierney.com/">R Markdown for Scientists</a> book, the <a href="https://rmd4medicine.netlify.app/">R Markdown for Medicine</a> workshop materials, and the UBC MDS program.</p>
 </div>

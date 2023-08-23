@@ -55,6 +55,29 @@ Others:
 1.  True or False: It doesn't make sense to output an .Rmd file to markdown, because .Rmd is already markdown.
 2.  Which of these file formats are proprietary? (a) `.docx`; (b) `.html`; (c) `.txt`; (d) `.Rmd`; (e) `.xlsx`
 
+## Reproducible data analysis
+
+Let's say we have some data analysis results, like a figure or a table. We would say these results are *reproducible* if we could produce the same results by using the same data and code. 
+
+Let's say someone else tries to reproduce those data analysis results and fails.  They are then less likely to trust your data analysis results, because:  
+
+1. They don't know if the results could be recreated at all. For all they know, even *you* couldn't recreate those results.
+2. They realize that they don't know enough details about how your results were created, and those details might be important.
+
+We want our data analysis results to be trustworthy, so we should do our level best to make sure our data analysis results are reproducible! 
+
+### In-class exercise 
+
+The vast majority of us have used a workflow that led to reproducibility challenges at some point in our lives. 
+
+Think and write down a non-reproducible, or non-auditable, workflow you have used before at work, on a personal project, or in course work, that negatively impacted your work somehow (make sure to include this in the story). Here’s an example:
+
+Here's my story:
+
+> In the first year of my PhD, I used R to do statistical analysis for my Research Assistantship on a project characterizing liver donor offers to pediatric patients. I obtained the results by running my code in the R console and copying the results into a Word document that became the manuscript. Months later, we were working on revisions requested by the reviewers and I wasn't sure which version of the code I ran to get the results in the submitted manuscript! I eventually figured it out, but it took long enough to be frustrating and I was very stressed out. 
+
+When prompted, paste your story in the Google doc (link to be shared in class).
+
 ## Introduction to R Markdown
 
 Using an editor like MS Word (or WYSIWYG editors) is like painting: you decorate the page with text, graphs, and tables, making sure things are positioned, sized, and coloured appropriately. 
@@ -160,10 +183,10 @@ Just like YAML is metadata for the Rmd document, *code chunk options* are metada
 
 In the instructor demo, we prettied up a nice report about `mtcars` together. But suddenly, you receive an email from your collaborator who collected the `mtcars` data, who says that the data on Mazda RX4, the Valiant, and the Volvo 142E were transcribed wrong from the magazine! They're going to work on correcting them, but in the mean time, they'd like to re-run the analysis with those three cars excluded. 
 
-In small groups, prepare an updated report. Then, discuss: how would this request have been more annoying/challenging, had we instead written the report in MS Word by copying the R code output to the document manually? Do you have reproducibility concerns about the MS Word workflow? What about the R Markdown workflow?
+In small groups, prepare an updated report by updating your .Rmd appropriately, then re-knitting it. Then discuss: in this case, how did using the RMarkdown workflow rather than copying and pasting R output to MS Word help prevent the creation of non-reproducible results?
 
 ---
 
 ## Attribution
 
-Thanks to Icíar Fernández Boyano's help in putting this demonstration together. Inspiration for activity ideas drawn from Nicholas Tierney's [R Markdown for Scientists](https://rmd4sci.njtierney.com/) book and the [R Markdown for Medicine](https://rmd4medicine.netlify.app/) workshop materials.
+Thanks to Icíar Fernández Boyano's help in putting this demonstration together. Inspiration for activity ideas drawn from Nicholas Tierney's [R Markdown for Scientists](https://rmd4sci.njtierney.com/) book, the [R Markdown for Medicine](https://rmd4medicine.netlify.app/) workshop materials, and the UBC MDS program.
