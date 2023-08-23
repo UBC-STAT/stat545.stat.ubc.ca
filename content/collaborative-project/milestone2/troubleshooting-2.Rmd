@@ -20,6 +20,8 @@ Note that errors are not all syntactic (i.e., broken code)! Some are logical err
 load.packages(dslabs)
 load.packages(tidyverse)
 load.packages(stringr)
+install.packages("devtools") # Do not run this if you already have this package installed! 
+devtools::install_github("JoeyBernhardt/singer")
 load.packages(gapminder)
 ```
 
@@ -138,23 +140,23 @@ movieLens %>%
 starWars <- as_tibble(starwars)
 ```
 
-We can find the mean for all columns that are numeric:
+We can find the mean for all columns that are numeric, ignoring the missing values:
 
 ```{r}
 starWars %>%
-  drop_na() %>%
   summarise(across(where(is.numeric), function(x) mean(x, na.rm=TRUE)))
 ```
 
-We can find the minimum height and mass within each species:
+We can find the minimum height and mass within each species, ignoring the missing values: 
 
 ```{r}
 ### ERROR HERE ###
 starWars %>%
   group_by(species) %>%
-  summarise(across("height", "mass", min)) %>%
-  drop_na()
+  summarise(across("height", "mass", function(x) min(x, na.rm=TRUE)))
 ```
+
+Note that here R has taken the convention that the minimum value of a set of `NA`s is `Inf`.
 
 ## Exercise 6: Making tibbles
 

@@ -3,7 +3,6 @@ title: "Team Troubleshooting Deliverable 2"
 output: github_document
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p>There are <strong>11 code chunks with errors</strong> in this Rmd. Your objective is to fix all of the errors in this worksheet. For the purpose of grading, each erroneous code chunk is equally weighted.</p>
@@ -18,6 +17,11 @@ load.packages(dslabs)</code></pre>
 <pre><code>## Error in load.packages(tidyverse): could not find function &quot;load.packages&quot;</code></pre>
 <pre class="r"><code>load.packages(stringr)</code></pre>
 <pre><code>## Error in load.packages(stringr): could not find function &quot;load.packages&quot;</code></pre>
+<pre class="r"><code>install.packages(&quot;devtools&quot;) # Do not run this if you already have this package installed! </code></pre>
+<pre><code>## Error in contrib.url(repos, &quot;source&quot;): trying to use CRAN without setting a mirror</code></pre>
+<pre class="r"><code>devtools::install_github(&quot;JoeyBernhardt/singer&quot;)</code></pre>
+<pre><code>## Skipping install of &#39;singer&#39; from a github remote, the SHA1 (2b4fe9cb) has not changed since last install.
+##   Use `force = TRUE` to force installation</code></pre>
 <pre class="r"><code>load.packages(gapminder)</code></pre>
 <pre><code>## Error in load.packages(gapminder): could not find function &quot;load.packages&quot;</code></pre>
 <p>Let’s have a look at the dataset! My goal is to:</p>
@@ -43,15 +47,15 @@ class(dslabs::movielens)</code></pre>
 </ul>
 <pre class="r"><code>### ERROR HERE ###
 filter(movieLens, genres == &quot;Drama&quot;)</code></pre>
-<pre><code>## Error in as.ts(x): object &#39;movieLens&#39; not found</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;movieLens&#39; not found</code></pre>
 <pre class="r"><code>filter(movieLens, !genres == &quot;Drama&quot;)</code></pre>
-<pre><code>## Error in as.ts(x): object &#39;movieLens&#39; not found</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;movieLens&#39; not found</code></pre>
 <pre class="r"><code>filter(movieLens, year &gt;= 2000)</code></pre>
-<pre><code>## Error in as.ts(x): object &#39;movieLens&#39; not found</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;movieLens&#39; not found</code></pre>
 <pre class="r"><code>filter(movieLens, year == 1999 | month == 2000)</code></pre>
-<pre><code>## Error in as.ts(x): object &#39;movieLens&#39; not found</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;movieLens&#39; not found</code></pre>
 <pre class="r"><code>filter(movieLens, rating &gt; 4.5, year &lt; 1995)</code></pre>
-<pre><code>## Error in match.arg(method): object &#39;year&#39; not found</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;year&#39; not found</code></pre>
 <p>While filtering for <em>all movies that do not belong to the genre drama</em> above, I noticed something interesting. I want to filter for the same thing again, this time selecting variables <strong>title and genres first,</strong> and then <em>everything else</em>. But I want to do this in a robust way, so that (for example) if I end up changing <code>movieLens</code> to contain more or less columns some time in the future, the code will still work. Hint: there is a function to select “everything else”…</p>
 <pre class="r"><code>### ERROR HERE ###
 movieLens %&gt;%
@@ -112,18 +116,17 @@ movieLens %&gt;%
 <p><code>across()</code> is a newer dplyr function (<code>dplyr</code> 1.0.0) that allows you to apply a transformation to multiple variables selected with the <code>select()</code> and <code>rename()</code> syntax. For this section, we will use the <code>starwars</code> dataset, which is built into R. First, let’s transform it into a tibble and store it under the variable <code>starWars</code>.</p>
 <pre class="r"><code>starWars &lt;- as_tibble(starwars)</code></pre>
 <pre><code>## Error in as_tibble(starwars): could not find function &quot;as_tibble&quot;</code></pre>
-<p>We can find the mean for all columns that are numeric:</p>
+<p>We can find the mean for all columns that are numeric, ignoring the missing values:</p>
 <pre class="r"><code>starWars %&gt;%
-  drop_na() %&gt;%
   summarise(across(where(is.numeric), function(x) mean(x, na.rm=TRUE)))</code></pre>
-<pre><code>## Error in starWars %&gt;% drop_na() %&gt;% summarise(across(where(is.numeric), : could not find function &quot;%&gt;%&quot;</code></pre>
-<p>We can find the minimum height and mass within each species:</p>
+<pre><code>## Error in starWars %&gt;% summarise(across(where(is.numeric), function(x) mean(x, : could not find function &quot;%&gt;%&quot;</code></pre>
+<p>We can find the minimum height and mass within each species, ignoring the missing values:</p>
 <pre class="r"><code>### ERROR HERE ###
 starWars %&gt;%
   group_by(species) %&gt;%
-  summarise(across(&quot;height&quot;, &quot;mass&quot;, min)) %&gt;%
-  drop_na()</code></pre>
+  summarise(across(&quot;height&quot;, &quot;mass&quot;, function(x) min(x, na.rm=TRUE)))</code></pre>
 <pre><code>## Error in starWars %&gt;% group_by(species) %&gt;% summarise(across(&quot;height&quot;, : could not find function &quot;%&gt;%&quot;</code></pre>
+<p>Note that here R has taken the convention that the minimum value of a set of <code>NA</code>s is <code>Inf</code>.</p>
 </div>
 <div id="exercise-6-making-tibbles" class="section level2">
 <h2>Exercise 6: Making tibbles</h2>
@@ -131,7 +134,7 @@ starWars %&gt;%
 <ul>
 <li><code>birth_year</code> should contain years 1998 to 2005 (inclusive);</li>
 <li><code>birth_weight</code> should take the <code>birth_year</code> column, subtract 1995, and multiply by 0.45;</li>
-<li><code>birth_location</code> should contain four locations.</li>
+<li><code>birth_location</code> should contain three locations (Liverpool, Seattle, and New York).</li>
 </ul>
 <pre class="r"><code>### ERROR HERE ###
 fakeStarWars &lt;- tribble(
