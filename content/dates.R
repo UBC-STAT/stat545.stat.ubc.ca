@@ -1,10 +1,10 @@
 # Enter the first day of class (usually Imagine Day)
 library(lubridate)
-lec0 <- ymd("2021-09-07")
+lec0 <- ymd("2023-09-05")
 
 # Computations based on lec0:
 n_weeks_a <- 7
-dates_545a <- sort(lec0 + days(c(1:(n_weeks_a - 1) * 7, 2 + 0:(n_weeks_a - 1) * 7)))
+dates_545a <- c(lec0, sort(lec0 + days(c(1:(n_weeks_a - 1) * 7, 2 + 0:(n_weeks_a - 1) * 7))))
 dates_545a_pretty_noyear <- stringr::str_c(
   month(dates_545a, label = TRUE), 
   day(dates_545a), 

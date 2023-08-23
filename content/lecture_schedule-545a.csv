@@ -1,23 +1,15 @@
-Lesson,Topic
+Class,Topic
+0, Installation
 1,Introduction to STAT545 and R
-2,Collaboration and Version Control
-3,R Markdown and Reproducibility
+2,R Markdown and Reproducibility
+3,Collaboration and Version Control
 4,Data Wrangling Part I
-5,Plotting Part I
-6,Data Wrangling Part II
+5,Data Wrangling Part I
+6,Plotting Part I
 7,Plotting Part II
-8,Tidy data
-9,The model-fitting paradigm in R
-10,Special data types: factors and dates
-11,Tibble joins
-12,File input/output
-
-
-
-
-
-
-
-
-
-
+8,Tidy data I
+9, Tidy data II
+10, The model-fitting paradigm in R
+11,Special data types: factors and dates
+12,Tibble joins
+13,File input/output

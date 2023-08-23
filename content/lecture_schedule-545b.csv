@@ -1,4 +1,4 @@
-Lesson,Topic
+Class,Topic
 1,Functions Part I
 2,Functions Part II
 3,R packages Part I
@@ -10,4 +10,4 @@ Lesson,Topic
 9,List columns Part I
 10,List columns Part II
 11,List columns Part III
-12,"Overflow, or advanced authoring"
+12,"Overflow, or (optional) advanced authoring"

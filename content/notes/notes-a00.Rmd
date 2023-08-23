@@ -1,91 +1,73 @@
 ---
-title: "How to get unstuck"
+title: "Software and Troubleshooting"
 output: html_document
 ---
 
-Is something not working? Need help? Try following these steps.
+## Goals
 
-## 1. Try to help yourself
+To install and setup key software for use in the course. Instructions are below. 
 
-[Google is your friend](http://xkcd.com/627/). Google is your friend. Google is your friend.
-  
-E.g. copy the error message, maybe strip out anything highly specific, such the name of your R objects, surround with quotes and Google it!
+**IF YOU NEED EXTRA HELP**: TAs are available from 9am-10:30am in Mathematics Annex 1100 on Tuesday September 5th. 
 
-One commonly landed on site is [stackoverflow](http://stackoverflow.com) -- tremendously helpful.
+## Step 1: R and RStudio 
 
-## 2. Make a minimally reproducible example
+The main programming language used in the class is R and our main IDE (a text editor with helpful features for writing and running code) is RStudio. 
 
-Still stuck? Time to **prepare** to post a question on the STAT 545 Slack `#general` channel by making a [_minimally reproducible example_](https://stackoverflow.com/help/minimal-reproducible-example). Basically, the example should specify both what you _did_ to get the error (or unexpected result), as well as _specifying what the error_ is, **in a way that cuts out everything else that's not relevant to the problem**.
+- Follow [Chapter 5](https://happygitwithr.com/install-r-rstudio.html) of Jenny Bryan's "happy git" book to install R and RStudio if you haven't already. 
 
+- If you have R and/or RStudio but haven't updated them in a long time -- e.g. a year or more -- then we recommend that you take the time to update them now. This will make it easier for us to help you troubleshoot throughout the class.  
 
-Even better, use the `reprex()` function from the reprex package (FYI: "reprex" is a portmanteau of the words _reproducible example_). For example, try running the following reprex containing an erroneous use of the `summarise()` function. The output of the interior code will be placed on your clipboard, which you can then paste into Slack, along with your question. 
+## Step 2: Jupyter and R Kernel  
 
-``` r
-reprex::reprex({
-  library(dplyr)
-  library(gapminder)
-  gapminder %>% 
-    summarise(mean == mean(lifeExp))
-})
-```
+You will need another IDE for R (Jupyter Notebook) and an R kernel called 'IR Kernel' (needed to run R code within Jupyter) to work on the autograded worksheets. This is because the autograder we use plays well with Jupyter. 
 
-This stackoverflow thread ["How to make a great R reproducible example?"](http://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example/5963610#5963610) is fantastic. I find that, in the process of preparing my great reproducible example, I answer my own question 90% of the time. YMMV. So it is a useful exercise even if you aren't ready to call in the experts yet. The process of stripping your problem down to its bare essence often reveals where the root issue lies. __Highly recommended!__
+The following instructions are adapted from [Rich Pauloo](https://richpauloo.github.io/2018-05-16-Installing-the-R-kernel-in-Jupyter-Lab/). 
 
-## 3. Post a question on Slack
+### For PC 
 
-If you're still stuck after making your minimally reproducible example, then post your minimally reproducible example to the STAT 545 Slack `#general` channel. 
+1. Install Anaconda from [here](https://www.anaconda.com/download/). This gives you Jupyter and the Anaconda Prompt command line tool. 
 
-- Show your code and the output, ideally using the `reprex()` function (see above section), along with your question. No code involved? Then...
-- Take a screenshot of the unexpected output, and if relevant, the action that caused it, along with your question. Nothing to screenshot? Then...
-- Describe in words what the unexpected results are, and what actions led to the unexpected results, along with your question.
+2. Install and setup the IR Kernel. 
+    - Find the location of `R.exe` on your computer. (The location probably looks something like `C:\Program Files\R\R-4.3.1\bin`.)
+    - Open the Anaconda Prompt application. Enter the following command into Anaconda Prompt: `cd file_path_here`, with `file_path_here` replaced with the location of `R.exe` that you previously found. 
+    - Run R from within Anaconda Prompt by entering in `R.exe`. This opens an R session inside Anaconda Prompt. From here, enter the following commands in sequence: `install.packages("IRkernel")` and `IRkernell::installspec()`. This respectively installs IR Kernel and tells Jupyter where to find IR Kernel.
+    
+3. To verify that everything is working as intended: Open Anaconda Prompt and type in `jupyter lab`. Jupyter Lab should launch and display both a Python and R kernel.
 
-Here is an example of making a post with the help of the reprex function. I wrote my question, then pasted the stuff that running the `reprex()` function placed on my clipboard:
+### For OSX: 
 
-> I keep getting an error when trying to calculate a mean in the `summarise()` function. Here is a reprex:
-> 
-> ``` r
-library(dplyr)
-#> 
-#> Attaching package: 'dplyr'
-#> The following objects are masked from 'package:stats':
-#> 
-#>     filter, lag
-#> The following objects are masked from 'package:base':
-#> 
-#>     intersect, setdiff, setequal, union
-library(gapminder)
-gapminder %>% 
-  summarise(mean == mean(lifeExp))
-#> Error: Problem with `summarise()` input `..1`.
-#> x comparison (1) is possible only for atomic and list types
-#> ℹ Input `..1` is `mean == mean(lifeExp)`.
-> ```
-> 
-> <sup>Created on 2021-09-29 by the [reprex package](https://reprex.tidyverse.org) (v0.3.0)</sup>
+1. Install Anaconda from [here](https://www.anaconda.com/download/). This gives you Jupyter. 
 
-## 4. Posting a question on external forums
+2. Install and setup the IR Kernel. 
+  - Open up the Terminal application. Run R from within Terminal by entering in `R`. This opens an R session inside Terminal. From here, enter the following commands in sequence: `install.packages("IRkernel")` and `IRkernel::installspec()`. This respectively installs IR Kernel and tells Jupyter where to find IR Kernel.
 
-When you move on beyond STAT 545, there are external forums like [stackoverflow](http://stackoverflow.com) where you can post your questions. There is an expectation in the community that those seeking help must ask for help in an effective way. 
+3. To verify that everything is working as intended: Open Jupyter Lab (e.g. by opening up the Anacaonda Navigator application and clicking Launch inside the JupyterLab box). Jupyter Lab should launch and display both a Python and R kernel.
 
-If you'd like more advice on asking questions effectively, check out the following. 
+## Step 3: Git and Github
 
-* Check out [The R Inferno](http://www.burns-stat.com/documents/books/the-r-inferno/) (see the 9th circle: "Unhelpfully seeking help").
-  
-  > If someone has the wit and knowledge to answer your question, they probably have other things they would like to do. Making your message clear, concise and user-friendly gives you the best hope of at least one of those strangers diverting their attention away from their life towards your problem.
-  
-* Read [How To Ask Questions The Smart Way](http://www.catb.org/~esr/faqs/smart-questions.html) by Eric Raymond and Rick Moen. You'll need a slightly thick skin, but they speak truth.
-  
-  > ... demonstrate the kind of attitude that leads to competence: alert, thoughtful, observant, willing to be an active partner in developing a solution
-  
-* Read the [R-help posting guide](http://www.r-project.org/posting-guide.html). *But don't rush to post any questions there!*
+Git is a version control software. Github is a cloud-based platform (built on Git) for sharing code. 
 
-* More links via [How to Ask Questions](https://github.com/ireapps/scraping-class/blob/master/notes/how-to-ask-questions.md) from a web-scraping class
-  
-    - [How to Ask for Programming Help](http://codingkilledthecat.wordpress.com/2012/06/26/how-to-ask-for-programming-help/)
-    - [Stack Exchange's 'How to ask'](https://codereview.stackexchange.com/help/how-to-ask)
-    - [Matt Gemmell's 'What have you tried?'](http://mattgemmell.com/what-have-you-tried/)
+-   Register a Github account at github.com. See [Chapter 4](https://happygitwithr.com/github-acct.html)
+
+-   Install git. [Chapter 6](https://happygitwithr.com/install-git.html).
+
+-   Configure git. See [Chapter 7: Introduce yourself to git](https://happygitwithr.com/hello-git.html).
+
+- Get setup with a GitHub Personal Access Token (PAT): this will allow you to sync GitHub with files on your computer.
+
+    -   [Step 1:]{.underline} Create a PAT
+
+        -   Option 1: Go to to <https://github.com/settings/tokens> and click "Generate token". Describe the token's purpose in the Note field, e.g. "personal-macbook" or "vm-for-project-xyz". Select "repo", "user", and "workflow" for scopes.
+
+        -   Option 2: From R, execute `usethis::create_github_token()` (you may have to install the usethis package first by first running `install.packages("usethis")`). Describe the token's purpose in the Note field, e.g. "personal-macbook" or "vm-for-project-xyz".
+
+    -   [Step 2:]{.underline} From R, execute \`gitcreds::gitcreds_set()\` and enter the PAT that you just made when prompted. That should be it!
+
+    -   [Step 3]{.underline} (**optional but recommended**) Also save the PAT that you just made somewhere secure, like a password manager.
 
 
-### Attribution
+
+### Attribution 
 
 By Vincenzo Coia and Jenny Bryan, with inputs from STAT 545 teaching teams. 
+

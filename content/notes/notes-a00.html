@@ -1,78 +1,70 @@
 ---
-title: "How to get unstuck"
+title: "Software and Troubleshooting"
 output: html_document
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
-<p>Is something not working? Need help? Try following these steps.</p>
-<div id="try-to-help-yourself" class="section level2">
-<h2>1. Try to help yourself</h2>
-<p><a href="http://xkcd.com/627/">Google is your friend</a>. Google is your friend. Google is your friend.</p>
-<p>E.g. copy the error message, maybe strip out anything highly specific, such the name of your R objects, surround with quotes and Google it!</p>
-<p>One commonly landed on site is <a href="http://stackoverflow.com">stackoverflow</a> – tremendously helpful.</p>
+<div id="goals" class="section level2">
+<h2>Goals</h2>
+<p>To install and setup key software for use in the course. Instructions are below.</p>
+<p><strong>IF YOU NEED EXTRA HELP</strong>: TAs are available from 9am-10:30am in Mathematics Annex 1100 on Tuesday September 5th.</p>
 </div>
-<div id="make-a-minimally-reproducible-example" class="section level2">
-<h2>2. Make a minimally reproducible example</h2>
-<p>Still stuck? Time to <strong>prepare</strong> to post a question on the STAT 545 Slack <code>#general</code> channel by making a <a href="https://stackoverflow.com/help/minimal-reproducible-example"><em>minimally reproducible example</em></a>. Basically, the example should specify both what you <em>did</em> to get the error (or unexpected result), as well as <em>specifying what the error</em> is, <strong>in a way that cuts out everything else that’s not relevant to the problem</strong>.</p>
-<p>Even better, use the <code>reprex()</code> function from the reprex package (FYI: “reprex” is a portmanteau of the words <em>reproducible example</em>). For example, try running the following reprex containing an erroneous use of the <code>summarise()</code> function. The output of the interior code will be placed on your clipboard, which you can then paste into Slack, along with your question.</p>
-<pre class="r"><code>reprex::reprex({
-  library(dplyr)
-  library(gapminder)
-  gapminder %&gt;% 
-    summarise(mean == mean(lifeExp))
-})</code></pre>
-<p>This stackoverflow thread <a href="http://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example/5963610#5963610">“How to make a great R reproducible example?”</a> is fantastic. I find that, in the process of preparing my great reproducible example, I answer my own question 90% of the time. YMMV. So it is a useful exercise even if you aren’t ready to call in the experts yet. The process of stripping your problem down to its bare essence often reveals where the root issue lies. <strong>Highly recommended!</strong></p>
-</div>
-<div id="post-a-question-on-slack" class="section level2">
-<h2>3. Post a question on Slack</h2>
-<p>If you’re still stuck after making your minimally reproducible example, then post your minimally reproducible example to the STAT 545 Slack <code>#general</code> channel.</p>
+<div id="step-1-r-and-rstudio" class="section level2">
+<h2>Step 1: R and RStudio</h2>
+<p>The main programming language used in the class is R and our main IDE (a text editor with helpful features for writing and running code) is RStudio.</p>
 <ul>
-<li>Show your code and the output, ideally using the <code>reprex()</code> function (see above section), along with your question. No code involved? Then…</li>
-<li>Take a screenshot of the unexpected output, and if relevant, the action that caused it, along with your question. Nothing to screenshot? Then…</li>
-<li>Describe in words what the unexpected results are, and what actions led to the unexpected results, along with your question.</li>
+<li><p>Follow <a href="https://happygitwithr.com/install-r-rstudio.html">Chapter 5</a> of Jenny Bryan’s “happy git” book to install R and RStudio if you haven’t already.</p></li>
+<li><p>If you have R and/or RStudio but haven’t updated them in a long time – e.g. a year or more – then we recommend that you take the time to update them now. This will make it easier for us to help you troubleshoot throughout the class.</p></li>
 </ul>
-<p>Here is an example of making a post with the help of the reprex function. I wrote my question, then pasted the stuff that running the <code>reprex()</code> function placed on my clipboard:</p>
-<blockquote>
-<p>I keep getting an error when trying to calculate a mean in the <code>summarise()</code> function. Here is a reprex:</p>
-<pre class="r"><code>library(dplyr)
-#&gt; 
-#&gt; Attaching package: &#39;dplyr&#39;
-#&gt; The following objects are masked from &#39;package:stats&#39;:
-#&gt; 
-#&gt;     filter, lag
-#&gt; The following objects are masked from &#39;package:base&#39;:
-#&gt; 
-#&gt;     intersect, setdiff, setequal, union
-library(gapminder)
-gapminder %&gt;% 
-summarise(mean == mean(lifeExp))
-#&gt; Error: Problem with `summarise()` input `..1`.
-#&gt; x comparison (1) is possible only for atomic and list types
-#&gt; ℹ Input `..1` is `mean == mean(lifeExp)`.</code></pre>
-<p><sup>Created on 2021-09-29 by the <a href="https://reprex.tidyverse.org">reprex package</a> (v0.3.0)</sup></p>
-</blockquote>
 </div>
-<div id="posting-a-question-on-external-forums" class="section level2">
-<h2>4. Posting a question on external forums</h2>
-<p>When you move on beyond STAT 545, there are external forums like <a href="http://stackoverflow.com">stackoverflow</a> where you can post your questions. There is an expectation in the community that those seeking help must ask for help in an effective way.</p>
-<p>If you’d like more advice on asking questions effectively, check out the following.</p>
+<div id="step-2-jupyter-and-r-kernel" class="section level2">
+<h2>Step 2: Jupyter and R Kernel</h2>
+<p>You will need another IDE for R (Jupyter Notebook) and an R kernel called ‘IR Kernel’ (needed to run R code within Jupyter) to work on the autograded worksheets. This is because the autograder we use plays well with Jupyter.</p>
+<p>The following instructions are adapted from <a href="https://richpauloo.github.io/2018-05-16-Installing-the-R-kernel-in-Jupyter-Lab/">Rich Pauloo</a>.</p>
+<div id="for-pc" class="section level3">
+<h3>For PC</h3>
+<ol style="list-style-type: decimal">
+<li><p>Install Anaconda from <a href="https://www.anaconda.com/download/">here</a>. This gives you Jupyter and the Anaconda Prompt command line tool.</p></li>
+<li><p>Install and setup the IR Kernel.</p>
 <ul>
-<li><p>Check out <a href="http://www.burns-stat.com/documents/books/the-r-inferno/">The R Inferno</a> (see the 9th circle: “Unhelpfully seeking help”).</p>
-<blockquote>
-<p>If someone has the wit and knowledge to answer your question, they probably have other things they would like to do. Making your message clear, concise and user-friendly gives you the best hope of at least one of those strangers diverting their attention away from their life towards your problem.</p>
-</blockquote></li>
-<li><p>Read <a href="http://www.catb.org/~esr/faqs/smart-questions.html">How To Ask Questions The Smart Way</a> by Eric Raymond and Rick Moen. You’ll need a slightly thick skin, but they speak truth.</p>
-<blockquote>
-<p>… demonstrate the kind of attitude that leads to competence: alert, thoughtful, observant, willing to be an active partner in developing a solution</p>
-</blockquote></li>
-<li><p>Read the <a href="http://www.r-project.org/posting-guide.html">R-help posting guide</a>. <em>But don’t rush to post any questions there!</em></p></li>
-<li><p>More links via <a href="https://github.com/ireapps/scraping-class/blob/master/notes/how-to-ask-questions.md">How to Ask Questions</a> from a web-scraping class</p>
+<li>Find the location of <code>R.exe</code> on your computer. (The location probably looks something like <code>C:\Program Files\R\R-4.3.1\bin</code>.)</li>
+<li>Open the Anaconda Prompt application. Enter the following command into Anaconda Prompt: <code>cd file_path_here</code>, with <code>file_path_here</code> replaced with the location of <code>R.exe</code> that you previously found.</li>
+<li>Run R from within Anaconda Prompt by entering in <code>R.exe</code>. This opens an R session inside Anaconda Prompt. From here, enter the following commands in sequence: <code>install.packages("IRkernel")</code> and <code>IRkernell::installspec()</code>. This respectively installs IR Kernel and tells Jupyter where to find IR Kernel.</li>
+</ul></li>
+<li><p>To verify that everything is working as intended: Open Anaconda Prompt and type in <code>jupyter lab</code>. Jupyter Lab should launch and display both a Python and R kernel.</p></li>
+</ol>
+</div>
+<div id="for-osx" class="section level3">
+<h3>For OSX:</h3>
+<ol style="list-style-type: decimal">
+<li><p>Install Anaconda from <a href="https://www.anaconda.com/download/">here</a>. This gives you Jupyter.</p></li>
+<li><p>Install and setup the IR Kernel.</p></li>
+</ol>
 <ul>
-<li><a href="http://codingkilledthecat.wordpress.com/2012/06/26/how-to-ask-for-programming-help/">How to Ask for Programming Help</a></li>
-<li><a href="https://codereview.stackexchange.com/help/how-to-ask">Stack Exchange’s ‘How to ask’</a></li>
-<li><a href="http://mattgemmell.com/what-have-you-tried/">Matt Gemmell’s ‘What have you tried?’</a></li>
+<li>Open up the Terminal application. Run R from within Terminal by entering in <code>R</code>. This opens an R session inside Terminal. From here, enter the following commands in sequence: <code>install.packages("IRkernel")</code> and <code>IRkernel::installspec()</code>. This respectively installs IR Kernel and tells Jupyter where to find IR Kernel.</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>To verify that everything is working as intended: Open Jupyter Lab (e.g. by opening up the Anacaonda Navigator application and clicking Launch inside the JupyterLab box). Jupyter Lab should launch and display both a Python and R kernel.</li>
+</ol>
+</div>
+</div>
+<div id="step-3-git-and-github" class="section level2">
+<h2>Step 3: Git and Github</h2>
+<p>Git is a version control software. Github is a cloud-based platform (built on Git) for sharing code.</p>
+<ul>
+<li><p>Register a Github account at github.com. See <a href="https://happygitwithr.com/github-acct.html">Chapter 4</a></p></li>
+<li><p>Install git. <a href="https://happygitwithr.com/install-git.html">Chapter 6</a>.</p></li>
+<li><p>Configure git. See <a href="https://happygitwithr.com/hello-git.html">Chapter 7: Introduce yourself to git</a>.</p></li>
+<li><p>Get setup with a GitHub Personal Access Token (PAT): this will allow you to sync GitHub with files on your computer.</p>
+<ul>
+<li><p><u>Step 1:</u> Create a PAT</p>
+<ul>
+<li><p>Option 1: Go to to <a href="https://github.com/settings/tokens" class="uri">https://github.com/settings/tokens</a> and click “Generate token”. Describe the token’s purpose in the Note field, e.g. “personal-macbook” or “vm-for-project-xyz”. Select “repo”, “user”, and “workflow” for scopes.</p></li>
+<li><p>Option 2: From R, execute <code>usethis::create_github_token()</code> (you may have to install the usethis package first by first running <code>install.packages("usethis")</code>). Describe the token’s purpose in the Note field, e.g. “personal-macbook” or “vm-for-project-xyz”.</p></li>
+</ul></li>
+<li><p><u>Step 2:</u> From R, execute `gitcreds::gitcreds_set()` and enter the PAT that you just made when prompted. That should be it!</p></li>
+<li><p><u>Step 3</u> (<strong>optional but recommended</strong>) Also save the PAT that you just made somewhere secure, like a password manager.</p></li>
 </ul></li>
 </ul>
 <div id="attribution" class="section level3">

@@ -47,7 +47,7 @@ A full semester of data exploration, visualization, and all-around data wranglin
 
 -   **Q:** *"I am an undergraduate. Can I take this course?"*
 
-    **A:** PROBABLY, IF THERE'S ROOM. Contact me (Lucy the instructor). [There is a form for this.](https://www.grad.ubc.ca/forms/enrolment-undergraduate-students-graduate-course)
+    **A:** Maybe, if there's room. Contact the instructor.
 
 -   **Q:** *"What if I've never had a stats class?"*
 
@@ -63,7 +63,7 @@ Do you mean officially auditing, or just sitting in?
 
 -   **Q:** *"I'd like to officially audit -- can I?"*
 
-    **A:** Absolutely! Please take a look at what is required of auditors so that you have an understanding of your expectations coming into the course; then, fill out the form ([undergraduate version](http://students.ubc.ca/enrolment/courses/academic-planning/audit); [graduate version](http://www.grad.ubc.ca/current-students/managing-your-program/audit)) and send it to me (Lucy the instructor) to get signed.
+    **A:** Absolutely! Please take a look at what is required of auditors so that you have an understanding of your expectations coming into the course; then, fill out the form ([graduate version](http://www.grad.ubc.ca/current-students/managing-your-program/audit)) and send it to the instructor to get signed.
 
 -   **Q:** *"The course is full -- can I audit instead?"*
 
@@ -75,9 +75,9 @@ In all cases, I encourage you to register! Or if the course is full, join the wa
 
 Unfortunately, the course enrollment capacity will not increase. But, I encourage you to join the waitlist.
 
-### The course is listed as "restricted". Can I get permission to register?
+### The course is listed as "restricted". What should I do? 
 
-When all the open seats are taken (usually 70), the course is listed as "restricted", with the remainder (usually \~30) reserved for specific types of students (e.g. STAT, MEDX). The restricted seats will be released before the start of term, but in the meantime, I encourage you to join the waitlist. Best of luck!
+When all the open seats are taken, the course is listed as "restricted", as the remaining seats can only be taken by students of specific types. If you are a student of that type, then go ahead and register through SSC! Otherwise, I encourage you to join the waitlist.
 
 ### Should I register in ...?
 

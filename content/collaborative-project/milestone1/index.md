@@ -4,8 +4,6 @@
 
 # STAT 545A Collaborative Project: Milestone 1
 
-**Deadline**: Friday, September 23, 2022 at 17:00 PT.
-
 **Points**: 100
 
 ## Welcome to the Collaborative Project!
@@ -22,16 +20,16 @@ This is the first of two milestones for completing this project.
 
 **5 points**
 
-1.  Contact your teammates, probably in the classroom or on Slack. Go to Canvas to find out who your teammates are. Students are listed alphabetically with their team assignments on [this page](https://canvas.ubc.ca/courses/104736/modules/items/4957635) and groups are listed by group number on [this page](https://canvas.ubc.ca/courses/104736/modules/items/4957636).
+0. We will be assigning students to teams randomly. Team assignments will be posted on Canvas. 
 
 For both collaborative project milestones, you'll be working with your teammate(s) on the same GitHub repository (or "repo"). One person in the team will need to make the repository; the other(s) can then join that repo.
 
-1.  Have one group member make a repository on GitHub, by following the steps found on canvas in the entry called [Collaborative Project: Create a repository for your team](https://canvas.ubc.ca/courses/104736/pages/collaborative-project-create-a-repository-for-your-team). One completed, your repository should automatically be listed as part of the [stat545ubc-2022 Organization](https://github.com/stat545ubc-2022).
+1.  Have one group member make a repository on GitHub, by following the steps found on canvas in the entry called [Collaborative Project: Create a repository for your team](https://canvas.ubc.ca/courses/126199/pages/collaborative-project-create-a-repository-for-your-team). One completed, your repository should automatically be listed as part of the [stat545ubc-2023 Organization](https://github.com/stat545ubc-2023).
 
 2.  That same group member must now add their teammates to the repository as collaborators. To do this:
 
-    1.  Go to your repository's homepage. The URL is probably <https://github.com/stat545ubc-2022/collaborative-groupX>, where X is your group number.
-    2.  Go to "Settings" -> "Manage Access"
+    1.  Go to your repository's homepage. The URL is probably <https://github.com/stat545ubc-2023/collaborative-groupX>, where X is your group number.
+    2.  Go to "Settings" -\> "Manage Access"
     3.  Click the green "Invite teams or people" button.
     4.  Input one teammate's github username (you'll have to do one at a time).
     5.  When asked to "choose a role", click "Admin" (because each teammate should have full access to the repository).
@@ -75,7 +73,7 @@ As a reminder, in order to make a pull request, you'll need to:
 
 -   You can do this either on GitHub or on your own computer (locally), but if you do this locally, you'll need to remember to push your work (on the branch) to GitHub.
 
-1.  Start a pull request on GitHub, by going to "Pull Requests" -> "New Pull Request", and selecting the branch you intend to merge to the main branch. In your pull request, include a comment and title indicating (at a high level) what this change you made is about.
+1.  Start a pull request on GitHub, by going to "Pull Requests" -\> "New Pull Request", and selecting the branch you intend to merge to the main branch. In your pull request, include a comment and title indicating (at a high level) what this change you made is about.
 
 2.  Also in the comments, include some indication as to which teammate will be responsible for checking and merging the new work contained in the pull request.
 
@@ -95,7 +93,7 @@ Here are some ideas of things you can merge:
 
 **Note 1**: Work together as a team to get this done. If one of your teammates is having trouble with this procedure, help them out! Sometimes a merge conflict will happen, and it's best to work as a team to figure out how to resolve these issues.
 
-**Note 2:** If you have more than one pull request, indicate which one you would like graded for Collaborative Milestone 1 in the title.
+**Note 2:** Please indicate to the TAs which PRs you would like to be graded by adding "(GRADED)" to the PR name. 
 
 **Grading**:
 

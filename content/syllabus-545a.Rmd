@@ -1,5 +1,5 @@
 ---
-title: "STAT 545A Course syllabus: 2022/2023"
+title: "STAT 545A Course syllabus: 2023/2024"
 output: 
   # pdf_document:
   #   toc: true
@@ -17,7 +17,7 @@ editor_options:
 ```{r, echo = FALSE, warning = FALSE, message = FALSE}
 library(tidyverse)
 library(lubridate)
-source(here::here("content", "dates-2022.R"))
+source(here::here("content", "dates.R"))
 knitr::opts_chunk$set(echo = FALSE, message = FALSE)
 ```
 
@@ -46,25 +46,26 @@ Instructor: Dr. Lucy Gao
 
 Teaching Assistants:
 
--   Andrew Li
 -   Asfar Lathif
 -   Erick Isaac Navarro Delgado
+-   Emily Brown
 
-# Lectures
+# Meeting Schedule
 
-Tuesdays and Thursdays 0900-1030 PT in Geography 200
+Tuesdays and Thursdays 0900-1030 PT in Mathematics Annex 1100
 
 **Be sure to bring a laptop to every class!**
 
-There will always be two TA's available during class to help students
+There will always be TA's available during class to help students
 with the live coding exercises.
 
 ```{r, results = "asis"}
-here::here("content", "lecture_schedule-545a-2022.csv") %>% 
+here::here("content", "lecture_schedule-545a.csv") %>% 
   read_csv() %>% 
   mutate(Weekday = wday(dates_545a, label = TRUE),
          Date = dates_545a_pretty_noyear) %>% 
-  select(Lesson, Weekday, Date, Topic) %>% 
+  select(Class, Weekday, Date, Topic) %>% 
+  slice(-1) %>%
   knitr::kable()
 ```
 
@@ -78,11 +79,12 @@ here::here("content", "lecture_schedule-545a-2022.csv") %>%
 
 # Deliverables
 
-| De liverable            | Percent Grade | Description                                                                                                   |
-|-------------------------|---------------|---------------------------------------------------------------------------------------------------------------|
-| Class w orksheets       | 15            | Autograded walkthroughs to guide student learning.                                                            |
-| Mini data analysis      | 50            | Students write their own mini data analysis.                                                                  |
-| Co ll aborative project | 35            | Team project intended for practicing version control and collaboration, by answering some debugging problems. |
+| Deliverable    | Percent Grade | Description |
+|----------------|---------------|-------------------------|
+| Class worksheets | 15 | Autograded walkthroughs to guide student learning. |
+| Mini data analysis | 50 | Students write their own mini data analysis. | 
+| Collaborative project | 35 | Team project intended for practicing version control and collaboration.| 
+
 
 More details can be found [on the course
 dashboard](https://stat545.stat.ubc.ca/course).
@@ -122,16 +124,16 @@ instructor know.
 The teaching team can't guarantee that they will be able to respond to
 student messages outside of typical workday hours (0900-1700 PT). So,
 please be mindful of a **17:00 PT cutoff on Fridays** when asking
-assignment-related questions.
+course related questions.
 
 Please read [this](/slack_communication) before messaging the teaching
 team.
 
 ## Late Policy
 
-A late submission is defined as any work, including quizzes, submitted
+A late submission is defined as any work submitted
 after the deadline. For a late submission, the student will receive a
-50% scaling of their grade for the first occurrence, and will receive a
+warning for the first occurrence, and will receive a
 grade of 0 for subsequent occurrences.
 
 ## Academic Concession
@@ -142,11 +144,9 @@ concession](http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,48,0,0).
 A self-declaration will suffice -- [here](/concession_template.pdf) is a
 template you can use. Please submit this to the instructor.
 
-For this course, a "conflicting responsibility" includes needing to
-travel for a conference or field work.
+Examples of "conflicting responsibility" are conference travel and time-sensitive field work.
 
-If you arrange to have an assignment submitted late, you may not be able
-to receive feedback from your peers.
+If you arrange to have an assignment submitted late, you may not be able to receive feedback from your peers.
 
 ## Plagiarism
 
@@ -160,11 +160,10 @@ her own and can include:
     to make it explicit that this is a quotation (quotations should be
     used only rarely, if at all)
 
-Plagiarism will not be tolerated in the MDS program and may result in
-dismissal from the program. Students are responsible for ensuring that
+Students are responsible for ensuring that
 any work submitted does not constitute plagiarism. Students who are in
 any doubt as to what constitutes plagiarism should consult their
-Instructor before handing in any assignments.
+instructor before handing in any assignments.
 
 For more information see the [UBC Academic Misconduct
 policies](http://www.calendar.ubc.ca/vancouver/index.cfm?tree=3,54,111,959).
@@ -200,38 +199,16 @@ others and to uphold the highest academic standards in all of their
 actions. Details of the policies and how to access support are available
 [here](https://senate.ubc.ca/policies-resources-support-student-success).
 
-## Covid Safety in the Classroom
-
-**Masks**: Masks are **no longer required** for all indoor public spaces
-on campus, including classrooms, as per the UBC policy. (For the
-purposes of this policy, the term "masks" refers to medical and
-non-medical masks that cover our noses and mouths.) You are welcome to
-wear a mask if you wish.
-
-**Vaccination**: If you have not yet had a chance to get vaccinated
-against Covid-19, vaccines are available to you, free, and on campus:
-<http://www.vch.ca/covid-19/covid-19-vaccine>. The higher the rate of
-vaccination in our community overall, the lower the chance of spreading
-this virus. You are an important part of the UBC community. Please
-arrange to get vaccinated if you have not already done so.
 
 ## Your personal health
 
-**If you're sick, it's important that you stay home -- no matter what
-you think you may be sick with (e.g., cold, flu, other).**
+If you have not yet had a chance to get vaccinated
+against COVID-19 or the flu, vaccines are available to you, free, and on campus. The higher the rate of
+vaccination in our community overall, the lower the chance of spreading disease. You are an important part of the UBC community. Please
+arrange to get vaccinated if you have not already done so.
 
--   A daily self-health assessment is required before attending campus.
-    Every day, before coming to class, complete the self-assessment for
-    Covid symptoms using this tool:
-    <https://bc.thrive.health/covid19/en>
--   Do not come to class if you have Covid symptoms, have recently
-    tested positive for Covid, or are required to quarantine. You can
-    check this website to find out if you should self-isolate or
-    self-monitor:
-    <http://www.bccdc.ca/health-info/diseases-conditions/covid-19/self-isolation#Who>.
--   Your precautions will help reduce risk and keep everyone safer. In
-    this class, the marking scheme is intended to provide flexibility so
-    that you can prioritize your health and still be able to succeed.
+**If you're sick, it's important that you stay home -- no matter what
+you think you may be sick with (e.g., cold, flu, other).** Your precautions will help reduce risk and keep everyone safer. The structure of this class is intended to provide flexibility so that you can prioritize your health and still be able to succeed. 
 
 **If you do miss class because of illness:**
 
@@ -246,8 +223,7 @@ policy here:
 
 ## Instructor health
 
-**If I (the instructor) am sick:** If I am ill, develop Covid symptoms,
-or test positive for Covid, then I will not come to class. If that
+**If I (the instructor) am sick:** If I am ill, then I will not come to class. If that
 happens, here's what you can expect:
 
 -   If I am well enough to teach, I will conduct virtual lectures

@@ -1,7 +1,5 @@
 # STAT 545A Collaborative Project: Milestone 2
 
-**Deadline**: Friday, October 1, 2022 at 17:00 PT
-
 **Points**: 100
 
 By completing this project, students are expected to be able to:
@@ -30,7 +28,7 @@ As a reminder, in order to make a pull request, you'll need to:
 
 -   You can do this either on GitHub or on your own computer (locally), but if you do this locally, you'll need to remember to push your work (on the branch) to GitHub.
 
-1.  Start a pull request on GitHub, by going to "Pull Requests" -> "New Pull Request", and selecting the branch you intend to merge to the main branch. In your pull request, include a comment and title indicating (at a high level) what this change you made is about.
+1.  Start a pull request on GitHub, by going to "Pull Requests" -\> "New Pull Request", and selecting the branch you intend to merge to the main branch. In your pull request, include a comment and title indicating (at a high level) what this change you made is about.
 
 2.  Also in the comments, include some indication as to which teammate will be responsible for checking and merging the new work contained in the pull request.
 
@@ -50,7 +48,7 @@ Here are some ideas of things you can merge:
 
 **Note 1**: Work together as a team to get this done. If one of your teammates is having trouble with this procedure, help them out! Sometimes a merge conflict will happen, and it's best to work as a team to figure out how to resolve these issues.
 
-**Note 2:** Indicate which pull request you would like graded for Collaborative Milestone 2 in the title.
+**Note 2:** Please indicate to the TAs which PRs you would like to be graded by adding "(GRADED)" to the PR name.
 
 **Grading**:
 

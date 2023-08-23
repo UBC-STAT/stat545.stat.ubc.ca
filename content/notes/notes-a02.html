@@ -4,7 +4,6 @@ subtitle: "Version 1.0.1"
 output: html_document
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <div id="learning-objectives" class="section level2">
@@ -17,6 +16,7 @@ output: html_document
 <li>make a branch in git using RStudio or GitHub.</li>
 <li>use collaborative GitHub features such as Issues and pull requests.</li>
 </ul>
+<p>After this class, you should be able to start working on your Collaborative Project.</p>
 </div>
 <div id="resources" class="section level2">
 <h2>Resources</h2>
@@ -47,58 +47,96 @@ output: html_document
 <li>You’re ready to push some code you added to <code>code.R</code> to GitHub, but just found out that your teammate completely changed <code>code.R</code> on GitHub! True or False: If you pull the repository from GitHub, you’ll get an error because your <code>code.R</code> conflicts with GitHub’s <code>code.R</code>.</li>
 <li>True or False: If you’ve just changed a file on your computer, in order to push it to GitHub, you’ll first need to commit the file.</li>
 </ol>
+<!-- ## Version control: what is it, and why should you care?  -->
+<!-- Version control software systematically records changes to a set of files over time, and allows us to summon and compare any version of these files that was recorded on demand.  -->
+<!-- Version control is super useful for code, because we frequently draft code that doesn't work. It's nice to be able to save what works before you start making changes - then if you really get lost, you can revert back to a working version of your code.  -->
+<!-- It's also great for collaboration, because the software can also track *who* made changes to the set of files, *what* changes were made, and *why*! This is much nicer than emailing files back and forth. Version control software also comes with handy "merge" functionalities to help you resolve the headache that is multiple people making changes to the projectfiles at the same time.  -->
 </div>
-<div id="demonstration" class="section level2">
-<h2>Demonstration</h2>
-<p>Here’s what we’ll aim to accomplish in class.</p>
-<div id="get-acquainted-with-github" class="section level3">
-<h3>Get Acquainted with GitHub</h3>
-<ul>
-<li><p>Orgs vs. personal account: explore these two.</p></li>
-<li><p>Issues: check out course topics Issue in STAT 545 repo.</p>
-<ul>
-<li>Watching repo</li>
-</ul></li>
-<li><p>Working on GitHub: Change the README on a GitHub repo</p></li>
-</ul>
+<div id="instructor-demo-get-acquainted-with-github" class="section level2">
+<h2>Instructor demo: Get Acquainted with GitHub</h2>
+<div id="repositories-organizations-and-personal-accounts" class="section level3">
+<h3>Repositories, Organizations, and Personal Accounts</h3>
+<p>A repository stores files and the history of the files; the usual convention is to use a single repository to organize a single project.</p>
+<p>Github is a place where repositories can live online. Being online provides us a way to share and collaborate on projects. It also serves as a backup for your project.</p>
+<p><strong>Example 1</strong>: <a href="https://github.com/lucylgao/clusterpval">Lucy’s clusterpval R package</a></p>
+<p><strong>Example 2</strong>: <a href="https://github.com/UBC-STAT/stat545.stat.ubc.ca">The STAT 545 webpage</a></p>
+<p>The first repository lives under Lucy’s personal Github account. The second repository lives under the <a href="https://github.com/UBC-STAT">UBC-STAT</a> organization. Organizations are useful if you have lots of different projects with a common theme which lots of people are collaborating on.</p>
 </div>
-<div id="getting-setup-with-a-github-personal-access-token-pat" class="section level3">
-<h3>Getting setup with a GitHub Personal Access Token (PAT)</h3>
-<p>This will allow you to sync GitHub with files on your computer.</p>
+<div id="useful-github-tips-for-the-course" class="section level3">
+<h3>Useful Github tips for the course</h3>
 <ul>
-<li><p>Quick start:</p>
-<ul>
-<li><p><u>Step 1:</u> Create a PAT</p>
-<ul>
-<li><p>Option 1: Go to to <a href="https://github.com/settings/tokens" class="uri">&lt;https://github.com/settings/tokens&gt;</a> and click “Generate token”. Describe the token’s purpose in the Note field, e.g. “personal-macbook” or “vm-for-project-xyz”. Select “repo”, “user”, and “workflow” for scopes.</p></li>
-<li><p>Option 2: From R, execute <code>usethis::create_github_token()</code> (you may have to install the usethis package first by first running <code>install.packages("usethis")</code>). Describe the token’s purpose in the Note field, e.g. “personal-macbook” or “vm-for-project-xyz”.</p></li>
-</ul></li>
-<li><p><u>Step 2:</u> From R, execute `gitcreds::gitcreds_set()` and enter the PAT that you just made when prompted. That should be it!</p></li>
-<li><p><u>Step 3</u> (<strong>optional but recommended</strong>) Also save the PAT that you just made somewhere secure, like a password manager.</p></li>
-</ul></li>
+<li><p>All of your projects in this class will live in the <a href="https://github.com/stat545ubc-2023">STAT 545 @ UBC Organization</a>.</p></li>
+<li><p>When you watch a Github repo, you get notifications when things happen in them. So if you “Watch” the STAT 545 webpage repo, then you will get email notifications when I update the site!</p></li>
+<li><p>The Issues page on a Github repo is a forum where Github users can bring up issues related to the repository. Our <a href="/slack_communication">commmunication guidelines</a> suggest that you post an Issue on your homework repo if you have concerns about your grade.</p></li>
 </ul>
+<hr />
 </div>
-<div id="linear-synchronizing-working-between-github-and-local-merge-conflicts" class="section level3">
-<h3>Linear Synchronizing: Working between GitHub and Local; Merge Conflicts</h3>
+<div id="your-turn-working-on-github" class="section level3">
+<h3>Your turn: working on Github</h3>
+<p>Try making your own Github repository and editing it on Github! (This exercise is slightly adapted from <a href="https://datacarpentry.org/rr-version-control/02-git-in-github/index.html">Data Carpentries</a>.)</p>
+<ol style="list-style-type: decimal">
+<li><p>Go to your GitHub profile. Eg. Mine is <a href="https://github.com/lucylgao">https://github.com/lucylgao</a>.</p></li>
+<li><p>Create a new GitHub repository by clicking the <code>+</code> symbol in the top bar and using the dropdown menu to create a new repository.</p></li>
+<li><p>Name your repository <code>stat-545-demo-YOUR-NAME</code>. In the description write “STAT 545 Demo”. Check the box for initializing the repository for adding a README file.</p></li>
+<li><p>You are now redirected to the repository main page. The repository page tells you you have 1 commit. Click on it to get to the history page. This tells you all the changes that have been tracked for the files in the repository so far.</p></li>
+<li><p>Go back to your repository main page. Click on <code>README.md</code>, then click “edit this file”. Add the following information into the <code>README.md</code> file:</p>
 <ul>
-<li>clone stat 545 repo</li>
-<li>make a local change -&gt; commit, push, check GitHub.</li>
-<li>make a GitHub change, then a local NON CONFLICTING change -&gt; sync.</li>
-<li>make a GitHub change, then a local CONFLICTING change -&gt; sync.</li>
-</ul>
-</div>
-<div id="branching-and-pr" class="section level3">
-<h3>Branching and PR</h3>
-<p>Let’s organize our participation repo in a branch.</p>
-<ul>
-<li><p>Make a branch.</p>
-<ul>
-<li>GitHub first, local second</li>
-<li>Local first, GitHub second</li>
+<li>Your name</li>
+<li>What kind of scientist do you tell people you are at dinner parties?</li>
 </ul></li>
-<li><p>Add a new file on the branch.</p></li>
-<li><p>Switch branches to see file appear and disappear.</p></li>
-<li><p>submit and merge a PR.</p></li>
+<li><p>Commit your changes: click the commit changes button, and briefly summarize the changes you’ve made in the Commit message.</p></li>
+<li><p>Check out the Github commit history again. Has anything changed?</p></li>
+</ol>
+<hr />
+</div>
+</div>
+<div id="instructor-demo-working-locally-and-synchronizing-with-github" class="section level2">
+<h2>Instructor demo: working locally, and synchronizing with Github</h2>
+<p>We will go through the <a href="https://datacarpentry.org/rr-version-control/03-git-in-rstudio/">Data Carpentries tutorial</a> for this together. This demonstrates how to keep and work on the project files in a <em>local</em> repository on your machine, and how to keep it in synch with a <em>remote</em> Github repository.</p>
+</div>
+<div id="instructor-demo-merge-conflicts" class="section level2">
+<h2>Instructor demo: merge conflicts</h2>
+<p>Merge conflicts happen when we’ve created multiple versions of files that can’t be obviously combined into one definitive version.</p>
+<p>Here is an example of something that would not cause a merge conflict:</p>
+<ul>
+<li>At 9am, my TA pulls from the STAT 545 repository, makes a local change to the course dashboard, and commits and pushes her changes.</li>
+<li>At 10am, I forget to pull from the STAT 545 repository, and start working on the Day 1 notes locally.</li>
+<li>When I commit and push, Git is a bit confused, because I wasn’t working off of the “freshest” version of the STAT 545 repository - but since my TA and I were working on different lines of code, it will fairly seamlessly figure out that the right thing to do is to add my changes to the Day 1 notes to the current version of the STAT 545 repository online.</li>
 </ul>
+<p>Here is an example of something that WOULD cause a merge conflict:</p>
+<ul>
+<li>At 9am, my TA and I both pull from the STAT 545 repository.</li>
+<li>At 10am, my TA changes the front page to say “STAT 555 @ UBC”, and commits/pushes those changes.</li>
+<li>At 11am, I change the front page (without pulling!!!) to say “STAT 777 @ UBC”.</li>
+<li>When I commit and push, Git doesn’t know what to do. Should it make the version that says “STAT 555 @ UBC” or “STAT 777 @ UBC” the definitive version? The push will fail, and Git will tell us we need to fix the conflict and then commit the result.</li>
+</ul>
+<p>How do we fix this?</p>
+<ol style="list-style-type: decimal">
+<li><p>Pull.</p></li>
+<li><p>Open the file that caused the merge conflict. You should see something like this:</p></li>
+</ol>
+<pre><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+STAT 555 @ UBC
+=======
+STAT 777 @ UBC
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 526363991d21ed20e7e0c57b5e99d944ac5ce5aa</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><p>The stuff below the <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code> and above the <code>=======</code> is what was in your local version; the stuff above the <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> and below the <code>=======</code> is what was in the remote conflicting version. Decide what you want to have on the offending line (e.g. “STAT 555 @ UBC), and replace the whole block of text above with that.</p></li>
+<li><p>Save and commit the file. (An informative message here might be “Fixing a merge conflict.”) You should now be able to successfully push!</p></li>
+</ol>
+<hr />
+<div id="your-turn-branching-merging-and-pull-requests" class="section level3">
+<h3>Your turn: Branching, merging, and pull requests</h3>
+<p>Find a partner. In this exercise, we will learn how to have different team members save their work separately on <em>branches</em>, and how to <em>merge</em> those changes to the <em>main</em> project branch.</p>
+<ol style="list-style-type: decimal">
+<li><p>Teammate A adds Teammate B to their <code>stat545-demo</code> repository as a collaborator. (Go to Settings from the main repo page, then Access =&gt; Collaborators). This should send Teammate B an email with a collaboration invitation; accept that invitation.</p></li>
+<li><p>Teammate B clones Teammate A’s <code>stat545-demo</code> repository.</p></li>
+<li><p>On their own computer, Teammate B will make a new branch in Teammate A’s <code>stat545-demo</code> repository. You can do this either on Github by clicking on “1 branch” on the repo homepage then the green “New branch” button, or on your own computer in R Studio with the “New Branch” button.</p></li>
+<li><p>On their own computer, Teammate B will create a new file in the newly created branch, then commit and push it.</p></li>
+<li><p>Teammate B will start a pull request (basically a request to merge content onto the main branch) on GitHub, by going to “Pull Requests” -&gt; “New Pull Request”, and selecting the branch you intend to merge to the main branch. In this pull request, include a comment and title indicating (at a high level) what the change made is about.</p></li>
+<li><p>Teammate A will follow the instructions <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request">here</a> to merge the pull request.</p></li>
+</ol>
+<p>Too easy? Then either switch roles, or try creating a pull request that causes a merge conflict and resolving it!</p>
+<hr />
 </div>
 </div>
