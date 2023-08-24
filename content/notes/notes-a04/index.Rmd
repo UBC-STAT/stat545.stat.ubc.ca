@@ -1,0 +1,76 @@
+---
+title: "Manipulating Data with dplyr"
+output: html_document
+---
+
+## Learning Objectives
+
+From this topic, students are anticipated to be able to:
+
+1. Use the five core dplyr verbs for data wrangling: `select()`, `filter()`, `arrange()`, `mutate()`, `summarise()`.
+2. Use piping when implementing function chains.
+3. Use `group_by()` to operate within groups (of rows) with `mutate()` and `summarise()`. 
+4. Use `across()` to operate on multiple columns with `summarise()` and `mutate()`.
+
+We will spend two classes on this topic.
+
+## Resources
+
+Video lectures for this topic (ignore the episode numbering):
+
+- [dplyr Part 1: Basic Data Manipulation](https://youtu.be/Gms3zSPqCk8)
+- [dplyr Part 2: Calculations on tibbles](https://youtu.be/38BA_v7BwKk)
+
+Optional further reading for the dplyr verbs and piping, minus the `across()` function:
+
+- [Chapter 6](https://stat545.com/dplyr-intro.html) and [Chapter 7](https://stat545.com/dplyr-single.html) of Jenny Bryan's STAT 545 book follows along with what we will be covering in Day 1 and Day 2 of this topic (although you won't find the `across()` function).
+- "R for Data Science" is another great resource for learning data wrangling. Take a look at:
+    - [R4DS Data Transformation](https://r4ds.hadley.nz/data-transform.html) for the dplyr verbs (without `across()`)
+- [dplyr's introductory vignette](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html) is useful for orienting you to the package. 
+
+Optional further reading to learn about the `across()` function:
+
+- [Hadley Wickham's blog post on the topic](https://www.tidyverse.org/blog/2020/04/dplyr-1-0-0-colwise/).
+
+## Test Your Understanding
+
+1. True or False? Running filter or select on your tibble permanently changes your tibble. 
+2. True or False? The pipe operator `%>%` works for functions outside of the tidyverse, too.
+3. `summarise()` reduces each group down to one row, and `mutate()` preserves the number of rows. But, between the two, there's a way to reduce each group down to _two_ rows.
+4. `across()` doesn't allow you to make new column names. 
+
+## Why Data Manipulation?
+
+You have a shiny new data set - great! You might be tempted to dive right in and start making pretty graphs and fitting cool models to your data. Not so fast! In practice, it's very rare that you have the data in the exact right form to make the graph you want, or fit the model you want. You will need to start by *manipulating* your data into the right form: creating new variables, subsetting rows, renaming columns, etc. 
+
+Plus, a less sexy but nevertheless important piece of data analysis output is tables that summarize the data in some way. For example, it is extremely standard practice in biomedical and public health studies to have the first table of any journal article to summarize basic characteristics of the study population, possibly stratified by exposure. While these tables are less pretty than graphs, they can nevertheless be very insightful! 
+
+An even less sexy but perhaps even more important part of data analysis is simply checking the data for things like: 
+- Possible inconsistencies with your understanding of what the data set should contain
+- Possible errors 
+- Basic info gathering: number of rows, number of columns, amount of missing data, etc. 
+
+All of these require data manipulation. We choose to use the `dplyr` (pronounced d-plier) package for this.
+
+## Your turn: learning to use dplyr
+
+We think the best way to learn the basics of dplyr is to work through Worksheet A2. 
+
+### First 30 minutes of Class 1
+
+- Haven't attempted all of the questions on Worksheet A2? Then spend this time attempting unattempted questions. 
+- Finished attempting all of the questions? Then do the optional [R4DS Data Transformation](https://r4ds.hadley.nz/data-transform.html) reading, and maybe even do some of the exercises for extra practice. 
+
+During this time, teaching team will also walk around and answer questions and chat about anything data manipulation related. 
+
+### Remaining time in Class 1
+
+Now's your chance to ask about any questions you got stuck on and get them answered by the instructor! 
+
+## Class 2: FEV Case Study
+
+We will get a flavour for how you might use dplyr in the wild and get in even more dplyr practice by working through a case study centred on a biomedical data set. [Click here](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/notes/notes-a04/fev.Rmd) to get to the case study. 
+
+By yourself or in small groups, work through the exercises in the case study. Teaching team will walk around and answer questions and chat about anything data manipulation related. 
+
+If we have time left: go over instructor solutions and commentary. 

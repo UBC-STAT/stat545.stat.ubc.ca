@@ -1,0 +1,135 @@
+---
+title: 'FEV Case Study: Data Manipulation'
+author: "Lucy"
+date: "2023-08-24"
+output: html_document
+---
+
+
+
+<div id="introduction" class="section level2">
+<h2>Introduction</h2>
+<p>We will perform exploratory data analysis of the <code>fev</code> data set.</p>
+<p>Let’s start by getting the data set. (Reminder: you will need to run <code>install.packages("rigr")</code> to install the <code>rigr</code> package which contains the data set before loading it. ) Let’s also load <code>dplyr</code> while we’re at it - we’ll need it to do the exercises!</p>
+<pre class="r"><code>library(rigr) 
+library(dplyr)
+
+fev_tbl &lt;- as_tibble(fev) %&gt;% mutate(across(sex:smoke, ~ as.factor(.x)))</code></pre>
+</div>
+<div id="the-fev-data-set" class="section level2">
+<h2>The <code>fev</code> data set</h2>
+<p>It is now widely believed that smoking tends to impair lung function. Much of the data to support this claim arises from studies of pulmonary function in adults who are long-time smokers. A question then arises whether such deleterious effects of smoking can be detected in children who smoke. To address this question, measures of lung function were made in about 600 children seen for a routine check up in a particular pediatric clinic. The children participating in this study were asked whether they were current smokers.</p>
+<p>A common measurement of lung function is the forced expiratory volume (FEV), which measures how much air you can blow out of your lungs in a short period of time. A higher FEV is usually associated with better respiratory function. It is well known that prolonged smoking diminishes FEV in adults, and those adults with diminished FEV also tend to have decreased pulmonary function as measured by other clinical variables, such as blood oxygen and carbon dioxide levels.</p>
+<p>Data collected from the study on the relationship between smoking status and lung function (measured by FEV) in children are contained in the <code>fev_tbl</code> dataset. Here is a data dictionary:</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">Variable Name</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">seqnbr</td>
+<td align="center">case number</td>
+</tr>
+<tr class="even">
+<td align="center">subjid</td>
+<td align="center">subject identification number</td>
+</tr>
+<tr class="odd">
+<td align="center">age</td>
+<td align="center">subject age (years)</td>
+</tr>
+<tr class="even">
+<td align="center">fev</td>
+<td align="center">measured forced exhalation volume (litres/second)</td>
+</tr>
+<tr class="odd">
+<td align="center">height</td>
+<td align="center">subject height (inches)</td>
+</tr>
+<tr class="even">
+<td align="center">sex</td>
+<td align="center">subject sex</td>
+</tr>
+<tr class="odd">
+<td align="center">smoke</td>
+<td align="center">smoking status (yes or no)</td>
+</tr>
+</tbody>
+</table>
+<p>Here is a few rows of the data set:</p>
+<pre class="r"><code>head(fev_tbl)</code></pre>
+<pre><code>## # A tibble: 6 × 7
+##   seqnbr subjid   age   fev height sex    smoke
+##    &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt;
+## 1      1    301     9  1.71   57   female no   
+## 2      2    451     8  1.72   67.5 female no   
+## 3      3    501     7  1.72   54.5 female no   
+## 4      4    642     9  1.56   53   male   no   
+## 5      5    901     9  1.90   57   male   no   
+## 6      6   1701     8  2.34   61   female no</code></pre>
+</div>
+<div id="a-little-bit-of-basic-pre-processing" class="section level2">
+<h2>A little bit of basic pre-processing</h2>
+<p>We know from the data dictionary that height is measured in inches. We can also sort of figure that out by looking at the range of the height variable in the rows of the data set above.</p>
+<div id="exercise-1" class="section level3">
+<h3>Exercise 1</h3>
+<p>In Canada, we are pretty equally used to imperial and metric height measurements. Let’s transform height to be in cm by multiplying by 2.54, and change the variable name to <code>height_cm</code>.</p>
+<pre class="r"><code># FILL IN HERE </code></pre>
+</div>
+</div>
+<div id="understanding-the-data-structure" class="section level2">
+<h2>Understanding the data structure</h2>
+<div id="exercise-2" class="section level3">
+<h3>Exercise 2</h3>
+<p>Am I missing any variables compared to the data dictionary? Let’s check.</p>
+<pre class="r"><code># FILL IN HERE </code></pre>
+</div>
+<div id="exercise-3" class="section level3">
+<h3>Exercise 3</h3>
+<p>Next: are there any duplicate case numbers? Are there any duplicate subject IDs?</p>
+<pre class="r"><code># FILL IN HERE</code></pre>
+<p>Now we know that no cases were entered twice, and each case corresponds to a different patient.</p>
+</div>
+</div>
+<div id="understanding-the-patients-in-the-study" class="section level2">
+<h2>Understanding the patients in the study</h2>
+<div id="exercise-4" class="section level3">
+<h3>Exercise 4</h3>
+<p>Let’s summarize the age of the patients first, by computing the mean, standard deviation, min, and max of the patient ages.</p>
+<pre class="r"><code># FILL IN HERE</code></pre>
+<p>Something’s a little odd about these summaries. Remember: this is a smoking study on children.</p>
+<ul>
+<li>Why would a 3 year old be enrolled in a smoking study?<br />
+</li>
+<li>Why would a 19 year old be enrolled in a study on children?</li>
+</ul>
+</div>
+<div id="exercise-5" class="section level3">
+<h3>Exercise 5</h3>
+<p>I’m now a bit worried: what’s the youngest patient who smokes in this dataset?</p>
+<pre class="r"><code># FILL IN HERE</code></pre>
+<p>Looks like the youngest patient who smokes is 9. Seems young to me, but much less far-fetched than (say) 3.</p>
+</div>
+<div id="exercise-6" class="section level3">
+<h3>Exercise 6</h3>
+<p>What about the 19 year olds? Should they be included? The definition of a “child” can vary from study to study. Possible definitions include &lt; 21 and &lt; 18. Let’s find out who the patients 18 or older are and what their case numbers are so that we can ask our point of contact for the study about them.</p>
+<pre class="r"><code># FILL IN HERE</code></pre>
+<p><strong>Aside</strong>: if it turns out that we need to exclude any of these odd-looking patients from our final data analysis, then we will need to re-run everything after this point with their data removed. Isn’t it nice that we are preparing this report in R Markdown?</p>
+</div>
+</div>
+<div id="does-smoking-have-an-effect-on-lung-function" class="section level2">
+<h2>Does smoking have an effect on lung function?</h2>
+<p>Let’s continue exploring the data set with a closer eye to our main research question: does smoking have an effect on lung function in children?</p>
+<div id="exercise-7" class="section level3">
+<h3>Exercise 7</h3>
+<p>Let’s start by summarizing the FEV of the smokers and non-smokers. Let’s calculate the mean, standard deviation, and number of observations in each group. We will mainly be comparing the means to gather information about the question, but the standard deviation and number of observations are important to look at to.</p>
+<pre class="r"><code># FILL IN HERE</code></pre>
+<p>We see that the mean FEV in the smoking group seems to be substantially higher than the average FEV in the non-smoking group. That is, the smokers appear to have <em>better</em> lung function than the non-smokers.</p>
+<p>Does this surprise you? Recall that this is an observational study - children were not randomly assigned to smoke or not smoke. We might then have reason to suspect that the association between FEV and smoking status is confounded by some other factors. For example,
+we already know that the youngest smoker in our data set is 9, while the non-smokers are as young as 3. This suggests that the smokers in our data set are generally older than the non-smokers. Furthermore, we might expect older children to have higher FEV, because they are bigger and have bigger lungs. Could age be a confounder here? Maybe the smoking group has higher lung function simply because they are older and bigger, and within appropriately defined age groups, smokers tend to have lower FEV than non-smokers as we expect.</p>
+<p>We will investigate this point next week after we have learned about graphing tools.</p>
+</div>
+</div>

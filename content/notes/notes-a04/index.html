@@ -1,0 +1,80 @@
+---
+title: "Manipulating Data with dplyr"
+output: html_document
+---
+
+
+
+<div id="learning-objectives" class="section level2">
+<h2>Learning Objectives</h2>
+<p>From this topic, students are anticipated to be able to:</p>
+<ol style="list-style-type: decimal">
+<li>Use the five core dplyr verbs for data wrangling: <code>select()</code>, <code>filter()</code>, <code>arrange()</code>, <code>mutate()</code>, <code>summarise()</code>.</li>
+<li>Use piping when implementing function chains.</li>
+<li>Use <code>group_by()</code> to operate within groups (of rows) with <code>mutate()</code> and <code>summarise()</code>.</li>
+<li>Use <code>across()</code> to operate on multiple columns with <code>summarise()</code> and <code>mutate()</code>.</li>
+</ol>
+<p>We will spend two classes on this topic.</p>
+</div>
+<div id="resources" class="section level2">
+<h2>Resources</h2>
+<p>Video lectures for this topic (ignore the episode numbering):</p>
+<ul>
+<li><a href="https://youtu.be/Gms3zSPqCk8">dplyr Part 1: Basic Data Manipulation</a></li>
+<li><a href="https://youtu.be/38BA_v7BwKk">dplyr Part 2: Calculations on tibbles</a></li>
+</ul>
+<p>Optional further reading for the dplyr verbs and piping, minus the <code>across()</code> function:</p>
+<ul>
+<li><a href="https://stat545.com/dplyr-intro.html">Chapter 6</a> and <a href="https://stat545.com/dplyr-single.html">Chapter 7</a> of Jenny Bryan’s STAT 545 book follows along with what we will be covering in Day 1 and Day 2 of this topic (although you won’t find the <code>across()</code> function).</li>
+<li>“R for Data Science” is another great resource for learning data wrangling. Take a look at:
+<ul>
+<li><a href="https://r4ds.hadley.nz/data-transform.html">R4DS Data Transformation</a> for the dplyr verbs (without <code>across()</code>)</li>
+</ul></li>
+<li><a href="https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html">dplyr’s introductory vignette</a> is useful for orienting you to the package.</li>
+</ul>
+<p>Optional further reading to learn about the <code>across()</code> function:</p>
+<ul>
+<li><a href="https://www.tidyverse.org/blog/2020/04/dplyr-1-0-0-colwise/">Hadley Wickham’s blog post on the topic</a>.</li>
+</ul>
+</div>
+<div id="test-your-understanding" class="section level2">
+<h2>Test Your Understanding</h2>
+<ol style="list-style-type: decimal">
+<li>True or False? Running filter or select on your tibble permanently changes your tibble.</li>
+<li>True or False? The pipe operator <code>%&gt;%</code> works for functions outside of the tidyverse, too.</li>
+<li><code>summarise()</code> reduces each group down to one row, and <code>mutate()</code> preserves the number of rows. But, between the two, there’s a way to reduce each group down to <em>two</em> rows.</li>
+<li><code>across()</code> doesn’t allow you to make new column names.</li>
+</ol>
+</div>
+<div id="why-data-manipulation" class="section level2">
+<h2>Why Data Manipulation?</h2>
+<p>You have a shiny new data set - great! You might be tempted to dive right in and start making pretty graphs and fitting cool models to your data. Not so fast! In practice, it’s very rare that you have the data in the exact right form to make the graph you want, or fit the model you want. You will need to start by <em>manipulating</em> your data into the right form: creating new variables, subsetting rows, renaming columns, etc.</p>
+<p>Plus, a less sexy but nevertheless important piece of data analysis output is tables that summarize the data in some way. For example, it is extremely standard practice in biomedical and public health studies to have the first table of any journal article to summarize basic characteristics of the study population, possibly stratified by exposure. While these tables are less pretty than graphs, they can nevertheless be very insightful!</p>
+<p>An even less sexy but perhaps even more important part of data analysis is simply checking the data for things like:
+- Possible inconsistencies with your understanding of what the data set should contain
+- Possible errors
+- Basic info gathering: number of rows, number of columns, amount of missing data, etc.</p>
+<p>All of these require data manipulation. We choose to use the <code>dplyr</code> (pronounced d-plier) package for this.</p>
+</div>
+<div id="your-turn-learning-to-use-dplyr" class="section level2">
+<h2>Your turn: learning to use dplyr</h2>
+<p>We think the best way to learn the basics of dplyr is to work through Worksheet A2.</p>
+<div id="first-30-minutes-of-class-1" class="section level3">
+<h3>First 30 minutes of Class 1</h3>
+<ul>
+<li>Haven’t attempted all of the questions on Worksheet A2? Then spend this time attempting unattempted questions.</li>
+<li>Finished attempting all of the questions? Then do the optional <a href="https://r4ds.hadley.nz/data-transform.html">R4DS Data Transformation</a> reading, and maybe even do some of the exercises for extra practice.</li>
+</ul>
+<p>During this time, teaching team will also walk around and answer questions and chat about anything data manipulation related.</p>
+</div>
+<div id="remaining-time-in-class-1" class="section level3">
+<h3>Remaining time in Class 1</h3>
+<p>Now’s your chance to ask about any questions you got stuck on and get them answered by the instructor!</p>
+</div>
+</div>
+<div id="class-2-fev-case-study" class="section level2">
+<h2>Class 2: FEV Case Study</h2>
+<p>We will get a flavour for how you might use dplyr in the wild and get in even more dplyr practice by working through a case study centred on a biomedical data set. <a href="https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/notes/notes-a04/fev.Rmd">Click here</a> to get to the case study.</p>
+<p>By yourself or in small groups, work through the exercises in the case study. Teaching team will walk around and answer questions and chat about anything data manipulation related.</p>
+<p>If we have time left: go over instructor solutions and commentary.</p>
+</div>

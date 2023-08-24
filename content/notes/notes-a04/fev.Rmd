@@ -1,0 +1,131 @@
+---
+title: 'FEV Case Study: Data Manipulation'
+author: "Lucy"
+date: "2023-08-24"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction 
+
+We will perform exploratory data analysis of the `fev` data set. 
+
+Let's start by getting the data set. (Reminder: you will need to run `install.packages("rigr")` to install the `rigr` package which contains the data set before loading it. ) Let's also load `dplyr` while we're at it - we'll need it to do the exercises! 
+
+```{r, message = FALSE} 
+library(rigr) 
+library(dplyr)
+
+fev_tbl <- as_tibble(fev) %>% mutate(across(sex:smoke, ~ as.factor(.x)))
+```
+
+## The `fev` data set 
+
+It is now widely believed that smoking tends to impair lung function. Much of the data to support this claim arises from studies of pulmonary function in adults who are long-time smokers. A question then arises whether such deleterious effects of smoking can be detected in children who smoke. To address this question, measures of lung function were made in about 600 children seen for a routine check up in a particular pediatric clinic. The children participating in this study were asked whether they were current smokers.
+
+A common measurement of lung function is the forced expiratory volume (FEV), which measures how much air you can blow out of your lungs in a short period of time. A higher FEV is usually associated with better respiratory function. It is well known that prolonged smoking diminishes FEV in adults, and those adults with diminished FEV also tend to have decreased pulmonary function as measured by other clinical variables, such as blood oxygen and carbon dioxide levels.
+
+Data collected from the study on the relationship between smoking status and lung function (measured by FEV) in children are contained in the `fev_tbl` dataset. Here is a data dictionary:
+
+| Variable Name | Description | 
+| :--: |:--: |
+| seqnbr        | case number |
+| subjid        | subject identification number |
+| age           | subject age (years) | 
+| fev           | measured forced exhalation volume (litres/second)| 
+| height        | subject height (inches) | 
+| sex           | subject sex | 
+| smoke         | smoking status (yes or no) | 
+
+
+Here is a few rows of the data set:
+
+```{r} 
+head(fev_tbl)
+```
+
+## A little bit of basic pre-processing
+
+We know from the data dictionary that height is measured in inches. We can also sort of figure that out by looking at the range of the height variable in the rows of the data set above. 
+
+### Exercise 1 
+In Canada, we are pretty equally used to imperial and metric height measurements. Let's transform height to be in cm by multiplying by 2.54, and change the variable name to `height_cm`. 
+
+```{r} 
+# FILL IN HERE 
+```
+
+## Understanding the data structure
+
+### Exercise 2
+
+Am I missing any variables compared to the data dictionary? Let's check. 
+
+```{r} 
+# FILL IN HERE 
+```
+
+### Exercise 3
+
+Next: are there any duplicate case numbers? Are there any duplicate subject IDs?
+
+```{r} 
+# FILL IN HERE
+```
+Now we know that no cases were entered twice, and each case corresponds to a different patient. 
+
+## Understanding the patients in the study
+
+### Exercise 4
+
+Let's summarize the age of the patients first, by computing the mean, standard deviation, min, and max of the patient ages. 
+
+```{r} 
+# FILL IN HERE
+```
+
+Something's a little odd about these summaries. Remember: this is a smoking study on children.
+
+- Why would a 3 year old be enrolled in a smoking study?  
+- Why would a 19 year old be enrolled in a study on children? 
+
+### Exercise 5
+
+I'm now a bit worried: what's the youngest patient who smokes in this dataset?
+
+```{r} 
+# FILL IN HERE
+```
+
+Looks like the youngest patient who smokes is 9. Seems young to me, but much less far-fetched than (say) 3. 
+
+### Exercise 6
+
+What about the 19 year olds? Should they be included? The definition of a "child" can vary from study to study. Possible definitions include < 21 and < 18. Let's find out who the patients 18 or older are and what their case numbers are so that we can ask our point of contact for the study about them. 
+
+```{r} 
+# FILL IN HERE
+```
+
+**Aside**: if it turns out that we need to exclude any of these odd-looking patients from our final data analysis, then we will need to re-run everything after this point with their data removed. Isn't it nice that we are preparing this report in R Markdown?  
+
+## Does smoking have an effect on lung function? 
+
+Let's continue exploring the data set with a closer eye to our main research question: does smoking have an effect on lung function in children? 
+
+### Exercise 7
+
+Let's start by summarizing the FEV of the smokers and non-smokers. Let's calculate the mean, standard deviation, and number of observations in each group. We will mainly be comparing the means to gather information about the question, but the standard deviation and number of observations are important to look at too. 
+
+```{r} 
+# FILL IN HERE
+```
+We see that the mean FEV in the smoking group seems to be substantially higher than the average FEV in the non-smoking group. That is, the smokers appear to have *better* lung function than the non-smokers. 
+
+Does this surprise you? Recall that this is an observational study - children were not randomly assigned to smoke or not smoke. We might then have reason to suspect that the association between FEV and smoking status is confounded by some other factors. For example, 
+we already know that the youngest smoker in our data set is 9, while the non-smokers are as young as 3. This suggests that the smokers in our data set are generally older than the non-smokers. Furthermore, we might expect older children to have higher FEV, because they are bigger and have bigger lungs. Could age be a confounder here? Maybe the smoking group has higher lung function simply because they are older and bigger, and within appropriately defined age groups, smokers tend to have lower FEV than non-smokers as we expect.  
+
+We will investigate this point next week after we have learned about graphing tools.
