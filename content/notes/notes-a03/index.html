@@ -127,16 +127,16 @@ install.packages(&#39;DT&#39;)</code></pre></li>
 </div>
 <div id="instructor-demo-mtcars-report" class="section level3">
 <h3>Instructor demo: <code>mtcars</code> report</h3>
-<p>To follow along, download <a href="https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/notes/notes-a03/mtcars_demonstration.Rmd">demonstration .Rmd file</a>.</p>
+<p>To follow along, download <a href="https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/notes/notes-a03/mtcars_demonstration.Rmd">demonstration .Rmd file</a> and open it in RStudio.</p>
 <div id="exploring-code-chunks" class="section level4">
 <h4>Exploring code chunks</h4>
 <ol style="list-style-type: decimal">
-<li><p>Add a code chunk at the bottom of the <code>.Rmd</code> file. Either select “Insert” -&gt; “R”, or use a keyboard shortcut: <code>cmd + option + I</code> (MAC) / <code>ctrl + alt + i</code> (WINDOWS).</p></li>
-<li><p>Print out the <code>mtcars</code> data frame to explore the output. (Yes, this object comes shipped with R.)</p></li>
-<li><p>Run a chunk interactively using the green ‘play’ button</p></li>
-<li><p>Try out the <code>DT::datatable()</code> function on <code>mtcars</code>, and knit the file (to html, ideally).</p></li>
-<li><p>Add an <a href="https://rmarkdown.rstudio.com/lesson-4.html">in-line code chunk</a> specifying the number of rows of the mtcars dataset. Hint: <code>nrow()</code>.</p></li>
-<li><p>Continue the markdown commentary! If you were to give this document to someone to read through your “analysis”, a few notes would make it more readable.</p></li>
+<li><p>Add a code chunk below the first paragraph in the “Motor Trend Car Road Tests data” section of the <code>.Rmd</code> file. Either select “Insert” -&gt; “R”, or use a keyboard shortcut: <code>cmd + option + I</code> (MAC) / <code>ctrl + alt + i</code> (WINDOWS).</p></li>
+<li><p>In this code chunk, print out the <code>mtcars</code> data frame to explore the output. (Yes, this object comes shipped with R.)</p></li>
+<li><p>Run that chunk interactively using the green ‘play’ button.</p></li>
+<li><p>Now try out the <code>DT::datatable()</code> function on <code>mtcars</code> in this new chunk, and knit the file (to html, ideally).</p></li>
+<li><p>Add an <a href="https://rmarkdown.rstudio.com/lesson-4.html">in-line code chunk</a> specifying the number of rows of the mtcars dataset in place of the hardcoded number “32 automobiles”. Hint: <code>nrow()</code>.</p></li>
+<li><p>Fill in the document with markdown commentary for each of the code chunks! A few notes go a long way towards improving the readability of the report.</p></li>
 </ol>
 </div>
 <div id="exploring-chunk-options" class="section level4">

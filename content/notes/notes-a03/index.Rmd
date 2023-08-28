@@ -148,21 +148,21 @@ If this was easy, then try to figure out how to knit to a pdf document!
 
 ### Instructor demo: `mtcars` report 
 
-To follow along, download [demonstration .Rmd file](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/notes/notes-a03/mtcars_demonstration.Rmd).
+To follow along, download [demonstration .Rmd file](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/notes/notes-a03/mtcars_demonstration.Rmd) and open it in RStudio.
 
 #### Exploring code chunks
 
-1.  Add a code chunk at the bottom of the `.Rmd` file. Either select "Insert" -\> "R", or use a keyboard shortcut: `cmd + option + I` (MAC) / `ctrl + alt + i` (WINDOWS).
+1.  Add a code chunk below the first paragraph in the "Motor Trend Car Road Tests data" section of the `.Rmd` file. Either select "Insert" -\> "R", or use a keyboard shortcut: `cmd + option + I` (MAC) / `ctrl + alt + i` (WINDOWS).
 
-2.  Print out the `mtcars` data frame to explore the output. (Yes, this object comes shipped with R.)
+2.  In this code chunk, print out the `mtcars` data frame to explore the output. (Yes, this object comes shipped with R.)
 
-3. Run a chunk interactively using the green 'play' button
+3. Run that chunk interactively using the green 'play' button.
 
-4. Try out the `DT::datatable()` function on `mtcars`, and knit the file (to html, ideally).
+4. Now try out the `DT::datatable()` function on `mtcars` in this new chunk, and knit the file (to html, ideally).
 
-5.  Add an [in-line code chunk](https://rmarkdown.rstudio.com/lesson-4.html) specifying the number of rows of the mtcars dataset. Hint: `nrow()`.
+5.  Add an [in-line code chunk](https://rmarkdown.rstudio.com/lesson-4.html) specifying the number of rows of the mtcars dataset in place of the hardcoded number "32 automobiles". Hint: `nrow()`.
 
-6. Continue the markdown commentary! If you were to give this document to someone to read through your "analysis", a few notes would make it more readable.
+6. Fill in the document with markdown commentary for each of the code chunks! A few notes go a long way towards improving the readability of the report. 
 
 
 #### Exploring chunk options
