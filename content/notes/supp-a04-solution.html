@@ -9,8 +9,8 @@ output: html_document
 
 <div id="introduction" class="section level2">
 <h2>Introduction</h2>
-<p>We will perform exploratory data analysis of the <code>fev</code> data set.</p>
-<p>Let’s start by getting the data set. (Reminder: you will need to run <code>install.packages("rigr")</code> to install the <code>rigr</code> package which contains the data set before loading it. ) Let’s also load <code>dplyr</code> while we’re at it - we’ll need it to do the exercises!</p>
+<p>We will perform exploratory data analysis of the <code>fev</code> data set.
+Let’s start by getting the data set. (Reminder: you will need to run <code>install.packages("rigr")</code> to install the <code>rigr</code> package which contains the data set before loading it. ) Let’s also load <code>dplyr</code> while we’re at it - we’ll need it to do the exercises!</p>
 <pre class="r"><code>library(rigr) 
 library(dplyr)
 
@@ -128,7 +128,8 @@ fev_tbl &lt;- as_tibble(fev) %&gt;% mutate(across(sex:smoke, ~ as.factor(.x)))</
 <div id="exercise-4" class="section level3">
 <h3>Exercise 4</h3>
 <p>Let’s summarize the age of the patients first, by computing the mean, standard deviation, min, and max of the patient ages.</p>
-<pre class="r"><code>fev_tbl %&gt;% summarize(mean = mean(age), sd = sd(age), min = min(age), max = max(age))</code></pre>
+<pre class="r"><code>fev_tbl %&gt;% summarize(mean = mean(age), sd = sd(age), 
+                      min = min(age), max = max(age))</code></pre>
 <pre><code>## # A tibble: 1 × 4
 ##    mean    sd   min   max
 ##   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt;

@@ -11,7 +11,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Introduction 
 
-We will perform exploratory data analysis of the `fev` data set. 
+We will perform exploratory data analysis of the `fev` data set.
 
 Let's start by getting the data set. (Reminder: you will need to run `install.packages("rigr")` to install the `rigr` package which contains the data set before loading it. ) Let's also load `dplyr` while we're at it - we'll need it to do the exercises! 
 
