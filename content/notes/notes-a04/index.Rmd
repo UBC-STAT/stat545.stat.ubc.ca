@@ -43,9 +43,10 @@ Optional further reading to learn about the `across()` function:
 
 You have a shiny new data set - great! You might be tempted to dive right in and start making pretty graphs and fitting cool models to your data. Not so fast! In practice, it's very rare that you have the data in the exact right form to make the graph you want, or fit the model you want. You will need to start by *manipulating* your data into the right form: creating new variables, subsetting rows, renaming columns, etc. 
 
-Plus, a less sexy but nevertheless important piece of data analysis output is tables that summarize the data in some way. For example, it is extremely standard practice in biomedical and public health studies to have the first table of any journal article to summarize basic characteristics of the study population, possibly stratified by exposure. While these tables are less pretty than graphs, they can nevertheless be very insightful! 
+Plus, a less sexy but nevertheless important piece of data analysis output is tables that summarize the data in some way. For example, it is extremely standard practice in biomedical and public health studies to have the first table of any journal article summarize basic characteristics of the study population, possibly stratified by exposure. While these tables are less pretty than graphs, they can nevertheless be very insightful! 
 
 An even less sexy but perhaps even more important part of data analysis is simply checking the data for things like: 
+
 - Possible inconsistencies with your understanding of what the data set should contain
 - Possible errors 
 - Basic info gathering: number of rows, number of columns, amount of missing data, etc. 
@@ -69,8 +70,8 @@ Now's your chance to ask about any questions you got stuck on and get them answe
 
 ## Class 2: FEV Case Study
 
-We will get a flavour for how you might use dplyr in the wild and get in even more dplyr practice by working through a case study centred on a biomedical data set. [Click here](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/notes/notes-a04/fev.Rmd) to get to the case study. 
+We will get a flavour for how you might use dplyr in the wild and get in even more dplyr practice by working through [a case study centred on a biomedical data set](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/notes/notes-a04/fev.Rmd).
 
 By yourself or in small groups, work through the exercises in the case study. Teaching team will walk around and answer questions and chat about anything data manipulation related. 
 
-If we have time left: go over instructor solutions and commentary. 
+Leftover time: go over instructor solutions.

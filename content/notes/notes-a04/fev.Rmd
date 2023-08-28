@@ -47,20 +47,9 @@ Here is a few rows of the data set:
 head(fev_tbl)
 ```
 
-## A little bit of basic pre-processing
-
-We know from the data dictionary that height is measured in inches. We can also sort of figure that out by looking at the range of the height variable in the rows of the data set above. 
-
-### Exercise 1 
-In Canada, we are pretty equally used to imperial and metric height measurements. Let's transform height to be in cm by multiplying by 2.54, and change the variable name to `height_cm`. 
-
-```{r} 
-# FILL IN HERE 
-```
-
 ## Understanding the data structure
 
-### Exercise 2
+### Exercise 1
 
 Am I missing any variables compared to the data dictionary? Let's check. 
 
@@ -68,7 +57,7 @@ Am I missing any variables compared to the data dictionary? Let's check.
 # FILL IN HERE 
 ```
 
-### Exercise 3
+### Exercise 2
 
 Next: are there any duplicate case numbers? Are there any duplicate subject IDs?
 
@@ -76,6 +65,18 @@ Next: are there any duplicate case numbers? Are there any duplicate subject IDs?
 # FILL IN HERE
 ```
 Now we know that no cases were entered twice, and each case corresponds to a different patient. 
+
+## A little bit of basic pre-processing
+
+We know from the data dictionary that height is measured in inches. We can also sort of figure that out by looking at the range of the height variable in the rows of the data set above. 
+
+### Exercise 3
+In Canada, we are pretty equally used to imperial and metric height measurements. Let's transform height to be in cm by multiplying by 2.54, and change the variable name to `height_cm`. 
+
+```{r} 
+# FILL IN HERE 
+```
+
 
 ## Understanding the patients in the study
 

@@ -71,27 +71,27 @@ fev_tbl &lt;- as_tibble(fev) %&gt;% mutate(across(sex:smoke, ~ as.factor(.x)))</
 ## 5      5    901     9  1.90   57   male   no   
 ## 6      6   1701     8  2.34   61   female no</code></pre>
 </div>
-<div id="a-little-bit-of-basic-pre-processing" class="section level2">
-<h2>A little bit of basic pre-processing</h2>
-<p>We know from the data dictionary that height is measured in inches. We can also sort of figure that out by looking at the range of the height variable in the rows of the data set above.</p>
-<div id="exercise-1" class="section level3">
-<h3>Exercise 1</h3>
-<p>In Canada, we are pretty equally used to imperial and metric height measurements. Let’s transform height to be in cm by multiplying by 2.54, and change the variable name to <code>height_cm</code>.</p>
-<pre class="r"><code># FILL IN HERE </code></pre>
-</div>
-</div>
 <div id="understanding-the-data-structure" class="section level2">
 <h2>Understanding the data structure</h2>
-<div id="exercise-2" class="section level3">
-<h3>Exercise 2</h3>
+<div id="exercise-1" class="section level3">
+<h3>Exercise 1</h3>
 <p>Am I missing any variables compared to the data dictionary? Let’s check.</p>
 <pre class="r"><code># FILL IN HERE </code></pre>
 </div>
-<div id="exercise-3" class="section level3">
-<h3>Exercise 3</h3>
+<div id="exercise-2" class="section level3">
+<h3>Exercise 2</h3>
 <p>Next: are there any duplicate case numbers? Are there any duplicate subject IDs?</p>
 <pre class="r"><code># FILL IN HERE</code></pre>
 <p>Now we know that no cases were entered twice, and each case corresponds to a different patient.</p>
+</div>
+</div>
+<div id="a-little-bit-of-basic-pre-processing" class="section level2">
+<h2>A little bit of basic pre-processing</h2>
+<p>We know from the data dictionary that height is measured in inches. We can also sort of figure that out by looking at the range of the height variable in the rows of the data set above.</p>
+<div id="exercise-3" class="section level3">
+<h3>Exercise 3</h3>
+<p>In Canada, we are pretty equally used to imperial and metric height measurements. Let’s transform height to be in cm by multiplying by 2.54, and change the variable name to <code>height_cm</code>.</p>
+<pre class="r"><code># FILL IN HERE </code></pre>
 </div>
 </div>
 <div id="understanding-the-patients-in-the-study" class="section level2">
@@ -125,7 +125,7 @@ fev_tbl &lt;- as_tibble(fev) %&gt;% mutate(across(sex:smoke, ~ as.factor(.x)))</
 <p>Let’s continue exploring the data set with a closer eye to our main research question: does smoking have an effect on lung function in children?</p>
 <div id="exercise-7" class="section level3">
 <h3>Exercise 7</h3>
-<p>Let’s start by summarizing the FEV of the smokers and non-smokers. Let’s calculate the mean, standard deviation, and number of observations in each group. We will mainly be comparing the means to gather information about the question, but the standard deviation and number of observations are important to look at to.</p>
+<p>Let’s start by summarizing the FEV of the smokers and non-smokers. Let’s calculate the mean, standard deviation, and number of observations in each group. We will mainly be comparing the means to gather information about the question, but the standard deviation and number of observations are important to look at too.</p>
 <pre class="r"><code># FILL IN HERE</code></pre>
 <p>We see that the mean FEV in the smoking group seems to be substantially higher than the average FEV in the non-smoking group. That is, the smokers appear to have <em>better</em> lung function than the non-smokers.</p>
 <p>Does this surprise you? Recall that this is an observational study - children were not randomly assigned to smoke or not smoke. We might then have reason to suspect that the association between FEV and smoking status is confounded by some other factors. For example,

@@ -71,14 +71,42 @@ fev_tbl &lt;- as_tibble(fev) %&gt;% mutate(across(sex:smoke, ~ as.factor(.x)))</
 ## 5      5    901     9  1.90   57   male   no   
 ## 6      6   1701     8  2.34   61   female no</code></pre>
 </div>
+<div id="understanding-the-data-structure" class="section level2">
+<h2>Understanding the data structure</h2>
+<div id="exercise-1" class="section level3">
+<h3>Exercise 1</h3>
+<p>Am I missing any variables compared to the data dictionary? Let’s check.</p>
+<pre class="r"><code>glimpse(fev_tbl)</code></pre>
+<pre><code>## Rows: 654
+## Columns: 7
+## $ seqnbr &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, …
+## $ subjid &lt;int&gt; 301, 451, 501, 642, 901, 1701, 1752, 1753, 1901, 1951, 1952, 20…
+## $ age    &lt;int&gt; 9, 8, 7, 9, 9, 8, 6, 6, 8, 9, 6, 8, 8, 8, 8, 7, 5, 6, 9, 9, 5, …
+## $ fev    &lt;dbl&gt; 1.708, 1.724, 1.720, 1.558, 1.895, 2.336, 1.919, 1.415, 1.987, …
+## $ height &lt;dbl&gt; 57.0, 67.5, 54.5, 53.0, 57.0, 61.0, 58.0, 56.0, 58.5, 60.0, 53.…
+## $ sex    &lt;fct&gt; female, female, female, male, male, female, female, female, fem…
+## $ smoke  &lt;fct&gt; no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no,…</code></pre>
+</div>
+<div id="exercise-2" class="section level3">
+<h3>Exercise 2</h3>
+<p>Next: are there any duplicate case numbers? Are there any duplicate subject IDs?</p>
+<pre class="r"><code>fev_tbl %&gt;% summarize(num_case = length(unique(seqnbr)), 
+                      num_patient = length(unique(subjid)))</code></pre>
+<pre><code>## # A tibble: 1 × 2
+##   num_case num_patient
+##      &lt;int&gt;       &lt;int&gt;
+## 1      654         654</code></pre>
+<p>Now we know that no cases were entered twice, and each case corresponds to a different patient.</p>
+</div>
+</div>
 <div id="a-little-bit-of-basic-pre-processing" class="section level2">
 <h2>A little bit of basic pre-processing</h2>
 <p>We know from the data dictionary that height is measured in inches. We can also sort of figure that out by looking at the range of the height variable in the rows of the data set above.</p>
 <p>In Canada, we are pretty equally used to imperial and metric height measurements. Let’s transform height to be in cm by multiplying by 2.54, and change the variable name to <code>height_cm</code>.</p>
-<div id="exercise-1" class="section level3">
-<h3>Exercise 1</h3>
-<pre class="r"><code>fev_tbl %&gt;% mutate(height = height*2.54) %&gt;% 
-  rename(height_cm = height)</code></pre>
+<div id="exercise-3" class="section level3">
+<h3>Exercise 3</h3>
+<pre class="r"><code>(fev_tbl &lt;- fev_tbl %&gt;% mutate(height = height*2.54) %&gt;% 
+  rename(height_cm = height))</code></pre>
 <pre><code>## # A tibble: 654 × 7
 ##    seqnbr subjid   age   fev height_cm sex    smoke
 ##     &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt;
@@ -93,34 +121,6 @@ fev_tbl &lt;- as_tibble(fev) %&gt;% mutate(across(sex:smoke, ~ as.factor(.x)))</
 ##  9      9   1901     8  1.99      149. female no   
 ## 10     10   1951     9  1.94      152. female no   
 ## # ℹ 644 more rows</code></pre>
-</div>
-</div>
-<div id="understanding-the-data-structure" class="section level2">
-<h2>Understanding the data structure</h2>
-<div id="exercise-2" class="section level3">
-<h3>Exercise 2</h3>
-<p>Am I missing any variables compared to the data dictionary? Let’s check.</p>
-<pre class="r"><code>glimpse(fev_tbl)</code></pre>
-<pre><code>## Rows: 654
-## Columns: 7
-## $ seqnbr &lt;int&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, …
-## $ subjid &lt;int&gt; 301, 451, 501, 642, 901, 1701, 1752, 1753, 1901, 1951, 1952, 20…
-## $ age    &lt;int&gt; 9, 8, 7, 9, 9, 8, 6, 6, 8, 9, 6, 8, 8, 8, 8, 7, 5, 6, 9, 9, 5, …
-## $ fev    &lt;dbl&gt; 1.708, 1.724, 1.720, 1.558, 1.895, 2.336, 1.919, 1.415, 1.987, …
-## $ height &lt;dbl&gt; 57.0, 67.5, 54.5, 53.0, 57.0, 61.0, 58.0, 56.0, 58.5, 60.0, 53.…
-## $ sex    &lt;fct&gt; female, female, female, male, male, female, female, female, fem…
-## $ smoke  &lt;fct&gt; no, no, no, no, no, no, no, no, no, no, no, no, no, no, no, no,…</code></pre>
-</div>
-<div id="exercise-3" class="section level3">
-<h3>Exercise 3</h3>
-<p>Next: are there any duplicate case numbers? Are there any duplicate subject IDs?</p>
-<pre class="r"><code>fev_tbl %&gt;% summarize(num_case = length(unique(seqnbr)), 
-                      num_patient = length(unique(subjid)))</code></pre>
-<pre><code>## # A tibble: 1 × 2
-##   num_case num_patient
-##      &lt;int&gt;       &lt;int&gt;
-## 1      654         654</code></pre>
-<p>Now we know that no cases were entered twice, and each case corresponds to a different patient.</p>
 </div>
 </div>
 <div id="understanding-the-patients-in-the-study" class="section level2">
@@ -145,18 +145,18 @@ fev_tbl &lt;- as_tibble(fev) %&gt;% mutate(across(sex:smoke, ~ as.factor(.x)))</
 <p>I’m now a bit worried: what’s the youngest patient who smokes in this dataset?</p>
 <pre class="r"><code>fev_tbl %&gt;% filter(smoke == &quot;yes&quot;) %&gt;% arrange(age)</code></pre>
 <pre><code>## # A tibble: 65 × 7
-##    seqnbr subjid   age   fev height sex    smoke
-##     &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt;
-##  1    191  45241     9  1.95   58   male   yes  
-##  2    388  16551    10  2.39   66   female yes  
-##  3    441  30052    10  3.41   66   female yes  
-##  4    446  31502    10  2.98   63   female yes  
-##  5    518  50301    10  3.50   68   male   yes  
-##  6    574  72552    10  3.04   65   female yes  
-##  7    369  11601    11  1.69   60   male   yes  
-##  8    456  34201    11  3.17   62.5 female yes  
-##  9    496  45201    11  3.10   64   female yes  
-## 10    523  51201    11  2.95   67   female yes  
+##    seqnbr subjid   age   fev height_cm sex    smoke
+##     &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt;
+##  1    191  45241     9  1.95      147. male   yes  
+##  2    388  16551    10  2.39      168. female yes  
+##  3    441  30052    10  3.41      168. female yes  
+##  4    446  31502    10  2.98      160. female yes  
+##  5    518  50301    10  3.50      173. male   yes  
+##  6    574  72552    10  3.04      165. female yes  
+##  7    369  11601    11  1.69      152. male   yes  
+##  8    456  34201    11  3.17      159. female yes  
+##  9    496  45201    11  3.10      163. female yes  
+## 10    523  51201    11  2.95      170. female yes  
 ## # ℹ 55 more rows</code></pre>
 <p>Looks like the youngest patient who smokes is 9. Seems young to me, but much less far-fetched than (say) 3.</p>
 </div>
@@ -184,7 +184,7 @@ fev_tbl &lt;- as_tibble(fev) %&gt;% mutate(across(sex:smoke, ~ as.factor(.x)))</
 <p>Let’s continue exploring the data set with a closer eye to our main research question: does smoking have an effect on lung function in children?</p>
 <div id="exercise-7" class="section level3">
 <h3>Exercise 7</h3>
-<p>Let’s start by summarizing the FEV of the smokers and non-smokers. Let’s calculate the mean, standard deviation, and number of observations in each group. We will mainly be comparing the means to gather information about the question, but the standard deviation and number of observations are important to look at to.</p>
+<p>Let’s start by summarizing the FEV of the smokers and non-smokers. Let’s calculate the mean, standard deviation, and number of observations in each group. We will mainly be comparing the means to gather information about the question, but the standard deviation and number of observations are important to look at too.</p>
 <pre class="r"><code>fev_tbl %&gt;% group_by(smoke) %&gt;% 
   summarize(mean_fev = mean(fev), sd_fev = sd(fev), n = n())</code></pre>
 <pre><code>## # A tibble: 2 × 4
