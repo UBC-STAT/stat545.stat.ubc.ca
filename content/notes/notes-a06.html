@@ -3,7 +3,6 @@ title: "Graphing using the Grammar of Graphics through ggplot2"
 output: html_document
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <pre class="r"><code>library(tidyverse)
@@ -18,15 +17,16 @@ library(scales)</code></pre>
 <li>Customize the look of ggplot2 graphs.</li>
 <li>Choose an appropriate plot type for Exploratory Data Analysis, based on an understanding of what makes a graph effective.</li>
 </ul>
-<p>This tutorial will get you warmed up to plotting with <code>ggplot2</code> in R. It covers:</p>
-<ul>
-<li>The plotting framework available in R</li>
-<li>Why you should learn the <code>ggplot2</code> tool</li>
-<li>The importance of statistical graphics in communicating information</li>
-<li>The seven components of the grammar of graphics underlying <code>ggplot2</code></li>
-<li>Geometric objects and aesthetics for exploring various plot types.</li>
-</ul>
-<p>We will spend roughly two days on this topic.</p>
+<!-- This tutorial will get you warmed up to plotting with `ggplot2` in R. It covers:
+
+- The plotting framework available in R
+- Why you should learn the `ggplot2` tool
+- The importance of statistical graphics in communicating information
+- The seven components of the grammar of graphics underlying `ggplot2`
+- Geometric objects and aesthetics for exploring various plot types.
+
+
+We will spend roughly two days on this topic. -->
 </div>
 <div id="resources" class="section level2">
 <h2>Resources</h2>
@@ -67,19 +67,19 @@ library(scales)</code></pre>
 <li>True or False: In principle, mapping <code>continent</code> to letters (a, b, c, …) is an aesthetic mapping.</li>
 </ol>
 </div>
-<div id="the-graphing-landscape-in-r" class="section level2">
-<h2>The Graphing Landscape in R</h2>
-<p>Traditionally, plots in R are produced using “base R” methods, the crown function here being <code>plot()</code>. This method tends to be quite involved, and requires a lot of “coding by hand”.</p>
-<p>Then, an R package called <code>lattice</code> was created that aimed to make it easier to create multiple “panels” of plots. It seems to have gone to the wayside in the R community. Personally, I found that using this package often involved several lines of code to set up a plot, which then needed to get overriden by “special cases”.</p>
-<p>After <code>lattice</code> came <code>ggplot2</code>, which provides a very powerful and relatively simple framework for making plots. It has a theoretical underpinning, too, based on the Grammar of Graphics, first described by Leland Wilkinson in his <a href="http://resolve.library.ubc.ca/cgi-bin/catsearch?bid=5507286">“Grammar of Graphics” book</a>. With <code>ggplot2</code>, you can make a great many type of plots with minimal code. It’s been a hit in and outside of the R community.</p>
-<p>Check out <a href="http://www.jvcasillas.com/base_lattice_ggplot/">this comparison of the three</a> by Joseph V. Casillas.</p>
-<p>A newer tool is called <a href="https://plot.ly/">plotly</a>, which was actually developed outside of R, but the <code>plotly</code> R package accesses the plotly functionality. Plotly graphs allow for interactive exploration of a plot. You can convert ggplot2 graphics to a plotly graph, too.</p>
-</div>
-<div id="just-plot-it" class="section level2">
-<h2>Just plot it</h2>
+<div id="why-plotting" class="section level2">
+<h2>Why Plotting?</h2>
 <p>The human visual cortex is a powerful thing. If you’re wanting to point someone’s attention to a bunch of numbers, I can assure you that you won’t elicit any “aha” moments by displaying those numbers in a table, either in a report or (especially!) a presentation. Turn those numbers into a plot, and suddenly you can see patterns and relationships.</p>
 <p>If you really feel the need to tell your audience exactly what every quantity evaluates to, consider putting your table in an appendix. Because chances are, the reader doesn’t care about the exact numeric values. Or, perhaps you just want to point out one or a few numbers, in which case you can put that number directly on a plot.</p>
 <p>Case in point: <a href="https://speakerdeck.com/jennybc/ggplot2-tutorial?slide=7">Challenger example from Jenny Bryan</a>.</p>
+<p>Traditionally, plots in R are produced using “base R” methods, the crown function here being <code>plot()</code>. This method tends to be quite involved, and requires a lot of “coding by hand”.</p>
+<p>We recommend an R package called <code>ggplot2</code>, which provides a very powerful and relatively simple framework for making plots. Plus, it has a theoretical underpinning, based on the Grammar of Graphics, first described by Leland Wilkinson in his <a href="http://resolve.library.ubc.ca/cgi-bin/catsearch?bid=5507286">“Grammar of Graphics” book</a>. With <code>ggplot2</code>, you can make a great many type of plots with minimal code. It’s been a hit in and outside of the R community.</p>
+<!-- Then, an R package called `lattice` was created that aimed to make it easier to create multiple "panels" of plots. It seems to have gone to the wayside in the R community. Personally, I found that using this package often involved several lines of code to set up a plot, which then needed to get overriden by "special cases". 
+
+After `lattice` came `ggplot2`, which provides a very powerful and relatively simple framework for making plots. It has a theoretical underpinning, too, based on the Grammar of Graphics, first described by Leland Wilkinson in his ["Grammar of Graphics" book](http://resolve.library.ubc.ca/cgi-bin/catsearch?bid=5507286). With `ggplot2`, you can make a great many type of plots with minimal code. It's been a hit in and outside of the R community.
+
+Check out [this comparison of the three](http://www.jvcasillas.com/base_lattice_ggplot/) by Joseph V. Casillas. -->
+<p><em>Aside</em>: A newer tool is called <a href="https://plot.ly/">plotly</a>, which was actually developed outside of R, but the <code>plotly</code> R package accesses the plotly functionality. Plotly graphs allow for interactive exploration of a plot. You can convert ggplot2 graphics to a plotly graph, too.</p>
 </div>
 <div id="the-grammar-of-graphics" class="section level2">
 <h2>The grammar of graphics</h2>
@@ -166,14 +166,13 @@ library(scales)</code></pre>
 <p>Note that <code>x</code> and <code>y</code> aesthetics are required for scatterplots (or “point” geometric objects). In general, each geometric object has its own required set of aesthetics, which you can find by accessing the geometric object’s documentation (such as by executing <code>?geom_point</code>)</p>
 </div>
 </div>
-<div id="working-with-ggplot2" class="section level2">
-<h2>Working with ggplot2</h2>
+<div id="example-your-first-ggplot2-plot" class="section level2">
+<h2>Example: your first ggplot2 plot</h2>
 <p>First, load the ggplot2 package by loading the tidyverse with <code>library(tidyverse)</code> (as you can see at the top of this page).</p>
-<p>There are two main ways to interact with <code>ggplot2</code>:</p>
-<ol style="list-style-type: decimal">
-<li>The <code>qplot()</code> or <code>quickplot()</code> functions (the two are identical): Useful for making a quick plot if you have vectors stored in your workspace that you’d like to plot. Usually not worthwhile using.</li>
-<li>The <code>ggplot()</code> function: use to access the full power of <code>ggplot2</code>.</li>
-</ol>
+<!-- There are two main ways to interact with `ggplot2`:
+
+1. The `qplot()` or `quickplot()` functions (the two are identical): Useful for making a quick plot if you have vectors stored in your workspace that you'd like to plot. Usually not worthwhile using.
+2. The `ggplot()` function: use to access the full power of `ggplot2`. -->
 <p>Let’s use the above scatterplot as an example to see how to use the <code>ggplot()</code> function.</p>
 <p>First, the <code>ggplot()</code> function takes two arguments:
 - <code>data</code>: the data frame containing your plotting data.
@@ -199,123 +198,197 @@ library(scales)</code></pre>
   ylab(&quot;Life Expectancy&quot;)</code></pre>
 <p><img src="/notes/notes-a06_files/figure-html/unnamed-chunk-7-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
-<div id="a-tour-of-some-important-geoms" class="section level2">
-<h2>A tour of some important <code>geom</code>s</h2>
-<p>Here, we’ll explore some common plot types, and how to produce them with <code>ggplot2</code>.</p>
-<div id="histograms-geom_histogram" class="section level3">
-<h3>Histograms: <code>geom_histogram()</code></h3>
-<p>Useful for depicting the distribution of a continuous random variable. Partitions the number line into bins of certain width, counts the number of observations falling into each bin, and erects a bar of that height for each bin.</p>
-<p>Required aesthetics:</p>
+<div id="your-turn-learning-to-use-ggplot2" class="section level2">
+<h2>Your turn: learning to use ggplot2</h2>
+<p>We think the best way to learn the basics of ggplot2 is to work through Worksheet A3.</p>
+<div id="first-30-minutes-of-class-1" class="section level3">
+<h3>First 30 minutes of Class 1</h3>
 <ul>
-<li><code>x</code>: A numeric vector.</li>
+<li>Haven’t attempted all of the questions on Worksheet A3? Then spend this time attempting unattempted questions.</li>
+<li>Finished attempting all of the questions? Then do the optional <a href="https://r4ds.had.co.nz/data-visualisation.html">R4DS Data Visualization</a> reading, and maybe even do some of the exercises for extra practice.</li>
 </ul>
-<p>By default, a histogram plots the <em>count</em> on the y-axis. If you want to use proportion, specify the <code>y = ..prop..</code> aesthetic.</p>
-<p>You can change the smoothness of the plot via two arguments (your choice):</p>
-<ul>
-<li><code>bins</code>: the number of bins/bars shown in the plot.</li>
-<li><code>binwidth</code>: the with of the bins shown on the plot.</li>
-</ul>
-<p>Example:</p>
-<pre class="r"><code>ggplot(gapminder, aes(lifeExp)) +
-  geom_histogram(bins = 50)</code></pre>
-<p><img src="/notes/notes-a06_files/figure-html/unnamed-chunk-8-1.png" width="480" style="display: block; margin: auto;" /></p>
+<p>During this time, teaching team will also walk around and answer questions and chat about anything graphing related.</p>
 </div>
-<div id="density-geom_density" class="section level3">
-<h3>Density: <code>geom_density()</code></h3>
-<p>Essentially, a “smooth” version of a histogram. Uses <a href="https://en.wikipedia.org/wiki/Kernel_density_estimation">kernels</a> to produce the curve.</p>
-<p>Required aesthetics:</p>
-<ul>
-<li><code>x</code>: A numeric vector.</li>
-</ul>
-<p>Good to know:</p>
-<ul>
-<li><code>bw</code> argument controls the smoothness: Smaller = rougher.</li>
-</ul>
-<p>Example:</p>
-<pre class="r"><code>ggplot(gapminder, aes(lifeExp)) +
-  geom_density()</code></pre>
-<p><img src="/notes/notes-a06_files/figure-html/unnamed-chunk-9-1.png" width="480" style="display: block; margin: auto;" /></p>
+<div id="remaining-time-in-class-1" class="section level3">
+<h3>Remaining time in Class 1</h3>
+<p>Now’s your chance to ask about any questions you got stuck on and get them answered by the instructor!</p>
 </div>
-<div id="jitter-plots-geom_jitter" class="section level3">
-<h3>Jitter plots: <code>geom_jitter()</code></h3>
-<p>A scatterplot, but with minor random perturbations of each point. Useful for scatterplots where points are overlaying, or when one variable is categorical.</p>
-<p>Required aesthetics:</p>
-<ul>
-<li><code>x</code>: any vector</li>
-<li><code>y</code>: any vector</li>
-</ul>
-<p>Example:</p>
-<pre class="r"><code>ggplot(gapminder, aes(continent, lifeExp)) +
-  geom_jitter()</code></pre>
-<p><img src="/notes/notes-a06_files/figure-html/unnamed-chunk-10-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
-<div id="box-plots-geom_boxplot" class="section level3">
-<h3>Box plots: <code>geom_boxplot()</code></h3>
-<p>This geom makes a boxplot for a numeric variable in each of a category. Useful for visualizing probability distributions across different categories.</p>
-<p>Required aesthetics:</p>
-<ul>
-<li><code>x</code>: A factor (categorical variable)</li>
-<li><code>y</code>: A numeric variable</li>
-</ul>
-<p>Example:</p>
-<pre class="r"><code>ggplot(gapminder, aes(continent, lifeExp)) +
-  geom_boxplot()</code></pre>
-<p><img src="/notes/notes-a06_files/figure-html/unnamed-chunk-11-1.png" width="480" style="display: block; margin: auto;" /></p>
-</div>
-<div id="ridge-plots-ggridgesgeom_density_ridges" class="section level3">
-<h3>Ridge plots: <code>ggridges::geom_density_ridges()</code></h3>
-<p>A (superior?) alternative to the boxplot, the ridge plot (also known as the joy plot) places a kernel density for each group, instead of the box.</p>
-<p>You’ll need to install the <code>ggridges</code> package. You can do lots more with ridges – check out <a href="https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html">the ggridges intro vignette</a>.</p>
-<p>Required aesthetics (reversed from boxplots!)</p>
-<ul>
-<li><code>x</code>: A numeric variable</li>
-<li><code>y</code>: A factor (categorical variable)</li>
-</ul>
-<p>Example:</p>
-<pre class="r"><code>ggplot(gapminder, aes(lifeExp, continent)) +
-  ggridges::geom_density_ridges()</code></pre>
-<pre><code>## Picking joint bandwidth of 2.23</code></pre>
-<p><img src="/notes/notes-a06_files/figure-html/unnamed-chunk-12-1.png" width="480" style="display: block; margin: auto;" /></p>
-</div>
-<div id="bar-plots-geom_bar-or-geom_col" class="section level3">
-<h3>Bar plots: <code>geom_bar()</code> or <code>geom_col()</code></h3>
-<p>These geom’s erect a bar over each category.</p>
-<p><code>geom_bar()</code> automatically determines the height of the bar according to the count of each category.</p>
-<p><code>geom_col()</code> requires a manual specification of the bar heights.</p>
-<p>Required aesthetics:</p>
-<ul>
-<li><code>x</code>: A categorical variable</li>
-<li><code>y</code>: A numeric variable (only required for <code>geom_col()</code>!)
-<ul>
-<li>To use proportion in <code>geom_bar()</code> instead of count, set <code>y = ..prop..</code></li>
-</ul></li>
-</ul>
-<p>Example: number of 4-, 6-, and 8- cylinder cars in the <code>mtcars</code> dataset:</p>
-<pre class="r"><code>ggplot(mtcars, aes(cyl)) +
-  geom_bar()</code></pre>
-<p><img src="/notes/notes-a06_files/figure-html/unnamed-chunk-13-1.png" width="480" style="display: block; margin: auto;" /></p>
-</div>
-<div id="line-charts-geom_line" class="section level3">
-<h3>Line charts: <code>geom_line()</code></h3>
-<p>A line plot connects points with straight lines, from left-to-right. Especially useful if time is on the x-axis.</p>
-<p>Required aesthetics:</p>
-<ul>
-<li><code>x</code>: a variable having some ordering to it.</li>
-<li><code>y</code>: a numeric variable.</li>
-</ul>
-<p>Although not required, the <code>group</code> aesthetic will come in handy here. This aesthetic produces a plot independently for each group, and overlays the results.</p>
-<pre class="r"><code>tsibble::as_tsibble(co2) %&gt;% 
+<div id="class-2-fev-case-study" class="section level2">
+<h2>Class 2: FEV Case Study</h2>
+<p>We will get a flavour for how you might use ggplot2 in the wild and get in even more practice by working through <a href="https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/notes/supp-a06.Rmd">a continuation of our FEV case study from last week</a>.</p>
+<p>By yourself or in small groups, work through the exercises in the case study. Teaching team will walk around and answer questions and chat about anything graphing related.</p>
+<p>Leftover time: go over instructor solutions.</p>
+<!-- ## A tour of some important `geom`s
+
+Here, we'll explore some common plot types, and how to produce them with `ggplot2`.
+
+### Histograms: `geom_histogram()`
+
+Useful for depicting the distribution of a continuous random variable. Partitions the number line into bins of certain width, counts the number of observations falling into each bin, and erects a bar of that height for each bin.
+
+Required aesthetics:
+
+- `x`: A numeric vector.
+
+By default, a histogram plots the _count_ on the y-axis. If you want to use proportion, specify the `y = ..prop..` aesthetic. 
+
+You can change the smoothness of the plot via two arguments (your choice):
+
+- `bins`: the number of bins/bars shown in the plot.
+- `binwidth`: the with of the bins shown on the plot.
+
+Example:
+
+
+```r
+ggplot(gapminder, aes(lifeExp)) +
+  geom_histogram(bins = 50)
+```
+
+<img src="/notes/notes-a06_files/figure-html/unnamed-chunk-8-1.png" width="480" style="display: block; margin: auto;" />
+
+
+### Density: `geom_density()`
+
+Essentially, a "smooth" version of a histogram. Uses [kernels](https://en.wikipedia.org/wiki/Kernel_density_estimation) to produce the curve.
+
+Required aesthetics:
+
+- `x`: A numeric vector.
+
+Good to know:
+
+- `bw` argument controls the smoothness: Smaller = rougher.
+
+Example:
+
+
+```r
+ggplot(gapminder, aes(lifeExp)) +
+  geom_density()
+```
+
+<img src="/notes/notes-a06_files/figure-html/unnamed-chunk-9-1.png" width="480" style="display: block; margin: auto;" />
+
+### Jitter plots: `geom_jitter()`
+
+A scatterplot, but with minor random perturbations of each point. Useful for scatterplots where points are overlaying, or when one variable is categorical.
+
+Required aesthetics:
+
+- `x`: any vector
+- `y`: any vector
+
+Example:
+
+
+```r
+ggplot(gapminder, aes(continent, lifeExp)) +
+  geom_jitter()
+```
+
+<img src="/notes/notes-a06_files/figure-html/unnamed-chunk-10-1.png" width="480" style="display: block; margin: auto;" />
+
+### Box plots: `geom_boxplot()`
+
+This geom makes a boxplot for a numeric variable in each of a category. Useful for visualizing probability distributions across different categories.
+
+Required aesthetics:
+
+- `x`: A factor (categorical variable)
+- `y`: A numeric variable
+
+Example:
+
+
+```r
+ggplot(gapminder, aes(continent, lifeExp)) +
+  geom_boxplot()
+```
+
+<img src="/notes/notes-a06_files/figure-html/unnamed-chunk-11-1.png" width="480" style="display: block; margin: auto;" />
+
+
+### Ridge plots: `ggridges::geom_density_ridges()`
+
+A (superior?) alternative to the boxplot, the ridge plot (also known as the joy plot) places a kernel density for each group, instead of the box. 
+
+You'll need to install the `ggridges` package. You can do lots more with ridges -- check out [the ggridges intro vignette](https://cran.r-project.org/web/packages/ggridges/vignettes/introduction.html).
+
+Required aesthetics (reversed from boxplots!)
+
+- `x`: A numeric variable
+- `y`: A factor (categorical variable) 
+
+Example:
+
+
+```r
+ggplot(gapminder, aes(lifeExp, continent)) +
+  ggridges::geom_density_ridges()
+```
+
+```
+## Picking joint bandwidth of 2.23
+```
+
+<img src="/notes/notes-a06_files/figure-html/unnamed-chunk-12-1.png" width="480" style="display: block; margin: auto;" />
+
+### Bar plots: `geom_bar()` or `geom_col()`
+
+These geom's erect a bar over each category.
+
+`geom_bar()` automatically determines the height of the bar according to the count of each category.
+
+`geom_col()` requires a manual specification of the bar heights.
+
+Required aesthetics:
+
+- `x`: A categorical variable
+- `y`: A numeric variable (only required for `geom_col()`!)
+  - To use proportion in `geom_bar()` instead of count, set `y = ..prop..`
+
+Example: number of 4-, 6-, and 8- cylinder cars in the `mtcars` dataset:
+
+
+```r
+ggplot(mtcars, aes(cyl)) +
+  geom_bar()
+```
+
+<img src="/notes/notes-a06_files/figure-html/unnamed-chunk-13-1.png" width="480" style="display: block; margin: auto;" />
+
+### Line charts: `geom_line()`
+
+A line plot connects points with straight lines, from left-to-right. Especially useful if time is on the x-axis.
+
+Required aesthetics:
+
+- `x`: a variable having some ordering to it.
+- `y`: a numeric variable.
+
+Although not required, the `group` aesthetic will come in handy here. This aesthetic produces a plot independently for each group, and overlays the results.
+
+
+```r
+tsibble::as_tsibble(co2) %>% 
   rename(yearmonth = index,
-         conc = value) %&gt;% 
+         conc = value) %>% 
   mutate(month = lubridate::month(yearmonth, label = TRUE),
-         year  = lubridate::year(yearmonth)) %&gt;% 
+         year  = lubridate::year(yearmonth)) %>% 
   ggplot(aes(month, conc)) +
   geom_line(aes(group = year), alpha = 0.5) +
-  ylab(&quot;CO2 Concentration&quot;)</code></pre>
-<p><img src="/notes/notes-a06_files/figure-html/unnamed-chunk-14-1.png" width="480" style="display: block; margin: auto;" /></p>
-</div>
-<div id="path-plots-geom_path" class="section level3">
-<h3>Path plots: <code>geom_path()</code></h3>
-<p>Like <code>geom_line()</code>, except connects points in the order that they appear in the dataset.</p>
-</div>
+  ylab("CO2 Concentration")
+```
+
+<img src="/notes/notes-a06_files/figure-html/unnamed-chunk-14-1.png" width="480" style="display: block; margin: auto;" />
+
+
+
+### Path plots: `geom_path()`
+
+Like `geom_line()`, except connects points in the order that they appear in the dataset.
+
+-->
 </div>

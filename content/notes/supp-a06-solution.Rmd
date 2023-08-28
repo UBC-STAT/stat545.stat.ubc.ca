@@ -1,0 +1,79 @@
+---
+title: 'FEV Case Study: Graphing, With Solutions'
+author: "Lucy"
+date: "2023-08-28"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Review 
+
+We'll continue exploring the FEV data set from last week. Let's start by loading the data and required packages.
+
+```{r, message = FALSE} 
+library(rigr) 
+library(dplyr)
+library(ggplot2)
+
+fev_tbl <- as_tibble(fev) %>% mutate(across(sex:smoke, ~ as.factor(.x)))
+
+fev_tbl <- fev_tbl %>% mutate(height = height*2.54) %>% 
+  rename(height_cm = height)
+```
+
+Last week, we found that the mean FEV in the smoking group was substantially higher than the average FEV in the non-smoking group. That is, the smokers appear to have *better* lung function than the non-smokers. 
+
+We also had a theory as to why: the association between FEV and smoking status may be confounded by age/size, as bigger lungs can exhale more air (all else equal) than smaller lungs.
+
+## Smoking and lung function: a slightly more nuanced look
+
+Once you are done each of these exercises, compare your plots with a partner or other members of a small group. Discuss the rationale behind your plotting choices and key pieces of information you think a viewer should take away from the plots. 
+
+### Exercise 1
+
+Use plot(s) to compare the distribution of FEV in the smoking group and the distribution of FEV in the non-smoking group. 
+
+```{r}
+ggplot(fev_tbl, aes(x=smoke,y=fev, fill=smoke)) +
+  geom_boxplot(outlier.shape=NA, width=0.4) + 
+  geom_jitter(width=0.1, size=0.15, alpha=0.5)+
+  scale_fill_manual(values=c("cornflowerblue","orange")) + 
+  ggtitle("FEV versus smoking") +
+  ylab("FEV (l/s)") +
+  xlab("Smoking Status") + 
+  theme_bw()
+```
+
+
+### Exercise 2
+
+Use plot(s) to compare the distribution of FEV in smokers and the distribution of FEV in non-smokers at different ages. 
+
+```{r} 
+ggplot(fev_tbl, aes(x=as.factor(age),y=fev, fill=smoke)) +
+  geom_boxplot() + 
+  scale_fill_manual(values=c("cornflowerblue","orange"))  + 
+  ggtitle("FEV versus smoking by age") +
+  ylab("FEV (l/s)") +
+  xlab("Age (years)") + 
+  theme_bw()
+```
+
+
+### Exercise 3
+
+Use plot(s) to compare the distribution of FEV in smokers and the distribution of FEV in non-smokers at different ages and genders.
+
+```{r} 
+ggplot(fev_tbl, aes(x=as.factor(age),y=fev, fill=smoke)) +
+  geom_boxplot() + 
+  scale_fill_manual(values=c("cornflowerblue","orange"))  + 
+  ggtitle("FEV versus smoking by age and gender") +
+  ylab("FEV (l/s)") +
+  xlab("Age (years)") + 
+  theme_bw() + 
+  facet_grid(rows=vars(sex))
+```

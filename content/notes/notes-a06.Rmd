@@ -23,7 +23,7 @@ From this topic, students are anticipated to be able to:
 + Customize the look of ggplot2 graphs.
 + Choose an appropriate plot type for Exploratory Data Analysis, based on an understanding of what makes a graph effective. 
 
-This tutorial will get you warmed up to plotting with `ggplot2` in R. It covers:
+<!-- This tutorial will get you warmed up to plotting with `ggplot2` in R. It covers:
 
 - The plotting framework available in R
 - Why you should learn the `ggplot2` tool
@@ -32,7 +32,7 @@ This tutorial will get you warmed up to plotting with `ggplot2` in R. It covers:
 - Geometric objects and aesthetics for exploring various plot types.
 
 
-We will spend roughly two days on this topic. 
+We will spend roughly two days on this topic. -->
 
 ## Resources
 
@@ -66,26 +66,26 @@ Resources about producing effective visualizations:
 3. True or False: Because the `dplyr::group_by()` function and ggplot2's `group` aesthetic both split a tibble into groups, we can use either one when making a plot. 
 4. True or False: In principle, mapping `continent` to letters (a, b, c, ...) is an aesthetic mapping.
 
-
-## The Graphing Landscape in R
-
-Traditionally, plots in R are produced using "base R" methods, the crown function here being `plot()`. This method tends to be quite involved, and requires a lot of "coding by hand".
-
-Then, an R package called `lattice` was created that aimed to make it easier to create multiple "panels" of plots. It seems to have gone to the wayside in the R community. Personally, I found that using this package often involved several lines of code to set up a plot, which then needed to get overriden by "special cases". 
-
-After `lattice` came `ggplot2`, which provides a very powerful and relatively simple framework for making plots. It has a theoretical underpinning, too, based on the Grammar of Graphics, first described by Leland Wilkinson in his ["Grammar of Graphics" book](http://resolve.library.ubc.ca/cgi-bin/catsearch?bid=5507286). With `ggplot2`, you can make a great many type of plots with minimal code. It's been a hit in and outside of the R community.
-
-Check out [this comparison of the three](http://www.jvcasillas.com/base_lattice_ggplot/) by Joseph V. Casillas.
-
-A newer tool is called [plotly](https://plot.ly/), which was actually developed outside of R, but the `plotly` R package accesses the plotly functionality. Plotly graphs allow for interactive exploration of a plot. You can convert ggplot2 graphics to a plotly graph, too.
-
-## Just plot it
+## Why Plotting?
 
 The human visual cortex is a powerful thing. If you're wanting to point someone's attention to a bunch of numbers, I can assure you that you won't elicit any "aha" moments by displaying those numbers in a table, either in a report or (especially!) a presentation. Turn those numbers into a plot, and suddenly you can see patterns and relationships.
 
 If you really feel the need to tell your audience exactly what every quantity evaluates to, consider putting your table in an appendix. Because chances are, the reader doesn't care about the exact numeric values. Or, perhaps you just want to point out one or a few numbers, in which case you can put that number directly on a plot.
 
 Case in point: [Challenger example from Jenny Bryan](https://speakerdeck.com/jennybc/ggplot2-tutorial?slide=7).
+
+Traditionally, plots in R are produced using "base R" methods, the crown function here being `plot()`. This method tends to be quite involved, and requires a lot of "coding by hand".
+
+We recommend an R package called `ggplot2`, which provides a very powerful and relatively simple framework for making plots. Plus, it has a theoretical underpinning, based on the Grammar of Graphics, first described by Leland Wilkinson in his ["Grammar of Graphics" book](http://resolve.library.ubc.ca/cgi-bin/catsearch?bid=5507286). With `ggplot2`, you can make a great many type of plots with minimal code. It's been a hit in and outside of the R community.
+
+<!-- Then, an R package called `lattice` was created that aimed to make it easier to create multiple "panels" of plots. It seems to have gone to the wayside in the R community. Personally, I found that using this package often involved several lines of code to set up a plot, which then needed to get overriden by "special cases". 
+
+After `lattice` came `ggplot2`, which provides a very powerful and relatively simple framework for making plots. It has a theoretical underpinning, too, based on the Grammar of Graphics, first described by Leland Wilkinson in his ["Grammar of Graphics" book](http://resolve.library.ubc.ca/cgi-bin/catsearch?bid=5507286). With `ggplot2`, you can make a great many type of plots with minimal code. It's been a hit in and outside of the R community.
+
+Check out [this comparison of the three](http://www.jvcasillas.com/base_lattice_ggplot/) by Joseph V. Casillas. --> 
+
+*Aside*: A newer tool is called [plotly](https://plot.ly/), which was actually developed outside of R, but the `plotly` R package accesses the plotly functionality. Plotly graphs allow for interactive exploration of a plot. You can convert ggplot2 graphics to a plotly graph, too.
+
 
 ## The grammar of graphics
 
@@ -134,14 +134,14 @@ This scatterplot has the following grammar components:
 
 Note that `x` and `y` aesthetics are required for scatterplots (or "point" geometric objects). In general, each geometric object has its own required set of aesthetics, which you can find by accessing the geometric object's documentation (such as by executing `?geom_point`)
 
-## Working with ggplot2
+## Example: your first ggplot2 plot
 
 First, load the ggplot2 package by loading the tidyverse with `library(tidyverse)` (as you can see at the top of this page).
 
-There are two main ways to interact with `ggplot2`:
+<!-- There are two main ways to interact with `ggplot2`:
 
 1. The `qplot()` or `quickplot()` functions (the two are identical): Useful for making a quick plot if you have vectors stored in your workspace that you'd like to plot. Usually not worthwhile using.
-2. The `ggplot()` function: use to access the full power of `ggplot2`.
+2. The `ggplot()` function: use to access the full power of `ggplot2`. -->
 
 Let's use the above scatterplot as an example to see how to use the `ggplot()` function.
 
@@ -182,7 +182,29 @@ ggplot(gapminder, aes(gdpPercap, lifeExp)) +
   ylab("Life Expectancy")
 ```
 
-## A tour of some important `geom`s
+## Your turn: learning to use ggplot2
+
+We think the best way to learn the basics of ggplot2 is to work through Worksheet A3. 
+
+### First 30 minutes of Class 1
+
+- Haven't attempted all of the questions on Worksheet A3? Then spend this time attempting unattempted questions. 
+- Finished attempting all of the questions? Then do the optional [R4DS Data Visualization](https://r4ds.had.co.nz/data-visualisation.html) reading, and maybe even do some of the exercises for extra practice. 
+
+During this time, teaching team will also walk around and answer questions and chat about anything graphing related. 
+
+### Remaining time in Class 1
+
+Now's your chance to ask about any questions you got stuck on and get them answered by the instructor! 
+
+## Class 2: FEV Case Study
+
+We will get a flavour for how you might use ggplot2 in the wild and get in even more practice by working through [a continuation of our FEV case study from last week](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/notes/supp-a06.Rmd). 
+
+By yourself and in small groups, work through the exercises in the case study. During independent work time, teaching team will walk around and answer questions and chat about anything graphing related. We will also discuss instructor answers to each exercise. 
+
+
+<!-- ## A tour of some important `geom`s
 
 Here, we'll explore some common plot types, and how to produce them with `ggplot2`.
 
@@ -327,3 +349,5 @@ tsibble::as_tsibble(co2) %>%
 ### Path plots: `geom_path()`
 
 Like `geom_line()`, except connects points in the order that they appear in the dataset.
+
+-->
