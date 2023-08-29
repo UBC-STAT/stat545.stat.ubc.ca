@@ -1,5 +1,5 @@
 ---
-title: 'FEV Case Study: Graphing, With Solutions'
+title: 'FEV Case Study: Graphing'
 author: "Lucy"
 date: "2023-08-28"
 output: html_document
