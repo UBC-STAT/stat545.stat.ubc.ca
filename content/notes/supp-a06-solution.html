@@ -14,52 +14,83 @@ output: html_document
 library(dplyr)
 library(ggplot2)
 
-fev_tbl &lt;- as_tibble(fev) %&gt;% mutate(across(sex:smoke, ~ as.factor(.x)))
-
-fev_tbl &lt;- fev_tbl %&gt;% mutate(height = height*2.54) %&gt;% 
-  rename(height_cm = height)</code></pre>
+fev_tbl &lt;- as_tibble(fev) %&gt;% mutate(across(sex:smoke, ~ as.factor(.x)))</code></pre>
 <p>Last week, we found that the mean FEV in the smoking group was substantially higher than the average FEV in the non-smoking group. That is, the smokers appear to have <em>better</em> lung function than the non-smokers.</p>
-<p>We also had a theory as to why: the association between FEV and smoking status may be confounded by age/size, as bigger lungs can exhale more air (all else equal) than smaller lungs.</p>
+<p>We also had a theory as to why: the association between FEV and smoking status may be confounded, eg. by age/size.</p>
 </div>
-<div id="smoking-and-lung-function-a-slightly-more-nuanced-look" class="section level2">
-<h2>Smoking and lung function: a slightly more nuanced look</h2>
-<p>Once you are done each of these exercises, compare your plots with a partner or other members of a small group. Discuss the rationale behind your plotting choices and key pieces of information you think a viewer should take away from the plots.</p>
+<div id="smoking-and-fev-unadjusted" class="section level2">
+<h2>Smoking and FEV (unadjusted)</h2>
 <div id="exercise-1" class="section level3">
 <h3>Exercise 1</h3>
-<p>Use plot(s) to compare the distribution of FEV in the smoking group and the distribution of FEV in the non-smoking group.</p>
+<p>Now that we have plotting tools, let’s make a plot that compares the FEV of smokers to the FEV of non-smokers.</p>
 <pre class="r"><code>ggplot(fev_tbl, aes(x=smoke,y=fev, fill=smoke)) +
   geom_boxplot(outlier.shape=NA, width=0.4) + 
   geom_jitter(width=0.1, size=0.15, alpha=0.5)+
-  scale_fill_manual(values=c(&quot;cornflowerblue&quot;,&quot;orange&quot;)) + 
-  ggtitle(&quot;FEV versus smoking&quot;) +
+  scale_fill_manual(values=c(&quot;cornflowerblue&quot;,&quot;darkorange&quot;)) + 
+  ggtitle(&quot;Box plots of FEV, stratified by smoking status&quot;) +
   ylab(&quot;FEV (l/s)&quot;) +
   xlab(&quot;Smoking Status&quot;) + 
   theme_bw()</code></pre>
 <p><img src="/notes/supp-a06-solution_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>This broadly tells the same story as the summaries we calculated last week, but conveys more information and is more visually engaging.</p>
 </div>
-<div id="exercise-2" class="section level3">
-<h3>Exercise 2</h3>
-<p>Use plot(s) to compare the distribution of FEV in smokers and the distribution of FEV in non-smokers at different ages.</p>
-<pre class="r"><code>ggplot(fev_tbl, aes(x=as.factor(age),y=fev, fill=smoke)) +
-  geom_boxplot() + 
-  scale_fill_manual(values=c(&quot;cornflowerblue&quot;,&quot;orange&quot;))  + 
-  ggtitle(&quot;FEV versus smoking by age&quot;) +
-  ylab(&quot;FEV (l/s)&quot;) +
-  xlab(&quot;Age (years)&quot;) + 
-  theme_bw()</code></pre>
-<p><img src="/notes/supp-a06-solution_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
+<div id="informating-gathering-what-might-we-want-to-adjust-for" class="section level2">
+<h2>Informating gathering: what might we want to adjust for?</h2>
+<p>Let’s do some digging to see if there are other variables that we would like to adjust for, when comparing the FEV of smokers to non-smokers.</p>
 <div id="exercise-3" class="section level3">
 <h3>Exercise 3</h3>
-<p>Use plot(s) to compare the distribution of FEV in smokers and the distribution of FEV in non-smokers at different ages and genders.</p>
-<pre class="r"><code>ggplot(fev_tbl, aes(x=as.factor(age),y=fev, fill=smoke)) +
-  geom_boxplot() + 
-  scale_fill_manual(values=c(&quot;cornflowerblue&quot;,&quot;orange&quot;))  + 
-  ggtitle(&quot;FEV versus smoking by age and gender&quot;) +
-  ylab(&quot;FEV (l/s)&quot;) +
-  xlab(&quot;Age (years)&quot;) + 
-  theme_bw() + 
-  facet_grid(rows=vars(sex))</code></pre>
+<p>Last week, we found that the youngest patient who smokes is 9, suggesting that there is a difference in the age distribution among smokers and non-smokers. Make a plot that compares these two distributions.</p>
+<pre class="r"><code>ggplot(fev_tbl, aes(fill=smoke)) + 
+  geom_bar(aes(x = age, y = after_stat(prop))) + 
+  facet_wrap(~smoke) +
+  scale_fill_manual(values=c(&quot;cornflowerblue&quot;,&quot;orange&quot;)) + 
+  ggtitle(&quot;Histograms of age, stratified by smoking status&quot;) +
+  xlab(&quot;Age&quot;) + 
+  ylab(&quot;Proportion&quot;) + 
+  theme_bw()</code></pre>
+<p><img src="/notes/supp-a06-solution_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p>Again, we see that the smokers are overall older than the non-smokers.</p>
+</div>
+<div id="exercise-4" class="section level3">
+<h3>Exercise 4</h3>
+<p>We think that age should be related to height, which in turn should be related to FEV. Let’s investigate that more systematically now with plotting.</p>
+<p>First, make a plot with two panels: one that has a scatterplot of height versus age for the female patients, and one that has a scatterplot of height versus age for the male patients.</p>
+<pre class="r"><code>ggplot(fev_tbl, aes(x = age, y = height, colour=sex)) + 
+  geom_jitter(width=0.2, alpha = 0.75) + 
+  scale_colour_manual(values=c(&quot;cornflowerblue&quot;,&quot;darkorange&quot;)) + 
+  facet_wrap(~sex) + 
+  ggtitle(&quot;Height versus age, stratified by sex&quot;) +
+  xlab(&quot;Age&quot;) + 
+  ylab(&quot;Proportion&quot;) + 
+  theme_bw()</code></pre>
 <p><img src="/notes/supp-a06-solution_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>We see that the within-sex trend is similar: height is linear-ish at younger ages, and flat-ish at older ages. Boys wind up taller at older ages.</p>
+<p>Then, make a scatterplot of FEV versus height.</p>
+<pre class="r"><code>ggplot(fev_tbl, aes(x = height, y = fev)) + 
+  geom_jitter(width=0.2, alpha = 0.75) + 
+  ggtitle(&quot;FEV versus height&quot;) +
+  ylab(&quot;FEV (l/s)&quot;) +
+  xlab(&quot;Height (inches)&quot;) + 
+  theme_bw()</code></pre>
+<p><img src="/notes/supp-a06-solution_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p>We see that taller participants generally have higher FEV.</p>
+</div>
+</div>
+<div id="smoking-and-fev-adjusted-for-height" class="section level2">
+<h2>Smoking and FEV, adjusted for height</h2>
+<p>Now that we know that the smokers are older and bigger and have higher FEV, let’s look at the relationship between FEV and smoking status <em>adjusted</em> for height.</p>
+<div id="exercise-5" class="section level3">
+<h3>Exercise 5</h3>
+<p>Make a scatterplot of FEV versus height, with points coloured by smoking status.</p>
+<pre class="r"><code>ggplot(fev_tbl, aes(x = height, y = fev, colour=smoke)) + 
+  geom_jitter(width=0.2, alpha = 0.75) + 
+  scale_colour_manual(values=c(&quot;cornflowerblue&quot;,&quot;darkorange&quot;)) + 
+  ggtitle(&quot;FEV versus height, stratified by smoking status&quot;) +
+  ylab(&quot;FEV (l/s)&quot;) +
+  xlab(&quot;Height (inches)&quot;) + 
+  theme_bw()</code></pre>
+<p><img src="/notes/supp-a06-solution_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Based on this plot, it seems like the FEV of smokers and non-smokers <em>of the same height</em> is pretty similar.</p>
 </div>
 </div>
