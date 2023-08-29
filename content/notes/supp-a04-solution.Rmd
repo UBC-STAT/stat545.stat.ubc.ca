@@ -153,6 +153,6 @@ fev_tbl %>% group_by(smoke) %>%
 We see that the mean FEV in the smoking group seems to be substantially higher than the average FEV in the non-smoking group. That is, the smokers appear to have *better* lung function than the non-smokers. 
 
 Does this surprise you? Recall that this is an observational study - children were not randomly assigned to smoke or not smoke. We might then have reason to suspect that the association between FEV and smoking status is confounded by some other factors. For example, 
-we already know that the youngest smoker in our data set is 9, while the non-smokers are as young as 3. This suggests that the smokers in our data set are generally older than the non-smokers. Furthermore, we might expect older children to have higher FEV, because they are bigger and have bigger lungs. Could age be a confounder here? Maybe the smoking group has higher lung function simply because they are older and bigger, and within appropriately defined age groups, smokers tend to have lower FEV than non-smokers as we expect.  
+we already know that the youngest smoker in our data set is 9, while the non-smokers are as young as 3. This suggests that the smokers in our data set are generally older than the non-smokers. Furthermore, we might expect older children to have higher FEV, because they are bigger and have bigger lungs. Could age be a confounder here? Maybe the smoking group has higher lung function simply because they are older and bigger.
 
 We will investigate this point next week after we have learned about graphing tools.
