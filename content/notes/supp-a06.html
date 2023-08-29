@@ -1,0 +1,42 @@
+---
+title: 'FEV Case Study: Graphing, With Solutions'
+author: "Lucy"
+date: "2023-08-28"
+output: html_document
+---
+
+
+
+<div id="review" class="section level2">
+<h2>Review</h2>
+<p>We’ll continue exploring the FEV data set from last week. Let’s start by loading the data and required packages.</p>
+<pre class="r"><code>library(rigr) 
+library(dplyr)
+library(ggplot2)
+
+fev_tbl &lt;- as_tibble(fev) %&gt;% mutate(across(sex:smoke, ~ as.factor(.x)))
+
+fev_tbl &lt;- fev_tbl %&gt;% mutate(height = height*2.54) %&gt;% 
+  rename(height_cm = height)</code></pre>
+<p>Last week, we found that the mean FEV in the smoking group was substantially higher than the average FEV in the non-smoking group. That is, the smokers appear to have <em>better</em> lung function than the non-smokers.</p>
+<p>We also had a theory as to why: the association between FEV and smoking status may be confounded by age/size, as bigger lungs can exhale more air (all else equal) than smaller lungs.</p>
+</div>
+<div id="smoking-and-lung-function-a-slightly-more-nuanced-look" class="section level2">
+<h2>Smoking and lung function: a slightly more nuanced look</h2>
+<p>Once you are done each of these exercises, compare your plots with a partner or other members of a small group. Discuss the rationale behind your plotting choices and key pieces of information you think a viewer should take away from the plots.</p>
+<div id="exercise-1" class="section level3">
+<h3>Exercise 1</h3>
+<p>Use plot(s) to compare the distribution of FEV in the smoking group and the distribution of FEV in the non-smoking group.</p>
+<pre class="r"><code># FILL IN HERE </code></pre>
+</div>
+<div id="exercise-2" class="section level3">
+<h3>Exercise 2</h3>
+<p>Use plot(s) to compare the distribution of FEV in smokers and the distribution of FEV in non-smokers at different ages.</p>
+<pre class="r"><code># FILL IN HERE </code></pre>
+</div>
+<div id="exercise-3" class="section level3">
+<h3>Exercise 3</h3>
+<p>Use plot(s) to compare the distribution of FEV in smokers and the distribution of FEV in non-smokers at different ages and genders.</p>
+<pre class="r"><code># FILL IN HERE </code></pre>
+</div>
+</div>
