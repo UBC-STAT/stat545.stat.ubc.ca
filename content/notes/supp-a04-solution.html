@@ -1,7 +1,7 @@
 ---
 title: 'FEV Case Study: Data Manipulation, With Solutions'
 author: "Lucy"
-date: "2023-08-24"
+date: "2023-08-29"
 output: html_document
 ---
 
@@ -99,34 +99,10 @@ fev_tbl &lt;- as_tibble(fev) %&gt;% mutate(across(sex:smoke, ~ as.factor(.x)))</
 <p>Now we know that no cases were entered twice, and each case corresponds to a different patient.</p>
 </div>
 </div>
-<div id="a-little-bit-of-basic-pre-processing" class="section level2">
-<h2>A little bit of basic pre-processing</h2>
-<p>We know from the data dictionary that height is measured in inches. We can also sort of figure that out by looking at the range of the height variable in the rows of the data set above.</p>
-<p>In Canada, we are pretty equally used to imperial and metric height measurements. Let’s transform height to be in cm by multiplying by 2.54, and change the variable name to <code>height_cm</code>.</p>
-<div id="exercise-3" class="section level3">
-<h3>Exercise 3</h3>
-<pre class="r"><code>(fev_tbl &lt;- fev_tbl %&gt;% mutate(height = height*2.54) %&gt;% 
-  rename(height_cm = height))</code></pre>
-<pre><code>## # A tibble: 654 × 7
-##    seqnbr subjid   age   fev height_cm sex    smoke
-##     &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt;
-##  1      1    301     9  1.71      145. female no   
-##  2      2    451     8  1.72      171. female no   
-##  3      3    501     7  1.72      138. female no   
-##  4      4    642     9  1.56      135. male   no   
-##  5      5    901     9  1.90      145. male   no   
-##  6      6   1701     8  2.34      155. female no   
-##  7      7   1752     6  1.92      147. female no   
-##  8      8   1753     6  1.42      142. female no   
-##  9      9   1901     8  1.99      149. female no   
-## 10     10   1951     9  1.94      152. female no   
-## # ℹ 644 more rows</code></pre>
-</div>
-</div>
 <div id="understanding-the-patients-in-the-study" class="section level2">
 <h2>Understanding the patients in the study</h2>
-<div id="exercise-4" class="section level3">
-<h3>Exercise 4</h3>
+<div id="exercise-3" class="section level3">
+<h3>Exercise 3</h3>
 <p>Let’s summarize the age of the patients first, by computing the mean, standard deviation, min, and max of the patient ages.</p>
 <pre class="r"><code>fev_tbl %&gt;% summarize(mean = mean(age), sd = sd(age), 
                       min = min(age), max = max(age))</code></pre>
@@ -141,28 +117,28 @@ fev_tbl &lt;- as_tibble(fev) %&gt;% mutate(across(sex:smoke, ~ as.factor(.x)))</
 <li>Why would a 19 year old be enrolled in a study on children?</li>
 </ul>
 </div>
-<div id="exercise-5" class="section level3">
-<h3>Exercise 5</h3>
+<div id="exercise-4" class="section level3">
+<h3>Exercise 4</h3>
 <p>I’m now a bit worried: what’s the youngest patient who smokes in this dataset?</p>
 <pre class="r"><code>fev_tbl %&gt;% filter(smoke == &quot;yes&quot;) %&gt;% arrange(age)</code></pre>
 <pre><code>## # A tibble: 65 × 7
-##    seqnbr subjid   age   fev height_cm sex    smoke
-##     &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt;
-##  1    191  45241     9  1.95      147. male   yes  
-##  2    388  16551    10  2.39      168. female yes  
-##  3    441  30052    10  3.41      168. female yes  
-##  4    446  31502    10  2.98      160. female yes  
-##  5    518  50301    10  3.50      173. male   yes  
-##  6    574  72552    10  3.04      165. female yes  
-##  7    369  11601    11  1.69      152. male   yes  
-##  8    456  34201    11  3.17      159. female yes  
-##  9    496  45201    11  3.10      163. female yes  
-## 10    523  51201    11  2.95      170. female yes  
+##    seqnbr subjid   age   fev height sex    smoke
+##     &lt;int&gt;  &lt;int&gt; &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;fct&gt;  &lt;fct&gt;
+##  1    191  45241     9  1.95   58   male   yes  
+##  2    388  16551    10  2.39   66   female yes  
+##  3    441  30052    10  3.41   66   female yes  
+##  4    446  31502    10  2.98   63   female yes  
+##  5    518  50301    10  3.50   68   male   yes  
+##  6    574  72552    10  3.04   65   female yes  
+##  7    369  11601    11  1.69   60   male   yes  
+##  8    456  34201    11  3.17   62.5 female yes  
+##  9    496  45201    11  3.10   64   female yes  
+## 10    523  51201    11  2.95   67   female yes  
 ## # ℹ 55 more rows</code></pre>
 <p>Looks like the youngest patient who smokes is 9. Seems young to me, but much less far-fetched than (say) 3.</p>
 </div>
-<div id="exercise-6" class="section level3">
-<h3>Exercise 6</h3>
+<div id="exercise-5" class="section level3">
+<h3>Exercise 5</h3>
 <p>What about the 19 year olds? Should they be included? The definition of a “child” can vary from study to study. Possible definitions include &lt; 21 and &lt; 18. Let’s find out who the patients 18 or older are and what their case numbers are so that we can ask our point of contact for the study about them.</p>
 <pre class="r"><code>fev_tbl %&gt;% filter(age &gt;= 18) %&gt;% select(seqnbr, subjid)</code></pre>
 <pre><code>## # A tibble: 9 × 2
@@ -179,12 +155,54 @@ fev_tbl &lt;- as_tibble(fev) %&gt;% mutate(across(sex:smoke, ~ as.factor(.x)))</
 ## 9    652  73751</code></pre>
 <p><strong>Aside</strong>: if it turns out that we need to exclude any of these odd-looking patients from our final data analysis, then we will need to re-run everything after this point with their data removed. Isn’t it nice that we are preparing this report in R Markdown?</p>
 </div>
+<div id="exercise-6" class="section level3">
+<h3>Exercise 6</h3>
+<p>This is a smoking study, so it seems useful to know what proportion of the study participants are smokers. In fact, let’s break it down by sex, and calculate the proportion of girls who are smokers and the proportion of boys who are smokers, as well as the number of girls and the number of boys in the study.</p>
+<pre class="r"><code>fev_tbl %&gt;% group_by(sex) %&gt;% 
+            summarize(prop_smoke = mean(smoke == &quot;yes&quot;), 
+                      n = n())</code></pre>
+<pre><code>## # A tibble: 2 × 3
+##   sex    prop_smoke     n
+##   &lt;fct&gt;       &lt;dbl&gt; &lt;int&gt;
+## 1 female     0.123    318
+## 2 male       0.0774   336</code></pre>
+<p>The proportion of girls who are smokers is higher than the proportion of boys that are smokers.</p>
+</div>
+<div id="exercise-7" class="section level3">
+<h3>Exercise 7</h3>
+<p>Is this because there are more smokers among teenage girls than teenage boys? Or is this a phenomenon that is uniform across age groups? To find out, let’s calculate:</p>
+<ul>
+<li>the proportion and number of girls aged 0-6 who are smokers</li>
+<li>the proportion and number of girls aged 7-12 who are smokers</li>
+<li>the proportion and number of girls aged 13-19 who are smokers</li>
+<li>the proportion and number of boys aged 0-6 who are smokers</li>
+<li>the proportion and number of boys aged 7-12 who are smokers</li>
+<li>the proportion and number of boys aged 13-19 who are smokers</li>
+</ul>
+<p>Hint: you will need to create a new variable that has three categories: age 0-6, age 7-12, and age 13-19. You can do so with <code>fev_tbl %&gt;% mutate(age_cat = cut(age, c(0, 6, 12, 19)))</code>.</p>
+<pre class="r"><code>fev_tbl %&gt;% mutate(age_cat = cut(age, c(0, 6, 12, 19))) %&gt;% 
+  group_by(age_cat, sex) %&gt;% 
+  summarize(prop_smoke=mean(smoke == &quot;yes&quot;), n=n())</code></pre>
+<pre><code>## `summarise()` has grouped output by &#39;age_cat&#39;. You can override using the
+## `.groups` argument.</code></pre>
+<pre><code>## # A tibble: 6 × 4
+## # Groups:   age_cat [3]
+##   age_cat sex    prop_smoke     n
+##   &lt;fct&gt;   &lt;fct&gt;       &lt;dbl&gt; &lt;int&gt;
+## 1 (0,6]   female     0         36
+## 2 (0,6]   male       0         40
+## 3 (6,12]  female     0.0617   227
+## 4 (6,12]  male       0.0342   234
+## 5 (12,19] female     0.455     55
+## 6 (12,19] male       0.290     62</code></pre>
+<p>There are no smokers (female or male) in the 0-6 group. There is a higher proportion of girls in the 7-12 group who are smokers than boys in the 7-12 group. Ditto the 13-19 group.</p>
+</div>
 </div>
 <div id="does-smoking-have-an-effect-on-lung-function" class="section level2">
 <h2>Does smoking have an effect on lung function?</h2>
 <p>Let’s continue exploring the data set with a closer eye to our main research question: does smoking have an effect on lung function in children?</p>
-<div id="exercise-7" class="section level3">
-<h3>Exercise 7</h3>
+<div id="exercise-8" class="section level3">
+<h3>Exercise 8</h3>
 <p>Let’s start by summarizing the FEV of the smokers and non-smokers. Let’s calculate the mean, standard deviation, and number of observations in each group. We will mainly be comparing the means to gather information about the question, but the standard deviation and number of observations are important to look at too.</p>
 <pre class="r"><code>fev_tbl %&gt;% group_by(smoke) %&gt;% 
   summarize(mean_fev = mean(fev), sd_fev = sd(fev), n = n())</code></pre>

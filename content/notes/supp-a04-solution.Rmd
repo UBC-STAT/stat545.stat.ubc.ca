@@ -1,7 +1,7 @@
 ---
 title: 'FEV Case Study: Data Manipulation, With Solutions'
 author: "Lucy"
-date: "2023-08-24"
+date: "2023-08-29"
 output: html_document
 ---
 
@@ -69,23 +69,9 @@ fev_tbl %>% summarize(num_case = length(unique(seqnbr)),
 
 Now we know that no cases were entered twice, and each case corresponds to a different patient. 
 
-## A little bit of basic pre-processing
-
-We know from the data dictionary that height is measured in inches. We can also sort of figure that out by looking at the range of the height variable in the rows of the data set above. 
-
-In Canada, we are pretty equally used to imperial and metric height measurements. Let's transform height to be in cm by multiplying by 2.54, and change the variable name to `height_cm`. 
-
-### Exercise 3
-
-```{r} 
-(fev_tbl <- fev_tbl %>% mutate(height = height*2.54) %>% 
-  rename(height_cm = height))
-```
-
-
 ## Understanding the patients in the study
 
-### Exercise 4
+### Exercise 3
 
 Let's summarize the age of the patients first, by computing the mean, standard deviation, min, and max of the patient ages. 
 
@@ -99,7 +85,7 @@ Something's a little odd about these summaries. Remember: this is a smoking stud
 - Why would a 3 year old be enrolled in a smoking study?  
 - Why would a 19 year old be enrolled in a study on children? 
 
-### Exercise 5
+### Exercise 4
 
 I'm now a bit worried: what's the youngest patient who smokes in this dataset?
 
@@ -109,7 +95,7 @@ fev_tbl %>% filter(smoke == "yes") %>% arrange(age)
 
 Looks like the youngest patient who smokes is 9. Seems young to me, but much less far-fetched than (say) 3. 
 
-### Exercise 6
+### Exercise 5
 
 What about the 19 year olds? Should they be included? The definition of a "child" can vary from study to study. Possible definitions include < 21 and < 18.  Let's find out who the patients 18 or older are and what their case numbers are so that we can ask our point of contact for the study about them. 
 
@@ -119,11 +105,44 @@ fev_tbl %>% filter(age >= 18) %>% select(seqnbr, subjid)
 
 **Aside**: if it turns out that we need to exclude any of these odd-looking patients from our final data analysis, then we will need to re-run everything after this point with their data removed. Isn't it nice that we are preparing this report in R Markdown?  
 
+### Exercise 6
+
+This is a smoking study, so it seems useful to know what proportion of the study participants are smokers. In fact, let's break it down by sex, and calculate the proportion of girls who are smokers and the proportion of boys who are smokers, as well as the number of girls and the number of boys in the study. 
+
+```{r} 
+fev_tbl %>% group_by(sex) %>% 
+            summarize(prop_smoke = mean(smoke == "yes"), 
+                      n = n())
+```
+
+The proportion of girls who are smokers is higher than the proportion of boys that are smokers.
+
+### Exercise 7
+
+Is this because there are more smokers among teenage girls than teenage boys? Or is this a phenomenon that is uniform across age groups? To find out, let's calculate: 
+
+- the proportion and number of girls aged 0-6 who are smokers
+- the proportion and number of girls aged 7-12 who are smokers 
+- the proportion and number of girls aged 13-19 who are smokers
+- the proportion and number of boys aged 0-6 who are smokers
+- the proportion and number of boys aged 7-12 who are smokers 
+- the proportion and number of boys aged 13-19 who are smokers
+
+Hint: you will need to create a new variable that has three categories: age 0-6, age 7-12, and age 13-19. You can do so with `fev_tbl %>% mutate(age_cat = cut(age, c(0, 6, 12, 19)))`.
+
+```{r} 
+fev_tbl %>% mutate(age_cat = cut(age, c(0, 6, 12, 19))) %>% 
+  group_by(age_cat, sex) %>% 
+  summarize(prop_smoke=mean(smoke == "yes"), n=n())
+```
+
+There are no smokers (female or male) in the 0-6 group. There is a higher proportion of girls in the 7-12 group who are smokers than boys in the 7-12 group. Ditto the 13-19 group. 
+
 ## Does smoking have an effect on lung function? 
 
 Let's continue exploring the data set with a closer eye to our main research question: does smoking have an effect on lung function in children? 
 
-### Exercise 7
+### Exercise 8
 
 Let's start by summarizing the FEV of the smokers and non-smokers. Let's calculate the mean, standard deviation, and number of observations in each group. We will mainly be comparing the means to gather information about the question, but the standard deviation and number of observations are important to look at too. 
 
