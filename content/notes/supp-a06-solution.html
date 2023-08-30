@@ -62,7 +62,7 @@ fev_tbl &lt;- as_tibble(fev) %&gt;% mutate(across(sex:smoke, ~ as.factor(.x)))</
   facet_wrap(~sex) + 
   ggtitle(&quot;Height versus age, stratified by sex&quot;) +
   xlab(&quot;Age&quot;) + 
-  ylab(&quot;Proportion&quot;) + 
+  ylab(&quot;Height (inches)&quot;) + 
   theme_bw()</code></pre>
 <p><img src="/notes/supp-a06-solution_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>We see that the within-sex trend is similar: height is linear-ish at younger ages, and flat-ish at older ages. Boys wind up taller at older ages.</p>

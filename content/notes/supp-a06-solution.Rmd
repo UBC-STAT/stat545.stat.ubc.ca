@@ -78,7 +78,7 @@ ggplot(fev_tbl, aes(x = age, y = height, colour=sex)) +
   facet_wrap(~sex) + 
   ggtitle("Height versus age, stratified by sex") +
   xlab("Age") + 
-  ylab("Proportion") + 
+  ylab("Height (inches)") + 
   theme_bw()
 ```
 
