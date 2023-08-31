@@ -13,3 +13,4 @@ static/rmarkdown-libs/header-attrs/*
 README.html
 static/tutorials/ggplot2/
 Thumbs.db
+.hugo_build.lock
