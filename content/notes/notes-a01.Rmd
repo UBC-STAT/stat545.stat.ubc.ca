@@ -68,7 +68,7 @@ Very useful general skills for getting unstuck are to 1. learn to help yourself,
 
     -   E.g. copy the error message, maybe strip out anything highly specific, such the name of your R objects, surround with quotes and Google it!
 
-- While you are getting started, I recommend you seek help within the STAT545 community first (try [Slack](https://stat545classroom2022.slack.com/)), before, e.g. posting to external forums. We are more cuddly.
+- While you are getting started, I recommend you seek help within the STAT545 community first (try Slack!), before, e.g. posting to external forums. We are more cuddly.
 
 -   This stackoverflow thread [How to make a great R reproducible example?](http://stackoverflow.com/questions/5963269/how-to-make-a-great-r-reproducible-example/5963610#5963610) is fantastic. I find that, in the process of preparing my great reproducible example, I [answer my own question](http://htmlpreview.github.io/?https://gist.githubusercontent.com/jennybc/58466fd018823302f398/raw/4c7059558e1525b482f1ee794a5828ca8999bf98/2014-07-25_wrapper-graphics-dev-open-close.html) 90% of the time. YMMV. So it is a useful exercise even if you aren't ready to call in the experts yet. The process of stripping your problem down to its bare essence often reveals where the root issue lies. **Highly recommended!**
 
