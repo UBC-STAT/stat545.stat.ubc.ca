@@ -61,7 +61,7 @@ Git is a version control software. Github is a cloud-based platform (built on Gi
 
         -   Option 2: From R, execute `usethis::create_github_token()` (you may have to install the usethis package first by first running `install.packages("usethis")`). Describe the token's purpose in the Note field, e.g. "personal-macbook" or "vm-for-project-xyz".
 
-    -   [Step 2:]{.underline} From R, execute \`gitcreds::gitcreds_set()\` and enter the PAT that you just made when prompted. That should be it!
+    -   [Step 2:]{.underline} From R, execute \`gitcreds::gitcreds_set()\` and enter the PAT that you just made when prompted. (You may have to install the gitcreds package first by first running `install.packages("gitcreds")`). That should be it!
 
     -   [Step 3]{.underline} (**optional but recommended**) Also save the PAT that you just made somewhere secure, like a password manager.
 

@@ -63,7 +63,7 @@ output: html_document
 <li><p>Option 1: Go to to <a href="https://github.com/settings/tokens" class="uri">https://github.com/settings/tokens</a> and click “Generate token”. Describe the token’s purpose in the Note field, e.g. “personal-macbook” or “vm-for-project-xyz”. Select “repo”, “user”, and “workflow” for scopes.</p></li>
 <li><p>Option 2: From R, execute <code>usethis::create_github_token()</code> (you may have to install the usethis package first by first running <code>install.packages("usethis")</code>). Describe the token’s purpose in the Note field, e.g. “personal-macbook” or “vm-for-project-xyz”.</p></li>
 </ul></li>
-<li><p><u>Step 2:</u> From R, execute `gitcreds::gitcreds_set()` and enter the PAT that you just made when prompted. That should be it!</p></li>
+<li><p><u>Step 2:</u> From R, execute `gitcreds::gitcreds_set()` and enter the PAT that you just made when prompted. (You may have to install the gitcreds package first by first running <code>install.packages("gitcreds")</code>). That should be it!</p></li>
 <li><p><u>Step 3</u> (<strong>optional but recommended</strong>) Also save the PAT that you just made somewhere secure, like a password manager.</p></li>
 </ul></li>
 </ul>
