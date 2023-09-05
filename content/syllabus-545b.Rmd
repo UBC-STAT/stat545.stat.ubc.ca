@@ -49,7 +49,7 @@ Teaching Assistants:
 
 Tuesdays and Thursdays 0930-1100 PT in Mathematics Annex 1100
 
-**Be sure to bring a laptop to every class!**
+**Be sure to bring a CHARGED laptop to every class!**
 
 There will always be TA's available during class to help students with the live coding exercises.
 
