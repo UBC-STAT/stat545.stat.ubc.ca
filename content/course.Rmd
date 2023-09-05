@@ -15,8 +15,9 @@ This page was last updated on `r format(Sys.Date(), "%a, %b %d")`.
 
 # Slack
 
-Slack channel specifically for students: <https://stat545classroom-2023.slack.com/>
+Slack channel specifically for students: <https://stat545classroom2023.slack.com/>
 
+-   Invite link is on Canvas. 
 -   Be sure to be part of the `#announcements` channel to receive official course announcements!
 -   Please do not send private questions to individual TA's -- use the `#general` channel instead.
 -   Slack communication guidelines here: <https://stat545.stat.ubc.ca/slack_communication/>
