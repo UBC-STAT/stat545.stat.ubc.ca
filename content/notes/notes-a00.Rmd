@@ -30,7 +30,7 @@ The following instructions are adapted from [Rich Pauloo](https://richpauloo.git
 2. Install and setup the IR Kernel. 
     - Find the location of `R.exe` on your computer. (The location probably looks something like `C:\Program Files\R\R-4.3.1\bin`.)
     - Open the Anaconda Prompt application. Enter the following command into Anaconda Prompt: `cd file_path_here`, with `file_path_here` replaced with the location of `R.exe` that you previously found. 
-    - Run R from within Anaconda Prompt by entering in `R.exe`. This opens an R session inside Anaconda Prompt. From here, enter the following commands in sequence: `install.packages("IRkernel")` and `IRkernell::installspec()`. This respectively installs IR Kernel and tells Jupyter where to find IR Kernel.
+    - Run R from within Anaconda Prompt by entering in `R.exe`. This opens an R session inside Anaconda Prompt. From here, enter the following commands in sequence: `install.packages("IRkernel")` and `IRkernel::installspec()`. This respectively installs IR Kernel and tells Jupyter where to find IR Kernel.
     
 3. To verify that everything is working as intended: Open Anaconda Prompt and type in `jupyter lab`. Jupyter Lab should launch and display both a Python and R kernel.
 
