@@ -9,6 +9,10 @@ To install and setup key software for use in the course. Instructions are below.
 
 **IF YOU NEED EXTRA HELP**: TAs are available from 9am-10:30am in Mathematics Annex 1100 on Tuesday September 5th. 
 
+## Note on PC vs Mac
+
+You may encounter some material that implicitly assumes that you are using a Mac. For example, they might point you to a Terminal app, or ask you to use Unix commands like `which` or `ls`. [Here](https://static-bcrf.biochem.wisc.edu/tutorials/unix/basic_unix/dos_and_unix_commands.pdf) is a cheatsheet that helps you convert between Windows command line ("DOS") and Mac command line ("UNIX"). One thing that's missing is the equivalent to Unix's `which`; the closest equivalent in DOS is `where`. 
+
 ## Step 1: R and RStudio 
 
 The main programming language used in the class is R and our main IDE (a text editor with helpful features for writing and running code) is RStudio. 
