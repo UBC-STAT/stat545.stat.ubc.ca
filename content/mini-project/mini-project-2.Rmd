@@ -21,7 +21,7 @@ In Milestone 1, you explored your data, came up with research questions, and obt
 
 **To submit this milestone**, make sure to knit this `.Rmd` file to an `.md` file by changing the YAML output settings from `output: html_document` to `output: github_document`. Commit and push all of your work to your mini-analysis GitHub repository, and tag a release on GitHub. Then, submit a link to your tagged release on canvas.
 
-**Points**: This milestone is worth 55 points (compared to the 45 points of the Milestone 1): 45 for your analysis, and 10 for your entire mini-analysis GitHub repository. Details follow.
+**Points**: This milestone is worth 50 points: 45 for your analysis, and 5 for overall reproducibility, cleanliness, and coherence of the Github submission. 
 
 **Research Questions**: In Milestone 1, you chose two research questions to focus on. Wherever realistic, your work in this milestone should relate to these research questions whenever we ask for justification behind your work. In the case that some tasks in this milestone don't align well with one of your research questions, feel free to discuss your results in the context of a different research question.
 
@@ -54,9 +54,7 @@ A reminder of the definition of *tidy* data:
 -   Each column is a **variable**
 -   Each cell is a **value**
 
-*Tidy'ing* data is sometimes necessary because it can simplify computation. Other times it can be nice to organize data so that it can be easier to understand when read manually.
-
-### 2.1 (2.5 points)
+### 1.1 (2.5 points)
 
 Based on the definition above, can you identify if your data is tidy or untidy? Go through all your columns, or if you have \>8 variables, just pick 8, and explain whether the data is untidy or tidy.
 
@@ -64,7 +62,7 @@ Based on the definition above, can you identify if your data is tidy or untidy? 
 
 <!----------------------------------------------------------------------------->
 
-### 2.2 (5 points)
+### 1.2 (5 points)
 
 Now, if your data is tidy, untidy it! Then, tidy it back to it's original state.
 
@@ -76,7 +74,7 @@ Be sure to explain your reasoning for this task. Show us the "before" and "after
 
 <!----------------------------------------------------------------------------->
 
-### 2.3 (7.5 points)
+### 1.3 (7.5 points)
 
 Now, you should be more familiar with your data, and also have made progress in answering your research questions. Based on your interest, and your analyses, pick 2 of the 4 research questions to continue your analysis in the next four tasks:
 
@@ -94,6 +92,8 @@ Explain your decision for choosing the above two research questions.
 <!----------------------------------------------------------------------------->
 
 Now, try to choose a version of your data that you think will be appropriate to answer these 2 questions. Use between 4 and 8 functions that we've covered so far (i.e. by filtering, cleaning, tidy'ing, dropping irrelevant columns, etc.).
+
+(If it makes more sense, then you can make/pick two versions of your data, one for each research question.) 
 
 <!--------------------------- Start your work below --------------------------->
 
@@ -113,7 +113,7 @@ Now, choose two of the following tasks.
 
 1.  Produce a new plot that reorders a factor in your original plot, using the `forcats` package (3 points). Then, in a sentence or two, briefly explain why you chose this ordering (1 point here for demonstrating understanding of the reordering, and 1 point for demonstrating some justification for the reordering, which could be subtle or speculative.)
 
-2.  Produce a new plot that groups some factor levels together into an "other" category (or something similar), using the `forcats` package (3 points). Then, in a sentence or two, briefly explain why you chose this grouping (1 point here for demonstrating understanding of the grouping, and 1 point for demonstrating some justification for the grouping, which could be subtle or speculative.)
+2.  Produce a new plot that groups some factor levels together into a new omnibus category, using the `forcats` package (3 points). Then, in a sentence or two, briefly explain why you chose this grouping (1 point here for demonstrating understanding of the grouping, and 1 point for demonstrating some justification for the grouping, which could be subtle or speculative.)
 
 3.  If your data has some sort of time-based column like a date (but something more granular than just a year):
 
@@ -140,9 +140,9 @@ Now, choose two of the following tasks.
 
 # Task 3: Modelling
 
-## 2.0 (no points)
+## 3.0 (no points)
 
-Pick a research question, and pick a variable of interest (we'll call it "Y") that's relevant to the research question. Indicate these.
+Pick a research question from 1.2, and pick a variable of interest (we'll call it "Y") that's relevant to the research question. Indicate these.
 
 <!-------------------------- Start your work below ---------------------------->
 
@@ -152,7 +152,7 @@ Pick a research question, and pick a variable of interest (we'll call it "Y") th
 
 <!----------------------------------------------------------------------------->
 
-## 2.1 (5 points)
+## 3.1 (5 points)
 
 Fit a model or run a hypothesis test that provides insight on this variable with respect to the research question. Store the model object as a variable, and print its output to screen. We'll omit having to justify your choice, because we don't expect you to know about model specifics in STAT 545.
 
@@ -166,7 +166,7 @@ Fit a model or run a hypothesis test that provides insight on this variable with
 
 <!----------------------------------------------------------------------------->
 
-## 2.2 (5 points)
+## 3.2 (5 points)
 
 Produce something relevant from your fitted model: either predictions on Y, or a single value like a regression coefficient or a p-value.
 
@@ -182,7 +182,7 @@ Produce something relevant from your fitted model: either predictions on Y, or a
 
 Get set up for this exercise by making a folder called `output` in the top level of your project folder / repository. You'll be saving things there.
 
-## 3.1 (5 points)
+## 4.1 (5 points)
 
 Take a summary table that you made from Milestone 1 (Task 4.2), and write it as a csv file in your `output` folder. Use the `here::here()` function.
 
@@ -193,7 +193,7 @@ Take a summary table that you made from Milestone 1 (Task 4.2), and write it as 
 
 <!----------------------------------------------------------------------------->
 
-## 3.2 (5 points)
+## 4.2 (5 points)
 
 Write your model object from Task 3 to an R binary file (an RDS), and load it again. Be sure to save the binary file in your `output` folder. Use the functions `saveRDS()` and `readRDS()`.
 
@@ -203,11 +203,11 @@ Write your model object from Task 3 to an R binary file (an RDS), and load it ag
 
 <!----------------------------------------------------------------------------->
 
-# Tidy Repository
+# Reproducibility/Cleanliness/Coherence Checklist 
 
 Now that this is your last milestone, your entire project repository should be organized. Here are the criteria we're looking for.
 
-## Main README (3 points)
+## Main README (1 point)
 
 There should be a file named `README.md` at the top level of your repository. Its contents should automatically appear when you visit the repository on GitHub.
 
@@ -216,9 +216,9 @@ Minimum contents of the README file:
 -   In a sentence or two, explains what this repository is, so that future-you or someone else stumbling on your repository can be oriented to the repository.
 -   In a sentence or two (or more??), briefly explains how to engage with the repository. You can assume the person reading knows the material from STAT 545A. Basically, if a visitor to your repository wants to explore your project, what should they know?
 
-Once you get in the habit of making README files, and seeing more README files in other projects, you'll wonder how you ever got by without them! They are tremendously helpful.
+This is the same prompt as for Milestone 1; this is because the contents of your repository have changed, and so your README should be updated to match. 
 
-## File and Folder structure (3 points)
+## File and Folder structure (1.5 points)
 
 You should have at least three folders in the top level of your repository: one for each milestone, and one output folder. If there are any other folders, these are explained in the main README.
 
@@ -230,23 +230,16 @@ Every level-1 folder (that is, the ones stored in the top level, like "Milestone
 
 All output is recent and relevant:
 
--   All Rmd files have been `knit`ted to their output, and all data files saved from Task 4 above appear in the `output` folder.
+-   All Rmd files have been `knit`ted to their output md files. 
+-   All knitted md files are viewable without errors on Github. Examples of errors: Missing plots, "Sorry about that, but we can't show files that are this big right now" messages
 -   All of these output files are up-to-date -- that is, they haven't fallen behind after the source (Rmd) files have been updated.
 -   There should be no relic output files. For example, if you were knitting an Rmd to html, but then changed the output to be only a markdown file, then the html file is a relic and should be deleted.
 
 Our recommendation: delete all output files, and re-knit each milestone's Rmd file, so that everything is up to date and relevant.
 
-PS: there's a way where you can run all project code using a single command, instead of clicking "knit" three times. More on this in STAT 545B!
+## Tagged release (0.5 point)
 
-## Error-free code (1 point)
-
-This Milestone 1 document knits error-free, and the Milestone 2 document knits error-free.
-
-Plots failing to show up on Github in the .md counts as an error here. So does the entire .md failing to show up on Github in the .md ("Sorry about that, but we can't show files that are this big right now").
-
-## Tagged release (1 point)
-
-You've tagged a release for Milestone 1, and you've tagged a release for Milestone 2.
+You've tagged a release for Milestone 2. 
 
 ### Attribution
 

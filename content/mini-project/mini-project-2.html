@@ -3,7 +3,6 @@ title: "Mini Data Analysis Milestone 2"
 output: html_document
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p><em>To complete this milestone, you can edit <a href="https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-2.Rmd">this <code>.rmd</code> file</a> directly. Fill in the sections that are commented out with <code>&lt;!--- start your work here---&gt;</code>. When you are done, make sure to knit to an <code>.md</code> file by changing the output in the YAML header to <code>github_document</code>, before submitting a tagged release on canvas.</em></p>
@@ -21,7 +20,7 @@ output: html_document
 <h1>Instructions</h1>
 <p><strong>To complete this milestone</strong>, edit <a href="https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-2.Rmd">this very <code>.Rmd</code> file</a> directly. Fill in the sections that are tagged with <code>&lt;!--- start your work here---&gt;</code>.</p>
 <p><strong>To submit this milestone</strong>, make sure to knit this <code>.Rmd</code> file to an <code>.md</code> file by changing the YAML output settings from <code>output: html_document</code> to <code>output: github_document</code>. Commit and push all of your work to your mini-analysis GitHub repository, and tag a release on GitHub. Then, submit a link to your tagged release on canvas.</p>
-<p><strong>Points</strong>: This milestone is worth 55 points (compared to the 45 points of the Milestone 1): 45 for your analysis, and 10 for your entire mini-analysis GitHub repository. Details follow.</p>
+<p><strong>Points</strong>: This milestone is worth 50 points: 45 for your analysis, and 5 for overall reproducibility, cleanliness, and coherence of the Github submission.</p>
 <p><strong>Research Questions</strong>: In Milestone 1, you chose two research questions to focus on. Wherever realistic, your work in this milestone should relate to these research questions whenever we ask for justification behind your work. In the case that some tasks in this milestone don’t align well with one of your research questions, feel free to discuss your results in the context of a different research question.</p>
 </div>
 <div id="learning-objectives" class="section level1">
@@ -50,15 +49,14 @@ library(tidyverse)</code></pre>
 <li>Each column is a <strong>variable</strong></li>
 <li>Each cell is a <strong>value</strong></li>
 </ul>
-<p><em>Tidy’ing</em> data is sometimes necessary because it can simplify computation. Other times it can be nice to organize data so that it can be easier to understand when read manually.</p>
 <div id="points" class="section level3">
-<h3>2.1 (2.5 points)</h3>
+<h3>1.1 (2.5 points)</h3>
 <p>Based on the definition above, can you identify if your data is tidy or untidy? Go through all your columns, or if you have &gt;8 variables, just pick 8, and explain whether the data is untidy or tidy.</p>
 <!--------------------------- Start your work below --------------------------->
 <!----------------------------------------------------------------------------->
 </div>
 <div id="points-1" class="section level3">
-<h3>2.2 (5 points)</h3>
+<h3>1.2 (5 points)</h3>
 <p>Now, if your data is tidy, untidy it! Then, tidy it back to it’s original state.</p>
 <p>If your data is untidy, then tidy it! Then, untidy it back to it’s original state.</p>
 <p>Be sure to explain your reasoning for this task. Show us the “before” and “after”.</p>
@@ -66,7 +64,7 @@ library(tidyverse)</code></pre>
 <!----------------------------------------------------------------------------->
 </div>
 <div id="points-2" class="section level3">
-<h3>2.3 (7.5 points)</h3>
+<h3>1.3 (7.5 points)</h3>
 <p>Now, you should be more familiar with your data, and also have made progress in answering your research questions. Based on your interest, and your analyses, pick 2 of the 4 research questions to continue your analysis in the next four tasks:</p>
 <!-------------------------- Start your work below ---------------------------->
 <ol style="list-style-type: decimal">
@@ -78,6 +76,7 @@ library(tidyverse)</code></pre>
 <!--------------------------- Start your work below --------------------------->
 <!----------------------------------------------------------------------------->
 <p>Now, try to choose a version of your data that you think will be appropriate to answer these 2 questions. Use between 4 and 8 functions that we’ve covered so far (i.e. by filtering, cleaning, tidy’ing, dropping irrelevant columns, etc.).</p>
+<p>(If it makes more sense, then you can make/pick two versions of your data, one for each research question.)</p>
 <!--------------------------- Start your work below --------------------------->
 <!----------------------------------------------------------------------------->
 </div>
@@ -91,7 +90,7 @@ library(tidyverse)</code></pre>
 <p>Now, choose two of the following tasks.</p>
 <ol style="list-style-type: decimal">
 <li><p>Produce a new plot that reorders a factor in your original plot, using the <code>forcats</code> package (3 points). Then, in a sentence or two, briefly explain why you chose this ordering (1 point here for demonstrating understanding of the reordering, and 1 point for demonstrating some justification for the reordering, which could be subtle or speculative.)</p></li>
-<li><p>Produce a new plot that groups some factor levels together into an “other” category (or something similar), using the <code>forcats</code> package (3 points). Then, in a sentence or two, briefly explain why you chose this grouping (1 point here for demonstrating understanding of the grouping, and 1 point for demonstrating some justification for the grouping, which could be subtle or speculative.)</p></li>
+<li><p>Produce a new plot that groups some factor levels together into a new omnibus category, using the <code>forcats</code> package (3 points). Then, in a sentence or two, briefly explain why you chose this grouping (1 point here for demonstrating understanding of the grouping, and 1 point for demonstrating some justification for the grouping, which could be subtle or speculative.)</p></li>
 <li><p>If your data has some sort of time-based column like a date (but something more granular than just a year):</p>
 <ol style="list-style-type: decimal">
 <li><p>Make a new column that uses a function from the <code>lubridate</code> or <code>tsibble</code> package to modify your original time-based column. (3 points)</p>
@@ -115,15 +114,15 @@ library(tidyverse)</code></pre>
 <div id="task-3-modelling" class="section level1">
 <h1>Task 3: Modelling</h1>
 <div id="no-points" class="section level2">
-<h2>2.0 (no points)</h2>
-<p>Pick a research question, and pick a variable of interest (we’ll call it “Y”) that’s relevant to the research question. Indicate these.</p>
+<h2>3.0 (no points)</h2>
+<p>Pick a research question from 1.2, and pick a variable of interest (we’ll call it “Y”) that’s relevant to the research question. Indicate these.</p>
 <!-------------------------- Start your work below ---------------------------->
 <p><strong>Research Question</strong>: FILL_THIS_IN</p>
 <p><strong>Variable of interest</strong>: FILL_THIS_IN</p>
 <!----------------------------------------------------------------------------->
 </div>
 <div id="points-3" class="section level2">
-<h2>2.1 (5 points)</h2>
+<h2>3.1 (5 points)</h2>
 <p>Fit a model or run a hypothesis test that provides insight on this variable with respect to the research question. Store the model object as a variable, and print its output to screen. We’ll omit having to justify your choice, because we don’t expect you to know about model specifics in STAT 545.</p>
 <ul>
 <li><p><strong>Note</strong>: It’s OK if you don’t know how these models/tests work. Here are some examples of things you can do here, but the sky’s the limit.</p>
@@ -137,7 +136,7 @@ library(tidyverse)</code></pre>
 <!----------------------------------------------------------------------------->
 </div>
 <div id="points-4" class="section level2">
-<h2>2.2 (5 points)</h2>
+<h2>3.2 (5 points)</h2>
 <p>Produce something relevant from your fitted model: either predictions on Y, or a single value like a regression coefficient or a p-value.</p>
 <ul>
 <li>Be sure to indicate in writing what you chose to produce.</li>
@@ -152,7 +151,7 @@ library(tidyverse)</code></pre>
 <h1>Task 4: Reading and writing data</h1>
 <p>Get set up for this exercise by making a folder called <code>output</code> in the top level of your project folder / repository. You’ll be saving things there.</p>
 <div id="points-5" class="section level2">
-<h2>3.1 (5 points)</h2>
+<h2>4.1 (5 points)</h2>
 <p>Take a summary table that you made from Milestone 1 (Task 4.2), and write it as a csv file in your <code>output</code> folder. Use the <code>here::here()</code> function.</p>
 <ul>
 <li><strong>Robustness criteria</strong>: You should be able to move your Mini Project repository / project folder to some other location on your computer, or move this very Rmd file to another location within your project repository / folder, and your code should still work.</li>
@@ -162,7 +161,7 @@ library(tidyverse)</code></pre>
 <!----------------------------------------------------------------------------->
 </div>
 <div id="points-6" class="section level2">
-<h2>3.2 (5 points)</h2>
+<h2>4.2 (5 points)</h2>
 <p>Write your model object from Task 3 to an R binary file (an RDS), and load it again. Be sure to save the binary file in your <code>output</code> folder. Use the functions <code>saveRDS()</code> and <code>readRDS()</code>.</p>
 <ul>
 <li>The same robustness and reproducibility criteria as in 3.1 apply here.</li>
@@ -171,21 +170,21 @@ library(tidyverse)</code></pre>
 <!----------------------------------------------------------------------------->
 </div>
 </div>
-<div id="tidy-repository" class="section level1">
-<h1>Tidy Repository</h1>
+<div id="reproducibilitycleanlinesscoherence-checklist" class="section level1">
+<h1>Reproducibility/Cleanliness/Coherence Checklist</h1>
 <p>Now that this is your last milestone, your entire project repository should be organized. Here are the criteria we’re looking for.</p>
-<div id="main-readme-3-points" class="section level2">
-<h2>Main README (3 points)</h2>
+<div id="main-readme-1-point" class="section level2">
+<h2>Main README (1 point)</h2>
 <p>There should be a file named <code>README.md</code> at the top level of your repository. Its contents should automatically appear when you visit the repository on GitHub.</p>
 <p>Minimum contents of the README file:</p>
 <ul>
 <li>In a sentence or two, explains what this repository is, so that future-you or someone else stumbling on your repository can be oriented to the repository.</li>
 <li>In a sentence or two (or more??), briefly explains how to engage with the repository. You can assume the person reading knows the material from STAT 545A. Basically, if a visitor to your repository wants to explore your project, what should they know?</li>
 </ul>
-<p>Once you get in the habit of making README files, and seeing more README files in other projects, you’ll wonder how you ever got by without them! They are tremendously helpful.</p>
+<p>This is the same prompt as for Milestone 1; this is because the contents of your repository have changed, and so your README should be updated to match.</p>
 </div>
-<div id="file-and-folder-structure-3-points" class="section level2">
-<h2>File and Folder structure (3 points)</h2>
+<div id="file-and-folder-structure-1.5-points" class="section level2">
+<h2>File and Folder structure (1.5 points)</h2>
 <p>You should have at least three folders in the top level of your repository: one for each milestone, and one output folder. If there are any other folders, these are explained in the main README.</p>
 <p>Each milestone document is contained in its respective folder, and nowhere else.</p>
 <p>Every level-1 folder (that is, the ones stored in the top level, like “Milestone1” and “output”) has a <code>README</code> file, explaining in a sentence or two what is in the folder, in plain language (it’s enough to say something like “This folder contains the source for Milestone 1”).</p>
@@ -194,21 +193,16 @@ library(tidyverse)</code></pre>
 <h2>Output (2 points)</h2>
 <p>All output is recent and relevant:</p>
 <ul>
-<li>All Rmd files have been <code>knit</code>ted to their output, and all data files saved from Task 4 above appear in the <code>output</code> folder.</li>
+<li>All Rmd files have been <code>knit</code>ted to their output md files.</li>
+<li>All knitted md files are viewable without errors on Github. Examples of errors: Missing plots, “Sorry about that, but we can’t show files that are this big right now” messages</li>
 <li>All of these output files are up-to-date – that is, they haven’t fallen behind after the source (Rmd) files have been updated.</li>
 <li>There should be no relic output files. For example, if you were knitting an Rmd to html, but then changed the output to be only a markdown file, then the html file is a relic and should be deleted.</li>
 </ul>
 <p>Our recommendation: delete all output files, and re-knit each milestone’s Rmd file, so that everything is up to date and relevant.</p>
-<p>PS: there’s a way where you can run all project code using a single command, instead of clicking “knit” three times. More on this in STAT 545B!</p>
 </div>
-<div id="error-free-code-1-point" class="section level2">
-<h2>Error-free code (1 point)</h2>
-<p>This Milestone 1 document knits error-free, and the Milestone 2 document knits error-free.</p>
-<p>Plots failing to show up on Github in the .md counts as an error here. So does the entire .md failing to show up on Github in the .md (“Sorry about that, but we can’t show files that are this big right now”).</p>
-</div>
-<div id="tagged-release-1-point" class="section level2">
-<h2>Tagged release (1 point)</h2>
-<p>You’ve tagged a release for Milestone 1, and you’ve tagged a release for Milestone 2.</p>
+<div id="tagged-release-0.5-point" class="section level2">
+<h2>Tagged release (0.5 point)</h2>
+<p>You’ve tagged a release for Milestone 2.</p>
 <div id="attribution" class="section level3">
 <h3>Attribution</h3>
 <p>Thanks to Victor Yuan for mostly putting this together.</p>

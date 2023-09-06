@@ -21,15 +21,17 @@ library(datateachr)
 library(tidyverse)
 ```
 
-3.  Make a repository in the <https://github.com/stat545ubc-2022> Organization. You will be working with this repository for the entire data analysis project. You can either make it public, or make it private and add the TA's and Lucy as collaborators. A link to help you create a private repository is available on the #collaborative-project Slack channel. 
+3.  Make a repository in the <https://github.com/stat545ubc-2023> Organization. You will be working with this repository for the entire data analysis project. You can either make it public, or make it private and add the TA's and Lucy as collaborators. A link to help you create a private repository will be posted to the #mini-data-analysis Slack channel. 
 
 # Instructions
 
 ## For Both Milestones
 
--   Each milestone is worth 45 points. The number of points allocated to each task will be annotated within each deliverable. Tasks that are more challenging will often be allocated more points.
+-   Each milestone has explicit tasks, valued at 45 points in total. Tasks that are more challenging will often be allocated more points.
 
--   10 points will be allocated to the reproducibility, cleanliness, and coherence of the overall analysis. While the two milestones will be submitted as independent deliverables, the analysis itself is a continuum - think of it as two chapters to a story. Each chapter, or in this case, portion of your analysis, should be easily followed through by someone unfamiliar with the content. [Here](https://swcarpentry.github.io/r-novice-inflammation/06-best-practices-R/) is a good resource for what constitutes "good code". Learning good coding practices early in your career will save you hassle later on!
+-  Each milestone will be graded for reproducibility, cleanliness, and coherence of the overall Github submission, valued at 5 points. 
+
+- While the two milestones will be submitted as independent deliverables, the analysis itself is a continuum - think of it as two chapters to a story. Each chapter, or in this case, portion of your analysis, should be easily followed through by someone unfamiliar with the content. [Here](https://swcarpentry.github.io/r-novice-inflammation/06-best-practices-R/) is a good resource for what constitutes "good code". Learning good coding practices early in your career will save you hassle later on!
 
 ## For Milestone 1
 
@@ -37,7 +39,7 @@ library(tidyverse)
 
 **To submit this milestone**, make sure to knit this `.Rmd` file to an `.md` file by changing the YAML output settings from `output: html_document` to `output: github_document`. Commit and push all of your work to the mini-analysis GitHub repository you made earlier, and tag a release on GitHub. Then, submit a link to your tagged release on canvas.
 
-**Points**: This milestone is worth 45 points: 43 for your analysis, 1 point for having your Milestone 1 document knit error-free, and 1 point for tagging your release on Github.
+**Points**: This milestone is worth 45 points: 45 for your analysis, and 5 for overall reproducibility, cleanliness, and coherence of the Github submission. 
 
 # Learning Objectives
 
@@ -141,15 +143,15 @@ If we rewind and go back to the learning objectives, you'll see that by the end 
 
 # Task 3: Write your research questions (5 points)
 
-So far, you have chosen a dataset and gotten familiar with it through exploring the data. Now it's time to figure out 4 research questions that you would like to answer with your data! Write the 4 questions and any additional comments at the end of this deliverable. These questions are not necessarily set in stone - TAs will review them and give you feedback; therefore, you may choose to pursue them as they are for the rest of the project, or make modifications!
+So far, you have chosen a dataset and gotten familiar with it through exploring the data. Now it's time to figure out 4 research questions that you would like to answer with your data! Write the 4 questions and any additional comments at the end of this deliverable.
 
 <!--- *****START HERE***** --->
 
-# Task 4: Process and summarize your data (13 points)
+# Task 4: Process and summarize your data (15 points)
 
 From Task 2, you should have an idea of the basic structure of your dataset (e.g. number of rows and columns, class types, etc.). Here, we will start investigating your data more in-depth using various data manipulation functions.
 
-### 1.1 (10 points)
+### 4.1 (10 points)
 
 Now, for each of your four research questions, choose one task from options 1-4 (summarizing), and one other task from 4-8 (graphing). You should have 2 tasks done for each research question (8 total). Make sure it makes sense to do them! (e.g. don't use a numerical variables for a task that needs a categorical variable.). Comment on why each task helps (or doesn't!) answer the corresponding research question.
 
@@ -160,14 +162,17 @@ Ensure that the output of each operation is printed!
 1.  Compute the *range*, *mean*, and *two other summary statistics* of **one numerical variable** across the groups of **one categorical variable** from your data.
 2.  Compute the number of observations for at least one of your categorical variables. Do not use the function `table()`!
 3.  Create a categorical variable with 3 or more groups from an existing numerical variable. You can use this new variable in the other tasks! *An example: age in years into "child, teen, adult, senior".*
-4.  Based on two categorical variables, calculate two summary statistics of your choosing.
+4. Compute the proportion and counts in each category of one categorical variable across the groups of another categorical variable from your data. Do not use the function `table()`!
 
 **Graphing:**
 
-5.  Create a graph out of summarized variables that has at least two geom layers.
-6.  Create a graph of your choosing, make one of the axes logarithmic, and format the axes labels so that they are "pretty" or easier to read.
-7.  Make a graph where it makes sense to customize the alpha transparency.
-8.  Create 3 histograms out of summarized variables, with each histogram having different sized bins. Pick the "best" one and explain why it is the best.
+6. Create a graph of your choosing, make one of the axes logarithmic, and format the axes labels so that they are "pretty" or easier to read.
+7. Make a graph where it makes sense to customize the alpha transparency.
+
+Using variables and/or tables you made in one of the "Summarizing" tasks: 
+
+8. Create a graph that has at least two geom layers. 
+9. Create 3 histograms, with each histogram having different sized bins. Pick the "best" one and explain why it is the best.
 
 Make sure it's clear what research question you are doing each operation for!
 
@@ -175,13 +180,41 @@ Make sure it's clear what research question you are doing each operation for!
 
 <!----------------------------------------------------------------------------->
 
-### 1.2 (3 points)
+### 4.2 (5 points)
 
 Based on the operations that you've completed, how much closer are you to answering your research questions? Think about what aspects of your research questions remain unclear. Can your research questions be refined, now that you've investigated your data a bit more? Which research questions are yielding interesting results?
 
 <!-------------------------- Start your work below ---------------------------->
 
 <!----------------------------------------------------------------------------->
+
+# Reproducibility/Cleanliness/Coherence Checklist 
+
+## Main README (2.5 points)
+
+There should be a file named `README.md` at the top level of your repository. Its contents should automatically appear when you visit the repository on GitHub.
+
+Minimum contents of the README file:
+
+-   In a sentence or two, explains what this repository is, so that future-you or someone else stumbling on your repository can be oriented to the repository.
+-   In a sentence or two (or more??), briefly explains how to engage with the repository. You can assume the person reading knows the material from STAT 545A. Basically, if a visitor to your repository wants to explore your project, what should they know?
+
+Once you get in the habit of making README files, and seeing more README files in other projects, you'll wonder how you ever got by without them! They are tremendously helpful.
+
+## Output (2 points)
+
+All output is readable, recent and relevant:
+
+-   All Rmd files have been `knit`ted to their output md files. 
+-   All knitted md files are viewable without errors on Github. Examples of errors: Missing plots, "Sorry about that, but we can't show files that are this big right now" messages
+-   All of these output files are up-to-date -- that is, they haven't fallen behind after the source (Rmd) files have been updated.
+-   There should be no relic output files. For example, if you were knitting an Rmd to html, but then changed the output to be only a markdown file, then the html file is a relic and should be deleted.
+
+Our recommendation: right before submission, delete all output files, and re-knit each milestone's Rmd file, so that everything is up to date and relevant. Then, after your final commit and push to Github, CHECK on Github to make sure that everything looks the way you intended!
+
+## Tagged release (0.5 points)
+
+You've tagged a release for Milestone 1. 
 
 ### Attribution
 
