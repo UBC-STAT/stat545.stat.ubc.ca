@@ -35,4 +35,10 @@ Up until now, we always wrote and read files to our current directory. If we wan
 
 However, if you wanted to make your Rproj more portable and accessible to more users in a cross-platform (between Mac, Unix, Windows users), rather than specifying every path explicitly, `here::here()` allows you to set relative paths much more easily.
 
-We won't elaborate here. For a tutorial, read the above noted STAT 545 chapter on ["Writing and Reading files"](https://stat545.com/import-export.html). Let's dive into Worksheet A-6 to see the `here` package in use. 
+We won't elaborate here. For a tutorial, read the above noted STAT 545 chapter on ["Writing and Reading files"](https://stat545.com/import-export.html). 
+
+## Your turn: learning to read and write data
+
+We think the best way to learn the basics of reading and writing data is to work through Worksheet A6.  
+
+There will be some class time to go over solutions if you got stuck on any questions. 

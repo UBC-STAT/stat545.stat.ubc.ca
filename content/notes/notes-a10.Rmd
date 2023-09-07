@@ -33,65 +33,31 @@ Other resources, in addition to the notes below:
     - The [R4DS](https://r4ds.had.co.nz/dates-and-times.html) chapter on Dates and Times
     - The `tsibble` [vignette](https://cran.rstudio.com/web/packages/tsibble/vignettes/intro-tsibble.html) to learn more about embedding a time series within a tibble. 
 
-## Dates and/or Times 
-### Date/Time Objects in R 
+## Test Your Understanding
 
-#### Exercise 
+1. The output of the following code is equivalent to a factor with the letters "a" to "f".
 
-- Write down today's date. (Don't peek at your neighbours!)
+``` r
+(abc <- factor(letters[1:3]))
+#> [1] a b c
+#> Levels: a b c
+(def <- factor(letters[4:6]))
+#> [1] d e f
+#> Levels: d e f
+c(abc, def)
+```
 
-- Copy what you wrote down into the Google Sheets link I posted to the #lectures channel on Slack. 
+2. The output of the following code is a date object.
 
-We'll look at the results together - I think they will speak for themselves ... 
-
-#### Code Demo
-
-Let's say you want to convert a string into a date object. 
-
-The `lubridate` package in the `tidyverse` has your back with a family of functions named as permutations of "y", "m", and "d". 
-
-```{r, message=FALSE} 
+```r
 library(lubridate)
-ymd("2020-10-06") 
-mdy("October 6th, 2020")
-dmy("06-10-2020")
+
+date <- ymd("2020-10-13")
+
+dt <- ymd_hms("2020-10-13 09:30:00")
+
+c(date, dt)
 ```
-
-We can also convert strings into date-time objects using `lubridate` functions. The family of functions you're looking for is named with a "y"/"m"/"d" permutation followed by an "_" and one or more of "h", "m", and "s". 
-
-```{r} 
-ymd_hms("2020-10-06 14:20:39")
-ymd_hm("2020-10-06 14:20")
-```
-
-Note that there are also time objects, though we don't cover them here. 
-
-Once you've acquired a date or date/time object, you can use `lubridate` functions to extract individual components of the data or date/time. 
-
-```{r} 
-today_date <- today()
-year(today_date)
-wday(today_date, label=TRUE)
-yday(today_date)
-```
-
-### Date/Time Math 
-
-An incredible advantage of working with date and date-time objects in R is that you can make R do pesky time arithmetic for you. 
-
-```{r} 
-today_date <- today()
-christmas_this_year <- mdy(paste("December 25", year(today_date)))
-
-christmas_this_year - today_date
-```
-
-If you want to make sure your difference comes out as seconds (or want to convert between different units) you can use `as.duration`: 
-
-```{r}
-as.duration(christmas_this_year - today_date)
-```
-
 
 ## Factors
 
@@ -115,36 +81,86 @@ This dual nature of factors creates a whole slew of hidden traps and headaches, 
 
 Nevertheless, factors are important and worth the pain. Many functions throughout the R landscape expect categorical variables to be coded as factors. For example, when making plots in either `ggplot2` or in base R, we need factors in order to map categorical variables to aesthetic elements like colour. 
 
-To make our lives easier, we will work with factors through the `forcats` package loaded as part of the `tidyverse`.  
+To make our lives easier, we will work with factors through the `forcats` package loaded as part of the tidyverse. 
 
-### Demonstration 
+## Your turn: learning to use factors
 
-We will work on Worksheet A5 (factors and dates portion).
+We think the best way to learn the basics of factors is to work through Worksheet A5 (factors portion). 
 
-## Test Your Understanding
+## In-class schedule 
 
-1. The output of the following code is equivalent to a factor with the letters "a" to "f".
+### First part
 
-``` r
-(abc <- factor(letters[1:3]))
-#> [1] a b c
-#> Levels: a b c
-(def <- factor(letters[4:6]))
-#> [1] d e f
-#> Levels: d e f
-c(abc, def)
-```
+- Haven't attempted all of the factors portion of Worksheet A5? Then spend this time attempting unattempted questions. 
+- Finished attempting all of the questions? Then do the optional [R4DS Factors](https://r4ds.hadley.nz/factors) reading, and maybe even do some of the exercises for extra practice. 
 
-2. The output of the following code is a date object.
+During this time, teaching team will also walk around and answer questions and chat about anything factors related. 
 
-```r
+### Second part 
 
-library(lubridate)
+Now's your chance to ask about any questions you got stuck on and get them answered by the instructor! 
 
-date <- ymd("2020-10-13")
+### Third part: Dates and/or Times 
 
-dt <- ymd_hms("2020-10-13 09:30:00")
+## Your turn: how simple are dates? 
 
-c(date, dt)
+- Write down today's date. (Don't peek at your neighbours!)
 
-```
+- Copy what you wrote down into the Google Sheets link I posted to the #lectures channel on Slack. 
+
+We'll look at the results together. 
+
+## NYC Flights Case Study 
+
+We'll show off how to use the `lubridate` package in the tidyverse to work with date variables in datasets in this [NYC Flights case study](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/notes/supp-a10-solution.Rmd). 
+
+For the sake of time, we'll just go over the solutions together, instead of having you attempt exercises on your own first. We think this will be sufficient to get a hang of the basics of `lubridate`. That being said, want extra practice? Then check out the [R4DS Dates and Times Chapter](https://r4ds.hadley.nz/datetimes)! 
+
+<!-- Let's say you want to convert a string into a date object.  -->
+
+<!-- The `lubridate` package in the `tidyverse` has your back with a family of functions named as permutations of "y", "m", and "d".  -->
+
+<!-- ```{r, message=FALSE}  -->
+<!-- library(lubridate) -->
+<!-- ymd("2020-10-06")  -->
+<!-- mdy("October 6th, 2020") -->
+<!-- dmy("06-10-2020") -->
+<!-- ``` -->
+
+<!-- We can also convert strings into date-time objects using `lubridate` functions. The family of functions you're looking for is named with a "y"/"m"/"d" permutation followed by an "_" and one or more of "h", "m", and "s".  -->
+
+<!-- ```{r}  -->
+<!-- ymd_hms("2020-10-06 14:20:39") -->
+<!-- ymd_hm("2020-10-06 14:20") -->
+<!-- ``` -->
+
+<!-- Note that there are also time objects, though we don't cover them here.  -->
+
+<!-- Once you've acquired a date or date/time object, you can use `lubridate` functions to extract individual components of the data or date/time.  -->
+
+<!-- ```{r}  -->
+<!-- today_date <- today() -->
+<!-- year(today_date) -->
+<!-- wday(today_date, label=TRUE) -->
+<!-- yday(today_date) -->
+<!-- ``` -->
+
+<!-- ### Date/Time Math  -->
+
+<!-- An incredible advantage of working with date and date-time objects in R is that you can make R do pesky time arithmetic for you.  -->
+
+<!-- ```{r}  -->
+<!-- today_date <- today() -->
+<!-- christmas_this_year <- mdy(paste("December 25", year(today_date))) -->
+
+<!-- christmas_this_year - today_date -->
+<!-- ``` -->
+
+<!-- If you want to make sure your difference comes out as seconds (or want to convert between different units) you can use `as.duration`:  -->
+
+<!-- ```{r} -->
+<!-- as.duration(christmas_this_year - today_date) -->
+<!-- ``` -->
+
+
+
