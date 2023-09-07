@@ -21,7 +21,8 @@ From today's class, students are anticipated to be able to:
 - predict on a model object with the `broom::augment()` and `predict()` functions.
 - extract information from a model object using `broom::tidy()`, `broom::glance()`, and traditional means.
 
-Note that there is a new tidyverse-like framework of packages to help with modelling. It's called [tidymodels](https://www.tidymodels.org/). Tidymodels has come a long way since it first started, and I can see it taking the place of this lecture in the future (or at least becoming a part of the lecture). 
+Note that there is a new tidyverse-like framework of packages to help with modelling. It's called [tidymodels](https://www.tidymodels.org/). 
+<!-- Tidymodels has come a long way since it first started, and I can see it taking the place of this lecture in the future (or at least becoming a part of the lecture). -->
 
 ## Resources
 
@@ -312,7 +313,21 @@ ggplot(gapminder_Zimbabwe, aes(year,lifeExp)) +
 
 5. `geom_smooth()` - used to add geom_layer that shows a fitted line to the data. `method` and `formula` arguments can be used to customize model.
 
+## Your turn: learning to fit models in R
+
+We think the best way to learn the basics from here is to work through the last part of Worksheet A4. 
+
+## In-class Schedule 
+
+### First part
+
+- Attempt questions on the last part of Worksheet A4
+- Get answers about questions you got stuck on 
+
+### Second part
+
+While this is not a modelling class, let's get a sense of where modelling would fit into a real data analysis by working through [the final part of the FEV case study](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/notes/supp-a09.Rmd). 
 
 ### Attribution
 
-Written by Vincenzo Coia with input from Victor Yuan.
+Model fitting intro by Vincenzo Coia with input from Victor Yuan. FEV case study added later by Lucy. 

@@ -1,0 +1,109 @@
+---
+title: 'FEV Case Study: Modelling, With Solutions'
+author: "Lucy"
+date: "2023-08-28"
+output: html_document
+---
+
+
+
+<div id="review" class="section level2">
+<h2>Review</h2>
+<p>We’ll continue exploring the FEV data set. Let’s start by loading the data and required packages.</p>
+<pre class="r"><code>library(rigr) 
+library(tidyverse)
+library(broom)
+
+fev_tbl &lt;- as_tibble(fev) %&gt;% mutate(across(sex:smoke, ~ as.factor(.x)))</code></pre>
+<p>Previously, we found that the mean FEV in the smoking group was substantially higher than the average FEV in the non-smoking group; this speaks to the <em>unadjusted</em> association between smoking and lung function. But we also found that the FEV of smokers and non-smokers <em>of the same height</em> is pretty similar; that is, there doesn’t seem to be much of an association between smoking and lung function, <em>when adjusted for height</em>. We also found other factors in the data set seemingly related to smoking status, FEV, or both that we might like to adjust for, like age and sex.</p>
+</div>
+<div id="a-simple-two-group-model" class="section level2">
+<h2>A simple two group model</h2>
+<p>We previously calculated the mean FEV among the smokers and the non-smokers in our data set.</p>
+<pre class="r"><code>fev_tbl %&gt;% group_by(smoke) %&gt;% 
+  summarize(mean_fev = mean(fev), sd_fev = sd(fev), n = n())</code></pre>
+<pre><code>## # A tibble: 2 × 4
+##   smoke mean_fev sd_fev     n
+##   &lt;fct&gt;    &lt;dbl&gt;  &lt;dbl&gt; &lt;int&gt;
+## 1 no        2.57  0.851   589
+## 2 yes       3.28  0.750    65</code></pre>
+<p>These are <em>estimates</em> of the mean FEV among the whole <em>population</em> of smokers and the population of non-smokers, calculated using our data. Are the population mean FEVs different? How different? We can get an answer to these questions by not just <em>estimating</em> population mean FEVs, but also performing <em>statistical inference</em> on the difference between the population mean FEVs. To do this, we’ll use the <code>t.test()</code> function built into R to perform a two-sample t-test.</p>
+<pre class="r"><code>(tt_fev &lt;- t.test(fev ~ smoke, fev_tbl, var.equal=FALSE))</code></pre>
+<pre><code>## 
+## 	Welch Two Sample t-test
+## 
+## data:  fev by smoke
+## t = -7.1496, df = 83.273, p-value = 3.074e-10
+## alternative hypothesis: true difference in means between group no and group yes is not equal to 0
+## 95 percent confidence interval:
+##  -0.9084253 -0.5130126
+## sample estimates:
+##  mean in group no mean in group yes 
+##          2.566143          3.276862</code></pre>
+<p>If I felt like being <em>extremely</em> careful, then here is how I would describe the results of this test.</p>
+<blockquote>
+<p>“In the FEV data set, the mean FEV among children who do not smoke was 2.6 L/s and the mean FEV among children who smoke was 3.3 L/s in children. The data are consistent with the population mean FEV among children who smoke being between 0.5 L/s and 0.9 L/s higher than the population mean FEV among children who do not smoke. We reject the null hypothesis of no difference in the population mean FEV among children who smoke and children who do not smoke (p &lt; 0.0001).”</p>
+</blockquote>
+<p>In practice, what you will see in scientific reports will typically be much more brief.</p>
+<div id="exercise-1" class="section level3">
+<h3>Exercise 1</h3>
+<p>Use the <code>tidy()</code> function to extract the information printed above into a tibble. Then, practice manually extracting the p-value and lower and upper confidence limits.</p>
+<pre class="r"><code>tidy(tt_fev)</code></pre>
+<pre><code>## # A tibble: 1 × 10
+##   estimate estimate1 estimate2 statistic  p.value parameter conf.low conf.high
+##      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+## 1   -0.711      2.57      3.28     -7.15 3.07e-10      83.3   -0.908    -0.513
+## # ℹ 2 more variables: method &lt;chr&gt;, alternative &lt;chr&gt;</code></pre>
+<pre class="r"><code>tt_fev$p.value</code></pre>
+<pre><code>## [1] 3.073813e-10</code></pre>
+<pre class="r"><code>tt_fev$conf.int</code></pre>
+<pre><code>## [1] -0.9084253 -0.5130126
+## attr(,&quot;conf.level&quot;)
+## [1] 0.95</code></pre>
+</div>
+</div>
+<div id="fitting-a-simple-linear-model" class="section level2">
+<h2>Fitting a simple linear model</h2>
+<p>We previously made this scatterplot of FEV versus height, with points coloured by smoking status. Based on this plot, it seems like the FEV of smokers and non-smokers <em>of the same height</em> is pretty similar.</p>
+<pre class="r"><code>(scatter_fev &lt;- ggplot(fev_tbl, aes(x = height, y = fev, colour=smoke)) + 
+  geom_jitter(width=0.2, alpha = 0.75) + 
+  scale_colour_manual(values=c(&quot;cornflowerblue&quot;,&quot;darkorange&quot;)) + 
+  ggtitle(&quot;FEV versus height, stratified by smoking status&quot;) +
+  ylab(&quot;FEV (l/s)&quot;) +
+  xlab(&quot;Height (inches)&quot;) + 
+  theme_bw())</code></pre>
+<p><img src="/notes/supp-a09-solution_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<div id="exercise-2" class="section level3">
+<h3>Exercise 2</h3>
+<p>Let’s fit simple linear models to the smokers and the non-smokers and add it to your plot. <em>Hint</em>: <code>geom_smooth()</code>.</p>
+<pre class="r"><code>scatter_fev + geom_smooth(method=&quot;lm&quot;)</code></pre>
+<pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
+<p><img src="/notes/supp-a09-solution_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p>Notice how this makes it easier for us to compare the estimated mean FEV at different heights in the two groups.</p>
+</div>
+</div>
+<div id="fitting-a-linear-model-with-more-variables" class="section level2">
+<h2>Fitting a linear model with more variables</h2>
+<div id="exercise-3" class="section level3">
+<h3>Exercise 3</h3>
+<p>Fit a linear model on the FEV from the smoking status, age, height, and sex.</p>
+<pre class="r"><code>(fev_lm &lt;- lm(fev~smoke+age+height+sex, data=fev_tbl))</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = fev ~ smoke + age + height + sex, data = fev_tbl)
+## 
+## Coefficients:
+## (Intercept)     smokeyes          age       height      sexmale  
+##    -4.45697     -0.08725      0.06551      0.10420      0.15710</code></pre>
+<p>Then, use the <code>tidy()</code> function to extract the information printed above (plus more!) into a tibble.</p>
+<pre class="r"><code>tidy(fev_lm)</code></pre>
+<pre><code>## # A tibble: 5 × 5
+##   term        estimate std.error statistic  p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
+## 1 (Intercept)  -4.46     0.223      -20.0  1.07e-69
+## 2 smokeyes     -0.0872   0.0593      -1.47 1.41e- 1
+## 3 age           0.0655   0.00949      6.90 1.21e-11
+## 4 height        0.104    0.00476     21.9  4.98e-80
+## 5 sexmale       0.157    0.0332       4.73 2.74e- 6</code></pre>
+</div>
+</div>

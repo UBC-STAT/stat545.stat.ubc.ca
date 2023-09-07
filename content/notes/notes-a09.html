@@ -3,7 +3,6 @@ title: "The Model-Fitting Paradigm in R"
 output: html_document
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <pre class="r"><code>library(tidyverse)
@@ -16,7 +15,8 @@ library(gapminder)</code></pre>
 <li>predict on a model object with the <code>broom::augment()</code> and <code>predict()</code> functions.</li>
 <li>extract information from a model object using <code>broom::tidy()</code>, <code>broom::glance()</code>, and traditional means.</li>
 </ul>
-<p>Note that there is a new tidyverse-like framework of packages to help with modelling. It’s called <a href="https://www.tidymodels.org/">tidymodels</a>. Tidymodels has come a long way since it first started, and I can see it taking the place of this lecture in the future (or at least becoming a part of the lecture).</p>
+<p>Note that there is a new tidyverse-like framework of packages to help with modelling. It’s called <a href="https://www.tidymodels.org/">tidymodels</a>.
+<!-- Tidymodels has come a long way since it first started, and I can see it taking the place of this lecture in the future (or at least becoming a part of the lecture). --></p>
 <div id="resources" class="section level2">
 <h2>Resources</h2>
 <p>Video lecture:</p>
@@ -121,15 +121,14 @@ library(gapminder)</code></pre>
 <pre class="r"><code>augment(my_lm) %&gt;% 
   print(n = 5)</code></pre>
 <pre><code>## # A tibble: 32 × 9
-##   .rownames           mpg    wt .fitted .resid   .hat .sigma   .cooksd .std.re…¹
-##   &lt;chr&gt;             &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-## 1 Mazda RX4          21    2.62    23.3 -2.28  0.0433   3.07 0.0133      -0.766 
-## 2 Mazda RX4 Wag      21    2.88    21.9 -0.920 0.0352   3.09 0.00172     -0.307 
-## 3 Datsun 710         22.8  2.32    24.9 -2.09  0.0584   3.07 0.0154      -0.706 
-## 4 Hornet 4 Drive     21.4  3.22    20.1  1.30  0.0313   3.09 0.00302      0.433 
-## 5 Hornet Sportabout  18.7  3.44    18.9 -0.200 0.0329   3.10 0.0000760   -0.0668
-## # … with 27 more rows, and abbreviated variable name ¹​.std.resid
-## # ℹ Use `print(n = ...)` to see more rows</code></pre>
+##   .rownames           mpg    wt .fitted .resid   .hat .sigma  .cooksd .std.resid
+##   &lt;chr&gt;             &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;    &lt;dbl&gt;      &lt;dbl&gt;
+## 1 Mazda RX4          21    2.62    23.3 -2.28  0.0433   3.07  1.33e-2    -0.766 
+## 2 Mazda RX4 Wag      21    2.88    21.9 -0.920 0.0352   3.09  1.72e-3    -0.307 
+## 3 Datsun 710         22.8  2.32    24.9 -2.09  0.0584   3.07  1.54e-2    -0.706 
+## 4 Hornet 4 Drive     21.4  3.22    20.1  1.30  0.0313   3.09  3.02e-3     0.433 
+## 5 Hornet Sportabout  18.7  3.44    18.9 -0.200 0.0329   3.10  7.60e-5    -0.0668
+## # ℹ 27 more rows</code></pre>
 <p>We can also predict on new datasets. Here are predictions of <code>mpg</code> for cars weighing 3, 4, and 5 thousand lbs.</p>
 <pre class="r"><code>augment(my_lm, newdata = tibble(wt = 3:5))</code></pre>
 <pre><code>## # A tibble: 3 × 2
@@ -145,12 +144,10 @@ library(gapminder)</code></pre>
 <p>Use the <code>glance()</code> function to extract a summary of the model as a whole, in the form of a one-row tibble. This will give you information related to the model fit.</p>
 <pre class="r"><code>glance(my_lm)</code></pre>
 <pre><code>## # A tibble: 1 × 12
-##   r.squared adj.r.squa…¹ sigma stati…²  p.value    df logLik   AIC   BIC devia…³
-##       &lt;dbl&gt;        &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;
-## 1     0.753        0.745  3.05    91.4 1.29e-10     1  -80.0  166.  170.    278.
-## # … with 2 more variables: df.residual &lt;int&gt;, nobs &lt;int&gt;, and abbreviated
-## #   variable names ¹​adj.r.squared, ²​statistic, ³​deviance
-## # ℹ Use `colnames()` to see all variable names</code></pre>
+##   r.squared adj.r.squared sigma statistic  p.value    df logLik   AIC   BIC
+##       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1     0.753         0.745  3.05      91.4 1.29e-10     1  -80.0  166.  170.
+## # ℹ 3 more variables: deviance &lt;dbl&gt;, df.residual &lt;int&gt;, nobs &lt;int&gt;</code></pre>
 </div>
 </div>
 <div id="probing-the-model-traditional-method" class="section level2">
@@ -217,7 +214,7 @@ library(gapminder)</code></pre>
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
 ## Residual standard error: 3.046 on 30 degrees of freedom
-## Multiple R-squared:  0.7528, Adjusted R-squared:  0.7446 
+## Multiple R-squared:  0.7528,	Adjusted R-squared:  0.7446 
 ## F-statistic: 91.38 on 1 and 30 DF,  p-value: 1.294e-10</code></pre>
 <p>Like the original model object, <code>summary()</code> <em>looks</em> like it returns a bunch of text – but it’s actually another list! Let’s again use <code>names()</code> to get the components of this list:</p>
 <pre class="r"><code>names(summary(my_lm))</code></pre>
@@ -235,7 +232,7 @@ library(gapminder)</code></pre>
 <pre class="r"><code>ggplot(mtcars, aes(x = wt, y = mpg)) +
     geom_point() +
     geom_smooth(method = &quot;lm&quot;) </code></pre>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="/notes/notes-a09_files/figure-html/unnamed-chunk-21-1.png" width="480" style="display: block; margin: auto;" /></p>
 <p>Let’s visualize some relationships in the <code>gapminder</code> dataset.</p>
 <p>Let’s inspect Zimbabwe, which has a unique behavior in the <code>lifeExp</code> and <code>year</code> relationship.</p>
@@ -250,7 +247,7 @@ Let’s try fitting a linear model to this relationship</p>
 <pre class="r"><code>ggplot(gapminder_Zimbabwe, aes(year,lifeExp)) +
   geom_point() +
   geom_smooth(method = &quot;lm&quot;, se = F)</code></pre>
-<pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
+<pre><code>## `geom_smooth()` using formula = &#39;y ~ x&#39;</code></pre>
 <p><img src="/notes/notes-a09_files/figure-html/unnamed-chunk-23-1.png" width="480" style="display: block; margin: auto;" />
 Now we will try to fit a second degree polynomial and see what would that look like.</p>
 <pre class="r"><code>ggplot(gapminder_Zimbabwe, aes(year,lifeExp)) +
@@ -269,9 +266,27 @@ Now we will try to fit a second degree polynomial and see what would that look l
 <li><p><code>broom::glance()</code> - used to extract statistical summaries on the whole model. Always returns a 1-row <code>tibble</code>.</p></li>
 <li><p><code>geom_smooth()</code> - used to add geom_layer that shows a fitted line to the data. <code>method</code> and <code>formula</code> arguments can be used to customize model.</p></li>
 </ol>
+</div>
+<div id="your-turn-learning-to-fit-models-in-r" class="section level2">
+<h2>Your turn: learning to fit models in R</h2>
+<p>We think the best way to learn the basics from here is to work through the last part of Worksheet A4.</p>
+</div>
+<div id="in-class-schedule" class="section level2">
+<h2>In-class Schedule</h2>
+<div id="first-part" class="section level3">
+<h3>First part</h3>
+<ul>
+<li>Attempt questions on the last part of Worksheet A4</li>
+<li>Get answers about questions you got stuck on</li>
+</ul>
+</div>
+<div id="second-part" class="section level3">
+<h3>Second part</h3>
+<p>While this is not a modelling class, let’s get a sense of where modelling would fit into a real data analysis by working through <a href="https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/notes/supp-a09.Rmd">the final part of the FEV case study</a>.</p>
+</div>
 <div id="attribution" class="section level3">
 <h3>Attribution</h3>
-<p>Written by Vincenzo Coia with input from Victor Yuan.</p>
+<p>Model fitting intro by Vincenzo Coia with input from Victor Yuan. FEV case study added later by Lucy.</p>
 </div>
 </div>
 </div>
