@@ -142,10 +142,11 @@ ggplot(aes(x = ep_id, y = viewers_7day, fill = series)) +
 <h2>Pivoting for Tidying</h2>
 <p>The <code>tidyr</code> package is loaded with the <code>tidyverse</code> and provides functions for pivoting data. It has two main “pivoting” type functions:</p>
 <ol style="list-style-type: decimal">
-<li><code>pivot_longer()</code> makes datasets <em>longer</em> by increasing the number of rows and decreasing the number of columns.</li>
-<li><code>pivot_wider()</code> makes datasets <em>wider</em> by decreasing the number of rows and increasing the number of columns.</li>
+<li><code>pivot_longer()</code> makes datasets <em>longer</em>: it moves some information in the columns into new rows, thereby <em>increasing</em> the number of <em>rows</em> of the dataset.<br />
+</li>
+<li><code>pivot_wider()</code> makes datasets <em>wider</em>: it moves some information in the rows into new columns, thereby <em>decreasing</em> the number of rows of the dataset.
+By now, you should have a sense for why this might be useful for tidying!</li>
 </ol>
-<p>By now, you should have a sense for why this might be useful for tidying!</p>
 <div id="pivoting-wider" class="section level3">
 <h3>Pivoting Wider</h3>
 <p>Here is some code to create a variable for whether an episode is the first or last episode of the season to <code>ratings_tbl1</code> and subset to only the data from the first and last episodes of each eason.</p>
@@ -165,18 +166,18 @@ head(ratings_tbl1)</code></pre>
 ## 4    14         5.06      2       8 last      
 ## 5    15         3.85      3       1 first     
 ## 6    24         6.74      3      10 last</code></pre>
-<p>This is not the same as <code>ratings_tbl2</code>. To get it there, we need to make it wider. This is because compared to <code>ratings_tbl1</code> has spread
-a single observation (a series) across multiple rows.</p>
+<p>This is not the same format as <code>ratings_tbl2</code>. But it does contain the same information. To convert <code>ratings_tbl1</code> into <code>ratings_tbl2</code>, we need to make <code>ratings_tbl1</code> <em>wider</em>: we need to move some information in the rows (the info about whether each episode is the first or last episode of each season) into new columns.</p>
 <p>We can solve this problem using <code>pivot_wider</code>, which needs three pieces of information.</p>
 <ul>
-<li><p>What is a set of columns that uniquely identifies each observations? Put their names in the <code>id_cols</code> argument.</p></li>
-<li><p>What should the new columns be named? Put the name of the column you want to take the new variable names from in the <code>names_from</code> argument.</p></li>
-<li><p>What values should the new columns contain? Put the name of the column you want to take the values from to <code>values_from</code> in the <code>values_from</code> argument.</p></li>
+<li><p>What is a set of columns that uniquely identifies each observation? Put their names in the <code>id_cols</code> argument.</p></li>
+<li><p>Where should the names for the new columns come from? Put the name of the column you want to take the new variable names from in the <code>names_from</code> argument.</p></li>
+<li><p>What values should the new columns contain? Put the name of the columns you want to take the values from to <code>values_from</code> in the <code>values_from</code> argument.</p></li>
 </ul>
 <p>Note that if you don’t specify an <code>id_cols</code> argument, <code>pivot_wider</code> will assume that you want it to be every column except those in <code>names_from</code> and <code>values_from</code>.</p>
 <pre class="r"><code>ratings_tbl2 &lt;- ratings_tbl1 %&gt;% 
   pivot_wider(id_cols = series, 
-              names_from=episode_fl, values_from=viewers_7day)
+              names_from=episode_fl, 
+              values_from=viewers_7day)
 
 head(ratings_tbl2)</code></pre>
 <pre><code>## # A tibble: 6 × 3
@@ -188,9 +189,30 @@ head(ratings_tbl2)</code></pre>
 ## 4      4  6.6   9.45
 ## 5      5  8.51 13.5 
 ## 6      6 11.6  15.0</code></pre>
+<p>Also note that any columns not included in <code>id_cols</code>, <code>names_from</code>, and <code>values_from</code> (e.g. <code>ep_id</code>) will simply be dropped.</p>
+<p>If we wanted to keep the info in <code>ep_id</code> as well, we would add it to the <code>values_from</code> argument:</p>
+<pre class="r"><code>ratings_tbl1 %&gt;% 
+  pivot_wider(id_cols = series, 
+              names_from=episode_fl, 
+              values_from=c(viewers_7day, ep_id))</code></pre>
+<pre><code>## # A tibble: 10 × 5
+##    series viewers_7day_first viewers_7day_last ep_id_first ep_id_last
+##     &lt;dbl&gt;              &lt;dbl&gt;             &lt;dbl&gt;       &lt;int&gt;      &lt;int&gt;
+##  1      1               2.24              2.75           1          6
+##  2      2               3.1               5.06           7         14
+##  3      3               3.85              6.74          15         24
+##  4      4               6.6               9.45          25         34
+##  5      5               8.51             13.5           35         44
+##  6      6              11.6              15.0           45         54
+##  7      7              13.6              15.9           55         64
+##  8      8               9.46             10.0           65         74
+##  9      9               9.55             10.3           75         84
+## 10     10               9.62             10.0           85         94</code></pre>
 </div>
 <div id="pivoting-longer" class="section level3">
 <h3>Pivoting Longer</h3>
+<div id="the-basics-column-names-contain-variable-values" class="section level4">
+<h4>The Basics: Column Names Contain Variable Values</h4>
 <p>Here is a snippet of WHO data on the number of tuberculosis cases in different years in different countries.</p>
 <pre class="r"><code>table4a</code></pre>
 <pre><code>## # A tibble: 3 × 3
@@ -199,14 +221,15 @@ head(ratings_tbl2)</code></pre>
 ## 1 Afghanistan    745   2666
 ## 2 Brazil       37737  80488
 ## 3 China       212258 213766</code></pre>
-<p>If we wanted to visualize tuberculosis cases over time by country, then this format is not tidy. We want every row to be an observation (measurements within a country and a year), and we want each column to be a variable, like the year, the case count, and the country name. That is, <code>table4a</code> is too <em>short</em>: each row contains information about multiple observations.</p>
-<p>We can solve this problem using <code>pivot_longer</code>, which needs three pieces of information. We are going to decrease the number of columns, so …</p>
+<p>If we wanted to visualize tuberculosis cases over time by country, then this format is not tidy. We want every column to be a variable, like the year, the case count, and the country name, and every row to be an observation (measurements within a country and a year).</p>
+<p>That is, we need to make <code>table4a</code> <em>longer</em>: we need to move some information in the column names (the info about the measurement year) into new rows.</p>
+<p>We can solve this problem using <code>pivot_longer</code>, which needs three pieces of information.</p>
 <ul>
-<li><p>Which are the offending columns that we want to combine? Put their names in the <code>cols</code> argument.</p></li>
-<li><p>These column names are often important though - so we should save them as values in a column of our new data set. What should the name of that column be? Put it in the <code>names_to</code> argument.</p></li>
-<li><p>What should we name the column in our new data set that contains the values in the offending columns of the old data set? Put it in the <code>values_to</code> argument.</p></li>
+<li><p>Which are the columns that we want to expand into more rows? Put their names in the <code>cols</code> argument.</p></li>
+<li><p>We want to save the information in the names of those columns as values in new column(s) of our dataset. What should we name these new column(s)? This is the <code>names_to</code> argument.</p></li>
+<li><p>We also want to preserve the information in the <em>values</em> of those columns - so we should save them as values in a new column of our dataset. What should we name it? This is the <code>values_to</code> argument.</p></li>
 </ul>
-<pre class="r"><code>table4a %&gt;% pivot_longer(c(`1999`, `2000`), 
+<pre class="r"><code>table4a %&gt;% pivot_longer(cols = c(`1999`, `2000`), 
                          names_to = &quot;year&quot;, 
                          values_to = &quot;cases&quot;)</code></pre>
 <pre><code>## # A tibble: 6 × 3
@@ -218,6 +241,88 @@ head(ratings_tbl2)</code></pre>
 ## 4 Brazil      2000   80488
 ## 5 China       1999  212258
 ## 6 China       2000  213766</code></pre>
+</div>
+<div id="challenge-1-column-names-contain-multiple-variable-values" class="section level4">
+<h4>Challenge 1: Column Names Contain Multiple Variable Values</h4>
+<p>Here’s a more realistic (but still simplified!!!) look at the WHO Tuberculosis data.</p>
+<pre class="r"><code>who_demo &lt;- who2 %&gt;% 
+  select(country, year, starts_with(&quot;sp&quot;)) %&gt;%
+  rename_with(function(x) 
+    str_remove(x, pattern=&quot;sp_&quot;), 
+    starts_with(&quot;sp&quot;)) %&gt;% 
+  filter(year %in% c(1999, 2000)) %&gt;% 
+  filter(country %in% c(&quot;Afghanistan&quot;, &quot;Brazil&quot;, &quot;China&quot;))
+
+head(who_demo)</code></pre>
+<pre><code>## # A tibble: 6 × 16
+##   country      year m_014 m_1524 m_2534 m_3544 m_4554 m_5564  m_65 f_014 f_1524
+##   &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+## 1 Afghanistan  1999     8     55     55     47     34     21     8    25    139
+## 2 Afghanistan  2000    52    228    183    149    129     94    80    93    414
+## 3 Brazil       1999   301   3662   5401   5827   4630   2634  2121   372   2909
+## 4 Brazil       2000  1894   7268  11568  11906   8623   5085  4494  1859   6719
+## 5 China        1999  1247  18961  29328  25095  24239  21564 21367  1431  15178
+## 6 China        2000  1131  19111  29399  25206  25593  21429 21771  1420  14536
+## # ℹ 5 more variables: f_2534 &lt;dbl&gt;, f_3544 &lt;dbl&gt;, f_4554 &lt;dbl&gt;, f_5564 &lt;dbl&gt;,
+## #   f_65 &lt;dbl&gt;</code></pre>
+<p>This time, cases are broken down by gender (<code>f/m</code>) and by age range (<code>014\1524\2534\3544\4554\5564\65</code>).</p>
+<p>There are five variables in this data set: country, year, gender, age range, and case count. Values for gender and age range are currently located in the column names of <code>who_demo</code>, and values for case count are currently spread across multiple columns. So to tidy <code>who_demo</code> up, we need to use <code>pivot_longer()</code> to move the info in the columns into new rows.</p>
+<p>Conceptually, this is pretty similar to the last example: we want to use the information in <code>m_014</code>, <code>m_1524</code>, etc. to create new rows. So we should put those column names into the <code>cols</code> argument. But now, we want the information in their column names - the gender and age - to go into <em>two</em> new columns: gender and age. We can do this by specifying two column names in the <code>names_to</code> argument: <code>gender</code> and <code>age</code>.</p>
+<p>But how is <code>pivot_longer()</code> to know which part of the column name <code>m_014</code> corresponds to the gender, and which part corresponds to the age? You need to tell it that the pieces of information are separated by the “_” character using the <code>names_sep</code> argument.</p>
+<p>Finally, we can specify the name of the new column we want the values in the <code>m_014</code>, <code>m_1524</code>, etc. columns to go into with the <code>values_to</code> argument.</p>
+<pre class="r"><code>who_demo %&gt;% pivot_longer(cols = !(country:year),
+                          names_to = c(&quot;gender&quot;, &quot;age&quot;),
+                          names_sep = &quot;_&quot;,
+                          values_to = &quot;cases&quot;)</code></pre>
+<pre><code>## # A tibble: 84 × 5
+##    country      year gender age   cases
+##    &lt;chr&gt;       &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt; &lt;dbl&gt;
+##  1 Afghanistan  1999 m      014       8
+##  2 Afghanistan  1999 m      1524     55
+##  3 Afghanistan  1999 m      2534     55
+##  4 Afghanistan  1999 m      3544     47
+##  5 Afghanistan  1999 m      4554     34
+##  6 Afghanistan  1999 m      5564     21
+##  7 Afghanistan  1999 m      65        8
+##  8 Afghanistan  1999 f      014      25
+##  9 Afghanistan  1999 f      1524    139
+## 10 Afghanistan  1999 f      2534    160
+## # ℹ 74 more rows</code></pre>
+</div>
+<div id="challenge-2-column-names-contain-variable-names-and-values" class="section level4">
+<h4>Challenge 2: Column Names Contain Variable Names And Values</h4>
+<p>So far we have seen examples where the column names contain variable values. But what if they contain names AND values?</p>
+<p>Let’s have a look at the <code>household</code> dataset (loaded with the <code>tidyr</code> package), which has the date of birth and names of two children in families. Let’s say that we wanted to investigate how children names relate to their date of birth.</p>
+<pre class="r"><code>head(household)</code></pre>
+<pre><code>## # A tibble: 5 × 5
+##   family dob_child1 dob_child2 name_child1 name_child2
+##    &lt;int&gt; &lt;date&gt;     &lt;date&gt;     &lt;chr&gt;       &lt;chr&gt;      
+## 1      1 1998-11-26 2000-01-29 Susan       Jose       
+## 2      2 1996-06-22 NA         Mark        &lt;NA&gt;       
+## 3      3 2002-07-11 2004-04-05 Sam         Seth       
+## 4      4 2004-10-10 2009-08-27 Craig       Khai       
+## 5      5 2000-12-05 2005-02-28 Parker      Gracie</code></pre>
+<p>We’d want “date of birth” and “name” to be two variables associated with an observation (a child). We know we want to use <code>pivot_longer()</code>, because we want to make <code>household</code> longer by creating new variables. But wait! The names of the “date of birth”/“name” variables AND the values of the “child” variable are BOTH in the column names of <code>household</code>!</p>
+<p>Inspecting <a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">the documentation</a> for <code>pivot_longer()</code> very carefully reveals that you can use a special specification of the <code>names_to</code> argument to resolve this problem.</p>
+<pre class="r"><code>household %&gt;% pivot_longer(cols = -family, 
+                           names_to = c(&quot;.value&quot;, &quot;child&quot;), 
+                           names_sep = &quot;_&quot;)</code></pre>
+<pre><code>## # A tibble: 10 × 4
+##    family child  dob        name  
+##     &lt;int&gt; &lt;chr&gt;  &lt;date&gt;     &lt;chr&gt; 
+##  1      1 child1 1998-11-26 Susan 
+##  2      1 child2 2000-01-29 Jose  
+##  3      2 child1 1996-06-22 Mark  
+##  4      2 child2 NA         &lt;NA&gt;  
+##  5      3 child1 2002-07-11 Sam   
+##  6      3 child2 2004-04-05 Seth  
+##  7      4 child1 2004-10-10 Craig 
+##  8      4 child2 2009-08-27 Khai  
+##  9      5 child1 2000-12-05 Parker
+## 10      5 child2 2005-02-28 Gracie</code></pre>
+<p>The special <code>".value"</code> specification says that we want to use the first component of the pivoted column name as a variable name, and make a new column with values coming from the second component of the pivoted column name. The second thing we pass into <code>names_to</code> names that new column.</p>
+<p>This process is best described by <a href="https://r4ds.hadley.nz/data-tidy#fig-pivot-names-and-values">Figure 6.7 from R4DS</a>.</p>
+</div>
 </div>
 </div>
 <div id="separating-and-uniting-for-tidying" class="section level2">
@@ -264,20 +369,15 @@ and the <code>into</code> argument specifies the names of the new columns. The <
 <p>Now’s your chance to ask about any questions you got stuck on and get them answered by the instructor!</p>
 </div>
 </div>
-<div id="coda-tidy-and-data-ethics" class="section level2">
-<h2>Coda: Tidy and Data Ethics</h2>
-<blockquote>
-<p>“Of course, it is very easy to disregard people you have never met, and who are certainly not your friends or family members. After all, in the eyes of an outsider, who is in no danger whatsoever, the people caught up in the situation are nothing more than simply statistics.” - Andrew James Pritchard, “Not Collateral Damage”</p>
-</blockquote>
-<p>The book <a href="https://data-feminism.mitpress.mit.edu/">“Data Feminism”</a> by Catherine D’Ignazio and Lauren F. Klein “presents a new way of thinking about data science and data ethics that is informed by the ideas of intersectional feminism”. Power is an important theme throughout the book: they point out that “data collection has long been employed as a technique of consolidating knowledge about the people whose data are collected, and therefore consolidating power over their lives.”</p>
-<p>In Chapter 5, the authors make several points about cleaning and tidying data:</p>
+<div id="coda-the-merits-of-untidy-data" class="section level2">
+<h2>Coda: The Merits of Untidy Data</h2>
+<p>As we’ve seen, tidy data is often very helpful. But there are also times when <em>un</em>tidy data is good. Here are a few reasons:</p>
 <ul>
-<li><p>“Data do not need cleaning until there are strangers in the dataset … Being a stranger in the dataset is not an inherently bad thing, but it carries significant risk of what renowned postcolonial scholar Gayatri Spivak calls <em>epistemic violence</em> - the harm that dominant groups like colonial powers wreak by privileging their ways of knowing over local and Indigenous ways.”</p></li>
-<li><p>Tidying data is a “lossy” process: “But what might be lost in the process of dominating and disciplining data? Whose perspectives might be lost in that process? And, conversely, whose perspectives might be additionally imposed?”</p></li>
-<li><p>Further riffing on that point: “the process of cleaning and tidying data … at times, can be a destructive rather than constructive act. One way to think of it is like chopping off the roots of a tree that connects it to the ground from which it grew. <strong>It’s an act that irreversibly separates the data from their context.</strong>”</p></li>
-<li><p>Untidy data is not inherently “bad”, and tidy data is not inherently “good”: “The ideas expressed by Wickham, and by the press, carry the assumption that all data scientists, in all contexts, value cleanliness and control over messiness and complexity … these are not the requirements, nor the goals, of all data projects.”</p></li>
+<li>The format that lends itself best to fast computations might not be tidy. <a href="http://varianceexplained.org/r/tidy-genomics/">Case Study: Tidy Genomics</a>.</li>
+<li>Untidy data is often easier for humans to interpret and edit. See <a href="https://arxiv.org/pdf/2106.15005.pdf">Untidy Data: The Unreasonable Effectiveness of Tables</a>.</li>
+<li>We lose important information about the data context by tidying. This can have important ethical implications; see Chapter 5 of the book <a href="https://data-feminism.mitpress.mit.edu/">“Data Feminism”</a> by Catherine D’Ignazio and Lauren F. Klein.</li>
 </ul>
-<p>These are important points for us to reflect on as a data science community.</p>
+<p>In summary, tidiness is a very useful concept, and tidying data is often useful. But we should remember that absolutes are few and far between in data science and statistics. Just because tidying data is <em>often</em> useful, doesn’t mean it’s <em>always</em> useful.</p>
 </div>
 <div id="attribution" class="section level2">
 <h2>Attribution</h2>

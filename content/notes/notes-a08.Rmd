@@ -160,9 +160,8 @@ With a partner or a small group:
 
 The `tidyr` package is loaded with the `tidyverse` and provides functions for pivoting data.  It has two main "pivoting" type functions: 
 
-1. `pivot_longer()` makes datasets *longer* by increasing the number of rows and decreasing the number of columns. 
-2.  `pivot_wider()` makes datasets *wider* by decreasing the number of rows and increasing the number of columns.
-
+1. `pivot_longer()` makes datasets *longer*: it moves some information in the columns into new rows, thereby *increasing* the number of *rows* of the dataset.  
+2.  `pivot_wider()` makes datasets *wider*: it moves some information in the rows into new columns, thereby *decreasing* the number of rows of the dataset. 
 By now, you should have a sense for why this might be useful for tidying! 
 
 ### Pivoting Wider
@@ -179,28 +178,41 @@ ratings_tbl1 <- ratings_tbl1 %>%
 head(ratings_tbl1)
 ```
 
-This is not the same as `ratings_tbl2`. To get it there, we need to make it wider. This is because compared to `ratings_tbl1` has spread 
-a single observation (a series) across multiple rows. 
+This is not the same format as `ratings_tbl2`. But it does contain the same information. To convert `ratings_tbl1` into `ratings_tbl2`, we need to make `ratings_tbl1` *wider*: we need to move some information in the rows (the info about whether each episode is the first or last episode of each season) into new columns. 
 
 We can solve this problem using `pivot_wider`, which needs three pieces of information. 
 
-- What is a set of columns that uniquely identifies each observations? Put their names in the `id_cols` argument. 
+- What is a set of columns that uniquely identifies each observation? Put their names in the `id_cols` argument. 
 
--  What should the new columns be named? Put the name of the column you want to take the new variable names from in the `names_from` argument. 
+-  Where should the names for the new columns come from? Put the name of the column you want to take the new variable names from in the `names_from` argument. 
 
-- What values should the new columns contain? Put the name of the  column you want to take the values from to `values_from` in the `values_from` argument. 
+- What values should the new columns contain? Put the name of the  columns you want to take the values from to `values_from` in the `values_from` argument. 
 
 Note that if you don't specify an `id_cols` argument, `pivot_wider` will assume that you want it to be every column except those in `names_from` and `values_from`. 
 
 ```{r} 
 ratings_tbl2 <- ratings_tbl1 %>% 
   pivot_wider(id_cols = series, 
-              names_from=episode_fl, values_from=viewers_7day)
+              names_from=episode_fl, 
+              values_from=viewers_7day)
 
 head(ratings_tbl2)
 ```
 
+Also note that any columns not included in `id_cols`, `names_from`, and `values_from` (e.g. `ep_id`) will simply be dropped. 
+
+If we wanted to keep the info in `ep_id` as well, we would add it to the `values_from` argument:
+
+```{r}
+ratings_tbl1 %>% 
+  pivot_wider(id_cols = series, 
+              names_from=episode_fl, 
+              values_from=c(viewers_7day, ep_id))
+```
+
 ### Pivoting Longer 
+
+#### The Basics: Column Names Contain Variable Values 
 
 Here is a snippet of WHO data on the number of tuberculosis cases in different years in different countries. 
 
@@ -208,21 +220,81 @@ Here is a snippet of WHO data on the number of tuberculosis cases in different y
 table4a
 ```
 
-If we wanted to visualize tuberculosis cases over time by country, then this format is not tidy. We want every row to be an observation (measurements within a country and a year), and we want each column to be a variable, like the year, the case count, and the country name.  That is, `table4a` is too *short*: each row contains information about multiple observations.
+If we wanted to visualize tuberculosis cases over time by country, then this format is not tidy. We want every column to be a variable, like the year, the case count, and the country name, and every row to be an observation (measurements within a country and a year). 
 
-We can solve this problem using `pivot_longer`, which needs three pieces of information. We are going to decrease the number of columns, so ... 
+That is, we need to make `table4a` *longer*: we need to move some information in the column names (the info about the measurement year) into  new rows. 
 
-- Which are the offending columns that we want to combine? Put their names in the `cols` argument. 
+We can solve this problem using `pivot_longer`, which needs three pieces of information. 
 
-- These column names are often important though - so we should save them as values in a column of our new data set. What should the name of that column be? Put it in the `names_to` argument. 
+- Which are the columns that we want to expand into more rows? Put their names in the `cols` argument. 
 
-- What should we name the column in our new data set that contains the values in the offending columns of the old data set? Put it in the `values_to` argument. 
+- We want to save the information in the names of those columns as values in new column(s) of our dataset. What should we name these new column(s)? This is the `names_to` argument. 
+
+- We also want to preserve the information in the *values* of those columns - so we should save them as values in a new column of our dataset. What should we name it? This is the `values_to` argument. 
 
 ```{r} 
-table4a %>% pivot_longer(c(`1999`, `2000`), 
+table4a %>% pivot_longer(cols = c(`1999`, `2000`), 
                          names_to = "year", 
                          values_to = "cases")
 ```
+
+#### Challenge 1: Column Names Contain Multiple Variable Values
+
+Here's a more realistic (but still simplified!!!) look at the WHO Tuberculosis data. 
+
+```{r} 
+who_demo <- who2 %>% 
+  select(country, year, starts_with("sp")) %>%
+  rename_with(function(x) 
+    str_remove(x, pattern="sp_"), 
+    starts_with("sp")) %>% 
+  filter(year %in% c(1999, 2000)) %>% 
+  filter(country %in% c("Afghanistan", "Brazil", "China"))
+
+head(who_demo)
+```
+
+This time, cases are broken down by gender (`f/m`) and by age range (`014\1524\2534\3544\4554\5564\65`). 
+
+There are five variables in this data set: country, year, gender, age range, and case count. Values for gender and age range are currently located in the column names of `who_demo`, and values for case count are currently spread across multiple columns. So to tidy `who_demo` up, we need to use `pivot_longer()` to move the info in the columns into new rows. 
+
+Conceptually, this is pretty similar to the last example: we want to use the information in `m_014`, `m_1524`, etc.  to create new rows. So we should put those column names into the `cols` argument. But now, we want the information in their column names - the gender and age - to go into *two* new columns: gender and age. We can do this by specifying two column names in the `names_to` argument: `gender` and `age`. 
+
+But how is `pivot_longer()` to know which part of the column name `m_014` corresponds to the gender, and which part corresponds to the age? You need to tell it that the pieces of information are separated by the "_" character using the `names_sep` argument. 
+
+Finally, we can specify the name of the new column we want the values in the `m_014`, `m_1524`, etc. columns to go into with the `values_to` argument. 
+
+```{r}
+who_demo %>% pivot_longer(cols = !(country:year),
+                          names_to = c("gender", "age"),
+                          names_sep = "_",
+                          values_to = "cases")
+```
+
+#### Challenge 2: Column Names Contain Variable Names And Values 
+
+So far we have seen examples where the column names contain variable values. But what if they contain names AND values? 
+
+Let's have a look at the `household` dataset (loaded with the `tidyr` package), which has the date of birth and names of two children in families. Let's say that we wanted to investigate how children names relate to their date of birth. 
+
+
+```{r} 
+head(household)
+```
+
+We'd want "date of birth" and "name" to be two variables associated with an observation (a child). We know we want to use `pivot_longer()`, because we want to make `household` longer by creating new variables. But wait! The names of the "date of birth"/"name" variables AND the values of the "child" variable are BOTH in the column names of `household`! 
+
+Inspecting [the documentation](https://tidyr.tidyverse.org/reference/pivot_longer.html) for `pivot_longer()` very carefully reveals that you can use a special specification of the `names_to` argument to resolve this problem. 
+
+```{r} 
+household %>% pivot_longer(cols = -family, 
+                           names_to = c(".value", "child"), 
+                           names_sep = "_")
+```
+
+The special `".value"` specification says that we want to use the first component of the pivoted column name as a variable name, and make a new column with values coming from the second component of the pivoted column name. The second thing we pass into `names_to` names that new column. 
+
+This process is best described by [Figure 6.7 from R4DS](https://r4ds.hadley.nz/data-tidy#fig-pivot-names-and-values). 
 
 ## Separating and Uniting for Tidying
 
@@ -257,23 +329,15 @@ During this time, teaching team will also walk around and answer questions and c
 
 Now's your chance to ask about any questions you got stuck on and get them answered by the instructor! 
 
-## Coda: Tidy and Data Ethics
+## Coda: The Merits of Untidy Data
 
-> "Of course, it is very easy to disregard people you have never met, and who are certainly not your friends or family members. After all, in the eyes of an outsider, who is in no danger whatsoever, the people caught up in the situation are nothing more than simply statistics." - Andrew James Pritchard, "Not Collateral Damage"
+As we've seen, tidy data is often very helpful. But there are also times when *un*tidy data is good. Here are a few reasons: 
 
-The book ["Data Feminism"](https://data-feminism.mitpress.mit.edu/) by Catherine D'Ignazio and Lauren F. Klein "presents a new way of thinking about data science and data ethics that is informed by the ideas of intersectional feminism". Power is an important theme throughout the book: they point out that "data collection has long been employed as a technique of consolidating knowledge about the people whose data are collected, and therefore consolidating power over their lives." 
+- The format that lends itself best to fast computations might not be tidy. [Case Study: Tidy Genomics](http://varianceexplained.org/r/tidy-genomics/). 
+- Untidy data is often easier for humans to interpret and edit. See [Untidy Data: The Unreasonable Effectiveness of Tables](https://arxiv.org/pdf/2106.15005.pdf).
+- We lose important information about the data context by tidying. This can have important ethical implications; see Chapter 5 of the book ["Data Feminism"](https://data-feminism.mitpress.mit.edu/) by Catherine D'Ignazio and Lauren F. Klein. 
 
-In Chapter 5, the authors make several points about cleaning and tidying data: 
-
-- "Data do not need cleaning until there are strangers in the dataset ... Being a stranger in the dataset is not an inherently bad thing, but it carries significant risk of what renowned postcolonial scholar Gayatri Spivak calls *epistemic violence* - the harm that dominant groups like colonial powers wreak by privileging their ways of knowing over local and Indigenous ways." 
-
-- Tidying data is a "lossy" process: "But what might be lost in the process of dominating and disciplining data? Whose perspectives might be lost in that process? And, conversely, whose perspectives might be additionally imposed?" 
-
-- Further riffing on that point: "the process of cleaning and tidying data ... at times, can be a destructive rather than constructive act. One way to think of it is like chopping off the roots of a tree that connects it to the ground from which it grew. **It’s an act that irreversibly separates the data from their context.**"  
-
-- Untidy data is not inherently "bad", and tidy data is not inherently "good": "The ideas expressed by Wickham, and by the press, carry the assumption that all data scientists, in all contexts, value cleanliness and control over messiness and complexity ... these are not the requirements, nor the goals, of all data projects." 
-
-These are important points for us to reflect on as a data science community. 
+In summary, tidiness is a very useful concept, and tidying data is often useful. But we should remember that absolutes are few and far between in data science and statistics. Just because tidying data is *often* useful, doesn't mean it's *always* useful. 
 
 ## Attribution 
 
