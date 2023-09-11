@@ -126,7 +126,7 @@ Examples of messages that do belong on GitHub Issues:
 Your task in this milestone is to introduce yourself in a GitHub Issue:
 
 1.  Each team member should write a new Issue introducing themselves briefly. Tag each of your teammates in the body of your Issue. (**12 points for a complete set of introductions**)
-2.  Each team member should respond to everyone's introduction Issue. (**3 points for a complete set of responses; 2 if not many are missing; 1 if less than half are missing**)
+2.  Each team member should respond to everyone's introduction Issue. (**3 points for a complete set of responses; 2 if not many are missing; 1 if more than half are missing**)
 
 ## Exercise 5: Teamwork Contract
 
