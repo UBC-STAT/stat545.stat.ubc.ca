@@ -103,6 +103,7 @@ Here are some ideas of things you can merge:
 -   4 points awarded for the follow-up comment(s) from a reviewer.
 -   4 points awarded if each teammate gets the chance to act as a reviewer/merger of someone else's pull request.
 -   *Penalty* of up to 4 points if the total amount of work contained in pull requests does not amount to much. We just want to make sure that, when you're working on this project, you're largely working on branches. It's OK to commit directly to the main branch without a pull request, but this should be the exception, not the norm.
+-   *Penalty* of 1 point if you have not indicated to the TAs which PRs you would like to be graded by adding "(GRADED)" to the PR name. 
 
 ## Exercise 4: GitHub Issues
 

@@ -58,6 +58,7 @@ Here are some ideas of things you can merge:
 -   4 points awarded for the follow-up comment(s) from a reviewer.
 -   4 points awarded if each teammate gets the chance to act as a reviewer/merger of someone else's pull request.
 -   *Penalty* of up to 4 points if the total amount of work contained in pull requests does not amount to much. We just want to make sure that, when you're working on this project, you're largely working on branches. It's OK to commit directly to the main branch without a pull request, but this should be the exception, not the norm.
+-   *Penalty* of 1 point if you have not indicated to the TAs which PRs you would like to be graded by adding "(GRADED)" to the PR name. 
 
 ## Exercise 1: Troubleshooting document
 
@@ -71,8 +72,8 @@ Here are some ideas of things you can merge:
 
 **10 points**
 
--   Update your README file to reflect any changes that have happened in your repository. This will probably only be a very small change, and that's OK. (**5 points**)
--   Your repository is clean and organized. For example, there aren't any "old" files, and there are no relics (such as, if you once output to html, but no longer, then if present, that html file is an unnecessary relic). (**5 points**)
+-   Update your README file to reflect any changes that have happened in your repository. This will probably only be a very small change, and that's OK. (**5 points for all changes reflected in the README; 4 points if at least one change is not reflected in the README; 0 points if there are changes and none of them are reflected in the README.**)
+-   Your repository is clean and organized. For example, there aren't any "old" files, and there are no relics (such as, if you once output to html, but no longer, then if present, that html file is an unnecessary relic). (**5 points total: 1 point for general organization, 2 points for no relic files, 2 points for all output files being up to date.**)
 
 ## Exercise 3: Submitting this Milestone
 
