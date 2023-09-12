@@ -73,8 +73,8 @@ c(date, dt)</code></pre>
 <p><strong>Under the hood</strong>, R stores a factor with (say) 3 levels as a numeric vector containing integers between 1 and 3, paired with a character vector of length 3 that identifies the mapping between the numbers 1, 2, and 3 and the levels.</p>
 <p>This is not immediately obvious, because R will print factors using the character string levels rather than the numbers that it stores:</p>
 <pre class="r"><code>penguins %&gt;% slice_sample(n=10) %&gt;% pull(species)</code></pre>
-<pre><code>##  [1] Chinstrap Chinstrap Gentoo    Adelie    Chinstrap Chinstrap Adelie   
-##  [8] Chinstrap Adelie    Gentoo   
+<pre><code>##  [1] Gentoo    Chinstrap Gentoo    Gentoo    Gentoo    Adelie    Gentoo   
+##  [8] Adelie    Gentoo    Gentoo   
 ## Levels: Adelie Chinstrap Gentoo</code></pre>
 <p>This dual nature of factors creates a whole slew of hidden traps and headaches, especially for new useRs!</p>
 <p>Nevertheless, factors are important and worth the pain. Many functions throughout the R landscape expect categorical variables to be coded as factors. For example, when making plots in either <code>ggplot2</code> or in base R, we need factors in order to map categorical variables to aesthetic elements like colour.</p>
@@ -100,15 +100,28 @@ c(date, dt)</code></pre>
 </div>
 <div id="third-part-dates-andor-times" class="section level3">
 <h3>Third part: Dates and/or Times</h3>
+<p>Often you will need to work with dates and times in your data. For example, we could have had a variable in the FEV data set that contains the date of each patient visit.</p>
+<p>Dates and times seem simple, but they are actually one of the most complicated things you will encounter in data analysis.</p>
+<hr />
 </div>
 </div>
-<div id="your-turn-how-simple-are-dates" class="section level2">
-<h2>Your turn: how simple are dates?</h2>
+<div id="your-turn-making-a-date-variable" class="section level2">
+<h2>Your turn: Making a date variable</h2>
 <ul>
 <li><p>Write down today’s date. (Don’t peek at your neighbours!)</p></li>
-<li><p>Copy what you wrote down into the Google Sheets link I posted to the #lectures channel on Slack.</p></li>
+<li><p>Copy what you wrote down into the Google Sheets link on Canvas.</p></li>
 </ul>
-<p>We’ll look at the results together.</p>
+<p>We’ll look at the results together. Expect pain …</p>
+<hr />
+<p>Here’s another example of date/time complications. Ask yourself:</p>
+<ol style="list-style-type: decimal">
+<li>Are there 365 days in every year?</li>
+<li>Are there 30 days in every month?</li>
+<li>Are there 24 hours in every day?</li>
+<li>Are there 60 seconds in every minute?</li>
+</ol>
+<p>The answer to all of these questions is NO. What a headache this can be when trying to compute how much time has elapsed between two date/times!</p>
+<p>The <code>lubridate</code> package can help us with a lot of the headaches that dates and times cause. It can create date and time objects from different inputs, extract important pieces of information like year/month/day, do hard math with dates and times, and help you navigate time zones.</p>
 </div>
 <div id="nyc-flights-case-study" class="section level2">
 <h2>NYC Flights Case Study</h2>

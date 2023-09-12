@@ -102,13 +102,33 @@ Now's your chance to ask about any questions you got stuck on and get them answe
 
 ### Third part: Dates and/or Times 
 
-## Your turn: how simple are dates? 
+Often you will need to work with dates and times in your data. For example, we could have had a variable in the FEV data set that contains the date of each patient visit. 
+
+Dates and times seem simple, but they are actually one of the most complicated things you will encounter in data analysis. 
+
+--------------
+
+## Your turn: Making a date variable
 
 - Write down today's date. (Don't peek at your neighbours!)
 
-- Copy what you wrote down into the Google Sheets link I posted to the #lectures channel on Slack. 
+- Copy what you wrote down into the Google Sheets link on Canvas. 
 
-We'll look at the results together. 
+We'll look at the results together. Expect pain ... 
+
+--------------
+
+Here's another example of date/time complications. Ask yourself:  
+
+1. Are there 365 days in every year?
+2. Are there 30 days in every month? 
+3. Are there 24 hours in every day?
+4. Are there 60 seconds in every minute? 
+
+The answer to all of these questions is NO. What a headache this can be when trying to compute how much time has elapsed between two date/times! 
+
+The `lubridate` package can help us with a lot of the headaches that dates and times cause. It can create date and time objects from different inputs, extract important pieces of information like year/month/day, do hard math with dates and times, and help you navigate time zones. 
+
 
 ## NYC Flights Case Study 
 

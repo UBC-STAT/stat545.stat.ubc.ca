@@ -1,0 +1,97 @@
+---
+title: 'NYC Flights Case Study: Dates/Times, With Solutions'
+author: "Lucy"
+date: "2023-09-12"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## NYC Flights Data 
+
+The NYC Flights data set contains (among many other things) on-time performance data for all flights departing a New York City airport in 2013. Let's load it from the package `nycflights13`. Let's also load the tidyverse; the key package we will be using from it today is lubridate. 
+
+There's lots to explore in this data set, and lots of variables! We'll work with a super pared down version. 
+
+```{r, message = FALSE} 
+library(tidyverse)
+library(nycflights13)
+
+flights_demo <- flights %>% 
+  select(year, month, day, hour, minute, flight, carrier)
+
+head(flights_demo)
+```
+This currently contains the scheduled departure time of every flight, as well its carrier and flight code.
+
+## Exercises
+
+### Date-Time Creation and Extraction 
+
+I want to add a fake flight to this data set: AC 123, scheduled to depart at 9:00am on Oct 1 2013.
+
+We can use a family of functions named as permutations of "y", "m", and "d" to convert character input into special Date objects. 
+
+```{r} 
+mdy("Oct 1 2013")
+mdy("October 1st 2013")
+```
+
+We just need to get the order right in what's passed in - lubridate does the rest! 
+
+We can use a similar family of functions to convert character input into special Date-Time objects. Let's be careful to get the timezone right too, in case it turns out to be important later. 
+
+```{r}
+(new_sched_dep_time <- mdy_hm("Oct 1 2013 9:00", tz = "America/New_York"))
+```
+
+Now let's make a 1-row tibble with the components we need: year, month, day, hour, minute, carrier, and flight code. The key will be the `year()`, `month()`, etc. functions from the lubridate package. 
+
+```{r} 
+(new_flight <- tribble(~year, ~month, ~day, ~hour, ~minute, ~flight, ~carrier, 
+                      year(new_sched_dep_time), month(new_sched_dep_time), 
+                      day(new_sched_dep_time), hour(new_sched_dep_time), 
+                      minute(new_sched_dep_time), 123, "AC"))
+```
+
+Like magic!!! We can then add it to the `flights_demo` dataset using `bind_rows()`. 
+
+```{r} 
+flights_demo <- bind_rows(flights_demo, new_flight)
+```
+
+### Date-Time Math 
+
+The full `flights` dataset has info about the departure delays of these flights. Let's make another simplified version for demo purposes with that info. 
+
+```{r} 
+flights_demo2 <- flights %>% 
+  select(year, month, day, dep_time, sched_dep_time, dep_delay)
+
+head(flights_demo2)
+```
+The `dep_delay` variable contains the number of minutes the flight departs either early or late, with a positive number if the flight departs late, and a negative number if the flight departs early. How was this variable made? 
+
+Let's see one way how. Let's make two Date-Time objects corresponding to the departure and scheduled departure of our fake flight. If we *subtract* them, then we get a `difftime` object. 
+
+```{r} 
+new_sched_dep_time <- ymd_hm("2013 October 1 9:00", tz = "America/New_York")
+new_dep_time <- ymd_hm("2013 Oct 1 9:15", tz = "America/New_York")
+
+new_dep_time - new_sched_dep_time 
+```
+
+Beautiful! In this case, this calculation was easy to do by hand, but it would've been more annoying if we were calculating the time elapsed between (say) December 11th 2010 3:17am and March 24th 2011 11:51pm.
+
+`difftime` objects produce human readable output, but can be a little annoying when you want output in consistent units. `duration` objects to the rescue - they always use seconds! Let's do the math again but this time coerce the result to a `duration` object. 
+
+```{r} 
+(duration_delay <- as.duration(new_dep_time - new_sched_dep_time))
+```
+
+Finally we can convert this to minutes by creating a `duration` object that spans a minute  using the convenience function `dminutes()`, and doing date-time division. 
+```{r} 
+duration_delay/dminutes(1)
+```

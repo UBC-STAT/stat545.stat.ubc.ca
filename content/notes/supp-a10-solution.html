@@ -1,0 +1,89 @@
+---
+title: 'NYC Flights Case Study: Dates/Times, With Solutions'
+author: "Lucy"
+date: "2023-09-12"
+output: html_document
+---
+
+
+
+<div id="nyc-flights-data" class="section level2">
+<h2>NYC Flights Data</h2>
+<p>The NYC Flights data set contains (among many other things) on-time performance data for all flights departing a New York City airport in 2013. Let’s load it from the package <code>nycflights13</code>. Let’s also load the tidyverse; the key package we will be using from it today is lubridate.</p>
+<p>There’s lots to explore in this data set, and lots of variables! We’ll work with a super pared down version.</p>
+<pre class="r"><code>library(tidyverse)
+library(nycflights13)
+
+flights_demo &lt;- flights %&gt;% 
+  select(year, month, day, hour, minute, flight, carrier)
+
+head(flights_demo)</code></pre>
+<pre><code>## # A tibble: 6 × 7
+##    year month   day  hour minute flight carrier
+##   &lt;int&gt; &lt;int&gt; &lt;int&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;int&gt; &lt;chr&gt;  
+## 1  2013     1     1     5     15   1545 UA     
+## 2  2013     1     1     5     29   1714 UA     
+## 3  2013     1     1     5     40   1141 AA     
+## 4  2013     1     1     5     45    725 B6     
+## 5  2013     1     1     6      0    461 DL     
+## 6  2013     1     1     5     58   1696 UA</code></pre>
+<p>This currently contains the scheduled departure time of every flight, as well its carrier and flight code.</p>
+</div>
+<div id="exercises" class="section level2">
+<h2>Exercises</h2>
+<div id="date-time-creation-and-extraction" class="section level3">
+<h3>Date-Time Creation and Extraction</h3>
+<p>I want to add a fake flight to this data set: AC 123, scheduled to depart at 9:00am on Oct 1 2013.</p>
+<p>We can use a family of functions named as permutations of “y”, “m”, and “d” to convert character input into special Date objects.</p>
+<pre class="r"><code>mdy(&quot;Oct 1 2013&quot;)</code></pre>
+<pre><code>## [1] &quot;2013-10-01&quot;</code></pre>
+<pre class="r"><code>mdy(&quot;October 1st 2013&quot;)</code></pre>
+<pre><code>## [1] &quot;2013-10-01&quot;</code></pre>
+<p>We just need to get the order right in what’s passed in - lubridate does the rest!</p>
+<p>We can use a similar family of functions to convert character input into special Date-Time objects. Let’s be careful to get the timezone right too, in case it turns out to be important later.</p>
+<pre class="r"><code>(new_sched_dep_time &lt;- mdy_hm(&quot;Oct 1 2013 9:00&quot;, tz = &quot;America/New_York&quot;))</code></pre>
+<pre><code>## [1] &quot;2013-10-01 09:00:00 EDT&quot;</code></pre>
+<p>Now let’s make a 1-row tibble with the components we need: year, month, day, hour, minute, carrier, and flight code. The key will be the <code>year()</code>, <code>month()</code>, etc. functions from the lubridate package.</p>
+<pre class="r"><code>(new_flight &lt;- tribble(~year, ~month, ~day, ~hour, ~minute, ~flight, ~carrier, 
+                      year(new_sched_dep_time), month(new_sched_dep_time), 
+                      day(new_sched_dep_time), hour(new_sched_dep_time), 
+                      minute(new_sched_dep_time), 123, &quot;AC&quot;))</code></pre>
+<pre><code>## # A tibble: 1 × 7
+##    year month   day  hour minute flight carrier
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt;  &lt;int&gt;  &lt;dbl&gt; &lt;chr&gt;  
+## 1  2013    10     1     9      0    123 AC</code></pre>
+<p>Like magic!!! We can then add it to the <code>flights_demo</code> dataset using <code>bind_rows()</code>.</p>
+<pre class="r"><code>flights_demo &lt;- bind_rows(flights_demo, new_flight)</code></pre>
+</div>
+<div id="date-time-math" class="section level3">
+<h3>Date-Time Math</h3>
+<p>The full <code>flights</code> dataset has info about the departure delays of these flights. Let’s make another simplified version for demo purposes with that info.</p>
+<pre class="r"><code>flights_demo2 &lt;- flights %&gt;% 
+  select(year, month, day, dep_time, sched_dep_time, dep_delay)
+
+head(flights_demo2)</code></pre>
+<pre><code>## # A tibble: 6 × 6
+##    year month   day dep_time sched_dep_time dep_delay
+##   &lt;int&gt; &lt;int&gt; &lt;int&gt;    &lt;int&gt;          &lt;int&gt;     &lt;dbl&gt;
+## 1  2013     1     1      517            515         2
+## 2  2013     1     1      533            529         4
+## 3  2013     1     1      542            540         2
+## 4  2013     1     1      544            545        -1
+## 5  2013     1     1      554            600        -6
+## 6  2013     1     1      554            558        -4</code></pre>
+<p>The <code>dep_delay</code> variable contains the number of minutes the flight departs either early or late, with a positive number if the flight departs late, and a negative number if the flight departs early. How was this variable made?</p>
+<p>Let’s see one way how. Let’s make two Date-Time objects corresponding to the departure and scheduled departure of our fake flight. If we <em>subtract</em> them, then we get a <code>difftime</code> object.</p>
+<pre class="r"><code>new_sched_dep_time &lt;- ymd_hm(&quot;2013 October 1 9:00&quot;, tz = &quot;America/New_York&quot;)
+new_dep_time &lt;- ymd_hm(&quot;2013 Oct 1 9:15&quot;, tz = &quot;America/New_York&quot;)
+
+new_dep_time - new_sched_dep_time </code></pre>
+<pre><code>## Time difference of 15 mins</code></pre>
+<p>Beautiful! In this case, this calculation was easy to do by hand, but it would’ve been more annoying if we were calculating the time elapsed between (say) December 11th 2010 3:17am and March 24th 2011 11:51pm.</p>
+<p><code>difftime</code> objects produce human readable output, but can be a little annoying when you want output in consistent units. <code>duration</code> objects to the rescue - they always use seconds! Let’s do the math again but this time coerce the result to a <code>duration</code> object.</p>
+<pre class="r"><code>(duration_delay &lt;- as.duration(new_dep_time - new_sched_dep_time))</code></pre>
+<pre><code>## [1] &quot;900s (~15 minutes)&quot;</code></pre>
+<p>Finally we can convert this to minutes by creating a <code>duration</code> object that spans a minute using the convenience function <code>dminutes()</code>, and doing date-time division.</p>
+<pre class="r"><code>duration_delay/dminutes(1)</code></pre>
+<pre><code>## [1] 15</code></pre>
+</div>
+</div>
