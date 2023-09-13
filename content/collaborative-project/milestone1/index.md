@@ -20,7 +20,7 @@ This is the first of two milestones for completing this project.
 
 **5 points**
 
-0. We will be assigning students to teams randomly. Team assignments will be posted on Canvas. 
+0. We will be assigning students to teams randomly. Team assignments  are on canvas in the entry called [Groups for Collaborative Project](https://canvas.ubc.ca/courses/126199/pages/groups-for-collaborative-project).
 
 For both collaborative project milestones, you'll be working with your teammate(s) on the same GitHub repository (or "repo"). One person in the team will need to make the repository; the other(s) can then join that repo.
 
