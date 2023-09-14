@@ -1,6 +1,6 @@
 # STAT 545A Collaborative Project: Milestone 2
 
-**Points**: 100
+**Points**: 78
 
 By completing this project, students are expected to be able to:
 
