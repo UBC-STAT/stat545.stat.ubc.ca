@@ -57,16 +57,16 @@ All of these require data manipulation. We choose to use the `dplyr` (pronounced
 
 We think the best way to learn the basics of dplyr is to work through Worksheet A2. 
 
-### First 30 minutes of Class 1
+### First 20-30 minutes of Class 1
 
 - Haven't attempted all of the questions on Worksheet A2? Then spend this time attempting unattempted questions. 
 - Finished attempting all of the questions? Then do the optional [R4DS Data Transformation](https://r4ds.hadley.nz/data-transform.html) reading, and maybe even do some of the exercises for extra practice. 
 
-During this time, teaching team will also walk around and answer questions and chat about anything data manipulation related. 
+Put any questions you have about the worksheet questions or about data manipulation in general in the Google Doc posted to Canvas. 
 
 ### Remaining time in Class 1
 
-Now's your chance to ask about any questions you got stuck on and get them answered by the instructor! 
+Teaching team will go over the questions in the Google Doc. 
 
 ## Class 2: FEV Case Study
 
