@@ -38,16 +38,17 @@ library(tidyverse)</code></pre>
 <div id="for-both-milestones" class="section level2">
 <h2>For Both Milestones</h2>
 <ul>
-<li><p>Each milestone has explicit tasks, valued at 45 points in total. Tasks that are more challenging will often be allocated more points.</p></li>
-<li><p>Each milestone will be graded for reproducibility, cleanliness, and coherence of the overall Github submission, valued at 5 points.</p></li>
+<li><p>Each milestone has explicit tasks. Tasks that are more challenging will often be allocated more points.</p></li>
+<li><p>Each milestone will be also graded for reproducibility, cleanliness, and coherence of the overall Github submission.</p></li>
 <li><p>While the two milestones will be submitted as independent deliverables, the analysis itself is a continuum - think of it as two chapters to a story. Each chapter, or in this case, portion of your analysis, should be easily followed through by someone unfamiliar with the content. <a href="https://swcarpentry.github.io/r-novice-inflammation/06-best-practices-R/">Here</a> is a good resource for what constitutes “good code”. Learning good coding practices early in your career will save you hassle later on!</p></li>
+<li><p>The milestones will be equally weighted.</p></li>
 </ul>
 </div>
 <div id="for-milestone-1" class="section level2">
 <h2>For Milestone 1</h2>
 <p><strong>To complete this milestone</strong>, edit <a href="https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/mini-project/mini-project-1.Rmd">this very <code>.Rmd</code> file</a> directly. Fill in the sections that are tagged with <code>&lt;!--- start your work below ---&gt;</code>.</p>
 <p><strong>To submit this milestone</strong>, make sure to knit this <code>.Rmd</code> file to an <code>.md</code> file by changing the YAML output settings from <code>output: html_document</code> to <code>output: github_document</code>. Commit and push all of your work to the mini-analysis GitHub repository you made earlier, and tag a release on GitHub. Then, submit a link to your tagged release on canvas.</p>
-<p><strong>Points</strong>: This milestone is worth 45 points: 45 for your analysis, and 5 for overall reproducibility, cleanliness, and coherence of the Github submission.</p>
+<p><strong>Points</strong>: This milestone is worth 36 points: 30 for your analysis, and 6 for overall reproducibility, cleanliness, and coherence of the Github submission.</p>
 </div>
 </div>
 <div id="learning-objectives" class="section level1">
@@ -60,8 +61,8 @@ library(tidyverse)</code></pre>
 <li>Become familiar with manipulating and summarizing your data in tibbles using <code>dplyr</code>, with a research question in mind.</li>
 </ul>
 </div>
-<div id="task-1-choose-your-favorite-dataset-10-points" class="section level1">
-<h1>Task 1: Choose your favorite dataset (10 points)</h1>
+<div id="task-1-choose-your-favorite-dataset" class="section level1">
+<h1>Task 1: Choose your favorite dataset</h1>
 <p>The <code>datateachr</code> package by Hayley Boyce and Jordan Bourak currently composed of 7 semi-tidy datasets for educational purposes. Here is a brief description of each dataset:</p>
 <ul>
 <li><p><em>apt_buildings</em>: Acquired courtesy of The City of Toronto’s Open Data Portal. It currently has 3455 rows and 37 columns.</p></li>
@@ -78,7 +79,7 @@ library(tidyverse)</code></pre>
 <li><p>Before choosing a dataset, you should always keep in mind <strong>your goal</strong>, or in other ways, <em>what you wish to achieve with this data</em>. This mini data-analysis project focuses on <em>data wrangling</em>, <em>tidying</em>, and <em>visualization</em>. In short, it’s a way for you to get your feet wet with exploring data on your own.</p></li>
 </ul>
 <p>And that is exactly the first thing that you will do!</p>
-<p>1.1 Out of the 7 datasets available in the <code>datateachr</code> package, choose <strong>4</strong> that appeal to you based on their description. Write your choices below:</p>
+<p>1.1 <strong>(1 point)</strong> Out of the 7 datasets available in the <code>datateachr</code> package, choose <strong>4</strong> that appeal to you based on their description. Write your choices below:</p>
 <p><strong>Note</strong>: We encourage you to use the ones in the <code>datateachr</code> package, but if you have a dataset that you’d really like to use, you can include it here. But, please check with a member of the teaching team to see whether the dataset is of appropriate complexity. Also, include a <strong>brief</strong> description of the dataset here to help the teaching team understand your data.</p>
 <!-------------------------- Start your work below ---------------------------->
 <p>1: CHOICE_1_HERE<br />
@@ -86,7 +87,7 @@ library(tidyverse)</code></pre>
 3: CHOICE_3_HERE<br />
 4: CHOICE_4_HERE</p>
 <!----------------------------------------------------------------------------->
-<p>1.2 One way to narrowing down your selection is to <em>explore</em> the datasets. Use your knowledge of dplyr to find out at least <em>3</em> attributes about each of these datasets (an attribute is something such as number of rows, variables, class type…). The goal here is to have an idea of <em>what the data looks like</em>.</p>
+<p>1.2 <strong>(6 points)</strong> One way to narrowing down your selection is to <em>explore</em> the datasets. Use your knowledge of dplyr to find out at least <em>3</em> attributes about each of these datasets (an attribute is something such as number of rows, variables, class type…). The goal here is to have an idea of <em>what the data looks like</em>.</p>
 <p><em>Hint:</em> This is one of those times when you should think about the cleanliness of your analysis. I added a single code chunk for you below, but do you want to use more than one? Would you like to write more comments outside of the code chunk?</p>
 <!-------------------------- Start your work below ---------------------------->
 <pre class="r"><code>### EXPLORE HERE ###
@@ -110,22 +111,23 @@ steam_games</code></pre>
 ## #   game_description &lt;chr&gt;, mature_content &lt;chr&gt;, minimum_requirements &lt;chr&gt;,
 ## #   recommended_requirements &lt;chr&gt;, original_price &lt;dbl&gt;, discount_price &lt;dbl&gt;</code></pre>
 <!----------------------------------------------------------------------------->
-<p>1.3 Now that you’ve explored the 4 datasets that you were initially most interested in, let’s narrow it down to 2. What lead you to choose these 2? Briefly explain your choices below, and feel free to include any code in your explanation.</p>
+<p>1.3 <strong>(1 point)</strong> Now that you’ve explored the 4 datasets that you were initially most interested in, let’s narrow it down to 1. What lead you to choose this one? Briefly explain your choice below.</p>
 <!-------------------------- Start your work below ---------------------------->
 <!----------------------------------------------------------------------------->
-<p>1.4 Time for the final decision! Going back to the beginning, it’s important to have an <em>end goal</em> in mind. For example, if I had chosen the <code>titanic</code> dataset for my project, I might’ve wanted to explore the relationship between survival and other variables. Try to think of 1 research question that you would want to answer with each dataset. Note them down below, and make your final choice based on what seems more interesting to you!</p>
+<p>1.4 <strong>(2 points)</strong> Time for a final decision! Going back to the beginning, it’s important to have an <em>end goal</em> in mind. For example, if I had chosen the <code>titanic</code> dataset for my project, I might’ve wanted to explore the relationship between survival and other variables. Try to think of 1 research question that you would want to answer with your dataset. Note it down below.</p>
 <!-------------------------- Start your work below ---------------------------->
 <!----------------------------------------------------------------------------->
 </div>
 <div id="important-note" class="section level1">
 <h1>Important note</h1>
 <p>Read Tasks 2 and 3 <em>fully</em> before starting to complete either of them. Probably also a good point to grab a coffee to get ready for the fun part!</p>
-<p>This project is semi-guided, but meant to be <em>independent</em>. For this reason, you will complete tasks 2 and 3 below (under the <strong>START HERE</strong> mark) as if you were writing your own exploratory data analysis report, and this guidance never existed! Feel free to add a brief introduction section to your project, format the document with markdown syntax as you deem appropriate, and structure the analysis as you deem appropriate. Remember, marks will be awarded for completion of the 4 tasks, but 10 points of the whole project are allocated to a reproducible and clean analysis. If you feel lost, you can find a sample data analysis <a href="https://www.kaggle.com/headsortails/tidy-titarnic">here</a> to have a better idea. However, bear in mind that it is <strong>just an example</strong> and you will not be required to have that level of complexity in your project.</p>
+<p>This project is semi-guided, but meant to be <em>independent</em>. For this reason, you will complete tasks 2 and 3 below (under the <strong>START HERE</strong> mark) as if you were writing your own exploratory data analysis report, and this guidance never existed! Feel free to add a brief introduction section to your project, format the document with markdown syntax as you deem appropriate, and structure the analysis as you deem appropriate. If you feel lost, you can find a sample data analysis <a href="https://www.kaggle.com/headsortails/tidy-titarnic">here</a> to have a better idea. However, bear in mind that it is <strong>just an example</strong> and you will not be required to have that level of complexity in your project.</p>
 </div>
-<div id="task-2-exploring-your-dataset-15-points" class="section level1">
-<h1>Task 2: Exploring your dataset (15 points)</h1>
+<div id="task-2-exploring-your-dataset" class="section level1">
+<h1>Task 2: Exploring your dataset</h1>
 <p>If we rewind and go back to the learning objectives, you’ll see that by the end of this deliverable, you should have formulated <em>4</em> research questions about your data that you may want to answer during your project. However, it may be handy to do some more exploration on your dataset of choice before creating these questions - by looking at the data, you may get more ideas. <strong>Before you start this task, read all instructions carefully until you reach START HERE under Task 3</strong>.</p>
-<p>2.1 Complete <em>4 out of the following 8 exercises</em> to dive deeper into your data. All datasets are different and therefore, not all of these tasks may make sense for your data - which is why you should only answer <em>4</em>. Use <em>dplyr</em> and <em>ggplot</em>.</p>
+<p>2.1 <strong>(12 points)</strong> Complete <em>4 out of the following 8 exercises</em> to dive deeper into your data. All datasets are different and therefore, not all of these tasks may make sense for your data - which is why you should only answer <em>4</em>.</p>
+<p>Make sure that you’re using dplyr and ggplot2 rather than base R for this task. Outside of this project, you may find that you prefer using base R functions for certain tasks, and that’s just fine! But part of this project is for you to practice the tools we learned in class, which is dplyr and ggplot2.</p>
 <ol style="list-style-type: decimal">
 <li>Plot the distribution of a numeric variable.</li>
 <li>Create a new variable based on other variables in your data (only if it makes sense)</li>
@@ -136,54 +138,28 @@ steam_games</code></pre>
 <li>Make a new tibble with a subset of your data, with variables and observations that you are interested in exploring.</li>
 <li>Use a density plot to explore any of your variables (that are suitable for this type of plot).</li>
 </ol>
-<p>2.2 For each of the 4 exercises that you complete, provide a <em>brief explanation</em> of why you chose that exercise in relation to your data (in other words, why does it make sense to do that?), and sufficient comments for a reader to understand your reasoning and code.</p>
+<p>2.2 <strong>(4 points)</strong> For each of the 4 exercises that you complete, provide a <em>brief explanation</em> of why you chose that exercise in relation to your data (in other words, why does it make sense to do that?), and sufficient comments for a reader to understand your reasoning and code.</p>
 <!-------------------------- Start your work below ---------------------------->
 <!----------------------------------------------------------------------------->
 </div>
-<div id="task-3-write-your-research-questions-5-points" class="section level1">
-<h1>Task 3: Write your research questions (5 points)</h1>
-<p>So far, you have chosen a dataset and gotten familiar with it through exploring the data. Now it’s time to figure out 4 research questions that you would like to answer with your data! Write the 4 questions and any additional comments at the end of this deliverable.</p>
+<div id="task-3-choose-research-questions" class="section level1">
+<h1>Task 3: Choose research questions</h1>
+<p><strong>(4 points)</strong> So far, you have chosen a dataset and gotten familiar with it through exploring the data. You have also brainstormed one research question that interested you (Task 1.4). Now it’s time to pick 4 research questions that you would like to explore in Milestone 2! Write the 4 questions and any additional comments below.</p>
 <!--- *****START HERE***** --->
+<!----------------------------->
 </div>
-<div id="task-4-process-and-summarize-your-data-15-points" class="section level1">
-<h1>Task 4: Process and summarize your data (15 points)</h1>
-<p>From Task 2, you should have an idea of the basic structure of your dataset (e.g. number of rows and columns, class types, etc.). Here, we will start investigating your data more in-depth using various data manipulation functions.</p>
-<div id="points" class="section level3">
-<h3>4.1 (10 points)</h3>
-<p>Now, for each of your four research questions, choose one task from options 1-4 (summarizing), and one other task from 4-8 (graphing). You should have 2 tasks done for each research question (8 total). Make sure it makes sense to do them! (e.g. don’t use a numerical variables for a task that needs a categorical variable.). Comment on why each task helps (or doesn’t!) answer the corresponding research question.</p>
-<p>Ensure that the output of each operation is printed!</p>
-<p><strong>Summarizing:</strong></p>
-<ol style="list-style-type: decimal">
-<li>Compute the <em>range</em>, <em>mean</em>, and <em>two other summary statistics</em> of <strong>one numerical variable</strong> across the groups of <strong>one categorical variable</strong> from your data.</li>
-<li>Compute the number of observations for at least one of your categorical variables. Do not use the function <code>table()</code>!</li>
-<li>Create a categorical variable with 3 or more groups from an existing numerical variable. You can use this new variable in the other tasks! <em>An example: age in years into “child, teen, adult, senior”.</em></li>
-<li>Compute the proportion and counts in each category of one categorical variable across the groups of another categorical variable from your data. Do not use the function <code>table()</code>!</li>
-</ol>
-<p><strong>Graphing:</strong></p>
-<ol start="6" style="list-style-type: decimal">
-<li>Create a graph of your choosing, make one of the axes logarithmic, and format the axes labels so that they are “pretty” or easier to read.</li>
-<li>Make a graph where it makes sense to customize the alpha transparency.</li>
-</ol>
-<p>Using variables and/or tables you made in one of the “Summarizing” tasks:</p>
-<ol start="8" style="list-style-type: decimal">
-<li>Create a graph that has at least two geom layers.</li>
-<li>Create 3 histograms, with each histogram having different sized bins. Pick the “best” one and explain why it is the best.</li>
-</ol>
-<p>Make sure it’s clear what research question you are doing each operation for!</p>
-<!------------------------- Start your work below ----------------------------->
-<!----------------------------------------------------------------------------->
+<div id="overall-reproducibilitycleanlinesscoherence-checklist" class="section level1">
+<h1>Overall reproducibility/Cleanliness/Coherence Checklist</h1>
+<div id="coherence-0.5-points" class="section level2">
+<h2>Coherence (0.5 points)</h2>
+<p>The document should read sensibly from top to bottom, with no major continuity errors. An example of a major continuity error is having a data set listed for Task 3 that is not part of one of the data sets listed in Task 1.</p>
 </div>
-<div id="points-1" class="section level3">
-<h3>4.2 (5 points)</h3>
-<p>Based on the operations that you’ve completed, how much closer are you to answering your research questions? Think about what aspects of your research questions remain unclear. Can your research questions be refined, now that you’ve investigated your data a bit more? Which research questions are yielding interesting results?</p>
-<!-------------------------- Start your work below ---------------------------->
-<!----------------------------------------------------------------------------->
+<div id="error-free-code-3-points" class="section level2">
+<h2>Error-free code (3 points)</h2>
+<p>For full marks, all code in the document should run without error. 1 point deduction if most code runs without error, and 2 points deduction if more than 50% of the code throws an error.</p>
 </div>
-</div>
-<div id="reproducibilitycleanlinesscoherence-checklist" class="section level1">
-<h1>Reproducibility/Cleanliness/Coherence Checklist</h1>
-<div id="main-readme-2.5-points" class="section level2">
-<h2>Main README (2.5 points)</h2>
+<div id="main-readme-1-point" class="section level2">
+<h2>Main README (1 point)</h2>
 <p>There should be a file named <code>README.md</code> at the top level of your repository. Its contents should automatically appear when you visit the repository on GitHub.</p>
 <p>Minimum contents of the README file:</p>
 <ul>
@@ -192,15 +168,16 @@ steam_games</code></pre>
 </ul>
 <p>Once you get in the habit of making README files, and seeing more README files in other projects, you’ll wonder how you ever got by without them! They are tremendously helpful.</p>
 </div>
-<div id="output-2-points" class="section level2">
-<h2>Output (2 points)</h2>
+<div id="output-1-point" class="section level2">
+<h2>Output (1 point)</h2>
 <p>All output is readable, recent and relevant:</p>
 <ul>
 <li>All Rmd files have been <code>knit</code>ted to their output md files.</li>
-<li>All knitted md files are viewable without errors on Github. Examples of errors: Missing plots, “Sorry about that, but we can’t show files that are this big right now” messages</li>
+<li>All knitted md files are viewable without errors on Github. Examples of errors: Missing plots, “Sorry about that, but we can’t show files that are this big right now” messages, error messages from broken R code</li>
 <li>All of these output files are up-to-date – that is, they haven’t fallen behind after the source (Rmd) files have been updated.</li>
 <li>There should be no relic output files. For example, if you were knitting an Rmd to html, but then changed the output to be only a markdown file, then the html file is a relic and should be deleted.</li>
 </ul>
+<p>(0.5 point deduction if any of the above criteria are not met. 1 point deduction if most or all of the above criteria are not met.)</p>
 <p>Our recommendation: right before submission, delete all output files, and re-knit each milestone’s Rmd file, so that everything is up to date and relevant. Then, after your final commit and push to Github, CHECK on Github to make sure that everything looks the way you intended!</p>
 </div>
 <div id="tagged-release-0.5-points" class="section level2">
