@@ -186,22 +186,22 @@ ggplot(gapminder, aes(gdpPercap, lifeExp)) +
 
 We think the best way to learn the basics of ggplot2 is to work through Worksheet A3. 
 
-### First 30 minutes of Class 1
+### First 40 minutes of Class 1
 
 - Haven't attempted all of the questions on Worksheet A3? Then spend this time attempting unattempted questions. 
 - Finished attempting all of the questions? Then do the optional [R4DS Data Visualization](https://r4ds.had.co.nz/data-visualisation.html) reading, and maybe even do some of the exercises for extra practice. 
 
-During this time, teaching team will also walk around and answer questions and chat about anything graphing related. 
+Put any questions you have about the worksheet questions or about data manipulation in general in the Google Doc posted to Canvas. 
 
 ### Remaining time in Class 1
 
-Now's your chance to ask about any questions you got stuck on and get them answered by the instructor! 
+Teaching team will go over the questions in the Google Doc. 
 
 ## Class 2: FEV Case Study
 
 We will get a flavour for how you might use ggplot2 in the wild and get in even more practice by working through [a continuation of our FEV case study from last week](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/notes/supp-a06.Rmd). 
 
-By yourself and in small groups, work through the exercises in the case study. During independent work time, teaching team will walk around and answer questions and chat about anything graphing related. We will also discuss instructor answers to each exercise. 
+By yourself and in small groups, work through the exercises in the case study. We will also discuss instructor answers to each exercise. 
 
 
 <!-- ## A tour of some important `geom`s
