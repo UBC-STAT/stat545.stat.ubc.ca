@@ -157,47 +157,6 @@ Now, try to choose a version of your data that you think will be appropriate to 
 
 <!--------------------------- Start your work below --------------------------->
 
-<!----------------------------------------------------------------------------->
-
-<!-- # Task 3: Special Data Types (10) -->
-
-<!-- For this exercise, you'll be choosing two of the three tasks below -- both tasks that you choose are worth 5 points each. -->
-
-<!-- But first, tasks 1 and 2 below ask you to modify a plot you made in a previous milestone. The plot you choose should involve plotting across at least three groups (whether by facetting, or using an aesthetic like colour). Place this plot below (you're allowed to modify the plot if you'd like). If you don't have such a plot, you'll need to make one. Place the code for your plot below. -->
-
-<!-- <!-------------------------- Start your work below ----------------------------> -->
-
-<!-- <!-----------------------------------------------------------------------------> -->
-
-<!-- Now, choose two of the following tasks. -->
-
-<!-- 1.  Produce a new plot that reorders a factor in your original plot, using the `forcats` package (3 points). Then, in a sentence or two, briefly explain why you chose this ordering (1 point here for demonstrating understanding of the reordering, and 1 point for demonstrating some justification for the reordering, which could be subtle or speculative.) -->
-
-<!-- 2.  Produce a new plot that groups some factor levels together into a new omnibus category, using the `forcats` package (3 points). Then, in a sentence or two, briefly explain why you chose this grouping (1 point here for demonstrating understanding of the grouping, and 1 point for demonstrating some justification for the grouping, which could be subtle or speculative.) -->
-
-<!-- 3.  If your data has some sort of time-based column like a date (but something more granular than just a year): -->
-
-<!--     1.  Make a new column that uses a function from the `lubridate` or `tsibble` package to modify your original time-based column. (3 points) -->
-
-<!--         -   Note that you might first have to *make* a time-based column using a function like `ymd()`, but this doesn't count. -->
-<!--         -   Examples of something you might do here: extract the day of the year from a date, or extract the weekday, or let 24 hours elapse on your dates. -->
-
-<!--     2.  Then, in a sentence or two, explain how your new column might be useful in exploring a research question. (1 point for demonstrating understanding of the function you used, and 1 point for your justification, which could be subtle or speculative). -->
-
-<!--         -   For example, you could say something like "Investigating the day of the week might be insightful because penguins don't work on weekends, and so may respond differently". -->
-
-<!-- <!-------------------------- Start your work below ----------------------------> -->
-
-<!-- **Task Number**: FILL_THIS_IN -->
-
-<!-- <!-----------------------------------------------------------------------------> -->
-
-<!-- <!-------------------------- Start your work below ----------------------------> -->
-
-<!-- **Task Number**: FILL_THIS_IN -->
-
-<!-- <!-----------------------------------------------------------------------------> -->
-
 # Task 3: Modelling
 
 ## 3.0 (no points)
