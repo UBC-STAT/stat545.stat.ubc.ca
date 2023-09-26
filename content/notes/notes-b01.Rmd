@@ -19,10 +19,10 @@ From this topic, students are expected to be able to:
 - Data masking in a function.
 - Documenting a function
 
-What we're _not_ covering (this week):
+<!-- What we're _not_ covering (this week): -->
 
-- Documenting functions with roxygen2 (R packages)
-- S3 objects (and other object oriented styles) (R packages)
+<!-- - Documenting functions with roxygen2 (R packages) -->
+<!-- - S3 objects (and other object oriented styles) (R packages) -->
 
 
 ## Resources
@@ -37,248 +37,6 @@ Written resources:
 - When to use functions in your data analysis:
     - [stat545.com Functions, Parts 1-3](https://stat545.com/functions-part1.html)
     - [R4DS functions chapter](https://r4ds.had.co.nz/functions.html)
-
-
-## Functions: basics
-
-A user-defined function needs three things: 
-
-1. A name - self explanatory.
-2. Arguments, to take in values from the user. 
-3. Body, to define what code is executed when the function is run. 
-
-```{r, eval=FALSE}
-name <- function(arguments) { 
-  body  
-}
-```
-
-Once defined, you can call the function using the following syntax: 
-```{r, eval=FALSE}
-name(new_arguments)
-```
-
-Here is an example of a user-defined function in action: 
-```{r}
-roll_d10 <- function(num_dice) { 
-    sum(sample(1:10, num_dice, replace=TRUE))
-}
-
-roll_d10(2)
-```
-
-Some topics:
-
-- Curly brackets vs. no curly brackets.
-- `return()` vs. no `return()`.
-- Argument defaults vs. no argument defaults.
-- Argument names as "dummy variables", independent of what's named in your workspace. 
-
-## Functions: an example
-
-```{r, message = FALSE, warning = FALSE}
-library(tidyverse)
-library(gapminder)
-library(testthat)
-library(patchwork)
-```
-
-Sometimes it's useful to work with the _log_ of a variable with a positive skew, such as `gapminder`'s GDP per capita:
-
-```{r}
-gdpPercap_plot <- 
-  ggplot(gapminder, aes(gdpPercap)) +
-    geom_histogram() +
-    theme_minimal()
-
-log_gdpPercap_plot <- 
-  ggplot(gapminder, aes(log(gdpPercap))) +
-    geom_histogram() +
-    theme_minimal()
-
-gdpPercap_plot + log_gdpPercap_plot
-```
-
-And, it's sometimes useful to scale a variable to have mean 0 and variance 1. We'll do both:
-
-```{r}
-gapminder %>% 
-  mutate(gdpPercap_scaled = (log(gdpPercap) - mean(log(gdpPercap))) / sd(log(gdpPercap)),
-         pop_scaled = (log(pop) - mean(log(pop))) / sd(log(pop)))
-
-gapminder %>% 
-  mutate(gdpPercap = (log(gdpPercap) - mean(log(gdpPercap))) / 
-           sd(log(gdpPercap)),
-         pop = (log(pop) - mean(log(pop))) / sd(log(pop)))
-```
-
-Where might there be repetition in this analysis? Where __is__ there repetition?
-
-- Doing this scaling over and over again throughout the analysis.
-- Repetition across multiple variables, like `pop` and `lifeExp`
-- `gdpPercap` appears three times.
-
-Solve the problem of repetition by writing _functions_.
-
-Turn the above into a function.
-
-```{r}
-my_scale <- function(x, remove_na = TRUE, ...) {
-  logx <- log(x)
-  (logx - mean(logx, na.rm = remove_na, ...)) / sd(logx, na.rm = remove_na)
-}
-my_scale(1:10)
-```
-
-Now we can use the function in our previous dplyr workflow:
-
-```{r}
-gapminder %>% 
-  mutate(gdpPercap = my_scale(gdpPercap),
-         pop = my_scale(pop))
-```
-
-Each function you create shouldn't do too much, but rather should do one thing well. Don't [make a gigantic `descrip()` function](https://github.com/statdivlab/rigr/blob/1a6f6984a3f1fd4d3cc6a7dba8a213c041cde33f/R/descrip.R) that attempts to do everything. Modularizing computation into smaller functions makes troubleshooting much easier. (Sorry, Scott!! It had to be said!!!!)
-
-Let's take a moment to talk about the "..." argument before we move on. In short, it lets the user of your function pass in any number of additional arguments. Above, we used "..." to allow the user flexibility to take advantage of secret undocumented features of the `mean()` function. 
-
-However, that exact same flexibility can cause you headaches down the road. The [tidyverse design guide](https://design.tidyverse.org/dots-position.html) goes over details and best practices of "..." usage that help keep you happy and the user safe. 
-
-## Function arguments
-
-Some common function argument additions:
-
-- `na.rm`, an indication of whether you should remove NA values or not.
-- `verbose`, useful if you have either a potentially long computation, or a computation where you may want to see more details (such as function inversion or optimization).
-
-## Documenting your function
-
-Documentation should include, at a minimum:
-
-1. A description of what the function does, at a high level. 
-2. A description of the arguments (input). What type of objects are they?
-3. A description of the output. Describe the object that the function returns.
-
-You should use [roxygen2 tags](https://roxygen2.r-lib.org/articles/rd-formatting.html) to document your function, placed immediately above the function definition. Although roxygen2 tags are designed for use when creating R packages, they provide a standardized way to document a function -- and make it easy for you to migrate your function to an R package if need be!
-
-Here's an example of a custom function I use a lot, with roxygen2 documentation. 
-```{r} 
-#' Takes the l2-norm of a vector.
-#'
-#' @keywords internal
-#'
-#' @param x the vector to be normed
-#'
-#' @return Returns the l2-norm of x.
-norm_vec <- function(x) {
-  sqrt(sum(x^2))
-}
-```
-
-## Testing your functions
-
-`testthat` is a collection of functions developed by Hadley Wickham that makes unit testing easy for developers. You can read more about the structure of tests [here](https://r-pkgs.org/testing-basics.html#test-organisation). In a nutshell, tests are organized hierarchically: **expectations** are grouped into **tests**. Functions that start with `expect_` describe the expected result of a computation (e.g. Does it have the right class?) - these are expectations. Tests are created with `test_that()` and they group together multiple *expectations* to test the output of a function (at their simplest level). 
-
-Let's test the `my_scale()` function we made earlier, first informally.
-
-```{r}
-my_scale(exp(c(1, 3)), verbose = TRUE)
-my_scale(exp(c(1, 3, NA)))
-my_scale(1:10)
-my_scale(1:10, trim = 0.1, foobar = 3)
-```
-
-Now, write a formal test that doesn't require eyeballs on the code:
-
-```{r}
-test_that("Basic testing", {
-  expect_equal(my_scale(exp(c(1, 3))), (c(1, 3) - 2) / sqrt(2))
-  expect_equal(my_scale(exp(c(1, 3, NA))), (c(1, 3, NA) - 2) / sqrt(2))
-  expect_error(my_scale(letters))
-})
-```
-
-Testing your functions is a way of recognizing that your data analysis will evolve, and is a way of knowing which of your functions need updating if you make a breaking change in your analysis. 
-
-## A return to dplyr scoped variants with `across()`
-
-Let's try our function applied to multiple columns of the `gapminder` dataset using dplyr's `across()` function, reducing even more repeated code.
-
-```{r}
-gapminder %>% 
-  mutate(across(c("gdpPercap", "pop"), my_scale))
-```
-
-## Function arguments without quotation marks: curly-curly
-
-Sometimes your function needs to take variable names without quotation marks. For example, `select(gapminder, lifeExp)` does not put quotation marks around `lifeExp` (the reason being that `lifeExp` is like a variable in our workspace, if we were to include column names in our R Environment).
-
-Making your own functions having this capability involves a workaround. For example, consider making a function to produce a quick scatterplot between two columns in a dataset:
-
-```{r}
-quick_scatter <- function(data, x, y) {
-  ggplot(data, aes(x, y)) +
-    geom_point()
-}
-```
-
-The function won't work:
-
-```{r, error = TRUE}
-quick_scatter(gapminder, x = gdpPercap, y = lifeExp)
-```
-
-The reason is that R is looking for variables named `gdpPercap` and `lifeExp` in the workspace, and cannot find them. To fix the problem, we can change the function definition so that `x` and `y` are embraced within two curly brackets -- an operator called "curly curly": 
-
-```{r}
-quick_scatter <- function(data, x, y) {
-  ggplot(data, aes({{ x }}, {{ y }})) +
-    geom_point()
-}
-```
-
-Now the function will work:
-
-```{r, fig.width = 3, fig.height = 2}
-quick_scatter(gapminder, x = gdpPercap, y = lifeExp)
-```
-
-But, you can only use curly-curly when passing your function's argument to another function _that's anticipating a variable name without brackets_. For example, consider subsetting a data frame by a column name using `[[`, where quotation marks are needed:
-
-```{r}
-mtcars[["wt"]]
-```
-
-Here's a function that subsets a data frame using `[[`, not using curly-curly:
-
-```{r}
-my_subset <- function(data, variable) {
-    data[[variable]]
-}
-```
-
-The function is anticipating quotation marks, and will fail without them:
-
-```{r, error = TRUE}
-my_subset(mtcars, "wt") 
-my_subset(mtcars, wt)
-```
-
-Using curly-curly doesn't grant the `[[` subsetting any data masking powers -- data masking (i.e. the practice of allowing you to refer to variables in the "current" data frame without quotation marks or other frills) must already be in place, as they are in `dplyr` and `ggplot2` functions:
-
-```{r}
-my_subset <- function(data, variable) {
-    data[[{{ variable }}]]
-}
-```
-
-We get an error if we don't include quotation marks:
-
-```{r, error = TRUE}
-my_subset(mtcars, wt)
-```
-
-Useful hint: in the `dplyr` documentation, if you spy the words "data masking" or "tidy selection", then you will need to curly-curly your arguments when using those functions within your custom function.
 
 ## Test Your Understanding
 
@@ -300,6 +58,371 @@ f(1)
 3. True or False: Curly-curly `{{}}` can be used whenever we want to refer to column names outright, such as when subsetting in base R with `[[`.
 4. You've made a function `quick_scatter()` that you can pipe a tibble into, and outputs a scatterplot of two variables. So far, you're only using the function to explore the data for your own eyes (perhaps even putting your code directly in the console). True or False: at this point, you should stop and make sure your function is documented and has formal unit tests. 
 
+
+## Our own R functions
+
+At this point in the course, we've used lots of functions, like `mean()`, `mutate()`, and `pivot_longer()`. But it can be really useful to *write your own* function. For example, the ability to writing your own functions can supercharge your `group_by() %>% summarize()` workflow: you can write your own function to use inside `summarize()`, instead of relying soley on functions built into R or available in packages! 
+
+Here's a simple example of a function I write to simulate rolling a user-inputted number of D10s (a 10-sided die used for tabletop gaming).
+
+```{r} 
+roll_d10 <- function(num_dice) { 
+    sum(sample(1:10, num_dice, replace=TRUE))
+}
+
+roll_d10(2)
+```
+
+(Sidebar: this is not reproducible code, as the output depends on the *random seed*, which R made up for us and won't tell us. If I wanted to make this reproducible, then I would set the seed to (say) 123 before running my function with `set.seed(123)`.)
+
+### Testing 
+
+When you're using other people's functions -- like those in packages -- they often *work*. However, as you have probably discovered by this point, it is very easy to inadvertently write code -- and therefore functions -- that *do not* work. Because of this, it's important to *test* the functions we write to make sure they work. 
+
+### Documentation
+
+You should have also noticed by now that other people's functions in packages are *documented* - there's information about: 
+
+1. what the function does, at a high level 
+2. the objects it expects you to input 
+3. the object that the function outputs 
+
+We can do this with [roxygen2 tags](https://roxygen2.r-lib.org/articles/rd-formatting.html) to document your function, placed immediately above the function definition. Although roxygen2 tags are designed for use when creating R packages, they provide a standardized way to document a function -- and make it easy for you to migrate your function to an R package if need be!
+
+<!-- Here's an example of documentation for my `roll_d10()` functions with roxygen2 tags.  -->
+
+<!-- ```{r, eval = FALSE}  -->
+<!-- #' Rolls D10s  -->
+<!-- #'  -->
+<!-- #' This function rolls `num_dice` 10-sided die/dice (i.e. D10s)  -->
+<!-- #' and returns the sum of the numbers #' on the die/dice.  -->
+<!-- #'  -->
+<!-- #' @param num_dice the number of D10 dice to be rolled  -->
+<!-- #'  -->
+<!-- #' @return Returns the sum of the numbers on the rolled die -->
+<!-- roll_d10 <- function(num_dice) {  -->
+<!--     sum(sample(1:10, num_dice, replace=TRUE)) -->
+<!-- } -->
+
+<!-- roll_d10(2) -->
+<!-- ``` -->
+
+## Your turn: functions and tests, the basics 
+
+We think working through Worksheet B1 is a great place to go from here to learn the basics of how to define your own functions and how to test it. 
+
+
+### Class 1
+
+- Haven't attempted all of the questions on Worksheet B1? Then spend this time attempting unattempted questions. 
+- Finished attempting all of the questions? Then do the optional [R4DS Functions](https://r4ds.hadley.nz/functions) reading, and maybe even do some of the exercises for extra practice. 
+
+Put any questions you have about the worksheet questions or about functions in general in the Google Doc posted to Canvas. 
+
+We will reconvene to work through questions lots of people are struggling with and to answer general questions from time to time. 
+
+## Class 2 
+
+### Agenda 
+
+We will learn about a couple of advanced topics: 
+
+- Ellipses
+- Curly-curly 
+- Default values
+
+These topics are covered in the [R4DS Functions](https://r4ds.hadley.nz/functions) book chapter as well. So if you miss this class, then the R4DS Functions reading is a good alternative. 
+
+### Counting missing values by group
+
+Let's start by loading some libraries. 
+
+```{r, message = FALSE} 
+library(palmerpenguins)
+library(tidyverse)
+library(gapminder)
+```
+
+Here's some code that: 
+
+- groups penguins by species, then summarizes the number of missing values in 
+each variable. 
+- groups gapminder by continent, then summarizes the number of missing values in 
+each variable. 
+
+```{r} 
+penguins %>% group_by(species) %>% 
+  summarize(across(everything(), ~ sum(is.na(.x))))
+gapminder %>% group_by(continent) %>% 
+  summarize(across(everything(), ~ sum(is.na(.x))))
+```
+
+### Your turn: turn this code into a function 
+
+By yourself or in small groups, try to turn the code above into a function. Slack react to tell us either "I'm stuck!" or "I'm done!" 
+
+### Instructor demo: curly-curly 
+
+We will construct a solution to the exercise. We will also do some basic testing
+to make sure that the function does what we want to when we pass in "the right things". 
+
+### Your turn: try to break this 
+
+Spend a few minutes passing in "the wrong things" to the function. The goal is to either make the function give a confusing error message, or make it run even if it's not supposed to!  
+
+Then, modify the function with things like `stopifnot()`, `if()`, `not()`, etc. to proactively plug some of the holes you found. 
+
+### Instructor demo: ellipses 
+
+We'll modify our function using ellipses to get extra functionality: we'll allow the user to group by more than one variable. 
+
+### Instructor demo: defaults 
+
+We'll talk about when you might conceptually want to set a default value for function arguments, and then make a new argument for our function called `.groups` that makes it default to dropping the groups in the output. 
+
+### Your turn: curly-curly practice 
+
+Make one final modification to our function: allow the user to also pass in which variables they want to summarize. (Right now it just summarizes all of them.)
+
+
+<!-- ## Advanced topic: curly-curly  -->
+
+<!-- Sometimes your function needs to take in variable names without quotation marks and work with them that way. For example, `select(gapminder, lifeExp)` does not put quotation marks around `lifeExp` -- the reasoning being that `lifeExp` is like a variable in our workspace, if we were to include column names in our R Environment -- and `select("gapminder", "lifeExp")` will not do the same thing.  -->
+
+<!-- If your function needs to do this, then you need to work with the arguments with extra care inside the function definition. Whenever we use those arguments, we need to  embrace them within two curly brackets -- an operator called "curly curly".  -->
+
+<!-- Take this function that produces a quick scatterplot between two columns in a dataset as an example.  -->
+
+<!-- ```{r} -->
+<!-- library(gapminder) -->
+
+<!-- quick_scatter <- function(data, x, y) { -->
+<!--   ggplot(data, aes({{ x }}, {{ y }})) + -->
+<!--     geom_point() -->
+<!-- } -->
+
+<!-- quick_scatter(gapminder, x = gdpPercap, y = lifeExp) -->
+<!-- ``` -->
+
+<!-- For example, consider making a function to produce a quick scatterplot between two columns in a dataset: -->
+
+<!-- ```{r} -->
+<!-- quick_scatter <- function(data, x, y) { -->
+<!--   ggplot(data, aes(x, y)) + -->
+<!--     geom_point() -->
+<!-- } -->
+<!-- ``` -->
+
+<!-- The function won't work: -->
+
+<!-- ```{r, error = TRUE} -->
+<!-- quick_scatter(gapminder, x = gdpPercap, y = lifeExp) -->
+<!-- ``` -->
+
+<!-- The reason is that R is looking for variables named `gdpPercap` and `lifeExp` in the workspace, and cannot find them. To fix the problem, we can change the function definition so that `x` and `y` are embraced within two curly brackets -- an operator called "curly curly":  -->
+
+<!-- ```{r} -->
+<!-- quick_scatter <- function(data, x, y) { -->
+<!--   ggplot(data, aes({{ x }}, {{ y }})) + -->
+<!--     geom_point() -->
+<!-- } -->
+<!-- ``` -->
+
+<!-- Now the function will work: -->
+
+<!-- ```{r, fig.width = 3, fig.height = 2} -->
+<!-- quick_scatter(gapminder, x = gdpPercap, y = lifeExp) -->
+<!-- ``` -->
+
+<!-- But, you can only use curly-curly when passing your function's argument to another function _that's anticipating a variable name without brackets_. For example, consider subsetting a data frame by a column name using `[[`, where quotation marks are needed: -->
+
+<!-- ```{r} -->
+<!-- mtcars[["wt"]] -->
+<!-- ``` -->
+
+<!-- Here's a function that subsets a data frame using `[[`, not using curly-curly: -->
+
+<!-- ```{r} -->
+<!-- my_subset <- function(data, variable) { -->
+<!--     data[[variable]] -->
+<!-- } -->
+<!-- ``` -->
+
+<!-- The function is anticipating quotation marks, and will fail without them: -->
+
+<!-- ```{r, error = TRUE} -->
+<!-- my_subset(mtcars, "wt")  -->
+<!-- my_subset(mtcars, wt) -->
+<!-- ``` -->
+
+<!-- Using curly-curly doesn't grant the `[[` subsetting any data masking powers -- data masking (i.e. the practice of allowing you to refer to variables in the "current" data frame without quotation marks or other frills) must already be in place, as they are in `dplyr` and `ggplot2` functions: -->
+
+<!-- ```{r} -->
+<!-- my_subset <- function(data, variable) { -->
+<!--     data[[{{ variable }}]] -->
+<!-- } -->
+<!-- ``` -->
+
+<!-- We get an error if we don't include quotation marks: -->
+
+<!-- ```{r, error = TRUE} -->
+<!-- my_subset(mtcars, wt) -->
+<!-- ``` -->
+
+<!-- Useful hint: in the `dplyr` documentation, if you spy the words "data masking" or "tidy selection", then you will need to curly-curly your arguments when using those functions within your custom function. -->
+
+
+
+
+<!-- A user-defined function needs three things:  -->
+
+<!-- 1. A name - self explanatory. -->
+<!-- 2. Arguments, to take in values from the user.  -->
+<!-- 3. Body, to define what code is executed when the function is run.  -->
+
+<!-- ```{r, eval=FALSE} -->
+<!-- name <- function(arguments) {  -->
+<!--   body   -->
+<!-- } -->
+<!-- ``` -->
+
+<!-- Once defined, you can call the function using the following syntax:  -->
+<!-- ```{r, eval=FALSE} -->
+<!-- name(new_arguments) -->
+<!-- ``` -->
+
+<!-- Here is an example of a user-defined function in action:  -->
+<!-- ```{r} -->
+<!-- roll_d10 <- function(num_dice) {  -->
+<!--     sum(sample(1:10, num_dice, replace=TRUE)) -->
+<!-- } -->
+
+<!-- roll_d10(2) -->
+<!-- ``` -->
+
+<!-- Some topics: -->
+
+<!-- - Curly brackets vs. no curly brackets. -->
+<!-- - `return()` vs. no `return()`. -->
+<!-- - Argument defaults vs. no argument defaults. -->
+<!-- - Argument names as "dummy variables", independent of what's named in your workspace.  -->
+
+<!-- ## Functions: an example -->
+
+<!-- ```{r, message = FALSE, warning = FALSE} -->
+<!-- library(tidyverse) -->
+<!-- library(gapminder) -->
+<!-- library(testthat) -->
+<!-- library(patchwork) -->
+<!-- ``` -->
+
+<!-- Sometimes it's useful to work with the _log_ of a variable with a positive skew, such as `gapminder`'s GDP per capita: -->
+
+<!-- ```{r} -->
+<!-- gdpPercap_plot <-  -->
+<!--   ggplot(gapminder, aes(gdpPercap)) + -->
+<!--     geom_histogram() + -->
+<!--     theme_minimal() -->
+
+<!-- log_gdpPercap_plot <-  -->
+<!--   ggplot(gapminder, aes(log(gdpPercap))) + -->
+<!--     geom_histogram() + -->
+<!--     theme_minimal() -->
+
+<!-- gdpPercap_plot + log_gdpPercap_plot -->
+<!-- ``` -->
+
+<!-- And, it's sometimes useful to scale a variable to have mean 0 and variance 1. We'll do both: -->
+
+<!-- ```{r} -->
+<!-- gapminder %>%  -->
+<!--   mutate(gdpPercap_scaled = (log(gdpPercap) - mean(log(gdpPercap))) / sd(log(gdpPercap)), -->
+<!--          pop_scaled = (log(pop) - mean(log(pop))) / sd(log(pop))) -->
+
+<!-- gapminder %>%  -->
+<!--   mutate(gdpPercap = (log(gdpPercap) - mean(log(gdpPercap))) /  -->
+<!--            sd(log(gdpPercap)), -->
+<!--          pop = (log(pop) - mean(log(pop))) / sd(log(pop))) -->
+<!-- ``` -->
+
+<!-- Where might there be repetition in this analysis? Where __is__ there repetition? -->
+
+<!-- - Doing this scaling over and over again throughout the analysis. -->
+<!-- - Repetition across multiple variables, like `pop` and `lifeExp` -->
+<!-- - `gdpPercap` appears three times. -->
+
+<!-- Solve the problem of repetition by writing _functions_. -->
+
+<!-- Turn the above into a function. -->
+
+<!-- ```{r} -->
+<!-- my_scale <- function(x, remove_na = TRUE, ...) { -->
+<!--   logx <- log(x) -->
+<!--   (logx - mean(logx, na.rm = remove_na, ...)) / sd(logx, na.rm = remove_na) -->
+<!-- } -->
+<!-- my_scale(1:10) -->
+<!-- ``` -->
+
+<!-- Now we can use the function in our previous dplyr workflow: -->
+
+<!-- ```{r} -->
+<!-- gapminder %>%  -->
+<!--   mutate(gdpPercap = my_scale(gdpPercap), -->
+<!--          pop = my_scale(pop)) -->
+<!-- ``` -->
+
+<!-- Each function you create shouldn't do too much, but rather should do one thing well. Don't [make a gigantic `descrip()` function](https://github.com/statdivlab/rigr/blob/1a6f6984a3f1fd4d3cc6a7dba8a213c041cde33f/R/descrip.R) that attempts to do everything. Modularizing computation into smaller functions makes troubleshooting much easier. (Sorry, Scott!! It had to be said!!!!) -->
+
+<!-- Let's take a moment to talk about the "..." argument before we move on. In short, it lets the user of your function pass in any number of additional arguments. Above, we used "..." to allow the user flexibility to take advantage of secret undocumented features of the `mean()` function.  -->
+
+<!-- However, that exact same flexibility can cause you headaches down the road. The [tidyverse design guide](https://design.tidyverse.org/dots-position.html) goes over details and best practices of "..." usage that help keep you happy and the user safe.  -->
+
+<!-- ## Function arguments -->
+
+<!-- Some common function argument additions: -->
+
+<!-- - `na.rm`, an indication of whether you should remove NA values or not. -->
+<!-- - `verbose`, useful if you have either a potentially long computation, or a computation where you may want to see more details (such as function inversion or optimization). -->
+
+<!-- ## Documenting your function -->
+
+<!-- ## Testing your functions -->
+
+<!-- `testthat` is a collection of functions developed by Hadley Wickham that makes unit testing easy for developers. You can read more about the structure of tests [here](https://r-pkgs.org/testing-basics.html#test-organisation). In a nutshell, tests are organized hierarchically: **expectations** are grouped into **tests**. Functions that start with `expect_` describe the expected result of a computation (e.g. Does it have the right class?) - these are expectations. Tests are created with `test_that()` and they group together multiple *expectations* to test the output of a function (at their simplest level).  -->
+
+<!-- Let's test the `my_scale()` function we made earlier, first informally. -->
+
+<!-- ```{r} -->
+<!-- my_scale(exp(c(1, 3)), verbose = TRUE) -->
+<!-- my_scale(exp(c(1, 3, NA))) -->
+<!-- my_scale(1:10) -->
+<!-- my_scale(1:10, trim = 0.1, foobar = 3) -->
+<!-- ``` -->
+
+<!-- Now, write a formal test that doesn't require eyeballs on the code: -->
+
+<!-- ```{r} -->
+<!-- test_that("Basic testing", { -->
+<!--   expect_equal(my_scale(exp(c(1, 3))), (c(1, 3) - 2) / sqrt(2)) -->
+<!--   expect_equal(my_scale(exp(c(1, 3, NA))), (c(1, 3, NA) - 2) / sqrt(2)) -->
+<!--   expect_error(my_scale(letters)) -->
+<!-- }) -->
+<!-- ``` -->
+
+<!-- Testing your functions is a way of recognizing that your data analysis will evolve, and is a way of knowing which of your functions need updating if you make a breaking change in your analysis.  -->
+
+<!-- ## A return to dplyr scoped variants with `across()` -->
+
+<!-- Let's try our function applied to multiple columns of the `gapminder` dataset using dplyr's `across()` function, reducing even more repeated code. -->
+
+<!-- ```{r} -->
+<!-- gapminder %>%  -->
+<!--   mutate(across(c("gdpPercap", "pop"), my_scale)) -->
+<!-- ``` -->
+
+<!-- ## Function arguments without quotation marks: curly-curly -->
+
+
 ## Attribution 
 
-Most of these notes were originally compiled by previous iterations of the instructional staff, including Vincenzo Coia. 
+Some of these notes were originally compiled by previous iterations of the instructional staff, including Vincenzo Coia. 
