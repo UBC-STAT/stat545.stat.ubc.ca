@@ -21,7 +21,7 @@ library(datateachr)
 library(tidyverse)
 ```
 
-3.  Make a repository in the <https://github.com/stat545ubc-2023> Organization. You will be working with this repository for the entire data analysis project. You can either make it public, or make it private and add the TA's and Lucy as collaborators. A link to help you create a private repository will be posted to the #mini-data-analysis Slack channel. 
+3.  Make a repository in the <https://github.com/stat545ubc-2023> Organization. You can do this by following the steps found on canvas in the entry called [MDA: Create a repository](https://canvas.ubc.ca/courses/126199/pages/mda-create-a-repository). One completed, your repository should automatically be listed as part of the stat545ubc-2023 Organization.
 
 # Instructions
 
