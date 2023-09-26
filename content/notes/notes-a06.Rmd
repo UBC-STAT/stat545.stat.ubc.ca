@@ -191,7 +191,7 @@ We think the best way to learn the basics of ggplot2 is to work through Workshee
 - Haven't attempted all of the questions on Worksheet A3? Then spend this time attempting unattempted questions. 
 - Finished attempting all of the questions? Then do the optional [R4DS Data Visualization](https://r4ds.had.co.nz/data-visualisation.html) reading, and maybe even do some of the exercises for extra practice. 
 
-Put any questions you have about the worksheet questions or about data manipulation in general in the Google Doc posted to Canvas. 
+Put any questions you have about the worksheet questions or about graphing in general in the Google Doc posted to Canvas. 
 
 ### Remaining time in Class 1
 
