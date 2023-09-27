@@ -25,6 +25,14 @@ Last week, we found that the mean FEV in the smoking group was substantially hig
 
 We also had a theory as to why: the association between FEV and smoking status may be confounded, eg. by age/size.
 
+We'll investigate further this week with our newly acquired plotting skills! 
+
+Here are some helpful resources for making plots, now that we are moving towards less "guided" exercises: 
+
+- [ggplot2 package webpage](https://ggplot2.tidyverse.org/index.html)
+- [ggplot2 Book](https://ggplot2-book.org/)
+- [R Graphics Cookbook](https://r-graphics.org/)
+
 ## Smoking and FEV (unadjusted)
 
 ### Exercise 1 

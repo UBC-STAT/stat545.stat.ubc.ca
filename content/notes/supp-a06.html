@@ -17,6 +17,13 @@ library(ggplot2)
 fev_tbl &lt;- as_tibble(fev) %&gt;% mutate(across(sex:smoke, ~ as.factor(.x)))</code></pre>
 <p>Last week, we found that the mean FEV in the smoking group was substantially higher than the average FEV in the non-smoking group. That is, the smokers appear to have <em>better</em> lung function than the non-smokers.</p>
 <p>We also had a theory as to why: the association between FEV and smoking status may be confounded, eg. by age/size.</p>
+<p>We’ll investigate further this week with our newly acquired plotting skills!</p>
+<p>Here are some helpful resources for making plots, now that we are moving towards less “guided” exercises:</p>
+<ul>
+<li><a href="https://ggplot2.tidyverse.org/index.html">ggplot2 package webpage</a></li>
+<li><a href="https://ggplot2-book.org/">ggplot2 Book</a></li>
+<li><a href="https://r-graphics.org/">R Graphics Cookbook</a></li>
+</ul>
 </div>
 <div id="smoking-and-fev-unadjusted" class="section level2">
 <h2>Smoking and FEV (unadjusted)</h2>
