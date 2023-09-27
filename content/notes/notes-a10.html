@@ -73,8 +73,7 @@ c(date, dt)</code></pre>
 <p><strong>Under the hood</strong>, R stores a factor with (say) 3 levels as a numeric vector containing integers between 1 and 3, paired with a character vector of length 3 that identifies the mapping between the numbers 1, 2, and 3 and the levels.</p>
 <p>This is not immediately obvious, because R will print factors using the character string levels rather than the numbers that it stores:</p>
 <pre class="r"><code>penguins %&gt;% slice_sample(n=10) %&gt;% pull(species)</code></pre>
-<pre><code>##  [1] Gentoo    Chinstrap Gentoo    Gentoo    Gentoo    Adelie    Gentoo   
-##  [8] Adelie    Gentoo    Gentoo   
+<pre><code>##  [1] Adelie Adelie Gentoo Gentoo Gentoo Gentoo Adelie Gentoo Adelie Adelie
 ## Levels: Adelie Chinstrap Gentoo</code></pre>
 <p>This dual nature of factors creates a whole slew of hidden traps and headaches, especially for new useRs!</p>
 <p>Nevertheless, factors are important and worth the pain. Many functions throughout the R landscape expect categorical variables to be coded as factors. For example, when making plots in either <code>ggplot2</code> or in base R, we need factors in order to map categorical variables to aesthetic elements like colour.</p>
@@ -125,7 +124,7 @@ c(date, dt)</code></pre>
 </div>
 <div id="nyc-flights-case-study" class="section level2">
 <h2>NYC Flights Case Study</h2>
-<p>We’ll show off how to use the <code>lubridate</code> package in the tidyverse to work with date variables in datasets in this <a href="https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/notes/supp-a10-solution.Rmd">NYC Flights case study</a>.</p>
+<p>We’ll show off how to use the <code>lubridate</code> package in the tidyverse to work with date variables in datasets in this <a href="/notes/supp-a10-solution">NYC Flights case study</a>.</p>
 <p>For the sake of time, we’ll just go over the solutions together, instead of having you attempt exercises on your own first. We think this will be sufficient to get a hang of the basics of <code>lubridate</code>. That being said, want extra practice? Then check out the <a href="https://r4ds.hadley.nz/datetimes">R4DS Dates and Times Chapter</a>!</p>
 <!-- Let's say you want to convert a string into a date object.  -->
 <!-- The `lubridate` package in the `tidyverse` has your back with a family of functions named as permutations of "y", "m", and "d".  -->

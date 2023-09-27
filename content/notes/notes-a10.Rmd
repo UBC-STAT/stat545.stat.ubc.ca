@@ -132,7 +132,7 @@ The `lubridate` package can help us with a lot of the headaches that dates and t
 
 ## NYC Flights Case Study 
 
-We'll show off how to use the `lubridate` package in the tidyverse to work with date variables in datasets in this [NYC Flights case study](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/notes/supp-a10-solution.Rmd). 
+We'll show off how to use the `lubridate` package in the tidyverse to work with date variables in datasets in this [NYC Flights case study](/notes/supp-a10-solution). 
 
 For the sake of time, we'll just go over the solutions together, instead of having you attempt exercises on your own first. We think this will be sufficient to get a hang of the basics of `lubridate`. That being said, want extra practice? Then check out the [R4DS Dates and Times Chapter](https://r4ds.hadley.nz/datetimes)! 
 
