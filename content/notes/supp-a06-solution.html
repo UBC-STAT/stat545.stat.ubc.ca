@@ -38,8 +38,8 @@ fev_tbl &lt;- as_tibble(fev) %&gt;% mutate(across(sex:smoke, ~ as.factor(.x)))</
 <div id="informating-gathering-what-might-we-want-to-adjust-for" class="section level2">
 <h2>Informating gathering: what might we want to adjust for?</h2>
 <p>Let’s do some digging to see if there are other variables that we would like to adjust for, when comparing the FEV of smokers to non-smokers.</p>
-<div id="exercise-3" class="section level3">
-<h3>Exercise 3</h3>
+<div id="exercise-2" class="section level3">
+<h3>Exercise 2</h3>
 <p>Last week, we found that the youngest patient who smokes is 9, suggesting that there is a difference in the age distribution among smokers and non-smokers. Make a plot that compares these two distributions.</p>
 <pre class="r"><code>ggplot(fev_tbl, aes(fill=smoke)) + 
   geom_bar(aes(x = age, y = after_stat(prop))) + 
@@ -52,8 +52,8 @@ fev_tbl &lt;- as_tibble(fev) %&gt;% mutate(across(sex:smoke, ~ as.factor(.x)))</
 <p><img src="/notes/supp-a06-solution_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 <p>Again, we see that the smokers are overall older than the non-smokers.</p>
 </div>
-<div id="exercise-4" class="section level3">
-<h3>Exercise 4</h3>
+<div id="exercise-3" class="section level3">
+<h3>Exercise 3</h3>
 <p>We think that age should be related to height, which in turn should be related to FEV. Let’s investigate that more systematically now with plotting.</p>
 <p>First, make a plot with two panels: one that has a scatterplot of height versus age for the female patients, and one that has a scatterplot of height versus age for the male patients.</p>
 <pre class="r"><code>ggplot(fev_tbl, aes(x = age, y = height, colour=sex)) + 
@@ -66,7 +66,7 @@ fev_tbl &lt;- as_tibble(fev) %&gt;% mutate(across(sex:smoke, ~ as.factor(.x)))</
   theme_bw()</code></pre>
 <p><img src="/notes/supp-a06-solution_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>We see that the within-sex trend is similar: height is linear-ish at younger ages, and flat-ish at older ages. Boys wind up taller at older ages.</p>
-<p>Then, make a scatterplot of FEV versus height.</p>
+<p>We will then make a scatterplot of FEV versus height.</p>
 <pre class="r"><code>ggplot(fev_tbl, aes(x = height, y = fev)) + 
   geom_jitter(width=0.2, alpha = 0.75) + 
   ggtitle(&quot;FEV versus height&quot;) +
@@ -80,8 +80,8 @@ fev_tbl &lt;- as_tibble(fev) %&gt;% mutate(across(sex:smoke, ~ as.factor(.x)))</
 <div id="smoking-and-fev-adjusted-for-height" class="section level2">
 <h2>Smoking and FEV, adjusted for height</h2>
 <p>Now that we know that the smokers are older and bigger and have higher FEV, let’s look at the relationship between FEV and smoking status <em>adjusted</em> for height.</p>
-<div id="exercise-5" class="section level3">
-<h3>Exercise 5</h3>
+<div id="exercise-4" class="section level3">
+<h3>Exercise 4</h3>
 <p>Make a scatterplot of FEV versus height, with points coloured by smoking status.</p>
 <pre class="r"><code>ggplot(fev_tbl, aes(x = height, y = fev, colour=smoke)) + 
   geom_jitter(width=0.2, alpha = 0.75) + 

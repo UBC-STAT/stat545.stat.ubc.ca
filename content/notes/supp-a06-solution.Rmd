@@ -48,7 +48,7 @@ This broadly tells the same story as the summaries we calculated last week, but 
 
 Let's do some digging to see if there are other variables that we would like to adjust for, when comparing the FEV of smokers to non-smokers.
 
-### Exercise 3
+### Exercise 2
 
 Last week, we found that the youngest patient who smokes is 9, suggesting that there is a difference in the age distribution among smokers and non-smokers. Make a plot that compares these two distributions.
 
@@ -65,7 +65,7 @@ ggplot(fev_tbl, aes(fill=smoke)) +
 
 Again, we see that the smokers are overall older than the non-smokers. 
 
-### Exercise 4
+### Exercise 3
 
 We think that age should be related to height, which in turn should be related to FEV. Let's investigate that more systematically now with plotting. 
 
@@ -84,7 +84,7 @@ ggplot(fev_tbl, aes(x = age, y = height, colour=sex)) +
 
 We see that the within-sex trend is similar: height is linear-ish at younger ages, and flat-ish at older ages. Boys wind up taller at older ages. 
 
-Then, make a scatterplot of FEV versus height.
+We will then make a scatterplot of FEV versus height.
 
 ```{r} 
 ggplot(fev_tbl, aes(x = height, y = fev)) + 
@@ -101,7 +101,7 @@ We see that taller participants generally have higher FEV.
 
 Now that we know that the smokers are older and bigger and have higher FEV, let's look at the relationship between FEV and smoking status *adjusted* for height. 
 
-### Exercise 5
+### Exercise 4
 
 Make a scatterplot of FEV versus height, with points coloured by smoking status.
 
