@@ -26,19 +26,70 @@ Tutorial:
 1. True or False: if you want to be deliberate about where `here::here()` points to on your computer, you need to ensure you have an .Rproj file.
 2. True or False: Suppose you have an .Rproj file in the same folder as your R script. Running `here::here()` from that R script will always point to that folder.
 
-## Main Idea behind `here::here()`
 
-Up until now, we always wrote and read files to our current directory. If we wanted to use a different folder on our computer, we could specify something like: 
+## Formats 
+
+Here are a few formats that you might want to read and write data to: 
+
+- *Spreadsheets*: Excel, Google Sheets, Numbers 
+- *Delimited files*: Plaintext files containing data, e.g. csv, tsv
+- *R binary*: A serialization of an R object to a binary file. Basically, that means that it can be loaded in and out of R, but it can't be opened by anything but R. 
+
+Thumb rules: 
+
+- csv are the most "one-size-fits-all": you can open them in spreadsheet software, but they are also plaintext, so are lightweight, can be opened in any text editor, and can be "diff"ed. 
+- Spreadsheets are nice for human interaction. 
+- R binary is VERY niche. Don't reach for it unless none of the other options suit your purposes. 
+
+
+## Reading and writing data in R 
+
+We use the `readr` package for this, because we think it has the most "work right out of the box" experience. 
+
+Main functions of note: 
+
+- `read_csv()` and `write_csv()`: 
+
+## Your turn: try it out! 
+
+Open RStudio. Go to Session => Set Working Directory => Choose Directory and then pick a folder you would like to read and write data into. Then, run the following piece of code: 
+
+```{r, eval = FALSE} 
+library(tidyverse) 
+library(gapminder)
+
+gap_asia_2007 <- gapminder %>% 
+  filter(year == 2007, continent == "Asia")
+head(gap_asia_2007)
+```
+Write `gap_asia_2007` to a comma-separated value (csv) file named `exported_file.csv` with just one command: 
+
+```{r, eval = FALSE} 
+write_csv(FILL_THIS_IN, "exported_file.csv")
+```
+
+Check out your files after executing this line! 
+
+Now, let's practice reading csvs by reading the file we just wrote back into R: 
+
+```{r, eval = FALSE} 
+gap_asia_2007_in <- read_csv("FILL_THIS_IN")
+```
+
+Check out your R environment after executing this line!
+
+Also notice the output of running `read_csv`. This tells us about the types of variables that were read in. It's a good habit to check this every time you run a `read_` function. Sometimes we might want to change how these variable types are specified...
+
+## Main idea behind `here::here()`
+
+We just wrote and read files to our current directory. If we wanted to use a different folder on our computer, we could specify something like: 
 
 - `Documents/STAT545/exported_file.csv` - Mac uses forward slashes
 - `Documents\STAT545\exported_file.csv` - Windows uses backward slashes
 
 However, if you wanted to make your Rproj more portable and accessible to more users in a cross-platform (between Mac, Unix, Windows users), rather than specifying every path explicitly, `here::here()` allows you to set relative paths much more easily.
 
-We won't elaborate here. For a tutorial, read the above noted STAT 545 chapter on ["Writing and Reading files"](https://stat545.com/import-export.html). 
 
-## Your turn: learning to read and write data
+For a quick start, check out [this rant](https://github.com/jennybc/here_here) by [Jenny Bryan](https://jennybryan.org/), the founder of STAT 545,
 
-We think the best way to learn the basics of reading and writing data is to work through Worksheet A6.  
-
-There will be some class time to go over solutions if you got stuck on any questions. 
+For a longer written tutorial, read the above noted STAT 545 chapter on ["Writing and Reading files"](https://stat545.com/import-export.html). 

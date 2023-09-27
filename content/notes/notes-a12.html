@@ -30,18 +30,54 @@ output: html_document
 <li>True or False: Suppose you have an .Rproj file in the same folder as your R script. Running <code>here::here()</code> from that R script will always point to that folder.</li>
 </ol>
 </div>
+<div id="formats" class="section level2">
+<h2>Formats</h2>
+<p>Here are a few formats that you might want to read and write data to:</p>
+<ul>
+<li><em>Spreadsheets</em>: Excel, Google Sheets, Numbers</li>
+<li><em>Delimited files</em>: Plaintext files containing data, e.g. csv, tsv</li>
+<li><em>R binary</em>: A serialization of an R object to a binary file. Basically, that means that it can be loaded in and out of R, but it can’t be opened by anything but R.</li>
+</ul>
+<p>Thumb rules:</p>
+<ul>
+<li>csv are the most “one-size-fits-all”: you can open them in spreadsheet software, but they are also plaintext, so are lightweight, can be opened in any text editor, and can be “diff”ed. </li>
+<li>Spreadsheets are nice for human interaction.</li>
+<li>R binary is VERY niche. Don’t reach for it unless none of the other options suit your purposes.</li>
+</ul>
+</div>
+<div id="reading-and-writing-data-in-r" class="section level2">
+<h2>Reading and writing data in R</h2>
+<p>We use the <code>readr</code> package for this, because we think it has the most “work right out of the box” experience.</p>
+<p>Main functions of note:</p>
+<ul>
+<li><code>read_csv()</code> and <code>write_csv()</code>:</li>
+</ul>
+</div>
+<div id="your-turn-try-it-out" class="section level2">
+<h2>Your turn: try it out!</h2>
+<p>Open RStudio. Go to Session =&gt; Set Working Directory =&gt; Choose Directory and then pick a folder you would like to read and write data into. Then, run the following piece of code:</p>
+<pre class="r"><code>library(tidyverse) 
+library(gapminder)
+
+gap_asia_2007 &lt;- gapminder %&gt;% 
+  filter(year == 2007, continent == &quot;Asia&quot;)
+head(gap_asia_2007)</code></pre>
+<p>Write <code>gap_asia_2007</code> to a comma-separated value (csv) file named <code>exported_file.csv</code> with just one command:</p>
+<pre class="r"><code>write_csv(FILL_THIS_IN, &quot;exported_file.csv&quot;)</code></pre>
+<p>Check out your files after executing this line!</p>
+<p>Now, let’s practice reading csvs by reading the file we just wrote back into R:</p>
+<pre class="r"><code>gap_asia_2007_in &lt;- read_csv(&quot;FILL_THIS_IN&quot;)</code></pre>
+<p>Check out your R environment after executing this line!</p>
+<p>Also notice the output of running <code>read_csv</code>. This tells us about the types of variables that were read in. It’s a good habit to check this every time you run a <code>read_</code> function. Sometimes we might want to change how these variable types are specified…</p>
+</div>
 <div id="main-idea-behind-herehere" class="section level2">
-<h2>Main Idea behind <code>here::here()</code></h2>
-<p>Up until now, we always wrote and read files to our current directory. If we wanted to use a different folder on our computer, we could specify something like:</p>
+<h2>Main idea behind <code>here::here()</code></h2>
+<p>We just wrote and read files to our current directory. If we wanted to use a different folder on our computer, we could specify something like:</p>
 <ul>
 <li><code>Documents/STAT545/exported_file.csv</code> - Mac uses forward slashes</li>
 <li><code>Documents\STAT545\exported_file.csv</code> - Windows uses backward slashes</li>
 </ul>
 <p>However, if you wanted to make your Rproj more portable and accessible to more users in a cross-platform (between Mac, Unix, Windows users), rather than specifying every path explicitly, <code>here::here()</code> allows you to set relative paths much more easily.</p>
-<p>We won’t elaborate here. For a tutorial, read the above noted STAT 545 chapter on <a href="https://stat545.com/import-export.html">“Writing and Reading files”</a>.</p>
-</div>
-<div id="your-turn-learning-to-read-and-write-data" class="section level2">
-<h2>Your turn: learning to read and write data</h2>
-<p>We think the best way to learn the basics of reading and writing data is to work through Worksheet A6.</p>
-<p>There will be some class time to go over solutions if you got stuck on any questions.</p>
+<p>For a quick start, check out <a href="https://github.com/jennybc/here_here">this rant</a> by <a href="https://jennybryan.org/">Jenny Bryan</a>, the founder of STAT 545,</p>
+<p>For a longer written tutorial, read the above noted STAT 545 chapter on <a href="https://stat545.com/import-export.html">“Writing and Reading files”</a>.</p>
 </div>
