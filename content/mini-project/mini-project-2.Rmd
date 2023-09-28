@@ -216,7 +216,7 @@ Take a summary table that you made from Task 1, and write it as a csv file in yo
 
 Write your model object from Task 3 to an R binary file (an RDS), and load it again. Be sure to save the binary file in your `output` folder. Use the functions `saveRDS()` and `readRDS()`.
 
--   The same robustness and reproducibility criteria as in 3.1 apply here.
+-   The same robustness and reproducibility criteria as in 4.1 apply here.
 
 <!-------------------------- Start your work below ---------------------------->
 
