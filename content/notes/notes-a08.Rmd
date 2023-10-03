@@ -58,18 +58,18 @@ The `fivethirtyeight` R package contains a dataset called `drinks`. This dataset
 ```{r, message=FALSE}
 library(fivethirtyeight)
 
-drinks_tbl1 <- as_tibble(drinks)
+drinks_tbl1 <- as_tibble(drinks) %>% select(!total_litres_of_pure_alcohol)
 head(drinks_tbl1)
 ```
 
 The following graphic was made from the `drinks` dataset.
 
 ```{r, message=FALSE, echo=FALSE}
-drinks_tbl2 <- drinks_tbl1 %>% select(!total_litres_of_pure_alcohol) %>% pivot_longer(cols=ends_with("_servings"), names_to = "Alcohol", names_pattern = "(.*)_servings", values_to="Servings") %>% 
+drinks_tbl2 <- drinks_tbl1 %>% pivot_longer(cols=ends_with("_servings"), names_to = "Alcohol", names_pattern = "(.*)_servings", values_to="Servings") %>% 
 mutate(Alcohol=str_to_title(Alcohol))
 
 drinks_tbl2 %>% ggplot(aes(x=Servings)) + geom_histogram() + facet_wrap(vars(Alcohol)) + ylab("Number of countries in each alcohol consumption group") + 
-  xlab("Number of servings of alcohol consumed in 2010")
+  xlab("Number of servings of alcohol consumed per person in 2010")
 ```
 
 With a partner or a small group: 

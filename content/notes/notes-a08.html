@@ -48,18 +48,17 @@ output:
 <p>The <code>fivethirtyeight</code> R package contains a dataset called <code>drinks</code>. This dataset was compiled as part of a <a href="https://fivethirtyeight.com/features/dear-mona-followup-where-do-people-drink-the-most-beer-wine-and-spirits/">FiveThirtyEight article</a> that explored (among other things) which countries consumes the most alcohol.</p>
 <pre class="r"><code>library(fivethirtyeight)
 
-drinks_tbl1 &lt;- as_tibble(drinks)
+drinks_tbl1 &lt;- as_tibble(drinks) %&gt;% select(!total_litres_of_pure_alcohol)
 head(drinks_tbl1)</code></pre>
-<pre><code>## # A tibble: 6 × 5
-##   country     beer_servings spirit_servings wine_servings total_litres_of_pure…¹
-##   &lt;chr&gt;               &lt;int&gt;           &lt;int&gt;         &lt;int&gt;                  &lt;dbl&gt;
-## 1 Afghanistan             0               0             0                    0  
-## 2 Albania                89             132            54                    4.9
-## 3 Algeria                25               0            14                    0.7
-## 4 Andorra               245             138           312                   12.4
-## 5 Angola                217              57            45                    5.9
-## 6 Antigua &amp; …           102             128            45                    4.9
-## # ℹ abbreviated name: ¹​total_litres_of_pure_alcohol</code></pre>
+<pre><code>## # A tibble: 6 × 4
+##   country           beer_servings spirit_servings wine_servings
+##   &lt;chr&gt;                     &lt;int&gt;           &lt;int&gt;         &lt;int&gt;
+## 1 Afghanistan                   0               0             0
+## 2 Albania                      89             132            54
+## 3 Algeria                      25               0            14
+## 4 Andorra                     245             138           312
+## 5 Angola                      217              57            45
+## 6 Antigua &amp; Barbuda           102             128            45</code></pre>
 <p>The following graphic was made from the <code>drinks</code> dataset.</p>
 <p><img src="/notes/notes-a08_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 <p>With a partner or a small group:</p>
