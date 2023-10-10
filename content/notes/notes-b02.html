@@ -3,7 +3,6 @@ title: "R Packages for Data Analysis"
 output: html_document
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p>From this topic, students are anticipated to be able to build a basic R package, especially using the <code>devtools</code> package.</p>
@@ -54,8 +53,8 @@ And possibly:
 <li>True or False: We can’t <em>both</em> add exports to the NAMESPACE file manually and by using <code>devtools::document()</code>.</li>
 </ol>
 </div>
-<div id="demonstration" class="section level2">
-<h2>Demonstration</h2>
+<div id="why-r-packages" class="section level2">
+<h2>Why R Packages</h2>
 <p>Why make an R package? As mentioned in the “functions” topic, your analysis will probably benefit from homemade functions: making functions forces you to think about your analysis in terms of its key computational parts, and makes for robust and readable code. Here are a few benefits that result by bundling these functions into an R package:</p>
 <ul>
 <li>Easily access function documentation</li>
@@ -64,7 +63,12 @@ And possibly:
 <li>Provides a template for organizing your work</li>
 </ul>
 <p>The alternative is keeping the functions stored in separate files, and <code>source()</code>ing them into your analysis scripts, but this can become unwieldy.</p>
-<p>For this topic, we’ll be making an R package similar to the toy <a href="https://github.com/vincenzocoia/powers">powers package</a>. We’ll mostly be following along with <a href="https://r-pkgs.org/whole-game.html">“The Whole Game” Chapter of “R packages”</a>. Here are the actions digested from that chapter.</p>
+<p>Plus, if your package becomes <em>really</em> nice, you might want to share it with the world! At least one tidyverse package supposedly has origins in code that Hadley Wickham bundled up during his PhD.</p>
+<p>Finally, packages are a nice way to share datasets – think about the <code>gapminder</code> package or the <code>palmerpenguins</code> package.</p>
+</div>
+<div id="agenda" class="section level2">
+<h2>Agenda</h2>
+<p>For this topic, we’ll be making an R package like the toy <a href="https://github.com/lucylgao/square">square package</a>, by following along with <a href="https://r-pkgs.org/whole-game.html">“The Whole Game” Chapter of “R packages”</a>. Here’s a checklist based on that chapter. If you miss class, then try following along using the book, and coming to office hours or asking questions on Slack if you get stuck.</p>
 <p>First, make a minimal viable product:</p>
 <ul>
 <li>Load the <code>devtools</code> package in the console (do this every time you go to work on your package).</li>
@@ -76,7 +80,7 @@ And possibly:
 <ul>
 <li>Prefer to start your project on GitHub? Or locally? Either way, useful instructions for what to do can be found <a href="https://happygitwithr.com/usage-intro.html">in “Happy Git with R” Part III</a>.</li>
 </ul></li>
-<li>Make a new R script using <code>use_r()</code>, and write a function there: start with <code>square()</code>.</li>
+<li>Make a new R script using <code>use_r()</code>, and write a function there: start with <code>square()</code>. It should take in a single argument and square it.</li>
 <li>Test drive after using <code>load_all()</code>.</li>
 <li>Check that the package is intact: run <code>check()</code>.</li>
 <li>Edit the DESCRIPTION file. For the license, <code>use_mit_license("Your Name")</code>.</li>
@@ -89,12 +93,12 @@ And possibly:
 <ul>
 <li>Check all tests with <code>test()</code>. This also happens with <code>check()</code>.</li>
 </ul></li>
-<li>Expand <code>square()</code> so that it can take either a vector or list, using purrr’s <code>map_dbl()</code> function. Indicate dependency with <code>use_package()</code>. Types of dependencies:</li>
-<li><code>Imports</code>: almost always use this; access functions with <code>::</code>. Can also <a href="https://r-pkgs.org/Metadata.html#sec-metadata-namespace">import specific functions</a>, like <code>%&gt;%</code>.</li>
-<li><code>Suggests</code>: these packages make your package better, but are not needed (eg. outputting a tibble vs. a data frame)</li>
-<li>Others, like <code>Depends</code>, should rarely be used.
--Add a package README with <code>use_readme_rmd()</code>, and render it every time with <code>build_readme()</code>.</li>
+<li>We don’t really need to use functions from another package here, but practice declaring your general intention to use some functions from the dplyr namespace with <code>use_package("dplyr")</code>.</li>
+<li>Connect your local package to Github with <code>use_github()</code>.</li>
+<li>Add a package README with <code>use_readme_rmd()</code>, and render it every time with <code>build_readme()</code>.
+<ul>
 <li>Once you successfully sync your package to GitHub, other people can install the package with <code>devtools::install_github("your_username/package_name")</code> – this should go in the README.</li>
+</ul></li>
 <li>Make a vignette with <code>use_vignette()</code>. Build all vignettes with <code>build_vignettes()</code>.</li>
 <li>Include data with the R package with <code>use_data(R_OBJECT_HERE)</code>. Then document <em>a string of its name</em> in a new R script using <a href="https://r-pkgs.org/data.html#documenting-data">a different collection of roxygen tags</a>.</li>
 </ul>

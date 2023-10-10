@@ -61,9 +61,9 @@ f(1)
 
 ## Our own R functions
 
-At this point in the course, we've used lots of functions, like `mean()`, `mutate()`, and `pivot_longer()`. But it can be really useful to *write your own* function. For example, the ability to writing your own functions can supercharge your `group_by() %>% summarize()` workflow: you can write your own function to use inside `summarize()`, instead of relying soley on functions built into R or available in packages! 
+At this point in the course, we've used lots of functions, like `mean()`, `mutate()`, and `pivot_longer()`. But it can be really useful to *write your own* function. For example, the ability to writing your own functions can supercharge your `group_by() %>% summarize()` workflow: you can write your own function to use inside `summarize()`, instead of relying soly on functions built into R or available in packages! 
 
-Here's a simple example of a function I write to simulate rolling a user-inputted number of D10s (a 10-sided die used for tabletop gaming).
+Here's a simple example of a function I wrote to simulate rolling a user-inputted number of D10s (a 10-sided die used for tabletop gaming).
 
 ```{r} 
 roll_d10 <- function(num_dice) { 

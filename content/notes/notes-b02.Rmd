@@ -51,7 +51,7 @@ It might help to browse a completed package directory to answer these questions,
 4. True or False: We can't *both* add exports to the NAMESPACE file manually and by using `devtools::document()`. 
 
 
-## Demonstration
+## Why R Packages 
 
 Why make an R package? As mentioned in the "functions" topic, your analysis will probably benefit from homemade functions: making functions forces you to think about your analysis in terms of its key computational parts, and makes for robust and readable code. Here are a few benefits that result by bundling these functions into an R package:
 
@@ -62,7 +62,13 @@ Why make an R package? As mentioned in the "functions" topic, your analysis will
 
 The alternative is keeping the functions stored in separate files, and `source()`ing them into your analysis scripts, but this can become unwieldy. 
 
-For this topic, we'll be making an R package similar to the toy [powers package](https://github.com/vincenzocoia/powers). We'll mostly be following along with ["The Whole Game" Chapter of "R packages"](https://r-pkgs.org/whole-game.html). Here are the actions digested from that chapter.
+Plus, if your package becomes *really* nice, you might want to share it with the world! At least one tidyverse package supposedly has origins in code that Hadley Wickham bundled up during his PhD. 
+
+Finally, packages are a nice way to share datasets -- think about the `gapminder` package or the `palmerpenguins` package.  
+
+## Agenda 
+
+For this topic, we'll be making an R package like the toy [square package](https://github.com/lucylgao/square), by following along with ["The Whole Game" Chapter of "R packages"](https://r-pkgs.org/whole-game.html). Here's a checklist based on that chapter. If you miss class, then try following along using the book, and coming to office hours or asking questions on Slack if you get stuck. 
 
 First, make a minimal viable product:
 
@@ -71,7 +77,7 @@ First, make a minimal viable product:
   - Better defaults than going through the File menu.
 - `use_git()`
   - Prefer to start your project on GitHub? Or locally? Either way, useful instructions for what to do can be found [in "Happy Git with R" Part III](https://happygitwithr.com/usage-intro.html).
-- Make a new R script using `use_r()`, and write a function there: start with `square()`.
+- Make a new R script using `use_r()`, and write a function there: start with `square()`. It should take in a single argument and square it. 
 - Test drive after using `load_all()`.
 - Check that the package is intact: run `check()`.
 - Edit the DESCRIPTION file. For the license, `use_mit_license("Your Name")`. 
@@ -82,11 +88,9 @@ Now, expand:
 
 - `use_testthat()` for your package, and make an R script containing tests 
   - Check all tests with `test()`. This also happens with `check()`.
--  Expand `square()` so that it can take either a vector or list, using purrr's `map_dbl()` function. Indicate dependency with `use_package()`. Types of dependencies:
-  - `Imports`: almost always use this; access functions with `::`. Can also [import specific functions](https://r-pkgs.org/Metadata.html#sec-metadata-namespace), like `%>%`.
-  - `Suggests`: these packages make your package better, but are not needed (eg. outputting a tibble vs. a data frame)
-  - Others, like `Depends`, should rarely be used.
--Add a package README with `use_readme_rmd()`, and render it every time with `build_readme()`.
+- We don't really need to use functions from another package here, but practice declaring your general intention to use some functions from the dplyr namespace with `use_package("dplyr")`. 
+- Connect your local package to Github with `use_github()`.
+- Add a package README with `use_readme_rmd()`, and render it every time with `build_readme()`.
   - Once you successfully sync your package to GitHub, other people can install the package with `devtools::install_github("your_username/package_name")` -- this should go in the README.
 -  Make a vignette with `use_vignette()`. Build all vignettes with `build_vignettes()`.
 - Include data with the R package with `use_data(R_OBJECT_HERE)`. Then document _a string of its name_ in a new R script using [a different collection of roxygen tags](https://r-pkgs.org/data.html#documenting-data).

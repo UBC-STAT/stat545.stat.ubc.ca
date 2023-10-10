@@ -57,14 +57,14 @@ f(1)</code></pre>
 </div>
 <div id="our-own-r-functions" class="section level2">
 <h2>Our own R functions</h2>
-<p>At this point in the course, we’ve used lots of functions, like <code>mean()</code>, <code>mutate()</code>, and <code>pivot_longer()</code>. But it can be really useful to <em>write your own</em> function. For example, the ability to writing your own functions can supercharge your <code>group_by() %&gt;% summarize()</code> workflow: you can write your own function to use inside <code>summarize()</code>, instead of relying soley on functions built into R or available in packages!</p>
-<p>Here’s a simple example of a function I write to simulate rolling a user-inputted number of D10s (a 10-sided die used for tabletop gaming).</p>
+<p>At this point in the course, we’ve used lots of functions, like <code>mean()</code>, <code>mutate()</code>, and <code>pivot_longer()</code>. But it can be really useful to <em>write your own</em> function. For example, the ability to writing your own functions can supercharge your <code>group_by() %&gt;% summarize()</code> workflow: you can write your own function to use inside <code>summarize()</code>, instead of relying soly on functions built into R or available in packages!</p>
+<p>Here’s a simple example of a function I wrote to simulate rolling a user-inputted number of D10s (a 10-sided die used for tabletop gaming).</p>
 <pre class="r"><code>roll_d10 &lt;- function(num_dice) { 
     sum(sample(1:10, num_dice, replace=TRUE))
 }
 
 roll_d10(2)</code></pre>
-<pre><code>## [1] 13</code></pre>
+<pre><code>## [1] 14</code></pre>
 <p>(Sidebar: this is not reproducible code, as the output depends on the <em>random seed</em>, which R made up for us and won’t tell us. If I wanted to make this reproducible, then I would set the seed to (say) 123 before running my function with <code>set.seed(123)</code>.)</p>
 <div id="testing" class="section level3">
 <h3>Testing</h3>
