@@ -10,7 +10,7 @@ This assignment covers making a function in R, documenting it, and testing it.
 
 ## Setup
 
-1. Go to canvas to get your invitation to create a GitHub repository for this project. You can find this in the description of Assignment B-1. Name your repo as you wish -- keeping in mind that you'll be using this repo for Assignment B-2, where you'll be bundling your work from Assignment B-1 into an R package. 
+1. Go to canvas to get your invitation to create a GitHub repository for this project. You can find this in the description of Assignment B-1. Name your repo as you wish, so long as it's informative. 
 
 2. Make a new Rmd file containing all of your code. Be sure to use some dialogue between code chunks.
 
@@ -20,7 +20,7 @@ Follow these steps to submit your work. Be sure to familiarize yourself with the
 
 1. Make a README file for your repository. It should be a brief document letting a visitor know what's in this repository (at a high level) and some key things they should know about how to use the files in the repository. 
 2. Tag a release in your GitHub repository corresponding to your submission before the deadline.
-3. Grab the URL corresponding to your tagged release, and submit that to canvas. 
+3. Grab the URL corresponding to your tagged release, and submit that to canvas. Make sure the TAs and Lucy can see your repository! Either it should be public or private with TAs and Lucy added as collaborators. 
 
 **Rubric**:
 
@@ -40,9 +40,8 @@ __Function Ideas__
 - Consider bundling a specific `group_by() %>% summarise()` workflow.
 - Write a _wrapper_ around an existing function. 
   - For example, perhaps accepting a narrower range of inputs (like not allowing logical vectors), or providing a different output.
-  - A specific example: my [`rqdist()` function](https://github.com/vincenzocoia/rqdist/blob/master/R/rqdist.R#L1) is a wrapper around `quantreg::rq()`, narrowing its functionality.
+  - A specific example: the [`rqdist()` function](https://github.com/vincenzocoia/rqdist/blob/master/R/rqdist.R#L1) is a wrapper around `quantreg::rq()`, narrowing its functionality.
   - It's usually better to narrow a function's focus than to broaden, so that a function doesn't end up doing too much.
-- Make a function extracting parts of an `"lm"` object that you can't easily access (`broom` aside), or measuring the "difference" between a linear and quadratic fit. 
 - Make a special plot that you'd want to repeat when exploring your data.
 - ...
 
@@ -51,7 +50,7 @@ __Guidelines__
 - Your function should not rely on anything from your working environment.
 - Your function should not rely on "magic numbers" -- pre-selected numbers (or options) that appear inside the function that can't be accessed by a user of the function. 
     - For example, maybe `quantile(x, type = 1, ...)` appears in your function. The choice of 1 is arbitrary -- unless you're making a function like `quantile_type_1()`. 
-- Input should not take a rigid form. An example that's too rigid is a data frame that's expected to have special types of columns.
+- Your function should be reasonably flexible on its inputs. Here is an example of a function that is *not* reasonably flexible: a function called `count_missing_values_by_group()` that only works when the data frame has columns that are all of type fct. 
 - The output is consistent -- for example, always gives a list. An example of inconsistent output: `sapply(1:3, seq_len)` gives a list, and `sapply(1:3, sqrt)` gives an (atomic) vector.
 - Your function includes appropriate arguments. (Do you handle NA's appropriately? Are you using the ellipsis properly? etc.)
 
@@ -86,4 +85,4 @@ Example of non-redundant inputs:
 
 Example of redundant inputs:
 
-- Providing a different number (unless one of these numbers have some significance, like a limit point -- just tell us if that's the case)
+- Providing a different number (unless one of these numbers have some significance, like an extreme point -- just tell us if that's the case)

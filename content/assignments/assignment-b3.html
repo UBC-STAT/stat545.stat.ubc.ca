@@ -3,18 +3,10 @@ title: "Assignment B-3"
 output: html_document
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 
 <p><strong>Total Points</strong>: 100</p>
-<p>For this assignment, you’ll be creating or modifying a Shiny app. You may complete Option A or Option B of this assignment (<em>not both</em>), detailed as follows:</p>
-<ul>
-<li><strong>Option A:</strong> Add three features to the BC Liquor shiny app we made in lecture, and deploy it.
-<ul>
-<li>Features that we included in lecture don’t count towards the total.</li>
-</ul></li>
-<li><strong>Option B:</strong> Create your own shiny app with three features, and deploy it.</li>
-</ul>
+<p>For this assignment, you’ll be creating your own shiny app with three features, and deploying it.</p>
 <p>The grading rubric is detailed at the very end. Note that we aren’t expecting a complex app for this assignment – a simple one is all we’re expecting.</p>
 <p>Here are some examples of apps built with Shiny. We don’t expect you to achieve the level of complexity in any of these, but they are examples that may inspire you in terms of what you want to do with your own app!</p>
 <ul>
@@ -24,15 +16,15 @@ output: html_document
 </ul>
 <div id="setup" class="section level2">
 <h2>Setup</h2>
-<p>Make a new repository in our homework Organization for this assignment. The link to do this <a href="https://canvas.ubc.ca/courses/104737/assignments/1391195">can be found on canvas</a>.</p>
+<p>Go to canvas to get your invitation to create a GitHub repository for this project. You can find this in the description of Assignment B-3. Name your repo as you wish, so long as it’s informative.</p>
 </div>
 <div id="feature-ideas" class="section level2">
 <h2>Feature ideas</h2>
-<p>There are countless possibilities for features, but here are just a few ideas. You can choose any 3 or more ideas from this list or do anything else! Note that many of the examples in this list refer to the BC Liquor app, but they are all still applicable to creating your own Shiny app if that is your chosen option for the assignment. Want more ideas than what’s below? Check <a href="https://shiny.rstudio.com/tutorial/">this</a> out.</p>
+<p>There are countless possibilities for features, but here are just a few ideas. You can choose any 3 or more ideas from this list or do anything else! Want more ideas than what’s below? Check <a href="https://shiny.rstudio.com/tutorial/">this</a> out.</p>
 <div id="if-you-have-a-table-in-your-app" class="section level4">
 <h4>If you have a table in your app…</h4>
 <ul>
-<li>Add an option to sort the table by one of your variables (as an example, in the BC Liquor app, you could sort the results by price!).
+<li>Add an option to sort the table by one of your variables (as an example, in the BC Liquor app, sort the results by price!).
 <ul>
 <li><em>Hint:</em> Use <code>checkboxInput()</code> to get <code>TRUE</code>/<code>FALSE</code> values from the user.</li>
 </ul></li>
@@ -40,7 +32,7 @@ output: html_document
 <ul>
 <li><em>Hint:</em> Install the DT package, replace <code>tableOutput()</code> with <code>DT::dataTableOutput()</code> and replace <code>renderTable()</code> with <code>DT::renderDataTable()</code>.</li>
 </ul></li>
-<li>Show the number of results found whenever the filters change. For example, in the BC Liquor app, when searching for Italian wines <code>$20</code> - <code>$40</code>, the app would show the text “We found 122 options for you”.
+<li>Show the number of results found whenever the filters change. For example, in the BC Liquor app, when searching for Italian wines <code>$20</code> - <code>$40</code>, show the text “We found 122 options for you”.
 <ul>
 <li><em>Hint:</em> Add a <code>textOutput()</code> to the UI, and in its corresponding <code>renderText()</code> use the number of rows in the <code>filtered()</code> object.</li>
 </ul></li>
@@ -94,15 +86,15 @@ output: html_document
 <ul>
 <li><strong>Option A:</strong> Adding three features to the already existing BC Liquor app.
 <ul class="task-list">
-<li><input type="checkbox" disabled="" />There’s at least one new functional widget that modifies at least one output. (20 pts)</li>
-<li><input type="checkbox" disabled="" />There’s at least one change to the UI (aside from the addition of a widget). (20 pts)</li>
-<li><input type="checkbox" disabled="" />A third feature, whether it’s a change to the UI, or a functional widget. (20 pts)</li>
+<li><input type="checkbox" />There’s at least one new functional widget that modifies at least one output. (20 pts)</li>
+<li><input type="checkbox" />There’s at least one change to the UI (aside from the addition of a widget). (20 pts)</li>
+<li><input type="checkbox" />A third feature, whether it’s a change to the UI, or a functional widget. (20 pts)</li>
 </ul></li>
 <li><strong>Option B:</strong> Create your own shiny app with three features, and deploy it.
 <ul class="task-list">
-<li><input type="checkbox" disabled="" />Feature 1. (20 pts)</li>
-<li><input type="checkbox" disabled="" />Feature 2. (20 pts)</li>
-<li><input type="checkbox" disabled="" />Feature 3. (20 pts)</li>
+<li><input type="checkbox" />Feature 1. (20 pts)</li>
+<li><input type="checkbox" />Feature 2. (20 pts)</li>
+<li><input type="checkbox" />Feature 3. (20 pts)</li>
 </ul></li>
 <li><em>What are we looking for in your features?</em>
 <ul>
@@ -112,8 +104,8 @@ output: html_document
 </ul></li>
 <li>RRR (15 pts):
 <ul class="task-list">
-<li><input type="checkbox" disabled="" />Code runs without errors and it is appropriately annotated, legible, and easy to follow. (8 pts)</li>
-<li><input type="checkbox" disabled="" />Your app should be deployed online on shinyapps.io (or on another server if you’d like). Make sure your app actually works online (sometimes your app will work in RStudio but will have errors on shinyapps.io - make sure you deploy early and often to make debugging easier). (7 pts)</li>
+<li><input type="checkbox" />Code runs without errors and it is appropriately annotated, legible, and easy to follow. (8 pts)</li>
+<li><input type="checkbox" />Your app should be deployed online on shinyapps.io (or on another server if you’d like). Make sure your app actually works online (sometimes your app will work in RStudio but will have errors on shinyapps.io - make sure you deploy early and often to make debugging easier). (7 pts)</li>
 </ul></li>
 </ul>
 </div>
@@ -121,14 +113,15 @@ output: html_document
 <h3>Tidy Submission (25 points)</h3>
 <p>Follow these steps to submit your work. Be sure to familiarize yourself with the rubric for a tidy submission below, before doing these steps.</p>
 <ul class="task-list">
-<li><input type="checkbox" disabled="" />(20 pts) Make a <code>README</code> for your repository. The README must include:<ul>
+<li><input type="checkbox" />(20 pts) Make a <code>README</code> for your repository. The README must include:
+<ul>
 <li>A link to a running instance of your Shiny app.</li>
 <li>Your choice of assignment clearly stated: Option A - BC Liquor app, or Option B - your own Shiny app.</li>
 <li>A description of your app. In the case of Option A, write about what makes your app different from the “basic” version after implementing your chosen features.</li>
 <li>Whatever dataset you will use, acknowledge its source clearly. Remember that we value open, reproducible science: this means that the user of your app should have direct access to the data, or know where to go to access it.</li>
 </ul></li>
-<li><input type="checkbox" disabled="" />(5 pts) Tag a release in your assignment repository.</li>
-<li><input type="checkbox" disabled="" />Submit a link to your tagged release in your assignment repository to canvas. Make sure the TAs and Lucy can see your repository! Either it should be public or private with TAs and Lucy added as collaborators.</li>
+<li><input type="checkbox" />(5 pts) Tag a release in your assignment repository.</li>
+<li><input type="checkbox" />Submit a link to your tagged release in your assignment repository to canvas. Make sure the TAs and Lucy can see your repository! Either it should be public or private with TAs and Lucy added as collaborators.</li>
 </ul>
 </div>
 </div>

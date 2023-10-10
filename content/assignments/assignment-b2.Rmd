@@ -14,9 +14,7 @@ __Note__: For Assignment B-4, you will have the option to expand on your R packa
 
 ## Setup
 
-No setup required -- just modify the same GitHub repository you used in Assignment B-1. 
-
-(You tagged a release for Assignment B-1, right? If so, you can proceed to modify your repository's contents without having to worry about your Assignment B-1 submission. If you didn't, please tag a release before working on this assignment, and update your Assignment B-1 submission on canvas.)
+Go to canvas to get your invitation to create a GitHub repository for this project. You can find this in the description of Assignment B-2. Name your repo as you wish, so long as it's informative. 
 
 ## Tidy Submission (20 points)
 

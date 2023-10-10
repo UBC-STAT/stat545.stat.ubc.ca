@@ -5,11 +5,7 @@ output: html_document
 
 __Total Points__: 100
 
-For this assignment, you'll be creating or modifying a Shiny app. You may complete Option A or Option B of this assignment (*not both*), detailed as follows:
-
-+ **Option A:** Add three features to the BC Liquor shiny app we made in lecture, and deploy it.
-    - Features that we included in lecture don't count towards the total. 
-+ **Option B:** Create your own shiny app with three features, and deploy it.
+For this assignment, you'll be creating your own shiny app with three features, and deploying it.
 
 The grading rubric is detailed at the very end. Note that we aren't expecting a complex app for this assignment -- a simple one is all we're expecting.
 
@@ -21,21 +17,21 @@ Here are some examples of apps built with Shiny. We don't expect you to achieve 
 
 ## Setup 
 
-Make a new repository in our homework Organization for this assignment. The link to do this [can be found on canvas](https://canvas.ubc.ca/courses/104737/assignments/1391195).
+Go to canvas to get your invitation to create a GitHub repository for this project. You can find this in the description of Assignment B-3. Name your repo as you wish, so long as it's informative. 
 
 ## Feature ideas 
 
-There are countless possibilities for features, but here are just a few ideas. You can choose any 3 or more ideas from this list or do anything else! Note that many of the examples in this list refer to the BC Liquor app, but they are all still applicable to creating your own Shiny app if that is your chosen option for the assignment. Want more ideas than what's below? Check [this](https://shiny.rstudio.com/tutorial/) out.
+There are countless possibilities for features, but here are just a few ideas. You can choose any 3 or more ideas from this list or do anything else!  Want more ideas than what's below? Check [this](https://shiny.rstudio.com/tutorial/) out.
 
 #### If you have a table in your app...
 
-+ Add an option to sort the table by one of your variables (as an example, in the BC Liquor app, you could sort the results by price!). 
++ Add an option to sort the table by one of your variables (as an example, in the BC Liquor app, sort the results by price!). 
   + *Hint:* Use `checkboxInput()` to get `TRUE`/`FALSE` values from the user.
   
 + Use the DT package to turn a static table into an interactive table. 
   + *Hint:* Install the DT package, replace `tableOutput()` with `DT::dataTableOutput()` and replace `renderTable()` with `DT::renderDataTable()`.
   
-+ Show the number of results found whenever the filters change. For example, in the BC Liquor app, when searching for Italian wines `$20` - `$40`, the app would show the text "We found 122 options for you". 
++ Show the number of results found whenever the filters change. For example, in the BC Liquor app, when searching for Italian wines `$20` - `$40`, show the text "We found 122 options for you". 
   + *Hint:* Add a `textOutput()` to the UI, and in its corresponding `renderText()` use the number of rows in the `filtered()` object.
   
 + Allow the user to download your table as a .csv file. 

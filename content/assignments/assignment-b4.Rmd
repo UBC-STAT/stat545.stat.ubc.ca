@@ -154,7 +154,7 @@ For this option, you will be implement additional features and improvements to y
 
 **If you are building onto assignment 3b shiny app,** ensure that your assignment 3b shiny app is deployed and viewable on shinyapps.io. We will use this as a reference to mark your improved version. Complete this assignment by editing a copied version of your app. When finished deploy this on shinyapps.io as well. (If you lack space on shinyapps.io, let us know, we don't want this to limit you.)
 
-**If you are starting a new app from scratch,** state so in the assignment 5b README.
+**If you are starting a new app from scratch,** state so in the assignment 3b README.
 
 ### Requirements
 
@@ -174,7 +174,7 @@ Ensure that your code is of high quality. This means that a minimal amount code 
 
 **3 features are implemented (25 points)**
 
-- After addressing assignment 3b feedback, you should have 3 functional features
+- If continuing from assignment 3b, you should have fixed any issues with the original 3 features, and you should have 3 new working features
 - If starting from scratch, you have at least 3 working features
 
 **User friendly design (25 points)**
