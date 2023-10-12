@@ -46,9 +46,11 @@ Thumb rules:
 
 We use the `readr` package for this, because we think it has the most "work right out of the box" experience. 
 
-Main functions of note: 
+Main functions of note are `read_csv()` and `write_csv()`: tidyverse equivalents of the base R functions `read.csv()` and `write.csv()`. 
 
-- `read_csv()` and `write_csv()`: 
+Want to read and write to an Excel file? The `readxl` package in the tidyverse is for you! 
+
+For the very niche option of R binary: `saveRDS()` and `readRDS()`. 
 
 ## Your turn: try it out! 
 
