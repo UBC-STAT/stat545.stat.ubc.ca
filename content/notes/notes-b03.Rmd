@@ -3,17 +3,19 @@ title: "Automation"
 output: html_document
 ---
 
-**Note**: This is an **optional lecture**. You are encouraged to take the full 5 days off this week, not just the 3 scheduled by UBC. 
+**Note**: This is an **optional topic**. 
 
 From today's class, students are anticipated to be able to:
 
-* Run an R script non-interactively
+<!-- * Run an R script non-interactively --> 
 * Use `make`
   - to record which files are inputs vs. intermediates vs. outputs
   - to capture how scripts and commands convert inputs to outputs
   - to re-run parts of an analysis that are out-of-date
-* Render R code (.R or .Rmd) in batch mode using `Rscript`, either entire scripts or snippets of code.
-* Render R code (.R or .Rmd) from within R.
+  
+<!-- * Render R code (.R or .Rmd) in batch mode using `Rscript`, either entire scripts or snippets of code. -->
+<!-- * Render R code (.R or .Rmd) from within R. -->
+
 * Write a Makefile.
 * Interact with `make` in RStudio.
 * Use `make` from the shell.
@@ -28,10 +30,9 @@ Other tools aside from make (We won't be covering these):
 No video lecture for this optional topic. Written material:
 
 - [Shaun Jackman and Jenny Bryan's automation notes](https://github.com/STAT545-UBC/STAT545-UBC-original-website/blob/master/automation01_slides/slides.md) for getting familiar with the command line.
-- [stat545.com's make activity](https://stat545.com/automating-pipeline.html)
 - The entire [Part IX: All the Automation Things](https://stat545.com/automation-overview.html) from the stat545.com book contains further elaborations on this topic.
 
-**NOTE**: `make` should already be installed for MacOS and Linux users. Windows users might have to specially install `make`: info can be found [in the stat545.com Chapter 34](https://stat545.com/make-windows.html).
+<!-- **NOTE**: `make` should already be installed for MacOS and Linux users. Windows users might have to specially install `make`: info can be found [in the stat545.com Chapter 34](https://stat545.com/make-windows.html). -->
 
 
 ## Test Your Understanding
@@ -46,112 +47,138 @@ Use these questions to check your understanding of the material.
 6. True or false: The rules to `make` a target file will be run if either the target file or the dependencies are modified.
 7. True or false: Dependencies in `make` are accessed "lazily", so that if the dependencies are never actually used when executing a rule, they don't actually have any impact on the Makefile.
 
-## Demonstration
+## Why Automation 
+
+It often makes sense to break up a task (e.g. "analyze data and turn it into publication ready figures and tables") into smaller chunks, e.g. "data cleaning" vs "summarizing and plotting" vs "model fitting". This leads to a *pipeline*: a system where the code for some tasks (e.g. summarizing and plotting) depend on the output of others (e.g. data cleaning). 
+
+One of the major advantages to this paradigm: **you no longer have to re-run all of the code every time you make a change**. You only need to run the parts downstream from what you changed. 
+
+But how do we keep track of what needs to be re-run when we make changes in this system? We could do it by hand, but this is likely to cause human error (recall the reproducibility principle!). It's much safer to **automate**. We will be learning how to use Makefiles for this purpose. 
+
+This will be challenging! But the payoff is huge for larger projects. Shaun Jackman gives an example of a Bioinformatics paper that is generated with a single Makefile that: 
+
+- Downloads the data 
+- Runs command-line programs 
+- Performs the statistical analyses using R 
+- Generates TSV tables 
+- Renders figures using ggplot2 
+- Renders supplementary material using RMarkdown 
+- Renders the manuscript using Pandoc 
+
+And critically, *knows which parts need to be run and which parts do not*. Amazing, right? 
+
+## Agenda 
+
+We will first work through [stat545.com Chapter 35](https://stat545.com/make-test-drive.html) to make sure that we all have `make` installed and that we can access it. 
+
+Once we get there, we'll work through the activity in [stat545.com Chapter 36](https://stat545.com/automating-pipeline.html) together. 
+
+<!-- ## Demonstration -->
 
 
-### Multi-file analyses
+<!-- ### Multi-file analyses -->
 
-It's often not a good idea to write an analysis in a single R/Rmd script, especially if the analysis has multiple steps to it. Here are a few benefits:
+<!-- It's often not a good idea to write an analysis in a single R/Rmd script, especially if the analysis has multiple steps to it. Here are a few benefits: -->
 
-- You won't have to run upstream calculations (like data processing / cleaning) every time you run the script. Instead, write a script to process the data, and write the output to file.
-- If your analysis branches into different explorations, you'll have to run irrelevant computations each time (and those computations may be a source of error).
-- You're less likely to end up with an overloaded workspace.
-- People can mentally compartmentalize the analysis into several tasks, making the analysis more understandable and easier to debug.
+<!-- - You won't have to run upstream calculations (like data processing / cleaning) every time you run the script. Instead, write a script to process the data, and write the output to file. -->
+<!-- - If your analysis branches into different explorations, you'll have to run irrelevant computations each time (and those computations may be a source of error). -->
+<!-- - You're less likely to end up with an overloaded workspace. -->
+<!-- - People can mentally compartmentalize the analysis into several tasks, making the analysis more understandable and easier to debug. -->
 
-There is no single ideal way to organize your files. But you might want to include folders like these:
+<!-- There is no single ideal way to organize your files. But you might want to include folders like these: -->
 
-- `data`: Usually holds the raw data, which is not meant to be modified ever. 
-- `src`: Holds files containing R code to do the analysis. 
-- `output` or `img`: Folder containing outputs of the analysis, sometimes just images.
+<!-- - `data`: Usually holds the raw data, which is not meant to be modified ever.  -->
+<!-- - `src`: Holds files containing R code to do the analysis.  -->
+<!-- - `output` or `img`: Folder containing outputs of the analysis, sometimes just images. -->
 
-Always include a README explaining: 
+<!-- Always include a README explaining:  -->
 
-- what the analysis is about (orient a visitor), 
-- how to engage with the analysis (explore files and run code), and 
-- what dependencies are required to run the analysis (a list of R packages, and the version of R you're running -- use `R.version`).
-    - Useful to use a package manager or Docker -- not explored in this course. 
+<!-- - what the analysis is about (orient a visitor),  -->
+<!-- - how to engage with the analysis (explore files and run code), and  -->
+<!-- - what dependencies are required to run the analysis (a list of R packages, and the version of R you're running -- use `R.version`). -->
+<!--     - Useful to use a package manager or Docker -- not explored in this course.  -->
 
-### Non-interactive programming (batch processing)
+<!-- ### Non-interactive programming (batch processing) -->
 
-When we write R code, we usually do so _interactively_: we run bits and pieces as we write it. But, when you're done adding code to a script (for now), it's useful to run that script _non-interactively_, or in "batch mode". You can think of this as running a script from top-to-bottom from a clean slate. 
+<!-- When we write R code, we usually do so _interactively_: we run bits and pieces as we write it. But, when you're done adding code to a script (for now), it's useful to run that script _non-interactively_, or in "batch mode". You can think of this as running a script from top-to-bottom from a clean slate.  -->
 
-You've done this before: when you click "knit" in RStudio to knit an .Rmd file, you're running that .Rmd file non-interactively. But if you want to orchestrate and run multiple files, it gets tiresome to click "knit" on the files, and in the correct order. Instead, run a file from the Terminal / command line using the `Rscript` command. 
+<!-- You've done this before: when you click "knit" in RStudio to knit an .Rmd file, you're running that .Rmd file non-interactively. But if you want to orchestrate and run multiple files, it gets tiresome to click "knit" on the files, and in the correct order. Instead, run a file from the Terminal / command line using the `Rscript` command.  -->
 
-Here's a summary of the commands you'll need to run a file non-interactively, comparing both from R and from Terminal:
+<!-- Here's a summary of the commands you'll need to run a file non-interactively, comparing both from R and from Terminal: -->
 
-| file         | From R | From Terminal |
-|--------------|--------|---------------|
-| `script.R`   | `source("script.R")` or "source" button in RStudio | `Rscript script.R` |
-| `report.Rmd` | `rmarkdown::render("report.Rmd")` or "knit" button in RStudio | `Rscript -e 'rmarkdown::render("report.Rmd")'` |
+<!-- | file         | From R | From Terminal | -->
+<!-- |--------------|--------|---------------| -->
+<!-- | `script.R`   | `source("script.R")` or "source" button in RStudio | `Rscript script.R` | -->
+<!-- | `report.Rmd` | `rmarkdown::render("report.Rmd")` or "knit" button in RStudio | `Rscript -e 'rmarkdown::render("report.Rmd")'` | -->
 
-Notice that there isn't actually a way to build an .Rmd file from the Terminal directly, so we have to use the `-e` tag, which executes R code that follows within quotation marks. 
+<!-- Notice that there isn't actually a way to build an .Rmd file from the Terminal directly, so we have to use the `-e` tag, which executes R code that follows within quotation marks.  -->
 
-Benefits of running code non-interactively:
+<!-- Benefits of running code non-interactively: -->
 
-- The only real way to ensure your work is reproducible. 
-- Like a conductor, focus on higher-level computation of different tasks without having to go into each script and manually run the code.
-- Gain access to cloud computing services like Amazon AWS.
+<!-- - The only real way to ensure your work is reproducible.  -->
+<!-- - Like a conductor, focus on higher-level computation of different tasks without having to go into each script and manually run the code. -->
+<!-- - Gain access to cloud computing services like Amazon AWS. -->
 
-Note that opening RStudio starts a _session_ of R, a single "brain" that you send commands to -- even across files. But, each non-interactive run of a script is self-contained -- except the `source()` function, which runs code in the active R session.
+<!-- Note that opening RStudio starts a _session_ of R, a single "brain" that you send commands to -- even across files. But, each non-interactive run of a script is self-contained -- except the `source()` function, which runs code in the active R session. -->
 
 
-### Command line
+<!-- ### Command line -->
 
-We'll review the following bash commands/features:
+<!-- We'll review the following bash commands/features: -->
 
-- `rm`
-- `cd`
-- `ls`
-- tags with `-`
-- help with `--help`
+<!-- - `rm` -->
+<!-- - `cd` -->
+<!-- - `ls` -->
+<!-- - tags with `-` -->
+<!-- - help with `--help` -->
 
-### Makefiles
+<!-- ### Makefiles -->
 
-With multiple files, how can you keep track of running the files in the right order? Or, running only the parts of your analysis that needs updating? That's where Makefiles come in handy. The software `make` reads this and executes parts of the analysis that needs executing.
+<!-- With multiple files, how can you keep track of running the files in the right order? Or, running only the parts of your analysis that needs updating? That's where Makefiles come in handy. The software `make` reads this and executes parts of the analysis that needs executing. -->
 
-Each block of code in a Makefile is called a rule, it looks something like this:
+<!-- Each block of code in a Makefile is called a rule, it looks something like this: -->
 
-```
-file_to_create: files.it depends.on like_this.R
-	code to be run in the command line
-	that can have multiple lines of code
-	Rscript like_this.R
-```
+<!-- ``` -->
+<!-- file_to_create: files.it depends.on like_this.R -->
+<!-- 	code to be run in the command line -->
+<!-- 	that can have multiple lines of code -->
+<!-- 	Rscript like_this.R -->
+<!-- ``` -->
 
-* `file_to_create` is a target, a file to be created, or built.
-* `files.it`, `depends.on`, and `like_this.R` are dependencies, files which are needed to build or update the target. Targets can have zero or more dependencies.
-* `:` separates targets from dependencies.
-* `code to be run in the command line`, ..., `Rscript like_this.R` are actions, commands to run to build or update the target using the dependencies. Targets can have zero or more actions. Actions are indented using the TAB character, not spaces.
-* Together, the target, dependencies, and actions form a rule.
+<!-- * `file_to_create` is a target, a file to be created, or built. -->
+<!-- * `files.it`, `depends.on`, and `like_this.R` are dependencies, files which are needed to build or update the target. Targets can have zero or more dependencies. -->
+<!-- * `:` separates targets from dependencies. -->
+<!-- * `code to be run in the command line`, ..., `Rscript like_this.R` are actions, commands to run to build or update the target using the dependencies. Targets can have zero or more actions. Actions are indented using the TAB character, not spaces. -->
+<!-- * Together, the target, dependencies, and actions form a rule. -->
 
-When will a rule be run?
+<!-- When will a rule be run? -->
 
-- If the target is not present in your folder, or
-- If a dependency is newer than the target file.
+<!-- - If the target is not present in your folder, or -->
+<!-- - If a dependency is newer than the target file. -->
 
-#### Makefile activity
+<!-- #### Makefile activity -->
 
-We'll demo the process of building up to a makefile for a simple directory structure that involves processing raw data and making some plots out of the raw data. Example final product here: https://github.com/lucylgao/penguins-toy-analysis Intermediate steps are included as commits. 
+<!-- We'll demo the process of building up to a makefile for a simple directory structure that involves processing raw data and making some plots out of the raw data. Example final product here: https://github.com/lucylgao/penguins-toy-analysis Intermediate steps are included as commits.  -->
 
-Another good resource is the [makefile activity](https://stat545.com/automating-pipeline.html) included in the stat545.com book. 
+<!-- Another good resource is the [makefile activity](https://stat545.com/automating-pipeline.html) included in the stat545.com book.  -->
 
-### Running R in the background
+<!-- ### Running R in the background -->
 
-Sometimes you'll write an R script that takes a long time to run. You'd like to start the execution of the code, go to bed, and wake up to freshly computed output. To run `script.R` and record a log of the things you'd normally see when you run code interactively in a file called `log.out`, run this code:
+<!-- Sometimes you'll write an R script that takes a long time to run. You'd like to start the execution of the code, go to bed, and wake up to freshly computed output. To run `script.R` and record a log of the things you'd normally see when you run code interactively in a file called `log.out`, run this code: -->
 
-```
-nohup Rscript script.R > log.out 2>&1 &
-```
+<!-- ``` -->
+<!-- nohup Rscript script.R > log.out 2>&1 & -->
+<!-- ``` -->
 
-[This R-Bloggers post](https://www.r-bloggers.com/2012/01/long-running-r-commands-unix-screen-nohup-and-r/) explains this command well, but here's a breakdown:
+<!-- [This R-Bloggers post](https://www.r-bloggers.com/2012/01/long-running-r-commands-unix-screen-nohup-and-r/) explains this command well, but here's a breakdown: -->
 
-- `nohup` sends the code execution to the background.
-- `> log.out 2>&1` directs output and messages to `log.out`.
-- The final `&` frees up your terminal 
+<!-- - `nohup` sends the code execution to the background. -->
+<!-- - `> log.out 2>&1` directs output and messages to `log.out`. -->
+<!-- - The final `&` frees up your terminal  -->
 
-Just be careful to get the directory of the files right. 
+<!-- Just be careful to get the directory of the files right.  -->
 
-Alternatively, you can [use RStudio to submit a job](https://blog.rstudio.com/2019/03/14/rstudio-1-2-jobs/).
+<!-- Alternatively, you can [use RStudio to submit a job](https://blog.rstudio.com/2019/03/14/rstudio-1-2-jobs/). -->
 
 #### Attribution
 
