@@ -19,7 +19,8 @@ Written material:
 
 - Overview tutorials similar to our worksheet:
     - [stat545.com Chapter 11: character vectors](https://stat545.com/character-vectors.html)
-    - [R4DS Chapter 14: strings](https://r4ds.had.co.nz/strings.html).
+    - [R4DS Chapter 15: strings](https://r4ds.had.co.nz/strings.html).
+    - [R4DS Chapter 16: regular expressions](https://r4ds.had.co.nz/regexps.html).
 - The stat545.com Chapter 11 on character vectors [has an elaborate discussion on useful resources](https://stat545.com/character-vectors.html#resources-3) for learning more about strings. 
 
 ## Test Your Understanding
@@ -30,28 +31,16 @@ Use these questions to check your understanding of the material.
 2. True or False: The regular expression `[ab][ab]` will match "ab", "aa", and "bb" as possibilities, whereas `(ab)(ab)` will only match "aa" or "bb".
 3. True or False: The regular expression `^ab` will match "ab" as the first characters to a string, whereas `[^ab]` will match "a" or "b" as being the first character to a string.
 
-## Demonstration
+## Agenda 
 
-__Note that re*g*ex is different from re*pr*ex!__ They sound the same, but are very different things:
+## Class 1
 
-- re*pr*ex = reproducible example.
-- re*g*ex = regular expression.
+- **Before class**, attempt parts I and II of Worksheet B2. 
+- Class will be dedicated to getting your questions answered. 
+- Done early? Then do the optional R4DS Strings and R4DS Regular expressions readings (linked above), and do exercises for extra practice. 
 
-reprex:
+## Class 2
+- **Before class**, attempt part III of Worksheet B3. 
+- Class will be dedicated to getting your questions answered. 
+- Done early? Then do the optional R4DS Strings and R4DS Regular expressions readings (linked above), and do exercises for extra practice. Or, start Assignment B4. 
 
-```
-reprex::reprex({
-    x <- 5
-    x * 2
-})
-#> Rendering reprex...
-#> Rendered reprex is on the clipboard.
-```
-
-regex:
-
-```
-"STAT 545[A|B].*"
-```
-
-For this topic, we'll jump directly to the worksheet. 
