@@ -64,8 +64,18 @@ f(1)</code></pre>
 }
 
 roll_d10(2)</code></pre>
-<pre><code>## [1] 14</code></pre>
+<pre><code>## [1] 17</code></pre>
 <p>(Sidebar: this is not reproducible code, as the output depends on the <em>random seed</em>, which R made up for us and won’t tell us. If I wanted to make this reproducible, then I would set the seed to (say) 123 before running my function with <code>set.seed(123)</code>.)</p>
+</div>
+<div id="why-functions" class="section level2">
+<h2>Why Functions?</h2>
+<p>In short, it avoids repeatedly duplicating code. This is helpful because:</p>
+<ol style="list-style-type: decimal">
+<li><p>It shortens your code – crucially, without losing interpretability – making it easier and faster to read through and process its overall intent.</p></li>
+<li><p>If your needs change, then you only need to change your code in one place (the function definition) rather than a bunch of places.</p></li>
+<li><p>Bullet points 1 and 2 mean that using functions typically leads to fewer bugs and fewer headaches.</p></li>
+</ol>
+<p>A good rule of thumb is whenever you find yourself repeating code more than a few times, consider writing a function.</p>
 <div id="testing" class="section level3">
 <h3>Testing</h3>
 <p>When you’re using other people’s functions – like those in packages – they often <em>work</em>. However, as you have probably discovered by this point, it is very easy to inadvertently write code – and therefore functions – that <em>do not</em> work. Because of this, it’s important to <em>test</em> the functions we write to make sure they work.</p>

@@ -75,6 +75,18 @@ roll_d10(2)
 
 (Sidebar: this is not reproducible code, as the output depends on the *random seed*, which R made up for us and won't tell us. If I wanted to make this reproducible, then I would set the seed to (say) 123 before running my function with `set.seed(123)`.)
 
+## Why Functions? 
+
+In short, it avoids repeatedly duplicating code. This is helpful because: 
+
+1. It shortens your code -- crucially, without losing interpretability -- making it easier and faster to read through and process its overall intent.
+
+2. If your needs change, then you only need to change your code in one place (the function definition) rather than a bunch of places.  
+
+3. Bullet points 1 and 2 mean that using functions typically leads to fewer bugs and fewer headaches. 
+
+A good rule of thumb is whenever you find yourself repeating code more than a few times, consider writing a function. 
+
 ### Testing 
 
 When you're using other people's functions -- like those in packages -- they often *work*. However, as you have probably discovered by this point, it is very easy to inadvertently write code -- and therefore functions -- that *do not* work. Because of this, it's important to *test* the functions we write to make sure they work. 
