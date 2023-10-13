@@ -47,7 +47,7 @@ Slack channel specifically for students: <https://stat545classroom2023.slack.com
 
 | Date                                    | Topic                                                                | Worksheet                                                                                                                                                                                                                                                                                                                                                                                                     |
 |-----------------------------------------|----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `r format(dates_545b[1] , "%a, %b %d")` | [Functions](/notes/notes-b01)                                        | Worksheet B1 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_b01.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_b01.ipynb); [zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_b01.ipynb.zip)) <!--  (Due Wednesday, November 2nd at 17:00 PT) -->  |
+| `r format(dates_545b[1] , "%a, %b %d")` | [Functions](/notes/notes-b01)                                        | Worksheet B1 ([.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_b01.ipynb); [viewable](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_b01.ipynb); [zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_b01.ipynb.zip)) (Due Tue Oct 31 at 17:00 PT)  |
 | `r format(dates_545b[2] , "%a, %b %d")` | Functions (cont'd)                                                   | Worksheet B1                                                                                                                                                                                                                                                                                                                                                                                                  |
 | `r format(dates_545b[3] , "%a, %b %d")` | [R Packages](/notes/notes-b02)                                       | NA                                                                                                                                                                                                                                                                                                                                                                                                            |
 | `r format(dates_545b[4] , "%a, %b %d")` | R Packages (cont'd)                                                  | NA                                                                                                                                                                                                                                                                                                                                                                                                            |
@@ -94,9 +94,9 @@ Options for working on these worksheets:
 
 | Worksheet    | Download                                                                                                               | View                                                                                                                    | Zip file                                                                                                              | Deadline                                                                                                                                                                                                                                                                                                             |     |
 |----------|----------|----------|----------|----------|----------------------|
-| Worksheet B1 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_b01.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_b01.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_b01.ipynb.zip) | TBA |
-| Worksheet B2 | TBA | TBA | TBA | TBA | 
-| Worksheet B3 | TBA | TBA | TBA | TBA | 
+| Worksheet B1 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_b01.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_b01.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_b01.ipynb.zip) | **Tuesday, Oct 31, 2023 at 17:00 PT** |
+| Worksheet B2 | TBA | TBA | TBA | Tentatively **Thursday, Nov 30, 2023 at 17:00 PT** | 
+| Worksheet B3 | TBA | TBA | TBA | Tentatively **Thursday, Dec 7, 2023 at 17:00 PT** | 
 
 <!-- | Worksheet B2 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_b02.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_b02.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_b02.ipynb.zip) | 10                    | **Friday, November 25, 2022 at 17:00 PT**   | -->
 <!-- | Worksheet B3 | [.ipynb](https://raw.githubusercontent.com/UBC-STAT/stat545.stat.ubc.ca/master/content/worksheets/worksheet_b03.ipynb) | [view it on GitHub](https://github.com/UBC-STAT/stat545.stat.ubc.ca/blob/master/content/worksheets/worksheet_b03.ipynb) | [Download zip](https://github.com/UBC-STAT/stat545.stat.ubc.ca/raw/master/content/worksheets/worksheet_b03.ipynb.zip) | 10                    | **Friday, December 02, 2022 at 17:00 PT**   | -->
@@ -134,8 +134,11 @@ There are two milestones, each equally weighted:
 
 There are four assignments, each equally weighted: 
 
-- [Assignment B1](/assignments/assignment-b1), tentatively due Friday, November 2, 2023.
-- [Assignment B2](/assignments/assignment-b2), tentatively due Friday, November 10, 2023.
-- [Assignment B3](/assignments/assignment-b3), tentatively due Tuesday, November 21, 2023. 
-- [Assignment B4](/assignments/assignment-b4), tentatively due Friday December 8, 2023. 
+[Assignment B1](/assignments/assignment-b1): Due **Friday, November 3, 2023 at 17:00 PT**. 
+
+[Assignment B2](/assignments/assignment-b2), tentatively due Friday, November 10, 2023.
+
+[Assignment B3](/assignments/assignment-b3), tentatively due Tuesday, November 21, 2023. 
+
+[Assignment B4](/assignments/assignment-b4), tentatively due Thursday December 7, 2023. 
 
