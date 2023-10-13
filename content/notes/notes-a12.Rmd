@@ -50,7 +50,7 @@ Main functions of note are `read_csv()` and `write_csv()`: tidyverse equivalents
 
 Want to read and write to an Excel file? The `readxl` package in the tidyverse is for you! 
 
-For the very niche option of R binary: `saveRDS()` and `readRDS()`. 
+For the very niche option of R binary: `read_rds()` and `write_rds()`. 
 
 ## Your turn: try it out! 
 
