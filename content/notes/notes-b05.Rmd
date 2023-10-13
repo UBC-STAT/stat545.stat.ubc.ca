@@ -19,8 +19,8 @@ Written material:
 
 - Overview tutorials similar to our worksheet:
     - [stat545.com Chapter 11: character vectors](https://stat545.com/character-vectors.html)
-    - [R4DS Chapter 15: strings](https://r4ds.had.co.nz/strings.html).
-    - [R4DS Chapter 16: regular expressions](https://r4ds.had.co.nz/regexps.html).
+    - [R4DS Chapter 15: strings](https://r4ds.hadley.nz/strings.html).
+    - [R4DS Chapter 16: regular expressions](https://r4ds.hadley.nz/regexps).
 - The stat545.com Chapter 11 on character vectors [has an elaborate discussion on useful resources](https://stat545.com/character-vectors.html#resources-3) for learning more about strings. 
 
 ## Test Your Understanding

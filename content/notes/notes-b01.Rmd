@@ -36,7 +36,7 @@ Written resources:
 - Basic function syntax in R: https://swcarpentry.github.io/r-novice-inflammation/02-func-R/
 - When to use functions in your data analysis:
     - [stat545.com Functions, Parts 1-3](https://stat545.com/functions-part1.html)
-    - [R4DS functions chapter](https://r4ds.had.co.nz/functions.html)
+    - [R4DS functions chapter](https://r4ds.hadley.nz/functions.html)
 
 ## Test Your Understanding
 
