@@ -31,16 +31,43 @@ Use these questions to check your understanding of the material.
 2. True or False: The regular expression `[ab][ab]` will match "ab", "aa", and "bb" as possibilities, whereas `(ab)(ab)` will only match "aa" or "bb".
 3. True or False: The regular expression `^ab` will match "ab" as the first characters to a string, whereas `[^ab]` will match "a" or "b" as being the first character to a string.
 
-## Agenda 
+## Strings 
+
+You've used a bunch of strings at this point without knowing explicitly what they are: any time you surround text by `"`, you've been making a *string*: a storage format for text. In R, they are of type "character". 
+
+```{r} 
+sample_string <- "This is a string" 
+typeof(sample_string)
+```
+
+Two places where you'll often want to manipulate these in data analysis: 
+
+- Cleaning up column/variable names 
+- Cleaning up character column values 
+
+**Good to know**: Constructing strings out of characters and numbers is intuitive, but there's a gotcha involving particular symbols with special meaning in R. For example, try running `quote <- """` in R; it won't work, because the `"` symbol is interpreted as you trying to make a string! To literally include a quote in a string, you can use the `\` character to "escape" it: 
+
+```{r} 
+single_quote <- "\""
+cat(single_quote)
+```
+
+You can see more examples of special characters and how to escape them in [R4DS Chapter 15.2](https://r4ds.hadley.nz/strings#creating-a-string). 
+
+## Working with strings 
+
+Our main tools for working with strings will be the powerful `stringr` package in the tidyverse paired with regular expressions. We think the best way to start learning these is through the guided tutorial in Worksheet B2.
+
+### Agenda 
 
 ## Class 1
 
-- **Before class**, attempt parts I and II of Worksheet B2. 
+- **Before class**, start working on parts I and II of Worksheet B2. 
 - Class will be dedicated to getting your questions answered. 
 - Done early? Then do the optional R4DS Strings and R4DS Regular expressions readings (linked above), and do exercises for extra practice. 
 
 ## Class 2
-- **Before class**, attempt part III of Worksheet B3. 
+- **Before class**, start working on parts II and III of Worksheet B2. 
 - Class will be dedicated to getting your questions answered. 
 - Done early? Then do the optional R4DS Strings and R4DS Regular expressions readings (linked above), and do exercises for extra practice. Or, start Assignment B4. 
 

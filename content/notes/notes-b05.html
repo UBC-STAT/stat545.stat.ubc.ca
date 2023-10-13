@@ -37,13 +37,34 @@ output: html_document
 <li>True or False: The regular expression <code>^ab</code> will match “ab” as the first characters to a string, whereas <code>[^ab]</code> will match “a” or “b” as being the first character to a string.</li>
 </ol>
 </div>
-<div id="agenda" class="section level2">
-<h2>Agenda</h2>
+<div id="strings" class="section level2">
+<h2>Strings</h2>
+<p>You’ve used a bunch of strings at this point without knowing explicitly what they are: any time you surround text by <code>"</code>, you’ve been making a <em>string</em>: a storage format for text. In R, they are of type “character”.</p>
+<pre class="r"><code>sample_string &lt;- &quot;This is a string&quot; 
+typeof(sample_string)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>Two places where you’ll often want to manipulate these in data analysis:</p>
+<ul>
+<li>Cleaning up column/variable names</li>
+<li>Cleaning up character column values</li>
+</ul>
+<p><strong>Good to know</strong>: Constructing strings out of characters and numbers is intuitive, but there’s a gotcha involving particular symbols with special meaning in R. For example, try running <code>quote &lt;- """</code> in R; it won’t work, because the <code>"</code> symbol is interpreted as you trying to make a string! To literally include a quote in a string, you can use the <code>\</code> character to “escape” it:</p>
+<pre class="r"><code>single_quote &lt;- &quot;\&quot;&quot;
+cat(single_quote)</code></pre>
+<pre><code>## &quot;</code></pre>
+<p>You can see more examples of special characters and how to escape them in <a href="https://r4ds.hadley.nz/strings#creating-a-string">R4DS Chapter 15.2</a>.</p>
+</div>
+<div id="working-with-strings" class="section level2">
+<h2>Working with strings</h2>
+<p>Our main tools for working with strings will be the powerful <code>stringr</code> package in the tidyverse paired with regular expressions. We think the best way to start learning these is through the guided tutorial in Worksheet B2.</p>
+<div id="agenda" class="section level3">
+<h3>Agenda</h3>
+</div>
 </div>
 <div id="class-1" class="section level2">
 <h2>Class 1</h2>
 <ul>
-<li><strong>Before class</strong>, attempt parts I and II of Worksheet B2.</li>
+<li><strong>Before class</strong>, start working on parts I and II of Worksheet B2.</li>
 <li>Class will be dedicated to getting your questions answered.</li>
 <li>Done early? Then do the optional R4DS Strings and R4DS Regular expressions readings (linked above), and do exercises for extra practice.</li>
 </ul>
@@ -51,7 +72,7 @@ output: html_document
 <div id="class-2" class="section level2">
 <h2>Class 2</h2>
 <ul>
-<li><strong>Before class</strong>, attempt part III of Worksheet B3.</li>
+<li><strong>Before class</strong>, start working on parts II and III of Worksheet B2.</li>
 <li>Class will be dedicated to getting your questions answered.</li>
 <li>Done early? Then do the optional R4DS Strings and R4DS Regular expressions readings (linked above), and do exercises for extra practice. Or, start Assignment B4.</li>
 </ul>
