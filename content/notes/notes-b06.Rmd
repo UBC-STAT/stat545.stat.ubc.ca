@@ -3,7 +3,12 @@ title: "List Columns"
 output: html_document
 ---
 
-Did you know that a column of a tibble can contain a list -- not just a vector? This topic explores when such a thing would come in handy, and how to work with list columns. 
+```{r, message=FALSE}
+library(tidyverse)
+```
+
+
+### Learning Objectives 
 
 From this topic, students are anticipated to be able to:
 
@@ -11,6 +16,8 @@ From this topic, students are anticipated to be able to:
 - Create and operate on list columns in a tibble using `nest()`, `unnest()`, and the `map()` family of functions.
 - Define functions on-the-fly within a `map` function using shortcuts.
 - Apply list columns to cases in data analysis: columns of models, columns of nested lists (JSON-style data), and operating on entire groups within a tibble. 
+
+
 
 ## Resources
 
@@ -21,7 +28,7 @@ Video lectures:
 
 Written material:
 
-- [R4DS Chapter 21: Iteration](https://r4ds.had.co.nz/iteration.html) for purrr
+- [R4DS Chapter 21: Iteration](https://r4ds.hadley.nz/iteration.html) for purrr
     - 21.1 for an intro
     - 21.5 for the `map` family of functions
     - The intro of 21.7 for the `map2` and `pmap` families.
@@ -33,67 +40,48 @@ Want to dig deeper? These resources can help.
 - [Advanced R Chapter 9: Functionals](https://adv-r.hadley.nz/functionals.html) -- looking at purrr and `map()` from a programming perspective. 
 - [tidyr's rectangling vignette](https://tidyr.tidyverse.org/articles/rectangle.html) -- for handling deeply nested lists (JSON-style data), similar to tidyr's `pivot_` functions. 
 
+## Test Your Understanding
 
-## Vectors and Lists and Data Frames/Tibbles
+1. True or False: `map(1:3, ~ function(x) x ^ 2)` returns the list `list(1, 4, 9)`.
+2. You write a function `square()` that squares its input -- but the first thing it does is print a message to the screen! True or False: `map_dbl(1:10, square)` will throw an error, because the output is not a `dbl` (a number) -- it contains the message, too.
+3. True or False: purrr-style functions, starting with `~`, can be used in dplyr's `across()` function, such as `mutate(across(where(is.numeric), ~ .x ^ 2))`, and this function can only take one argument (`.x`)
+4. True or False: If I have 10 tibbles I want to save to file, and they're all stored in a list, the best purrr function to use for saving these to file is `map()`.
+5. True or False: Just as `c(c(1, 2), c(3, 4))` returns the vector of numbers from 1 to 4, `list(list(1, 2), list(3, 4))` returns the list of numbers from 1 to 4. 
+6. True or False: `tibble(model = lm(mpg ~ wt, data = mtcars))` doesn't work because it doesn't use a `map` function.
 
-In R, *vectors* hold multiple items/elements of the same atomic type: 
+## Vectors vs Lists 
 
-```{r} 
-(v1 <- c(1, 5, 10)) # this is a vector holding items of type "double" 
-(v2 <- c("abc", "def", "ghi")) # this is a vector holding items of type "character"
-```
-
-Here, atomic means "smallest unit":  a single integer or double, a single character string, a single true/false statement, etc. 
-
-We access elements of a vector with square brackets: 
-```{r}
-v1[1]
-v2[2]
-```
-
-We can find out how many elements are in a vector with the `length()` function: 
-```{r} 
-length(v1)
-```
-
-In R, *lists* also hold multiple items/elements, but each element can be *any* type. In fact, the elements don't even have to be atomic! 
+Here is a list in R; it holds multiple items. 
 
 ```{r} 
-(l1 <- list(1, TRUE))
-(l2 <- list(palmerpenguins::penguins, 1:3, list(1:3, "blah")))
+sample_list <- list(1:3, c("a", "b", "c"))
+sample_list
 ```
 
-We access elements of a list with double square brackets: 
-```{r} 
-l1[[2]]
-l2[[3]]
-```
+A list might sound like a *vector*, which we have worked with before -- remember, we construct them using the `c()` function. Indeed, vectors and lists can both hold multiple items. But there are key differences. 
 
-We can also find out how many elements are in a list with the `length()` function: 
-```{r} 
-length(l2)
-```
+| Vectors | Lists |
+|----------|------|
+| Access elements with square brackets `[]` | Access elements with  `[[]]` | 
+| Each element must be an atomic data type (i.e. a single value) | Elements can be anything, even another list or another vector | 
+| Each element has to be of the same type | Elements can be as different as you like | 
 
-As it turns out, data frames are actually a special type of list. This is true for tibbles too, since they're simply slightly fancier versions of data frames.
+## The Secret Life of Tibbles 
+
+Did you know that data frames (and tibbles) are actually a special type of list? It's true! 
 
 ```{r} 
-typeof(mtcars)
+typeof(mtcars) 
 typeof(palmerpenguins::penguins)
 ```
 
-This is why we can access columns using double square brackets - the data frame/tibble is actually a *list*, where each element is required to have the same length. 
+It turns out that they are actually *lists*, where each element of the list stores a column, which is either a list with the same number of entries as the tibble has rows, or a vector with the same number of entries as the tibble has rows. 
 
-```{r} 
-mtcars[[1]]
-palmerpenguins::penguins[["year"]]
+This has an important implication: we can efficiently apply a function to each column of a tibble by learning how to apply a function to each entry of a list. This is yet another way (beyond functions themselves) of avoiding duplicating code, which you will recall (from the functions topic) has many advantages. 
 
-length(mtcars[[1]])
-length(mtcars[[2]])
-```
+## Iteration
 
-## For loops and functionals
-
-You may be familiar with `for` loops from prior experience with base R or with other programming languages. Here's an example of a for loop in R that iterates over the entries of a numeric vector `x`, squares each entry, and stores the result in a numeric vector `output`: 
+If you programmed before, you probably have an idea of how to do this with a `for` loop. Here's an example of a for loop in R that iterates over the entries of a numeric vector `x`, squares each entry, and stores the result in a numeric vector `output`: 
 
 ```{r} 
 x <- 1:10 
@@ -107,67 +95,45 @@ output
 
 ```
 
-For loops can often be replaced with a single call to a *functional* - a function that takes a function as an argument. To illustrate what I'm talking about, let's rewrite our example by defining a custom functional. 
+Often, you can replace loops with a compact call to a function in the `purrr` package. This has the advantage of making our code even more readable and compact, since we're expressing the same logic with less space. Here's an example using `purrr::map_dbl()` and a custom function: 
 
 ```{r} 
-square <- function(x) x^2 
-
-my_map <- function(x, fun) { 
-  output <- vector("double", length(x))
-  for(i in seq_along(x)) { 
-      output[i] <- fun(x[i])
-  }
-  
-  output
-}
-
-my_map(1:10, square)
+purrr::map_dbl(1:10, function(x) x^2)
 ```
 
-## `purrr` fundamentals demonstration
+The first argument specifies the list/vector we want to iterate over, and the second argument specifies a function that we want to apply to each entry. Options for specifying functions include the name of a function, a fully specified custom function (as demonstrated above), or one of the "shortcuts" the `purrr` developers have provided. 
 
-There's no need to write your own functionals for this purpose though - you can use the `map` family of functionals in the `purrr` package! 
-
-```{r} 
-library(purrr)
-map_dbl(1:10, square)
+Here are two examples of "shortcuts": 
+```{r}
+purrr::map_dbl(1:10, ~ (.x)^2)
+purrr::map_dbl(1:10, \(x) x^2)
 ```
 
-Why use the `map` functions over `for` loops? The `map` family encourages the input vector(s) and function to be carefully defined first, whereas a `for` loop is more of a free-for-all. Using `map()` is also more readable, is pipe-friendly, and jibes well with list columns in tibbles. 
+The second one is (IMO) easier to remember and appears to be the one that `purrr` developers are recommending now; see the [purrr cheatsheat](https://github.com/rstudio/cheatsheets/blob/main/purrr.pdf). But this change in recommendation appears to have happened around 2022/2023, so you may still see the first type of shortcut in many places in the wild. 
 
-Fun trivia: [the story behind the name `purrr`](https://github.com/tidyverse/purrr/issues/35#issuecomment-71395551)
+**Trivia**: [the story behind the name `purrr`](https://github.com/tidyverse/purrr/issues/35#issuecomment-71395551)
 
-Let's jump into the worksheet to learn the basics of how to use `map` functions.
+## Your turn: Worksheet B3, Part 1
 
-## List columns 
+We think the best way to get your bearings with `purrr` is to jump into Worksheet B3. Class 1 will be dedicated to getting your questions about Part 1 and about any concepts up to this point answered. 
 
-We now know that data frames and tibbles are just lists, where each element/column has the same length. We also know that an element of a list need not be an atomic - it could be an atomic vector or even a list! 
+## List Columns 
 
-This means that an "entry" of a rectangular data frame or tibble could be *multiple* atomics, like so: 
+Did you know columns in a tibble can have type "list"? We call these types of columns "list columns".
 
-```{r} 
-list_column <- list(1:2, 3:4, 5:6)
-regular_column <- c("a", "b", "c")
+Consider the following example: a snippet of the Game of Thrones data from [An API of Ice and Fire](https://anapioficeandfire.com/).  
 
-(my_df <- data.frame(col1 = I(list_column), col2=regular_column))
-
-my_df[["col1"]]
-my_df[1, 1]
-
-library(tibble)
-(my_tbl <- tibble(col1=list_column, col2=regular_column))
+```{r, echo = FALSE} 
+got_lc <- unnest_wider(tibble(character = repurrrsive::got_chars), character) %>% select("name", "gender", "titles")
+head(got_lc)
 ```
 
-Base R data frames don't make it especially easy to make or work with list columns, so if you are planning to use list columns then tibbles are strongly recommended over data frames.  
+Some characters have one title (e.g. Will); others have more than one title (e.g. Theon Greyjoy). Consequently, the `titles` column is a *list column*, where each entry is a *list* that contains as many or as few strings as we like. 
 
-Let's explore when list columns might be useful and how to manipulate list columns by jumping back into the worksheet. 
+## Your turn: Worksheet B3, Parts 2 and 3 
 
-## Test Your Understanding
+We think the best way to learn how to make and work with list columns (and get a taste for where they can be really useful!) is to jump back into the worksheet. 
 
-1. True or False: `map(1:3, ~ function(x) x ^ 2)` returns the list `list(1, 4, 9)`.
-2. You write a function `square()` that squares its input -- but the first thing it does is print a message to the screen! True or False: `map_dbl(1:10, square)` will throw an error, because the output is not a `dbl` (a number) -- it contains the message, too.
-3. True or False: purrr-style functions, starting with `~`, can be used in dplyr's `across()` function, such as `mutate(across(where(is.numeric), ~ .x ^ 2))`, and this function can only take one argument (`.x`)
-4. True or False: If I have 10 tibbles I want to save to file, and they're all stored in a list, the best purrr function to use for saving these to file is `map()`.
-5. True or False: Just as `c(c(1, 2), c(3, 4))` returns the vector of numbers from 1 to 4, `list(list(1, 2), list(3, 4))` returns the list of numbers from 1 to 4. 
-6. True or False: `tibble(model = lm(mpg ~ wt, data = mtcars))` doesn't work because it doesn't use a `map` function.
+Class 2 will be dedicated to getting your questions about Parts 2 and 3 and about any concepts involving list columns and nested lists answered. 
+
 
