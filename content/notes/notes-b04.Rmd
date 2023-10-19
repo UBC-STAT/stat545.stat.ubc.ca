@@ -53,7 +53,7 @@ Other dashboard tools besides shiny (but not in R):
 ## Agenda 
 
 We are going to be working off of a [slide deck](https://docs.google.com/presentation/d/1dXhqqsD7dPOOdcC5Y7RW--dEU7UfU52qlb0YD3kKeLw/edit#slide=id.p) and [tutorial](https://deanattali.com/blog/building-shiny-apps-tutorial/) written by Dean Attali. This should take two classes. 
-= 
+
 <!-- ## Demonstration -->
 
 <!-- Before we begin, know that __this resource is a bare-bones checklist__ optimized for instructional purposes, and is not designed as a step-by-step walkthrough for learning shiny. For that, you should see the more detailed [stat545.com shiny chapter](https://stat545.com/shiny-tutorial.html) or [Dean Attali's tutorial](https://deanattali.com/blog/building-shiny-apps-tutorial/) -- both are very similar.  -->
