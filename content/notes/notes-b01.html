@@ -36,24 +36,22 @@ output: html_document
 <li><a href="https://r4ds.hadley.nz/functions.html">R4DS functions chapter</a></li>
 </ul></li>
 </ul>
-</div>
-<div id="test-your-understanding" class="section level2">
-<h2>Test Your Understanding</h2>
-<p>Consider the following code:</p>
-<pre><code>x &lt;- 1
-f &lt;- function(t) {
-  x &lt;- -1
-  if (x &gt; 0) return(t)
-  x * t + 1
-  x * t
-}
-f(1)</code></pre>
-<ol style="list-style-type: decimal">
-<li>True or False: the output of <code>f(1)</code> is <code>-1</code>.</li>
-<li>True or False: after running the above code, <code>x</code> is <code>-1</code>.</li>
-<li>True or False: Curly-curly <code>{{}}</code> can be used whenever we want to refer to column names outright, such as when subsetting in base R with <code>[[</code>.</li>
-<li>You’ve made a function <code>quick_scatter()</code> that you can pipe a tibble into, and outputs a scatterplot of two variables. So far, you’re only using the function to explore the data for your own eyes (perhaps even putting your code directly in the console). True or False: at this point, you should stop and make sure your function is documented and has formal unit tests.</li>
-</ol>
+<!-- ## Test Your Understanding -->
+<!-- Consider the following code: -->
+<!-- ``` -->
+<!-- x <- 1 -->
+<!-- f <- function(t) { -->
+<!--   x <- -1 -->
+<!--   if (x > 0) return(t) -->
+<!--   x * t + 1 -->
+<!--   x * t -->
+<!-- } -->
+<!-- f(1) -->
+<!-- ``` -->
+<!-- 1. True or False: the output of `f(1)` is `-1`.  -->
+<!-- 2. True or False: after running the above code, `x` is `-1`.  -->
+<!-- 3. True or False: Curly-curly `{{}}` can be used whenever we want to refer to column names outright, such as when subsetting in base R with `[[`. -->
+<!-- 4. You've made a function `quick_scatter()` that you can pipe a tibble into, and outputs a scatterplot of two variables. So far, you're only using the function to explore the data for your own eyes (perhaps even putting your code directly in the console). True or False: at this point, you should stop and make sure your function is documented and has formal unit tests.  -->
 </div>
 <div id="our-own-r-functions" class="section level2">
 <h2>Our own R functions</h2>
@@ -105,18 +103,42 @@ roll_d10(2)</code></pre>
 <!-- roll_d10(2) -->
 <!-- ``` -->
 </div>
-</div>
-<div id="your-turn-functions-and-tests-the-basics" class="section level2">
-<h2>Your turn: functions and tests, the basics</h2>
+<div id="your-turn-functions-and-tests-the-basics" class="section level3">
+<h3>Your turn: functions and tests, the basics</h3>
 <p>We think working through Worksheet B1 is a great place to go from here to learn the basics of how to define your own functions and how to test it.</p>
-<div id="class-1" class="section level3">
-<h3>Class 1</h3>
+</div>
+</div>
+<div id="class-1" class="section level2">
+<h2>Class 1</h2>
 <ul>
-<li>Haven’t attempted all of the questions on Worksheet B1? Then spend this time attempting unattempted questions.</li>
-<li>Finished attempting all of the questions? Then do the optional <a href="https://r4ds.hadley.nz/functions">R4DS Functions</a> reading, and maybe even do some of the exercises for extra practice.</li>
+<li>Haven’t attempted all of the questions on Worksheet B1? Then attempt unattempted questions.</li>
+<li>Put any questions you have about the worksheet questions or about functions in general in the Google Doc posted to Canvas.</li>
 </ul>
-<p>Put any questions you have about the worksheet questions or about functions in general in the Google Doc posted to Canvas.</p>
-<p>We will reconvene to work through questions lots of people are struggling with and to answer general questions from time to time.</p>
+<p>If FAQ emerge in the Google Doc, then we will discuss them together.</p>
+<p><strong>Once you’re done Worksheet B1</strong>, tackle these follow-up challenge questions to check your understanding. If there are no questions to be answered about the worksheet in the Google Doc, then we will discuss these challenge questions.</p>
+<div id="naming" class="section level3">
+<h3>Naming</h3>
+<ol style="list-style-type: decimal">
+<li>Will R do anything to stop you from doing this?</li>
+</ol>
+<pre class="r"><code>cube_num &lt;- function(num) { 
+  num^2  
+}</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Will R do anything to stop you from writing a function where the input argument is named “blah blah blah”?</p></li>
+<li><p>What happens if you do this? Can you think of any adverse consequences?</p></li>
+</ol>
+<pre class="r"><code>mean &lt;- function(num) { 
+  num^2  
+}</code></pre>
+</div>
+<div id="syntax" class="section level3">
+<h3>Syntax</h3>
+<ol start="4" style="list-style-type: decimal">
+<li><p>There are at least two other ways (structurally) to write <code>roll_d10()</code>. What are they? (Hint: one is showcased in the worksheet.)</p></li>
+<li><p>What would the function return if I added this line of code before the <code>sum()</code> call in <code>roll_d10()</code>? <code>sum(sample(1:4, num_dice, replace=TRUE)</code></p></li>
+<li><p>There’s one function on the worksheet test cells that you haven’t used yet: <code>expect_known_hash()</code>. What is it, and when would it be useful?</p></li>
+</ol>
 </div>
 </div>
 <div id="class-2" class="section level2">
@@ -170,13 +192,11 @@ each variable.</li>
 </div>
 <div id="instructor-demo-curly-curly" class="section level3">
 <h3>Instructor demo: curly-curly</h3>
-<p>We will construct a solution to the exercise. We will also do some basic testing
-to make sure that the function does what we want to when we pass in “the right things”.</p>
+<p>We will construct a solution to the exercise.</p>
 </div>
-<div id="your-turn-try-to-break-this" class="section level3">
-<h3>Your turn: try to break this</h3>
-<p>Spend a few minutes passing in “the wrong things” to the function. The goal is to either make the function give a confusing error message, or make it run even if it’s not supposed to!</p>
-<p>Then, modify the function with things like <code>stopifnot()</code>, <code>if()</code>, <code>not()</code>, etc. to proactively plug some of the holes you found.</p>
+<div id="your-turn-curly-curly-practice" class="section level3">
+<h3>Your turn: curly-curly practice</h3>
+<p>Make a modification to our function: allow the user to also pass in which variables they want to summarize. (Right now it just summarizes all of them.) Slack react to tell us either “I’m stuck!” or “I’m done!”</p>
 </div>
 <div id="instructor-demo-ellipses" class="section level3">
 <h3>Instructor demo: ellipses</h3>
@@ -185,10 +205,6 @@ to make sure that the function does what we want to when we pass in “the right
 <div id="instructor-demo-defaults" class="section level3">
 <h3>Instructor demo: defaults</h3>
 <p>We’ll talk about when you might conceptually want to set a default value for function arguments, and then make a new argument for our function called <code>.groups</code> that makes it default to dropping the groups in the output.</p>
-</div>
-<div id="your-turn-curly-curly-practice" class="section level3">
-<h3>Your turn: curly-curly practice</h3>
-<p>Make one final modification to our function: allow the user to also pass in which variables they want to summarize. (Right now it just summarizes all of them.)</p>
 <!-- ## Advanced topic: curly-curly  -->
 <!-- Sometimes your function needs to take in variable names without quotation marks and work with them that way. For example, `select(gapminder, lifeExp)` does not put quotation marks around `lifeExp` -- the reasoning being that `lifeExp` is like a variable in our workspace, if we were to include column names in our R Environment -- and `select("gapminder", "lifeExp")` will not do the same thing.  -->
 <!-- If your function needs to do this, then you need to work with the arguments with extra care inside the function definition. Whenever we use those arguments, we need to  embrace them within two curly brackets -- an operator called "curly curly".  -->
