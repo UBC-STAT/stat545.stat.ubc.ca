@@ -14,7 +14,7 @@ __Note__: For Assignment B-4, you will have the option to expand on your R packa
 
 ## Setup
 
-Go to canvas to get your invitation to create a GitHub repository for this project. You can find this in the description of Assignment B-2. Name your repo as you wish, so long as it's informative. 
+Go to canvas to get your invitation to create a GitHub repository for this project. You can find this in the description of Assignment B-2. The name of the repo will be the name of your package (see e.g. https://github.com/lucylgao/clusterpval), so make sure to give your repo an appropriate name! 
 
 ## Tidy Submission (20 points)
 
