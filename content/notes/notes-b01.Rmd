@@ -143,7 +143,7 @@ cube_num <- function(num) {
 }
 ```
 
-2. Will R do anything to stop you from writing a function where the input argument is named "blah blah blah"? 
+2. Will R do anything to stop you from writing a function where the input argument is named `blahblahblah`? 
 
 3. What happens if you do this? Can you think of any adverse consequences? 
 

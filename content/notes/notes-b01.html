@@ -62,7 +62,7 @@ output: html_document
 }
 
 roll_d10(2)</code></pre>
-<pre><code>## [1] 9</code></pre>
+<pre><code>## [1] 3</code></pre>
 <p>(Sidebar: this is not reproducible code, as the output depends on the <em>random seed</em>, which R made up for us and won’t tell us. If I wanted to make this reproducible, then I would set the seed to (say) 123 before running my function with <code>set.seed(123)</code>.)</p>
 </div>
 <div id="why-functions" class="section level2">
@@ -125,7 +125,7 @@ roll_d10(2)</code></pre>
   num^2  
 }</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li><p>Will R do anything to stop you from writing a function where the input argument is named “blah blah blah”?</p></li>
+<li><p>Will R do anything to stop you from writing a function where the input argument is named <code>blahblahblah</code>?</p></li>
 <li><p>What happens if you do this? Can you think of any adverse consequences?</p></li>
 </ol>
 <pre class="r"><code>mean &lt;- function(num) { 
