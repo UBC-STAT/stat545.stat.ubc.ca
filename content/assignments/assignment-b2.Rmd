@@ -9,12 +9,27 @@ In Assignment B-1, you practiced writing a function. This time, we'll be evaluat
 
 Need some help? Checkout [chapter 2](https://r-pkgs.org/whole-game.html) of the "R packages" book.
 
-__Note__: For Assignment B-4, you will have the option to expand on your R package and develop it further (amongst other options).
+## Options for what function to wrap into a package
 
+### Option 1: The function you made in Assignment B1 
+
+You can turn the function you made in Assignment B1 into a package for Assignment B2. 
+
+The work in Assignment B1 was deliberately designed to make it easier for you to convert it into a package down the line.
+
+However, note that the deadlines for Assignments B1 and B2 are close together as they are on sequential topics, and so you are **not** guaranteed feedback before the B2 deadline. 
+
+## Option 2: "Pre-baked" function 
+
+A documented function with tests written by the instructional team will be released the morning after the Assignment B1 deadline; you can choose to make that into a package for Assignment B2. 
+
+## Option 3: Something new! 
+
+You can choose to write a new function - not used in Assignment B1 - if you like for Assignment B2. 
 
 ## Setup
 
-Go to canvas to get your invitation to create a GitHub repository for this project. You can find this in the description of Assignment B-2. The name of the repo will be the name of your package (see e.g. https://github.com/lucylgao/clusterpval), so make sure to give your repo an appropriate name! 
+Go to canvas to get your invitation to create a GitHub repository for this project. You can find this in the description of Assignment B-2. The name of the repo will be the name of your package (see e.g. https://github.com/lucylgao/clusterpval), so make sure to give your repo an appropriate name! If you find yourself wanting to rename your package after you accept your invitation, see [the Github Docs](https://docs.github.com/en/repositories/creating-and-managing-repositories/renaming-a-repository). 
 
 ## Tidy Submission (20 points)
 
