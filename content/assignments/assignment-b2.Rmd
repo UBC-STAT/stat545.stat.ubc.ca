@@ -21,11 +21,15 @@ However, note that the deadlines for Assignments B1 and B2 are close together as
 
 ## Option 2: "Pre-baked" function 
 
-A documented function with tests written by the instructional team will be released the morning after the Assignment B1 deadline; you can choose to make that into a package for Assignment B2. 
+A documented function with tests written by the instructional team will be released to Canvas; you can choose to make that into a package for Assignment B2. 
+
+Click [here](https://canvas.ubc.ca/courses/126200/pages/assignment-b2-pre-bake-option) for the link to download the function. (The links won't work before the morning after the Assignment B1 deadline.)
+
+**Note**: If you take this option, then you may modify the documentation or the tests in any way you see fit. This "pre-baked" function is simply intended to serve as a clean starting point for this assignment that doesn't depend on your personal success level in Assignment B1. 
 
 ## Option 3: Something new! 
 
-You can choose to write a new function - not used in Assignment B1 - if you like for Assignment B2. 
+If you like, you can choose to write a new function - not used in Assignment B1 - for Assignment B2. 
 
 ## Setup
 
