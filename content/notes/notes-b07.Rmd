@@ -1,53 +1,29 @@
 ---
-title: "Blogdown"
+title: "Websites/Slides"
 output: html_document
 ---
 
-One great thing about having html files output from Rmd? We can use Rmd as a framework for creating websites, because websites are often just html.
+One great thing about having html files output from Rmd? We can use Rmd as a framework for creating websites, because websites are often just html. 
 
-From this topic, students are anticipated to be able to:
+Similarly, we can use Rmd as a framework for creating pdf slides (through the Beamer LaTeX document class) or html slides (through reveal.js).
 
-- Use the blogdown R package to create a template website.
-- Explore themes; particularly, hugo academic (now called wowchemy).
-- Host your website using GitHub Pages.
+This is especially powerful when you move to the *next generation* version of Rmd, [Quarto](https://quarto.org/). 
 
-This topic is optional, and very short. 
+Note that Quarto was released in 2022, so as of the time of writing this (Nov 2023), there are still some growing pains. But it seems to be the way of the future for websites and slides, so it's what we'll cover. 
 
-## Demonstration
+This topic is optional. It wil probably also be short.  
 
-1. Install blogdown.
+## Quarto Installation and Basics 
 
-You'll first need to install blogdown with `install.packages("blogdown")`.
+Official tutorial [here](https://quarto.org/docs/get-started/hello/rstudio.html). It's very straightforward to pick up if you already know Rmd. (Which we do!) 
 
-2. Make a new project.
+## Quarto Websites 
 
-In RStudio:
+Official tutorial [here](https://quarto.org/docs/websites/). An example of a Quarto website is [Lucy's website](https://www.lucylgao.com/). Also see [Lucy's slide deck](https://www.dropbox.com/s/fit9xfhndr79w6m/2023-StudentSeminar.pdf) on building a professional online presence for why you should have a website **right now**. 
 
-_File -> New Project ... -> New Directory -> Website using blogdown:_
+Once you've built a website (collection of html files), you will need to **host it** somewhere on the internet. Our recommendation is [Github Pages](https://pages.github.com/) or [Netlify](https://www.netlify.com/) because they're free. 
 
-_Under the "Hugo theme", we'll use the theme `wowchemy/starter-hugo-academic`_
+## Quarto Slides 
 
-What's "Hugo"? What's this "theme" all about?
+Official tutorial [here](https://quarto.org/docs/presentations/). An example of a Quarto slide deck is [Lucy's guest lecture in STAT 540](https://stat540-ubc.github.io/lectures/lect16-clustering/lect16-clustering-guest.html). This uses our preferred format, [reveal.js](https://revealjs.com/). You can download the slide deck WITH the source [here](https://www.dropbox.com/s/aataltxawu2qxn3/lec14-clustering.zip?dl=0). This is a great way to make your slide deck *reproducible*. 
 
-- Hugo is the website generator. Blogdown doesn't actually make websites, Hugo does. Blogdown is just a wrapper that helps us use Hugo.
-- Hugo is theme-specific. Once you learn how to make a website using a theme, if you want to switch to another theme, you'll have to re-learn how to make the website (although some concepts are transferable).
-    - See the [documentation for Hugo Academic / Wowchemy](https://wowchemy.com/docs/)
-
-3. Check out the website.
-
-In your console, run `blogdown::serve_site()`.
-
-4. Try modifying things.
-
-- Check out the "widgets" on the homepage (see a list of widgets [on the documentation here](https://wowchemy.com/docs/getting-started/page-builder/).)
-- Modify the TOML files (which are like YAML).
-- Modify some content.
-
-
-## More Information
-
-There's a definitive [book called "blogdown: Creating Websites with R Markdown"](https://bookdown.org/yihui/blogdown/).
-
-- Use their [quick example](https://bookdown.org/yihui/blogdown/a-quick-example.html) as an alternative quick-start guide to the one we provide above -- this time using Yihui Xie's "Hugo Lithium" theme (which is simpler than wowchemy).
-
-- Use the entire book to learn more about the details of blogdown.
