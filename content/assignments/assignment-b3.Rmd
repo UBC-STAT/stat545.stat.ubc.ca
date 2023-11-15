@@ -23,9 +23,11 @@ Go to canvas to get your invitation to create a GitHub repository for this proje
 
 There are countless possibilities for features, but here are just a few ideas. You can choose any 3 or more ideas from this list or do anything else!  Want more ideas than what's below? Check [this](https://shiny.rstudio.com/tutorial/) out.
 
+**While (this year) you will be developing your own Shiny app from scratch instead of building on the BC Liquor App developed in Dean Attali's tutorial, we will use the BC Liquor App as a running example of feature ideas for concreteness. **
+
 #### If you have a table in your app...
 
-+ Add an option to sort the table by one of your variables (as an example, in the BC Liquor app, sort the results by price!). 
++ Add an option to sort the table by one of your variables. For example,  in the BC Liquor App, sorting the results by price. 
   + *Hint:* Use `checkboxInput()` to get `TRUE`/`FALSE` values from the user.
   
 + Use the DT package to turn a static table into an interactive table. 
@@ -47,7 +49,7 @@ There are countless possibilities for features, but here are just a few ideas. Y
 
 #### Other ideas:
 
-+ Add an image to the UI. In the case of the BC Liquor app, you could add an image of the BC Liquor Store. If you're building your own app from scratch, an image may make your app more visually interesting or add information! 
++ Add an image to the UI. For example, in the BC Liquor app, add an image of the BC Liquor Store. If you're building your own app from scratch, an image may make your app more visually interesting or add information! 
   + *Hint:* Place the image in a folder named www, and use `img(src = "imagename.png")` to add the image.
 
 + If you know CSS, add CSS to make your app look nicer. 
@@ -64,17 +66,10 @@ There are countless possibilities for features, but here are just a few ideas. Y
 ### Shiny app development (75 points)
 
 - There are three features in your Shiny app. Clearly state which three features you are modifying or creating in your code, with comments. Specifically, *write a sentence per feature explaining how it is useful*. (60 pts, 20 per feature)
-  - **Option A:** Adding three features to the already existing BC Liquor app.
-    - [ ] There's at least one new functional widget that modifies at least one output. (20 pts)
-    - [ ] There's at least one change to the UI (aside from the addition of a widget). (20 pts)
-    - [ ] A third feature, whether it's a change to the UI, or a functional widget. (20 pts)
-  - **Option B:** Create your own shiny app with three features, and deploy it.
-    - [ ] Feature 1. (20 pts)
-    - [ ] Feature 2. (20 pts)
-    - [ ] Feature 3. (20 pts)
-  - *What are we looking for in your features?*
+
+- *What are we looking for in your features?*
      + *Variety.* Including three tables as part of your dashboard and having the same exact feature for each of them (e.g. a filtering option, even if the tables are distinct) will be penalized; at least 2 of the 3 features must be unique. 
-     + For either option A or B, we will evaluate the *usefulness* of your features in the context of your app (does it add to the user experience?). We expect your features to be sensible, meaning that they add to the user experience in a way that makes sense - as an example, adding a filtering option for "country" in a table that only has data for Canada does not seem very useful, even if you added the filtering feature correctly. If we consider any of your features to be irrelevant for the app, 2 pts will be penalized for that particular feature.
+     + We will also evaluate the *usefulness* of your features in the context of your app (does it add to the user experience?). We expect your features to be sensible, meaning that they add to the user experience in a way that makes sense - as an example, adding a filtering option for "country" in a table that only has data for Canada does not seem very useful, even if you added the filtering feature correctly. If we consider any of your features to be irrelevant for the app, 2 pts will be penalized for that particular feature.
      
 - RRR (15 pts):
   - [ ] Code runs without errors and it is appropriately annotated, legible, and easy to follow. (8 pts)
@@ -86,8 +81,7 @@ Follow these steps to submit your work. Be sure to familiarize yourself with the
 
 - [ ] (20 pts) Make a `README` for your repository. The README must include:
   - A link to a running instance of your Shiny app.
-  - Your choice of assignment clearly stated: Option A - BC Liquor app, or Option B - your own Shiny app.
-  - A description of your app. In the case of Option A, write about what makes your app different from the "basic" version after implementing your chosen features.
+  - A description of your app. 
   - Whatever dataset you will use, acknowledge its source clearly. Remember that we value open, reproducible science: this means that the user of your app should have direct access to the data, or know where to go to access it.
 - [ ] (5 pts) Tag a release in your assignment repository.
 - [ ] Submit a link to your tagged release in your assignment repository to canvas. Make sure the TAs and Lucy can see your repository! Either it should be public or private with TAs and Lucy added as collaborators. 

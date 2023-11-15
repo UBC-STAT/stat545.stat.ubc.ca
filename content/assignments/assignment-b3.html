@@ -21,10 +21,11 @@ output: html_document
 <div id="feature-ideas" class="section level2">
 <h2>Feature ideas</h2>
 <p>There are countless possibilities for features, but here are just a few ideas. You can choose any 3 or more ideas from this list or do anything else! Want more ideas than what’s below? Check <a href="https://shiny.rstudio.com/tutorial/">this</a> out.</p>
+<p><strong>While (this year) you will be developing your own Shiny app from scratch instead of building on the BC Liquor App developed in Dean Attali’s tutorial, we will use the BC Liquor App as a running example of feature ideas for concreteness. </strong></p>
 <div id="if-you-have-a-table-in-your-app" class="section level4">
 <h4>If you have a table in your app…</h4>
 <ul>
-<li>Add an option to sort the table by one of your variables (as an example, in the BC Liquor app, sort the results by price!).
+<li>Add an option to sort the table by one of your variables. For example, in the BC Liquor App, sorting the results by price.
 <ul>
 <li><em>Hint:</em> Use <code>checkboxInput()</code> to get <code>TRUE</code>/<code>FALSE</code> values from the user.</li>
 </ul></li>
@@ -58,7 +59,7 @@ output: html_document
 <div id="other-ideas" class="section level4">
 <h4>Other ideas:</h4>
 <ul>
-<li>Add an image to the UI. In the case of the BC Liquor app, you could add an image of the BC Liquor Store. If you’re building your own app from scratch, an image may make your app more visually interesting or add information!
+<li>Add an image to the UI. For example, in the BC Liquor app, add an image of the BC Liquor Store. If you’re building your own app from scratch, an image may make your app more visually interesting or add information!
 <ul>
 <li><em>Hint:</em> Place the image in a folder named www, and use <code>img(src = "imagename.png")</code> to add the image.</li>
 </ul></li>
@@ -82,27 +83,13 @@ output: html_document
 <div id="shiny-app-development-75-points" class="section level3">
 <h3>Shiny app development (75 points)</h3>
 <ul>
-<li>There are three features in your Shiny app. Clearly state which three features you are modifying or creating in your code, with comments. Specifically, <em>write a sentence per feature explaining how it is useful</em>. (60 pts, 20 per feature)
-<ul>
-<li><strong>Option A:</strong> Adding three features to the already existing BC Liquor app.
-<ul class="task-list">
-<li><input type="checkbox" />There’s at least one new functional widget that modifies at least one output. (20 pts)</li>
-<li><input type="checkbox" />There’s at least one change to the UI (aside from the addition of a widget). (20 pts)</li>
-<li><input type="checkbox" />A third feature, whether it’s a change to the UI, or a functional widget. (20 pts)</li>
-</ul></li>
-<li><strong>Option B:</strong> Create your own shiny app with three features, and deploy it.
-<ul class="task-list">
-<li><input type="checkbox" />Feature 1. (20 pts)</li>
-<li><input type="checkbox" />Feature 2. (20 pts)</li>
-<li><input type="checkbox" />Feature 3. (20 pts)</li>
-</ul></li>
-<li><em>What are we looking for in your features?</em>
+<li><p>There are three features in your Shiny app. Clearly state which three features you are modifying or creating in your code, with comments. Specifically, <em>write a sentence per feature explaining how it is useful</em>. (60 pts, 20 per feature)</p></li>
+<li><p><em>What are we looking for in your features?</em></p>
 <ul>
 <li><em>Variety.</em> Including three tables as part of your dashboard and having the same exact feature for each of them (e.g. a filtering option, even if the tables are distinct) will be penalized; at least 2 of the 3 features must be unique.</li>
-<li>For either option A or B, we will evaluate the <em>usefulness</em> of your features in the context of your app (does it add to the user experience?). We expect your features to be sensible, meaning that they add to the user experience in a way that makes sense - as an example, adding a filtering option for “country” in a table that only has data for Canada does not seem very useful, even if you added the filtering feature correctly. If we consider any of your features to be irrelevant for the app, 2 pts will be penalized for that particular feature.</li>
+<li>We will also evaluate the <em>usefulness</em> of your features in the context of your app (does it add to the user experience?). We expect your features to be sensible, meaning that they add to the user experience in a way that makes sense - as an example, adding a filtering option for “country” in a table that only has data for Canada does not seem very useful, even if you added the filtering feature correctly. If we consider any of your features to be irrelevant for the app, 2 pts will be penalized for that particular feature.</li>
 </ul></li>
-</ul></li>
-<li>RRR (15 pts):
+<li><p>RRR (15 pts):</p>
 <ul class="task-list">
 <li><input type="checkbox" />Code runs without errors and it is appropriately annotated, legible, and easy to follow. (8 pts)</li>
 <li><input type="checkbox" />Your app should be deployed online on shinyapps.io (or on another server if you’d like). Make sure your app actually works online (sometimes your app will work in RStudio but will have errors on shinyapps.io - make sure you deploy early and often to make debugging easier). (7 pts)</li>
@@ -116,8 +103,7 @@ output: html_document
 <li><input type="checkbox" />(20 pts) Make a <code>README</code> for your repository. The README must include:
 <ul>
 <li>A link to a running instance of your Shiny app.</li>
-<li>Your choice of assignment clearly stated: Option A - BC Liquor app, or Option B - your own Shiny app.</li>
-<li>A description of your app. In the case of Option A, write about what makes your app different from the “basic” version after implementing your chosen features.</li>
+<li>A description of your app.</li>
 <li>Whatever dataset you will use, acknowledge its source clearly. Remember that we value open, reproducible science: this means that the user of your app should have direct access to the data, or know where to go to access it.</li>
 </ul></li>
 <li><input type="checkbox" />(5 pts) Tag a release in your assignment repository.</li>
