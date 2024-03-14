@@ -376,7 +376,7 @@ Now's your chance to ask about any questions you got stuck on and get them answe
 
 As we've seen, tidy data is often very helpful. But there are also times when *un*tidy data is good. Here are a few reasons: 
 
-- The format that lends itself best to fast computations might not be tidy. [Case Study: Tidy Genomics](http://varianceexplained.org/r/tidy-genomics/). 
+- The format that lends itself best to fast computations might not be tidy. [Simply Statistics: Non-Tidy Data](https://simplystatistics.org/posts/2016-02-17-non-tidy-data/). 
 - Untidy data is often easier for humans to interpret and edit. See [Untidy Data: The Unreasonable Effectiveness of Tables](https://arxiv.org/pdf/2106.15005.pdf).
 - We could lose important information about the context in which the data was collected by cleaning and tidying raw data. This can have important ethical implications; see Chapter 5 of the book ["Data Feminism"](https://data-feminism.mitpress.mit.edu/) by Catherine D'Ignazio and Lauren F. Klein. 
 
