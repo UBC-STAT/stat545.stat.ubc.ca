@@ -1,8 +1,8 @@
 ---
 authors:
 - lucy
-name: Dr. Lucy Gao
-#role: Instructor for STAT 545A
+name: Dr. Katie Burak
+#role: Instructor for STAT 545A/B
 # Organizations/Affiliations
 organizations:
 - name: UBC
@@ -15,16 +15,14 @@ organizations:
 social:
 - icon: envelope
   icon_pack: fas
-  link: mailto:lucy.gao@stat.ubc.ca
+  link: mailto:kburak@stat.ubc.ca
 - icon: home
   icon_pack: fas
-  link: https://lucylgao.com  
-- icon: twitter
-  icon_pack: fab
-  link: https://twitter.com/lucylgao
+  link: https://katieburak.github.io/
 - icon: github
   icon_pack: fab
-  link: https://github.com/lucylgao
+  link: https://github.com/katieburak
+  
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.  
 # - icon: cv
@@ -40,4 +38,5 @@ user_groups:
 - Instructor
 ---
 
-Lucy is an Assistant Professor at the University of British Columbia, Vancouver. She is a biostatistician who develops new methodology in statistical learning, statistical inference, and the design of experiments.  
+Katie Burak is an Assistant Professor of Teaching in the Department of Statistics at the University of British Columbia. Her work focuses on modern pedagogical methods in statistics and data science. She is passionate about statistical outreach and education, organizing various events in her community. Katie is particularly dedicated to advancing women in data science and addressing equity issues within the statistical sciences.
+
