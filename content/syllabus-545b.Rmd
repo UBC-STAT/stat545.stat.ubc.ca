@@ -1,5 +1,5 @@
 ---
-title: "STAT 545B Course syllabus: 2023/2024"
+title: "STAT 545B Course syllabus: 2024/2025"
 output: 
   html_document:
     toc: true
@@ -26,7 +26,7 @@ How to make a clean and modern data analysis, Part II.
 **Website**: <https://stat545.stat.ubc.ca/>
 
 **Duration**: `r format(dates_545b[1], "%a, %b %d")` -
-`r format(dates_545b[13], "%a, %b %d")`
+`r format(dates_545b[14], "%a, %b %d")`
 
 -   How to write functions and work with R in a functional style
 -   Advanced computation on data: manipulating strings, and functional
@@ -37,17 +37,17 @@ How to make a clean and modern data analysis, Part II.
 
 # Teaching Team
 
-Instructor: Dr. Lucy Gao
+Instructor: Dr. Katie Burak 
 
 Teaching Assistants:
 
 -   Asfar Lathif
--   Emily Brown
 -   Erick Isaac Navarro Delgado
+-   Omar Tariq 
 
 # Meeting Schedule
 
-Tuesdays and Thursdays 0930-1100 PT in Mathematics Annex 1100
+Tuesdays and Thursdays 0900-1030 PT in CEME Room 1202. 
 
 **Be sure to bring a CHARGED laptop to every class!**
 
@@ -56,8 +56,8 @@ There will always be TA's available during class to help students with the live 
 ```{r, results = "asis"}
 here::here("content", "lecture_schedule-545b.csv") %>% 
   read_csv() %>% 
-  mutate(Weekday = wday(dates_545b[-c(6, 14)], label = TRUE),
-         Date = dates_545b_pretty_noyear[-c(6, 14)]) %>% 
+  mutate(Weekday = wday(dates_545b[-c(7, 14)], label = TRUE),
+         Date = dates_545b_pretty_noyear[-c(7, 14)]) %>% 
   select(Class, Weekday, Date, Topic) %>% 
   knitr::kable()
 ```
