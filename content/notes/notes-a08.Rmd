@@ -13,10 +13,10 @@ library(tidyverse)
 
 From this topic, students are anticipated to be able to:
 
--   recognize whether a given dataset is 'tidy' or 'untidy'
--   understand why 'tidy' data is useful
--   reshape a dataset between a 'long' and 'wide' format, using `tidyr::pivot_longer()` and `tidyr::pivot_wider()`
--   deal with missing data in a tibble
+-   recognize whether a given data set is 'tidy' or 'untidy' for their analysis
+-   understand why 'tidy' data can be useful
+-   reshape a data set between 'long' and 'wide' formats, using `tidyr::pivot_longer()` and `tidyr::pivot_wider()`
+-   understand how to grapple with explicit missing values created by pivoting 
 
 ## Resources
 
@@ -46,10 +46,7 @@ knitr::include_graphics("https://www.openscapes.org/img/blog/tidydata/tidydata_1
 
 (Image attribution: "[Tidy Data for reproducibility, efficiency, and collaboration](https://www.openscapes.org/blog/2020/10/12/tidy-data/)" by [Julia Lowndes](https://jules32.github.io/) and [Allison Horst](https://www.allisonhorst.com/).)
 
-
----
-
-## Your turn: work with some untidy data 
+### Your turn: work with some untidy data 
 
 All of the data we used before this week were already tidy. This made it easy to use the tidyverse packages `dplyr` and `ggplot2` to do what we needed to do. What happens when that's not the case? 
 
@@ -81,9 +78,7 @@ With a partner or a small group:
 
 Too easy? Then discuss the steps for how you would transform the first few rows of `drinks_tbl1` from untidy to tidy "by hand", i.e. not by using the tools from the `tidyr` package that we will learn about this week.    
 
---- 
-
-## Tidy depends on the data analysis plan 
+### Tidy depends on the data analysis plan 
 
 > "You better think (think) about what you're trying to do ..." - Aretha Franklin, "Think"
 
@@ -91,7 +86,12 @@ It's clear from the definition that tidiness is an attribute of a dataset. But d
 
 We will demonstrate using data from "The Great British Bake Off" compiled by [Allison Hill](https://www.apreshill.com/) in the R package `bakeoff`. The graphics that follow (and the code to produce the graphics) were lightly adapted from Allison's [Plot Twist talk](https://www.apreshill.com/talk/2019-rladies-sydney/). 
 
-Here is a bar plot of the number of viewers in millions within a 7-day window per episode, coloured by series.
+First, let's decide on some questions we can address with this data. 
+
+1. How did viewership change as new series came out?  
+2. The show moved channels after Series 7. Was viewership higher, lower, or about the same before and after the move? 
+
+These questions have implicitly defined our *observations*: they are individual units of the most granular populations we are trying to describe or compare. Here, the populations to be compared are *series*, and units within them are *episodes*. The *variables* now fall into place: they are measured attributes of our observations (episodes): episode number, viewership, series membership, etc. This means that the following representation of viewership data is tidy for the "change in viewership over series" analysis: 
 
 ```{r} 
 library(bakeoff)
@@ -100,7 +100,14 @@ ratings_tbl1 <- ratings %>%
   mutate(ep_id = row_number()) %>% 
   select(ep_id, viewers_7day, series, episode) 
 
-# create coordinates for labels
+head(ratings_tbl1)
+```
+
+Every row is an observation (a unique episode), and the columns are variables (episode number across series, 7-day viewership, series, and episode number within series).
+
+This is a typical example where the tidy format makes it easy to do our analysis. For example, to investigate these questions, we might make a bar plot of the number of viewers in millions within a 7-day window per episode, coloured by series. The following code uses the tidy tibble `ratings_tbl1` to make this bar plot. Notice that it was easy to use our graphing environment of choice (`ggplot2` in the tidyverse) to make the plot *because* our data is tidy, and the tidyverse is designed to work with tidy data. 
+
+```{r} 
 series_labels <- ratings_tbl1 %>% 
   mutate(series=as.factor(series)) %>% 
   group_by(series) %>% 
@@ -122,17 +129,15 @@ ggplot(aes(x = ep_id, y = viewers_7day, fill = series)) +
   ylab("7-Day Viewership (millions)")
 ```
 
-This bar plot was constructed with the following tidy data representation:
 
-```{r, echo=FALSE} 
-head(ratings_tbl1)
-```
+### Your turn: what's tidy now? 
 
-Every row is an observation (a unique episode), and the columns are variables (episode number across series, 7-day viewership, series, and episode number within series).
+Now let's consider a different set of questions: 
 
-### Your turn: what's tidy for a different plot? 
+1. How did viewership grow between premiere to final episode in each series? 
+2. Does the premiere-to-final-episode growth vary across series? 
 
-Here is another bar plot displaying percentage increase in the number of viewers in millions within a 7-day window from the premiere episode to finale episode for the first 10 series, based on the tidy tibble `ratings_tbl2`. 
+To investigate these questions, we might make a bar plot like the one below displaying percentage increase in the number of viewers in millions within a 7-day window from the premiere episode to finale episode for the first 10 series, using the tidy tibble `ratings_tbl2`. 
 
 ```{r, echo = FALSE}
 ratings_tbl2 <- ratings_tbl1 %>% mutate(series=as.factor(series)) %>% 
@@ -153,20 +158,23 @@ ratings_tbl2 %>% mutate(pct_change = (last - first)/first) %>%
 With a partner or a small group: 
 
 1. What do you think `ratings_tbl2` looks like? 
-2. Why is it tidy? 
+2. Why is it tidy? (Hint: what are the observations and variables?) 
 3. Could you have calculated the information in `ratings_tbl2` using `ratings_tbl1`? (No need to write code - just discuss whether it's possible.) 
 
 ## Pivoting for Tidying
 
-The `tidyr` package is loaded with the `tidyverse` and provides functions for pivoting data.  It has two main "pivoting" type functions: 
+Once you have figured out what's tidy for you, you may come to realize that your data is *not* tidy. As we have discussed, it will typically save you time and frustration to tidy it before moving on in your analysis. 
+
+Very often this will involve using "pivoting" type functions. For example, the `tidyr` package in the tidyverse has two main pivoting functions:
 
 1. `pivot_longer()` makes datasets *longer*: it moves some information in the columns into new rows, thereby *increasing* the number of *rows* of the dataset.  
 2.  `pivot_wider()` makes datasets *wider*: it moves some information in the rows into new columns, thereby *decreasing* the number of rows of the dataset. 
+
 By now, you should have a sense for why this might be useful for tidying! 
 
 ### Pivoting Wider
 
-Here is some code to create a variable for whether an episode is the first or last episode of the season to `ratings_tbl1` and subset to only the data from the first and last episodes of each eason. 
+Here is some code to create a variable for whether an episode is the first or last episode of the season to `ratings_tbl1` and subset to only the data from the first and last episodes of each season. 
 
 ```{r} 
 ratings_tbl1 <- ratings_tbl1 %>% 
@@ -178,7 +186,7 @@ ratings_tbl1 <- ratings_tbl1 %>%
 head(ratings_tbl1)
 ```
 
-This is not the same format as `ratings_tbl2`. But it does contain the same information. To convert `ratings_tbl1` into `ratings_tbl2`, we need to make `ratings_tbl1` *wider*: we need to move some information in the rows (the info about whether each episode is the first or last episode of each season) into new columns. 
+This is not the same format as `ratings_tbl2`, which was the tidy format for our earlier "viewership growth within series" analysis. But it does contain the same information. To finish converting `ratings_tbl1` into `ratings_tbl2`, we need to make `ratings_tbl1` *wider*: we need to move some information in the rows (the info about whether each episode is the first or last episode of each season) into new columns. 
 
 We can solve this problem using `pivot_wider`, which needs three pieces of information. 
 
@@ -220,9 +228,21 @@ Here is a snippet of WHO data on the number of tuberculosis cases in different y
 table4a
 ```
 
-If we wanted to visualize tuberculosis cases over time by country, then this format is not tidy. We want every column to be a variable, like the year, the case count, and the country name, and every row to be an observation (measurements within a country and a year). 
+If we wanted to compare tuberculosis cases over time by country (e.g. by plotting the year on the x-axis and case count on the y-axis with a line for each country), then this format is not tidy. We want to (graphically) compare years within countries, so there should be 
+one observation per unit within each population (country-years). In this case, we do not observe units within each country-year, so each observation is a country-year. The variables then fall into place: the country and year labels, and the case counts.  
 
-That is, we need to make `table4a` *longer*: we need to move some information in the column names (the info about the measurement year) into  new rows. 
+(Aside: if we had measured more data, then perhaps there would be more units within each population! Imagine if we had case-level information, like severity. Then we could view cases as observations within the country-year populations, and we would have variables like country, year, case ID, and severity.)
+
+So the tidy format here puts the variables (the year, the country, and the case counts) on the columns. There are 6 rows, one for each unique country-year combination. 
+
+```{r, echo=FALSE} 
+table4a %>% pivot_longer(cols = c(`1999`, `2000`), 
+                         names_to = "year", 
+                         values_to = "cases")
+```
+
+
+Notice that compared to `table4a`, the tidy format is *longer*. That means to produce it using `table4a`, we need to lengthen it by moving some information in the column names (the info about the measurement year) into  new rows. 
 
 We can solve this problem using `pivot_longer`, which needs three pieces of information. 
 
@@ -238,9 +258,11 @@ table4a %>% pivot_longer(cols = c(`1999`, `2000`),
                          values_to = "cases")
 ```
 
+
+
 #### Challenge 1: Column Names Contain Multiple Variable Values
 
-Here's a more realistic (but still simplified!!!) look at the WHO Tuberculosis data. 
+Here's a more realistic (but still simplified!!) look at the WHO Tuberculosis data. 
 
 ```{r} 
 who_demo <- who2 %>% 
@@ -256,7 +278,9 @@ head(who_demo)
 
 This time, cases are broken down by gender (`f/m`) and by age range (`014\1524\2534\3544\4554\5564\65`). 
 
-There are five variables in this data set: country, year, gender, age range, and case count. Values for gender and age range are currently located in the column names of `who_demo`, and values for case count are currently spread across multiple columns. So to tidy `who_demo` up, we need to use `pivot_longer()` to move the info in the columns into new rows. 
+Suppose now that we are interested in comparing tuberculosis rates over time across (potentially) gender, age, and country. Then the most granular population we are trying to describe is a country, gender, age, and year combination, and like in the last example, we have no measured sub-units within that population, so an observation is a unique combination of country, gender, age, and year. (What a mouthful!)
+
+Once we've sorted that out, the variables fall into place: country, year, gender, age range, and case count. Values for gender and age range are currently located in the column names of `who_demo`, and values for case count are currently spread across multiple columns. So to tidy `who_demo` up, we need to use `pivot_longer()` to move the info in the columns into new rows. 
 
 Conceptually, this is pretty similar to the last example: we want to use the information in `m_014`, `m_1524`, etc.  to create new rows. So we should put those column names into the `cols` argument. But now, we want the information in their column names - the gender and age - to go into *two* new columns: gender and age. We can do this by specifying two column names in the `names_to` argument: `gender` and `age`. 
 
@@ -282,7 +306,7 @@ Let's have a look at the `household` dataset (loaded with the `tidyr` package), 
 head(household)
 ```
 
-We'd want "date of birth" and "name" to be two variables associated with an observation (a child). We know we want to use `pivot_longer()`, because we want to make `household` longer by creating new variables. But wait! The names of the "date of birth"/"name" variables AND the values of the "child" variable are BOTH in the column names of `household`! 
+We are trying to learn about the population from which these children belong; it is hard to say precisely what that is without having more information about how this data was collected, but it is likely something like "all children living in a particular place in a particular year".  The units in this population are children. So to tidy this data, we'd want "date of birth" and "name" to be two variables/columns associated with an observation/row (a child). We know we want to use `pivot_longer()`, because we want to make `household` longer by creating new variables. But wait! The names of the "date of birth"/"name" variables AND the values of the "child" variable are BOTH in the column names of `household`! 
 
 Inspecting [the documentation](https://tidyr.tidyverse.org/reference/pivot_longer.html) for `pivot_longer()` very carefully reveals that you can use a special specification of the `names_to` argument to resolve this problem. 
 
@@ -295,6 +319,25 @@ household %>% pivot_longer(cols = -family,
 The special `".value"` specification says that we want to use the first component of the pivoted column name as a variable name, and make a new column with values coming from the second component of the pivoted column name. The second thing we pass into `names_to` names that new column. 
 
 This process is best described by [Figure 6.7 from R4DS](https://r4ds.hadley.nz/data-tidy#fig-pivot-names-and-values). 
+
+But wait! Row 4 is a bunch of NAs! Does that mean this data isn't tidy?? 
+
+The fact that there is an NA does not necessarily mean that this data is untidy. To be clear: for the purpose of the tidy data definition, an indicator for a missing value *is* a value. 
+
+Whether this data is untidy depends on the data context. Essentially, the question we should ask is: "Is row 4 an observation that we are missing information about? Or is it simply an artifact of our pivoting procedure?" 
+
+Suppose this study was designed to only sample families with two children. Then, row 4 could be a real observation that we are missing information about: family 2 should have only been included if they had two children. Perhaps this reflects family 2 filling out a survey that asks them the number of children (in which they listed 2), but then getting distracted and forgetting to fill out the information for their second child. In this case, our data is tidy, and the tidy data format is a real advantage: it reveals missing information in our data set that was not obvious from the original untidy format. 
+
+Now suppose this study just samples families at large. We know from experience about the world that some families have one children, some families have two, and some families have more. Then, it seems possible that row 4 is *not* a real observation: family 2 might just have a single child. In this case, we have a row for something that is not an observation, so we would like to tidy up by dropping it. We could actually have done this by altering our original `pivot_wider()` call as follows: 
+
+```{r} 
+household %>% pivot_longer(cols = -family, 
+                           names_to = c(".value", "child"), 
+                           names_sep = "_", 
+                           values_drop_na = TRUE)
+```
+
+This discussion highlights the importance of knowing the context in which your data is collected for tidying (and for your analysis at large). Here and elsewhere, it really pays to be in close contact with the people who generated your data. 
 
 ## Separating and Uniting for Tidying
 
@@ -333,15 +376,13 @@ Now's your chance to ask about any questions you got stuck on and get them answe
 
 As we've seen, tidy data is often very helpful. But there are also times when *un*tidy data is good. Here are a few reasons: 
 
-- The format that lends itself best to fast computations might not be tidy. [Case Study: Tidy Genomics](http://varianceexplained.org/r/tidy-genomics/). 
+- The format that lends itself best to fast computations might not be tidy. [Simply Statistics: Non-Tidy Data](https://simplystatistics.org/posts/2016-02-17-non-tidy-data/). 
 - Untidy data is often easier for humans to interpret and edit. See [Untidy Data: The Unreasonable Effectiveness of Tables](https://arxiv.org/pdf/2106.15005.pdf).
-- We lose important information about the data context by tidying. This can have important ethical implications; see Chapter 5 of the book ["Data Feminism"](https://data-feminism.mitpress.mit.edu/) by Catherine D'Ignazio and Lauren F. Klein. 
+- We could lose important information about the context in which the data was collected by cleaning and tidying raw data. This can have important ethical implications; see Chapter 5 of the book ["Data Feminism"](https://data-feminism.mitpress.mit.edu/) by Catherine D'Ignazio and Lauren F. Klein. 
 
 In summary, tidiness is a very useful concept, and tidying data is often useful. But we should remember that absolutes are few and far between in data science and statistics. Just because tidying data is *often* useful, doesn't mean it's *always* useful. 
 
 ## Attribution 
-
-Most of these notes were compiled by Lucy Gao. The remainder was compiled by previous iterations of the instructional staff, including Vincenzo Coia. 
 
 Albert Y. Kim inspired the in-class exercises using the `drinks` data set from `fivethirtyeight`. Allison Horst and Julia Lowndes created the illustrated tidy data series. Alison Hill inspired the Great British Bakeoff example. We are immensely grateful to these people for creating amazing educational materials!
 
