@@ -1,7 +1,6 @@
 .Rproj.user
 .Rhistory
 .RData
-*.Rproj
 .Rprofile
 /public/
 *.ipynb_checkpoints
