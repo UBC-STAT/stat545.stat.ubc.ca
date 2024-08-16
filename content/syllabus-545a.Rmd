@@ -1,5 +1,5 @@
 ---
-title: "STAT 545A Course syllabus: 2023/2024"
+title: "STAT 545A Course syllabus: 2024/2025"
 output: 
   # pdf_document:
   #   toc: true
@@ -48,11 +48,11 @@ Teaching Assistants:
 
 -   Asfar Lathif
 -   Erick Isaac Navarro Delgado
--   Emily Brown
+-   Omar Tariq 
 
 # Meeting Schedule
 
-Tuesdays and Thursdays 0900-1030 PT in Mathematics Annex 1100
+Tuesdays and Thursdays 0900-1030 PT in CEME Room 1202. 
 
 **Be sure to bring a CHARGED laptop to every class!** 
 

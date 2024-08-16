@@ -1,6 +1,6 @@
 # Enter the first day of class (usually Imagine Day)
 library(lubridate)
-lec0 <- ymd("2023-09-05")
+lec0 <- ymd("2024-09-03")
 
 # Computations based on lec0:
 n_weeks_a <- 7
