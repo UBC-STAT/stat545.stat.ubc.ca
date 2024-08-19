@@ -9,9 +9,9 @@ Similarly, we can use Rmd as a framework for creating pdf slides (through the Be
 
 This is especially powerful when you move to the *next generation* version of Rmd, [Quarto](https://quarto.org/). 
 
-Note that Quarto was released in 2022, so as of the time of writing this (Nov 2023), there are still some growing pains. But it seems to be the way of the future for websites and slides, so it's what we'll cover. 
+Note that Quarto was released in 2022, so there are still some growing pains. But it seems to be the way of the future for websites and slides, so it's what we'll cover. 
 
-This topic is optional. It wil probably also be short.  
+This topic is optional. It will probably also be short.  
 
 ## Quarto Installation and Basics 
 
@@ -19,7 +19,7 @@ Official tutorial [here](https://quarto.org/docs/get-started/hello/rstudio.html)
 
 ## Quarto Websites 
 
-Official tutorial [here](https://quarto.org/docs/websites/). An example of a Quarto website is [Lucy's website](https://www.lucylgao.com/). Also see [Lucy's slide deck](https://www.dropbox.com/s/fit9xfhndr79w6m/2023-StudentSeminar.pdf) on building a professional online presence for why you should have a website **right now**. 
+Official tutorial [here](https://quarto.org/docs/websites/). See [Quarto's Gallery](https://quarto.org/docs/gallery/) for a variety of sample output formats, such as presentations, websites and reports. Here is an example of a Quarto website from a workshop I collaborated on for creating and distributing R packages: [SSC Workshop 2024](https://ubc-stat.github.io/ssc-workshop-2024/). Also see [this slide deck by Lucy Gao](https://www.dropbox.com/s/fit9xfhndr79w6m/2023-StudentSeminar.pdf) on building a professional online presence for why you should have a website **right now**. 
 
 Once you've built a website (collection of html files), you will need to **host it** somewhere on the internet. Our recommendation is [Github Pages](https://pages.github.com/) or [Netlify](https://www.netlify.com/) because they're free. 
 

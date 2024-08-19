@@ -73,7 +73,7 @@ Github is a place where repositories can live online. Being online provides us a
 
 ### Useful Github tips for the course
 
--  All of your projects in this class will live in the [STAT 545 @ UBC Organization](https://github.com/stat545ubc-2023).
+-  All of your projects in this class will live in the [STAT 545 @ UBC Organization](https://github.com/stat545ubc-2024).
 
 - When you watch a Github repo, you get notifications when things happen in them. So if you "Watch" the STAT 545 webpage repo, then you will get email notifications when I update the site! 
 
@@ -85,7 +85,7 @@ Github is a place where repositories can live online. Being online provides us a
 
 Try making your own Github repository and editing it on Github! (This exercise is slightly adapted from [Data Carpentries](https://datacarpentry.org/rr-version-control/02-git-in-github/index.html).)
 
-1. Go to your GitHub profile. Eg. Mine is [https://github.com/lucylgao](https://github.com/lucylgao). 
+1. Go to your GitHub profile. Eg. Mine is [https://github.com/katieburak](https://github.com/katieburak). 
 
 1. Create a new GitHub repository by clicking the `+` symbol in the top bar and using the dropdown menu to create a new repository. 
 
