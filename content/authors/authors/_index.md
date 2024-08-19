@@ -1,6 +1,6 @@
 ---
 authors:
-- lucy
+- katie
 name: Dr. Katie Burak
 #role: Instructor for STAT 545A/B
 # Organizations/Affiliations

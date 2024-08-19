@@ -30,14 +30,14 @@ Some additional resources that you might find useful:
 
 #### Introductions
 
--   Lucy (instructor): [www.lucylgao.com](https://www.lucylgao.com)
--   TA's: Asfar, Emily, Erick.
+-   Katie (instructor): [https://katieburak.github.io/](https://katieburak.github.io/)
+-   TA's: Asfar, Omar, Erick.
 
 #### Course Platforms
 
 Platforms for hosting course-related content:
 
-1.  Slack (<https://stat545classroom2023.slack.com/>)
+1.  Slack (<https://stat545-ab.slack.com>)
 
     -   Especially `#announcements` channel
     -   Here's a [photo of what it looks like](https://cdn.vox-cdn.com/thumbor/ljup85YXH0uSunvONPrkkys_1po=/0x0:1980x1320/1820x1213/filters:focal(832x502:1148x818):format(webp)/cdn.vox-cdn.com/uploads/chorus_image/image/66517684/slacknewdesign.0.jpg) (from Vox)
