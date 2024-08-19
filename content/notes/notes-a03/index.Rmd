@@ -72,11 +72,9 @@ The vast majority of us have used a workflow that led to reproducibility challen
 
 Think and write down a non-reproducible, or non-auditable, workflow you have used before at work, on a personal project, or in course work, that negatively impacted your work somehow (make sure to include this in the story). Here’s an example:
 
-Here's my story:
-
 > In the first year of my PhD, I used R to do statistical analysis for my Research Assistantship on a project characterizing liver donor offers to pediatric patients. I obtained the results by running my code in the R console and copying the results into a Word document that became the manuscript. Months later, we were working on revisions requested by the reviewers and I wasn't sure which version of the code I ran to get the results in the submitted manuscript! I eventually figured it out, but it took long enough to be frustrating and I was very stressed out. 
 
-When prompted, paste your story in the Google doc (link on Canvas).
+When prompted, paste your story in the Discussion forum on Canvas.
 
 ## Introduction to R Markdown
 
