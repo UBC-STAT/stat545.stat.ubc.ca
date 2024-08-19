@@ -1,7 +1,7 @@
 ---
 authors:
-- emily
-name: Emily Brown
+- omar
+name: Omar Tariq
 # role: Teaching Assistant
 # Organizations/Affiliations
 organizations:
