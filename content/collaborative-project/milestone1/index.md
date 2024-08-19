@@ -20,15 +20,15 @@ This is the first of two milestones for completing this project.
 
 **5 points**
 
-0. We will be assigning students to teams randomly. Team assignments  are on canvas in the entry called [Groups for Collaborative Project](https://canvas.ubc.ca/courses/126199/pages/groups-for-collaborative-project).
+0. We will be assigning students to teams randomly. Team assignments  are on canvas in the entry called [Groups for Collaborative Project]().
 
 For both collaborative project milestones, you'll be working with your teammate(s) on the same GitHub repository (or "repo"). One person in the team will need to make the repository; the other(s) can then join that repo.
 
-1.  Have one group member make a repository on GitHub, by following the steps found on canvas in the entry called [Collaborative Project: Create a repository for your team](https://canvas.ubc.ca/courses/126199/pages/collaborative-project-create-a-repository-for-your-team). One completed, your repository should automatically be listed as part of the [stat545ubc-2023 Organization](https://github.com/stat545ubc-2023).
+1.  Have one group member make a repository on GitHub, by following the steps found on canvas in the entry called [Collaborative Project: Create a repository for your team](https://canvas.ubc.ca/courses/126199/pages/collaborative-project-create-a-repository-for-your-team). One completed, your repository should automatically be listed as part of the [stat545ubc-2024 Organization](https://github.com/stat545ubc-2024).
 
 2.  That same group member must now add their teammates to the repository as collaborators. To do this:
 
-    1.  Go to your repository's homepage. The URL is probably <https://github.com/stat545ubc-2023/collaborative-groupX>, where X is your group number.
+    1.  Go to your repository's homepage. The URL is probably <https://github.com/stat545ubc-2024/collaborative-groupX>, where X is your group number.
     2.  Go to "Settings" -\> "Manage Access"
     3.  Click the green "Invite teams or people" button.
     4.  Input one teammate's github username (you'll have to do one at a time).
