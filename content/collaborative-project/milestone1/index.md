@@ -10,7 +10,7 @@
 
 By completing this project, students are expected to be able to:
 
-1.  Collaborate on a project with a partner using the git + GitHub workflow.
+1.  Collaborate on a project using the git + GitHub workflow.
 2.  Troubleshoot broken R code.
 3.  Rewrite code to address instructions.
 

@@ -65,11 +65,11 @@ A repository stores files and the history of the files; the usual convention is 
 
 Github is a place where repositories can live online. Being online provides us a way to share and collaborate on projects. It also serves as a backup for your project. 
 
-**Example 1**: [Lucy's clusterpval R package](https://github.com/lucylgao/clusterpval)
+**Example 1**: [Katie's Girls in Data Science Camp](https://github.com/katieburak/girls-in-DS)
 
 **Example 2**: [The STAT 545 webpage](https://github.com/UBC-STAT/stat545.stat.ubc.ca)
 
- The first repository lives under Lucy's personal Github account. The second repository  lives under the [UBC-STAT](https://github.com/UBC-STAT) organization. Organizations are useful if you have lots of different projects with a common theme which lots of people are collaborating on.
+ The first repository lives under Katie's personal Github account. The second repository  lives under the [UBC-STAT](https://github.com/UBC-STAT) organization. Organizations are useful if you have lots of different projects with a common theme which lots of people are collaborating on.
 
 ### Useful Github tips for the course
 
