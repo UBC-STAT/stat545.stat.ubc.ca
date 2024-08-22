@@ -56,8 +56,8 @@ There will always be TA's available during class to help students with the live 
 ```{r, results = "asis"}
 here::here("content", "lecture_schedule-545b.csv") %>% 
   read_csv() %>% 
-  mutate(Weekday = wday(dates_545b[-c(7, 14)], label = TRUE),
-         Date = dates_545b_pretty_noyear[-c(7, 14)]) %>% 
+  mutate(Weekday = wday(dates_545b[-7], label = TRUE),
+         Date = dates_545b_pretty_noyear[-7]) %>% 
   select(Class, Weekday, Date, Topic) %>% 
   knitr::kable()
 ```
@@ -75,7 +75,7 @@ here::here("content", "lecture_schedule-545b.csv") %>%
 | Deliverable    | Percent Grade | Description |
 |----------------|---------------|-------------------------|
 | Class worksheets | 15 | Autograded walkthroughs to guide student learning. |
-| Assignments | 85 | e.g. adding to a data analysis, making a small R package, making a Shiny dadshboard | 
+| Assignments | 85 | e.g. adding to a data analysis, making a small R package, making a Shiny dashboard | 
 
 
 More details can be found [on the course

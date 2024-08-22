@@ -36,8 +36,8 @@ Optional further reading to learn about the `across()` function:
 
 1. True or False? Running filter or select on your tibble permanently changes your tibble. 
 2. True or False? The pipe operator `%>%` works for functions outside of the tidyverse, too.
-3. `summarise()` reduces each group down to one row, and `mutate()` preserves the number of rows. But, between the two, there's a way to reduce each group down to _two_ rows.
-4. `across()` doesn't allow you to make new column names. 
+3. True or False? `summarise()` reduces each group down to one row, and `mutate()` preserves the number of rows. But, between the two, there's a way to reduce each group down to _two_ rows.
+4. True or False? `across()` doesn't allow you to make new column names. 
 
 ## Why Data Manipulation?
 
