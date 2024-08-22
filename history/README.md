@@ -1,1 +1,0 @@
-It would be nice to put together some sort of "history" page for STAT 545. This folder is intended to squirrel away some resources that might be useful for developing this history page. 
