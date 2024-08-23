@@ -21,12 +21,6 @@ Tutorial:
 
 - The ["Writing and Reading files"](https://stat545.com/import-export.html) chapter of stat545.com.
 
-## Test your Understanding
-
-1. True or False: if you want to be deliberate about where `here::here()` points to on your computer, you need to ensure you have an .Rproj file.
-2. True or False: Suppose you have an .Rproj file in the same folder as your R script. Running `here::here()` from that R script will always point to that folder.
-
-
 ## Formats 
 
 Here are a few formats that you might want to read and write data to: 
@@ -51,6 +45,13 @@ Main functions of note are `read_csv()` and `write_csv()`: tidyverse equivalents
 Want to read and write to an Excel file? The `readxl` package in the tidyverse is for you! 
 
 For the very niche option of R binary: `read_rds()` and `write_rds()`. 
+
+## Test your Understanding
+
+1. True or False: if you want to be deliberate about where `here::here()` points to on your computer, you need to ensure you have an .Rproj file.
+2. True or False: Suppose you have an .Rproj file in the same folder as your R script. Running `here::here()` from that R script will always point to that folder.
+
+---
 
 ## Your turn: try it out! 
 

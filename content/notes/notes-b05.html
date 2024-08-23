@@ -28,15 +28,6 @@ output: html_document
 <li>The stat545.com Chapter 11 on character vectors <a href="https://stat545.com/character-vectors.html#resources-3">has an elaborate discussion on useful resources</a> for learning more about strings.</li>
 </ul>
 </div>
-<div id="test-your-understanding" class="section level2">
-<h2>Test Your Understanding</h2>
-<p>Use these questions to check your understanding of the material.</p>
-<ol style="list-style-type: decimal">
-<li>True or False: The regular expression <code>[ab][ab]</code> will match “ab”, “aa”, and “bb” as possibilities, whereas <code>[ab]{2}</code> will only match “aa” or “bb”.</li>
-<li>True or False: The regular expression <code>[ab][ab]</code> will match “ab”, “aa”, and “bb” as possibilities, whereas <code>(ab)(ab)</code> will only match “aa” or “bb”.</li>
-<li>True or False: The regular expression <code>^ab</code> will match “ab” as the first characters to a string, whereas <code>[^ab]</code> will match “a” or “b” as being the first character to a string.</li>
-</ol>
-</div>
 <div id="strings" class="section level2">
 <h2>Strings</h2>
 <p>You’ve used a bunch of strings at this point without knowing explicitly what they are: any time you surround text by <code>"</code>, you’ve been making a <em>string</em>: a storage format for text. In R, they are of type “character”.</p>
@@ -57,6 +48,15 @@ cat(single_quote)</code></pre>
 <div id="working-with-strings" class="section level2">
 <h2>Working with strings</h2>
 <p>Our main tools for working with strings will be the powerful <code>stringr</code> package in the tidyverse paired with regular expressions. We think the best way to start learning these is through the guided tutorial in Worksheet B2.</p>
+</div>
+<div id="test-your-understanding" class="section level2">
+<h2>Test Your Understanding</h2>
+<p>Use these questions to check your understanding of the material.</p>
+<ol style="list-style-type: decimal">
+<li>True or False: The regular expression <code>[ab][ab]</code> will match “ab”, “aa”, and “bb” as possibilities, whereas <code>[ab]{2}</code> will only match “aa” or “bb”.</li>
+<li>True or False: The regular expression <code>[ab][ab]</code> will match “ab”, “aa”, and “bb” as possibilities, whereas <code>(ab)(ab)</code> will only match “aa” or “bb”.</li>
+<li>True or False: The regular expression <code>^ab</code> will match “ab” as the first characters to a string, whereas <code>[^ab]</code> will match “a” or “b” as being the first character to a string.</li>
+</ol>
 <div id="agenda" class="section level3">
 <h3>Agenda</h3>
 </div>

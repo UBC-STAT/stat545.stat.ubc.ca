@@ -41,16 +41,6 @@ Written material:
 - [Package development cheat sheet](https://rawgit.com/rstudio/cheatsheets/master/package-development.pdf)
 - To learn more about using S3 object oriented functions in your package, see ["Advanced R" Chapter 13: S3](https://adv-r.hadley.nz/s3.html).
 
-## Test Your Understanding
-
-It might help to browse a completed package directory to answer these questions, like the [powers package](https://github.com/vincenzocoia/powers).
-
-1. True or False: The mandatory files in an R package are a DESCRIPTION file, a NAMESPACE file, and functions in the R/ directory -- everything else is just helpful.
-2. So far we've been using devtools functions in the console (instead of saved in a script). True or False: if you're making a bigger R package, you should start putting those devtools functions in one or more R scripts.
-3. True or False: Add any package name to the `Imports` field in the DESCRIPTION file, and we can now use functions from that package using `::`.
-4. True or False: We can't *both* add exports to the NAMESPACE file manually and by using `devtools::document()`. 
-
-
 ## Why R Packages 
 
 Why make an R package? As mentioned in the "functions" topic, your analysis will probably benefit from homemade functions: making functions forces you to think about your analysis in terms of its key computational parts, and makes for robust and readable code. Here are a few benefits that result by bundling these functions into an R package:
@@ -100,3 +90,12 @@ Release your package:
 - Make a NEWS.md file with `use_news_md()` and add the main development notes.  
 - Choose a version number; put in description file, and tag a release on GitHub.
   - You should also prepare your package for the next version -- I suggest doing this on a new branch.
+  
+## Test Your Understanding
+
+It might help to browse a completed package directory to answer these questions, like the [powers package](https://github.com/vincenzocoia/powers).
+
+1. True or False: The mandatory files in an R package are a DESCRIPTION file, a NAMESPACE file, and functions in the R/ directory -- everything else is just helpful.
+2. So far we've been using devtools functions in the console (instead of saved in a script). True or False: if you're making a bigger R package, you should start putting those devtools functions in one or more R scripts.
+3. True or False: Add any package name to the `Imports` field in the DESCRIPTION file, and we can now use functions from that package using `::`.
+4. True or False: We can't *both* add exports to the NAMESPACE file manually and by using `devtools::document()`. 

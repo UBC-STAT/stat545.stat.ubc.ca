@@ -30,29 +30,6 @@ output: html_document
 </ul></li>
 </ul>
 </div>
-<div id="test-your-understanding" class="section level2">
-<h2>Test Your Understanding</h2>
-<ol style="list-style-type: decimal">
-<li>The output of the following code is equivalent to a factor with the letters “a” to “f”.</li>
-</ol>
-<pre class="r"><code>(abc &lt;- factor(letters[1:3]))
-#&gt; [1] a b c
-#&gt; Levels: a b c
-(def &lt;- factor(letters[4:6]))
-#&gt; [1] d e f
-#&gt; Levels: d e f
-c(abc, def)</code></pre>
-<ol start="2" style="list-style-type: decimal">
-<li>The output of the following code is a date object.</li>
-</ol>
-<pre class="r"><code>library(lubridate)
-
-date &lt;- ymd(&quot;2020-10-13&quot;)
-
-dt &lt;- ymd_hms(&quot;2020-10-13 09:30:00&quot;)
-
-c(date, dt)</code></pre>
-</div>
 <div id="factors" class="section level2">
 <h2>Factors</h2>
 <blockquote>
@@ -73,7 +50,8 @@ c(date, dt)</code></pre>
 <p><strong>Under the hood</strong>, R stores a factor with (say) 3 levels as a numeric vector containing integers between 1 and 3, paired with a character vector of length 3 that identifies the mapping between the numbers 1, 2, and 3 and the levels.</p>
 <p>This is not immediately obvious, because R will print factors using the character string levels rather than the numbers that it stores:</p>
 <pre class="r"><code>penguins %&gt;% slice_sample(n=10) %&gt;% pull(species)</code></pre>
-<pre><code>##  [1] Adelie Adelie Gentoo Gentoo Gentoo Gentoo Adelie Gentoo Adelie Adelie
+<pre><code>##  [1] Gentoo    Adelie    Adelie    Gentoo    Gentoo    Adelie    Adelie   
+##  [8] Chinstrap Adelie    Adelie   
 ## Levels: Adelie Chinstrap Gentoo</code></pre>
 <p>This dual nature of factors creates a whole slew of hidden traps and headaches, especially for new useRs!</p>
 <p>Nevertheless, factors are important and worth the pain. Many functions throughout the R landscape expect categorical variables to be coded as factors. For example, when making plots in either <code>ggplot2</code> or in base R, we need factors in order to map categorical variables to aesthetic elements like colour.</p>
@@ -101,8 +79,31 @@ c(date, dt)</code></pre>
 <h3>Third part: Dates and/or Times</h3>
 <p>Often you will need to work with dates and times in your data. For example, we could have had a variable in the FEV data set that contains the date of each patient visit.</p>
 <p>Dates and times seem simple, but they are actually one of the most complicated things you will encounter in data analysis.</p>
-<hr />
 </div>
+</div>
+<div id="test-your-understanding" class="section level2">
+<h2>Test Your Understanding</h2>
+<ol style="list-style-type: decimal">
+<li>The output of the following code is equivalent to a factor with the letters “a” to “f”.</li>
+</ol>
+<pre class="r"><code>(abc &lt;- factor(letters[1:3]))
+#&gt; [1] a b c
+#&gt; Levels: a b c
+(def &lt;- factor(letters[4:6]))
+#&gt; [1] d e f
+#&gt; Levels: d e f
+c(abc, def)</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>The output of the following code is a date object.</li>
+</ol>
+<pre class="r"><code>library(lubridate)
+
+date &lt;- ymd(&quot;2020-10-13&quot;)
+
+dt &lt;- ymd_hms(&quot;2020-10-13 09:30:00&quot;)
+
+c(date, dt)</code></pre>
+<hr />
 </div>
 <div id="your-turn-making-a-date-variable" class="section level2">
 <h2>Your turn: Making a date variable</h2>

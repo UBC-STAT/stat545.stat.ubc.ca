@@ -43,12 +43,6 @@ Some additional resources that you might find useful:
 
 -   Read the [Understanding the GitHub flow](https://guides.github.com/introduction/flow/) to get a sense of branching.
 
-## Test Your Understanding
-
-1.  You've just successfully pushed your branch to GitHub! True or False: it's still possible for the branch on GitHub to contain work that's not on your computer.
-2.  You're ready to push some code you added to `code.R` to GitHub, but just found out that your teammate completely changed `code.R` on GitHub! True or False: If you pull the repository from GitHub, you'll get an error because your `code.R` conflicts with GitHub's `code.R`.
-3.  True or False: If you've just changed a file on your computer, in order to push it to GitHub, you'll first need to commit the file.
-
 <!-- ## Version control: what is it, and why should you care?  -->
 
 <!-- Version control software systematically records changes to a set of files over time, and allows us to summon and compare any version of these files that was recorded on demand.  -->
@@ -141,6 +135,12 @@ STAT 777 @ UBC
 3. The stuff below the `<<<<<<<` and above the `=======` is what was in your local version; the stuff above the `>>>>>>>` and below the `=======` is what was in the remote conflicting version. Decide what you want to have on the offending line (e.g. "STAT 555 @ UBC), and replace the whole block of text above with that. 
 
 4. Save and commit the file. (An informative message here might be "Fixing a merge conflict.") You should now be able to successfully push! 
+
+## Test Your Understanding
+
+1.  You've just successfully pushed your branch to GitHub! True or False: it's still possible for the branch on GitHub to contain work that's not on your computer.
+2.  You're ready to push some code you added to `code.R` to GitHub, but just found out that your teammate completely changed `code.R` on GitHub! True or False: If you pull the repository from GitHub, you'll get an error because your `code.R` conflicts with GitHub's `code.R`.
+3.  True or False: If you've just changed a file on your computer, in order to push it to GitHub, you'll first need to commit the file.
 
 --- 
 

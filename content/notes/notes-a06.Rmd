@@ -59,13 +59,6 @@ Resources about producing effective visualizations:
     - Vincenzo's ["Communicating data" slides](https://vincenzocoia.com/communicating_data/#1) provide some rules of thumb.
     - [Callingbull.org's entry on visualizations](https://www.callingbull.org/tools/tools_misleading_axes.html), by Carl T. Bergstrom and Jevin West, goes over several examples of improving ineffective visuals. 
 
-## Test Your Understanding
-
-1. True or False: You can re-specify global aesthetics by adding an `aes()` layer to a ggplot object. 
-2. True or False: With ggplot2, we can specify the data in a geom layer, in addition to the initial `ggplot()` layer.
-3. True or False: Because the `dplyr::group_by()` function and ggplot2's `group` aesthetic both split a tibble into groups, we can use either one when making a plot. 
-4. True or False: In principle, mapping `continent` to letters (a, b, c, ...) is an aesthetic mapping.
-
 ## Why Plotting?
 
 The human visual cortex is a powerful thing. If you're wanting to point someone's attention to a bunch of numbers, I can assure you that you won't elicit any "aha" moments by displaying those numbers in a table, either in a report or (especially!) a presentation. Turn those numbers into a plot, and suddenly you can see patterns and relationships.
@@ -181,6 +174,15 @@ ggplot(gapminder, aes(gdpPercap, lifeExp)) +
   theme_minimal() +
   ylab("Life Expectancy")
 ```
+
+## Test Your Understanding
+
+1. True or False: You can re-specify global aesthetics by adding an `aes()` layer to a ggplot object. 
+2. True or False: With ggplot2, we can specify the data in a geom layer, in addition to the initial `ggplot()` layer.
+3. True or False: Because the `dplyr::group_by()` function and ggplot2's `group` aesthetic both split a tibble into groups, we can use either one when making a plot. 
+4. True or False: In principle, mapping `continent` to letters (a, b, c, ...) is an aesthetic mapping.
+
+---
 
 ## Your turn: learning to use ggplot2
 

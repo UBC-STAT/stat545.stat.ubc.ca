@@ -50,11 +50,6 @@ Others:
 
     -   An entertaining and concise argument against using "WYSIWYG" editors like Microsoft Word.
 
-## Test Your Understanding
-
-1.  True or False: It doesn't make sense to output an .Rmd file to markdown, because .Rmd is already markdown.
-2.  Which of these file formats are proprietary? (a) `.docx`; (b) `.html`; (c) `.txt`; (d) `.Rmd`; (e) `.xlsx`
-
 ## Reproducible data analysis
 
 Let's say we have some data analysis results, like a figure or a table. We would say these results are *reproducible* if we could produce the same results by using the same data and code. 
@@ -174,6 +169,11 @@ Just like YAML is metadata for the Rmd document, *code chunk options* are metada
 2.  Change the figure width and height with `fig.width = 5` and `fig.height = 3`.
 
 3.  Knit the results. Can you spot the differences?
+
+## Test Your Understanding
+
+1.  True or False: It doesn't make sense to output an .Rmd file to markdown, because .Rmd is already markdown.
+2.  Which of these file formats are proprietary? (a) `.docx`; (b) `.html`; (c) `.txt`; (d) `.Rmd`; (e) `.xlsx`
 
 --- 
 

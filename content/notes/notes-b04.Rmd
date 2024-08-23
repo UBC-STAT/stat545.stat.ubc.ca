@@ -38,6 +38,10 @@ Other dashboard tools besides shiny (but not in R):
 - With python: plotly dash. Check out the [main website](https://plotly.com/dash/), or [this Medium post](https://medium.com/plotly/introducing-dash-5ecf7191b503) introducing the tool.
 - With javascript: [D3](https://d3js.org/), a tremendously powerful tool with a steep learning curve (esp. if you don't know javascript).
 
+## Agenda 
+
+We are going to be working off of a [slide deck](https://docs.google.com/presentation/d/1dXhqqsD7dPOOdcC5Y7RW--dEU7UfU52qlb0YD3kKeLw/edit#slide=id.p) and [tutorial](https://deanattali.com/blog/building-shiny-apps-tutorial/) written by Dean Attali. This should take two classes. 
+
 ## Test Your Understanding
 
 1. True or False: A shiny app, as a website, still requires an instance of R running in the background. The stat545.stat.ubc.ca website is static: it doesn't require an active session to be running in the background.
@@ -50,9 +54,6 @@ Other dashboard tools besides shiny (but not in R):
    ```
 4. True or False: Since shiny's UI is html, we can manually write the UI by writing HTML in the `HTML()` function. 
 
-## Agenda 
-
-We are going to be working off of a [slide deck](https://docs.google.com/presentation/d/1dXhqqsD7dPOOdcC5Y7RW--dEU7UfU52qlb0YD3kKeLw/edit#slide=id.p) and [tutorial](https://deanattali.com/blog/building-shiny-apps-tutorial/) written by Dean Attali. This should take two classes. 
 
 <!-- ## Demonstration -->
 

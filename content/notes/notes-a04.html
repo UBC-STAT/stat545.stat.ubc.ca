@@ -37,15 +37,6 @@ output: html_document
 <li><a href="https://www.tidyverse.org/blog/2020/04/dplyr-1-0-0-colwise/">Hadley Wickham’s blog post on the topic</a>.</li>
 </ul>
 </div>
-<div id="test-your-understanding" class="section level2">
-<h2>Test Your Understanding</h2>
-<ol style="list-style-type: decimal">
-<li>True or False? Running filter or select on your tibble permanently changes your tibble.</li>
-<li>True or False? The pipe operator <code>%&gt;%</code> works for functions outside of the tidyverse, too.</li>
-<li>True or False? <code>summarise()</code> reduces each group down to one row, and <code>mutate()</code> preserves the number of rows. But, between the two, there’s a way to reduce each group down to <em>two</em> rows.</li>
-<li>True or False? <code>across()</code> doesn’t allow you to make new column names.</li>
-</ol>
-</div>
 <div id="why-data-manipulation" class="section level2">
 <h2>Why Data Manipulation?</h2>
 <p>You have a shiny new data set - great! You might be tempted to dive right in and start making pretty graphs and fitting cool models to your data. Not so fast! In practice, it’s very rare that you have the data in the exact right form to make the graph you want, or fit the model you want. You will need to start by <em>manipulating</em> your data into the right form: creating new variables, subsetting rows, renaming columns, etc.</p>
@@ -57,6 +48,16 @@ output: html_document
 <li>Basic info gathering: number of rows, number of columns, amount of missing data, etc.</li>
 </ul>
 <p>All of these require data manipulation. We choose to use the <code>dplyr</code> (pronounced d-plier) package for this.</p>
+</div>
+<div id="test-your-understanding" class="section level2">
+<h2>Test Your Understanding</h2>
+<ol style="list-style-type: decimal">
+<li>True or False? Running filter or select on your tibble permanently changes your tibble.</li>
+<li>True or False? The pipe operator <code>%&gt;%</code> works for functions outside of the tidyverse, too.</li>
+<li>True or False? <code>summarise()</code> reduces each group down to one row, and <code>mutate()</code> preserves the number of rows. But, between the two, there’s a way to reduce each group down to <em>two</em> rows.</li>
+<li>True or False? <code>across()</code> doesn’t allow you to make new column names.</li>
+</ol>
+<hr />
 </div>
 <div id="your-turn-learning-to-use-dplyr" class="section level2">
 <h2>Your turn: learning to use dplyr</h2>

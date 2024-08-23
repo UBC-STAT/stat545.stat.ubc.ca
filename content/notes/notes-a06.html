@@ -58,15 +58,6 @@ We will spend roughly two days on this topic. -->
 </ul></li>
 </ul>
 </div>
-<div id="test-your-understanding" class="section level2">
-<h2>Test Your Understanding</h2>
-<ol style="list-style-type: decimal">
-<li>True or False: You can re-specify global aesthetics by adding an <code>aes()</code> layer to a ggplot object.</li>
-<li>True or False: With ggplot2, we can specify the data in a geom layer, in addition to the initial <code>ggplot()</code> layer.</li>
-<li>True or False: Because the <code>dplyr::group_by()</code> function and ggplot2’s <code>group</code> aesthetic both split a tibble into groups, we can use either one when making a plot.</li>
-<li>True or False: In principle, mapping <code>continent</code> to letters (a, b, c, …) is an aesthetic mapping.</li>
-</ol>
-</div>
 <div id="why-plotting" class="section level2">
 <h2>Why Plotting?</h2>
 <p>The human visual cortex is a powerful thing. If you’re wanting to point someone’s attention to a bunch of numbers, I can assure you that you won’t elicit any “aha” moments by displaying those numbers in a table, either in a report or (especially!) a presentation. Turn those numbers into a plot, and suddenly you can see patterns and relationships.</p>
@@ -127,37 +118,37 @@ Check out [this comparison of the three](http://www.jvcasillas.com/base_lattice_
 <p>This scatterplot has the following grammar components:</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>Grammar Component</th>
 <th>Specification</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><strong>data</strong></td>
 <td><code>gapminder</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><strong>aesthetic mapping</strong></td>
 <td><strong>x</strong>: <code>gdpPercap</code>, <strong>y:</strong> <code>lifeExp</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><strong>geometric object</strong></td>
 <td>points</td>
 </tr>
-<tr class="even">
+<tr>
 <td>scale</td>
 <td>x: log10, y: linear</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>statistical transform</td>
 <td>none</td>
 </tr>
-<tr class="even">
+<tr>
 <td>coordinate system</td>
 <td>rectangular</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>facetting</td>
 <td>none</td>
 </tr>
@@ -197,6 +188,16 @@ Check out [this comparison of the three](http://www.jvcasillas.com/base_lattice_
   theme_minimal() +
   ylab(&quot;Life Expectancy&quot;)</code></pre>
 <p><img src="/notes/notes-a06_files/figure-html/unnamed-chunk-7-1.png" width="480" style="display: block; margin: auto;" /></p>
+</div>
+<div id="test-your-understanding" class="section level2">
+<h2>Test Your Understanding</h2>
+<ol style="list-style-type: decimal">
+<li>True or False: You can re-specify global aesthetics by adding an <code>aes()</code> layer to a ggplot object.</li>
+<li>True or False: With ggplot2, we can specify the data in a geom layer, in addition to the initial <code>ggplot()</code> layer.</li>
+<li>True or False: Because the <code>dplyr::group_by()</code> function and ggplot2’s <code>group</code> aesthetic both split a tibble into groups, we can use either one when making a plot.</li>
+<li>True or False: In principle, mapping <code>continent</code> to letters (a, b, c, …) is an aesthetic mapping.</li>
+</ol>
+<hr />
 </div>
 <div id="your-turn-learning-to-use-ggplot2" class="section level2">
 <h2>Your turn: learning to use ggplot2</h2>
@@ -240,7 +241,7 @@ You can change the smoothness of the plot via two arguments (your choice):
 Example:
 
 
-```r
+``` r
 ggplot(gapminder, aes(lifeExp)) +
   geom_histogram(bins = 50)
 ```
@@ -263,7 +264,7 @@ Good to know:
 Example:
 
 
-```r
+``` r
 ggplot(gapminder, aes(lifeExp)) +
   geom_density()
 ```
@@ -282,7 +283,7 @@ Required aesthetics:
 Example:
 
 
-```r
+``` r
 ggplot(gapminder, aes(continent, lifeExp)) +
   geom_jitter()
 ```
@@ -301,7 +302,7 @@ Required aesthetics:
 Example:
 
 
-```r
+``` r
 ggplot(gapminder, aes(continent, lifeExp)) +
   geom_boxplot()
 ```
@@ -323,7 +324,7 @@ Required aesthetics (reversed from boxplots!)
 Example:
 
 
-```r
+``` r
 ggplot(gapminder, aes(lifeExp, continent)) +
   ggridges::geom_density_ridges()
 ```
@@ -351,7 +352,7 @@ Required aesthetics:
 Example: number of 4-, 6-, and 8- cylinder cars in the `mtcars` dataset:
 
 
-```r
+``` r
 ggplot(mtcars, aes(cyl)) +
   geom_bar()
 ```
@@ -370,7 +371,7 @@ Required aesthetics:
 Although not required, the `group` aesthetic will come in handy here. This aesthetic produces a plot independently for each group, and overlays the results.
 
 
-```r
+``` r
 tsibble::as_tsibble(co2) %>% 
   rename(yearmonth = index,
          conc = value) %>% 
@@ -379,6 +380,12 @@ tsibble::as_tsibble(co2) %>%
   ggplot(aes(month, conc)) +
   geom_line(aes(group = year), alpha = 0.5) +
   ylab("CO2 Concentration")
+```
+
+```
+## Registered S3 method overwritten by 'tsibble':
+##   method               from 
+##   as_tibble.grouped_df dplyr
 ```
 
 <img src="/notes/notes-a06_files/figure-html/unnamed-chunk-14-1.png" width="480" style="display: block; margin: auto;" />

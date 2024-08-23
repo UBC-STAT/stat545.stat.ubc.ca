@@ -40,17 +40,6 @@ output: html_document
 <li><a href="https://tidyr.tidyverse.org/articles/rectangle.html">tidyr’s rectangling vignette</a> – for handling deeply nested lists (JSON-style data), similar to tidyr’s <code>pivot_</code> functions.</li>
 </ul>
 </div>
-<div id="test-your-understanding" class="section level2">
-<h2>Test Your Understanding</h2>
-<ol style="list-style-type: decimal">
-<li>True or False: <code>map(1:3, ~ function(x) x ^ 2)</code> returns the list <code>list(1, 4, 9)</code>.</li>
-<li>You write a function <code>square()</code> that squares its input – but the first thing it does is print a message to the screen! True or False: <code>map_dbl(1:10, square)</code> will throw an error, because the output is not a <code>dbl</code> (a number) – it contains the message, too.</li>
-<li>True or False: purrr-style functions, starting with <code>~</code>, can be used in dplyr’s <code>across()</code> function, such as <code>mutate(across(where(is.numeric), ~ .x ^ 2))</code>, and this function can only take one argument (<code>.x</code>)</li>
-<li>True or False: If I have 10 tibbles I want to save to file, and they’re all stored in a list, the best purrr function to use for saving these to file is <code>map()</code>.</li>
-<li>True or False: Just as <code>c(c(1, 2), c(3, 4))</code> returns the vector of numbers from 1 to 4, <code>list(list(1, 2), list(3, 4))</code> returns the list of numbers from 1 to 4.</li>
-<li>True or False: <code>tibble(model = lm(mpg ~ wt, data = mtcars))</code> doesn’t work because it doesn’t use a <code>map</code> function.</li>
-</ol>
-</div>
 <div id="vectors-vs-lists" class="section level2">
 <h2>Vectors vs Lists</h2>
 <p>Here is a list in R; it holds multiple items.</p>
@@ -68,21 +57,21 @@ sample_list</code></pre>
 <col width="37%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>Vectors</th>
 <th>Lists</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td>Access elements with square brackets <code>[]</code></td>
 <td>Access elements with <code>[[]]</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td>Each element must be an atomic data type (i.e. a single value)</td>
 <td>Elements can be anything, even another list or another vector</td>
 </tr>
-<tr class="odd">
+<tr>
 <td>Each element has to be of the same type</td>
 <td>Elements can be as different as you like</td>
 </tr>
@@ -141,6 +130,18 @@ output</code></pre>
 ## 5 Areo Hotah        Male   &lt;chr [1]&gt;
 ## 6 Chett             Male   &lt;chr [1]&gt;</code></pre>
 <p>Some characters have one title (e.g. Will); others have more than one title (e.g. Theon Greyjoy). Consequently, the <code>titles</code> column is a <em>list column</em>, where each entry is a <em>list</em> that contains as many or as few strings as we like.</p>
+</div>
+<div id="test-your-understanding" class="section level2">
+<h2>Test Your Understanding</h2>
+<ol style="list-style-type: decimal">
+<li>True or False: <code>map(1:3, ~ function(x) x ^ 2)</code> returns the list <code>list(1, 4, 9)</code>.</li>
+<li>You write a function <code>square()</code> that squares its input – but the first thing it does is print a message to the screen! True or False: <code>map_dbl(1:10, square)</code> will throw an error, because the output is not a <code>dbl</code> (a number) – it contains the message, too.</li>
+<li>True or False: purrr-style functions, starting with <code>~</code>, can be used in dplyr’s <code>across()</code> function, such as <code>mutate(across(where(is.numeric), ~ .x ^ 2))</code>, and this function can only take one argument (<code>.x</code>)</li>
+<li>True or False: If I have 10 tibbles I want to save to file, and they’re all stored in a list, the best purrr function to use for saving these to file is <code>map()</code>.</li>
+<li>True or False: Just as <code>c(c(1, 2), c(3, 4))</code> returns the vector of numbers from 1 to 4, <code>list(list(1, 2), list(3, 4))</code> returns the list of numbers from 1 to 4.</li>
+<li>True or False: <code>tibble(model = lm(mpg ~ wt, data = mtcars))</code> doesn’t work because it doesn’t use a <code>map</code> function.</li>
+</ol>
+<hr />
 </div>
 <div id="your-turn-worksheet-b3-parts-2-and-3" class="section level2">
 <h2>Your turn: Worksheet B3, Parts 2 and 3</h2>

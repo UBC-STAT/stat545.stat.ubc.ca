@@ -73,7 +73,7 @@ Options for working on these worksheets:
 
 *Submit the worksheets by uploading your .ipynb file to the corresponding canvas assignment slot*.
 
-*To get full marks for each participation worksheet, you must successfully answer at least 50% of all autograded questions.*
+*To get full marks for each formative worksheet, you must successfully answer at least 50% of all autograded questions.*
 
 ### Part A
 

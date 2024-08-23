@@ -37,19 +37,6 @@ output: html_document
 </ul>
 <!-- **NOTE**: `make` should already be installed for MacOS and Linux users. Windows users might have to specially install `make`: info can be found [in the stat545.com Chapter 34](https://stat545.com/make-windows.html). -->
 </div>
-<div id="test-your-understanding" class="section level2">
-<h2>Test Your Understanding</h2>
-<p>Use these questions to check your understanding of the material.</p>
-<ol style="list-style-type: decimal">
-<li>True or False: You’ve opened Terminal, and are now about to run <code>Rscript</code> for a second time. Because you haven’t restarted the Terminal, the code will continue to build in the same session as before.</li>
-<li>You have information in <code>script1.R</code> that you’d like to pass to <code>scipt2.R</code>. True or false: the best way to pass the info to <code>script2.R</code> is by saving the final workspace from <code>script1.R</code> in an <code>.RData</code> or <code>.rds</code> file, and loading that it into <code>script2.R</code>.</li>
-<li>True or False: It’s almost always better to write an <code>.Rmd</code> file over an <code>.R</code> file, because you’re able to interlace markdown.</li>
-<li>True or false: <code>make</code>ing a <em>phony</em> target will always run its rules, whereas <code>make</code>ing a target <em>file</em> will only run its rules if the output needs updating.</li>
-<li>True or false: If a dependency file is not present on your computer, you can still call <code>make</code> error-free if the dependency is the target of another rule. This is true even if the dependency never gets made.</li>
-<li>True or false: The rules to <code>make</code> a target file will be run if either the target file or the dependencies are modified.</li>
-<li>True or false: Dependencies in <code>make</code> are accessed “lazily”, so that if the dependencies are never actually used when executing a rule, they don’t actually have any impact on the Makefile.</li>
-</ol>
-</div>
 <div id="why-automation" class="section level2">
 <h2>Why Automation</h2>
 <p>It often makes sense to break up a task (e.g. “analyze data and turn it into publication ready figures and tables”) into smaller chunks, e.g. “data cleaning” vs “summarizing and plotting” vs “model fitting”. This leads to a <em>pipeline</em>: a system where the code for some tasks (e.g. summarizing and plotting) depend on the output of others (e.g. data cleaning).</p>
@@ -139,6 +126,19 @@ output: html_document
 <!-- - The final `&` frees up your terminal  -->
 <!-- Just be careful to get the directory of the files right.  -->
 <!-- Alternatively, you can [use RStudio to submit a job](https://blog.rstudio.com/2019/03/14/rstudio-1-2-jobs/). -->
+</div>
+<div id="test-your-understanding" class="section level2">
+<h2>Test Your Understanding</h2>
+<p>Use these questions to check your understanding of the material.</p>
+<ol style="list-style-type: decimal">
+<li>True or False: You’ve opened Terminal, and are now about to run <code>Rscript</code> for a second time. Because you haven’t restarted the Terminal, the code will continue to build in the same session as before.</li>
+<li>You have information in <code>script1.R</code> that you’d like to pass to <code>scipt2.R</code>. True or false: the best way to pass the info to <code>script2.R</code> is by saving the final workspace from <code>script1.R</code> in an <code>.RData</code> or <code>.rds</code> file, and loading that it into <code>script2.R</code>.</li>
+<li>True or False: It’s almost always better to write an <code>.Rmd</code> file over an <code>.R</code> file, because you’re able to interlace markdown.</li>
+<li>True or false: <code>make</code>ing a <em>phony</em> target will always run its rules, whereas <code>make</code>ing a target <em>file</em> will only run its rules if the output needs updating.</li>
+<li>True or false: If a dependency file is not present on your computer, you can still call <code>make</code> error-free if the dependency is the target of another rule. This is true even if the dependency never gets made.</li>
+<li>True or false: The rules to <code>make</code> a target file will be run if either the target file or the dependencies are modified.</li>
+<li>True or false: Dependencies in <code>make</code> are accessed “lazily”, so that if the dependencies are never actually used when executing a rule, they don’t actually have any impact on the Makefile.</li>
+</ol>
 <div id="attribution" class="section level4">
 <h4>Attribution</h4>
 <p>Written by Vincenzo Coia, with inspiration from Tiffany Timbers for the explanation of Makefiles, as well as the make activity from Shaun Jackman and Jenny Bryan created for this course prior to 2017.</p>

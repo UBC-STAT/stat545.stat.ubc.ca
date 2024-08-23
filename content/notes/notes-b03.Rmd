@@ -34,19 +34,6 @@ No video lecture for this optional topic. Written material:
 
 <!-- **NOTE**: `make` should already be installed for MacOS and Linux users. Windows users might have to specially install `make`: info can be found [in the stat545.com Chapter 34](https://stat545.com/make-windows.html). -->
 
-
-## Test Your Understanding
-
-Use these questions to check your understanding of the material. 
-
-1. True or False: You've opened Terminal, and are now about to run `Rscript` for a second time. Because you haven't restarted the Terminal, the code will continue to build in the same session as before.
-2. You have information in `script1.R` that you'd like to pass to `scipt2.R`. True or false: the best way to pass the info to `script2.R` is by saving the final workspace from `script1.R` in an `.RData` or `.rds` file, and loading that it into `script2.R`.
-3. True or False: It's almost always better to write an `.Rmd` file over an `.R` file, because you're able to interlace markdown. 
-4. True or false: `make`ing a *phony* target will always run its rules, whereas `make`ing a target *file* will only run its rules if the output needs updating. 
-5. True or false: If a dependency file is not present on your computer, you can still call `make` error-free if the dependency is the target of another rule. This is true even if the dependency never gets made.
-6. True or false: The rules to `make` a target file will be run if either the target file or the dependencies are modified.
-7. True or false: Dependencies in `make` are accessed "lazily", so that if the dependencies are never actually used when executing a rule, they don't actually have any impact on the Makefile.
-
 ## Why Automation 
 
 It often makes sense to break up a task (e.g. "analyze data and turn it into publication ready figures and tables") into smaller chunks, e.g. "data cleaning" vs "summarizing and plotting" vs "model fitting". This leads to a *pipeline*: a system where the code for some tasks (e.g. summarizing and plotting) depend on the output of others (e.g. data cleaning). 
@@ -179,6 +166,20 @@ Once we get there, we'll work through the activity in [stat545.com Chapter 36](h
 <!-- Just be careful to get the directory of the files right.  -->
 
 <!-- Alternatively, you can [use RStudio to submit a job](https://blog.rstudio.com/2019/03/14/rstudio-1-2-jobs/). -->
+
+
+## Test Your Understanding
+
+Use these questions to check your understanding of the material. 
+
+1. True or False: You've opened Terminal, and are now about to run `Rscript` for a second time. Because you haven't restarted the Terminal, the code will continue to build in the same session as before.
+2. You have information in `script1.R` that you'd like to pass to `scipt2.R`. True or false: the best way to pass the info to `script2.R` is by saving the final workspace from `script1.R` in an `.RData` or `.rds` file, and loading that it into `script2.R`.
+3. True or False: It's almost always better to write an `.Rmd` file over an `.R` file, because you're able to interlace markdown. 
+4. True or false: `make`ing a *phony* target will always run its rules, whereas `make`ing a target *file* will only run its rules if the output needs updating. 
+5. True or false: If a dependency file is not present on your computer, you can still call `make` error-free if the dependency is the target of another rule. This is true even if the dependency never gets made.
+6. True or false: The rules to `make` a target file will be run if either the target file or the dependencies are modified.
+7. True or false: Dependencies in `make` are accessed "lazily", so that if the dependencies are never actually used when executing a rule, they don't actually have any impact on the Makefile.
+
 
 #### Attribution
 

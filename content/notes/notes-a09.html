@@ -31,15 +31,6 @@ library(gapminder)</code></pre>
 <li><a href="https://www.youtube.com/playlist?list=PLqzoL9-eJTNBlVXxWvJkq0dtVut2sICUW">Mike Marin’s R playlist on YouTube</a> helps you use R to obtain statistical results.</li>
 </ul>
 </div>
-<div id="test-your-understanding" class="section level2">
-<h2>Test Your Understanding</h2>
-<ol style="list-style-type: decimal">
-<li>TRUE or FALSE: the output of <code>glance</code> on the above returns only 1 row because there is only 1 explanatory variable in the model.</li>
-<li>TRUE or FALSE: the output of <code>broom::tidy()</code> package is more “tidy” than <code>coef(summary())</code> because the output is a <code>tibble</code></li>
-<li>TRUE or FALSE: We need to use a modelling function, such as <code>lm</code>, before we can graph a fitted line with <code>geom_smooth</code>.</li>
-<li>TRUE or FALSE: If I wanted to find the amount that <code>lifeExp</code> changes per <code>year</code>, then I need to use <code>broom::tidy()</code></li>
-</ol>
-</div>
 <div id="model-fitting-in-r" class="section level1">
 <h1>Model-fitting in R</h1>
 <p>Data wrangling and plotting can get you pretty far when it comes to drawing insight from your data. But, sometimes you need to go further. For example:</p>
@@ -266,6 +257,16 @@ Now we will try to fit a second degree polynomial and see what would that look l
 <li><p><code>broom::glance()</code> - used to extract statistical summaries on the whole model. Always returns a 1-row <code>tibble</code>.</p></li>
 <li><p><code>geom_smooth()</code> - used to add geom_layer that shows a fitted line to the data. <code>method</code> and <code>formula</code> arguments can be used to customize model.</p></li>
 </ol>
+</div>
+<div id="test-your-understanding" class="section level2">
+<h2>Test Your Understanding</h2>
+<ol style="list-style-type: decimal">
+<li>TRUE or FALSE: the output of <code>glance</code> on the above returns only 1 row because there is only 1 explanatory variable in the model.</li>
+<li>TRUE or FALSE: the output of <code>broom::tidy()</code> package is more “tidy” than <code>coef(summary())</code> because the output is a <code>tibble</code></li>
+<li>TRUE or FALSE: We need to use a modelling function, such as <code>lm</code>, before we can graph a fitted line with <code>geom_smooth</code>.</li>
+<li>TRUE or FALSE: If I wanted to find the amount that <code>lifeExp</code> changes per <code>year</code>, then I need to use <code>broom::tidy()</code></li>
+</ol>
+<hr />
 </div>
 <div id="your-turn-learning-to-fit-models-in-r" class="section level2">
 <h2>Your turn: learning to fit models in R</h2>

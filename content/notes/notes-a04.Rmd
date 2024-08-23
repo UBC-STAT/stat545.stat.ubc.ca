@@ -32,13 +32,6 @@ Optional further reading to learn about the `across()` function:
 
 - [Hadley Wickham's blog post on the topic](https://www.tidyverse.org/blog/2020/04/dplyr-1-0-0-colwise/).
 
-## Test Your Understanding
-
-1. True or False? Running filter or select on your tibble permanently changes your tibble. 
-2. True or False? The pipe operator `%>%` works for functions outside of the tidyverse, too.
-3. True or False? `summarise()` reduces each group down to one row, and `mutate()` preserves the number of rows. But, between the two, there's a way to reduce each group down to _two_ rows.
-4. True or False? `across()` doesn't allow you to make new column names. 
-
 ## Why Data Manipulation?
 
 You have a shiny new data set - great! You might be tempted to dive right in and start making pretty graphs and fitting cool models to your data. Not so fast! In practice, it's very rare that you have the data in the exact right form to make the graph you want, or fit the model you want. You will need to start by *manipulating* your data into the right form: creating new variables, subsetting rows, renaming columns, etc. 
@@ -52,6 +45,15 @@ An even less sexy but perhaps even more important part of data analysis is simpl
 - Basic info gathering: number of rows, number of columns, amount of missing data, etc. 
 
 All of these require data manipulation. We choose to use the `dplyr` (pronounced d-plier) package for this.
+
+## Test Your Understanding
+
+1. True or False? Running filter or select on your tibble permanently changes your tibble. 
+2. True or False? The pipe operator `%>%` works for functions outside of the tidyverse, too.
+3. True or False? `summarise()` reduces each group down to one row, and `mutate()` preserves the number of rows. But, between the two, there's a way to reduce each group down to _two_ rows.
+4. True or False? `across()` doesn't allow you to make new column names. 
+
+---
 
 ## Your turn: learning to use dplyr
 

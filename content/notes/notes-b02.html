@@ -43,16 +43,6 @@ And possibly:
 <li>To learn more about using S3 object oriented functions in your package, see <a href="https://adv-r.hadley.nz/s3.html">“Advanced R” Chapter 13: S3</a>.</li>
 </ul>
 </div>
-<div id="test-your-understanding" class="section level2">
-<h2>Test Your Understanding</h2>
-<p>It might help to browse a completed package directory to answer these questions, like the <a href="https://github.com/vincenzocoia/powers">powers package</a>.</p>
-<ol style="list-style-type: decimal">
-<li>True or False: The mandatory files in an R package are a DESCRIPTION file, a NAMESPACE file, and functions in the R/ directory – everything else is just helpful.</li>
-<li>So far we’ve been using devtools functions in the console (instead of saved in a script). True or False: if you’re making a bigger R package, you should start putting those devtools functions in one or more R scripts.</li>
-<li>True or False: Add any package name to the <code>Imports</code> field in the DESCRIPTION file, and we can now use functions from that package using <code>::</code>.</li>
-<li>True or False: We can’t <em>both</em> add exports to the NAMESPACE file manually and by using <code>devtools::document()</code>.</li>
-</ol>
-</div>
 <div id="why-r-packages" class="section level2">
 <h2>Why R Packages</h2>
 <p>Why make an R package? As mentioned in the “functions” topic, your analysis will probably benefit from homemade functions: making functions forces you to think about your analysis in terms of its key computational parts, and makes for robust and readable code. Here are a few benefits that result by bundling these functions into an R package:</p>
@@ -111,4 +101,14 @@ And possibly:
 <li>You should also prepare your package for the next version – I suggest doing this on a new branch.</li>
 </ul></li>
 </ul>
+</div>
+<div id="test-your-understanding" class="section level2">
+<h2>Test Your Understanding</h2>
+<p>It might help to browse a completed package directory to answer these questions, like the <a href="https://github.com/vincenzocoia/powers">powers package</a>.</p>
+<ol style="list-style-type: decimal">
+<li>True or False: The mandatory files in an R package are a DESCRIPTION file, a NAMESPACE file, and functions in the R/ directory – everything else is just helpful.</li>
+<li>So far we’ve been using devtools functions in the console (instead of saved in a script). True or False: if you’re making a bigger R package, you should start putting those devtools functions in one or more R scripts.</li>
+<li>True or False: Add any package name to the <code>Imports</code> field in the DESCRIPTION file, and we can now use functions from that package using <code>::</code>.</li>
+<li>True or False: We can’t <em>both</em> add exports to the NAMESPACE file manually and by using <code>devtools::document()</code>.</li>
+</ol>
 </div>

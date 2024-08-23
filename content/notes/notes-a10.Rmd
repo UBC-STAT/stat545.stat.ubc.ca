@@ -33,32 +33,6 @@ Other resources, in addition to the notes below:
     - The [R4DS](https://r4ds.had.co.nz/dates-and-times.html) chapter on Dates and Times
     - The `tsibble` [vignette](https://cran.rstudio.com/web/packages/tsibble/vignettes/intro-tsibble.html) to learn more about embedding a time series within a tibble. 
 
-## Test Your Understanding
-
-1. The output of the following code is equivalent to a factor with the letters "a" to "f".
-
-``` r
-(abc <- factor(letters[1:3]))
-#> [1] a b c
-#> Levels: a b c
-(def <- factor(letters[4:6]))
-#> [1] d e f
-#> Levels: d e f
-c(abc, def)
-```
-
-2. The output of the following code is a date object.
-
-```r
-library(lubridate)
-
-date <- ymd("2020-10-13")
-
-dt <- ymd_hms("2020-10-13 09:30:00")
-
-c(date, dt)
-```
-
 ## Factors
 
 > "There is no other object that creates as much trouble as factors." - Patrick Burns, "The R Inferno". 
@@ -105,6 +79,33 @@ Now's your chance to ask about any questions you got stuck on and get them answe
 Often you will need to work with dates and times in your data. For example, we could have had a variable in the FEV data set that contains the date of each patient visit. 
 
 Dates and times seem simple, but they are actually one of the most complicated things you will encounter in data analysis. 
+
+## Test Your Understanding
+
+1. The output of the following code is equivalent to a factor with the letters "a" to "f".
+
+``` r
+(abc <- factor(letters[1:3]))
+#> [1] a b c
+#> Levels: a b c
+(def <- factor(letters[4:6]))
+#> [1] d e f
+#> Levels: d e f
+c(abc, def)
+```
+
+2. The output of the following code is a date object.
+
+```r
+library(lubridate)
+
+date <- ymd("2020-10-13")
+
+dt <- ymd_hms("2020-10-13 09:30:00")
+
+c(date, dt)
+```
+
 
 --------------
 
