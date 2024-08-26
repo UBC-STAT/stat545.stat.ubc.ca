@@ -7,7 +7,7 @@ output: html_document
 
 To install and setup key software for use in the course. Instructions are below. 
 
-**IF YOU NEED EXTRA HELP**: TAs are available from 9am-10:30am in CEME 1202 on Tuesday September 3rd. 
+**IF YOU NEED EXTRA HELP**: TAs are available from 9am-10:30am on Tuesday September 3rd. 
 
 ## Note on PC vs Mac
 
