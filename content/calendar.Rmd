@@ -3,7 +3,8 @@ title: "STAT 545 Calendar"
 output: html_document
 ---
 
-Important dates and times related to STAT 545 A & B are posted on the course webpage and any changes will be announced via Slack.
+Important dates and times related to STAT 545 A & B are posted on the course Canvas page and any changes will be announced via Slack.
 
+<!--
 <iframe src="https://calendar.google.com/calendar/embed?src=ee649cba3d63fed9748b7d2b5355c5b2beeec1a79a0bf1828302f26e3d368bb7%40group.calendar.google.com&ctz=America%2FVancouver" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-
+-->
