@@ -25,9 +25,6 @@ How to make a clean and modern data analysis, Part II.
 
 **Website**: <https://stat545.stat.ubc.ca/>
 
-**Duration**: `r format(dates_545b[1], "%a, %b %d")` -
-`r format(dates_545b[14], "%a, %b %d")`
-
 -   How to write functions and work with R in a functional style
 -   Advanced computation on data: manipulating strings, and functional
     programming with purrr
@@ -44,10 +41,6 @@ Teaching Assistants:
 -   Asfar Lathif
 -   Erick Isaac Navarro Delgado
 -   Omar Tariq 
-
-# Meeting Schedule
-
-Tuesdays and Thursdays 0900-1030 PT. 
 
 **Be sure to bring a CHARGED laptop to every class!**
 

@@ -25,9 +25,6 @@ How to make a clean and modern data analysis, Part I.
 
 **Website**: <https://stat545.stat.ubc.ca/>
 
-**Duration**: `r format(lec0, "%a, %b %d")` -
-`r format(dates_545a[14], "%a, %b %d")`
-
 -   Introduction to [R](http://www.r-project.org) and the [RStudio
     IDE](http://www.rstudio.com/products/rstudio/): scripts, the
     workspace, RStudio Projects, daily workflow
@@ -49,10 +46,6 @@ Teaching Assistants:
 -   Asfar Lathif
 -   Erick Isaac Navarro Delgado
 -   Omar Tariq 
-
-# Meeting Schedule
-
-Tuesdays and Thursdays 0900-1030 PT. 
 
 **Be sure to bring a CHARGED laptop to every class!** 
 
