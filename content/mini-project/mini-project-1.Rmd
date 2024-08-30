@@ -21,7 +21,7 @@ library(datateachr)
 library(tidyverse)
 ```
 
-3.  Make a repository in the <https://github.com/stat545ubc-2024> Organization. You can do this by following the steps found on canvas in the entry called [MDA: Create a repository](https://canvas.ubc.ca/courses/126199/pages/mda-create-a-repository). One completed, your repository should automatically be listed as part of the stat545ubc-2024 Organization.
+3.  Make a repository in the <https://github.com/stat545ubc-2024> Organization. You can do this by following the steps found on canvas in the entry called [MDA: Create a repository](https://canvas.ubc.ca/courses/158528/pages/mda-create-a-repository). One completed, your repository should automatically be listed as part of the stat545ubc-2024 Organization.
 
 # Instructions
 
