@@ -145,7 +145,7 @@ To follow along, download [demonstration .Rmd file](https://raw.githubuserconten
 
 #### Exploring code chunks
 
-1.  Add a code chunk below the first paragraph in the "Motor Trend Car Road Tests data" section of the `.Rmd` file. Either select "Insert" -\> "R", or use a keyboard shortcut: `cmd + option + I` (MAC) / `ctrl + alt + i` (WINDOWS).
+1.  Add a code chunk below the first paragraph in the "Motor Trend Car Road Tests data" section of the `.Rmd` file. Either select "Code" -\> "Insert Chunk", or use a keyboard shortcut: `cmd + option + I` (MAC) / `ctrl + alt + i` (WINDOWS).
 
 2.  In this code chunk, print out the `mtcars` data frame to explore the output. (Yes, this object comes shipped with R.)
 
