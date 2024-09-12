@@ -113,8 +113,7 @@ team.
 
 A late submission is defined as any work submitted
 after the deadline. For a late submission, the student will receive a
-warning for the first occurrence, and will receive a
-grade of 0 for subsequent occurrences.
+warning for the first occurrence if the work is submitted within 3 days of the due date, and otherwise will receive a grade of 0 for subsequent occurrences.
 
 ## Academic Concession
 
