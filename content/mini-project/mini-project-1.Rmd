@@ -31,7 +31,7 @@ library(tidyverse)
 
 -  Each milestone will be also graded for reproducibility, cleanliness, and coherence of the overall Github submission. 
 
-- While the two milestones will be submitted as independent deliverables, the analysis itself is a continuum - think of it as two chapters to a story. Each chapter, or in this case, portion of your analysis, should be easily followed through by someone unfamiliar with the content. [Here](https://swcarpentry.github.io/r-novice-inflammation/06-best-practices-R/) is a good resource for what constitutes "good code". Learning good coding practices early in your career will save you hassle later on!
+- While the two milestones will be submitted as independent deliverables, the analysis itself is a continuum - think of it as two chapters to a story. Each chapter, or in this case, portion of your analysis, should be easily followed through by someone unfamiliar with the content. [Here](https://swcarpentry.github.io/r-novice-inflammation/06-best-practices-R.html) is a good resource for what constitutes "good code". Learning good coding practices early in your career will save you hassle later on!
 
 - The milestones will be equally weighted. 
 
