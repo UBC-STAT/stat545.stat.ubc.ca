@@ -84,7 +84,7 @@ Follow these steps to submit your work. Be sure to familiarize yourself with the
   - A description of your app. 
   - Whatever dataset you will use, acknowledge its source clearly. Remember that we value open, reproducible science: this means that the user of your app should have direct access to the data, or know where to go to access it.
 - [ ] (5 pts) Tag a release in your assignment repository.
-- [ ] Submit a link to your tagged release in your assignment repository to canvas. Make sure the TAs and Lucy can see your repository! Either it should be public or private with TAs and Lucy added as collaborators. 
+- [ ] Submit a link to your tagged release in your assignment repository to canvas. Make sure the TAs and Katie can see your repository! Either it should be public or private with TAs and Katie added as collaborators. 
 
 ## Acknowledgements
 

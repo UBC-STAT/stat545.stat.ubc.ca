@@ -26,7 +26,7 @@ Follow these steps to submit your work. Be sure to familiarize yourself with the
 - (5 pts) You use proper English, spelling, and grammar throughout your repository. 
 - (5 pts) Tag a release in your assignment repository.
 - Submit a link to your tagged release in your assignment repository to canvas. 
-    - It is **very important** that you submit a link to your work on canvas. If not, we won't be able to find your work, because each option involves working in a different repository. The link you provide should link to a tagged release in your assignment repository, corresponding to the point in time of your repository's life that we should be grading. This repository should be viewable by the TAs and Lucy - either it should be public or it should be private with TAs and Lucy added as collaborators. 
+    - It is **very important** that you submit a link to your work on canvas. If not, we won't be able to find your work, because each option involves working in a different repository. The link you provide should link to a tagged release in your assignment repository, corresponding to the point in time of your repository's life that we should be grading. This repository should be viewable by the TAs and Katie - either it should be public or it should be private with TAs and Katie added as collaborators. 
 
 # Option A -- Strings and functional programming in R
 
