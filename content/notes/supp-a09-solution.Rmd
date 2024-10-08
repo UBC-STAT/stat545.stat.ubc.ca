@@ -9,11 +9,11 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Review 
+## Review
 
 We'll continue exploring the FEV data set. Let's start by loading the data and required packages.
 
-```{r, message = FALSE} 
+```{r, message = FALSE}
 library(rigr) 
 library(tidyverse)
 library(broom)
@@ -21,26 +21,26 @@ library(broom)
 fev_tbl <- as_tibble(fev) %>% mutate(across(sex:smoke, ~ as.factor(.x)))
 ```
 
-Previously, we found that the mean FEV in the smoking group was substantially higher than the average FEV in the non-smoking group; this speaks to the *unadjusted* association between smoking and lung function. But we also found that the FEV of smokers and non-smokers *of the same height* is pretty similar; that is, there doesn't seem to be much of an association between smoking and lung function, *when adjusted for height*. We also found other factors in the data set seemingly related to smoking status, FEV, or both that we might like to adjust for, like age and sex. 
+Previously, we found that the mean FEV in the smoking group was substantially higher than the average FEV in the non-smoking group; this speaks to the *unadjusted* association between smoking and lung function. But we also found that the FEV of smokers and non-smokers *of the same height* is pretty similar; that is, there doesn't seem to be much of an association between smoking and lung function, *when adjusted for height*. We also found other factors in the data set seemingly related to smoking status, FEV, or both that we might like to adjust for, like age and sex.
 
-## A simple two group model 
+## A simple two group model
 
-We previously calculated the mean FEV among the smokers and the non-smokers in our data set. 
+We previously calculated the mean FEV among the smokers and the non-smokers in our data set.
 
 ```{r}
 fev_tbl %>% group_by(smoke) %>% 
   summarize(mean_fev = mean(fev), sd_fev = sd(fev), n = n())
 ```
 
-These are *estimates* of the mean FEV among the whole *population* of smokers and the population of non-smokers, calculated using our data. Are the population mean FEVs different? How different? We can get an answer to these questions by not just *estimating* population mean FEVs, but also performing *statistical inference* on the difference between the population mean FEVs. To do this, we'll use the `t.test()` function built into R to perform a two-sample t-test. 
+These are *estimates* of the mean FEV among the whole *population* of smokers and the population of non-smokers, calculated using our data. Are the population mean FEVs different? How different? We can get an answer to these questions by not just *estimating* population mean FEVs, but also performing *statistical inference* on the difference between the population mean FEVs. To do this, we'll use the `t.test()` function built into R to perform a two-sample t-test.
 
-```{r} 
-(tt_fev <- t.test(fev ~ smoke, fev_tbl, var.equal=FALSE))
+```{r}
+(tt_fev <- t.test(fev ~ smoke, fev_tbl, var.equal=TRUE))
 ```
 
-If I felt like being *extremely* careful, then here is how I would describe the results of this test. 
+If I felt like being *extremely* careful, then here is how I would describe the results of this test.
 
-> "In the FEV data set, the mean FEV among children who do not smoke was 2.6 L/s and the mean FEV among children who smoke was 3.3 L/s in children. The data are consistent with the population mean FEV among children who smoke being between 0.5 L/s and 0.9 L/s higher than the population mean FEV among children who do not smoke. We reject the null hypothesis of no difference in the population mean FEV among children who smoke and children who do not smoke (p < 0.0001)."
+> "In the FEV data set, the mean FEV among children who do not smoke was 2.6 L/s and the mean FEV among children who smoke was 3.3 L/s in children. The data are consistent with the population mean FEV among children who smoke being between 0.5 L/s and 0.9 L/s higher than the population mean FEV among children who do not smoke. We reject the null hypothesis of no difference in the population mean FEV among children who smoke and children who do not smoke (p \< 0.0001)."
 
 In practice, what you will see in scientific reports will typically be much more brief.
 
@@ -54,11 +54,16 @@ tt_fev$p.value
 tt_fev$conf.int
 ```
 
-## Fitting a simple linear model 
+```{r}
+tidy(lm(fev ~ smoke, fev_tbl))
+```
 
-We previously made this scatterplot of FEV versus height, with points coloured by smoking status. Based on this plot, it seems like the FEV of smokers and non-smokers *of the same height* is pretty similar. 
 
-```{r} 
+## Fitting a simple linear model
+
+We previously made this scatterplot of FEV versus height, with points coloured by smoking status. Based on this plot, it seems like the FEV of smokers and non-smokers *of the same height* is pretty similar.
+
+```{r}
 (scatter_fev <- ggplot(fev_tbl, aes(x = height, y = fev, colour=smoke)) + 
   geom_jitter(width=0.2, alpha = 0.75) + 
   scale_colour_manual(values=c("cornflowerblue","darkorange")) + 
@@ -68,11 +73,11 @@ We previously made this scatterplot of FEV versus height, with points coloured b
   theme_bw())
 ```
 
-### Exercise 2 
+### Exercise 2
 
 Let's fit simple linear models to the smokers and the non-smokers and add it to your plot. *Hint*: `geom_smooth()`.
 
-```{r} 
+```{r}
 scatter_fev + geom_smooth(method="lm")
 ```
 
@@ -82,15 +87,19 @@ Notice how this makes it easier for us to compare the estimated mean FEV at diff
 
 ### Exercise 3
 
-Fit a linear model on the FEV from the smoking status, age, height, and sex. 
+Fit a linear model on the FEV from the smoking status, age, height, and sex.
 
-```{r} 
+```{r}
 (fev_lm <- lm(fev~smoke+age+height+sex, data=fev_tbl))
 ```
 
-Then, use the `tidy()` function to extract the information printed above (plus more!) into a tibble. 
+Then, use the `tidy()` and `glance()` functions to extract the information printed above (plus more!) into a tibble.
 
-```{r} 
+```{r}
 tidy(fev_lm)
 ```
+```{r}
+glance(fev_lm)
+```
+
 
