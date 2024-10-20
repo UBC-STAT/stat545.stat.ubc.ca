@@ -63,7 +63,7 @@ Modify this somehow. Maybe you move letters from the end to the beginning, or yo
 
 The default Pig Latin addition rule is to add "ay" to the end of the word, after rearranging the letters of the word. You should choose some other addition rule.
 
-### Exercise 3 (25 points)
+### Exercise 3 (37.5 points)
 
 For this exercise, you'll be evaluating a model that's fit separately for each group in some dataset. You should fit these models with some question in mind.
 
@@ -83,9 +83,9 @@ Your tasks are as follows.
 
 Grading is as follows:
 
-- 5 points: the "story" behind your data analysis.
-- 5 points: the plot.
-- 15 points: the calculations.
+- 7.5 points: the "story" behind your data analysis.
+- 7.5 points: the plot.
+- 22.5 points: the calculations.
 
 # Option B -- R package
 
