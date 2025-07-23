@@ -1,7 +1,7 @@
 ---
 authors:
-- katie
-name: Dr. Katie Burak
+- grace
+name: Dr. Grace Tompkins
 #role: Instructor for STAT 545A/B
 # Organizations/Affiliations
 organizations:
@@ -15,13 +15,13 @@ organizations:
 social:
 - icon: envelope
   icon_pack: fas
-  link: mailto:kburak@stat.ubc.ca
+  link: mailto:grace@stat.ubc.ca
 - icon: home
   icon_pack: fas
   link: https://katieburak.github.io/
 - icon: github
   icon_pack: fab
-  link: https://github.com/katieburak
+  link: https://github.com/grcetmpk
   
 # Link to a PDF of your resume/CV from the About widget.
 # To enable, copy your resume/CV to `static/files/cv.pdf` and uncomment the lines below.  
@@ -38,5 +38,5 @@ user_groups:
 - Instructor
 ---
 
-Katie Burak is an Assistant Professor of Teaching in the Department of Statistics at the University of British Columbia. Her work focuses on modern pedagogical methods in statistics and data science. She is passionate about statistical outreach and education, organizing various events in her community. Katie is particularly dedicated to advancing women in data science and addressing equity issues within the statistical sciences.
+Grace Tompkins is an Assistant Professor of Teaching in the Department of Statistics at the University of British Columbia. 
 
